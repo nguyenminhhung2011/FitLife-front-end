@@ -1,15 +1,14 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/core/components/configurations/env/env_prod.dart';
+import 'package:flutter_base_clean_architecture/app_coordinator.dart';
 import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
 import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
-import 'package:flutter_base_clean_architecture/core/components/layout/setting_layout/controller/setting_bloc.dart';
-import 'package:flutter_base_clean_architecture/core/components/layout/setting_layout/utils/setting_utils.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/render_app_bar.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/loading_page.dart';
 import 'package:flutter_base_clean_architecture/core/components/widgets/progress_button.dart';
 import 'package:flutter_base_clean_architecture/generated/l10n.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/auth/mixins/auth_mixin.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -27,11 +26,11 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
 
   SignInViewModel get _vm => ref.read(signInStateNotifier.notifier);
 
-  SettingBloc get _settingBloc => context.read<SettingBloc>();
-
   String? get _passError => ref.watch(signInStateNotifier).data.passwordError;
 
   String? get _emailError => ref.watch(signInStateNotifier).data.emailError;
+
+  bool? get _loading => ref.watch(signInStateNotifier).loading;
 
   final _passwordFocusNode = FocusNode();
 
@@ -40,10 +39,6 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
   @override
   void initState() {
     super.initState();
-  }
-
-  void _listenStateChange(SignInState state) {
-    state.maybeWhen(orElse: () {});
   }
 
   void _onChangeObscureText() {
@@ -59,64 +54,38 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
     super.dispose();
   }
 
+  void _listenStateChange(SignInState state) {
+    state.maybeWhen(
+      signInFailed: (_, message) => context.showSnackBar("🐛 $message"),
+      signInSuccess: (_) {},
+      orElse: () {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     ref.listen(signInStateNotifier, (_, next) => _listenStateChange(next));
+    return Stack(
+      children: [
+        _body(context),
+        if (_loading ?? false)
+          Container(
+            color: Colors.black45,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: _loadingFunction(),
+          )
+      ],
+    );
+  }
+
+  Scaffold _body(BuildContext context) {
     return Scaffold(
       backgroundColor: scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: scaffoldBackgroundColor,
         elevation: 0,
-        title: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset(ImageConst.icon, height: 30.0, width: 30.0),
-            const SizedBox(width: 5),
-            Text.rich(
-              TextSpan(
-                style: context.titleSmall.copyWith(fontSize: 14.0),
-                children: [
-                  const TextSpan(text: 'Hello, I am '),
-                  TextSpan(
-                    text: environmentProd['name'],
-                    style: TextStyle(color: Theme.of(context).primaryColor),
-                  )
-                ],
-              ),
-            ),
-            const Spacer(),
-            BlocBuilder<SettingBloc, SettingState>(
-              bloc: _settingBloc,
-              builder: (_, state) {
-                final lang = state.data.langCode;
-
-                final langImage = SettingUtils.locals
-                        .firstWhere(
-                          (element) =>
-                              element.langCode.toUpperCase() ==
-                              lang.toUpperCase(),
-                        )
-                        .image ??
-                    ImageConst.baseImageView;
-
-                return Container(
-                  width: 35.0,
-                  padding: const EdgeInsets.all(5.0),
-                  height: 35.0,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                        width: 1, color: Theme.of(context).hintColor),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.network(langImage, fit: BoxFit.cover),
-                  ),
-                );
-              },
-            )
-          ],
-        ),
+        backgroundColor: scaffoldBackgroundColor,
+        title: const RenderAppBar(),
       ),
       body: ListView(
         scrollDirection: Axis.vertical,
@@ -140,7 +109,7 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Text(
               'This import will save your training and nutrition progress',
-              style: context.titleSmall,
+              style: context.titleSmall.copyWith(fontSize: 12.0),
               textAlign: TextAlign.center,
             ),
           ),
@@ -183,6 +152,10 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
                 isAnimation: true,
                 radius: 10.0,
                 call: () async {
+                  await _vm.signIn(
+                    password: _passController.text,
+                    email: _emailController.text,
+                  );
                   return true;
                 },
                 textInside: S.of(context).logIn,
@@ -199,12 +172,10 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
               ...[
                 ImageConst.facebookIcon,
                 ImageConst.googleIcon,
-              ].mapIndexed(
-                (index, e) => IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(e, height: 100.0, width: 100.0),
-                ),
-              )
+              ].mapIndexed((index, e) => IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(e, height: 100.0, width: 100.0),
+                  ))
             ],
           ),
           const SizedBox(height: 20.0),
@@ -256,6 +227,13 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
       onSubmitted: (_) {
         FocusScope.of(context).requestFocus(_passwordFocusNode);
       },
+    );
+  }
+
+  Center _loadingFunction() {
+    return Center(
+      child: StyleLoadingWidget.foldingCube
+          .renderWidget(size: 40.0, color: Theme.of(context).primaryColor),
     );
   }
 }

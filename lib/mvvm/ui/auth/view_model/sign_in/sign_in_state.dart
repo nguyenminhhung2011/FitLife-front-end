@@ -11,5 +11,8 @@ class SignInState with _$SignInState {
   const factory SignInState.signInFailed(
       {required SignInData data, required String message}) = _SignInFailed;
 
+  const factory SignInState.inValidFormat({required SignInData data}) =
+      _InvalidFormat;
+
   bool get loading => this is _Loading;
 }

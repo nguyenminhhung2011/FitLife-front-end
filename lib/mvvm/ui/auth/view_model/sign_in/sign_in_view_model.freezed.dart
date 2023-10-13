@@ -23,6 +23,7 @@ mixin _$SignInState {
     required TResult Function(SignInData data) loading,
     required TResult Function(SignInData data) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
+    required TResult Function(SignInData data) inValidFormat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +32,7 @@ mixin _$SignInState {
     TResult? Function(SignInData data)? loading,
     TResult? Function(SignInData data)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
+    TResult? Function(SignInData data)? inValidFormat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +41,7 @@ mixin _$SignInState {
     TResult Function(SignInData data)? loading,
     TResult Function(SignInData data)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
+    TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +51,7 @@ mixin _$SignInState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignInSuccess value) signInSuccess,
     required TResult Function(_SignInFailed value) signInFailed,
+    required TResult Function(_InvalidFormat value) inValidFormat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +60,7 @@ mixin _$SignInState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignInSuccess value)? signInSuccess,
     TResult? Function(_SignInFailed value)? signInFailed,
+    TResult? Function(_InvalidFormat value)? inValidFormat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +69,7 @@ mixin _$SignInState {
     TResult Function(_Loading value)? loading,
     TResult Function(_SignInSuccess value)? signInSuccess,
     TResult Function(_SignInFailed value)? signInFailed,
+    TResult Function(_InvalidFormat value)? inValidFormat,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -187,6 +193,7 @@ class _$_Initial extends _Initial {
     required TResult Function(SignInData data) loading,
     required TResult Function(SignInData data) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
+    required TResult Function(SignInData data) inValidFormat,
   }) {
     return initial(data);
   }
@@ -198,6 +205,7 @@ class _$_Initial extends _Initial {
     TResult? Function(SignInData data)? loading,
     TResult? Function(SignInData data)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
+    TResult? Function(SignInData data)? inValidFormat,
   }) {
     return initial?.call(data);
   }
@@ -209,6 +217,7 @@ class _$_Initial extends _Initial {
     TResult Function(SignInData data)? loading,
     TResult Function(SignInData data)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
+    TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -224,6 +233,7 @@ class _$_Initial extends _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignInSuccess value) signInSuccess,
     required TResult Function(_SignInFailed value) signInFailed,
+    required TResult Function(_InvalidFormat value) inValidFormat,
   }) {
     return initial(this);
   }
@@ -235,6 +245,7 @@ class _$_Initial extends _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignInSuccess value)? signInSuccess,
     TResult? Function(_SignInFailed value)? signInFailed,
+    TResult? Function(_InvalidFormat value)? inValidFormat,
   }) {
     return initial?.call(this);
   }
@@ -246,6 +257,7 @@ class _$_Initial extends _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_SignInSuccess value)? signInSuccess,
     TResult Function(_SignInFailed value)? signInFailed,
+    TResult Function(_InvalidFormat value)? inValidFormat,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -338,6 +350,7 @@ class _$_Loading extends _Loading {
     required TResult Function(SignInData data) loading,
     required TResult Function(SignInData data) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
+    required TResult Function(SignInData data) inValidFormat,
   }) {
     return loading(data);
   }
@@ -349,6 +362,7 @@ class _$_Loading extends _Loading {
     TResult? Function(SignInData data)? loading,
     TResult? Function(SignInData data)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
+    TResult? Function(SignInData data)? inValidFormat,
   }) {
     return loading?.call(data);
   }
@@ -360,6 +374,7 @@ class _$_Loading extends _Loading {
     TResult Function(SignInData data)? loading,
     TResult Function(SignInData data)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
+    TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -375,6 +390,7 @@ class _$_Loading extends _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignInSuccess value) signInSuccess,
     required TResult Function(_SignInFailed value) signInFailed,
+    required TResult Function(_InvalidFormat value) inValidFormat,
   }) {
     return loading(this);
   }
@@ -386,6 +402,7 @@ class _$_Loading extends _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignInSuccess value)? signInSuccess,
     TResult? Function(_SignInFailed value)? signInFailed,
+    TResult? Function(_InvalidFormat value)? inValidFormat,
   }) {
     return loading?.call(this);
   }
@@ -397,6 +414,7 @@ class _$_Loading extends _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_SignInSuccess value)? signInSuccess,
     TResult Function(_SignInFailed value)? signInFailed,
+    TResult Function(_InvalidFormat value)? inValidFormat,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -491,6 +509,7 @@ class _$_SignInSuccess extends _SignInSuccess {
     required TResult Function(SignInData data) loading,
     required TResult Function(SignInData data) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
+    required TResult Function(SignInData data) inValidFormat,
   }) {
     return signInSuccess(data);
   }
@@ -502,6 +521,7 @@ class _$_SignInSuccess extends _SignInSuccess {
     TResult? Function(SignInData data)? loading,
     TResult? Function(SignInData data)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
+    TResult? Function(SignInData data)? inValidFormat,
   }) {
     return signInSuccess?.call(data);
   }
@@ -513,6 +533,7 @@ class _$_SignInSuccess extends _SignInSuccess {
     TResult Function(SignInData data)? loading,
     TResult Function(SignInData data)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
+    TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),
   }) {
     if (signInSuccess != null) {
@@ -528,6 +549,7 @@ class _$_SignInSuccess extends _SignInSuccess {
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignInSuccess value) signInSuccess,
     required TResult Function(_SignInFailed value) signInFailed,
+    required TResult Function(_InvalidFormat value) inValidFormat,
   }) {
     return signInSuccess(this);
   }
@@ -539,6 +561,7 @@ class _$_SignInSuccess extends _SignInSuccess {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignInSuccess value)? signInSuccess,
     TResult? Function(_SignInFailed value)? signInFailed,
+    TResult? Function(_InvalidFormat value)? inValidFormat,
   }) {
     return signInSuccess?.call(this);
   }
@@ -550,6 +573,7 @@ class _$_SignInSuccess extends _SignInSuccess {
     TResult Function(_Loading value)? loading,
     TResult Function(_SignInSuccess value)? signInSuccess,
     TResult Function(_SignInFailed value)? signInFailed,
+    TResult Function(_InvalidFormat value)? inValidFormat,
     required TResult orElse(),
   }) {
     if (signInSuccess != null) {
@@ -654,6 +678,7 @@ class _$_SignInFailed extends _SignInFailed {
     required TResult Function(SignInData data) loading,
     required TResult Function(SignInData data) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
+    required TResult Function(SignInData data) inValidFormat,
   }) {
     return signInFailed(data, message);
   }
@@ -665,6 +690,7 @@ class _$_SignInFailed extends _SignInFailed {
     TResult? Function(SignInData data)? loading,
     TResult? Function(SignInData data)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
+    TResult? Function(SignInData data)? inValidFormat,
   }) {
     return signInFailed?.call(data, message);
   }
@@ -676,6 +702,7 @@ class _$_SignInFailed extends _SignInFailed {
     TResult Function(SignInData data)? loading,
     TResult Function(SignInData data)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
+    TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),
   }) {
     if (signInFailed != null) {
@@ -691,6 +718,7 @@ class _$_SignInFailed extends _SignInFailed {
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignInSuccess value) signInSuccess,
     required TResult Function(_SignInFailed value) signInFailed,
+    required TResult Function(_InvalidFormat value) inValidFormat,
   }) {
     return signInFailed(this);
   }
@@ -702,6 +730,7 @@ class _$_SignInFailed extends _SignInFailed {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignInSuccess value)? signInSuccess,
     TResult? Function(_SignInFailed value)? signInFailed,
+    TResult? Function(_InvalidFormat value)? inValidFormat,
   }) {
     return signInFailed?.call(this);
   }
@@ -713,6 +742,7 @@ class _$_SignInFailed extends _SignInFailed {
     TResult Function(_Loading value)? loading,
     TResult Function(_SignInSuccess value)? signInSuccess,
     TResult Function(_SignInFailed value)? signInFailed,
+    TResult Function(_InvalidFormat value)? inValidFormat,
     required TResult orElse(),
   }) {
     if (signInFailed != null) {
@@ -734,5 +764,165 @@ abstract class _SignInFailed extends SignInState {
   @override
   @JsonKey(ignore: true)
   _$$_SignInFailedCopyWith<_$_SignInFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_InvalidFormatCopyWith<$Res>
+    implements $SignInStateCopyWith<$Res> {
+  factory _$$_InvalidFormatCopyWith(
+          _$_InvalidFormat value, $Res Function(_$_InvalidFormat) then) =
+      __$$_InvalidFormatCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({SignInData data});
+
+  @override
+  $SignInDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_InvalidFormatCopyWithImpl<$Res>
+    extends _$SignInStateCopyWithImpl<$Res, _$_InvalidFormat>
+    implements _$$_InvalidFormatCopyWith<$Res> {
+  __$$_InvalidFormatCopyWithImpl(
+      _$_InvalidFormat _value, $Res Function(_$_InvalidFormat) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_InvalidFormat(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SignInData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InvalidFormat extends _InvalidFormat {
+  const _$_InvalidFormat({required this.data}) : super._();
+
+  @override
+  final SignInData data;
+
+  @override
+  String toString() {
+    return 'SignInState.inValidFormat(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_InvalidFormat &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InvalidFormatCopyWith<_$_InvalidFormat> get copyWith =>
+      __$$_InvalidFormatCopyWithImpl<_$_InvalidFormat>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SignInData data) initial,
+    required TResult Function(SignInData data) loading,
+    required TResult Function(SignInData data) signInSuccess,
+    required TResult Function(SignInData data, String message) signInFailed,
+    required TResult Function(SignInData data) inValidFormat,
+  }) {
+    return inValidFormat(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SignInData data)? initial,
+    TResult? Function(SignInData data)? loading,
+    TResult? Function(SignInData data)? signInSuccess,
+    TResult? Function(SignInData data, String message)? signInFailed,
+    TResult? Function(SignInData data)? inValidFormat,
+  }) {
+    return inValidFormat?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SignInData data)? initial,
+    TResult Function(SignInData data)? loading,
+    TResult Function(SignInData data)? signInSuccess,
+    TResult Function(SignInData data, String message)? signInFailed,
+    TResult Function(SignInData data)? inValidFormat,
+    required TResult orElse(),
+  }) {
+    if (inValidFormat != null) {
+      return inValidFormat(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_SignInSuccess value) signInSuccess,
+    required TResult Function(_SignInFailed value) signInFailed,
+    required TResult Function(_InvalidFormat value) inValidFormat,
+  }) {
+    return inValidFormat(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_SignInSuccess value)? signInSuccess,
+    TResult? Function(_SignInFailed value)? signInFailed,
+    TResult? Function(_InvalidFormat value)? inValidFormat,
+  }) {
+    return inValidFormat?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_SignInSuccess value)? signInSuccess,
+    TResult Function(_SignInFailed value)? signInFailed,
+    TResult Function(_InvalidFormat value)? inValidFormat,
+    required TResult orElse(),
+  }) {
+    if (inValidFormat != null) {
+      return inValidFormat(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidFormat extends SignInState {
+  const factory _InvalidFormat({required final SignInData data}) =
+      _$_InvalidFormat;
+  const _InvalidFormat._() : super._();
+
+  @override
+  SignInData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_InvalidFormatCopyWith<_$_InvalidFormat> get copyWith =>
       throw _privateConstructorUsedError;
 }

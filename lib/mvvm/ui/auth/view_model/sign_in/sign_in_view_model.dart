@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_base_clean_architecture/core/components/utils/validators.dart';
 import 'package:flutter_base_clean_architecture/core/dependency_injection/di.dart';
 import 'package:flutter_base_clean_architecture/mvvm/repo/auth_repositories.dart';
@@ -24,38 +22,44 @@ class SignInViewModel extends StateNotifier<SignInState> {
 
   void passWordChange({required String text}) {
     if (text.isEmpty) {
-      state = state.copyWith(
+      state = _InvalidFormat(
         data: data.copyWith(passwordError: "Password is empty"),
       );
       return;
     }
     if (!Validator.isValidPassword(text)) {
-      state = state.copyWith(
+      state = _InvalidFormat(
         data: data.copyWith(passwordError: "Password is not format"),
       );
       return;
     }
-    state = state.copyWith(data: data.copyWith(passwordError: null));
+    state = _Initial(data: data.copyWith(passwordError: null));
   }
 
   void emailChange({required String text}) {
     if (text.isEmpty) {
-      state = state.copyWith(
+      state = _InvalidFormat(
         data: data.copyWith(emailError: "Email is empty"),
       );
       return;
     }
     if (!Validator.isValidEmail(text)) {
-      state = state.copyWith(
+      state = _InvalidFormat(
         data: data.copyWith(emailError: "Email is not format"),
       );
       return;
     }
-    state = state.copyWith(data: data.copyWith(emailError: null));
+    state = _Initial(data: data.copyWith(emailError: null));
   }
 
   Future<void> signIn({required String password, required String email}) async {
     state = _Loading(data: data);
+    if ((data.emailError?.isNotEmpty ?? false) ||
+        (data.passwordError?.isNotEmpty ?? false)) {
+      state = _SignInFailed(data: data, message: "Invalid input format");
+      return;
+    }
+    await Future.delayed(const Duration(seconds: 3));
     try {
       final result =
           await _authRepositories.signIn(email: email, password: password);

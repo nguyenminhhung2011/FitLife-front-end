@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:flutter_base_clean_architecture/clean_architectures/domain/entities/user/user.dart';
 import 'package:flutter_base_clean_architecture/core/components/layout/setting_layout/controller/setting_bloc.dart';
+import 'package:flutter_base_clean_architecture/mvvm/me/entity/user_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'setting_modal_state.freezed.dart';
 

@@ -9,10 +9,10 @@ import 'package:flutter_base_clean_architecture/core/components/widgets/avartat_
 import 'package:flutter_base_clean_architecture/core/components/widgets/image_custom.dart';
 import 'package:flutter_base_clean_architecture/core/components/config/setting_config.dart';
 import 'package:flutter_base_clean_architecture/generated/l10n.dart';
+import 'package:flutter_base_clean_architecture/mvvm/me/entity/user_entity.dart';
 import 'package:flutter_base_clean_architecture/routes/routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../clean_architectures/domain/entities/user/user.dart';
 import '../controller/setting_bloc.dart';
 import '../layout/setting_layout.dart';
 import '../utils/setting_utils.dart';
@@ -252,9 +252,9 @@ class _SettingScreenState extends State<SettingScreen> {
       const SizedBox(height: 10.0),
       if (_currentUser != null) ...[
         ...<String>[
-          _currentUser?.userName ?? '',
+          _currentUser?.name ?? '',
           _currentUser?.email ?? '',
-          _currentUser?.phoneNumber ?? '',
+          _currentUser?.phone ?? '',
           _currentUser?.creditCardNumber ?? '',
         ].mapIndexed(
           (index, text) {
@@ -266,7 +266,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     width: 40.0,
                     height: 40.0,
                     imageUrl:
-                        _currentUser?.photoUrl ?? ImageConst.baseImageView,
+                        _currentUser?.avatar ?? ImageConst.baseImageView,
                   )
                 : Icon(
                     switch (index) {

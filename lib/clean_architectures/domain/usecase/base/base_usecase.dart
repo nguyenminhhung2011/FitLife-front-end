@@ -1,6 +1,5 @@
-import 'package:flutter_base_clean_architecture/clean_architectures/data/datasource/local/preferences.dart';
-
-import '../../entities/user/user.dart';
+import 'package:flutter_base_clean_architecture/mvvm/data/local/preferences.dart';
+import 'package:flutter_base_clean_architecture/mvvm/me/entity/user_entity.dart';
 
 abstract class BaseUseCase<T> {
   BaseUseCase();

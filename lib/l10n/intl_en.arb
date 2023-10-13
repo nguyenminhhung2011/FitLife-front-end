@@ -17,5 +17,10 @@
     "byPrice": "By Price",
     "enterCode": "Enter code",
     "errorCode": "Error code",
-    "about": "About"
+    "email": "Email",
+    "password": "Password",
+    "forGotPassword": "Forgot your password",
+    "signUp": "Sign up",
+    "about": "About",
+    "orContinue": "Or continue with"
 }

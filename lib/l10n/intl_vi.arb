@@ -17,5 +17,10 @@
     "byPrice": "Theo giá",
     "enterCode": "Nhâp mã",
     "errorCode": "Mã lỗi",
+    "email": "Email",
+    "password": "Mât khẩu",
+    "forGotPassword": "Quên mật khẩu",
+    "orContinue": "Hoặc tiếp tục bằng",
+    "signUp": "Đăng ký",
     "about": "Về chúng tôi"
 }

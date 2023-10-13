@@ -29,8 +29,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Code and fingerprint"),
         "currencies": MessageLookupByLibrary.simpleMessage("Currencies"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Dark theme"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterCode": MessageLookupByLibrary.simpleMessage("Enter code"),
         "errorCode": MessageLookupByLibrary.simpleMessage("Error code"),
+        "forGotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot your password"),
         "generalSettings":
             MessageLookupByLibrary.simpleMessage("General settings"),
         "languages": MessageLookupByLibrary.simpleMessage("Languages"),
@@ -40,8 +43,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "logIn": MessageLookupByLibrary.simpleMessage("Log in"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log out"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "orContinue": MessageLookupByLibrary.simpleMessage("Or continue with"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
         "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "sortBy": MessageLookupByLibrary.simpleMessage("Sort By"),
         "update": MessageLookupByLibrary.simpleMessage("update")
       };

@@ -2,10 +2,12 @@ import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base_clean_architecture/app_coordinator.dart';
 import 'package:flutter_base_clean_architecture/core/components/configurations/env/env_prod.dart';
 import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
 import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/splash/view_model/splash_view_model.dart';
+import 'package:flutter_base_clean_architecture/routes/routes.dart';
 // import 'package:flutter_base_clean_architecture/routes/main_routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -41,6 +43,7 @@ class _SplashViewState extends ConsumerState<SplashView> {
         },
         isNotAuth: (_) {
           log("🐛🐛  Is not auth");
+          context.pushAndRemoveAll(Routes.signIn);
         },
       );
     });

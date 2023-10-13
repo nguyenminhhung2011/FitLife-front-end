@@ -230,11 +230,61 @@ class S {
     );
   }
 
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot your password`
+  String get forGotPassword {
+    return Intl.message(
+      'Forgot your password',
+      name: 'forGotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up`
+  String get signUp {
+    return Intl.message(
+      'Sign up',
+      name: 'signUp',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `About`
   String get about {
     return Intl.message(
       'About',
       name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or continue with`
+  String get orContinue {
+    return Intl.message(
+      'Or continue with',
+      name: 'orContinue',
       desc: '',
       args: [],
     );

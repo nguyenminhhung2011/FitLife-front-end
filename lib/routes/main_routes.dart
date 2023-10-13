@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base_clean_architecture/mvvm/ui/auth/views/sign_in_view.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/splash/views/splash_view.dart';
 import 'package:flutter_base_clean_architecture/routes/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -34,6 +35,12 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const ProviderScope(child: SplashView()),
+        );
+
+      case Routes.signIn:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: SignInView()),
         );
 
       default:

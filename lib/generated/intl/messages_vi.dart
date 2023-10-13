@@ -29,8 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mã và dấu vân tay"),
         "currencies": MessageLookupByLibrary.simpleMessage("Tiền tệ"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Chế độ tối"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterCode": MessageLookupByLibrary.simpleMessage("Nhâp mã"),
         "errorCode": MessageLookupByLibrary.simpleMessage("Mã lỗi"),
+        "forGotPassword": MessageLookupByLibrary.simpleMessage("Quên mật khẩu"),
         "generalSettings":
             MessageLookupByLibrary.simpleMessage("Cài đặt chung"),
         "languages": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
@@ -40,8 +42,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "logIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "logOut": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
         "notifications": MessageLookupByLibrary.simpleMessage("Thông báo"),
+        "orContinue":
+            MessageLookupByLibrary.simpleMessage("Hoặc tiếp tục bằng"),
+        "password": MessageLookupByLibrary.simpleMessage("Mât khẩu"),
         "seeMore": MessageLookupByLibrary.simpleMessage("Xem thêm"),
         "settings": MessageLookupByLibrary.simpleMessage("Cài đặt"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Đăng ký"),
         "sortBy": MessageLookupByLibrary.simpleMessage("Sắp xếp theo"),
         "update": MessageLookupByLibrary.simpleMessage("Cập nhật")
       };

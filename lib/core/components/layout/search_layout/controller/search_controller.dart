@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/clean_architectures/data/datasource/local/preferences.dart';
+import 'package:flutter_base_clean_architecture/mvvm/data/local/preferences.dart';
 import 'package:flutter_base_clean_architecture/core/components/layout/search_layout/model/filter_response.dart';
 import 'package:flutter_base_clean_architecture/core/components/layout/search_layout/views/search_layou.dart';
 

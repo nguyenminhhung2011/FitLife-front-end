@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base_clean_architecture/mvvm/ui/splash/views/splash_view.dart';
 import 'package:flutter_base_clean_architecture/routes/routes.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../clean_architectures/presentation/tes_ui/views/test_ui.dart';
 import '../core/components/layout/setting_layout/views/passcode_screen.dart';
+// import 'package:riverpod_annotation/riverpod_annotation.dart';
+// import 'package:go_router/go_router.dart';
 
 class MainRoutes {
   static Map<String, WidgetBuilder> getRoutesWithSettings() {
@@ -26,12 +29,11 @@ class MainRoutes {
             return PassCodeScreen(routes: settings.arguments.toString());
           },
         );
-      case Routes.testUi:
+
+      case Routes.splash:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) {
-            return const TestUi();
-          },
+          builder: (_) => const ProviderScope(child: SplashView()),
         );
 
       default:
@@ -54,3 +56,41 @@ class MainRoutes {
     );
   }
 }
+
+// final _rootNavigatorKey = GlobalKey<NavigatorState>();
+
+// // @Riverpod(keepAlive: true)
+// // GoRouter goRouter(RouteSettings ref) {
+// //   return GoRouter(
+// //     initialLocation: '/',
+// //     navigatorKey: _rootNavigatorKey,
+// //     debugLogDiagnostics: false,
+// //     routes: [
+// //       GoRoute(
+// //         path: Routes.splash,
+// //         name: 'Splash',
+// //         builder: (context, state) => const SplashView(),
+// //       ),
+// //     ],
+// //   );
+// // }
+
+// import 'package:auto_route/auto_route.dart';
+// import 'package:flutter/material.dart';
+
+// part 'main_route.gr.dart';
+
+// @AutoRouterConfig(replaceInRouteName: 'Screen,Route')
+// class AppRouter extends _$AppRouter {
+// // @override
+// // replaceInRouteName
+
+//   @override
+//   RouteType get defaultRouteType =>
+//       const RouteType.material(); //.cupertino, .adaptive ..etc
+
+//   @override
+//   List<AutoRoute> get routes => [
+//         /// routes go here
+//       ];
+// }

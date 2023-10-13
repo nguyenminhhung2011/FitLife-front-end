@@ -1,7 +1,7 @@
   final Map<String, dynamic> environmentProd = {
-  'name': 'Base name',
+  'name': 'FitLife',
   'environment': 'prod',
-  'baseUrl': 'http://192.168.1.104:8080/',
+  'baseUrl': 'https://sandbox.api.lettutor.com',
   // 'baseUrl': 'https://flight-booking-390802.as.r.appspot.com/',
   'mode': 'mobile',
 };

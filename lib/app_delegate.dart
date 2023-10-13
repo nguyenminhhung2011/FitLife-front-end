@@ -31,7 +31,7 @@ class AppDelegate {
     return Application(
       navigationKey: GlobalKey<NavigatorState>(),
       providers: [],
-      initialRoute: Routes.auth,
+      initialRoute: Routes.splash,
       savedThemeMode: savedThemeMode,
       isMobile: isMobile,
     );

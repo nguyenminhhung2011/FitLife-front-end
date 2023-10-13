@@ -131,6 +131,11 @@ dependencies:
   youtube_player_iframe: ^4.0.4
   visibility_detector: ^0.4.0+2
   intl_utils: ^2.8.4
+  riverpod: ^2.4.3
+  flutter_riverpod: ^2.4.3
+  riverpod_annotation: ^2.2.0
+  go_router: ^11.1.4
+  auto_route: ^7.8.4
   # table_calendar: ^3.0.8
   # readmore: ^2.2.0
 
@@ -172,6 +177,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/gif/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

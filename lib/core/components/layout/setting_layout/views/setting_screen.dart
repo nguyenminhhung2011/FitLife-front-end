@@ -265,8 +265,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 ? AvatarWidget(
                     width: 40.0,
                     height: 40.0,
-                    imageUrl:
-                        _currentUser?.avatar ?? ImageConst.baseImageView,
+                    imageUrl: _currentUser?.avatar ?? ImageConst.baseImageView,
                   )
                 : Icon(
                     switch (index) {

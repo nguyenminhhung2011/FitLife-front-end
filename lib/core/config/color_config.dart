@@ -10,4 +10,8 @@ class CommonColor {
   static const primaryColor = Colors.lightBlue;
   static Color primaryColor1 = Colors.lightBlue.withOpacity(0.2);
   static const primarySecondColor = Colors.blueGrey;
+  static const relaxationColor = "#B692F6";
+  static const meditationColor = "#FAA7E0";
+  static const beathingColor = "#FEB273";
+  static const yogaColor = "#7CD4FD";
 }

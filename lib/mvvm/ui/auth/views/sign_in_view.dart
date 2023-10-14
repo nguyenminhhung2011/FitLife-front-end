@@ -9,6 +9,7 @@ import 'package:flutter_base_clean_architecture/core/components/widgets/progress
 import 'package:flutter_base_clean_architecture/generated/l10n.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/auth/mixins/auth_mixin.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart';
+import 'package:flutter_base_clean_architecture/routes/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -151,6 +152,8 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
                 width: 300.0,
                 isAnimation: true,
                 radius: 10.0,
+                textStyle: context.titleMedium
+                    .copyWith(fontWeight: FontWeight.w600, color: Colors.white),
                 call: () async {
                   await _vm.signIn(
                     password: _passController.text,
@@ -173,7 +176,8 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
                 ImageConst.facebookIcon,
                 ImageConst.googleIcon,
               ].mapIndexed((index, e) => IconButton(
-                    onPressed: () {},
+                    onPressed: () =>
+                        context.openListPageWithRoute(Routes.dashboard),
                     icon: SvgPicture.asset(e, height: 100.0, width: 100.0),
                   ))
             ],

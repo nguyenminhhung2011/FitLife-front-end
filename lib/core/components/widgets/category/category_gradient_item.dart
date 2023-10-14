@@ -25,12 +25,8 @@ class CategoryGradientItem extends StatelessWidget {
       onTap: e.onPress,
       child: Container(
         width: width,
-        padding: EdgeInsets.only(
-          left: e.paddingLeft ?? 10.0,
-          right: e.paddingRight ?? 10.0,
-          top: e.paddingTop ?? 5.0,
-          bottom: e.paddingBottom ?? 5.0,
-        ),
+        padding:
+            e.padding ?? const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
         decoration: BoxDecoration(
           gradient: e.backgroundGradientColor != null && e.isSelected == false
               ? LinearGradient(

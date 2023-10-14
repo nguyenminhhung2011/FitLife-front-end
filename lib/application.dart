@@ -116,13 +116,13 @@ class _BuildMaterialAppState extends State<BuildMaterialApp> {
           ],
           supportedLocales: S.delegate.supportedLocales,
           theme: widget.light?.copyWith(
-                primaryColor: '#8763c4'.toColor(),
-                primaryColorDark: '#8763c4'.toColor(),
+                primaryColor: '#7CD4FD'.toColor(),
+                primaryColorDark: '#7CD4FD'.toColor(),
                 // fontFamily: 'Montserrat',
               ) ??
               ThemeData(),
           darkTheme: widget.dark.copyWith(
-            primaryColor: '#8763c4'.toColor(),
+            primaryColor: '#7CD4FD'.toColor(),
           ),
           locale: state.data.currentLocale,
         );

@@ -262,11 +262,8 @@ class CategoryStyle {
   final String? iconUrl;
   final Color? color;
   final double? radius;
-  final double? paddingTop;
-  final double? paddingLeft;
-  final double? paddingRight;
+  final EdgeInsets? padding;
   final double? iconSize;
-  final double? paddingBottom;
   final Function() onPress;
   final bool isSelected;
   final bool isIcon;
@@ -279,11 +276,8 @@ class CategoryStyle {
     this.color,
     this.iconUrl,
     this.radius,
-    this.paddingTop,
-    this.paddingLeft,
-    this.paddingRight,
-    this.paddingBottom,
     this.iconSize,
+    this.padding,
     this.isSelected = false,
     this.isIcon = false,
     this.backgroundGradientColor,

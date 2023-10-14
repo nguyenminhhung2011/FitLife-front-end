@@ -25,18 +25,15 @@ class CategoryItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.only(
-              right: category.paddingRight ?? 10.0,
-              left: category.paddingLeft ?? 10.0,
-              top: category.paddingTop ?? 5.0,
-              bottom: category.paddingBottom ?? 5.0,
-            ),
+            padding: category.padding ??
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(category.radius ?? 10.0),
               color: category.color?.withOpacity(0.1) ??
                   Theme.of(context).primaryColor.withOpacity(0.1),
             ),
             child: (isIconOut)
+                // ignore: unnecessary_null_comparison
                 ? category.iconUrl != null || category.iconWidget != null
                     ? IconCategory(category: category)
                     : const SizedBox()

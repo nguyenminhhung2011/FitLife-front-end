@@ -1,3 +1,8 @@
+import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
+import 'package:flutter_base_clean_architecture/core/components/extensions/string_extensions.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/category/category_model.dart';
+import 'package:flutter_base_clean_architecture/core/config/color_config.dart';
+
 class Constant {
   static DateTime timeNow = DateTime.now();
   static List<String> boardNumber = [
@@ -14,4 +19,66 @@ class Constant {
     '0',
     '🗑️'
   ];
+  static List<BannerContent> listContent = [
+    BannerContent(
+      imageUrl: ImageConst.banner2,
+      content: 'Find Balance and Strength: Yoga for Mind-Body Wellness',
+      subContent:
+          'Align your mind and body through the practice of yoga, enhancing flexibility, promoting relaxation, and fostering a sense of inner peace for overall well-being.',
+    ),
+    BannerContent(
+      imageUrl: ImageConst.banner3,
+      content: 'Pedal to Fitness: Energize Your Body with Cycling.',
+      subContent:
+          'Revitalize your fitness routine with high-energy cycling workouts that boost cardiovascular health, burn calories, and sculpt your muscles for a stronger, fitter you.',
+    ),
+    BannerContent(
+      imageUrl: ImageConst.banner1,
+      content: 'Unlock Your Potential: Power Up Your Fitness Journey.',
+      subContent:
+          'Unleash your true potential with dynamic fitness workouts that improve strength, endurance, and overall fitness levels, empowering you to achieve your goals and live a healthier, more vibrant life.',
+    ),
+  ];
+
+  static List<CategoryModel> listCategory = <CategoryModel>[
+    CategoryModel(
+      iconSize: 20,
+      title: ' Relaxation',
+      iconUrl: ImageConst.relaxIcon,
+      color: CommonColor.relaxationColor.toColor(),
+      isIconData: false,
+    ),
+    CategoryModel(
+      iconSize: 20,
+      title: ' Meditation',
+      iconUrl: ImageConst.meditationIcon,
+      color: CommonColor.meditationColor.toColor(),
+      isIconData: false,
+    ),
+    CategoryModel(
+      iconSize: 20,
+      title: ' Beathing',
+      iconUrl: ImageConst.beathingIcon,
+      color: CommonColor.beathingColor.toColor(),
+      isIconData: false,
+    ),
+    CategoryModel(
+      iconSize: 20,
+      title: ' Yoga',
+      iconUrl: ImageConst.yogaIcon,
+      color: CommonColor.yogaColor.toColor(),
+      isIconData: false,
+    ),
+  ];
+}
+
+class BannerContent {
+  final String imageUrl;
+  final String content;
+  final String subContent;
+  BannerContent({
+    required this.imageUrl,
+    required this.content,
+    required this.subContent,
+  });
 }

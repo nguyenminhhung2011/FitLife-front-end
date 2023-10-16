@@ -58,6 +58,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      extendBody: true,
       bottomNavigationBar: TabBarCustom(
         onChangeTab: _vm.changeState,
         items: <TabBarItemStyle>[

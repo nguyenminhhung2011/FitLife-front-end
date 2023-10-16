@@ -19,20 +19,20 @@ class BannerItemBuilder extends StatelessWidget {
     return Stack(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(10.0),
           child: Image.asset(
             banner.imageUrl,
             width: double.infinity,
             fit: BoxFit.fill,
             height: double.infinity,
-          ),
+          ),  
         ),
         Container(
           width: double.infinity,
           padding: const EdgeInsets.all(15.0),
           height: double.infinity,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(10.0),
             color: Colors.black38,
           ),
           child: Column(

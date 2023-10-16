@@ -28,7 +28,7 @@ String getYmdHmFormat(DateTime dateTime) {
   return DateFormat().add_yMd().add_Hm().format(dateTime);
 }
 
-String getjmFormat(DateTime dateTime) {
+String gemmFormat(DateTime dateTime) {
   return DateFormat().add_jm().format(dateTime);
 }
 

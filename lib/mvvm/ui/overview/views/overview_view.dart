@@ -1,10 +1,12 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_base_clean_architecture/core/components/constant/constant.dart';
+import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
 import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
 import 'package:flutter_base_clean_architecture/core/components/widgets/category/category_custom.dart';
 import 'package:flutter_base_clean_architecture/core/components/widgets/category/category_type.dart';
 import 'package:flutter_base_clean_architecture/core/components/widgets/dot_custom.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/up_coming_schedule_ex_item.dart';
 import 'package:flutter_base_clean_architecture/core/components/widgets/header_custom.dart';
 import 'package:flutter_base_clean_architecture/core/components/widgets/swiper_custom.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/overview/views/widgets/banner_item_builder.dart';
@@ -71,7 +73,7 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
             itemCount: 3,
             height: 200,
             isShowSlideDot: false,
-            autoPlay: true,
+            autoPlay: false,
             itemBuilder: (index) {
               final banner = Constant.listContent.elementAt(index);
               return BannerItemBuilder(banner: banner, onPress: () {});
@@ -119,21 +121,138 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
             textStyle: _headerStyle,
             isShowSeeMore: true,
           ),
+          const UpComingScheduleExItem(),
+          const SizedBox(),
+          HeaderTextCustom(
+            headerText: 'Health paper',
+            textStyle: _headerStyle,
+            isShowSeeMore: true,
+          ),
+          const PaperSliderView(),
+          const SizedBox(height: 40.0),
+        ].expand((e) => [e, const SizedBox(height: 5.0)]).toList(),
+      ),
+    );
+  }
+}
+
+class PaperSliderView extends StatefulWidget {
+  const PaperSliderView({super.key});
+
+  @override
+  State<PaperSliderView> createState() => _PaperSliderViewState();
+}
+
+class _PaperSliderViewState extends State<PaperSliderView> {
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ///[Change data here if have data]
+    const length = 10;
+
+    return SizedBox(
+      width: double.infinity,
+      height: 200,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: length,
+        itemBuilder: (_, index) {
+          return PaperHorizontalItem(isFirstItem: index == 0);
+        },
+      ),
+    );
+  }
+}
+
+class PaperHorizontalItem extends StatelessWidget {
+  final bool isFirstItem;
+  const PaperHorizontalItem({
+    super.key,
+    required this.isFirstItem,
+  });
+  EdgeInsetsGeometry get _margin =>
+      EdgeInsets.only(left: isFirstItem ? 15 : 0, right: 10.0, bottom: 10.0);
+  BorderRadiusGeometry get _radius => BorderRadius.circular(10.0);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: Stack(
+        children: [
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 15.0),
-            width: double.infinity,
-            padding: const EdgeInsets.all(10.0),
+            width: context.widthDevice * 0.35,
+            height: double.infinity,
+            margin: _margin,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Theme.of(context).cardColor,
+              borderRadius: _radius,
               boxShadow: [
                 BoxShadow(
-                    color: Theme.of(context).shadowColor.withOpacity(0.1),
-                    blurRadius: 5.0)
+                  color: Theme.of(context).shadowColor.withOpacity(0.1),
+                  blurRadius: 5.0,
+                )
+              ],
+              image: const DecorationImage(
+                // Change here
+                image: AssetImage(ImageConst.banner1),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Container(
+            width: context.widthDevice * 0.35,
+            height: double.infinity,
+            padding: const EdgeInsets.all(10.0),
+            margin: _margin,
+            decoration:
+                BoxDecoration(borderRadius: _radius, color: Colors.black26),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Expanded(flex: 4, child: SizedBox()),
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    'Yoga and health',
+                    style: context.titleSmall.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'This is description yea this is decription',
+                    style: context.titleSmall.copyWith(
+                      color: Colors.white,
+                      fontSize: 10.0,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                )
               ],
             ),
           ),
-        ].expand((e) => [e, const SizedBox(height: 5.0)]).toList(),
+          Positioned(
+            top: 5.0,
+            left: isFirstItem ? 20.0 : 5.0,
+            child: Container(
+              padding: const EdgeInsets.all(5.0),
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.black12,
+              ),
+              child: Icon(Icons.favorite, size: 12.0, color: Colors.red[400]),
+            ),
+          ),
+        ],
       ),
     );
   }

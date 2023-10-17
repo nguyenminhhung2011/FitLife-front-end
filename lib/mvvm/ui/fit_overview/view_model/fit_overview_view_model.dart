@@ -7,6 +7,10 @@ part 'fit_overview_state.dart';
 
 part 'fit_overview_view_model.freezed.dart';
 
+final fitOverViewNotifier =
+    AutoDisposeStateNotifierProvider<FitOverViewViewModel, FitOverViewState>(
+        (ref) => FitOverViewViewModel());
+
 @injectable
 class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
   FitOverViewViewModel() : super(const _Initial(data: FitOverViewData()));

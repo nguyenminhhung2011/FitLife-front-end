@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base_clean_architecture/core/components/constant/handle_time.dart';
 import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
 import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/schedule_item.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/header_custom.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/plan_overview/views/widgets/plan_overview_card.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/plan_overview/views/widgets/plan_overview_gradient_field.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/plan_overview/views/widgets/plan_overview_progress_field.dart';
@@ -21,6 +24,7 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
     return Scaffold(
       backgroundColor: _backGroundColor,
       extendBodyBehindAppBar: true,
+      extendBody: true,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.grey.withOpacity(0.8),
@@ -39,13 +43,15 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
         ),
         // title: ,
       ),
-      body: Column(
-        children: [
-          Expanded(
-            flex: 3,
-            child: Container(
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: ListView(
+          padding: const EdgeInsets.only(top: 0),
+          children: [
+            Container(
+              height: context.heightDevice * 0.72,
               width: double.infinity,
-              height: double.infinity,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(ImageConst.banner3), fit: BoxFit.cover),
@@ -60,32 +66,62 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
                 ],
               ),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Column(
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: LayoutBuilder(builder: (_, constraints) {
-                    return PlanOverViewUpComingSession(
-                      maxHeight: constraints.maxHeight,
-                    );
-                  }),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    width: double.infinity,
-                    color: Theme.of(context).cardColor.withOpacity(0.5),
-                    child: PlanOverViewCard(context: context),
+            SizedBox(
+              height: context.heightDevice * 0.23,
+              width: double.infinity,
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: LayoutBuilder(builder: (_, constraints) {
+                      return PlanOverViewUpComingSession(
+                        maxHeight: constraints.maxHeight,
+                      );
+                    }),
                   ),
-                )
-              ],
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      width: double.infinity,
+                      color: Theme.of(context).cardColor.withOpacity(0.5),
+                      child: PlanOverViewCard(context: context),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 50),
-        ],
+            const SizedBox(height: 10),
+            HeaderTextCustom(
+              headerText: 'My schedule',
+              isShowSeeMore: true,
+              textStyle:
+                  context.titleMedium.copyWith(fontWeight: FontWeight.w600),
+            ),
+            _renderTimeToText(context, time: DateTime.now()),
+            const SizedBox(height: 10.0),
+            const ScheduleItem(),
+            const SizedBox(height: 10.0),
+            _renderTimeToText(
+              context,
+              time: DateTime.now().add(const Duration(days: 1)),
+            ),
+            const SizedBox(height: 10.0),
+            const ScheduleItem(),
+            const ScheduleItem(),
+            const SizedBox(height: 100),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding _renderTimeToText(BuildContext context, {required DateTime time}) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 15.0),
+      child: Text(
+        getMMMMEEEd(time),
+        style: context.titleSmall
+            .copyWith(color: Theme.of(context).hintColor, fontSize: 12.0),
       ),
     );
   }

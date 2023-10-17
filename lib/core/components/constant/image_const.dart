@@ -15,6 +15,10 @@ class ImageConst {
   static const String notificationRedDotIcon =
       'assets/icons/Notification-Icon_RedDot.svg';
 
+  static const String heartIcon = 'assets/icons/heart.svg';
+  static const String listIcon = 'assets/icons/list.svg';
+  static const String caloriesIcon = 'assets/icons/calo.svg';
+
   static const String loveIcon = 'assets/icons/love.svg';
   static const String sadIcon = 'assets/icons/sad.svg';
   static const String happyIcon = 'assets/icons/happy.svg';

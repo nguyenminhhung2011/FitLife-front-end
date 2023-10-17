@@ -8,7 +8,9 @@ import 'package:flutter_base_clean_architecture/core/components/widgets/tab_bar/
 import 'package:flutter_base_clean_architecture/core/components/widgets/tab_bar/tab_bar_type.dart';
 import 'package:flutter_base_clean_architecture/core/components/widgets/tab_bar/tabbar_custom.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/dashboard/view_model/dashboard_view_model.dart';
+import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/views/fit_oveview_view.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/overview/views/overview_view.dart';
+import 'package:flutter_base_clean_architecture/mvvm/ui/plan_overview/views/plan_overview_view.dart';
 import 'package:flutter_base_clean_architecture/routes/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -29,10 +31,13 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
       svgAsset: ImageConst.homeIcon,
       screen: const ProviderScope(child: OverviewView()),
     ),
-    TabBarModel(svgAsset: ImageConst.documentIcon, screen: const SizedBox()),
+    TabBarModel(
+      svgAsset: ImageConst.documentIcon,
+      screen: const ProviderScope(child: PlanOverViewView()),
+    ),
     TabBarModel(
       svgAsset: ImageConst.searchIcon,
-      screen: const SizedBox(),
+      screen: const ProviderScope(child: FitOverViewView()),
     ),
     TabBarModel(
       svgAsset: ImageConst.personIcon,
@@ -64,7 +69,10 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
         items: <TabBarItemStyle>[
           ...dashboardItem.map(
             (e) => TabBarItemStyle(
-                title: e.title, assetIcon: e.svgAsset, screen: e.screen),
+              title: e.title,
+              assetIcon: e.svgAsset,
+              screen: e.screen,
+            ),
           )
         ],
         elevation: 0.05,

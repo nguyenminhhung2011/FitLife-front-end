@@ -14,19 +14,23 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../clean_architectures/domain/usecase/setting/setting_usecase.dart'
-    as _i10;
-import '../../mvvm/data/remote/auth/auth_api.dart' as _i13;
+    as _i12;
+import '../../mvvm/data/remote/auth/auth_api.dart' as _i15;
 import '../../mvvm/repo/auth_repositories.dart' as _i3;
 import '../../mvvm/repo/repo_impl/auth_repositories_impl.dart' as _i4;
-import '../../mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart' as _i11;
+import '../../mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart' as _i13;
 import '../../mvvm/ui/dashboard/view_model/dashboard_view_model.dart' as _i6;
-import '../../mvvm/ui/overview/view_model/overview_view_model.dart' as _i9;
-import '../../mvvm/ui/splash/view_model/splash_view_model.dart' as _i12;
+import '../../mvvm/ui/fit_overview/view_model/fit_overview_view_model.dart'
+    as _i8;
+import '../../mvvm/ui/overview/view_model/overview_view_model.dart' as _i10;
+import '../../mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart'
+    as _i11;
+import '../../mvvm/ui/splash/view_model/splash_view_model.dart' as _i14;
 import '../components/layout/setting_layout/controller/setting_bloc.dart'
-    as _i14;
+    as _i16;
 import '../services/cloundinary_service.dart' as _i5;
-import '../services/image_pic_service.dart' as _i8;
-import 'modules/data_source_module.dart' as _i15;
+import '../services/image_pic_service.dart' as _i9;
+import 'modules/data_source_module.dart' as _i17;
 
 const String _prod = 'prod';
 
@@ -49,15 +53,17 @@ _i1.GetIt init(
     () => dataSourceModule.dioProd(),
     registerFor: {_prod},
   );
-  gh.factory<_i8.ImagePicService>(() => _i8.ImagePicService());
-  gh.factory<_i9.OverviewViewModel>(() => _i9.OverviewViewModel());
-  gh.factory<_i10.SettingUseCase>(() => _i10.SettingUseCase());
-  gh.factory<_i11.SignInViewModel>(() => _i11.SignInViewModel());
-  gh.factory<_i12.SplashViewModel>(() => _i12.SplashViewModel());
-  gh.factory<_i13.AuthApi>(() => _i13.AuthApi(gh<_i7.Dio>()));
-  gh.factory<_i14.SettingBloc>(
-      () => _i14.SettingBloc(gh<_i10.SettingUseCase>()));
+  gh.factory<_i8.FitOverViewViewModel>(() => _i8.FitOverViewViewModel());
+  gh.factory<_i9.ImagePicService>(() => _i9.ImagePicService());
+  gh.factory<_i10.OverviewViewModel>(() => _i10.OverviewViewModel());
+  gh.factory<_i11.PlanOverViewViewModel>(() => _i11.PlanOverViewViewModel());
+  gh.factory<_i12.SettingUseCase>(() => _i12.SettingUseCase());
+  gh.factory<_i13.SignInViewModel>(() => _i13.SignInViewModel());
+  gh.factory<_i14.SplashViewModel>(() => _i14.SplashViewModel());
+  gh.factory<_i15.AuthApi>(() => _i15.AuthApi(gh<_i7.Dio>()));
+  gh.factory<_i16.SettingBloc>(
+      () => _i16.SettingBloc(gh<_i12.SettingUseCase>()));
   return getIt;
 }
 
-class _$DataSourceModule extends _i15.DataSourceModule {}
+class _$DataSourceModule extends _i17.DataSourceModule {}

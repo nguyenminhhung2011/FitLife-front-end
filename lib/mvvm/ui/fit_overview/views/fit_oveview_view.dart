@@ -14,7 +14,6 @@ import 'package:flutter_base_clean_architecture/core/components/widgets/range_da
 import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/view_model/fit_overview_view_model.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/views/widgets/fit_ness_over_view_statistic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
 
 class FitOverViewView extends ConsumerStatefulWidget {
   const FitOverViewView({super.key});

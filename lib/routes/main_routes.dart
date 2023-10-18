@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/auth/views/sign_in_view.dart';
+import 'package:flutter_base_clean_architecture/mvvm/ui/chat_bot/views/chat_bot_view.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/dashboard/views/dashboard_view.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/views/fit_oveview_view.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/splash/views/splash_view.dart';
@@ -31,6 +32,11 @@ class MainRoutes {
           builder: (_) {
             return PassCodeScreen(routes: settings.arguments.toString());
           },
+        );
+      case Routes.chatBot:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: ChatBotView()),
         );
 
       case Routes.splash:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base_clean_architecture/core/components/constant/constant.dart';
 import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
+import 'package:flutter_base_clean_architecture/mvvm/ui/chat_bot/views/widgets/bottom_selected_prompt.dart';
 
 import 'core/components/layout/setting_layout/views/language_choose.dart';
 import 'core/components/widgets/range_date_picker_custom.dart';
@@ -108,6 +109,23 @@ extension AppCoordinator<T> on BuildContext {
       backgroundColor: Theme.of(this).scaffoldBackgroundColor,
       builder: (context) {
         return const LangCodeShows();
+      },
+    );
+    if (data is String) {
+      return data;
+    }
+    return '';
+  }
+  Future<String> selectedPrompt() async {
+    final data = await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(14)),
+      ),
+      backgroundColor: Theme.of(this).scaffoldBackgroundColor,
+      builder: (context) {
+        return const BottomSelectedPrompt();
       },
     );
     if (data is String) {

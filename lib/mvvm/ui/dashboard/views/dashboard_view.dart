@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base_clean_architecture/app_coordinator.dart';
 import 'package:flutter_base_clean_architecture/core/components/config/setting_config.dart';
 import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
 import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
@@ -13,6 +14,7 @@ import 'package:flutter_base_clean_architecture/mvvm/ui/overview/views/overview_
 import 'package:flutter_base_clean_architecture/mvvm/ui/plan_overview/views/plan_overview_view.dart';
 import 'package:flutter_base_clean_architecture/routes/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:drag_ball/drag_ball.dart';
 
 class DashboardView extends ConsumerStatefulWidget {
   const DashboardView({super.key});
@@ -61,33 +63,40 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      extendBody: true,
-      bottomNavigationBar: TabBarCustom(
-        onChangeTab: _vm.changeState,
-        items: <TabBarItemStyle>[
-          ...dashboardItem.map(
-            (e) => TabBarItemStyle(
-              title: e.title,
-              assetIcon: e.svgAsset,
-              screen: e.screen,
-            ),
-          )
-        ],
-        elevation: 0.05,
-        tabBarType: TabBarType.animationTabBar,
-        painterType: TabBarPainterType.circle,
-        iconSize: 23.0,
-        iconSelectedColor: Theme.of(context).primaryColor.withOpacity(0.8),
-        usSelectedColor: context.titleLarge.color,
-        duration: 200,
-        isSvgIcon: true,
-        animatedTabStyle: const AnimatedTabStyle(posHeight: 5),
-      ),
-      body: IndexedStack(
-        index: index,
-        children: [...dashboardItem.map((e) => e.screen)],
+    return Dragball(
+      ball: Image.asset(ImageConst.brainIcon, width: 50.0, height: 50.0),
+      onTap: () => context.openListPageWithRoute(Routes.chatBot),
+      iconSize: 16.0,
+      initialPosition: const DragballPosition.defaultPosition(),
+      onPositionChanged: (position) {},
+      child: Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        extendBody: true,
+        bottomNavigationBar: TabBarCustom(
+          onChangeTab: _vm.changeState,
+          items: <TabBarItemStyle>[
+            ...dashboardItem.map(
+              (e) => TabBarItemStyle(
+                title: e.title,
+                assetIcon: e.svgAsset,
+                screen: e.screen,
+              ),
+            )
+          ],
+          elevation: 0.05,
+          tabBarType: TabBarType.animationTabBar,
+          painterType: TabBarPainterType.circle,
+          iconSize: 23.0,
+          iconSelectedColor: Theme.of(context).primaryColor.withOpacity(0.8),
+          usSelectedColor: context.titleLarge.color,
+          duration: 200,
+          isSvgIcon: true,
+          animatedTabStyle: const AnimatedTabStyle(posHeight: 5),
+        ),
+        body: IndexedStack(
+          index: index,
+          children: [...dashboardItem.map((e) => e.screen)],
+        ),
       ),
     );
   }

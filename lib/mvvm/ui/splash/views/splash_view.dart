@@ -76,14 +76,15 @@ class _SplashViewState extends ConsumerState<SplashView> {
                   children: [
                     TextSpan(
                       text: '${environmentProd['name']} ',
-                      style: TextStyle(
+                      style: context.titleMedium.copyWith(
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const TextSpan(
+                    TextSpan(
                       text: 'App',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: context.titleMedium
+                          .copyWith(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),

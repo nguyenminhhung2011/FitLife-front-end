@@ -20,7 +20,7 @@ class BottomSelectedPrompt extends StatelessWidget {
         backgroundColor: Colors.transparent,
         extendBody: true,
         body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+          padding: const EdgeInsets.symmetric(vertical: 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -38,15 +38,22 @@ class BottomSelectedPrompt extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30.0),
-              Text(
-                'Prompt selected',
-                style: context.titleLarge.copyWith(fontWeight: FontWeight.bold),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text(
+                  'Prompt selected',
+                  style:
+                      context.titleLarge.copyWith(fontWeight: FontWeight.bold),
+                ),
               ),
               const SizedBox(height: 5.0),
-              Text(
-                'Selected prompt to fast input question for chat bot',
-                style: context.titleSmall
-                    .copyWith(color: Theme.of(context).hintColor),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text(
+                  'Selected prompt to fast input question for chat bot',
+                  style: context.titleSmall
+                      .copyWith(color: Theme.of(context).hintColor),
+                ),
               ),
               const Divider(thickness: 0.8),
               Expanded(
@@ -59,10 +66,18 @@ class BottomSelectedPrompt extends StatelessWidget {
                     child: Container(
                       width: double.infinity,
                       padding: const EdgeInsets.all(15.0),
-                      margin: const EdgeInsets.symmetric(vertical: 5.0),
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 5.0, horizontal: 15.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
                         color: Theme.of(context).cardColor,
+                        boxShadow: [
+                          BoxShadow(
+                            color:
+                                Theme.of(context).shadowColor.withOpacity(0.1),
+                            blurRadius: 5.0,  
+                          )
+                        ],
                       ),
                       child: Row(
                         children: [

@@ -68,7 +68,7 @@ class _MessageItemState extends State<MessageItem> {
                 widget.content,
                 style: context.titleSmall.copyWith(
                   fontSize: 13.0,
-                  color: widget.isBot ? Colors.white : Colors.black,
+                  color: widget.isBot ? context.titleLarge.color : Colors.black,
                 ),
               ),
             ),

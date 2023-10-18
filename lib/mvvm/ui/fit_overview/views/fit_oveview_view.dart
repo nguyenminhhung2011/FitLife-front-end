@@ -1,10 +1,18 @@
-import 'package:collection/collection.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base_clean_architecture/app_coordinator.dart';
+import 'package:flutter_base_clean_architecture/core/components/constant/handle_time.dart';
 import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
 import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/button_custom.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/exercise_category.dart';
 import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/line_chart.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/upcoming_workout_item.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/header_custom.dart';
+import 'package:flutter_base_clean_architecture/core/components/widgets/range_date_picker_custom.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/view_model/fit_overview_view_model.dart';
+import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/views/widgets/fit_ness_over_view_statistic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -19,7 +27,12 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
   FitOverViewViewModel get _vm =>
       ref.read<FitOverViewViewModel>(fitOverViewNotifier.notifier);
 
+  List<DateTime> get _rangeDate =>
+      ref.watch(fitOverViewNotifier).data.rangeDate;
+
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
+
+  final RangeDateController _rangeDateController = RangeDateController();
 
   List<FlSpot> listFlSpotCaloriesBurned = <FlSpot>[
     const FlSpot(1, 1),
@@ -36,8 +49,16 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
     super.initState();
   }
 
+  void _onSelectedDate() async {
+    final result = await context.pickWeekRange(_rangeDateController);
+    if (result?.isNotEmpty ?? false) {
+      _vm.onSelectedDate(result!);
+    }
+  }
+
   @override
   void dispose() {
+    _rangeDateController.dispose();
     super.dispose();
   }
 
@@ -64,11 +85,41 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
       ),
       body: ListView(
         children: [
-          const SizedBox(height: 40),
           Row(
-            children: [],
+            children: [
+              const SizedBox(width: 15.0),
+              if (_rangeDate.isNotEmpty)
+                Expanded(
+                  child: Text(
+                    getRangeDateFormat(_rangeDate.first, _rangeDate.last),
+                    style: context.titleSmall.copyWith(fontSize: 12.0),
+                  ),
+                ),
+              ButtonCustom(
+                enableWidth: false,
+                onPress: _onSelectedDate,
+                radius: 5.0,
+                height: 30.0,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Icon(CupertinoIcons.calendar_badge_minus,
+                        color: Colors.white, size: 16),
+                    Text(
+                      ' Selected date',
+                      style: context.titleSmall.copyWith(
+                        color: Colors.white,
+                        fontSize: 10.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 15.0),
+            ],
           ),
-          const SizedBox(height: 10.0),
+          const SizedBox(height: 20.0),
           Container(
             margin: const EdgeInsets.only(left: 20, right: 10.0),
             width: double.infinity,
@@ -81,100 +132,69 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
           ),
           const SizedBox(height: 15.0),
           const FitnessOverViewStatistic(),
-        ],
-      ),
-    );
-  }
-}
+          HeaderTextCustom(
+            headerText: 'What do you want to train',
+            textStyle:
+                context.titleMedium.copyWith(fontWeight: FontWeight.w600),
+            isShowSeeMore: true,
+          ),
+          SizedBox(
+            width: double.infinity,
+            height: 180.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                const SizedBox(width: 15.0),
 
-class FitnessOverViewStatistic extends StatelessWidget {
-  const FitnessOverViewStatistic({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 15.0),
-      padding: const EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: Theme.of(context).primaryColor.withOpacity(0.2),
-      ),
-      child: Row(
-        children: [
-          ...[81, 32.5, 100]
-              .mapIndexed(
-                (index, e) => Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        children: [
-                          _renderIcon(index, context),
-                          const SizedBox(width: 5.0),
-                          _renderHeader(index, context)
-                        ],
+                ///[Example code]
+                ...[
+                  {
+                    'header': 'Upper Body',
+                    'description': 'This is description of upper body',
+                    'exCountable': 21,
+                    'level': 'Beginner ⚡ Advanced',
+                    'image': ImageConst.banner1,
+                  },
+                  {
+                    'header': 'Cardio',
+                    'description': 'This is description of Cardio',
+                    'exCountable': 31,
+                    'level': 'Medium ⚡ Advanced',
+                    'image': ImageConst.banner2,
+                  },
+                  {
+                    'header': 'Stretch',
+                    'description': 'This is description of Stretch',
+                    'exCountable': 19,
+                    'level': 'Beginner ⚡ Advanced',
+                    'image': ImageConst.banner3,
+                  },
+                ]
+                    .map<Widget>(
+                      (e) => ExerciseCategory(
+                        header: e['header'].toString(),
+                        description: e['description'].toString(),
+                        exCountable: e['exCountable'] as int,
+                        level: e['level'].toString(),
+                        image: e['image'].toString(),
                       ),
-                      const SizedBox(height: 10.0),
-                      Text.rich(TextSpan(
-                        children: [
-                          TextSpan(
-                            text: e.toString(),
-                            style: context.titleLarge
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                          _renderStatistic(index, context)
-                        ],
-                      ))
-                    ],
-                  ),
-                ),
-              )
-              .expand(
-                (e) => [
-                  e,
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 2.5),
-                    child: SizedBox(height: 60.0, child: VerticalDivider()),
-                  )
-                ],
-              )
-              .toList()
-            ..removeLast()
+                    )
+                    .expand((e) => [e, const SizedBox(width: 15.0)])
+              ],
+            ),
+          ),
+          HeaderTextCustom(
+            headerText: 'Upcoming workout',
+            textStyle:
+                context.titleMedium.copyWith(fontWeight: FontWeight.w600),
+            isShowSeeMore: true,
+          ),
+          const UpComingWorkoutItem(),
+          const SizedBox(height: 10.0),
+          const UpComingWorkoutItem(),
+          const SizedBox(height: 100.0),
         ],
       ),
     );
-  }
-
-  SvgPicture _renderIcon(int index, BuildContext context) {
-    return SvgPicture.asset(
-      switch (index) {
-        0 => ImageConst.heartIcon,
-        1 => ImageConst.listIcon,
-        _ => ImageConst.caloriesIcon,
-      },
-      height: 18.0,
-      width: 18.0,
-      // ignore: deprecated_member_use
-      color: Theme.of(context).primaryColor,
-    );
-  }
-
-  TextSpan _renderStatistic(int index, BuildContext context) {
-    return TextSpan(
-        text: switch (index) { 0 => ' BPM', 1 => ' %', _ => ' Calo' },
-        style: context.titleMedium);
-  }
-
-  Expanded _renderHeader(int index, BuildContext context) {
-    return Expanded(
-        child: Text(
-      switch (index) { 0 => 'Heart Rate', 1 => 'To-do', _ => 'Calories' },
-      overflow: TextOverflow.ellipsis,
-      style: context.titleSmall,
-    ));
   }
 }

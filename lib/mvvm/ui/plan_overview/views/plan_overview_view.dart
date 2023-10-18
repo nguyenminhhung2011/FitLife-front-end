@@ -92,7 +92,7 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
             ),
             const SizedBox(height: 10),
             HeaderTextCustom(
-              headerText: 'My schedule',
+              headerText: 'Session plan history',
               isShowSeeMore: true,
               textStyle:
                   context.titleMedium.copyWith(fontWeight: FontWeight.w600),

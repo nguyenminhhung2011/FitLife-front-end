@@ -20,32 +20,38 @@ mixin _$FitOverViewState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(FitOverViewData data) initial,
+    required TResult Function(FitOverViewData data) selectedDateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FitOverViewData data)? initial,
+    TResult? Function(FitOverViewData data)? selectedDateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FitOverViewData data)? initial,
+    TResult Function(FitOverViewData data)? selectedDateSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -167,6 +173,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(FitOverViewData data) initial,
+    required TResult Function(FitOverViewData data) selectedDateSuccess,
   }) {
     return initial(data);
   }
@@ -175,6 +182,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FitOverViewData data)? initial,
+    TResult? Function(FitOverViewData data)? selectedDateSuccess,
   }) {
     return initial?.call(data);
   }
@@ -183,6 +191,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FitOverViewData data)? initial,
+    TResult Function(FitOverViewData data)? selectedDateSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -195,6 +204,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
   }) {
     return initial(this);
   }
@@ -203,6 +213,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
   }) {
     return initial?.call(this);
   }
@@ -211,6 +222,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -228,5 +240,147 @@ abstract class _Initial implements FitOverViewState {
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedDataSuccessCopyWith<$Res>
+    implements $FitOverViewStateCopyWith<$Res> {
+  factory _$$_SelectedDataSuccessCopyWith(_$_SelectedDataSuccess value,
+          $Res Function(_$_SelectedDataSuccess) then) =
+      __$$_SelectedDataSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FitOverViewData data});
+
+  @override
+  $FitOverViewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_SelectedDataSuccessCopyWithImpl<$Res>
+    extends _$FitOverViewStateCopyWithImpl<$Res, _$_SelectedDataSuccess>
+    implements _$$_SelectedDataSuccessCopyWith<$Res> {
+  __$$_SelectedDataSuccessCopyWithImpl(_$_SelectedDataSuccess _value,
+      $Res Function(_$_SelectedDataSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_SelectedDataSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FitOverViewData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedDataSuccess implements _SelectedDataSuccess {
+  const _$_SelectedDataSuccess({required this.data});
+
+  @override
+  final FitOverViewData data;
+
+  @override
+  String toString() {
+    return 'FitOverViewState.selectedDateSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedDataSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedDataSuccessCopyWith<_$_SelectedDataSuccess> get copyWith =>
+      __$$_SelectedDataSuccessCopyWithImpl<_$_SelectedDataSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FitOverViewData data) initial,
+    required TResult Function(FitOverViewData data) selectedDateSuccess,
+  }) {
+    return selectedDateSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FitOverViewData data)? initial,
+    TResult? Function(FitOverViewData data)? selectedDateSuccess,
+  }) {
+    return selectedDateSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FitOverViewData data)? initial,
+    TResult Function(FitOverViewData data)? selectedDateSuccess,
+    required TResult orElse(),
+  }) {
+    if (selectedDateSuccess != null) {
+      return selectedDateSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
+  }) {
+    return selectedDateSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
+  }) {
+    return selectedDateSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    required TResult orElse(),
+  }) {
+    if (selectedDateSuccess != null) {
+      return selectedDateSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedDataSuccess implements FitOverViewState {
+  const factory _SelectedDataSuccess({required final FitOverViewData data}) =
+      _$_SelectedDataSuccess;
+
+  @override
+  FitOverViewData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SelectedDataSuccessCopyWith<_$_SelectedDataSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

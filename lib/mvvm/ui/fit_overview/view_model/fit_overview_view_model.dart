@@ -13,5 +13,11 @@ final fitOverViewNotifier =
 
 @injectable
 class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
+  ///---------------
+  FitOverViewData get data => state.data;
   FitOverViewViewModel() : super(const _Initial(data: FitOverViewData()));
+
+  void onSelectedDate(List<DateTime> times) {
+    state = _SelectedDataSuccess(data: data.copyWith(rangeDate: times));
+  }
 }

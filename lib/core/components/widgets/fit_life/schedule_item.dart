@@ -83,6 +83,7 @@ class ScheduleItem extends StatelessWidget {
                       'On-demand activity',
                       style: context.titleSmall.copyWith(
                         color: Theme.of(context).hintColor,
+                        fontSize: 12.0,
                         fontWeight: FontWeight.w500,
                       ),
                     ),

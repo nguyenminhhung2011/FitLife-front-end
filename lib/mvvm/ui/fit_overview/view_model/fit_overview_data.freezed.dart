@@ -15,13 +15,21 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$FitOverViewData {}
+mixin _$FitOverViewData {
+  List<DateTime> get rangeDate => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $FitOverViewDataCopyWith<FitOverViewData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $FitOverViewDataCopyWith<$Res> {
   factory $FitOverViewDataCopyWith(
           FitOverViewData value, $Res Function(FitOverViewData) then) =
       _$FitOverViewDataCopyWithImpl<$Res, FitOverViewData>;
+  @useResult
+  $Res call({List<DateTime> rangeDate});
 }
 
 /// @nodoc
@@ -33,13 +41,30 @@ class _$FitOverViewDataCopyWithImpl<$Res, $Val extends FitOverViewData>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rangeDate = null,
+  }) {
+    return _then(_value.copyWith(
+      rangeDate: null == rangeDate
+          ? _value.rangeDate
+          : rangeDate // ignore: cast_nullable_to_non_nullable
+              as List<DateTime>,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_FitOverViewDataCopyWith<$Res> {
+abstract class _$$_FitOverViewDataCopyWith<$Res>
+    implements $FitOverViewDataCopyWith<$Res> {
   factory _$$_FitOverViewDataCopyWith(
           _$_FitOverViewData value, $Res Function(_$_FitOverViewData) then) =
       __$$_FitOverViewDataCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<DateTime> rangeDate});
 }
 
 /// @nodoc
@@ -49,28 +74,69 @@ class __$$_FitOverViewDataCopyWithImpl<$Res>
   __$$_FitOverViewDataCopyWithImpl(
       _$_FitOverViewData _value, $Res Function(_$_FitOverViewData) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rangeDate = null,
+  }) {
+    return _then(_$_FitOverViewData(
+      rangeDate: null == rangeDate
+          ? _value._rangeDate
+          : rangeDate // ignore: cast_nullable_to_non_nullable
+              as List<DateTime>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_FitOverViewData implements _FitOverViewData {
-  const _$_FitOverViewData();
+  const _$_FitOverViewData({final List<DateTime> rangeDate = const []})
+      : _rangeDate = rangeDate;
+
+  final List<DateTime> _rangeDate;
+  @override
+  @JsonKey()
+  List<DateTime> get rangeDate {
+    if (_rangeDate is EqualUnmodifiableListView) return _rangeDate;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_rangeDate);
+  }
 
   @override
   String toString() {
-    return 'FitOverViewData()';
+    return 'FitOverViewData(rangeDate: $rangeDate)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FitOverViewData);
+        (other.runtimeType == runtimeType &&
+            other is _$_FitOverViewData &&
+            const DeepCollectionEquality()
+                .equals(other._rangeDate, _rangeDate));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_rangeDate));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FitOverViewDataCopyWith<_$_FitOverViewData> get copyWith =>
+      __$$_FitOverViewDataCopyWithImpl<_$_FitOverViewData>(this, _$identity);
 }
 
 abstract class _FitOverViewData implements FitOverViewData {
-  const factory _FitOverViewData() = _$_FitOverViewData;
+  const factory _FitOverViewData({final List<DateTime> rangeDate}) =
+      _$_FitOverViewData;
+
+  @override
+  List<DateTime> get rangeDate;
+  @override
+  @JsonKey(ignore: true)
+  _$$_FitOverViewDataCopyWith<_$_FitOverViewData> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
-import 'package:flutter_base_clean_architecture/mvvm/me/entity/token/token.dart';
-import 'package:flutter_base_clean_architecture/mvvm/repo/auth_repositories.dart';
+import 'package:fit_life/mvvm/me/entity/token/token.dart';
+import 'package:fit_life/mvvm/repo/auth_repositories.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRepositories)

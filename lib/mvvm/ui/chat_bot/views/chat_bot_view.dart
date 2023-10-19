@@ -1,13 +1,13 @@
 import 'package:drag_ball/drag_ball.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/app_coordinator.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/image_custom.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/chat_bot/view_model/chat_bot_view_model.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/chat_bot/views/widgets/input_widget.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/chat_bot/views/widgets/message_item.dart';
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/widgets/image_custom.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot_view_model.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/input_widget.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/message_item.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ChatBotView extends ConsumerStatefulWidget {

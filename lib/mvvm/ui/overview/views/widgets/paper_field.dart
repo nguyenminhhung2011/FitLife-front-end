@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/paper_horizontal_item.dart';
+import 'package:fit_life/core/components/widgets/fit_life/paper_horizontal_item.dart';
 
 class PaperSliderView extends StatefulWidget {
   const PaperSliderView({super.key});

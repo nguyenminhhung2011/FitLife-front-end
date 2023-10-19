@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/app_coordinator.dart';
-import 'package:flutter_base_clean_architecture/mvvm/data/local/preferences.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/constant.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
-import 'package:flutter_base_clean_architecture/generated/l10n.dart';
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/mvvm/data/local/preferences.dart';
+import 'package:fit_life/core/components/constant/constant.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/generated/l10n.dart';
 
 class PassCodeScreen extends StatefulWidget {
   final String? routes;

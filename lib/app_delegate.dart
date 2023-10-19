@@ -3,7 +3,7 @@ import 'dart:async';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/routes/routes.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:injectable/injectable.dart';
 
 import 'application.dart';

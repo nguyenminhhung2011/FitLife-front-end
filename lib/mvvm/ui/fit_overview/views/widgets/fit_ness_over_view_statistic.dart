@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:flutter_svg/svg.dart';
 
 class FitnessOverViewStatistic extends StatelessWidget {

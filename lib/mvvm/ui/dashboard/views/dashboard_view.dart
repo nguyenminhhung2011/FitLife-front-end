@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/app_coordinator.dart';
-import 'package:flutter_base_clean_architecture/core/components/config/setting_config.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
-import 'package:flutter_base_clean_architecture/core/components/layout/setting_layout/views/setting_screen.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/tab_bar/tab_bar_model.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/tab_bar/tab_bar_paint.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/tab_bar/tab_bar_type.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/tab_bar/tabbar_custom.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/dashboard/view_model/dashboard_view_model.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/views/fit_oveview_view.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/overview/views/overview_view.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/plan_overview/views/plan_overview_view.dart';
-import 'package:flutter_base_clean_architecture/routes/routes.dart';
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/config/setting_config.dart';
+import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/layout/setting_layout/views/setting_screen.dart';
+import 'package:fit_life/core/components/widgets/tab_bar/tab_bar_model.dart';
+import 'package:fit_life/core/components/widgets/tab_bar/tab_bar_paint.dart';
+import 'package:fit_life/core/components/widgets/tab_bar/tab_bar_type.dart';
+import 'package:fit_life/core/components/widgets/tab_bar/tabbar_custom.dart';
+import 'package:fit_life/mvvm/ui/dashboard/view_model/dashboard_view_model.dart';
+import 'package:fit_life/mvvm/ui/fit_overview/views/fit_oveview_view.dart';
+import 'package:fit_life/mvvm/ui/overview/views/overview_view.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/views/plan_overview_view.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:drag_ball/drag_ball.dart';
 
@@ -66,9 +66,10 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
     return Dragball(
       ball: Image.asset(ImageConst.brainIcon, width: 50.0, height: 50.0),
       onTap: () => context.openListPageWithRoute(Routes.chatBot),
-      iconSize: 16.0,
+      iconSize: 16.0, 
       initialPosition: const DragballPosition.defaultPosition(),
       onPositionChanged: (position) {},
+      scrollAndHide: false,
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         extendBody: true,

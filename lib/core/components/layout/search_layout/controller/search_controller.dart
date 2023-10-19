@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/mvvm/data/local/preferences.dart';
-import 'package:flutter_base_clean_architecture/core/components/layout/search_layout/model/filter_response.dart';
-import 'package:flutter_base_clean_architecture/core/components/layout/search_layout/views/search_layou.dart';
+import 'package:fit_life/mvvm/data/local/preferences.dart';
+import 'package:fit_life/core/components/layout/search_layout/model/filter_response.dart';
+import 'package:fit_life/core/components/layout/search_layout/views/search_layou.dart';
 
 enum SearchEnum {
   list(0),

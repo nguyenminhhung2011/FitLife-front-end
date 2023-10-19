@@ -1,4 +1,4 @@
-import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
+import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:riverpod/riverpod.dart';

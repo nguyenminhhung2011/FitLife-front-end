@@ -1,18 +1,18 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/app_coordinator.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/handle_time.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/button_custom.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/exercise_category.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/line_chart.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/upcoming_workout_item.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/header_custom.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/range_date_picker_custom.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/view_model/fit_overview_view_model.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/views/widgets/fit_ness_over_view_statistic.dart';
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/constant/handle_time.dart';
+import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/widgets/button_custom.dart';
+import 'package:fit_life/core/components/widgets/fit_life/exercise_category.dart';
+import 'package:fit_life/core/components/widgets/fit_life/line_chart.dart';
+import 'package:fit_life/core/components/widgets/fit_life/upcoming_workout_item.dart';
+import 'package:fit_life/core/components/widgets/header_custom.dart';
+import 'package:fit_life/core/components/widgets/range_date_picker_custom.dart';
+import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_view_model.dart';
+import 'package:fit_life/mvvm/ui/fit_overview/views/widgets/fit_ness_over_view_statistic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FitOverViewView extends ConsumerStatefulWidget {
@@ -191,7 +191,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
           const UpComingWorkoutItem(),
           const SizedBox(height: 10.0),
           const UpComingWorkoutItem(),
-          const SizedBox(height: 100.0),
+          const SizedBox(height: 40.0),
         ],
       ),
     );

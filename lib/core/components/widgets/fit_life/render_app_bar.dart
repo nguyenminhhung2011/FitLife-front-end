@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/core/components/configurations/env/env_prod.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
-import 'package:flutter_base_clean_architecture/core/components/layout/setting_layout/controller/setting_bloc.dart';
-import 'package:flutter_base_clean_architecture/core/components/layout/setting_layout/utils/setting_utils.dart';
+import 'package:fit_life/core/components/configurations/env/env_prod.dart';
+import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
+import 'package:fit_life/core/components/layout/setting_layout/utils/setting_utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RenderAppBar extends StatefulWidget {

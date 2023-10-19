@@ -1,4 +1,4 @@
-import 'package:flutter_base_clean_architecture/mvvm/ui/chat_bot/view_model/chat_bot_data.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:riverpod/riverpod.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/color_extension.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/extensions/color_extension.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
 class CustomTextField extends StatefulWidget {
   final TextEditingController? textEditingController;

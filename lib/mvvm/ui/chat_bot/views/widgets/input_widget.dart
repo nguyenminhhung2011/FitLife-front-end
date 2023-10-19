@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/chat_bot/views/widgets/listening_icon.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/listening_icon.dart';
 
 class InputWidget extends StatefulWidget {
   final TextEditingController textEditingController;

@@ -4,9 +4,9 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_base_clean_architecture/core/dependency_injection/di.dart';
-import 'package:flutter_base_clean_architecture/mvvm/data/local/preferences.dart';
-import 'package:flutter_base_clean_architecture/mvvm/data/remote/auth/auth_api.dart';
+import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/data/local/preferences.dart';
+import 'package:fit_life/mvvm/data/remote/auth/auth_api.dart';
 
 class AppCoreFactory {
   static Dio createDio(String baseUrl) {

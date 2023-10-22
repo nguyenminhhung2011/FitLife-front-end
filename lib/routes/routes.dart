@@ -6,4 +6,5 @@ class Routes {
   static const String passCode = '/pass_code';
   static const String dashboard = '/dashboard';
   static const String fitOverView = '/fit_overview';
+  static const String exerciseDetail = '/exercise_detail';
 }

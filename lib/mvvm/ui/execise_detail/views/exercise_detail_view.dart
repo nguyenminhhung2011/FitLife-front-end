@@ -10,6 +10,9 @@ class ExerciseDetailView extends StatefulWidget {
 class _ExerciseDetailViewState extends State<ExerciseDetailView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
+    );
   }
 }

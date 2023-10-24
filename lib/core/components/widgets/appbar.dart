@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppbarCustom extends StatelessWidget {
+class AppBarCustom extends StatelessWidget {
   final Color? backgroundColor;
   final bool? snap;
   final bool? forceElevated;
@@ -21,10 +21,10 @@ class AppbarCustom extends StatelessWidget {
   final List<Widget>? actions;
   final String? aftarImage;
   final Widget? leading;
-  final Widget? widgeExpanded;
+  final Widget? widgetExpanded;
   final Widget? titleExpand;
 
-  const AppbarCustom({
+  const AppBarCustom({
     super.key,
     this.backgroundColor,
     this.snap,
@@ -45,7 +45,7 @@ class AppbarCustom extends StatelessWidget {
     this.radius,
     required this.title,
     this.leading,
-    this.widgeExpanded,
+    this.widgetExpanded,
     this.titleExpand,
   });
 
@@ -66,11 +66,11 @@ class AppbarCustom extends StatelessWidget {
       backgroundColor:
           backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
       foregroundColor: Theme.of(context).scaffoldBackgroundColor,
-      flexibleSpace: widgeExpanded != null || titleExpand != null
+      flexibleSpace: widgetExpanded != null || titleExpand != null
           ? FlexibleSpaceBar(
               centerTitle: true,
               titlePadding: const EdgeInsets.all(0.0),
-              background: widgeExpanded,
+              background: widgetExpanded,
               title: titleExpand,
             )
           : aftarImage != null

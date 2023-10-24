@@ -1,4 +1,6 @@
 import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
+import 'package:fit_life/mvvm/ui/exercise_overview/views/exercise_overview_view.dart';
+import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_schedule_view.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/mvvm/ui/auth/views/sign_in_view.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/chat_bot_view.dart';
@@ -45,6 +47,11 @@ class MainRoutes {
           settings: settings,
           builder: (_) => const ProviderScope(child: SplashView()),
         );
+      case Routes.exerciseOverview:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: ExerciseOverViewView()),
+        );
 
       case Routes.exerciseDetail:
         return MaterialPageRoute(
@@ -67,6 +74,11 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const ProviderScope(child: FitOverViewView()),
+        );
+      case Routes.exerciseSchedule:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: ExerciseScheduleView()),
         );
 
       default:

@@ -18,7 +18,7 @@ class UpComingWorkoutItem extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(5.0),
             margin: const EdgeInsets.symmetric(horizontal: 15.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
@@ -33,7 +33,7 @@ class UpComingWorkoutItem extends StatelessWidget {
             child: Row(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
+                  borderRadius: BorderRadius.circular(7.0),
                   child: Image.asset(
                     ImageConst.banner1,
                     fit: BoxFit.cover,

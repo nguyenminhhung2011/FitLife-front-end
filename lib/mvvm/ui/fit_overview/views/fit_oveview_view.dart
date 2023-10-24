@@ -1,3 +1,4 @@
+import 'package:fit_life/routes/routes.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -187,6 +188,8 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
             textStyle:
                 context.titleMedium.copyWith(fontWeight: FontWeight.w600),
             isShowSeeMore: true,
+            onPress: () =>
+                context.openListPageWithRoute(Routes.exerciseSchedule),
           ),
           const UpComingWorkoutItem(),
           const SizedBox(height: 10.0),

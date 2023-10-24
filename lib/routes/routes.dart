@@ -7,4 +7,6 @@ class Routes {
   static const String dashboard = '/dashboard';
   static const String fitOverView = '/fit_overview';
   static const String exerciseDetail = '/exercise_detail';
+  static const String exerciseOverview = '/exercise_overview';
+  static const String exerciseSchedule = '/exercise_schedule';
 }

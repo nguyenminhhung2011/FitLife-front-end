@@ -1,10 +1,9 @@
 import 'package:collection/collection.dart';
-import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
-import 'package:fit_life/core/components/widgets/dot_custom.dart';
 import 'package:fit_life/core/components/widgets/video_player.dart';
+import 'package:fit_life/mvvm/ui/execise_detail/views/widgets/step_item_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
@@ -22,6 +21,9 @@ class _ExerciseDetailViewState extends State<ExerciseDetailView> {
   Color get _primaryColor => Theme.of(context).primaryColor;
 
   EdgeInsets get _itemPadding => const EdgeInsets.symmetric(horizontal: 15.0);
+
+  TextStyle get _smallStyle => context.titleSmall
+      .copyWith(fontSize: 12.0, color: Theme.of(context).hintColor);
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,7 @@ class _ExerciseDetailViewState extends State<ExerciseDetailView> {
           child: ButtonCustom(
             onPress: () {},
             height: 45.0,
+            radius: 5.0,
             child: Text(
               'Save',
               style: context.titleMedium
@@ -95,11 +98,7 @@ class _ExerciseDetailViewState extends State<ExerciseDetailView> {
             const SizedBox(height: 5.0),
             Padding(
               padding: _itemPadding,
-              child: Text(
-                'Easy | 350 calories burn',
-                style: context.titleSmall.copyWith(
-                    fontSize: 12.0, color: Theme.of(context).hintColor),
-              ),
+              child: Text('Easy | 350 calories burn', style: _smallStyle),
             ),
             const SizedBox(height: 10.0),
             _headerText(content: 'Description'),
@@ -110,12 +109,9 @@ class _ExerciseDetailViewState extends State<ExerciseDetailView> {
                 trimLines: 2,
                 trimCollapsedText: ' Show more',
                 trimExpandedText: ' Show less',
-                lessStyle: context.titleSmall.copyWith(color: _primaryColor),
-                moreStyle: context.titleSmall.copyWith(color: _primaryColor),
-                style: context.titleSmall.copyWith(
-                  color: Theme.of(context).hintColor,
-                  fontWeight: FontWeight.w500,
-                ),
+                lessStyle: _smallStyle.copyWith(color: _primaryColor),
+                moreStyle: _smallStyle.copyWith(color: _primaryColor),
+                style: _smallStyle.copyWith(fontWeight: FontWeight.w400),
               ),
             ),
             const SizedBox(height: 15.0),
@@ -126,15 +122,11 @@ class _ExerciseDetailViewState extends State<ExerciseDetailView> {
                 children: [
                   Text(
                     'How to do it?',
-                    style: context.titleLarge
+                    style: context.titleMedium
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
                   const Spacer(),
-                  Text(
-                    '4 steps',
-                    style: context.titleMedium.copyWith(
-                        fontSize: 12.0, color: Theme.of(context).hintColor),
-                  )
+                  Text('4 steps', style: _smallStyle)
                 ],
               ),
             ),
@@ -182,6 +174,7 @@ class _ExerciseDetailViewState extends State<ExerciseDetailView> {
         ),
         children: [
           ...[
+            ///[🔥 Dumb code] should change to real data in here
             {'c': 360, 't': 45},
             {'c': 370, 't': 46},
             {'c': 380, 't': 47},
@@ -219,7 +212,7 @@ class _ExerciseDetailViewState extends State<ExerciseDetailView> {
       padding: _itemPadding,
       child: Text(
         content,
-        style: context.titleLarge.copyWith(fontWeight: FontWeight.bold),
+        style: context.titleMedium.copyWith(fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -238,96 +231,6 @@ class _ExerciseDetailViewState extends State<ExerciseDetailView> {
           );
         })
       ],
-    );
-  }
-}
-
-class StepItemWidget extends StatelessWidget {
-  final String header;
-  final String content;
-  final int step;
-  final bool isShowIndication;
-  const StepItemWidget({
-    super.key,
-    required this.header,
-    required this.content,
-    required this.step,
-    required this.isShowIndication,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _header(context),
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 5.0)
-              .copyWith(left: 22.0, bottom: 10.0),
-          width: double.infinity,
-          margin: const EdgeInsets.only(left: 68.0),
-          decoration: DottedDecoration(
-            linePosition: LinePosition.left,
-            strokeWidth: 1.5,
-            color: isShowIndication
-                ? Theme.of(context).primaryColor
-                : Colors.transparent,
-          ),
-          child: Text(
-            content,
-            style: context.titleSmall.copyWith(
-              fontSize: 12.0,
-              color: Theme.of(context).hintColor,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  Row _header(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        SizedBox(
-          width: 80.0,
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  '${(step < 10) ? '0' : ''}$step',
-                  style: context.titleMedium.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                ),
-              ),
-              _dot(context),
-            ],
-          ),
-        ),
-        const SizedBox(width: 10.0),
-        Expanded(
-          flex: 4,
-          child: Text(
-            header,
-            overflow: TextOverflow.ellipsis,
-            style: context.titleMedium.copyWith(fontWeight: FontWeight.w600),
-          ),
-        )
-      ],
-    );
-  }
-
-  Container _dot(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    return Container(
-      padding: const EdgeInsets.all(5.0),
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(width: 1, color: primaryColor),
-      ),
-      child: DotCustom(color: primaryColor, full: true, radius: 14.0),
     );
   }
 }

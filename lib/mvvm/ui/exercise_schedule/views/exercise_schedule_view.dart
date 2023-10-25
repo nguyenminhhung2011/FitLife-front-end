@@ -113,7 +113,7 @@ class _ExerciseScheduleViewState extends ConsumerState<ExerciseScheduleView> {
                   height: context.heightDevice * 0.15,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 3,
+                    itemCount: 3, 
                     itemBuilder: (_, index) => const EquipmentHorizontalItem(),
                   ),
                 ),

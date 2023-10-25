@@ -1,3 +1,5 @@
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
@@ -93,6 +95,7 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
             HeaderTextCustom(
               headerText: 'Session plan history',
               isShowSeeMore: true,
+              onPress: () => context.openListPageWithRoute(Routes.planDetail),
               textStyle:
                   context.titleMedium.copyWith(fontWeight: FontWeight.w600),
             ),

@@ -19,7 +19,7 @@ class AppBarCustom extends StatelessWidget {
   final double paddingBottom;
   final List<Widget> title;
   final List<Widget>? actions;
-  final String? aftarImage;
+  final String? afterImage;
   final Widget? leading;
   final Widget? widgetExpanded;
   final Widget? titleExpand;
@@ -40,7 +40,7 @@ class AppBarCustom extends StatelessWidget {
     this.paddingTop = 4.0,
     this.paddingBottom = 4.0,
     this.floating,
-    this.aftarImage,
+    this.afterImage,
     this.expandedHeight,
     this.radius,
     required this.title,
@@ -73,7 +73,7 @@ class AppBarCustom extends StatelessWidget {
               background: widgetExpanded,
               title: titleExpand,
             )
-          : aftarImage != null
+          : afterImage != null
               ? FlexibleSpaceBar(
                   centerTitle: true,
                   titlePadding: const EdgeInsets.all(0.0),
@@ -84,7 +84,7 @@ class AppBarCustom extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Image.asset(
-                            aftarImage!,
+                            afterImage!,
                             width: double.maxFinite,
                             fit: BoxFit.cover,
                           ),

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/box_text.dart';
-import 'package:flutter_base_clean_architecture/generated/l10n.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/widgets/onboarding_step_layout.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/widgets/box_text.dart';
+import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/widgets/onboarding_step_layout.dart';
 
 const _kDefaultValue = 100;
 const _kNumRender = 150;

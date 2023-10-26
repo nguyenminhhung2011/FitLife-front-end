@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
-import 'package:flutter_base_clean_architecture/generated/l10n.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/step/fill_your_profile_screen.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/step/get_height_screen.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/step/get_old_screen.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/step/get_weight_screen.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/step/get_weight_target_screen.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/step/select_duration_screen.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/step/select_gender_screen.dart';
-import 'package:flutter_base_clean_architecture/routes/routes.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/step/fill_your_profile_screen.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/step/get_height_screen.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/step/get_old_screen.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/step/get_weight_screen.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/step/get_weight_target_screen.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/step/select_duration_screen.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/step/select_gender_screen.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:im_stepper/stepper.dart';
 
 class OnboardingScreen extends StatefulWidget {

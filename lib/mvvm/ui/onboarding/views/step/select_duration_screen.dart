@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/generated/l10n.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/widgets/onboarding_step_layout.dart';
+import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/widgets/onboarding_step_layout.dart';
 
 class SelectDurationScreen extends StatefulWidget {
   const SelectDurationScreen({super.key});

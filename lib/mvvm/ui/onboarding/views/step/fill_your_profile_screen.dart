@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/text_field_icon.dart';
-import 'package:flutter_base_clean_architecture/generated/l10n.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/widgets/onboarding_step_layout.dart';
+import 'package:fit_life/core/components/widgets/text_field_icon.dart';
+import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/widgets/onboarding_step_layout.dart';
 import '../../../../../../core/components/extensions/context_extensions.dart';
 
 class FillYourProfileScreen extends StatefulWidget {

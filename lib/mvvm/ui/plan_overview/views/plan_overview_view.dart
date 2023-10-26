@@ -1,13 +1,15 @@
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/handle_time.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/fit_life/schedule_item.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/header_custom.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/plan_overview/views/widgets/plan_overview_card.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/plan_overview/views/widgets/plan_overview_gradient_field.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/plan_overview/views/widgets/plan_overview_progress_field.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/plan_overview/views/widgets/plan_overview_upcoming_session.dart';
+import 'package:fit_life/core/components/constant/handle_time.dart';
+import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/widgets/fit_life/schedule_item.dart';
+import 'package:fit_life/core/components/widgets/header_custom.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_card.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_gradient_field.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_progress_field.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_upcoming_session.dart';
 
 class PlanOverViewView extends StatefulWidget {
   const PlanOverViewView({super.key});
@@ -93,6 +95,7 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
             HeaderTextCustom(
               headerText: 'Session plan history',
               isShowSeeMore: true,
+              onPress: () => context.openListPageWithRoute(Routes.planDetail),
               textStyle:
                   context.titleMedium.copyWith(fontWeight: FontWeight.w600),
             ),

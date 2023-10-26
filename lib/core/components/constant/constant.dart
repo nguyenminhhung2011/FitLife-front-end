@@ -1,7 +1,8 @@
-import 'package:flutter_base_clean_architecture/core/components/constant/image_const.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/string_extensions.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/category/category_model.dart';
-import 'package:flutter_base_clean_architecture/core/config/color_config.dart';
+import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/extensions/string_extensions.dart';
+import 'package:fit_life/core/components/widgets/category/category_model.dart';
+import 'package:fit_life/core/config/color_config.dart';
+import 'package:fit_life/generated/l10n.dart';
 
 class Constant {
   static DateTime timeNow = DateTime.now();
@@ -41,16 +42,16 @@ class Constant {
   ];
 
   static List<String> prompts = [
-    'I have a health concern related to ____. Can you help me understand this condition better?',
-    'I\'ve been experiencing symptoms such as ____. I need guidance from a doctor regarding the cause and treatment options.',
-    'I\'m considering a health decision like ____. Can you provide me with information and advice to make the best decision?',
-    'I want to learn more about preventive measures for ____. Can you provide me with information on effective preventive measures and relevant knowledge?',
-    'I\'m planning to travel to a region with a high risk of ____. Can you advise me on preventive measures and what I should prepare before going?',
-    'I want to understand the impact of ____(medication, food, activity, etc.) on my health. Can you help me learn about the effects and provide guidance on safe usage?',
-    'I\'m struggling with sleep and want to explore natural methods to improve it. Can you assist me with information and advice on sleep?'
-        'I have a family history of ____. I need guidance from a doctor regarding risk factors and preventive measures.',
-    'I\'m interested in learning about natural healthcare approaches. Can you provide me with information and advice on maintaining overall health?',
-    'I\'d like to have a discussion with a doctor about a long-term personal health plan. Can you help me develop a plan and suggest the next steps?'
+    S.current.prompt1,
+    S.current.prompt2,
+    S.current.prompt3,
+    S.current.prompt4,
+    S.current.prompt5,
+    S.current.prompt6,
+    S.current.prompt7,
+    S.current.prompt8,
+    S.current.prompt9,
+    S.current.prompt10,
   ];
 
   static List<CategoryModel> listCategory = <CategoryModel>[

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/double_extension.dart';
+import 'package:fit_life/core/components/extensions/double_extension.dart';
 
 import 'filter_response.dart';
 

@@ -1,11 +1,16 @@
+import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
+import 'package:fit_life/mvvm/ui/exercise_overview/views/exercise_overview_view.dart';
+import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_schedule_view.dart';
+import 'package:fit_life/mvvm/ui/plan_detail/views/plan_detail_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/auth/views/sign_in_view.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/chat_bot/views/chat_bot_view.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/dashboard/views/dashboard_view.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/views/fit_oveview_view.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/onboarding_screen.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/splash/views/splash_view.dart';
-import 'package:flutter_base_clean_architecture/routes/routes.dart';
+import 'package:fit_life/mvvm/ui/auth/views/sign_in_view.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/chat_bot_view.dart';
+import 'package:fit_life/mvvm/ui/dashboard/views/dashboard_view.dart';
+import 'package:fit_life/mvvm/ui/fit_overview/views/fit_oveview_view.dart';
+import 'package:fit_life/mvvm/ui/splash/views/splash_view.dart';
+import 'package:fit_life/routes/routes.dart';
+import 'package:fit_life/mvvm/ui/onboarding/views/onboarding_screen.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/components/layout/setting_layout/views/passcode_screen.dart';
@@ -52,6 +57,17 @@ class MainRoutes {
           settings: settings,
           builder: (_) => const ProviderScope(child: SplashView()),
         );
+      case Routes.exerciseOverview:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: ExerciseOverViewView()),
+        );
+
+      case Routes.exerciseDetail:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: ExerciseDetailView()),
+        );
 
       case Routes.signIn:
         return MaterialPageRoute(
@@ -68,6 +84,16 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const ProviderScope(child: FitOverViewView()),
+        );
+      case Routes.planDetail:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: PlanDetailView()),
+        );
+      case Routes.exerciseSchedule:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: ExerciseScheduleView()),
         );
 
       default:

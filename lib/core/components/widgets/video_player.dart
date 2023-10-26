@@ -161,11 +161,6 @@ class _VideoPlayerUIState extends State<VideoPlayerUI> {
                 reverseDuration: const Duration(milliseconds: 200),
                 child: playPauseButton(_videoController!.value.isPlaying),
               ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: VideoProgressIndicator(_videoController!,
-                    allowScrubbing: true),
-              ),
             ],
           ),
         ),

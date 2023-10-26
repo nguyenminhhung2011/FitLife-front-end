@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/app_coordinator.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
 import '../../../constant/image_const.dart';
 import '../utils/setting_utils.dart';
@@ -19,8 +19,8 @@ class _LangCodeShowsState extends State<LangCodeShows> {
     return Container(
       width: double.infinity,
       constraints: BoxConstraints(
-        maxHeight: height * 0.8,
-        minHeight: height * 0.6,
+        maxHeight: height * 0.4,
+        minHeight: height * 0.3,
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,

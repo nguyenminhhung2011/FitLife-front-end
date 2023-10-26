@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/constant.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
-import 'package:flutter_base_clean_architecture/core/components/widgets/button_custom.dart';
+import 'package:fit_life/core/components/constant/constant.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/widgets/button_custom.dart';
 
 class BannerItemBuilder extends StatelessWidget {
   const BannerItemBuilder({

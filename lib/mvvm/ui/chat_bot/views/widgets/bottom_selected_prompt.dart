@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_clean_architecture/app_coordinator.dart';
-import 'package:flutter_base_clean_architecture/core/components/constant/constant.dart';
-import 'package:flutter_base_clean_architecture/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/constant/constant.dart';
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/generated/l10n.dart';
 
 class BottomSelectedPrompt extends StatelessWidget {
   const BottomSelectedPrompt({
@@ -10,6 +11,18 @@ class BottomSelectedPrompt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final prompts = [
+      S.of(context).prompt1,
+      S.of(context).prompt2,
+      S.of(context).prompt3,
+      S.of(context).prompt4,
+      S.of(context).prompt5,
+      S.of(context).prompt6,
+      S.of(context).prompt7,
+      S.of(context).prompt8,
+      S.of(context).prompt9,
+      S.of(context).prompt10,
+    ];
     return Container(
       width: double.infinity,
       constraints: BoxConstraints(
@@ -58,9 +71,9 @@ class BottomSelectedPrompt extends StatelessWidget {
               const Divider(thickness: 0.8),
               Expanded(
                   child: ListView.builder(
-                itemCount: Constant.prompts.length,
+                itemCount: prompts.length,
                 itemBuilder: (_, index) {
-                  final prompt = Constant.prompts[index];
+                  final prompt = prompts[index];
                   return GestureDetector(
                     onTap: () => context.popArgs(prompt),
                     child: Container(
@@ -75,7 +88,7 @@ class BottomSelectedPrompt extends StatelessWidget {
                           BoxShadow(
                             color:
                                 Theme.of(context).shadowColor.withOpacity(0.1),
-                            blurRadius: 5.0,  
+                            blurRadius: 5.0,
                           )
                         ],
                       ),

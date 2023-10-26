@@ -1,6 +1,6 @@
 import 'dart:developer';
-import 'package:flutter_base_clean_architecture/mvvm/data/local/preferences.dart';
-import 'package:flutter_base_clean_architecture/mvvm/ui/splash/view_model/splash_data.dart';
+import 'package:fit_life/mvvm/data/local/preferences.dart';
+import 'package:fit_life/mvvm/ui/splash/view_model/splash_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intl/intl.dart';
@@ -17,6 +17,8 @@ final splashStateNotifier =
 class SplashViewModel extends StateNotifier<SplashState> {
   ///-----------------
   SplashData get data => state.data;
+
+
   SplashViewModel() : super(const _Initial(data: SplashData()));
 
   Future<void> isAuthCall() async {

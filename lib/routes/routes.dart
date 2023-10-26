@@ -10,4 +10,5 @@ class Routes {
   static const String exerciseDetail = '/exercise_detail';
   static const String exerciseOverview = '/exercise_overview';
   static const String exerciseSchedule = '/exercise_schedule';
+  static const String onboarding = '/onboarding';
 }

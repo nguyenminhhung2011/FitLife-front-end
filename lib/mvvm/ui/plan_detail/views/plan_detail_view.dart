@@ -29,7 +29,22 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      extendBodyBehindAppBar: true,
       backgroundColor: _backgroundColor,
+      bottomSheet: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: ButtonCustom(
+          height: 45.0,
+          radius: 5.0,
+          child: Text(
+            "Create new plan",
+            style: context.titleMedium
+                .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          onPress: () {},
+        ),
+      ),
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
@@ -65,7 +80,30 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
                 ),
                 const SizedBox(height: 10.0),
                 _progressField(context),
-                const SizedBox(height: 15.0),
+                const SizedBox(height: 5.0),
+                Row(
+                  children: [
+                    const SizedBox(width: 15.0),
+                    Expanded(
+                      child: Text(
+                        "Schedule",
+                        style: context.titleMedium
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'view in calendar',
+                        style: context.titleSmall.copyWith(
+                          fontSize: 12.0,
+                          color: _primaryColor,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
                 DividerTimeText(day: 1, time: DateTime.now()),
                 const SizedBox(height: 10.0),
                 const ScheduleItem(),
@@ -79,6 +117,7 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
                   ),
                 ),
                 const Divider(),
+                const SizedBox(height: 45.0),
               ],
             ),
           ),

@@ -6,6 +6,7 @@ import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/equipment_horizontal_item.dart';
 import 'package:fit_life/core/components/widgets/fit_life/exercise_vertial_item.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fit_life/core/components/widgets/appbar.dart';
@@ -38,7 +39,7 @@ class _ExerciseScheduleViewState extends ConsumerState<ExerciseScheduleView> {
         child: ButtonCustom(
           height: 45.0,
           radius: 5.0,
-          onPress: () {},
+          onPress: () => context.openListPageWithRoute(Routes.previewExercise),
           child: Text(
             'Start practice',
             style: context.titleMedium.copyWith(fontWeight: FontWeight.bold),
@@ -113,7 +114,7 @@ class _ExerciseScheduleViewState extends ConsumerState<ExerciseScheduleView> {
                   height: context.heightDevice * 0.15,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 3, 
+                    itemCount: 3,
                     itemBuilder: (_, index) => const EquipmentHorizontalItem(),
                   ),
                 ),
@@ -174,4 +175,3 @@ class _ExerciseScheduleViewState extends ConsumerState<ExerciseScheduleView> {
     );
   }
 }
-  

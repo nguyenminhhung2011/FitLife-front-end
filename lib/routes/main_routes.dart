@@ -3,6 +3,7 @@ import 'package:flutter_base_clean_architecture/mvvm/ui/auth/views/sign_in_view.
 import 'package:flutter_base_clean_architecture/mvvm/ui/chat_bot/views/chat_bot_view.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/dashboard/views/dashboard_view.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/fit_overview/views/fit_oveview_view.dart';
+import 'package:flutter_base_clean_architecture/mvvm/ui/onboarding/views/onboarding_screen.dart';
 import 'package:flutter_base_clean_architecture/mvvm/ui/splash/views/splash_view.dart';
 import 'package:flutter_base_clean_architecture/routes/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,6 +25,13 @@ class MainRoutes {
           settings: settings,
           builder: (_) {
             return const SizedBox();
+          },
+        );
+      case Routes.onboarding:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            return const OnboardingScreen();
           },
         );
       case Routes.passCode:

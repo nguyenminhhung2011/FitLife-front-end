@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 extension ContextExtension on BuildContext {
   double get widthDevice => MediaQuery.of(this).size.width;
   double get heightDevice => MediaQuery.of(this).size.height;
+  Color get primaryColor => Theme.of(this).primaryColor;
   //bool
   bool get canPop => Navigator.maybeOf(this)?.canPop() ?? false;
+
+  Color? get textColor => Theme.of(this).textTheme.bodyMedium?.color;
+
+  TextTheme get textTheme => Theme.of(this).textTheme;
 
   // text
 

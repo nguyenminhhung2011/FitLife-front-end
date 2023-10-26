@@ -5,7 +5,7 @@ import 'package:flutter_base_clean_architecture/core/components/extensions/conte
 class CustomTextField extends StatefulWidget {
   final TextEditingController? textEditingController;
 
-  final String? hingText;
+  final String? hintText;
 
   final TextStyle? hintStyle;
 
@@ -63,7 +63,7 @@ class CustomTextField extends StatefulWidget {
     this.suffix,
     this.prefix,
     this.minLines,
-    this.hingText,
+    this.hintText,
     this.nextNode,
     this.focusNode,
     this.hintStyle,
@@ -100,7 +100,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   TextEditingController get _textEditingController =>
       widget.textEditingController ?? TextEditingController();
 
-  String? get _hintText => widget.hingText;
+  String? get _hintText => widget.hintText;
 
   FocusNode? get _focusNode => widget.focusNode;
 

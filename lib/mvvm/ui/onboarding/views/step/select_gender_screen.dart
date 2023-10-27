@@ -1,3 +1,4 @@
+import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/generated/l10n.dart';
@@ -19,8 +20,8 @@ class _SelectGenderScreenState extends State<SelectGenderScreen> {
     bool isMaleSex = true,
   }) {
     return Container(
-      height: 200,
-      width: 200,
+      height: 180,
+      width: 180,
       decoration: BoxDecoration(
         color: isMaleSex ? Colors.blue[100] : Colors.pink[100],
         border: isMale == isMaleSex
@@ -64,12 +65,12 @@ class _SelectGenderScreenState extends State<SelectGenderScreen> {
       child: Column(
         children: [
           renderGenderBoxWidget(
-              imageUrl: 'assets/images/man.png',
+              imageUrl: ImageConst.manIcon,
               title: S.of(context).male,
               isMaleSex: true),
           const SizedBox(height: 20),
           renderGenderBoxWidget(
-              imageUrl: 'assets/images/woman.png',
+              imageUrl: ImageConst.womanIcon,
               title: S.of(context).female,
               isMaleSex: false),
         ],

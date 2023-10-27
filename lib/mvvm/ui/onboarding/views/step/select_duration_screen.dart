@@ -1,3 +1,4 @@
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/ui/onboarding/views/widgets/onboarding_step_layout.dart';
@@ -73,36 +74,33 @@ class SelectDurationButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: onTap,
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 15,
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 15,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            width: 1.2,
+            color: Colors.grey,
           ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              width: 1.2,
-              color: Colors.grey,
-            ),
-            color: !isSelected
-                ? Colors.transparent
-                : Theme.of(context).primaryColor.withOpacity(0.4),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                duration,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              Text(
-                frequency,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ],
-          ),
-        ));
+          color: !isSelected
+              ? Colors.transparent
+              : Theme.of(context).primaryColor.withOpacity(0.8),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(duration,
+                style:
+                    context.titleLarge.copyWith(fontWeight: FontWeight.w600)),
+            Text(frequency, style: context.titleMedium),
+          ],
+        ),
+      ),
+    );
   }
 }

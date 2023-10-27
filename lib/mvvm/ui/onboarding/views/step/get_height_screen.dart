@@ -50,19 +50,23 @@ class _GetHeightStepState extends State<GetHeightStep> {
                   List.generate(_kNumRender, (index) => index + _kDefaultValue)
                       .map(
                         (e) => Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               e.toString(),
-                              style: context.textTheme.displayMedium?.copyWith(
+                              style: context.titleLarge.copyWith(
                                 color: context.textColor,
+                                fontSize: 30.0,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             const SizedBox(width: 16),
                             Text(
                               'cm',
-                              style: context.textTheme.headlineMedium?.copyWith(
+                              style: context.titleLarge.copyWith(
                                 color: context.textColor,
+                                fontSize: 30.0,
                                 fontWeight: FontWeight.bold,
                               ),
                             )

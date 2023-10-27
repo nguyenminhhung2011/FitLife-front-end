@@ -34,11 +34,11 @@ class TextFieldWithIconWidget extends StatelessWidget {
           Expanded(
             child: TextFormField(
               controller: controller,
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: context.titleMedium.copyWith(fontWeight: FontWeight.w600),
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: const TextStyle(
-                    color: Colors.grey, fontWeight: FontWeight.w400),
+                hintStyle: context.titleMedium
+                    .copyWith(color: Colors.grey, fontWeight: FontWeight.w500),
                 border: InputBorder.none,
               ),
             ),

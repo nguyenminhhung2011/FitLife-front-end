@@ -20,19 +20,17 @@ class OnboardingStepLayout extends StatelessWidget {
       children: [
         Text(
           title ?? "",
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: context.textColor,
-                fontWeight: FontWeight.bold,
-              ),
+          style: context.titleLarge
+              .copyWith(fontWeight: FontWeight.bold, fontSize: 24.0),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 8),
         Text(
           description ?? "",
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: context.textColor,
-                fontWeight: FontWeight.w400,
-              ),
+          style: context.titleSmall.copyWith(
+            color: context.textColor,
+            fontWeight: FontWeight.w400,
+          ),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 30),

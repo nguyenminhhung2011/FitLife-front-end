@@ -15,14 +15,14 @@ class BoxTextWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: context.primaryColor,
-          width: 2,
+          width: 1.5,
         ),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(10),
       ),
       padding: const EdgeInsets.all(16),
       child: Text(
         value,
-        style: context.textTheme.headlineSmall?.copyWith(
+        style: context.titleLarge.copyWith(
           color: context.textColor,
           fontWeight: FontWeight.bold,
         ),

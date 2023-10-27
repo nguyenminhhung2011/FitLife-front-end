@@ -1,3 +1,5 @@
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/generated/l10n.dart';
@@ -36,6 +38,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     ];
     return SafeArea(
       child: Scaffold(
+        bottomSheet: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: ButtonCustom(
+            height: 45.0,
+            radius: 5.0,
+            onPress: () {
+              if (activeStep < upperBound) {
+                setState(() {
+                  activeStep++;
+                });
+              } else {
+                context.openListPageWithRoute(Routes.dashboard);
+              }
+            },
+            child: Text(
+              S.of(context).next,
+              style: context.titleMedium
+                  .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+          ),
+        ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Stack(
@@ -45,28 +68,32 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      IconStepper(
-                        direction: Axis.horizontal,
-                        icons: const [
-                          Icon(Icons.login),
-                          Icon(Icons.person),
-                          Icon(Icons.cake),
-                          Icon(Icons.height),
-                          Icon(Icons.scale),
-                          Icon(Icons.timer_outlined),
-                          Icon(Icons.golf_course_sharp),
-                        ],
-                        stepColor: Theme.of(context).scaffoldBackgroundColor,
-                        activeStep: activeStep,
-                        activeStepColor: context.primaryColor,
-                        enableNextPreviousButtons: false,
-                        lineColor: Theme.of(context).primaryColor,
-                        stepReachedAnimationEffect: Curves.easeInOutCubic,
-                        onStepReached: (index) {
-                          setState(() {
-                            activeStep = index;
-                          });
-                        },
+                      SizedBox(
+                        width: double.infinity,
+                        height: 75.0,
+                        child: IconStepper(
+                          direction: Axis.horizontal,
+                          icons: const [
+                            Icon(Icons.login, size: 12),
+                            Icon(Icons.person, size: 12),
+                            Icon(Icons.cake, size: 12),
+                            Icon(Icons.height, size: 12),
+                            Icon(Icons.scale, size: 12),
+                            Icon(Icons.timer_outlined, size: 12),
+                            Icon(Icons.golf_course_sharp, size: 12),
+                          ],
+                          stepColor: Theme.of(context).scaffoldBackgroundColor,
+                          activeStep: activeStep,
+                          activeStepColor: context.primaryColor,
+                          enableNextPreviousButtons: false,
+                          lineColor: Theme.of(context).primaryColor,
+                          stepReachedAnimationEffect: Curves.easeInOutCubic,
+                          onStepReached: (index) {
+                            setState(() {
+                              activeStep = index;
+                            });
+                          },
+                        ),
                       ),
                       const SizedBox(height: 30),
                       body[activeStep],
@@ -74,33 +101,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          padding: const EdgeInsets.all(16),
-                        ),
-                        onPressed: () {
-                          if (activeStep < upperBound) {
-                            setState(() {
-                              activeStep++;
-                            });
-                          } else {
-                            Navigator.of(context).pushNamed(Routes.dashboard);
-                          }
-                        },
-                        child: Text(S.of(context).next),
-                      ),
-                    ),
-                  ],
-                ),
-              )
             ],
           ),
         ),

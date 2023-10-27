@@ -22,7 +22,9 @@ class _GetWeightScreenState extends State<GetWeightScreen> {
           width: 150,
           height: 200,
           decoration: BoxDecoration(
-            color: (index == weight) ? context.primaryColor : Colors.white,
+            color: (index == weight)
+                ? context.primaryColor
+                : Theme.of(context).cardColor,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(width: 3, color: context.primaryColor),
           ),
@@ -32,16 +34,16 @@ class _GetWeightScreenState extends State<GetWeightScreen> {
               children: [
                 Text(
                   '$index',
-                  style: context.textTheme.displayMedium?.copyWith(
-                    color: Colors.black,
+                  style: context.titleLarge.copyWith(
+                    fontSize: 40.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(width: 16),
                 Text(
                   'Kg',
-                  style: context.textTheme.headlineMedium?.copyWith(
-                    color: context.textColor,
+                  style: context.titleLarge.copyWith(
+                    fontSize: 40.0,
                     fontWeight: FontWeight.bold,
                   ),
                 )

@@ -1,3 +1,4 @@
+import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/widgets/text_field_icon.dart';
 import 'package:fit_life/generated/l10n.dart';
@@ -40,27 +41,25 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
                 children: [
                   (widget.imageUrl == null)
                       ? Container(
-                          width: widthDevice * 0.4,
-                          height: widthDevice * 0.4,
+                          width: widthDevice * 0.3,
+                          height: widthDevice * 0.3,
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: AssetImage(
-                                'assets/images/brain.png',
-                              ),
+                              image: AssetImage(ImageConst.brainIcon),
                             ),
                           ),
                         )
                       : SizedBox(
-                          width: widthDevice * 0.4,
-                          height: widthDevice * 0.4,
+                          width: widthDevice * 0.3,
+                          height: widthDevice * 0.3,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: Image.network(
                               widget.imageUrl!,
-                              width: widthDevice * 0.4,
-                              height: widthDevice * 0.4,
+                              width: widthDevice * 0.3,
+                              height: widthDevice * 0.3,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -87,7 +86,7 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
               )
             ],
           ),
-          const SizedBox(height: 80),
+          const SizedBox(height: 30),
           TextFieldWithIconWidget(
             hintText: S.of(context).fullname,
             controller: fullNameCtrl,

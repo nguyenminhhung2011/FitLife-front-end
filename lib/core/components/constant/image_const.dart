@@ -5,6 +5,8 @@ class ImageConst {
   static const String banner2 = "assets/images/banner2.png";
   static const String banner3 = "assets/images/banner3.png";
   static const String brainIcon = "assets/images/brain.png";
+  static const String manIcon = "assets/images/man.png";
+  static const String womanIcon = "assets/images/woman.png";
   //icons
   static const String homeIcon = 'assets/icons/Home.svg';
   static const String personIcon = 'assets/icons/Profile.svg';

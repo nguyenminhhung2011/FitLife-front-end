@@ -15,7 +15,7 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import '../../clean_architectures/domain/usecase/setting/setting_usecase.dart'
     as _i14;
-import '../../mvvm/data/remote/auth/auth_api.dart' as _i17;
+import '../../mvvm/data/remote/auth/auth_api.dart' as _i18;
 import '../../mvvm/repo/auth_repositories.dart' as _i3;
 import '../../mvvm/repo/repo_impl/auth_repositories_impl.dart' as _i4;
 import '../../mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart' as _i15;
@@ -29,11 +29,12 @@ import '../../mvvm/ui/overview/view_model/overview_view_model.dart' as _i12;
 import '../../mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart'
     as _i13;
 import '../../mvvm/ui/splash/view_model/splash_view_model.dart' as _i16;
+import '../../mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart' as _i17;
 import '../components/layout/setting_layout/controller/setting_bloc.dart'
-    as _i18;
+    as _i19;
 import '../services/cloundinary_service.dart' as _i6;
 import '../services/image_pic_service.dart' as _i11;
-import 'modules/data_source_module.dart' as _i19;
+import 'modules/data_source_module.dart' as _i20;
 
 const String _prod = 'prod';
 
@@ -65,10 +66,11 @@ _i1.GetIt init(
   gh.factory<_i14.SettingUseCase>(() => _i14.SettingUseCase());
   gh.factory<_i15.SignInViewModel>(() => _i15.SignInViewModel());
   gh.factory<_i16.SplashViewModel>(() => _i16.SplashViewModel());
-  gh.factory<_i17.AuthApi>(() => _i17.AuthApi(gh<_i8.Dio>()));
-  gh.factory<_i18.SettingBloc>(
-      () => _i18.SettingBloc(gh<_i14.SettingUseCase>()));
+  gh.factory<_i17.WooTrackViewModel>(() => _i17.WooTrackViewModel());
+  gh.factory<_i18.AuthApi>(() => _i18.AuthApi(gh<_i8.Dio>()));
+  gh.factory<_i19.SettingBloc>(
+      () => _i19.SettingBloc(gh<_i14.SettingUseCase>()));
   return getIt;
 }
 
-class _$DataSourceModule extends _i19.DataSourceModule {}
+class _$DataSourceModule extends _i20.DataSourceModule {}

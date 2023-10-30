@@ -140,6 +140,7 @@ dependencies:
   drag_ball: ^1.0.0
   im_stepper: ^1.0.1+1
   scroll_snap_list: ^0.9.1
+  timer_count_down: ^2.2.2
   # table_calendar: ^3.0.8
   # readmore: ^2.2.0
 

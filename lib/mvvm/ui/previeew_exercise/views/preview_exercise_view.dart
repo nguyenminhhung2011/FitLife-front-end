@@ -36,7 +36,8 @@ class _PreviewExerciseViewState extends ConsumerState<PreviewExerciseView> {
           radius: 5.0,
           child: Text(
             "Start practice",
-            style: context.titleMedium.copyWith(fontWeight: FontWeight.bold),
+            style: context.titleMedium
+                .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
           ),
           onPress: () => context.openListPageWithRoute(Routes.wooTrackView),
         ),

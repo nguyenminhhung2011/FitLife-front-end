@@ -42,7 +42,8 @@ class _ExerciseScheduleViewState extends ConsumerState<ExerciseScheduleView> {
           onPress: () => context.openListPageWithRoute(Routes.previewExercise),
           child: Text(
             'Start practice',
-            style: context.titleMedium.copyWith(fontWeight: FontWeight.bold),
+            style: context.titleMedium
+                .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
       ),

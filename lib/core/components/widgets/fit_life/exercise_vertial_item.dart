@@ -26,9 +26,9 @@ class ExerciseVerticalItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Text('♻️', style: TextStyle(fontSize: 20.0)),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text('♻️', style: context.titleMedium.copyWith(fontSize: 20.0)),
           ),
           Expanded(
             child: Column(

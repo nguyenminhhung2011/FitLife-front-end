@@ -7,6 +7,8 @@ part 'wo_trac_state.dart';
 
 part 'wo_trac_view_model.freezed.dart';
 
+enum WooExerciseAction { next, previous }
+
 final wooTrackStateNotifier =
     AutoDisposeStateNotifierProvider<WooTrackViewModel, WooTrackState>(
         (ref) => WooTrackViewModel());
@@ -32,5 +34,22 @@ class WooTrackViewModel extends StateNotifier<WooTrackState> {
     final currentStatus = state.data.isPlayed;
     state =
         _PlayPauseSuccess(data: state.data.copyWith(isPlayed: !currentStatus));
+  }
+
+  void nextPreviousEx({required WooExerciseAction wooExerciseAction}) {
+    final currentEx = state.data.currentExIndex;
+    if (wooExerciseAction == WooExerciseAction.next) {
+      if (currentEx >= 4) {
+        return;
+      }
+      state = _NextPreviousSuccess(
+          data: state.data.copyWith(currentExIndex: currentEx + 1));
+    } else {
+      if (currentEx <= 0) {
+        return;
+      }
+      state = _NextPreviousSuccess(
+          data: state.data.copyWith(currentExIndex: currentEx - 1));
+    }
   }
 }

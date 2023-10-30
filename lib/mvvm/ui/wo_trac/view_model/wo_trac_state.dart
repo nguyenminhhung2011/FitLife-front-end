@@ -7,5 +7,8 @@ class WooTrackState with _$WooTrackState {
       {required WooTrackData data}) = _ChangeExerciseSuccess;
   const factory WooTrackState.completeRound({required WooTrackData data}) =
       _CompletedRound;
-  const factory WooTrackState.playPauseSuccess({required WooTrackData data}) = _PlayPauseSuccess;
+  const factory WooTrackState.playPauseSuccess({required WooTrackData data}) =
+      _PlayPauseSuccess;
+  const factory WooTrackState.nextPreviousSuccess(
+      {required WooTrackData data}) = _NextPreviousSuccess;
 }

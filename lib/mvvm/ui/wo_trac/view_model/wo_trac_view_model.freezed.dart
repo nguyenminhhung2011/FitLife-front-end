@@ -23,6 +23,7 @@ mixin _$WooTrackState {
     required TResult Function(WooTrackData data) changeExerciseSuccess,
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
+    required TResult Function(WooTrackData data) nextPreviousSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +32,7 @@ mixin _$WooTrackState {
     TResult? Function(WooTrackData data)? changeExerciseSuccess,
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
+    TResult? Function(WooTrackData data)? nextPreviousSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +41,7 @@ mixin _$WooTrackState {
     TResult Function(WooTrackData data)? changeExerciseSuccess,
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
+    TResult Function(WooTrackData data)? nextPreviousSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +52,7 @@ mixin _$WooTrackState {
         changeExerciseSuccess,
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
+    required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +61,7 @@ mixin _$WooTrackState {
     TResult? Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +70,7 @@ mixin _$WooTrackState {
     TResult Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -189,6 +195,7 @@ class _$_Initial implements _Initial {
     required TResult Function(WooTrackData data) changeExerciseSuccess,
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
+    required TResult Function(WooTrackData data) nextPreviousSuccess,
   }) {
     return initial(data);
   }
@@ -200,6 +207,7 @@ class _$_Initial implements _Initial {
     TResult? Function(WooTrackData data)? changeExerciseSuccess,
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
+    TResult? Function(WooTrackData data)? nextPreviousSuccess,
   }) {
     return initial?.call(data);
   }
@@ -211,6 +219,7 @@ class _$_Initial implements _Initial {
     TResult Function(WooTrackData data)? changeExerciseSuccess,
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
+    TResult Function(WooTrackData data)? nextPreviousSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -227,6 +236,7 @@ class _$_Initial implements _Initial {
         changeExerciseSuccess,
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
+    required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
   }) {
     return initial(this);
   }
@@ -238,6 +248,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
   }) {
     return initial?.call(this);
   }
@@ -249,6 +260,7 @@ class _$_Initial implements _Initial {
     TResult Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -343,6 +355,7 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     required TResult Function(WooTrackData data) changeExerciseSuccess,
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
+    required TResult Function(WooTrackData data) nextPreviousSuccess,
   }) {
     return changeExerciseSuccess(data);
   }
@@ -354,6 +367,7 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     TResult? Function(WooTrackData data)? changeExerciseSuccess,
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
+    TResult? Function(WooTrackData data)? nextPreviousSuccess,
   }) {
     return changeExerciseSuccess?.call(data);
   }
@@ -365,6 +379,7 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     TResult Function(WooTrackData data)? changeExerciseSuccess,
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
+    TResult Function(WooTrackData data)? nextPreviousSuccess,
     required TResult orElse(),
   }) {
     if (changeExerciseSuccess != null) {
@@ -381,6 +396,7 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
         changeExerciseSuccess,
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
+    required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
   }) {
     return changeExerciseSuccess(this);
   }
@@ -392,6 +408,7 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     TResult? Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
   }) {
     return changeExerciseSuccess?.call(this);
   }
@@ -403,6 +420,7 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     TResult Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
     required TResult orElse(),
   }) {
     if (changeExerciseSuccess != null) {
@@ -497,6 +515,7 @@ class _$_CompletedRound implements _CompletedRound {
     required TResult Function(WooTrackData data) changeExerciseSuccess,
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
+    required TResult Function(WooTrackData data) nextPreviousSuccess,
   }) {
     return completeRound(data);
   }
@@ -508,6 +527,7 @@ class _$_CompletedRound implements _CompletedRound {
     TResult? Function(WooTrackData data)? changeExerciseSuccess,
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
+    TResult? Function(WooTrackData data)? nextPreviousSuccess,
   }) {
     return completeRound?.call(data);
   }
@@ -519,6 +539,7 @@ class _$_CompletedRound implements _CompletedRound {
     TResult Function(WooTrackData data)? changeExerciseSuccess,
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
+    TResult Function(WooTrackData data)? nextPreviousSuccess,
     required TResult orElse(),
   }) {
     if (completeRound != null) {
@@ -535,6 +556,7 @@ class _$_CompletedRound implements _CompletedRound {
         changeExerciseSuccess,
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
+    required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
   }) {
     return completeRound(this);
   }
@@ -546,6 +568,7 @@ class _$_CompletedRound implements _CompletedRound {
     TResult? Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
   }) {
     return completeRound?.call(this);
   }
@@ -557,6 +580,7 @@ class _$_CompletedRound implements _CompletedRound {
     TResult Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
     required TResult orElse(),
   }) {
     if (completeRound != null) {
@@ -651,6 +675,7 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     required TResult Function(WooTrackData data) changeExerciseSuccess,
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
+    required TResult Function(WooTrackData data) nextPreviousSuccess,
   }) {
     return playPauseSuccess(data);
   }
@@ -662,6 +687,7 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     TResult? Function(WooTrackData data)? changeExerciseSuccess,
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
+    TResult? Function(WooTrackData data)? nextPreviousSuccess,
   }) {
     return playPauseSuccess?.call(data);
   }
@@ -673,6 +699,7 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     TResult Function(WooTrackData data)? changeExerciseSuccess,
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
+    TResult Function(WooTrackData data)? nextPreviousSuccess,
     required TResult orElse(),
   }) {
     if (playPauseSuccess != null) {
@@ -689,6 +716,7 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
         changeExerciseSuccess,
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
+    required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
   }) {
     return playPauseSuccess(this);
   }
@@ -700,6 +728,7 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     TResult? Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
   }) {
     return playPauseSuccess?.call(this);
   }
@@ -711,6 +740,7 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     TResult Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
     required TResult orElse(),
   }) {
     if (playPauseSuccess != null) {
@@ -729,5 +759,166 @@ abstract class _PlayPauseSuccess implements WooTrackState {
   @override
   @JsonKey(ignore: true)
   _$$_PlayPauseSuccessCopyWith<_$_PlayPauseSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_NextPreviousSuccessCopyWith<$Res>
+    implements $WooTrackStateCopyWith<$Res> {
+  factory _$$_NextPreviousSuccessCopyWith(_$_NextPreviousSuccess value,
+          $Res Function(_$_NextPreviousSuccess) then) =
+      __$$_NextPreviousSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({WooTrackData data});
+
+  @override
+  $WooTrackDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_NextPreviousSuccessCopyWithImpl<$Res>
+    extends _$WooTrackStateCopyWithImpl<$Res, _$_NextPreviousSuccess>
+    implements _$$_NextPreviousSuccessCopyWith<$Res> {
+  __$$_NextPreviousSuccessCopyWithImpl(_$_NextPreviousSuccess _value,
+      $Res Function(_$_NextPreviousSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_NextPreviousSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as WooTrackData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NextPreviousSuccess implements _NextPreviousSuccess {
+  const _$_NextPreviousSuccess({required this.data});
+
+  @override
+  final WooTrackData data;
+
+  @override
+  String toString() {
+    return 'WooTrackState.nextPreviousSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NextPreviousSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NextPreviousSuccessCopyWith<_$_NextPreviousSuccess> get copyWith =>
+      __$$_NextPreviousSuccessCopyWithImpl<_$_NextPreviousSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(WooTrackData data) initial,
+    required TResult Function(WooTrackData data) changeExerciseSuccess,
+    required TResult Function(WooTrackData data) completeRound,
+    required TResult Function(WooTrackData data) playPauseSuccess,
+    required TResult Function(WooTrackData data) nextPreviousSuccess,
+  }) {
+    return nextPreviousSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(WooTrackData data)? initial,
+    TResult? Function(WooTrackData data)? changeExerciseSuccess,
+    TResult? Function(WooTrackData data)? completeRound,
+    TResult? Function(WooTrackData data)? playPauseSuccess,
+    TResult? Function(WooTrackData data)? nextPreviousSuccess,
+  }) {
+    return nextPreviousSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(WooTrackData data)? initial,
+    TResult Function(WooTrackData data)? changeExerciseSuccess,
+    TResult Function(WooTrackData data)? completeRound,
+    TResult Function(WooTrackData data)? playPauseSuccess,
+    TResult Function(WooTrackData data)? nextPreviousSuccess,
+    required TResult orElse(),
+  }) {
+    if (nextPreviousSuccess != null) {
+      return nextPreviousSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeExerciseSuccess value)
+        changeExerciseSuccess,
+    required TResult Function(_CompletedRound value) completeRound,
+    required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
+    required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
+  }) {
+    return nextPreviousSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
+    TResult? Function(_CompletedRound value)? completeRound,
+    TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+  }) {
+    return nextPreviousSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
+    TResult Function(_CompletedRound value)? completeRound,
+    TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    required TResult orElse(),
+  }) {
+    if (nextPreviousSuccess != null) {
+      return nextPreviousSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NextPreviousSuccess implements WooTrackState {
+  const factory _NextPreviousSuccess({required final WooTrackData data}) =
+      _$_NextPreviousSuccess;
+
+  @override
+  WooTrackData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_NextPreviousSuccessCopyWith<_$_NextPreviousSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

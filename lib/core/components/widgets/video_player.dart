@@ -8,12 +8,14 @@ class VideoPlayerUI extends StatefulWidget {
   final bool? autoPlay;
   final double width;
   final double height;
+  final bool isShowShadow;
   const VideoPlayerUI({
     super.key,
     this.autoPlay,
     required this.url,
     required this.width,
     required this.height,
+    this.isShowShadow = true,
   });
 
   @override
@@ -127,14 +129,15 @@ class _VideoPlayerUIState extends State<VideoPlayerUI> {
                     aspectRatio: 16 / 9,
                   ),
                 ),
-                Positioned.fill(
-                  child: YoutubeValueBuilder(
-                    builder: (context, value) {
-                      return playPauseButton(
-                          value.playerState == PlayerState.playing);
-                    },
-                  ),
-                )
+                if (widget.isShowShadow)
+                  Positioned.fill(
+                    child: YoutubeValueBuilder(
+                      builder: (context, value) {
+                        return playPauseButton(
+                            value.playerState == PlayerState.playing);
+                      },
+                    ),
+                  )
               ],
             ),
           ),
@@ -156,11 +159,12 @@ class _VideoPlayerUIState extends State<VideoPlayerUI> {
           child: Stack(
             children: [
               VideoPlayer(_videoController!),
-              AnimatedSwitcher(
-                duration: const Duration(milliseconds: 50),
-                reverseDuration: const Duration(milliseconds: 200),
-                child: playPauseButton(_videoController!.value.isPlaying),
-              ),
+              if (widget.isShowShadow)
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 50),
+                  reverseDuration: const Duration(milliseconds: 200),
+                  child: playPauseButton(_videoController!.value.isPlaying),
+                ),
             ],
           ),
         ),

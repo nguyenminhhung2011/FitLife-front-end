@@ -8,6 +8,7 @@ import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_time_text.dart';
 import 'package:fit_life/core/components/widgets/fit_life/schedule_item.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -92,7 +93,8 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () =>
+                          context.openListPageWithRoute(Routes.calendar),
                       child: Text(
                         'view in calendar',
                         style: context.titleSmall.copyWith(

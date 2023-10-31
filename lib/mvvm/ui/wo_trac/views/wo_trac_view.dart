@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/enum/exercise_set.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
@@ -5,6 +7,7 @@ import 'package:fit_life/core/components/extensions/interger_extension.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/video_player.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart';
+import 'package:fit_life/mvvm/ui/wo_trac/views/congratulation.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/widgets/exercise_set_item.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -48,14 +51,23 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
     _vm.changeCurrentEx();
   }
 
+  void _handleExChange() async {
+    await Future.delayed(const Duration(milliseconds: 400));
+    // ignore: use_build_context_synchronously
+    final chest = await context.bottomRelax();
+    if (chest) {
+      _countdownController.restart();
+    }
+  }
+
   void _listenStateChange(WooTrackState state) {
     state.maybeWhen(
       changeExerciseSuccess: (_) {
-        /// Handle event next exercise here
-        _countdownController.restart();
+        _handleExChange();
       },
       nextPreviousSuccess: (_) {
-        _countdownController.restart();
+        _countdownController.pause();
+        _handleExChange();
       },
       playPauseSuccess: (data) {
         if (data.isPlayed) {
@@ -63,6 +75,18 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
         } else {
           _countdownController.pause();
         }
+      },
+      completeRound: (_) async {
+        log("Complete round");
+        await showDialog(
+          context: context,
+          builder: (_) => const Dialog(
+            backgroundColor: Colors.transparent,
+            child: Congratulation(),
+          ),
+        );
+        // ignore: use_build_context_synchronously
+        context.pop();
       },
       orElse: () {},
     );
@@ -114,6 +138,7 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
               url:
                   "https://github.com/minhunsocute/Data-GHealth/blob/main/workout_image/Dragon%20Flag%20Sit-Up.mp4?raw=true",
               width: double.infinity,
+              autoPlay: true,
               height: double.infinity,
             ),
           ),

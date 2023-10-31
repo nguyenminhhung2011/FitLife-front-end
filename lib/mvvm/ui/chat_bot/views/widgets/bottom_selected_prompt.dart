@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fit_life/app_coordinator.dart';
-import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/generated/l10n.dart';
 

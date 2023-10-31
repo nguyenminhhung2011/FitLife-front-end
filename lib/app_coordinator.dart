@@ -1,3 +1,4 @@
+import 'package:fit_life/mvvm/ui/wo_trac/views/relax_view.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
@@ -99,6 +100,21 @@ extension AppCoordinator<T> on BuildContext {
     return List<FilterResponse>.empty();
   }
 
+  Future<bool> bottomRelax() async {
+    final data = await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(14.0)),
+      ),
+      backgroundColor: Theme.of(this).scaffoldBackgroundColor,
+      builder: (context) {
+        return const RelaxView();
+      },
+    );
+    return (data ?? false);
+  }
+
   Future<String> langBottom() async {
     final data = await showModalBottomSheet(
       context: this,
@@ -116,6 +132,7 @@ extension AppCoordinator<T> on BuildContext {
     }
     return '';
   }
+
   Future<String> selectedPrompt() async {
     final data = await showModalBottomSheet(
       context: this,

@@ -1,10 +1,10 @@
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
-import 'package:fit_life/core/components/widgets/fit_life/schedule_item.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_card.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_gradient_field.dart';
@@ -101,15 +101,8 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
             ),
             _renderTimeToText(context, time: DateTime.now()),
             const SizedBox(height: 10.0),
-            const ScheduleItem(),
-            const SizedBox(height: 10.0),
-            _renderTimeToText(
-              context,
-              time: DateTime.now().add(const Duration(days: 1)),
-            ),
-            const SizedBox(height: 10.0),
-            const ScheduleItem(),
-            const ScheduleItem(),
+            const WorkoutPlanItemWidget(),
+            const WorkoutPlanItemWidget(),
             const SizedBox(height: 100),
           ],
         ),

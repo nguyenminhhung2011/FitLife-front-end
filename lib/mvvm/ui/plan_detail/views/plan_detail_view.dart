@@ -39,11 +39,13 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
           height: 45.0,
           radius: 5.0,
           child: Text(
-            "Create new plan",
+            "Add new exercise",
             style: context.titleMedium
                 .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          onPress: () {},
+          onPress: () {
+            context.openListPageWithRoute(Routes.addNewExercise);
+          },
         ),
       ),
       body: CustomScrollView(
@@ -238,8 +240,9 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             children: [
               Text(
                 'Beginner plan',
-                style:
-                    context.titleMedium.copyWith(fontWeight: FontWeight.bold),
+                style: context.titleMedium.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Text(
                 getRangeDateFormat(DateTime.now(),

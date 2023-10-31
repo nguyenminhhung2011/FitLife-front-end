@@ -4,21 +4,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class AddNewPlanView extends StatefulWidget {
-  const AddNewPlanView({super.key});
+class AddNewExerciseView extends StatefulWidget {
+  const AddNewExerciseView({super.key});
 
   @override
-  State<AddNewPlanView> createState() => _AddNewPlanViewState();
+  State<AddNewExerciseView> createState() => _AddNewExerciseViewState();
 }
 
-class _AddNewPlanViewState extends State<AddNewPlanView> {
-  List<String> workouts = [
-    'Upperbody',
-    'Lowebody',
-    'Fullbody',
-    'Cardio',
-    'Hitt',
-    'Abs',
+class _AddNewExerciseViewState extends State<AddNewExerciseView> {
+  List<String> exercises = [
+    'Squats',
+    'Deadlifts',
+    'Planks',
+    'benchPress',
+    'Treadmill Running',
+    'Leg Raises',
   ];
   List<String> difficulty = [
     'Beginner',
@@ -47,7 +47,7 @@ class _AddNewPlanViewState extends State<AddNewPlanView> {
   ];
 
   late String difficultyValue;
-  late String workoutValue;
+  late String exercise;
   late String duration;
   late String weight;
   DateTime startDate = DateTime(2023, 1, 7);
@@ -57,7 +57,7 @@ class _AddNewPlanViewState extends State<AddNewPlanView> {
   @override
   void initState() {
     difficultyValue = difficulty[0];
-    workoutValue = workouts[0];
+    exercise = exercises[0];
     duration = durations[0];
     weight = weights[0];
     super.initState();
@@ -146,12 +146,12 @@ class _AddNewPlanViewState extends State<AddNewPlanView> {
               const SizedBox(height: 10),
               _dropdownListWidget(
                 icon: const Icon(Icons.line_weight),
-                title: "Choose Workout",
-                listItem: workouts,
-                itemChoice: workoutValue,
+                title: "Choose exercise",
+                listItem: exercises,
+                itemChoice: exercise,
                 onChange: (newValue) {
                   setState(() {
-                    workoutValue = newValue!;
+                    exercise = newValue!;
                   });
                 },
               ),

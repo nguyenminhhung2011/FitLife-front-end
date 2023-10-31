@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/category_layout/category_layout_notifier.dart';
 import 'package:fit_life/core/components/widgets/pagination_view/pagination_list_view.dart';
 import 'package:fit_life/core/components/widgets/pagination_view/pagination_notifier.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -77,18 +77,20 @@ class BothCategoryStyle {
   final BoxDecoration? selectedFormat;
   final EdgeInsets? categoryPadding;
   final Widget Function(CategoryLayoutModel)? headerCategoryView;
+  final Widget? separated;
   const BothCategoryStyle({
     this.categorySpacing = 0.0,
     this.isGroupFormat = false,
+    this.headerCategoryView,
+    this.vPaddingSecondSite,
+    this.hPaddingSecondSite,
     this.secondExpand = 10,
     this.firstExpand = 3,
-    this.hPaddingSecondSite,
-    this.vPaddingSecondSite,
-    this.headerCategoryView,
     this.categoryPadding,
     this.secondSiteColor,
     this.selectedFormat,
     this.firstSiteColor,
+    this.separated,
     this.physics,
   });
 }
@@ -150,13 +152,13 @@ class CategoryLayoutView<T> extends StatefulWidget {
     this.unselectedTextStyle,
     this.itemCategoryBuilder,
     this.paginationDataCall,
-    required this.itemBuilder,
-    required this.categoryLayoutModel,
     this.scrollFormat = const ScrollFormat(),
     this.topCategoryStyle = const TopCategoryStyle(),
     this.bothCategoryStyle = const BothCategoryStyle(),
     this.categoryLayoutType = CategoryLayoutType.autoScroll,
     this.autoScrollCategoryStyle = const AutoScrollCategoryStyle(),
+    required this.itemBuilder,
+    required this.categoryLayoutModel,
   });
 
   @override
@@ -287,6 +289,7 @@ class _CategoryLayoutViewState<T> extends State<CategoryLayoutView<T>>
     if (widget.bothCategoryStyle.isGroupFormat) {
       onTabChange(index);
     } else {
+      print(newCategory.id);
       _paginationNotifier!.category = newCategory.id;
       _paginationNotifier!.refreshItems(widget.scrollFormat.limitFetch);
     }
@@ -594,8 +597,10 @@ class _CategoryLayoutViewState<T> extends State<CategoryLayoutView<T>>
           color: Theme.of(context).primaryColor,
         ),
       ),
-      separatedItem: (_, __) => const SizedBox(),
-      typeIndicatorLoading: TypeIndicatorLoading.skeltonIndicator,
+      separatedItem: (_, __) =>
+          widget.bothCategoryStyle.separated ?? const SizedBox(),
+      typeIndicatorLoading: TypeIndicatorLoading.circularIndicator,
+      circularIndicatorColor: Theme.of(context).primaryColor,
       skeltonFormat: const SkeltonFormat(
         columns: [1],
         height: 80.0,

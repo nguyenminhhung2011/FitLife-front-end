@@ -1,4 +1,6 @@
 import 'package:collection/collection.dart';
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
@@ -85,6 +87,7 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
             headerText: 'Exercise',
             textStyle: _headerStyle,
             isShowSeeMore: true,
+            onPress: () => context.openListPageWithRoute(Routes.categories),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),

@@ -238,10 +238,8 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             children: [
               Text(
                 'Beginner plan',
-                style: context.titleMedium.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style:
+                    context.titleMedium.copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
                 getRangeDateFormat(DateTime.now(),
@@ -274,8 +272,7 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             percent: 0.5,
             center: Text(
               '50%',
-              style: context.titleSmall
-                  .copyWith(fontWeight: FontWeight.w600, color: Colors.white),
+              style: context.titleSmall.copyWith(fontWeight: FontWeight.w600),
             ),
             backgroundColor: Theme.of(context).dividerColor,
             progressColor: Theme.of(context).primaryColor,

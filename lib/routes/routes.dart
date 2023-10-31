@@ -7,6 +7,7 @@ class Routes {
   static const String passCode = '/pass_code';
   static const String dashboard = '/dashboard';
   static const String onboarding = '/onboarding';
+  static const String categories = '/categories';
   static const String planDetail = '/plan_detail';
   static const String fitOverView = '/fit_overview';
   static const String wooTrackView = '/wo_track_view';

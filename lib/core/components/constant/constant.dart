@@ -3,9 +3,29 @@ import 'package:fit_life/core/components/extensions/string_extensions.dart';
 import 'package:fit_life/core/components/widgets/category/category_model.dart';
 import 'package:fit_life/core/config/color_config.dart';
 import 'package:fit_life/generated/l10n.dart';
+import 'package:flutter/material.dart';
 
 class Constant {
   static DateTime timeNow = DateTime.now();
+
+  static List<Map<String, dynamic>> icons = [
+    {
+      'icon': '🛒',
+      'color': Colors.blue,
+    },
+    {
+      'icon': '🍉',
+      'color': Colors.red,
+    },
+    {
+      'icon': '🏥',
+      'color': "#07AEAF".toColor(),
+    },
+    {
+      'icon': '👪',
+      'color': Colors.yellow,
+    },
+  ];
   static List<String> boardNumber = [
     '1',
     '2',

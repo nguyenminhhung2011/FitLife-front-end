@@ -1,4 +1,5 @@
 import 'package:fit_life/mvvm/ui/calendar/views/calendar_view.dart';
+import 'package:fit_life/mvvm/ui/category/views/category_view.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/exercise_overview_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_schedule_view.dart';
@@ -80,6 +81,11 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const ProviderScope(child: ExerciseDetailView()),
+        );
+      case Routes.categories:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: CategoryView()),
         );
       case Routes.calendar:
         return MaterialPageRoute(

@@ -1,3 +1,4 @@
+import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class ButtonCustom extends StatelessWidget {
@@ -32,7 +33,7 @@ class ButtonCustom extends StatelessWidget {
         onPressed: loading ? null : onPress,
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(
-            color ?? Theme.of(context).primaryColor,
+            color ?? context.primaryColor,
           ),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
@@ -41,7 +42,7 @@ class ButtonCustom extends StatelessWidget {
               ),
               side: BorderSide(
                   color:
-                      borderColor ?? color ?? Theme.of(context).primaryColor),
+                      borderColor ?? color ?? context.primaryColor),
             ),
           ),
         ),

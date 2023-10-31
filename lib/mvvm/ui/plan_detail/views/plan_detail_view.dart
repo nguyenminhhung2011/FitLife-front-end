@@ -8,6 +8,7 @@ import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_time_text.dart';
 import 'package:fit_life/core/components/widgets/fit_life/schedule_item.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -38,11 +39,13 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
           height: 45.0,
           radius: 5.0,
           child: Text(
-            "Create new plan",
+            "Add new exercise",
             style: context.titleMedium
                 .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          onPress: () {},
+          onPress: () {
+            context.openListPageWithRoute(Routes.addNewExercise);
+          },
         ),
       ),
       body: CustomScrollView(
@@ -238,7 +241,6 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
                 'Beginner plan',
                 style: context.titleMedium.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
                 ),
               ),
               Text(

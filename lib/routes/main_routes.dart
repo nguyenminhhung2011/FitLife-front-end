@@ -49,7 +49,7 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const AddNewPlanView();
+            return const AddNewExerciseView();
           },
         );
       case Routes.passCode:

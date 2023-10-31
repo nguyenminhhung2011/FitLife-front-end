@@ -41,8 +41,7 @@ class ButtonCustom extends StatelessWidget {
                 Radius.circular(radius ?? 10.0),
               ),
               side: BorderSide(
-                  color:
-                      borderColor ?? color ?? context.primaryColor),
+                  color: borderColor ?? color ?? context.primaryColor),
             ),
           ),
         ),

@@ -119,11 +119,10 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
             ),
           ),
           const SizedBox(),
+          const SizedBox(height: 5.0),
           HeaderTextCustom(
-            headerText: 'Schedule exercises',
-            textStyle: _headerStyle,
-            isShowSeeMore: true,
-          ),
+              headerText: 'Schedule exercises', textStyle: _headerStyle),
+          const SizedBox(height: 5.0),
           const UpComingScheduleExItem(),
           const SizedBox(),
           HeaderTextCustom(

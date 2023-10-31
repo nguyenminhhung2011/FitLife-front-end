@@ -1,3 +1,5 @@
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
@@ -39,7 +41,7 @@ class _RenderOverviewAppBarState extends State<RenderOverviewAppBar> {
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () => context.openListPageWithRoute(Routes.notification),
           icon: Icon(CupertinoIcons.bell,
               size: 20.0, color: context.titleLarge.color!),
         )

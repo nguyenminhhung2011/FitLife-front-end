@@ -10,6 +10,7 @@ class Routes {
   static const String categories = '/categories';
   static const String planDetail = '/plan_detail';
   static const String fitOverView = '/fit_overview';
+  static const String notification = '/notification';
   static const String wooTrackView = '/wo_track_view';
   static const String exerciseDetail = '/exercise_detail';
   static const String previewExercise = '/preview_exercise';

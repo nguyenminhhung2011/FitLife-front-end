@@ -16,17 +16,18 @@ class _SelectDurationScreenState extends State<SelectDurationScreen> {
   @override
   Widget build(BuildContext context) {
     final durationList = [
-      S.of(context).notMuch,
-      S.of(context).aLittle,
-      S.of(context).medium,
       S.of(context).many,
       S.of(context).soMany,
+      S.of(context).medium,
+      S.of(context).aLittle,
+      S.of(context).notMuch,
     ];
+
     final frequencyList = [
       S.of(context).notMuchOrMore,
-      S.of(context).twoToThereDaysInWeek,
-      S.of(context).three2FiveDaysInWeek,
       S.of(context).six2SevenMuchOrMore,
+      S.of(context).three2FiveDaysInWeek,
+      S.of(context).twoToThereDaysInWeek,
       S.of(context).worksEveryDayOfTheWeek,
     ];
 
@@ -73,6 +74,7 @@ class SelectDurationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fontColor = isSelected ? Colors.white : context.titleLarge.color;
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -85,7 +87,7 @@ class SelectDurationButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             width: 1.2,
-            color: Colors.grey,
+            color: Theme.of(context).dividerColor,
           ),
           color: !isSelected
               ? Colors.transparent
@@ -94,10 +96,15 @@ class SelectDurationButton extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(duration,
-                style:
-                    context.titleLarge.copyWith(fontWeight: FontWeight.w600)),
-            Text(frequency, style: context.titleMedium),
+            Text(
+              duration,
+              style: context.titleLarge
+                  .copyWith(fontWeight: FontWeight.w600, color: fontColor),
+            ),
+            Text(
+              frequency,
+              style: context.titleMedium.copyWith(color: fontColor),
+            ),
           ],
         ),
       ),

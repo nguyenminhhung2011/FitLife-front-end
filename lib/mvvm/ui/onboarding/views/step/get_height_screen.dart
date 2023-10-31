@@ -59,6 +59,7 @@ class _GetHeightStepState extends State<GetHeightStep> {
                                 color: context.textColor,
                                 fontSize: 30.0,
                                 fontWeight: FontWeight.bold,
+                                
                               ),
                             ),
                             const SizedBox(width: 16),

@@ -25,7 +25,7 @@ class _SelectGenderScreenState extends State<SelectGenderScreen> {
       decoration: BoxDecoration(
         color: isMaleSex ? Colors.blue[100] : Colors.pink[100],
         border: isMale == isMaleSex
-            ? Border.all(width: 2.5, color: Colors.black)
+            ? Border.all(width: 2.5, color: context.titleLarge.color!)
             : null,
         borderRadius: BorderRadius.circular(15),
       ),

@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:flutter/material.dart';
@@ -73,15 +74,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         height: 75.0,
                         child: IconStepper(
                           direction: Axis.horizontal,
-                          icons: const [
-                            Icon(Icons.login, size: 12),
-                            Icon(Icons.person, size: 12),
-                            Icon(Icons.cake, size: 12),
-                            Icon(Icons.height, size: 12),
-                            Icon(Icons.scale, size: 12),
-                            Icon(Icons.timer_outlined, size: 12),
-                            Icon(Icons.golf_course_sharp, size: 12),
-                          ],
+                          icons: [
+                            Icons.cake,
+                            Icons.scale,
+                            Icons.login,
+                            Icons.height,
+                            Icons.person,
+                            Icons.timer_outlined,
+                            Icons.golf_course_sharp,
+                          ].mapIndexed((index, e) {
+                            final color = (index == activeStep)
+                                ? Colors.white
+                                : context.titleLarge.color;
+                            return Icon(e, size: 12.0, color: color);
+                          }).toList(),
                           stepColor: Theme.of(context).scaffoldBackgroundColor,
                           activeStep: activeStep,
                           activeStepColor: context.primaryColor,

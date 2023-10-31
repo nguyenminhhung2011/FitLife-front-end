@@ -22,7 +22,7 @@ class TextFieldWithIconWidget extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: context.primaryColor),
+        border: Border.all(width: 1.5, color: context.primaryColor),
       ),
       child: Row(
         children: [

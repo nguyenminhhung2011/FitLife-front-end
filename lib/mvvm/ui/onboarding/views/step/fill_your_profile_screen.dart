@@ -41,13 +41,13 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
                 children: [
                   (widget.imageUrl == null)
                       ? Container(
-                          width: widthDevice * 0.3,
-                          height: widthDevice * 0.3,
+                          width: widthDevice * 0.32,
+                          height: widthDevice * 0.32,
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: AssetImage(ImageConst.brainIcon),
+                              image: AssetImage(ImageConst.avatar),
                             ),
                           ),
                         )
@@ -67,8 +67,8 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
                 ],
               ),
               Positioned(
-                bottom: 0,
-                right: 0,
+                bottom: 8,
+                right: 8,
                 child: InkWell(
                   onTap: () async {},
                   child: Container(
@@ -79,6 +79,7 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
                     ),
                     child: const Icon(
                       Icons.camera_alt,
+                      size: 14.0,
                       color: Colors.white,
                     ),
                   ),

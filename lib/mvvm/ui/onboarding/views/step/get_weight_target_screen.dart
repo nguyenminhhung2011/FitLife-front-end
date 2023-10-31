@@ -15,6 +15,9 @@ class _GetWeightTargetScreenState extends State<GetWeightTargetScreen> {
   int weight = 50;
 
   Widget _buildItemList(BuildContext context, int index) {
+    final fontColor =
+        (index == weight) ? Colors.white : context.titleLarge.color;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -22,7 +25,9 @@ class _GetWeightTargetScreenState extends State<GetWeightTargetScreen> {
           width: 150,
           height: 200,
           decoration: BoxDecoration(
-            color: (index == weight) ? context.primaryColor : Theme.of(context).cardColor,
+            color: (index == weight)
+                ? context.primaryColor
+                : Theme.of(context).cardColor,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(width: 3, color: context.primaryColor),
           ),
@@ -34,14 +39,16 @@ class _GetWeightTargetScreenState extends State<GetWeightTargetScreen> {
                   '$index',
                   style: context.titleLarge.copyWith(
                     fontSize: 40.0,
+                    color: fontColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(width: 16),
+                const SizedBox(width: 10),
                 Text(
                   'Kg',
                   style: context.titleLarge.copyWith(
                     fontSize: 40.0,
+                    color: fontColor,
                     fontWeight: FontWeight.bold,
                   ),
                 )

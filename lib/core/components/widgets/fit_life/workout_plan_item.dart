@@ -47,11 +47,6 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    '🔥',
-                    style: context.textTheme.headlineSmall,
-                  )
                 ],
               ),
             ),

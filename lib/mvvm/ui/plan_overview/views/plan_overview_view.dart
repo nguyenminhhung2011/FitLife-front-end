@@ -1,5 +1,7 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
+import 'package:fit_life/core/components/widgets/button_custom.dart';
+
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
@@ -89,6 +91,15 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
                     ),
                   )
                 ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ButtonCustom(
+                child: const Text("Create new plan"),
+                onPress: () {
+                  context.openListPageWithRoute(Routes.addPlan);
+                },
               ),
             ),
             const SizedBox(height: 10),

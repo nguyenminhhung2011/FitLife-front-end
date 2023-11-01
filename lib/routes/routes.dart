@@ -17,4 +17,5 @@ class Routes {
   static const String exerciseSchedule = '/exercise_schedule';
   static const String exerciseOverview = '/exercise_overview';
   static const String addNewExercise = '/addNewExercise';
+  static const String addPlan = '/addPlan';
 }

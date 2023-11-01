@@ -39,7 +39,7 @@ class _CustomInputLabelFieldState extends State<CustomInputLabelField> {
           padding: const EdgeInsetsDirectional.only(bottom: 12.0),
           child: Text(
             widget.label,
-            style: TextStyle(
+            style: context.titleMedium.copyWith(
               fontSize: 16,
               fontWeight: FontWeight.w600,
               color: context.textColor,
@@ -49,14 +49,13 @@ class _CustomInputLabelFieldState extends State<CustomInputLabelField> {
         TextFormField(
           decoration: InputDecoration(
             hintText: widget.hintText,
-            hintStyle: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Theme.of(context).hintColor.withOpacity(0.2),
+            hintStyle: context.titleMedium.copyWith(
+              fontWeight: FontWeight.w500,
+              color: Theme.of(context).hintColor,
             ),
             border: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey),
-              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
             suffixIcon: widget.isObscure
                 ? GestureDetector(

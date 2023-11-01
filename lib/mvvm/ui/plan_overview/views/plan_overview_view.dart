@@ -93,15 +93,6 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ButtonCustom(
-                child: const Text("Create new plan"),
-                onPress: () {
-                  context.openListPageWithRoute(Routes.addPlan);
-                },
-              ),
-            ),
             const SizedBox(height: 10),
             HeaderTextCustom(
               headerText: 'Session plan history',
@@ -114,6 +105,22 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
             const SizedBox(height: 10.0),
             const WorkoutPlanItemWidget(),
             const WorkoutPlanItemWidget(),
+            const SizedBox(height: 10.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ButtonCustom(
+                height: 40.0,
+                radius: 10.0,
+                child: Text(
+                  "Create new plan",
+                  style: context.titleSmall.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+                onPress: () {
+                  context.openListPageWithRoute(Routes.addPlan);
+                },
+              ),
+            ),
             const SizedBox(height: 100),
           ],
         ),

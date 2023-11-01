@@ -1,3 +1,4 @@
+import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/extensions/date_time_extension.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
@@ -75,7 +76,14 @@ class _AddPlanViewState extends State<AddPlanView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add plan"),
+        elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: Text("Add plan",
+            style: context.titleLarge.copyWith(fontWeight: FontWeight.bold)),
+        leading: IconButton(
+          onPressed: () => context.pop(),
+          icon: Icon(Icons.arrow_back, color: context.titleLarge.color),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -84,18 +92,19 @@ class _AddPlanViewState extends State<AddPlanView> {
             children: [
               const SizedBox(height: 10),
               CustomInputLabelField(
-                label: 'Title',
-                controller: titleCtrl,
-              ),
+                  label: 'Title',
+                  controller: titleCtrl,
+                  hintText: "Enter title"),
               const SizedBox(height: 12),
               Align(
                 alignment: Alignment.topLeft,
                 child: Text(
                   "Time range",
-                  style: context.textTheme.titleLarge,
+                  style:
+                      context.titleMedium.copyWith(fontWeight: FontWeight.w600),
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               GestureDetector(
                 onTap: onDateRangePickerTap,
                 child: Container(
@@ -104,14 +113,16 @@ class _AddPlanViewState extends State<AddPlanView> {
                   decoration: BoxDecoration(
                     border:
                         Border.all(color: context.textColor!.withOpacity(0.6)),
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   margin: const EdgeInsets.symmetric(vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                          '${_selectedStartDate.toDDMMYYYY()} - ${_selectedEndDate.toDDMMYYYY()}'),
+                        '${_selectedStartDate.toDDMMYYYY()} - ${_selectedEndDate.toDDMMYYYY()}',
+                        style: context.titleSmall,
+                      ),
                       const Icon(Icons.calendar_month),
                     ],
                   ),
@@ -121,14 +132,17 @@ class _AddPlanViewState extends State<AddPlanView> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Use AI to generate the fitness planning",
-                    style: context.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Text(
+                      "Use AI to generate the fitness planning",
+                      style: context.titleMedium.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   Switch(
                     value: isUsingAIGenerate,
+                    activeColor: Theme.of(context).primaryColor,
                     onChanged: (value) {
                       setState(() {
                         isUsingAIGenerate = value;
@@ -138,20 +152,25 @@ class _AddPlanViewState extends State<AddPlanView> {
                 ],
               ),
               if (isUsingAIGenerate) ...[
-                const SizedBox(height: 10),
+                const SizedBox(height: 5),
+                const Divider(),
+                const SizedBox(height: 5),
                 CustomInputLabelField(
                   label: 'Your fitness goal: ',
                   controller: goalCtrl,
+                  hintText: "Enter your goal",
                 ),
                 const SizedBox(height: 10),
                 CustomInputLabelField(
                   label: 'Current fitness level: ',
                   controller: levelCtrl,
+                  hintText: "Enter your level",
                 ),
                 const SizedBox(height: 10),
                 CustomInputLabelField(
                   label: 'Your preferences: ',
                   controller: preferencesCtrl,
+                  hintText: "Enter your preferences",
                 ),
                 const SizedBox(height: 10),
               ],
@@ -159,7 +178,11 @@ class _AddPlanViewState extends State<AddPlanView> {
               ButtonCustom(
                 height: 50,
                 onPress: () {},
-                child: Text(isUsingAIGenerate ? "Generate" : "Create"),
+                child: Text(
+                  isUsingAIGenerate ? "Generate" : "Create",
+                  style: context.titleMedium.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
               ),
             ],
           ),

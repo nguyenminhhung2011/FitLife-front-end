@@ -9,6 +9,7 @@ import 'package:fit_life/mvvm/ui/plan_detail/views/add_new_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/plan_detail_view.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/add_plan_view.dart';
 import 'package:fit_life/mvvm/ui/previeew_exercise/views/preview_exercise_view.dart';
+import 'package:fit_life/mvvm/ui/recommend_plan/views/recommend_plan_view.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/wo_trac_view.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/mvvm/ui/auth/views/sign_in_view.dart';
@@ -88,6 +89,11 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const ProviderScope(child: SplashView()),
+        );
+      case Routes.recommendPlan:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: RecommendPlanView()),
         );
       case Routes.exerciseOverview:
         return MaterialPageRoute(
@@ -206,3 +212,28 @@ class MainRoutes {
 //         /// routes go here
 //       ];
 // }
+
+Route _createRoute(
+  Widget widget, {
+  Curve curvesIn = Curves.linear,
+  Tween? tweenC,
+  Offset begin = const Offset(1.0, 0.0),
+  Offset end = Offset.zero,
+}) {
+  return PageRouteBuilder(
+    transitionDuration: const Duration(milliseconds: 400),
+    reverseTransitionDuration: const Duration(milliseconds: 400),
+    pageBuilder: (context, animation, secondaryAnimation) => widget,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      final curve = curvesIn;
+
+      var tween = tweenC?.chain(CurveTween(curve: curve)) ??
+          Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween as Animatable<Offset>),
+        child: child,
+      );
+    },
+  );
+}

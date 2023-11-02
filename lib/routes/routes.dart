@@ -13,6 +13,7 @@ class Routes {
   static const String fitOverView = '/fit_overview';
   static const String notification = '/notification';
   static const String wooTrackView = '/wo_track_view';
+  static const String recommendPlan = '/recommend_plan';
   static const String addNewExercise = '/addNewExercise';
   static const String healthOverview = '/health_overview';
   static const String exerciseDetail = '/exercise_detail';

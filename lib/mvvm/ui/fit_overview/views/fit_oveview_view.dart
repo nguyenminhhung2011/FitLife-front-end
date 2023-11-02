@@ -137,6 +137,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
             textStyle:
                 context.titleMedium.copyWith(fontWeight: FontWeight.w600),
             isShowSeeMore: true,
+            onPress: () => context.openListPageWithRoute(Routes.recommendPlan),
           ),
           SizedBox(
             width: double.infinity,
@@ -183,14 +184,13 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
               ],
             ),
           ),
+          const SizedBox(height: 15.0),
           HeaderTextCustom(
             headerText: 'Upcoming workout',
             textStyle:
                 context.titleMedium.copyWith(fontWeight: FontWeight.w600),
-            isShowSeeMore: true,
-            onPress: () =>
-                context.openListPageWithRoute(Routes.exerciseSchedule),
           ),
+          const SizedBox(height: 10.0),
           const UpComingWorkoutItem(),
           const SizedBox(height: 10.0),
           const UpComingWorkoutItem(),

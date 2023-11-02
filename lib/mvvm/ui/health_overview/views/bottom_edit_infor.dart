@@ -69,23 +69,26 @@ class _BottomEditInformationState extends State<BottomEditInformation> {
             Expanded(
               child: ListView(
                 children: [
-                  switch (widget.type) {
-                    HealthOverviewRow.duration => SelectDurationScreen(
-                        onChange: (d) => data = d.toString(),
-                      ),
-                    HealthOverviewRow.weight => GetWeightScreen(
-                        onChange: (d) => data = d.toInt(),
-                      ),
-                    HealthOverviewRow.height => GetHeightStep(
-                        onChange: (d) => data = d.toInt(),
-                      ),
-                    HealthOverviewRow.gender => SelectGenderScreen(
-                        genderChange: (d) => data = d,
-                      ),
-                    _ => GetWeightTargetScreen(
-                        onChange: (d) => data = d.toInt(),
-                      )
-                  },
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: switch (widget.type) {
+                      HealthOverviewRow.duration => SelectDurationScreen(
+                          onChange: (d) => data = d.toString(),
+                        ),
+                      HealthOverviewRow.weight => GetWeightScreen(
+                          onChange: (d) => data = d.toInt(),
+                        ),
+                      HealthOverviewRow.height => GetHeightStep(
+                          onChange: (d) => data = d.toInt(),
+                        ),
+                      HealthOverviewRow.gender => SelectGenderScreen(
+                          genderChange: (d) => data = d,
+                        ),
+                      _ => GetWeightTargetScreen(
+                          onChange: (d) => data = d.toInt(),
+                        )
+                    },
+                  ),
                   const SizedBox(height: 100.0),
                 ],
               ),

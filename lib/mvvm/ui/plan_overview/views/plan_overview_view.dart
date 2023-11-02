@@ -97,7 +97,7 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
             HeaderTextCustom(
               headerText: 'Session plan history',
               isShowSeeMore: true,
-              onPress: () => context.openListPageWithRoute(Routes.planDetail),
+              onPress: () => context.openViewMorePlan(),
               textStyle:
                   context.titleMedium.copyWith(fontWeight: FontWeight.w600),
             ),

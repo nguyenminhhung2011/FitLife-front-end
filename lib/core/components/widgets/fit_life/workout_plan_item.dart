@@ -1,7 +1,9 @@
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class WorkoutPlanItemWidget extends StatelessWidget {
   const WorkoutPlanItemWidget({super.key});
@@ -47,6 +49,13 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
+                  Text(
+                    getRangeDateFormat(DateTime.now(),
+                        DateTime.now().add(const Duration(days: 1))),
+                    textAlign: TextAlign.center,
+                    style: context.titleSmall
+                        .copyWith(color: Colors.white, fontSize: 8.0),
+                  )
                 ],
               ),
             ),
@@ -60,26 +69,11 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                     Text(
                       'Hanh trinh giam can tu con so 0',
                       style: context.titleMedium
-                          .copyWith(fontWeight: FontWeight.bold),
+                          .copyWith(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     const SizedBox(height: 2.0),
                     const SizedBox(height: 10.0),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0, vertical: 4.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                        color: Theme.of(context).primaryColor.withOpacity(0.6),
-                      ),
-                      child: Text(
-                        'On-demand activity',
-                        style: context.titleSmall.copyWith(
-                          color: Theme.of(context).hintColor,
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
+                    _progressField(context),
                   ],
                 ),
               ),
@@ -87,6 +81,49 @@ class WorkoutPlanItemWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Row _progressField(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5.0),
+              color: Theme.of(context).primaryColor.withOpacity(0.6),
+            ),
+            child: Text(
+              'On-demand activity',
+              textAlign: TextAlign.center,
+              style: context.titleSmall.copyWith(
+                color: Theme.of(context).hintColor,
+                fontSize: 12.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(width: 10.0),
+        SizedBox(
+          width: 40,
+          height: 40,
+          child: CircularPercentIndicator(
+            animation: true,
+            animationDuration: 1000,
+            radius: 20.0,
+            percent: 0.5,
+            center: Text(
+              '20%',
+              style: context.titleSmall
+                  .copyWith(fontWeight: FontWeight.w500, fontSize: 10.0),
+            ),
+            backgroundColor: Theme.of(context).dividerColor,
+            progressColor: Theme.of(context).primaryColor,
+          ),
+        ),
+      ],
     );
   }
 }

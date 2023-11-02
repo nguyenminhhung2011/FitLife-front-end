@@ -43,7 +43,7 @@ class _SplashViewState extends ConsumerState<SplashView> {
         },
         isNotAuth: (_) {
           log("🐛🐛  Is not auth");
-          context.pushAndRemoveAll(Routes.onboarding);
+          context.pushAndRemoveAll(Routes.signIn);
         },
       );
     });

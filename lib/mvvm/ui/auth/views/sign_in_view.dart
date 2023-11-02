@@ -177,7 +177,7 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
                 ImageConst.googleIcon,
               ].mapIndexed((index, e) => IconButton(
                     onPressed: () =>
-                        context.openListPageWithRoute(Routes.dashboard),
+                        context.openListPageWithRoute(Routes.onboarding),
                     icon: SvgPicture.asset(e, height: 100.0, width: 100.0),
                   ))
             ],

@@ -1,3 +1,4 @@
+import 'package:fit_life/mvvm/ui/plan_overview/views/view_more_plan.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/relax_view.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/constant.dart';
@@ -169,6 +170,20 @@ extension AppCoordinator<T> on BuildContext {
       return dates;
     }
     return null;
+  }
+
+  Future<T?> openViewMorePlan() async {
+    return await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(14)),
+      ),
+      backgroundColor: Theme.of(this).scaffoldBackgroundColor,
+      builder: (context) {
+        return const ViewMorePlan();
+      },
+    );
   }
 
   Future<T?> openListPageWithRoute(String route) {

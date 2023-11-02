@@ -8,7 +8,8 @@ const _kDefaultValue = 100;
 const _kNumRender = 150;
 
 class GetHeightStep extends StatefulWidget {
-  const GetHeightStep({super.key});
+  final Function(int)? onChange;
+  const GetHeightStep({super.key, this.onChange});
 
   @override
   State<GetHeightStep> createState() => _GetHeightStepState();
@@ -42,6 +43,9 @@ class _GetHeightStepState extends State<GetHeightStep> {
               itemExtent: 77,
               diameterRatio: 1.2,
               onSelectedItemChanged: (int value) {
+                if (widget.onChange != null) {
+                  widget.onChange!(value);
+                }
                 setState(() {
                   height = value + _kDefaultValue;
                 });
@@ -59,7 +63,6 @@ class _GetHeightStepState extends State<GetHeightStep> {
                                 color: context.textColor,
                                 fontSize: 30.0,
                                 fontWeight: FontWeight.bold,
-                                
                               ),
                             ),
                             const SizedBox(width: 16),

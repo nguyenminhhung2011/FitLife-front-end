@@ -394,6 +394,12 @@ class _SettingScreenState extends State<SettingScreen> {
             activeColor: Theme.of(context).primaryColor,
           );
         }
+      case 'health':
+        {
+          icon = Icons.sports_gymnastics;
+          title = S.of(context).healthAndOverview;
+          onPress = () => context.openListPageWithRoute(Routes.healthOverview);
+        }
       case 'security':
         {
           titleWidget = Column(

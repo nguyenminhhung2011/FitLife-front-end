@@ -5,7 +5,8 @@ import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/ui/onboarding/views/widgets/onboarding_step_layout.dart';
 
 class SelectGenderScreen extends StatefulWidget {
-  const SelectGenderScreen({super.key});
+  final Function(bool)? genderChange;
+  const SelectGenderScreen({super.key, this.genderChange});
 
   @override
   State<SelectGenderScreen> createState() => _SelectGenderScreenState();
@@ -31,6 +32,9 @@ class _SelectGenderScreenState extends State<SelectGenderScreen> {
       ),
       child: InkWell(
         onTap: () {
+          if (widget.genderChange != null) {
+            widget.genderChange!(isMaleSex);
+          }
           setState(() {
             isMale = isMaleSex;
           });

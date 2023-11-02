@@ -37,78 +37,76 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       const SelectDurationScreen(),
       const GetWeightTargetScreen(),
     ];
-    return SafeArea(
-      child: Scaffold(
-        bottomSheet: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: ButtonCustom(
-            height: 45.0,
-            radius: 5.0,
-            onPress: () {
-              if (activeStep < upperBound) {
-                setState(() {
-                  activeStep++;
-                });
-              } else {
-                context.openListPageWithRoute(Routes.dashboard);
-              }
-            },
-            child: Text(
-              S.of(context).next,
-              style: context.titleMedium
-                  .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
-            ),
+    return Scaffold(
+      bottomSheet: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: ButtonCustom(
+          height: 45.0,
+          radius: 5.0,
+          onPress: () {
+            if (activeStep < upperBound) {
+              setState(() {
+                activeStep++;
+              });
+            } else {
+              context.openListPageWithRoute(Routes.dashboard);
+            }
+          },
+          child: Text(
+            S.of(context).next,
+            style: context.titleMedium
+                .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Stack(
-            children: [
-              SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: 75.0,
-                        child: IconStepper(
-                          direction: Axis.horizontal,
-                          icons: [
-                            Icons.cake,
-                            Icons.scale,
-                            Icons.login,
-                            Icons.height,
-                            Icons.person,
-                            Icons.timer_outlined,
-                            Icons.golf_course_sharp,
-                          ].mapIndexed((index, e) {
-                            final color = (index == activeStep)
-                                ? Colors.white
-                                : context.titleLarge.color;
-                            return Icon(e, size: 12.0, color: color);
-                          }).toList(),
-                          stepColor: Theme.of(context).scaffoldBackgroundColor,
-                          activeStep: activeStep,
-                          activeStepColor: context.primaryColor,
-                          enableNextPreviousButtons: false,
-                          lineColor: Theme.of(context).primaryColor,
-                          stepReachedAnimationEffect: Curves.easeInOutCubic,
-                          onStepReached: (index) {
-                            setState(() {
-                              activeStep = index;
-                            });
-                          },
-                        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0).copyWith(top: kToolbarHeight),
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      height: 75.0,
+                      child: IconStepper(
+                        direction: Axis.horizontal,
+                        icons: [
+                          Icons.cake,
+                          Icons.scale,
+                          Icons.login,
+                          Icons.height,
+                          Icons.person,
+                          Icons.timer_outlined,
+                          Icons.golf_course_sharp,
+                        ].mapIndexed((index, e) {
+                          final color = (index == activeStep)
+                              ? Colors.white
+                              : context.titleLarge.color;
+                          return Icon(e, size: 12.0, color: color);
+                        }).toList(),
+                        stepColor: Theme.of(context).scaffoldBackgroundColor,
+                        activeStep: activeStep,
+                        activeStepColor: context.primaryColor,
+                        enableNextPreviousButtons: false,
+                        lineColor: Theme.of(context).primaryColor,
+                        stepReachedAnimationEffect: Curves.easeInOutCubic,
+                        onStepReached: (index) {
+                          setState(() {
+                            activeStep = index;
+                          });
+                        },
                       ),
-                      const SizedBox(height: 30),
-                      body[activeStep],
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 30),
+                    body[activeStep],
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

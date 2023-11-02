@@ -4,7 +4,8 @@ import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/ui/onboarding/views/widgets/onboarding_step_layout.dart';
 
 class SelectDurationScreen extends StatefulWidget {
-  const SelectDurationScreen({super.key});
+  final Function(String)? onChange;
+  const SelectDurationScreen({super.key, this.onChange});
 
   @override
   State<SelectDurationScreen> createState() => _SelectDurationScreenState();
@@ -44,6 +45,9 @@ class _SelectDurationScreenState extends State<SelectDurationScreen> {
                 duration: durationList[index],
                 frequency: frequencyList[index],
                 onTap: () {
+                  if (widget.onChange != null) {
+                    widget.onChange!(durationList[index]);
+                  }
                   setState(() {
                     _index = index;
                   });

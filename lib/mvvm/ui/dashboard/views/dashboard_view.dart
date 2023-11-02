@@ -55,7 +55,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
           'pop_up_route': Routes.splash,
           'behindBackground':
               'https://wallpapers.com/images/featured/panda-background-ymceqx76sixgb2ni.jpg',
-          'list_view': ['security', 'lang', 'appearance', 'about'],
+          'list_view': ['health', 'security', 'lang', 'appearance', 'about'],
         }),
       ),
     )
@@ -66,7 +66,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
     return Dragball(
       ball: Image.asset(ImageConst.brainIcon, width: 50.0, height: 50.0),
       onTap: () => context.openListPageWithRoute(Routes.chatBot),
-      iconSize: 16.0, 
+      iconSize: 16.0,
       initialPosition: const DragballPosition.defaultPosition(),
       onPositionChanged: (position) {},
       scrollAndHide: false,

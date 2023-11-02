@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cung cấp giới tính của bạn để chúng tôi có thể chọn bài tập phù hợp nhất cho bạn."),
         "generalSettings":
             MessageLookupByLibrary.simpleMessage("Cài đặt chung"),
+        "healthAndOverview":
+            MessageLookupByLibrary.simpleMessage("Tổng quan sức khỏe"),
         "heightDesc": MessageLookupByLibrary.simpleMessage(
             "Cung cấp chiều cao của bạn để chúng tôi có thể chọn bài tập phù hợp nhất cho bạn."),
         "howOldAreYou":

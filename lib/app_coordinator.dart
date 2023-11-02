@@ -1,3 +1,5 @@
+import 'package:fit_life/mvvm/ui/health_overview/ob/health_overview_row.dart';
+import 'package:fit_life/mvvm/ui/health_overview/views/bottom_edit_infor.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/view_more_plan.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/relax_view.dart';
 import 'package:flutter/material.dart';
@@ -99,6 +101,20 @@ extension AppCoordinator<T> on BuildContext {
       return data;
     }
     return List<FilterResponse>.empty();
+  }
+
+  Future<dynamic> bottomEditInformation(
+      {required HealthOverviewRow type}) async {
+    final data = await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(14.0)),
+      ),
+      backgroundColor: Theme.of(this).scaffoldBackgroundColor,
+      builder: (_) => BottomEditInformation(type: type),
+    );
+    return data;
   }
 
   Future<bool> bottomRelax() async {

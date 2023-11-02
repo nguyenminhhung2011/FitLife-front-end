@@ -3,6 +3,7 @@ import 'package:fit_life/mvvm/ui/category/views/category_view.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/exercise_overview_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_schedule_view.dart';
+import 'package:fit_life/mvvm/ui/health_overview/views/health_overview_view.dart';
 import 'package:fit_life/mvvm/ui/notification/views/notification_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/add_new_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/plan_detail_view.dart';
@@ -98,6 +99,11 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const ProviderScope(child: ExerciseDetailView()),
+        );
+      case Routes.healthOverview:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: HealthOverviewView()),
         );
       case Routes.categories:
         return MaterialPageRoute(

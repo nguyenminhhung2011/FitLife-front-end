@@ -49,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Provide your gender so that we can choose the most conform exercise for you. "),
         "generalSettings":
             MessageLookupByLibrary.simpleMessage("General settings"),
+        "healthAndOverview":
+            MessageLookupByLibrary.simpleMessage("Health and overview"),
         "heightDesc": MessageLookupByLibrary.simpleMessage(
             "Provide your height so that we can choose the most conform exercise for you. "),
         "howOldAreYou":

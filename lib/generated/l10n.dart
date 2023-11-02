@@ -520,6 +520,16 @@ class S {
     );
   }
 
+  /// `Health and overview`
+  String get healthAndOverview {
+    return Intl.message(
+      'Health and overview',
+      name: 'healthAndOverview',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `So Many`
   String get soMany {
     return Intl.message(

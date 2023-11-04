@@ -93,7 +93,7 @@ class MainRoutes {
       case Routes.recommendPlan:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: RecommendPlanView()),
+          builder: (_) => const RecommendPlanView(),
         );
       case Routes.exerciseOverview:
         return MaterialPageRoute(

@@ -20,7 +20,7 @@ class ExpansionPanelCustom<T, B> extends StatefulWidget {
   final List<T> parentItems;
   final List<String>? listId;
   final Widget Function(BuildContext, T, bool isExpanded) parentItemBuilder;
-  final Widget Function(BuildContext, B) bodyItem;
+  final Widget Function(BuildContext, B, T) bodyItem;
   final BodyLoad<B> loadBody;
   final EdgeInsets? expandedHeaderPadding;
   final double elevation;
@@ -56,12 +56,13 @@ class _ExpansionPanelCustomState<T, B>
       listId: widget.listId ??
           List.generate(widget.parentItems.length, (index) => index.toString()),
     )..generateExpansionData();
+
     super.initState();
   }
 
   Future<void> _expansionsCall(int index, bool isExpanded) async {
     _expansionNotifier.onSelected(index, isExpanded);
-    if (!isExpanded) {
+    if (isExpanded) {
       await _expansionNotifier.getBodyData(index);
     }
   }
@@ -100,7 +101,7 @@ class _ExpansionPanelCustomState<T, B>
                         ),
                         const SizedBox(height: 10),
                       ] else if (e.bodyData != null)
-                        widget.bodyItem(context, e.bodyData!)
+                        widget.bodyItem(context, e.bodyData!, e.data)
                     ],
                   ),
                   isExpanded: e.isExpanded,

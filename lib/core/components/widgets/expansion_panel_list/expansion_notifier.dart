@@ -34,7 +34,7 @@ class ExpansionNotifier<T, B> extends ChangeNotifier {
   }
 
   void onSelected(int index, bool isExpanded){
-    _listExpansion[index].isExpanded = !isExpanded;
+    _listExpansion[index].isExpanded = isExpanded;
     notifyListeners();
   }
 }

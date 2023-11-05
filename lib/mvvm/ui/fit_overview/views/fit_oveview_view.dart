@@ -137,7 +137,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
             textStyle:
                 context.titleMedium.copyWith(fontWeight: FontWeight.w600),
             isShowSeeMore: true,
-            onPress: () => context.openListPageWithRoute(Routes.recommendPlan),
+            onPress: () => context.openListPageWithRoute(Routes.groupExercise),
           ),
           SizedBox(
             width: double.infinity,

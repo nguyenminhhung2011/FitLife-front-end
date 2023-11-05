@@ -540,6 +540,46 @@ class S {
     );
   }
 
+  /// `Enter your password again`
+  String get enterRePassword {
+    return Intl.message(
+      'Enter your password again',
+      name: 'enterRePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `RePassword`
+  String get rePassword {
+    return Intl.message(
+      'RePassword',
+      name: 'rePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your Password`
+  String get enterYourPassword {
+    return Intl.message(
+      'Enter your Password',
+      name: 'enterYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change password`
+  String get changePassword {
+    return Intl.message(
+      'Change password',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Not Much or none`
   String get notMuchOrMore {
     return Intl.message(

@@ -33,6 +33,9 @@ class ImageConst {
   //image
   static const String chatBackgroundImg = "assets/images/chatGround.png";
   static const String dumbbell = "assets/images/dumbell.png";
+  static const String intro1 = "assets/images/intro1.png";
+  static const String intro2 = "assets/images/intro2.png";
+  static const String intro3 = "assets/images/intro3.png";
   static const String avatar = "assets/images/avatar.png";
   static const String baseImageView =
       'https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg';

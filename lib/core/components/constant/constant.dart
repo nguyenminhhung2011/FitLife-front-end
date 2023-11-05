@@ -40,6 +40,28 @@ class Constant {
     '0',
     '🗑️'
   ];
+
+  static List<MainPageViewIntro> listViewIntro = [
+    MainPageViewIntro(
+      gifPath: ImageConst.intro1,
+      mainTitle: 'Track Your Goal',
+      title:
+          'Don\'t worry if you have trouble determining your goals. We can help you determine your goals and track your goals',
+    ),
+    MainPageViewIntro(
+      gifPath: ImageConst.intro2,
+      mainTitle: 'Get Burn',
+      title:
+          'Let\'s keep burning, to achive yours goals, it hurts only temporaily, if you give up now you will be in pain forever',
+    ),
+    MainPageViewIntro(
+      gifPath: ImageConst.intro3,
+      mainTitle: 'Eat Well',
+      title:
+          'Let\'t start a healthy lifestyle with us, we can determine your diet every day, healthy eating is fun',
+    ),
+  ];
+
   static List<BannerContent> listContent = [
     BannerContent(
       imageUrl: ImageConst.banner2,
@@ -104,6 +126,17 @@ class Constant {
       isIconData: false,
     ),
   ];
+}
+
+class MainPageViewIntro {
+  final String gifPath;
+  final String mainTitle;
+  final String title;
+  MainPageViewIntro({
+    required this.gifPath,
+    required this.mainTitle,
+    required this.title,
+  });
 }
 
 class BannerContent {

@@ -55,7 +55,14 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
           'pop_up_route': Routes.splash,
           'behindBackground':
               'https://wallpapers.com/images/featured/panda-background-ymceqx76sixgb2ni.jpg',
-          'list_view': ['health', 'security', 'lang', 'appearance', 'about'],
+          'list_view': [
+            'health',
+            'security',
+            'lang',
+            'appearance',
+            'about',
+            "changePass"
+          ],
         }),
       ),
     )

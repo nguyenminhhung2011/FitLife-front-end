@@ -41,7 +41,10 @@ class _NotificationViewState extends ConsumerState<NotificationView> {
       ),
       body: ListView.separated(
         itemCount: 10,
-        separatorBuilder: (_, __) => const Divider(),
+        separatorBuilder: (_, __) => const Padding(
+          padding: EdgeInsets.symmetric(vertical: 5.0),
+          child: Divider(),
+        ),
         itemBuilder: (_, index) {
           return ListTile(
             leading: Container(

@@ -85,6 +85,7 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
       backgroundColor: scaffoldBackgroundColor,
       appBar: AppBar(
         elevation: 0,
+        automaticallyImplyLeading: false,
         backgroundColor: scaffoldBackgroundColor,
         title: const RenderAppBar(),
       ),
@@ -138,7 +139,7 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => context.openListPageWithRoute(Routes.signUp),
                   child: Text(S.of(context).signUp, style: context.titleSmall),
                 )
               ],

@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Đừng lo, bạn luôn có thể thay đổi sau này hoặc bạn có thể bỏ qua bây giờ"),
         "appearance": MessageLookupByLibrary.simpleMessage("Giao diện"),
         "byPrice": MessageLookupByLibrary.simpleMessage("Theo giá"),
+        "changePassword": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
         "codeAndFingerPrints":
             MessageLookupByLibrary.simpleMessage("Mã và dấu vân tay"),
         "currencies": MessageLookupByLibrary.simpleMessage("Tiền tệ"),
@@ -38,6 +39,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cung cấp số lần tập luyện hàng tuần của bạn để chúng tôi có thể chọn bài tập phù hợp nhất cho bạn."),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterCode": MessageLookupByLibrary.simpleMessage("Nhâp mã"),
+        "enterRePassword":
+            MessageLookupByLibrary.simpleMessage("Nhập lại mật khẩu của bạn"),
+        "enterYourPassword":
+            MessageLookupByLibrary.simpleMessage("Nhập mật khẩu của bạn"),
         "errorCode": MessageLookupByLibrary.simpleMessage("Mã lỗi"),
         "female": MessageLookupByLibrary.simpleMessage("Nữ"),
         "fillYourProfile":
@@ -96,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Tôi đang muốn tìm hiểu về phương pháp tập luyện mới như yoga, pilates hoặc bơi lội. Chuyên gia có thể cung cấp cho tôi thông tin và hướng dẫn về các phương pháp này không?"),
         "prompt9": MessageLookupByLibrary.simpleMessage(
             "Tôi đang muốn biết về vai trò của chế độ ăn trong việc đạt được mục tiêu thể hình. Chuyên gia có thể tư vấn cho tôi về dinh dưỡng và chế độ ăn phù hợp không?"),
+        "rePassword": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
         "seeMore": MessageLookupByLibrary.simpleMessage("Xem thêm"),
         "selectYourGender":
             MessageLookupByLibrary.simpleMessage("Chọn giới tính của bạn"),

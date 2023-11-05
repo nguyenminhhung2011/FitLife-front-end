@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Don\'t worry you can always change it later,or you can skip it for now"),
         "appearance": MessageLookupByLibrary.simpleMessage("Appearance"),
         "byPrice": MessageLookupByLibrary.simpleMessage("By Price"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("Change password"),
         "codeAndFingerPrints":
             MessageLookupByLibrary.simpleMessage("Code and fingerprint"),
         "currencies": MessageLookupByLibrary.simpleMessage("Currencies"),
@@ -38,6 +40,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Provide your duration so that we can choose the most conform exercise for you. "),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterCode": MessageLookupByLibrary.simpleMessage("Enter code"),
+        "enterRePassword":
+            MessageLookupByLibrary.simpleMessage("Enter your password again"),
+        "enterYourPassword":
+            MessageLookupByLibrary.simpleMessage("Enter your Password"),
         "errorCode": MessageLookupByLibrary.simpleMessage("Error code"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "fillYourProfile":
@@ -96,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "I\'m interested in exploring new fitness methods such as yoga, pilates, or swimming. Can you provide information and guidance on these techniques?"),
         "prompt9": MessageLookupByLibrary.simpleMessage(
             "I want to understand the role of nutrition in achieving my fitness goals. Can you advise me on proper nutrition and a suitable eating plan?"),
+        "rePassword": MessageLookupByLibrary.simpleMessage("RePassword"),
         "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
         "selectYourGender":
             MessageLookupByLibrary.simpleMessage("Select Your Gender"),

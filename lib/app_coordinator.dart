@@ -1,3 +1,4 @@
+import 'package:fit_life/core/components/layout/setting_layout/views/widgets/bottom_change_paassword.dart';
 import 'package:fit_life/mvvm/ui/health_overview/ob/health_overview_row.dart';
 import 'package:fit_life/mvvm/ui/health_overview/views/bottom_edit_infor.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/view_more_plan.dart';
@@ -130,6 +131,24 @@ extension AppCoordinator<T> on BuildContext {
       },
     );
     return (data ?? false);
+  }
+
+  Future<T?> showChangePassword() {
+    return showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+        top: Radius.circular(15.0),
+      )),
+      builder: (context) {
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: const BottomChangePassword(),
+        );
+      },
+    );
   }
 
   Future<String> langBottom() async {

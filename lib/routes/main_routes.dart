@@ -1,3 +1,5 @@
+import 'package:fit_life/mvvm/ui/auth/views/introduction_view.dart';
+import 'package:fit_life/mvvm/ui/auth/views/sign_up_view.dart';
 import 'package:fit_life/mvvm/ui/calendar/views/calendar_view.dart';
 import 'package:fit_life/mvvm/ui/category/views/category_view.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
@@ -9,7 +11,8 @@ import 'package:fit_life/mvvm/ui/plan_detail/views/add_new_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/plan_detail_view.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/add_plan_view.dart';
 import 'package:fit_life/mvvm/ui/previeew_exercise/views/preview_exercise_view.dart';
-import 'package:fit_life/mvvm/ui/recommend_plan/views/recommend_plan_view.dart';
+import 'package:fit_life/mvvm/ui/recommend_plan/views/all_exercise_view.dart';
+import 'package:fit_life/mvvm/ui/recommend_plan/views/group_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/wo_trac_view.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/mvvm/ui/auth/views/sign_in_view.dart';
@@ -69,6 +72,13 @@ class MainRoutes {
             return PassCodeScreen(routes: settings.arguments.toString());
           },
         );
+      case Routes.signUp:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            return const SignUpView();
+          },
+        );
       case Routes.chatBot:
         return MaterialPageRoute(
           settings: settings,
@@ -90,10 +100,10 @@ class MainRoutes {
           settings: settings,
           builder: (_) => const ProviderScope(child: SplashView()),
         );
-      case Routes.recommendPlan:
+      case Routes.groupExercise:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const RecommendPlanView(),
+          builder: (_) => const GroupExerciseView(),
         );
       case Routes.exerciseOverview:
         return MaterialPageRoute(
@@ -131,6 +141,16 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const ProviderScope(child: SignInView()),
+        );
+      case Routes.allExercise:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: AllExerCiseView()),
+        );
+      case Routes.introduction:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const IntroductionView(),
         );
 
       case Routes.dashboard:

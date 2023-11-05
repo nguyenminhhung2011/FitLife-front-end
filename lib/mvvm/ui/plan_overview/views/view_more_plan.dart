@@ -114,7 +114,9 @@ class _ViewMorePlanState extends State<ViewMorePlan> with AuthMixin {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(ImageConst.searchIcon, width: 22, height: 22),
+              SvgPicture.asset(ImageConst.searchIcon,
+                  // ignore: deprecated_member_use
+                  width: 22, height: 22, color: context.titleLarge.color),
             ],
           ),
         ),

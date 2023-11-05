@@ -400,6 +400,12 @@ class _SettingScreenState extends State<SettingScreen> {
           title = S.of(context).healthAndOverview;
           onPress = () => context.openListPageWithRoute(Routes.healthOverview);
         }
+      case 'changePass':
+        {
+          icon = Icons.lock_outline;
+          title = S.of(context).changePassword;
+          onPress = () => context.showChangePassword();
+        }
       case 'security':
         {
           titleWidget = Column(
@@ -417,6 +423,7 @@ class _SettingScreenState extends State<SettingScreen> {
           );
           icon = Icons.security;
         }
+
       case 'about':
         icon = Icons.people;
         title = S.of(context).about;

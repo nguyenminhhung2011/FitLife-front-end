@@ -8,4 +8,9 @@ class AuthRepositoriesImpl implements AuthRepositories {
   Future<Token?> signIn({required String email, required String password}) {
     throw UnimplementedError();
   }
+  
+  @override
+  Future<Token?> register({required String email, required String password}) {
+    throw UnimplementedError();
+  }
 }

@@ -75,9 +75,7 @@ class MainRoutes {
       case Routes.signUp:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) {
-            return const SignUpView();
-          },
+          builder: (_) => const ProviderScope(child: SignUpView()),
         );
       case Routes.chatBot:
         return MaterialPageRoute(

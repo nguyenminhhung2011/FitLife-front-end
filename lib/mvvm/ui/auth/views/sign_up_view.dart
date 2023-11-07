@@ -1,5 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
+import 'package:fit_life/mvvm/ui/auth/view_model/sign_up/sign_up_data.dart';
+import 'package:fit_life/mvvm/ui/auth/view_model/sign_up/sign_up_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
@@ -9,16 +11,25 @@ import 'package:fit_life/core/components/widgets/progress_button.dart';
 import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/ui/auth/mixins/auth_mixin.dart';
 import 'package:fit_life/routes/routes.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
-class SignUpView extends StatefulWidget {
+class SignUpView extends ConsumerStatefulWidget {
   const SignUpView({super.key});
 
   @override
-  State<SignUpView> createState() => _SignUpViewState();
+  ConsumerState<SignUpView> createState() => _SignUpViewState();
 }
 
-class _SignUpViewState extends State<SignUpView> with AuthMixin {
+class _SignUpViewState extends ConsumerState<SignUpView> with AuthMixin {
+  SignUpViewModel get _vm => ref.read(signUpStateNotifier.notifier);
+
+  SignUpData get _data => ref.watch(signUpStateNotifier).data;
+
+  String? get _passWordError => _data.passwordError;
+
+  String? get _emailError => _data.emailError;
+
   final _emailController = TextEditingController();
 
   final _passController = TextEditingController();
@@ -26,6 +37,7 @@ class _SignUpViewState extends State<SignUpView> with AuthMixin {
   final _rePassword = TextEditingController();
 
   final ValueNotifier<bool> _obscureText = ValueNotifier(true);
+
   final ValueNotifier<bool> _obscureReText = ValueNotifier(true);
 
   void _onChangeObscureText() {
@@ -176,7 +188,7 @@ class _SignUpViewState extends State<SignUpView> with AuthMixin {
         return TextField(
           obscureText: obscureText,
           controller: _passController,
-          onChanged: (text) => {},
+          onChanged: (text) => _vm.passwordChange(text: text),
           autofillHints: const [AutofillHints.password],
           decoration: textFieldDecoration(
             suffixIcon: GestureDetector(
@@ -186,7 +198,7 @@ class _SignUpViewState extends State<SignUpView> with AuthMixin {
               ),
             ),
             labelText: S.of(context).password,
-            errorText: null,
+            errorText: _passWordError,
           ),
         );
       },
@@ -226,12 +238,12 @@ class _SignUpViewState extends State<SignUpView> with AuthMixin {
           child: Icon(Icons.email),
         ),
         labelText: S.of(context).email,
-        errorText: null,
+        errorText: _emailError,
       ), // InputDecoration(
       keyboardType: TextInputType.emailAddress,
       maxLines: 1,
       style: const TextStyle(fontSize: 16.0),
-      onChanged: (text) {},
+      onChanged: (text) => _vm.emailChange(text: text),
       textInputAction: TextInputAction.next,
       onSubmitted: (_) {},
     );

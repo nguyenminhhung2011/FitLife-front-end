@@ -7,6 +7,10 @@ part 'overview_state.dart';
 
 part 'overview_view_model.freezed.dart';
 
+final overviewStateNotifier =
+    AutoDisposeStateNotifierProvider<OverviewViewModel, OverviewState>(
+        (ref) => OverviewViewModel());
+
 @injectable
 class OverviewViewModel extends StateNotifier<OverviewState> {
   OverviewViewModel() : super(const _Initial(data: OverviewData()));

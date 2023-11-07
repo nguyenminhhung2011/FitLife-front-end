@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/mvvm/ui/overview/view_model/overview_view_model.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/constant.dart';
@@ -25,6 +26,8 @@ class OverviewView extends ConsumerStatefulWidget {
 }
 
 class _OverviewViewState extends ConsumerState<OverviewView> {
+  OverviewViewModel get _vm => ref.read(overviewStateNotifier.notifier);
+
   Color get _backGroundColor => Theme.of(context).scaffoldBackgroundColor;
 
   Color get _primaryColor => Theme.of(context).primaryColor;

@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/mvvm/ui/overview/view_model/overview_data.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_view_model.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,8 @@ class OverviewView extends ConsumerStatefulWidget {
 class _OverviewViewState extends ConsumerState<OverviewView> {
   OverviewViewModel get _vm => ref.read(overviewStateNotifier.notifier);
 
+  OverviewData get _data => ref.watch(overviewStateNotifier).data;
+
   Color get _backGroundColor => Theme.of(context).scaffoldBackgroundColor;
 
   Color get _primaryColor => Theme.of(context).primaryColor;
@@ -38,6 +41,9 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
   @override
   void initState() {
     super.initState();
+    Future.delayed(Duration.zero, () {
+      _vm.getUpcomingScheduleExercise();
+    });
   }
 
   @override
@@ -121,12 +127,18 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
               ],
             ),
           ),
-          const SizedBox(),
           const SizedBox(height: 5.0),
           HeaderTextCustom(
-              headerText: 'Schedule exercises', textStyle: _headerStyle),
+            headerText: 'Schedule exercises',
+            textStyle: _headerStyle,
+          ),
           const SizedBox(height: 5.0),
-          const UpComingScheduleExItem(),
+          if (_data.isLoadingUpcomingScheduleExercise)
+            const Center(child: CircularProgressIndicator())
+          else
+            UpComingScheduleExItem(
+              upcomingScheduleExercise: _data.upcomingScheduleExercise,
+            ),
           const SizedBox(),
           HeaderTextCustom(
             headerText: 'Health paper',

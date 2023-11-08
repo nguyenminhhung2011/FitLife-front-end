@@ -1,6 +1,8 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
 
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -12,15 +14,20 @@ import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_card.
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_gradient_field.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_progress_field.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_upcoming_session.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PlanOverViewView extends StatefulWidget {
+class PlanOverViewView extends ConsumerStatefulWidget {
   const PlanOverViewView({super.key});
 
   @override
-  State<PlanOverViewView> createState() => _PlanOverViewViewState();
+  ConsumerState<PlanOverViewView> createState() => _PlanOverViewViewState();
 }
 
-class _PlanOverViewViewState extends State<PlanOverViewView> {
+class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
+  PlanOverViewViewModel get _vm => ref.read(planOverviewStateNotifier.notifier);
+
+  PlanOverViewData get _data => ref.watch(planOverviewStateNotifier).data;
+
   Color get _backGroundColor => Theme.of(context).scaffoldBackgroundColor;
   @override
   Widget build(BuildContext context) {
@@ -39,7 +46,7 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
             Image.asset(ImageConst.icon, width: 40.0, height: 40.0),
             const SizedBox(width: 5.0),
             Text(
-              'Session plan',
+              'Current plan',
               style: context.titleMedium.copyWith(fontWeight: FontWeight.w600),
             )
           ],
@@ -95,7 +102,7 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
             ),
             const SizedBox(height: 10),
             HeaderTextCustom(
-              headerText: 'Session plan history',
+              headerText: 'Plan history',
               isShowSeeMore: true,
               onPress: () => context.openViewMorePlan(),
               textStyle:

@@ -1,3 +1,4 @@
+import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,8 +28,9 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
   FitOverViewViewModel get _vm =>
       ref.read<FitOverViewViewModel>(fitOverViewNotifier.notifier);
 
-  List<DateTime> get _rangeDate =>
-      ref.watch(fitOverViewNotifier).data.rangeDate;
+  FitOverViewData get _data => ref.watch(fitOverViewNotifier).data;
+
+  List<DateTime> get _rangeDate => _data.rangeDate;
 
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
 
@@ -47,6 +49,10 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
   @override
   void initState() {
     super.initState();
+    Future.delayed(Duration.zero, () {
+      _vm.getUpcomingWorkout();
+      _vm.getExerciseCategory();
+    });
   }
 
   void _onSelectedDate() async {
@@ -139,51 +145,31 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
             isShowSeeMore: true,
             onPress: () => context.openListPageWithRoute(Routes.groupExercise),
           ),
-          SizedBox(
-            width: double.infinity,
-            height: 180.0,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                const SizedBox(width: 15.0),
-
-                ///[Example code]
-                ...[
-                  {
-                    'header': 'Upper Body',
-                    'description': 'This is description of upper body',
-                    'exCountable': 21,
-                    'level': 'Beginner ⚡ Advanced',
-                    'image': ImageConst.banner1,
-                  },
-                  {
-                    'header': 'Cardio',
-                    'description': 'This is description of Cardio',
-                    'exCountable': 31,
-                    'level': 'Medium ⚡ Advanced',
-                    'image': ImageConst.banner2,
-                  },
-                  {
-                    'header': 'Stretch',
-                    'description': 'This is description of Stretch',
-                    'exCountable': 19,
-                    'level': 'Beginner ⚡ Advanced',
-                    'image': ImageConst.banner3,
-                  },
-                ]
-                    .map<Widget>(
-                      (e) => ExerciseCategory(
-                        header: e['header'].toString(),
-                        description: e['description'].toString(),
-                        exCountable: e['exCountable'] as int,
-                        level: e['level'].toString(),
-                        image: e['image'].toString(),
-                      ),
-                    )
-                    .expand((e) => [e, const SizedBox(width: 15.0)])
-              ],
+          const SizedBox(height: 10.0),
+          if (_data.isLoadingExerciseCategory)
+            const Center(child: CircularProgressIndicator())
+          else if (_data.exerciseCategories?.isNotEmpty ?? false)
+            SizedBox(
+              width: double.infinity,
+              height: 180.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  const SizedBox(width: 15.0),
+                  ..._data.exerciseCategories!
+                      .map<Widget>(
+                        (e) => ExerciseCategory(
+                          header: e.header,
+                          description: e.description,
+                          exCountable: e.exCountable,
+                          level: e.level,
+                          image: e.image,
+                        ),
+                      )
+                      .expand((e) => [e, const SizedBox(width: 15.0)])
+                ],
+              ),
             ),
-          ),
           const SizedBox(height: 15.0),
           HeaderTextCustom(
             headerText: 'Upcoming workout',
@@ -191,9 +177,23 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
                 context.titleMedium.copyWith(fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 10.0),
-          const UpComingWorkoutItem(),
-          const SizedBox(height: 10.0),
-          const UpComingWorkoutItem(),
+          if (_data.isLoadingUpcomingWorkout)
+            const Center(child: CircularProgressIndicator())
+          else if (_data.upcomingWorkouts?.isEmpty ?? true)
+            const Center(child: Text('No upcoming workout'))
+          else
+            ...List.generate(
+              _data.upcomingWorkouts?.length ?? 0,
+              (index) {
+                return Column(
+                  children: [
+                    UpComingWorkoutItem(
+                        upcomingWorkout: _data.upcomingWorkouts![index]),
+                    const SizedBox(height: 10.0),
+                  ],
+                );
+              },
+            ),
           const SizedBox(height: 40.0),
         ],
       ),

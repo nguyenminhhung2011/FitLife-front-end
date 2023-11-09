@@ -33,6 +33,7 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
   @override
   void initState() {
     _vm.getCurrentPlan();
+    _vm.getSessionPlanHistory();
     super.initState();
   }
 
@@ -128,8 +129,16 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
             ),
             _renderTimeToText(context, time: DateTime.now()),
             const SizedBox(height: 10.0),
-            const WorkoutPlanItemWidget(),
-            const WorkoutPlanItemWidget(),
+            if (_data.isLoadingWorkoutPlans)
+              const Center(child: CircularProgressIndicator())
+            else
+              ..._data.workoutPlans
+                      ?.map((e) => WorkoutPlanItemWidget(
+                            workoutPlan: e,
+                            progress: 0.6,
+                          ))
+                      .toList() ??
+                  const [],
             const SizedBox(height: 10.0),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),

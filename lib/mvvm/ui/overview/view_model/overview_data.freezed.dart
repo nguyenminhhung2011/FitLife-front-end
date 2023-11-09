@@ -15,13 +15,31 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$OverviewData {}
+mixin _$OverviewData {
+  /// Upcoming schedule exercise
+  UpcomingScheduleExercise? get upcomingScheduleExercise =>
+      throw _privateConstructorUsedError;
+
+  /// Is loading upcoming schedule exercise finish or not
+  bool get isLoadingUpcomingScheduleExercise =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $OverviewDataCopyWith<OverviewData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $OverviewDataCopyWith<$Res> {
   factory $OverviewDataCopyWith(
           OverviewData value, $Res Function(OverviewData) then) =
       _$OverviewDataCopyWithImpl<$Res, OverviewData>;
+  @useResult
+  $Res call(
+      {UpcomingScheduleExercise? upcomingScheduleExercise,
+      bool isLoadingUpcomingScheduleExercise});
+
+  $UpcomingScheduleExerciseCopyWith<$Res>? get upcomingScheduleExercise;
 }
 
 /// @nodoc
@@ -33,13 +51,54 @@ class _$OverviewDataCopyWithImpl<$Res, $Val extends OverviewData>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? upcomingScheduleExercise = freezed,
+    Object? isLoadingUpcomingScheduleExercise = null,
+  }) {
+    return _then(_value.copyWith(
+      upcomingScheduleExercise: freezed == upcomingScheduleExercise
+          ? _value.upcomingScheduleExercise
+          : upcomingScheduleExercise // ignore: cast_nullable_to_non_nullable
+              as UpcomingScheduleExercise?,
+      isLoadingUpcomingScheduleExercise: null ==
+              isLoadingUpcomingScheduleExercise
+          ? _value.isLoadingUpcomingScheduleExercise
+          : isLoadingUpcomingScheduleExercise // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UpcomingScheduleExerciseCopyWith<$Res>? get upcomingScheduleExercise {
+    if (_value.upcomingScheduleExercise == null) {
+      return null;
+    }
+
+    return $UpcomingScheduleExerciseCopyWith<$Res>(
+        _value.upcomingScheduleExercise!, (value) {
+      return _then(_value.copyWith(upcomingScheduleExercise: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$_OverviewDataCopyWith<$Res> {
+abstract class _$$_OverviewDataCopyWith<$Res>
+    implements $OverviewDataCopyWith<$Res> {
   factory _$$_OverviewDataCopyWith(
           _$_OverviewData value, $Res Function(_$_OverviewData) then) =
       __$$_OverviewDataCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {UpcomingScheduleExercise? upcomingScheduleExercise,
+      bool isLoadingUpcomingScheduleExercise});
+
+  @override
+  $UpcomingScheduleExerciseCopyWith<$Res>? get upcomingScheduleExercise;
 }
 
 /// @nodoc
@@ -49,28 +108,88 @@ class __$$_OverviewDataCopyWithImpl<$Res>
   __$$_OverviewDataCopyWithImpl(
       _$_OverviewData _value, $Res Function(_$_OverviewData) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? upcomingScheduleExercise = freezed,
+    Object? isLoadingUpcomingScheduleExercise = null,
+  }) {
+    return _then(_$_OverviewData(
+      upcomingScheduleExercise: freezed == upcomingScheduleExercise
+          ? _value.upcomingScheduleExercise
+          : upcomingScheduleExercise // ignore: cast_nullable_to_non_nullable
+              as UpcomingScheduleExercise?,
+      isLoadingUpcomingScheduleExercise: null ==
+              isLoadingUpcomingScheduleExercise
+          ? _value.isLoadingUpcomingScheduleExercise
+          : isLoadingUpcomingScheduleExercise // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_OverviewData implements _OverviewData {
-  const _$_OverviewData();
+  const _$_OverviewData(
+      {this.upcomingScheduleExercise,
+      this.isLoadingUpcomingScheduleExercise = false});
+
+  /// Upcoming schedule exercise
+  @override
+  final UpcomingScheduleExercise? upcomingScheduleExercise;
+
+  /// Is loading upcoming schedule exercise finish or not
+  @override
+  @JsonKey()
+  final bool isLoadingUpcomingScheduleExercise;
 
   @override
   String toString() {
-    return 'OverviewData()';
+    return 'OverviewData(upcomingScheduleExercise: $upcomingScheduleExercise, isLoadingUpcomingScheduleExercise: $isLoadingUpcomingScheduleExercise)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_OverviewData);
+        (other.runtimeType == runtimeType &&
+            other is _$_OverviewData &&
+            (identical(
+                    other.upcomingScheduleExercise, upcomingScheduleExercise) ||
+                other.upcomingScheduleExercise == upcomingScheduleExercise) &&
+            (identical(other.isLoadingUpcomingScheduleExercise,
+                    isLoadingUpcomingScheduleExercise) ||
+                other.isLoadingUpcomingScheduleExercise ==
+                    isLoadingUpcomingScheduleExercise));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, upcomingScheduleExercise, isLoadingUpcomingScheduleExercise);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OverviewDataCopyWith<_$_OverviewData> get copyWith =>
+      __$$_OverviewDataCopyWithImpl<_$_OverviewData>(this, _$identity);
 }
 
 abstract class _OverviewData implements OverviewData {
-  const factory _OverviewData() = _$_OverviewData;
+  const factory _OverviewData(
+      {final UpcomingScheduleExercise? upcomingScheduleExercise,
+      final bool isLoadingUpcomingScheduleExercise}) = _$_OverviewData;
+
+  @override
+
+  /// Upcoming schedule exercise
+  UpcomingScheduleExercise? get upcomingScheduleExercise;
+  @override
+
+  /// Is loading upcoming schedule exercise finish or not
+  bool get isLoadingUpcomingScheduleExercise;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OverviewDataCopyWith<_$_OverviewData> get copyWith =>
+      throw _privateConstructorUsedError;
 }

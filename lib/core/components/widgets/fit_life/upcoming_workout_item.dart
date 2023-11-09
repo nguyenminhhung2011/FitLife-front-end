@@ -1,11 +1,15 @@
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/mvvm/me/entity/upcoming_workout.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:intl/intl.dart';
 
 class UpComingWorkoutItem extends StatelessWidget {
+  final UpcomingWorkout upcomingWorkout;
   const UpComingWorkoutItem({
+    required this.upcomingWorkout,
     super.key,
   });
 
@@ -34,12 +38,19 @@ class UpComingWorkoutItem extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(7.0),
-                  child: Image.asset(
-                    ImageConst.banner1,
-                    fit: BoxFit.cover,
-                    width: 100.0,
-                    height: 100.0,
-                  ),
+                  child: upcomingWorkout.image == null
+                      ? Image.asset(
+                          ImageConst.banner1,
+                          fit: BoxFit.cover,
+                          width: 100.0,
+                          height: 100.0,
+                        )
+                      : Image.network(
+                          upcomingWorkout.image!,
+                          fit: BoxFit.cover,
+                          width: 100.0,
+                          height: 100.0,
+                        ),
                 ),
                 const SizedBox(width: 10.0),
                 Expanded(
@@ -48,43 +59,56 @@ class UpComingWorkoutItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        'Dash Strength',
+                        upcomingWorkout.title,
                         style: context.titleMedium
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
+                      if (upcomingWorkout.description != null) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          upcomingWorkout.description!,
+                          style: context.titleSmall.copyWith(
+                            color: Theme.of(context).hintColor,
+                          ),
+                        ),
+                      ],
                       const SizedBox(height: 5.0),
-                      Text('🕑 5:00 pm * 45 min', style: smallTextStyle),
+                      Text(
+                          '🕑 ${DateFormat.H().format(upcomingWorkout.startTime)} * ${upcomingWorkout.minutes ?? 0} min',
+                          style: smallTextStyle),
                       const SizedBox(height: 2.0),
-                      Text('🔥 200 kCalo', style: smallTextStyle),
+                      Text('🔥 ${upcomingWorkout.kCalo} kCalo',
+                          style: smallTextStyle),
                     ],
                   ),
                 )
               ],
             ),
           ),
-          Positioned(
-            right: 15.0,
-            bottom: 0.0,
-            child: Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                color: Colors.green.withOpacity(0.2),
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(5.0),
-                  bottomRight: Radius.circular(10.0),
+          if (upcomingWorkout.enableNotification)
+            Positioned(
+              right: 15.0,
+              bottom: 0.0,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                decoration: BoxDecoration(
+                  color: Colors.green.withOpacity(0.2),
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(5.0),
+                    bottomRight: Radius.circular(10.0),
+                  ),
+                ),
+                child: Text(
+                  'Enable notification',
+                  style: context.titleSmall.copyWith(
+                    fontSize: 10.0,
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              child: Text(
-                'Enable notification',
-                style: context.titleSmall.copyWith(
-                  fontSize: 10.0,
-                  color: Colors.green,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          )
+            )
         ],
       ),
     );

@@ -20,6 +20,7 @@ mixin _$PlanOverViewState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PlanOverViewData data) initial,
+    required TResult Function(PlanOverViewData data) success,
     required TResult Function(PlanOverViewData data) loading,
     required TResult Function(PlanOverViewData data) getCurrentPlanSuccess,
     required TResult Function(PlanOverViewData data, String message)
@@ -29,6 +30,7 @@ mixin _$PlanOverViewState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PlanOverViewData data)? initial,
+    TResult? Function(PlanOverViewData data)? success,
     TResult? Function(PlanOverViewData data)? loading,
     TResult? Function(PlanOverViewData data)? getCurrentPlanSuccess,
     TResult? Function(PlanOverViewData data, String message)?
@@ -38,6 +40,7 @@ mixin _$PlanOverViewState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PlanOverViewData data)? initial,
+    TResult Function(PlanOverViewData data)? success,
     TResult Function(PlanOverViewData data)? loading,
     TResult Function(PlanOverViewData data)? getCurrentPlanSuccess,
     TResult Function(PlanOverViewData data, String message)?
@@ -48,6 +51,7 @@ mixin _$PlanOverViewState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetCurrentPlanSuccess value)
         getCurrentPlanSuccess,
@@ -57,6 +61,7 @@ mixin _$PlanOverViewState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
     TResult? Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
@@ -65,6 +70,7 @@ mixin _$PlanOverViewState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
     TResult Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
     TResult Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
@@ -189,6 +195,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PlanOverViewData data) initial,
+    required TResult Function(PlanOverViewData data) success,
     required TResult Function(PlanOverViewData data) loading,
     required TResult Function(PlanOverViewData data) getCurrentPlanSuccess,
     required TResult Function(PlanOverViewData data, String message)
@@ -201,6 +208,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PlanOverViewData data)? initial,
+    TResult? Function(PlanOverViewData data)? success,
     TResult? Function(PlanOverViewData data)? loading,
     TResult? Function(PlanOverViewData data)? getCurrentPlanSuccess,
     TResult? Function(PlanOverViewData data, String message)?
@@ -213,6 +221,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PlanOverViewData data)? initial,
+    TResult Function(PlanOverViewData data)? success,
     TResult Function(PlanOverViewData data)? loading,
     TResult Function(PlanOverViewData data)? getCurrentPlanSuccess,
     TResult Function(PlanOverViewData data, String message)?
@@ -229,6 +238,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetCurrentPlanSuccess value)
         getCurrentPlanSuccess,
@@ -241,6 +251,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
     TResult? Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
@@ -252,6 +263,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
     TResult Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
     TResult Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
@@ -272,6 +284,167 @@ abstract class _Initial implements PlanOverViewState {
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SuccessCopyWith<$Res>
+    implements $PlanOverViewStateCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PlanOverViewData data});
+
+  @override
+  $PlanOverViewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$PlanOverViewStateCopyWithImpl<$Res, _$_Success>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Success(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PlanOverViewData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Success implements _Success {
+  const _$_Success({required this.data});
+
+  @override
+  final PlanOverViewData data;
+
+  @override
+  String toString() {
+    return 'PlanOverViewState.success(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Success &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PlanOverViewData data) initial,
+    required TResult Function(PlanOverViewData data) success,
+    required TResult Function(PlanOverViewData data) loading,
+    required TResult Function(PlanOverViewData data) getCurrentPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        getCurrentPlanFailed,
+  }) {
+    return success(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PlanOverViewData data)? initial,
+    TResult? Function(PlanOverViewData data)? success,
+    TResult? Function(PlanOverViewData data)? loading,
+    TResult? Function(PlanOverViewData data)? getCurrentPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)?
+        getCurrentPlanFailed,
+  }) {
+    return success?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PlanOverViewData data)? initial,
+    TResult Function(PlanOverViewData data)? success,
+    TResult Function(PlanOverViewData data)? loading,
+    TResult Function(PlanOverViewData data)? getCurrentPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)?
+        getCurrentPlanFailed,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetCurrentPlanSuccess value)
+        getCurrentPlanSuccess,
+    required TResult Function(_GetCurrentPlanFailed value) getCurrentPlanFailed,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
+    TResult? Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
+    TResult Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Success implements PlanOverViewState {
+  const factory _Success({required final PlanOverViewData data}) = _$_Success;
+
+  @override
+  PlanOverViewData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -344,6 +517,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PlanOverViewData data) initial,
+    required TResult Function(PlanOverViewData data) success,
     required TResult Function(PlanOverViewData data) loading,
     required TResult Function(PlanOverViewData data) getCurrentPlanSuccess,
     required TResult Function(PlanOverViewData data, String message)
@@ -356,6 +530,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PlanOverViewData data)? initial,
+    TResult? Function(PlanOverViewData data)? success,
     TResult? Function(PlanOverViewData data)? loading,
     TResult? Function(PlanOverViewData data)? getCurrentPlanSuccess,
     TResult? Function(PlanOverViewData data, String message)?
@@ -368,6 +543,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PlanOverViewData data)? initial,
+    TResult Function(PlanOverViewData data)? success,
     TResult Function(PlanOverViewData data)? loading,
     TResult Function(PlanOverViewData data)? getCurrentPlanSuccess,
     TResult Function(PlanOverViewData data, String message)?
@@ -384,6 +560,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetCurrentPlanSuccess value)
         getCurrentPlanSuccess,
@@ -396,6 +573,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
     TResult? Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
@@ -407,6 +585,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
     TResult Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
     TResult Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
@@ -501,6 +680,7 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PlanOverViewData data) initial,
+    required TResult Function(PlanOverViewData data) success,
     required TResult Function(PlanOverViewData data) loading,
     required TResult Function(PlanOverViewData data) getCurrentPlanSuccess,
     required TResult Function(PlanOverViewData data, String message)
@@ -513,6 +693,7 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PlanOverViewData data)? initial,
+    TResult? Function(PlanOverViewData data)? success,
     TResult? Function(PlanOverViewData data)? loading,
     TResult? Function(PlanOverViewData data)? getCurrentPlanSuccess,
     TResult? Function(PlanOverViewData data, String message)?
@@ -525,6 +706,7 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PlanOverViewData data)? initial,
+    TResult Function(PlanOverViewData data)? success,
     TResult Function(PlanOverViewData data)? loading,
     TResult Function(PlanOverViewData data)? getCurrentPlanSuccess,
     TResult Function(PlanOverViewData data, String message)?
@@ -541,6 +723,7 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetCurrentPlanSuccess value)
         getCurrentPlanSuccess,
@@ -553,6 +736,7 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
     TResult? Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
@@ -564,6 +748,7 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
     TResult Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
     TResult Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
@@ -667,6 +852,7 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PlanOverViewData data) initial,
+    required TResult Function(PlanOverViewData data) success,
     required TResult Function(PlanOverViewData data) loading,
     required TResult Function(PlanOverViewData data) getCurrentPlanSuccess,
     required TResult Function(PlanOverViewData data, String message)
@@ -679,6 +865,7 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PlanOverViewData data)? initial,
+    TResult? Function(PlanOverViewData data)? success,
     TResult? Function(PlanOverViewData data)? loading,
     TResult? Function(PlanOverViewData data)? getCurrentPlanSuccess,
     TResult? Function(PlanOverViewData data, String message)?
@@ -691,6 +878,7 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PlanOverViewData data)? initial,
+    TResult Function(PlanOverViewData data)? success,
     TResult Function(PlanOverViewData data)? loading,
     TResult Function(PlanOverViewData data)? getCurrentPlanSuccess,
     TResult Function(PlanOverViewData data, String message)?
@@ -707,6 +895,7 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetCurrentPlanSuccess value)
         getCurrentPlanSuccess,
@@ -719,6 +908,7 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
     TResult? Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
@@ -730,6 +920,7 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
     TResult Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
     TResult Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,

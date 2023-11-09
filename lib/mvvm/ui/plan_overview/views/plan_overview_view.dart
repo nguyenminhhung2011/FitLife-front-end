@@ -32,9 +32,11 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
 
   @override
   void initState() {
-    _vm.getCurrentPlan();
-    _vm.getSessionPlanHistory();
+    // _vm.getCurrentPlan();
     super.initState();
+    Future.delayed(Duration.zero, () {
+      _vm.getSessionPlanHistory();
+    });
   }
 
   void _listenStateChange(PlanOverViewState state) {

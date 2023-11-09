@@ -1,6 +1,6 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
-import 'package:fit_life/mvvm/me/entity/workout_plan.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
@@ -126,7 +126,7 @@ class WorkoutPlanItemWidget extends StatelessWidget {
             radius: 20.0,
             percent: 0.5,
             center: Text(
-              progress.toStringAsFixed(1),
+              (progress * 100).toStringAsFixed(1),
               style: context.titleSmall
                   .copyWith(fontWeight: FontWeight.w500, fontSize: 10.0),
             ),

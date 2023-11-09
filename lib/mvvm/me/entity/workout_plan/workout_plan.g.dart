@@ -17,7 +17,7 @@ _$_WorkoutPlan _$$_WorkoutPlanFromJson(Map<String, dynamic> json) =>
           ? null
           : DateTime.parse(json['endDate'] as String),
       planType: $enumDecodeNullable(_$PlanTypeEnumMap, json['planType']) ??
-          PlanType.DEFAULT,
+          PlanType.def,
       dailyWorkouts: (json['dailyWorkouts'] as List<dynamic>?)
           ?.map((e) => DailyWorkout.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -34,7 +34,7 @@ Map<String, dynamic> _$$_WorkoutPlanToJson(_$_WorkoutPlan instance) =>
     };
 
 const _$PlanTypeEnumMap = {
-  PlanType.DEFAULT: 'DEFAULT',
-  PlanType.USER: 'USER',
-  PlanType.AI: 'AI',
+  PlanType.user: 'user',
+  PlanType.ai: 'ai',
+  PlanType.def: 'def',
 };

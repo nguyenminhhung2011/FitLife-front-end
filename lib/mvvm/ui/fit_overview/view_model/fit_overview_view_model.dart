@@ -1,6 +1,6 @@
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/widgets/fit_life/exercise_category.dart';
-import 'package:fit_life/mvvm/me/entity/upcoming_workout.dart';
+import 'package:fit_life/mvvm/me/entity/upcoming_workout/upcoming_workout.dart';
 import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

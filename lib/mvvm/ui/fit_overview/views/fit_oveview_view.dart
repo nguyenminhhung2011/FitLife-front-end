@@ -48,11 +48,11 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
 
   @override
   void initState() {
-    super.initState();
     Future.delayed(Duration.zero, () {
       _vm.getUpcomingWorkout();
       _vm.getExerciseCategory();
     });
+    super.initState();
   }
 
   void _onSelectedDate() async {
@@ -179,7 +179,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
           const SizedBox(height: 10.0),
           if (_data.isLoadingUpcomingWorkout)
             const Center(child: CircularProgressIndicator())
-          else if (_data.upcomingWorkouts?.isEmpty ?? true)
+          else if (_data.upcomingWorkouts?.isEmpty ?? false)
             const Center(child: Text('No upcoming workout'))
           else
             ...List.generate(

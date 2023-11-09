@@ -1,4 +1,4 @@
-import 'package:fit_life/mvvm/me/entity/session.dart';
+import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'daily_workout.freezed.dart';

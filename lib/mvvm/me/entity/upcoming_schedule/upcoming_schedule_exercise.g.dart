@@ -21,6 +21,7 @@ _$_UpcomingScheduleExercise _$$_UpcomingScheduleExerciseFromJson(
       exercises: (json['exercises'] as List<dynamic>?)
           ?.map((e) => Exercise.fromJson(e as Map<String, dynamic>))
           .toList(),
+      image: json['image'] as String?,
     );
 
 Map<String, dynamic> _$$_UpcomingScheduleExerciseToJson(
@@ -32,4 +33,5 @@ Map<String, dynamic> _$$_UpcomingScheduleExerciseToJson(
       'description': instance.description,
       'minutes': instance.minutes,
       'exercises': instance.exercises,
+      'image': instance.image,
     };

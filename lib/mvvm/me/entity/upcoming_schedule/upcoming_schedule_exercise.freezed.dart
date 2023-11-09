@@ -27,6 +27,7 @@ mixin _$UpcomingScheduleExercise {
   String get description => throw _privateConstructorUsedError;
   int? get minutes => throw _privateConstructorUsedError;
   List<Exercise>? get exercises => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +47,8 @@ abstract class $UpcomingScheduleExerciseCopyWith<$Res> {
       String title,
       String description,
       int? minutes,
-      List<Exercise>? exercises});
+      List<Exercise>? exercises,
+      String? image});
 }
 
 /// @nodoc
@@ -69,6 +71,7 @@ class _$UpcomingScheduleExerciseCopyWithImpl<$Res,
     Object? description = null,
     Object? minutes = freezed,
     Object? exercises = freezed,
+    Object? image = freezed,
   }) {
     return _then(_value.copyWith(
       startAt: freezed == startAt
@@ -95,6 +98,10 @@ class _$UpcomingScheduleExerciseCopyWithImpl<$Res,
           ? _value.exercises
           : exercises // ignore: cast_nullable_to_non_nullable
               as List<Exercise>?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -114,7 +121,8 @@ abstract class _$$_UpcomingScheduleExerciseCopyWith<$Res>
       String title,
       String description,
       int? minutes,
-      List<Exercise>? exercises});
+      List<Exercise>? exercises,
+      String? image});
 }
 
 /// @nodoc
@@ -135,6 +143,7 @@ class __$$_UpcomingScheduleExerciseCopyWithImpl<$Res>
     Object? description = null,
     Object? minutes = freezed,
     Object? exercises = freezed,
+    Object? image = freezed,
   }) {
     return _then(_$_UpcomingScheduleExercise(
       startAt: freezed == startAt
@@ -161,6 +170,10 @@ class __$$_UpcomingScheduleExerciseCopyWithImpl<$Res>
           ? _value._exercises
           : exercises // ignore: cast_nullable_to_non_nullable
               as List<Exercise>?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -174,7 +187,8 @@ class _$_UpcomingScheduleExercise implements _UpcomingScheduleExercise {
       required this.title,
       required this.description,
       this.minutes,
-      final List<Exercise>? exercises})
+      final List<Exercise>? exercises,
+      this.image})
       : _exercises = exercises;
 
   factory _$_UpcomingScheduleExercise.fromJson(Map<String, dynamic> json) =>
@@ -201,8 +215,11 @@ class _$_UpcomingScheduleExercise implements _UpcomingScheduleExercise {
   }
 
   @override
+  final String? image;
+
+  @override
   String toString() {
-    return 'UpcomingScheduleExercise(startAt: $startAt, endAt: $endAt, title: $title, description: $description, minutes: $minutes, exercises: $exercises)';
+    return 'UpcomingScheduleExercise(startAt: $startAt, endAt: $endAt, title: $title, description: $description, minutes: $minutes, exercises: $exercises, image: $image)';
   }
 
   @override
@@ -217,13 +234,21 @@ class _$_UpcomingScheduleExercise implements _UpcomingScheduleExercise {
                 other.description == description) &&
             (identical(other.minutes, minutes) || other.minutes == minutes) &&
             const DeepCollectionEquality()
-                .equals(other._exercises, _exercises));
+                .equals(other._exercises, _exercises) &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, startAt, endAt, title,
-      description, minutes, const DeepCollectionEquality().hash(_exercises));
+  int get hashCode => Object.hash(
+      runtimeType,
+      startAt,
+      endAt,
+      title,
+      description,
+      minutes,
+      const DeepCollectionEquality().hash(_exercises),
+      image);
 
   @JsonKey(ignore: true)
   @override
@@ -247,7 +272,8 @@ abstract class _UpcomingScheduleExercise implements UpcomingScheduleExercise {
       required final String title,
       required final String description,
       final int? minutes,
-      final List<Exercise>? exercises}) = _$_UpcomingScheduleExercise;
+      final List<Exercise>? exercises,
+      final String? image}) = _$_UpcomingScheduleExercise;
 
   factory _UpcomingScheduleExercise.fromJson(Map<String, dynamic> json) =
       _$_UpcomingScheduleExercise.fromJson;
@@ -264,6 +290,8 @@ abstract class _UpcomingScheduleExercise implements UpcomingScheduleExercise {
   int? get minutes;
   @override
   List<Exercise>? get exercises;
+  @override
+  String? get image;
   @override
   @JsonKey(ignore: true)
   _$$_UpcomingScheduleExerciseCopyWith<_$_UpcomingScheduleExercise>

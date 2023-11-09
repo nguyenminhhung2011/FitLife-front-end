@@ -1,5 +1,5 @@
-import 'package:fit_life/mvvm/me/entity/exercise.dart';
-import 'package:fit_life/mvvm/me/entity/upcoming_schedule_exercise.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
+import 'package:fit_life/mvvm/me/entity/upcoming_schedule/upcoming_schedule_exercise.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

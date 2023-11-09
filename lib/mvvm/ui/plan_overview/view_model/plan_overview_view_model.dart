@@ -1,6 +1,6 @@
-import 'package:fit_life/mvvm/me/entity/workout_plan.dart';
-import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/repo/plan_repositories.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
+// import 'package:fit_life/core/dependency_injection/di.dart';
+// import 'package:fit_life/mvvm/repo/plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,21 +16,21 @@ final planOverviewStateNotifier =
 
 @injectable
 class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
-  final _planRepositories = injector.get<PlanRepositories>();
+  // final _planRepositories = injector.get<PlanRepositories>();
   PlanOverViewViewModel() : super(const _Initial(data: PlanOverViewData()));
 
   PlanOverViewData get data => state.data;
 
-  Future<void> getCurrentPlan() async {
-    state = _Loading(data: data);
-    final response = await _planRepositories.getCurrentPlan();
-    state = response.fold(
-      ifLeft: (error) =>
-          _GetCurrentPlanFailed(data: data, message: error.message),
-      ifRight: (currentPlan) =>
-          _GetCurrentPlanSuccess(data: data.copyWith(currentPlan: currentPlan)),
-    );
-  }
+  // Future<void> getCurrentPlan() async {
+  //   state = _Loading(data: data);
+  //   final response = await _planRepositories.getCurrentPlan();
+  //   state = response.fold(
+  //     ifLeft: (error) =>
+  //         _GetCurrentPlanFailed(data: data, message: error.message),
+  //     ifRight: (currentPlan) =>
+  //         _GetCurrentPlanSuccess(data: data.copyWith(currentPlan: currentPlan)),
+  //   );
+  // }
 
   void getSessionPlanHistory() {
     state = state.copyWith(

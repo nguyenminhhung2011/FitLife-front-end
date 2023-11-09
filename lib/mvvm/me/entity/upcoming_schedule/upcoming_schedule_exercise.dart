@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'exercise.dart';
+import '../exercise/exercise.dart';
 
 part 'upcoming_schedule_exercise.freezed.dart';
 part 'upcoming_schedule_exercise.g.dart';
@@ -12,7 +12,8 @@ class UpcomingScheduleExercise with _$UpcomingScheduleExercise {
     required String title,
     required String description,
     int? minutes,
-     List<Exercise>? exercises,
+    List<Exercise>? exercises,
+    String? image,
   }) = _UpcomingScheduleExercise;
 
   factory UpcomingScheduleExercise.fromJson(Map<String, dynamic> json) =>

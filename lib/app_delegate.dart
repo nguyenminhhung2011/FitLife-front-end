@@ -29,8 +29,8 @@ class AppDelegate {
 
     return Application(
       navigationKey: GlobalKey<NavigatorState>(),
-      providers: [],
-      initialRoute: Routes.splash,
+      providers: const [],
+      initialRoute: Routes.dashboard,
       savedThemeMode: savedThemeMode,
       isMobile: isMobile,
     );

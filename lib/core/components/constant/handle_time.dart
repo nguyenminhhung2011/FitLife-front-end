@@ -33,7 +33,7 @@ String gemmFormat(DateTime dateTime) {
 }
 
 String getRangeDateFormat(DateTime startDate, DateTime endDate) =>
-    '${DateFormat().add_yMEd().format(startDate)} - ${DateFormat().add_yMEd().format(endDate)}';
+    '${DateFormat.yMd().format(startDate)} - ${DateFormat.yMd().format(endDate)}';
 
 int hoursBetween(DateTime from, DateTime to) {
   from = DateTime(from.year, from.month, from.day);

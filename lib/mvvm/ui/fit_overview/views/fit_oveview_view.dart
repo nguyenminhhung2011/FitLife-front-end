@@ -146,8 +146,6 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
               scrollDirection: Axis.horizontal,
               children: [
                 const SizedBox(width: 15.0),
-
-                ///[Example code]
                 ...[
                   {
                     'header': 'Upper Body',

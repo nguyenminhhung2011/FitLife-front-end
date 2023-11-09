@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/bottom_selected_prompt.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/components/layout/setting_layout/views/language_choose.dart';
 import 'core/components/widgets/range_date_picker_custom.dart';
@@ -216,7 +217,7 @@ extension AppCoordinator<T> on BuildContext {
       ),
       backgroundColor: Theme.of(this).scaffoldBackgroundColor,
       builder: (context) {
-        return const ViewMorePlan();
+        return const ProviderScope(child: ViewMorePlan());
       },
     );
   }

@@ -1,6 +1,8 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
 
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -12,16 +14,30 @@ import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_card.
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_gradient_field.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_progress_field.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_upcoming_session.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PlanOverViewView extends StatefulWidget {
+class PlanOverViewView extends ConsumerStatefulWidget {
   const PlanOverViewView({super.key});
 
   @override
-  State<PlanOverViewView> createState() => _PlanOverViewViewState();
+  ConsumerState<PlanOverViewView> createState() => _PlanOverViewViewState();
 }
 
-class _PlanOverViewViewState extends State<PlanOverViewView> {
+class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
+  PlanOverViewViewModel get _vm => ref.read(planOverViewStateNotifier.notifier);
+
   Color get _backGroundColor => Theme.of(context).scaffoldBackgroundColor;
+
+  PlanOverViewData get _data => ref.watch(planOverViewStateNotifier).data;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () {
+      _vm.getSessionPlanHistory();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,8 +119,16 @@ class _PlanOverViewViewState extends State<PlanOverViewView> {
             ),
             _renderTimeToText(context, time: DateTime.now()),
             const SizedBox(height: 10.0),
-            const WorkoutPlanItemWidget(),
-            const WorkoutPlanItemWidget(),
+            if (_data.isLoadingWorkoutPlans)
+              const Center(child: CircularProgressIndicator())
+            else
+              ..._data.workoutPlans
+                      ?.map((e) => WorkoutPlanItemWidget(
+                            workoutPlan: e,
+                            progress: 0.6,
+                          ))
+                      .toList() ??
+                  const [],
             const SizedBox(height: 10.0),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),

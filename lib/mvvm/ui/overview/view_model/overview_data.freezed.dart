@@ -16,8 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$OverviewData {
+  /// Upcoming schedule exercise
   UpcomingScheduleExercise? get upcomingScheduleExercise =>
       throw _privateConstructorUsedError;
+
+  /// Is loading upcoming schedule exercise finish or not
   bool get isLoadingUpcomingScheduleExercise =>
       throw _privateConstructorUsedError;
 
@@ -133,8 +136,11 @@ class _$_OverviewData implements _OverviewData {
       {this.upcomingScheduleExercise,
       this.isLoadingUpcomingScheduleExercise = false});
 
+  /// Upcoming schedule exercise
   @override
   final UpcomingScheduleExercise? upcomingScheduleExercise;
+
+  /// Is loading upcoming schedule exercise finish or not
   @override
   @JsonKey()
   final bool isLoadingUpcomingScheduleExercise;
@@ -175,8 +181,12 @@ abstract class _OverviewData implements OverviewData {
       final bool isLoadingUpcomingScheduleExercise}) = _$_OverviewData;
 
   @override
+
+  /// Upcoming schedule exercise
   UpcomingScheduleExercise? get upcomingScheduleExercise;
   @override
+
+  /// Is loading upcoming schedule exercise finish or not
   bool get isLoadingUpcomingScheduleExercise;
   @override
   @JsonKey(ignore: true)

@@ -141,8 +141,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial({required this.data});
+class _$_Initial extends _Initial {
+  const _$_Initial({required this.data}) : super._();
 
   @override
   final OverviewData data;
@@ -232,8 +232,9 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements OverviewState {
+abstract class _Initial extends OverviewState {
   const factory _Initial({required final OverviewData data}) = _$_Initial;
+  const _Initial._() : super._();
 
   @override
   OverviewData get data;
@@ -280,8 +281,8 @@ class __$$_SuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success({required this.data});
+class _$_Success extends _Success {
+  const _$_Success({required this.data}) : super._();
 
   @override
   final OverviewData data;
@@ -371,8 +372,9 @@ class _$_Success implements _Success {
   }
 }
 
-abstract class _Success implements OverviewState {
+abstract class _Success extends OverviewState {
   const factory _Success({required final OverviewData data}) = _$_Success;
+  const _Success._() : super._();
 
   @override
   OverviewData get data;

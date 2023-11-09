@@ -1,12 +1,20 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class WorkoutPlanItemWidget extends StatelessWidget {
-  const WorkoutPlanItemWidget({super.key});
+  final WorkoutPlan workoutPlan;
+  final double progress;
+
+  const WorkoutPlanItemWidget({
+    super.key,
+    required this.workoutPlan,
+    required this.progress,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,19 +50,19 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "14 days",
+                    "${workoutPlan.endDate?.difference(workoutPlan.startDate!).inDays} days",
                     style: context.titleLarge.copyWith(
                       fontWeight: FontWeight.w600,
                       fontSize: 22.0,
                       color: Colors.white,
                     ),
                   ),
+                  const SizedBox(height: 12),
                   Text(
-                    getRangeDateFormat(DateTime.now(),
-                        DateTime.now().add(const Duration(days: 1))),
+                    getRangeDateFormat(
+                        workoutPlan.startDate!, workoutPlan.endDate!),
                     textAlign: TextAlign.center,
-                    style: context.titleSmall
-                        .copyWith(color: Colors.white, fontSize: 8.0),
+                    style: const TextStyle(color: Colors.white, fontSize: 10.0),
                   )
                 ],
               ),
@@ -67,11 +75,14 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Hanh trinh giam can tu con so 0',
+                      workoutPlan.name,
                       style: context.titleMedium
-                          .copyWith(fontWeight: FontWeight.bold, fontSize: 16),
+                          .copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 2.0),
+                    Text(workoutPlan.description,
+                        style: context.textTheme.labelMedium
+                            ?.copyWith(color: Theme.of(context).hintColor)),
                     const SizedBox(height: 10.0),
                     _progressField(context),
                   ],
@@ -115,7 +126,7 @@ class WorkoutPlanItemWidget extends StatelessWidget {
             radius: 20.0,
             percent: 0.5,
             center: Text(
-              '20%',
+              progress.toStringAsFixed(1),
               style: context.titleSmall
                   .copyWith(fontWeight: FontWeight.w500, fontSize: 10.0),
             ),

@@ -4,18 +4,32 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/mvvm/ui/auth/mixins/auth_mixin.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ViewMorePlan extends StatefulWidget {
+class ViewMorePlan extends ConsumerStatefulWidget {
   const ViewMorePlan({super.key});
 
   @override
-  State<ViewMorePlan> createState() => _ViewMorePlanState();
+  ConsumerState<ViewMorePlan> createState() => _ViewMorePlanState();
 }
 
-class _ViewMorePlanState extends State<ViewMorePlan> with AuthMixin {
+class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
   final _searchController = TextEditingController();
+  PlanOverViewViewModel get _vm => ref.read(planOverViewStateNotifier.notifier);
+
+  PlanOverViewData get _data => ref.watch(planOverViewStateNotifier).data;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () {
+      _vm.getSessionPlanHistory();
+    });
+  }
 
   @override
   void dispose() {
@@ -93,9 +107,14 @@ class _ViewMorePlanState extends State<ViewMorePlan> with AuthMixin {
             const Divider(),
             const SizedBox(height: 5.0),
             Expanded(
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (_, __) => const WorkoutPlanItemWidget(),
+              child: Column(
+                children: _data.workoutPlans
+                        ?.map((e) => WorkoutPlanItemWidget(
+                              workoutPlan: e,
+                              progress: 0.6,
+                            ))
+                        .toList() ??
+                    const [],
               ),
             )
           ],
@@ -116,7 +135,9 @@ class _ViewMorePlanState extends State<ViewMorePlan> with AuthMixin {
             children: [
               SvgPicture.asset(ImageConst.searchIcon,
                   // ignore: deprecated_member_use
-                  width: 22, height: 22, color: context.titleLarge.color),
+                  width: 22,
+                  height: 22,
+                  color: context.titleLarge.color),
             ],
           ),
         ),

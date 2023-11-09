@@ -16,7 +16,7 @@ import 'package:fit_life/routes/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:drag_ball/drag_ball.dart';
 
-class DashboardView extends ConsumerStatefulWidget {
+  class DashboardView extends ConsumerStatefulWidget {
   const DashboardView({super.key});
 
   @override

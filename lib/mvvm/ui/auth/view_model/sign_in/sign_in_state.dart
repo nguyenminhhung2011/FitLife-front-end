@@ -15,4 +15,5 @@ class SignInState with _$SignInState {
       _InvalidFormat;
 
   bool get loading => this is _Loading;
+  bool get isInValidFormat => this is _InvalidFormat;
 }

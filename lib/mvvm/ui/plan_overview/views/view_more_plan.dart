@@ -19,9 +19,9 @@ class ViewMorePlan extends ConsumerStatefulWidget {
 
 class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
   final _searchController = TextEditingController();
-  PlanOverViewViewModel get _vm => ref.read(planOverViewStateNotifier.notifier);
+  PlanOverViewViewModel get _vm => ref.read(planOverviewStateNotifier.notifier);
 
-  PlanOverViewData get _data => ref.watch(planOverViewStateNotifier).data;
+  PlanOverViewData get _data => ref.watch(planOverviewStateNotifier).data;
 
   @override
   void initState() {

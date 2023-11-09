@@ -24,22 +24,32 @@ class PlanOverViewView extends ConsumerStatefulWidget {
 }
 
 class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
-  PlanOverViewViewModel get _vm => ref.read(planOverViewStateNotifier.notifier);
+  PlanOverViewViewModel get _vm => ref.read(planOverviewStateNotifier.notifier);
+
+  PlanOverViewData get _data => ref.watch(planOverviewStateNotifier).data;
 
   Color get _backGroundColor => Theme.of(context).scaffoldBackgroundColor;
 
-  PlanOverViewData get _data => ref.watch(planOverViewStateNotifier).data;
-
   @override
   void initState() {
+    _vm.getCurrentPlan();
+    _vm.getSessionPlanHistory();
     super.initState();
-    Future.delayed(Duration.zero, () {
-      _vm.getSessionPlanHistory();
-    });
+  }
+
+  void _listenStateChange(PlanOverViewState state) {
+    state.maybeWhen(
+      getCurrentPlanFailed: (_, error) =>
+          context.showSnackBar("🐛[Get current plan] $error"),
+      orElse: () {},
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(
+        planOverviewStateNotifier, (_, next) => _listenStateChange(next));
+
     return Scaffold(
       backgroundColor: _backGroundColor,
       extendBodyBehindAppBar: true,
@@ -55,7 +65,7 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
             Image.asset(ImageConst.icon, width: 40.0, height: 40.0),
             const SizedBox(width: 5.0),
             Text(
-              'Session plan',
+              'Current plan',
               style: context.titleMedium.copyWith(fontWeight: FontWeight.w600),
             )
           ],
@@ -111,7 +121,7 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
             ),
             const SizedBox(height: 10),
             HeaderTextCustom(
-              headerText: 'Session plan history',
+              headerText: 'Plan history',
               isShowSeeMore: true,
               onPress: () => context.openViewMorePlan(),
               textStyle:

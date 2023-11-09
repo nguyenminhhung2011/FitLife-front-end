@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PlanOverViewData {
-  CurrentPlan? get currentPlan => throw _privateConstructorUsedError;
+// CurrentPlan? currentPlan,
   List<WorkoutPlan>? get workoutPlans => throw _privateConstructorUsedError;
   bool get isLoadingWorkoutPlans => throw _privateConstructorUsedError;
 
@@ -31,12 +31,7 @@ abstract class $PlanOverViewDataCopyWith<$Res> {
           PlanOverViewData value, $Res Function(PlanOverViewData) then) =
       _$PlanOverViewDataCopyWithImpl<$Res, PlanOverViewData>;
   @useResult
-  $Res call(
-      {CurrentPlan? currentPlan,
-      List<WorkoutPlan>? workoutPlans,
-      bool isLoadingWorkoutPlans});
-
-  $CurrentPlanCopyWith<$Res>? get currentPlan;
+  $Res call({List<WorkoutPlan>? workoutPlans, bool isLoadingWorkoutPlans});
 }
 
 /// @nodoc
@@ -52,15 +47,10 @@ class _$PlanOverViewDataCopyWithImpl<$Res, $Val extends PlanOverViewData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentPlan = freezed,
     Object? workoutPlans = freezed,
     Object? isLoadingWorkoutPlans = null,
   }) {
     return _then(_value.copyWith(
-      currentPlan: freezed == currentPlan
-          ? _value.currentPlan
-          : currentPlan // ignore: cast_nullable_to_non_nullable
-              as CurrentPlan?,
       workoutPlans: freezed == workoutPlans
           ? _value.workoutPlans
           : workoutPlans // ignore: cast_nullable_to_non_nullable
@@ -70,18 +60,6 @@ class _$PlanOverViewDataCopyWithImpl<$Res, $Val extends PlanOverViewData>
           : isLoadingWorkoutPlans // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CurrentPlanCopyWith<$Res>? get currentPlan {
-    if (_value.currentPlan == null) {
-      return null;
-    }
-
-    return $CurrentPlanCopyWith<$Res>(_value.currentPlan!, (value) {
-      return _then(_value.copyWith(currentPlan: value) as $Val);
-    });
   }
 }
 
@@ -93,13 +71,7 @@ abstract class _$$_PlanOverViewDataCopyWith<$Res>
       __$$_PlanOverViewDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {CurrentPlan? currentPlan,
-      List<WorkoutPlan>? workoutPlans,
-      bool isLoadingWorkoutPlans});
-
-  @override
-  $CurrentPlanCopyWith<$Res>? get currentPlan;
+  $Res call({List<WorkoutPlan>? workoutPlans, bool isLoadingWorkoutPlans});
 }
 
 /// @nodoc
@@ -113,15 +85,10 @@ class __$$_PlanOverViewDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentPlan = freezed,
     Object? workoutPlans = freezed,
     Object? isLoadingWorkoutPlans = null,
   }) {
     return _then(_$_PlanOverViewData(
-      currentPlan: freezed == currentPlan
-          ? _value.currentPlan
-          : currentPlan // ignore: cast_nullable_to_non_nullable
-              as CurrentPlan?,
       workoutPlans: freezed == workoutPlans
           ? _value._workoutPlans
           : workoutPlans // ignore: cast_nullable_to_non_nullable
@@ -138,14 +105,13 @@ class __$$_PlanOverViewDataCopyWithImpl<$Res>
 
 class _$_PlanOverViewData implements _PlanOverViewData {
   const _$_PlanOverViewData(
-      {this.currentPlan,
-      final List<WorkoutPlan>? workoutPlans,
+      {final List<WorkoutPlan>? workoutPlans,
       this.isLoadingWorkoutPlans = false})
       : _workoutPlans = workoutPlans;
 
-  @override
-  final CurrentPlan? currentPlan;
+// CurrentPlan? currentPlan,
   final List<WorkoutPlan>? _workoutPlans;
+// CurrentPlan? currentPlan,
   @override
   List<WorkoutPlan>? get workoutPlans {
     final value = _workoutPlans;
@@ -161,7 +127,7 @@ class _$_PlanOverViewData implements _PlanOverViewData {
 
   @override
   String toString() {
-    return 'PlanOverViewData(currentPlan: $currentPlan, workoutPlans: $workoutPlans, isLoadingWorkoutPlans: $isLoadingWorkoutPlans)';
+    return 'PlanOverViewData(workoutPlans: $workoutPlans, isLoadingWorkoutPlans: $isLoadingWorkoutPlans)';
   }
 
   @override
@@ -169,8 +135,6 @@ class _$_PlanOverViewData implements _PlanOverViewData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PlanOverViewData &&
-            (identical(other.currentPlan, currentPlan) ||
-                other.currentPlan == currentPlan) &&
             const DeepCollectionEquality()
                 .equals(other._workoutPlans, _workoutPlans) &&
             (identical(other.isLoadingWorkoutPlans, isLoadingWorkoutPlans) ||
@@ -180,7 +144,6 @@ class _$_PlanOverViewData implements _PlanOverViewData {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      currentPlan,
       const DeepCollectionEquality().hash(_workoutPlans),
       isLoadingWorkoutPlans);
 
@@ -193,13 +156,10 @@ class _$_PlanOverViewData implements _PlanOverViewData {
 
 abstract class _PlanOverViewData implements PlanOverViewData {
   const factory _PlanOverViewData(
-      {final CurrentPlan? currentPlan,
-      final List<WorkoutPlan>? workoutPlans,
+      {final List<WorkoutPlan>? workoutPlans,
       final bool isLoadingWorkoutPlans}) = _$_PlanOverViewData;
 
-  @override
-  CurrentPlan? get currentPlan;
-  @override
+  @override // CurrentPlan? currentPlan,
   List<WorkoutPlan>? get workoutPlans;
   @override
   bool get isLoadingWorkoutPlans;

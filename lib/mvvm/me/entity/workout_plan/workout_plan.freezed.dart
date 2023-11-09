@@ -169,7 +169,7 @@ class _$_WorkoutPlan implements _WorkoutPlan {
       required this.description,
       this.startDate,
       this.endDate,
-      this.planType = PlanType.DEFAULT,
+      this.planType = PlanType.def,
       final List<DailyWorkout>? dailyWorkouts})
       : _dailyWorkouts = dailyWorkouts;
 

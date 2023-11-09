@@ -1,5 +1,5 @@
 import 'package:fit_life/mvvm/data/local/preferences.dart';
-import 'package:fit_life/mvvm/me/entity/user_entity.dart';
+import 'package:fit_life/mvvm/me/entity/user/user_entity.dart';
 
 abstract class BaseUseCase<T> {
   BaseUseCase();

@@ -9,7 +9,7 @@ import 'package:fit_life/core/components/widgets/avartat_custom.dart';
 import 'package:fit_life/core/components/widgets/image_custom.dart';
 import 'package:fit_life/core/components/config/setting_config.dart';
 import 'package:fit_life/generated/l10n.dart';
-import 'package:fit_life/mvvm/me/entity/user_entity.dart';
+import 'package:fit_life/mvvm/me/entity/user/user_entity.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,4 +1,4 @@
-import 'package:fit_life/mvvm/me/entity/upcoming_schedule_exercise.dart';
+import 'package:fit_life/mvvm/me/entity/upcoming_schedule/upcoming_schedule_exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
@@ -100,11 +100,15 @@ class UpComingScheduleExItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 color: context.primaryColor.withOpacity(0.2),
-                image: const DecorationImage(
-                  ///[🌟 Change to internet image here]
-                  image: AssetImage(ImageConst.banner1),
-                  fit: BoxFit.cover,
-                ),
+                image: upcomingScheduleExercise!.image?.isEmpty ?? true
+                    ? const DecorationImage(
+                        image: AssetImage(ImageConst.banner1),
+                        fit: BoxFit.cover,
+                      )
+                    : DecorationImage(
+                        image: NetworkImage(upcomingScheduleExercise!.image!),
+                        fit: BoxFit.cover,
+                      ),
               ),
             ),
           )

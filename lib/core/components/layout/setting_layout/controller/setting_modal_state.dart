@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
-import 'package:fit_life/mvvm/me/entity/user_entity.dart';
+import 'package:fit_life/mvvm/me/entity/user/user_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'setting_modal_state.freezed.dart';
 

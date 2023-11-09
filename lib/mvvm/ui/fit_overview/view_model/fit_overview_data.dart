@@ -1,5 +1,5 @@
 import 'package:fit_life/core/components/widgets/fit_life/exercise_category.dart';
-import 'package:fit_life/mvvm/me/entity/upcoming_workout.dart';
+import 'package:fit_life/mvvm/me/entity/upcoming_workout/upcoming_workout.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'fit_overview_data.freezed.dart';

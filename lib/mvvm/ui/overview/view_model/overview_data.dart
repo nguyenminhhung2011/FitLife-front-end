@@ -1,4 +1,4 @@
-import 'package:fit_life/mvvm/me/entity/upcoming_schedule_exercise.dart';
+import 'package:fit_life/mvvm/me/entity/upcoming_schedule/upcoming_schedule_exercise.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'overview_data.freezed.dart';

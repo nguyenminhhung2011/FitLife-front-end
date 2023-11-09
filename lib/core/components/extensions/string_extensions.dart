@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:fit_life/core/components/enum/gender.dart';
 import 'package:fit_life/core/components/enum/plan_type.dart';
 
 extension ColorExtension on String {
@@ -16,4 +17,7 @@ extension ColorExtension on String {
         "ai" => PlanType.ai,
         _ => PlanType.user
       };
+
+  Gender get toGender =>
+      switch (this) { "man" => Gender.man, _ => Gender.woman };
 }

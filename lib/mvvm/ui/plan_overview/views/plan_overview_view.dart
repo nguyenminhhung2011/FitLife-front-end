@@ -29,8 +29,26 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
   PlanOverViewData get _data => ref.watch(planOverviewStateNotifier).data;
 
   Color get _backGroundColor => Theme.of(context).scaffoldBackgroundColor;
+
+  @override
+  void initState() {
+    _vm.getCurrentPlan();
+    super.initState();
+  }
+
+  void _listenStateChange(PlanOverViewState state) {
+    state.maybeWhen(
+      getCurrentPlanFailed: (_, error) =>
+          context.showSnackBar("🐛[Get current plan] $error"),
+      orElse: () {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    ref.listen(
+        planOverviewStateNotifier, (_, next) => _listenStateChange(next));
+
     return Scaffold(
       backgroundColor: _backGroundColor,
       extendBodyBehindAppBar: true,

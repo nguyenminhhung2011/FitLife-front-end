@@ -15,13 +15,23 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PlanOverViewData {}
+mixin _$PlanOverViewData {
+  CurrentPlan? get currentPlan => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PlanOverViewDataCopyWith<PlanOverViewData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $PlanOverViewDataCopyWith<$Res> {
   factory $PlanOverViewDataCopyWith(
           PlanOverViewData value, $Res Function(PlanOverViewData) then) =
       _$PlanOverViewDataCopyWithImpl<$Res, PlanOverViewData>;
+  @useResult
+  $Res call({CurrentPlan? currentPlan});
+
+  $CurrentPlanCopyWith<$Res>? get currentPlan;
 }
 
 /// @nodoc
@@ -33,13 +43,45 @@ class _$PlanOverViewDataCopyWithImpl<$Res, $Val extends PlanOverViewData>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentPlan = freezed,
+  }) {
+    return _then(_value.copyWith(
+      currentPlan: freezed == currentPlan
+          ? _value.currentPlan
+          : currentPlan // ignore: cast_nullable_to_non_nullable
+              as CurrentPlan?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CurrentPlanCopyWith<$Res>? get currentPlan {
+    if (_value.currentPlan == null) {
+      return null;
+    }
+
+    return $CurrentPlanCopyWith<$Res>(_value.currentPlan!, (value) {
+      return _then(_value.copyWith(currentPlan: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$_PlanOverViewDataCopyWith<$Res> {
+abstract class _$$_PlanOverViewDataCopyWith<$Res>
+    implements $PlanOverViewDataCopyWith<$Res> {
   factory _$$_PlanOverViewDataCopyWith(
           _$_PlanOverViewData value, $Res Function(_$_PlanOverViewData) then) =
       __$$_PlanOverViewDataCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CurrentPlan? currentPlan});
+
+  @override
+  $CurrentPlanCopyWith<$Res>? get currentPlan;
 }
 
 /// @nodoc
@@ -49,28 +91,61 @@ class __$$_PlanOverViewDataCopyWithImpl<$Res>
   __$$_PlanOverViewDataCopyWithImpl(
       _$_PlanOverViewData _value, $Res Function(_$_PlanOverViewData) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentPlan = freezed,
+  }) {
+    return _then(_$_PlanOverViewData(
+      currentPlan: freezed == currentPlan
+          ? _value.currentPlan
+          : currentPlan // ignore: cast_nullable_to_non_nullable
+              as CurrentPlan?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_PlanOverViewData implements _PlanOverViewData {
-  const _$_PlanOverViewData();
+  const _$_PlanOverViewData({this.currentPlan});
+
+  @override
+  final CurrentPlan? currentPlan;
 
   @override
   String toString() {
-    return 'PlanOverViewData()';
+    return 'PlanOverViewData(currentPlan: $currentPlan)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlanOverViewData);
+        (other.runtimeType == runtimeType &&
+            other is _$_PlanOverViewData &&
+            (identical(other.currentPlan, currentPlan) ||
+                other.currentPlan == currentPlan));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, currentPlan);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlanOverViewDataCopyWith<_$_PlanOverViewData> get copyWith =>
+      __$$_PlanOverViewDataCopyWithImpl<_$_PlanOverViewData>(this, _$identity);
 }
 
 abstract class _PlanOverViewData implements PlanOverViewData {
-  const factory _PlanOverViewData() = _$_PlanOverViewData;
+  const factory _PlanOverViewData({final CurrentPlan? currentPlan}) =
+      _$_PlanOverViewData;
+
+  @override
+  CurrentPlan? get currentPlan;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PlanOverViewDataCopyWith<_$_PlanOverViewData> get copyWith =>
+      throw _privateConstructorUsedError;
 }

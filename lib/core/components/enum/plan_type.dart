@@ -1,5 +1,3 @@
 enum PlanType { user, ai, def }
 
-extension PlanTypeExtension on PlanType{
-  
-}
+extension PlanTypeExtension on PlanType {}

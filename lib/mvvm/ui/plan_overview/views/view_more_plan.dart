@@ -1,11 +1,15 @@
+import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
+import 'package:fit_life/core/components/widgets/pagination_view/default_pagination.dart';
+import 'package:fit_life/core/components/widgets/range_date_picker_custom.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/ui/auth/mixins/auth_mixin.dart';
-import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
-import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/view_more/view_more_plan_data.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/view_more/view_more_plan_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,26 +23,61 @@ class ViewMorePlan extends ConsumerStatefulWidget {
 
 class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
   final _searchController = TextEditingController();
-  PlanOverViewViewModel get _vm => ref.read(planOverviewStateNotifier.notifier);
 
-  PlanOverViewData get _data => ref.watch(planOverviewStateNotifier).data;
+  final RangeDateController _rangeDateController = RangeDateController();
+
+  ViewMorePlanViewModel get _vm => ref.read(viewMorePlanStateNotifier.notifier);
+
+  ViewMorePlanData get _data => ref.watch(viewMorePlanStateNotifier).data;
+
+  ViewMorePlanState get _state => ref.watch(viewMorePlanStateNotifier);
+
+  List<WorkoutPlan>? get _items => _data.workoutPlans.items;
+
+  DateTime get _startTime => _data.startDate ?? DateTime.now();
+
+  DateTime get _endTime => _data.endDate ?? DateTime.now();
 
   @override
   void initState() {
     super.initState();
     Future.delayed(Duration.zero, () {
-      _vm.getSessionPlanHistory();
+      _vm.getSessionPlanHistory(content: "");
     });
+  }
+
+  void _onSelectedDate() async {
+    final result = await context.pickWeekRange(_rangeDateController);
+    if (result?.isNotEmpty ?? false) {
+      _vm.selectRangeTime(
+        startTime: result?.first ?? DateTime.now(),
+        endTime: result?.last ?? DateTime.now(),
+      );
+    }
   }
 
   @override
   void dispose() {
     _searchController.dispose();
+    _rangeDateController.dispose();
     super.dispose();
+  }
+
+  void _listenStateChange(ViewMorePlanState state) {
+    state.maybeWhen(
+      getItemFailed: (_, message) =>
+          context.showSnackBar("🐛[Get item failed] $message"),
+      selectDateSuccess: (data) =>
+          _vm.getSessionPlanHistory(content: _searchController.text),
+      orElse: () {},
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(
+        viewMorePlanStateNotifier, (_, next) => _listenStateChange(next));
+
     return Container(
       constraints: BoxConstraints(
         maxHeight: context.heightDevice * .9,
@@ -87,12 +126,11 @@ class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
                 children: [
                   Expanded(
                       child: Text(
-                    getRangeDateFormat(DateTime.now(),
-                        DateTime.now().add(const Duration(days: 1))),
+                    getRangeDateFormat(_startTime, _endTime),
                     style: context.titleSmall.copyWith(fontSize: 12.0),
                   )),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: _onSelectedDate,
                     child: Text(
                       "Selected time",
                       style: context.titleSmall.copyWith(
@@ -106,15 +144,32 @@ class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
             ),
             const Divider(),
             const SizedBox(height: 5.0),
+            // if (_state.loading)
+            //   Expanded(
+            //     child: ListView(
+            //       children: [
+            //         ...List.generate(5, (index) => const WorkoutPlanSkelton())
+            //       ],
+            //     ),
+            //   )
+            // else if (_items?.isNotEmpty ?? false)
+            //   // Expanded(
+            //   //   child: ListView.builder(
+            //   //     itemCount: _items?.length ?? 0,
+            //   //     itemBuilder: (_, index) => WorkoutPlanItemWidget(
+            //   //       progress: 0.6,
+            //   //       workoutPlan: _items![index],
+            //   //     ),
+            //   //   ),
+            //   // )
             Expanded(
-              child: Column(
-                children: _data.workoutPlans
-                        ?.map((e) => WorkoutPlanItemWidget(
-                              workoutPlan: e,
-                              progress: 0.6,
-                            ))
-                        .toList() ??
-                    const [],
+              child: DefaultPagination(
+                items: _items ?? const [],
+                loading: _state.loading,
+                itemBuilder: (_, index) => WorkoutPlanItemWidget(
+                    workoutPlan: _items![index], progress: 0.6),
+                listenScrollBottom: () =>
+                    _vm.getSessionPlanHistory(content: _searchController.text),
               ),
             )
           ],

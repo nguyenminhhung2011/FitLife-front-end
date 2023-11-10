@@ -1,6 +1,8 @@
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/widgets/fit_life/exercise_category.dart';
+import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/upcoming_workout/upcoming_workout.dart';
+import 'package:fit_life/mvvm/repo/plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -16,6 +18,8 @@ final fitOverViewNotifier =
 
 @injectable
 class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
+  final _planRepositories = injector.get<PlanRepositories>();
+
   ///---------------
   FitOverViewData get data => state.data;
   FitOverViewViewModel() : super(const _Initial(data: FitOverViewData()));
@@ -30,14 +34,14 @@ class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        state = state.copyWith(
+        state = _GetUpComingSuccess(
             data: state.data
                 .copyWith(isLoadingUpcomingWorkout: false, upcomingWorkouts: [
           UpcomingWorkout(
             title: 'Dash Strength',
-            startTime: DateTime(2021, 10, 10, 17, 30),
             minutes: 30,
             kCalo: 200,
+            startTime: DateTime(2021, 10, 10, 17, 30),
           ),
         ]));
       },
@@ -51,7 +55,7 @@ class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        state = state.copyWith(
+        state = _GetExerciseCategorySuccess(
           data: state.data.copyWith(
             isLoadingExerciseCategory: false,
             exerciseCategories: const [

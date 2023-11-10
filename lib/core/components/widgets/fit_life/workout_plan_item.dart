@@ -1,5 +1,6 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
+import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -18,26 +19,28 @@ class WorkoutPlanItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final decoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(10.0),
+      color: Theme.of(context).cardColor,
+      boxShadow: [
+        BoxShadow(
+          color: Theme.of(context).shadowColor.withOpacity(0.1),
+          blurRadius: 5.0,
+        )
+      ],
+    );
+
     return GestureDetector(
       onTap: () => context.openListPageWithRoute(Routes.planDetail),
       child: Container(
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          color: Theme.of(context).cardColor,
-          boxShadow: [
-            BoxShadow(
-              color: Theme.of(context).shadowColor.withOpacity(0.1),
-              blurRadius: 5.0,
-            )
-          ],
-        ),
+        decoration: decoration,
         child: Row(
           children: [
             Container(
               width: 120.0,
-              constraints: const BoxConstraints(minHeight: 120.0),
+              constraints: const BoxConstraints(minHeight: 140.0),
               decoration: const BoxDecoration(
                 color: Colors.black87,
                 borderRadius: BorderRadius.only(
@@ -135,6 +138,65 @@ class WorkoutPlanItemWidget extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class WorkoutPlanSkelton extends StatelessWidget {
+  const WorkoutPlanSkelton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(5.0),
+      margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Theme.of(context).cardColor,
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).shadowColor.withOpacity(0.1),
+            blurRadius: 5.0,
+          )
+        ],
+      ),
+      child: Row(
+        children: [
+          SkeletonContainer.circular(
+            width: 120,
+            height: 120,
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          const SizedBox(width: 10.0),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SkeletonContainer.circular(
+                  width: double.infinity,
+                  height: 20,
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                SkeletonContainer.circular(
+                  width: double.infinity,
+                  height: 40,
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                SkeletonContainer.circular(
+                  width: double.infinity,
+                  height: 40,
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+              ]
+                  .expand((element) => [element, const SizedBox(height: 5.0)])
+                  .toList(),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

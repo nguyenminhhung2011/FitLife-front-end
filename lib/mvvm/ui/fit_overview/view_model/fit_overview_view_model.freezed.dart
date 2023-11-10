@@ -21,18 +21,34 @@ mixin _$FitOverViewState {
   TResult when<TResult extends Object?>({
     required TResult Function(FitOverViewData data) initial,
     required TResult Function(FitOverViewData data) selectedDateSuccess,
+    required TResult Function(FitOverViewData data) getUpComingSuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getUpComingFailed,
+    required TResult Function(FitOverViewData data) getExerciseCategorySuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getExerciseCategoryFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FitOverViewData data)? initial,
     TResult? Function(FitOverViewData data)? selectedDateSuccess,
+    TResult? Function(FitOverViewData data)? getUpComingSuccess,
+    TResult? Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult? Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult? Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FitOverViewData data)? initial,
     TResult Function(FitOverViewData data)? selectedDateSuccess,
+    TResult Function(FitOverViewData data)? getUpComingSuccess,
+    TResult Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +56,36 @@ mixin _$FitOverViewState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
+    required TResult Function(_GetUpComingSuccess value) getUpComingSuccess,
+    required TResult Function(_GetUpComingFailed value) getUpComingFailed,
+    required TResult Function(_GetExerciseCategorySuccess value)
+        getExerciseCategorySuccess,
+    required TResult Function(_GetExerciseCategoryFailed value)
+        getExerciseCategoryFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult? Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult? Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult? Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult? Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,6 +208,12 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function(FitOverViewData data) initial,
     required TResult Function(FitOverViewData data) selectedDateSuccess,
+    required TResult Function(FitOverViewData data) getUpComingSuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getUpComingFailed,
+    required TResult Function(FitOverViewData data) getExerciseCategorySuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getExerciseCategoryFailed,
   }) {
     return initial(data);
   }
@@ -183,6 +223,11 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FitOverViewData data)? initial,
     TResult? Function(FitOverViewData data)? selectedDateSuccess,
+    TResult? Function(FitOverViewData data)? getUpComingSuccess,
+    TResult? Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult? Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult? Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
   }) {
     return initial?.call(data);
   }
@@ -192,6 +237,11 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FitOverViewData data)? initial,
     TResult Function(FitOverViewData data)? selectedDateSuccess,
+    TResult Function(FitOverViewData data)? getUpComingSuccess,
+    TResult Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -205,6 +255,12 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
+    required TResult Function(_GetUpComingSuccess value) getUpComingSuccess,
+    required TResult Function(_GetUpComingFailed value) getUpComingFailed,
+    required TResult Function(_GetExerciseCategorySuccess value)
+        getExerciseCategorySuccess,
+    required TResult Function(_GetExerciseCategoryFailed value)
+        getExerciseCategoryFailed,
   }) {
     return initial(this);
   }
@@ -214,6 +270,12 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult? Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult? Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult? Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult? Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
   }) {
     return initial?.call(this);
   }
@@ -223,6 +285,12 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -315,6 +383,12 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(FitOverViewData data) initial,
     required TResult Function(FitOverViewData data) selectedDateSuccess,
+    required TResult Function(FitOverViewData data) getUpComingSuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getUpComingFailed,
+    required TResult Function(FitOverViewData data) getExerciseCategorySuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getExerciseCategoryFailed,
   }) {
     return selectedDateSuccess(data);
   }
@@ -324,6 +398,11 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(FitOverViewData data)? initial,
     TResult? Function(FitOverViewData data)? selectedDateSuccess,
+    TResult? Function(FitOverViewData data)? getUpComingSuccess,
+    TResult? Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult? Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult? Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
   }) {
     return selectedDateSuccess?.call(data);
   }
@@ -333,6 +412,11 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(FitOverViewData data)? initial,
     TResult Function(FitOverViewData data)? selectedDateSuccess,
+    TResult Function(FitOverViewData data)? getUpComingSuccess,
+    TResult Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
     required TResult orElse(),
   }) {
     if (selectedDateSuccess != null) {
@@ -346,6 +430,12 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
+    required TResult Function(_GetUpComingSuccess value) getUpComingSuccess,
+    required TResult Function(_GetUpComingFailed value) getUpComingFailed,
+    required TResult Function(_GetExerciseCategorySuccess value)
+        getExerciseCategorySuccess,
+    required TResult Function(_GetExerciseCategoryFailed value)
+        getExerciseCategoryFailed,
   }) {
     return selectedDateSuccess(this);
   }
@@ -355,6 +445,12 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult? Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult? Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult? Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult? Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
   }) {
     return selectedDateSuccess?.call(this);
   }
@@ -364,6 +460,12 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
     required TResult orElse(),
   }) {
     if (selectedDateSuccess != null) {
@@ -383,4 +485,733 @@ abstract class _SelectedDataSuccess implements FitOverViewState {
   @JsonKey(ignore: true)
   _$$_SelectedDataSuccessCopyWith<_$_SelectedDataSuccess> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetUpComingSuccessCopyWith<$Res>
+    implements $FitOverViewStateCopyWith<$Res> {
+  factory _$$_GetUpComingSuccessCopyWith(_$_GetUpComingSuccess value,
+          $Res Function(_$_GetUpComingSuccess) then) =
+      __$$_GetUpComingSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FitOverViewData data});
+
+  @override
+  $FitOverViewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetUpComingSuccessCopyWithImpl<$Res>
+    extends _$FitOverViewStateCopyWithImpl<$Res, _$_GetUpComingSuccess>
+    implements _$$_GetUpComingSuccessCopyWith<$Res> {
+  __$$_GetUpComingSuccessCopyWithImpl(
+      _$_GetUpComingSuccess _value, $Res Function(_$_GetUpComingSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GetUpComingSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FitOverViewData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetUpComingSuccess implements _GetUpComingSuccess {
+  const _$_GetUpComingSuccess({required this.data});
+
+  @override
+  final FitOverViewData data;
+
+  @override
+  String toString() {
+    return 'FitOverViewState.getUpComingSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetUpComingSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetUpComingSuccessCopyWith<_$_GetUpComingSuccess> get copyWith =>
+      __$$_GetUpComingSuccessCopyWithImpl<_$_GetUpComingSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FitOverViewData data) initial,
+    required TResult Function(FitOverViewData data) selectedDateSuccess,
+    required TResult Function(FitOverViewData data) getUpComingSuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getUpComingFailed,
+    required TResult Function(FitOverViewData data) getExerciseCategorySuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getExerciseCategoryFailed,
+  }) {
+    return getUpComingSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FitOverViewData data)? initial,
+    TResult? Function(FitOverViewData data)? selectedDateSuccess,
+    TResult? Function(FitOverViewData data)? getUpComingSuccess,
+    TResult? Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult? Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult? Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
+  }) {
+    return getUpComingSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FitOverViewData data)? initial,
+    TResult Function(FitOverViewData data)? selectedDateSuccess,
+    TResult Function(FitOverViewData data)? getUpComingSuccess,
+    TResult Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
+    required TResult orElse(),
+  }) {
+    if (getUpComingSuccess != null) {
+      return getUpComingSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
+    required TResult Function(_GetUpComingSuccess value) getUpComingSuccess,
+    required TResult Function(_GetUpComingFailed value) getUpComingFailed,
+    required TResult Function(_GetExerciseCategorySuccess value)
+        getExerciseCategorySuccess,
+    required TResult Function(_GetExerciseCategoryFailed value)
+        getExerciseCategoryFailed,
+  }) {
+    return getUpComingSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult? Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult? Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult? Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult? Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
+  }) {
+    return getUpComingSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
+    required TResult orElse(),
+  }) {
+    if (getUpComingSuccess != null) {
+      return getUpComingSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetUpComingSuccess implements FitOverViewState {
+  const factory _GetUpComingSuccess({required final FitOverViewData data}) =
+      _$_GetUpComingSuccess;
+
+  @override
+  FitOverViewData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetUpComingSuccessCopyWith<_$_GetUpComingSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetUpComingFailedCopyWith<$Res>
+    implements $FitOverViewStateCopyWith<$Res> {
+  factory _$$_GetUpComingFailedCopyWith(_$_GetUpComingFailed value,
+          $Res Function(_$_GetUpComingFailed) then) =
+      __$$_GetUpComingFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FitOverViewData data, String message});
+
+  @override
+  $FitOverViewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetUpComingFailedCopyWithImpl<$Res>
+    extends _$FitOverViewStateCopyWithImpl<$Res, _$_GetUpComingFailed>
+    implements _$$_GetUpComingFailedCopyWith<$Res> {
+  __$$_GetUpComingFailedCopyWithImpl(
+      _$_GetUpComingFailed _value, $Res Function(_$_GetUpComingFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_GetUpComingFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FitOverViewData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetUpComingFailed implements _GetUpComingFailed {
+  const _$_GetUpComingFailed({required this.data, required this.message});
+
+  @override
+  final FitOverViewData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'FitOverViewState.getUpComingFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetUpComingFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetUpComingFailedCopyWith<_$_GetUpComingFailed> get copyWith =>
+      __$$_GetUpComingFailedCopyWithImpl<_$_GetUpComingFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FitOverViewData data) initial,
+    required TResult Function(FitOverViewData data) selectedDateSuccess,
+    required TResult Function(FitOverViewData data) getUpComingSuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getUpComingFailed,
+    required TResult Function(FitOverViewData data) getExerciseCategorySuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getExerciseCategoryFailed,
+  }) {
+    return getUpComingFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FitOverViewData data)? initial,
+    TResult? Function(FitOverViewData data)? selectedDateSuccess,
+    TResult? Function(FitOverViewData data)? getUpComingSuccess,
+    TResult? Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult? Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult? Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
+  }) {
+    return getUpComingFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FitOverViewData data)? initial,
+    TResult Function(FitOverViewData data)? selectedDateSuccess,
+    TResult Function(FitOverViewData data)? getUpComingSuccess,
+    TResult Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
+    required TResult orElse(),
+  }) {
+    if (getUpComingFailed != null) {
+      return getUpComingFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
+    required TResult Function(_GetUpComingSuccess value) getUpComingSuccess,
+    required TResult Function(_GetUpComingFailed value) getUpComingFailed,
+    required TResult Function(_GetExerciseCategorySuccess value)
+        getExerciseCategorySuccess,
+    required TResult Function(_GetExerciseCategoryFailed value)
+        getExerciseCategoryFailed,
+  }) {
+    return getUpComingFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult? Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult? Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult? Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult? Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
+  }) {
+    return getUpComingFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
+    required TResult orElse(),
+  }) {
+    if (getUpComingFailed != null) {
+      return getUpComingFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetUpComingFailed implements FitOverViewState {
+  const factory _GetUpComingFailed(
+      {required final FitOverViewData data,
+      required final String message}) = _$_GetUpComingFailed;
+
+  @override
+  FitOverViewData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetUpComingFailedCopyWith<_$_GetUpComingFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetExerciseCategorySuccessCopyWith<$Res>
+    implements $FitOverViewStateCopyWith<$Res> {
+  factory _$$_GetExerciseCategorySuccessCopyWith(
+          _$_GetExerciseCategorySuccess value,
+          $Res Function(_$_GetExerciseCategorySuccess) then) =
+      __$$_GetExerciseCategorySuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FitOverViewData data});
+
+  @override
+  $FitOverViewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetExerciseCategorySuccessCopyWithImpl<$Res>
+    extends _$FitOverViewStateCopyWithImpl<$Res, _$_GetExerciseCategorySuccess>
+    implements _$$_GetExerciseCategorySuccessCopyWith<$Res> {
+  __$$_GetExerciseCategorySuccessCopyWithImpl(
+      _$_GetExerciseCategorySuccess _value,
+      $Res Function(_$_GetExerciseCategorySuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GetExerciseCategorySuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FitOverViewData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetExerciseCategorySuccess implements _GetExerciseCategorySuccess {
+  const _$_GetExerciseCategorySuccess({required this.data});
+
+  @override
+  final FitOverViewData data;
+
+  @override
+  String toString() {
+    return 'FitOverViewState.getExerciseCategorySuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetExerciseCategorySuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetExerciseCategorySuccessCopyWith<_$_GetExerciseCategorySuccess>
+      get copyWith => __$$_GetExerciseCategorySuccessCopyWithImpl<
+          _$_GetExerciseCategorySuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FitOverViewData data) initial,
+    required TResult Function(FitOverViewData data) selectedDateSuccess,
+    required TResult Function(FitOverViewData data) getUpComingSuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getUpComingFailed,
+    required TResult Function(FitOverViewData data) getExerciseCategorySuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getExerciseCategoryFailed,
+  }) {
+    return getExerciseCategorySuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FitOverViewData data)? initial,
+    TResult? Function(FitOverViewData data)? selectedDateSuccess,
+    TResult? Function(FitOverViewData data)? getUpComingSuccess,
+    TResult? Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult? Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult? Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
+  }) {
+    return getExerciseCategorySuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FitOverViewData data)? initial,
+    TResult Function(FitOverViewData data)? selectedDateSuccess,
+    TResult Function(FitOverViewData data)? getUpComingSuccess,
+    TResult Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
+    required TResult orElse(),
+  }) {
+    if (getExerciseCategorySuccess != null) {
+      return getExerciseCategorySuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
+    required TResult Function(_GetUpComingSuccess value) getUpComingSuccess,
+    required TResult Function(_GetUpComingFailed value) getUpComingFailed,
+    required TResult Function(_GetExerciseCategorySuccess value)
+        getExerciseCategorySuccess,
+    required TResult Function(_GetExerciseCategoryFailed value)
+        getExerciseCategoryFailed,
+  }) {
+    return getExerciseCategorySuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult? Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult? Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult? Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult? Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
+  }) {
+    return getExerciseCategorySuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
+    required TResult orElse(),
+  }) {
+    if (getExerciseCategorySuccess != null) {
+      return getExerciseCategorySuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetExerciseCategorySuccess implements FitOverViewState {
+  const factory _GetExerciseCategorySuccess(
+      {required final FitOverViewData data}) = _$_GetExerciseCategorySuccess;
+
+  @override
+  FitOverViewData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetExerciseCategorySuccessCopyWith<_$_GetExerciseCategorySuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetExerciseCategoryFailedCopyWith<$Res>
+    implements $FitOverViewStateCopyWith<$Res> {
+  factory _$$_GetExerciseCategoryFailedCopyWith(
+          _$_GetExerciseCategoryFailed value,
+          $Res Function(_$_GetExerciseCategoryFailed) then) =
+      __$$_GetExerciseCategoryFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FitOverViewData data, String message});
+
+  @override
+  $FitOverViewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetExerciseCategoryFailedCopyWithImpl<$Res>
+    extends _$FitOverViewStateCopyWithImpl<$Res, _$_GetExerciseCategoryFailed>
+    implements _$$_GetExerciseCategoryFailedCopyWith<$Res> {
+  __$$_GetExerciseCategoryFailedCopyWithImpl(
+      _$_GetExerciseCategoryFailed _value,
+      $Res Function(_$_GetExerciseCategoryFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_GetExerciseCategoryFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FitOverViewData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetExerciseCategoryFailed implements _GetExerciseCategoryFailed {
+  const _$_GetExerciseCategoryFailed(
+      {required this.data, required this.message});
+
+  @override
+  final FitOverViewData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'FitOverViewState.getExerciseCategoryFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetExerciseCategoryFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetExerciseCategoryFailedCopyWith<_$_GetExerciseCategoryFailed>
+      get copyWith => __$$_GetExerciseCategoryFailedCopyWithImpl<
+          _$_GetExerciseCategoryFailed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FitOverViewData data) initial,
+    required TResult Function(FitOverViewData data) selectedDateSuccess,
+    required TResult Function(FitOverViewData data) getUpComingSuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getUpComingFailed,
+    required TResult Function(FitOverViewData data) getExerciseCategorySuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getExerciseCategoryFailed,
+  }) {
+    return getExerciseCategoryFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FitOverViewData data)? initial,
+    TResult? Function(FitOverViewData data)? selectedDateSuccess,
+    TResult? Function(FitOverViewData data)? getUpComingSuccess,
+    TResult? Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult? Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult? Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
+  }) {
+    return getExerciseCategoryFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FitOverViewData data)? initial,
+    TResult Function(FitOverViewData data)? selectedDateSuccess,
+    TResult Function(FitOverViewData data)? getUpComingSuccess,
+    TResult Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
+    required TResult orElse(),
+  }) {
+    if (getExerciseCategoryFailed != null) {
+      return getExerciseCategoryFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
+    required TResult Function(_GetUpComingSuccess value) getUpComingSuccess,
+    required TResult Function(_GetUpComingFailed value) getUpComingFailed,
+    required TResult Function(_GetExerciseCategorySuccess value)
+        getExerciseCategorySuccess,
+    required TResult Function(_GetExerciseCategoryFailed value)
+        getExerciseCategoryFailed,
+  }) {
+    return getExerciseCategoryFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult? Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult? Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult? Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult? Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
+  }) {
+    return getExerciseCategoryFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
+    required TResult orElse(),
+  }) {
+    if (getExerciseCategoryFailed != null) {
+      return getExerciseCategoryFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetExerciseCategoryFailed implements FitOverViewState {
+  const factory _GetExerciseCategoryFailed(
+      {required final FitOverViewData data,
+      required final String message}) = _$_GetExerciseCategoryFailed;
+
+  @override
+  FitOverViewData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetExerciseCategoryFailedCopyWith<_$_GetExerciseCategoryFailed>
+      get copyWith => throw _privateConstructorUsedError;
 }

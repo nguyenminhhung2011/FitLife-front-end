@@ -17,6 +17,8 @@ final overviewStateNotifier =
 class OverviewViewModel extends StateNotifier<OverviewState> {
   OverviewViewModel() : super(const _Initial(data: OverviewData()));
 
+  OverviewData get data => state.data;
+
   void getUpcomingScheduleExercise() {
     state = state.copyWith(
       data: state.data.copyWith(
@@ -28,7 +30,7 @@ class OverviewViewModel extends StateNotifier<OverviewState> {
       const Duration(seconds: 3),
       () {
         state = _Success(
-          data: state.data.copyWith(
+          data: data.copyWith(
             isLoadingUpcomingScheduleExercise: false,
             upcomingScheduleExercise: UpcomingScheduleExercise(
               title: 'Test header yoga',

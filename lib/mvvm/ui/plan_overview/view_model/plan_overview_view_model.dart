@@ -43,7 +43,7 @@ class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
       const Duration(seconds: 3),
       () {
         state = _Success(
-            data: state.data.copyWith(
+            data: data.copyWith(
           isLoadingWorkoutPlans: false,
           workoutPlans: [
             WorkoutPlan(

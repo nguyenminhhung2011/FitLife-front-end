@@ -132,7 +132,7 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
             _renderTimeToText(context, time: DateTime.now()),
             const SizedBox(height: 10.0),
             if (_data.isLoadingWorkoutPlans)
-              const Center(child: CircularProgressIndicator())
+              ...List.generate(2, (index) => const WorkoutPlanSkelton())
             else
               ..._data.workoutPlans
                       ?.map((e) => WorkoutPlanItemWidget(

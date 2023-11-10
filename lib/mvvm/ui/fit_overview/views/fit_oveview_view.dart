@@ -68,8 +68,20 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
     super.dispose();
   }
 
+  void _listenStateChange(FitOverViewState state) {
+    state.maybeWhen(
+      getExerciseCategoryFailed: (_, message) =>
+          context.showSnackBar("🐛[Get exercise category] $message"),
+      getUpComingFailed: (_, message) =>
+          context.showSnackBar("🐛[Get upcoming exercise] $message"),
+      orElse: () {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    ref.listen(fitOverViewNotifier, (_, next) => _listenStateChange(next));
+
     return Scaffold(
       backgroundColor: _backgroundColor,
       appBar: AppBar(
@@ -180,7 +192,8 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
           if (_data.isLoadingUpcomingWorkout)
             const Center(child: CircularProgressIndicator())
           else if (_data.upcomingWorkouts?.isEmpty ?? false)
-            const Center(child: Text('No upcoming workout'))
+            Center(
+                child: Text('No upcoming workout', style: context.titleSmall))
           else
             ...List.generate(
               _data.upcomingWorkouts?.length ?? 0,

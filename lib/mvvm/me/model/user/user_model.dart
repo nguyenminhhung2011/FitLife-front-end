@@ -34,4 +34,9 @@ class UserModel {
     required this.currentPlant,
     required this.gender,
   });
+
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserModelToJson(this);
 }

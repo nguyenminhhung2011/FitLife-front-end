@@ -23,90 +23,179 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   int activeStep = 0;
-
   int upperBound = 6;
+
+  TextEditingController fullNameCtrl = TextEditingController();
+  TextEditingController phoneCtrl = TextEditingController();
+  bool isMale = true;
+  DateTime? birthday;
+  int height = 150;
+  int weight = 50;
+  int duration = 0;
+  int target = 50;
+
+  @override
+  void dispose() {
+    fullNameCtrl.dispose();
+    phoneCtrl.dispose();
+    super.dispose();
+  }
+
+  void onTapNext() {
+    if (activeStep < upperBound) {
+      setState(() {
+        activeStep++;
+      });
+    } else {
+      context.openListPageWithRoute(Routes.dashboard);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final body = [
-      const FillYourProfileScreen(),
-      const SelectGenderScreen(),
-      const GetOldStep(),
-      const GetHeightStep(),
-      const GetWeightScreen(),
-      const SelectDurationScreen(),
-      const GetWeightTargetScreen(),
+      FillYourProfileScreen(
+        fullNameCtrl: fullNameCtrl,
+        phoneCtrl: phoneCtrl,
+      ),
+      SelectGenderScreen(
+        isMale: isMale,
+        genderChange: (value) {
+          setState(() {
+            isMale = value;
+          });
+        },
+      ),
+      GetOldScreen(
+        initialDateTime: birthday,
+        onDateTimeChanged: (value) {
+          setState(() {
+            birthday = value;
+          });
+        },
+      ),
+      GetHeightScreen(
+        initHeight: height,
+        onChange: (value) {
+          setState(() {
+            height = value;
+          });
+        },
+      ),
+      GetWeightScreen(
+        initWeight: weight,
+        onChange: (value) {
+          setState(() {
+            weight = value;
+          });
+        },
+      ),
+      SelectDurationScreen(
+        initDuration: duration,
+        onChange: (value) {
+          setState(() {
+            duration = value;
+          });
+        },
+      ),
+      GetWeightTargetScreen(
+        initTarget: target,
+        onChange: (value) {
+          setState(() {
+            target = value;
+          });
+        },
+      ),
     ];
+
     return Scaffold(
       bottomSheet: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: ButtonCustom(
-          height: 45.0,
-          radius: 5.0,
-          onPress: () {
-            if (activeStep < upperBound) {
-              setState(() {
-                activeStep++;
-              });
-            } else {
-              context.openListPageWithRoute(Routes.dashboard);
-            }
-          },
-          child: Text(
-            S.of(context).next,
-            style: context.titleMedium
-                .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0).copyWith(top: kToolbarHeight),
-        child: Stack(
+        child: Row(
           children: [
-            SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: double.infinity,
-                      height: 75.0,
-                      child: IconStepper(
-                        direction: Axis.horizontal,
-                        icons: [
-                          Icons.cake,
-                          Icons.scale,
-                          Icons.login,
-                          Icons.height,
-                          Icons.person,
-                          Icons.timer_outlined,
-                          Icons.golf_course_sharp,
-                        ].mapIndexed((index, e) {
-                          final color = (index == activeStep)
-                              ? Colors.white
-                              : context.titleLarge.color;
-                          return Icon(e, size: 12.0, color: color);
-                        }).toList(),
-                        stepColor: Theme.of(context).scaffoldBackgroundColor,
-                        activeStep: activeStep,
-                        activeStepColor: context.primaryColor,
-                        enableNextPreviousButtons: false,
-                        lineColor: Theme.of(context).primaryColor,
-                        stepReachedAnimationEffect: Curves.easeInOutCubic,
-                        onStepReached: (index) {
-                          setState(() {
-                            activeStep = index;
-                          });
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                    body[activeStep],
-                  ],
+            if (activeStep > 0)
+              Expanded(
+                child: ButtonCustom(
+                  height: 45.0,
+                  radius: 5.0,
+                  onPress: () {
+                    setState(() {
+                      activeStep--;
+                    });
+                  },
+                  child: Text(
+                    S.of(context).previous,
+                    style: context.titleMedium.copyWith(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                ),
+              ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: ButtonCustom(
+                height: 45.0,
+                radius: 5.0,
+                color: activeStep < upperBound
+                    ? context.primaryColor
+                    : Colors.green,
+                onPress: onTapNext,
+                child: Text(
+                  activeStep < upperBound
+                      ? S.of(context).next
+                      : S.of(context).letStart,
+                  style: context.titleMedium.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
             ),
           ],
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0).copyWith(top: kToolbarHeight),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  height: 75.0,
+                  child: IconStepper(
+                    direction: Axis.horizontal,
+                    icons: [
+                      Icons.login,
+                      Icons.scale,
+                      Icons.cake,
+                      Icons.height,
+                      Icons.person,
+                      Icons.timer_outlined,
+                      Icons.golf_course_sharp,
+                    ].mapIndexed((index, icon) {
+                      final color = (index == activeStep)
+                          ? Colors.white
+                          : context.titleLarge.color;
+                      return Icon(icon, size: 12.0, color: color);
+                    }).toList(),
+                    stepColor: Theme.of(context).scaffoldBackgroundColor,
+                    activeStep: activeStep,
+                    activeStepColor: context.primaryColor,
+                    enableNextPreviousButtons: false,
+                    enableStepTapping: false,
+                    lineColor: Theme.of(context).primaryColor,
+                    stepReachedAnimationEffect: Curves.easeInOutCubic,
+                    onStepReached: (index) {
+                      setState(() {
+                        activeStep = index;
+                      });
+                    },
+                  ),
+                ),
+                const SizedBox(height: 30),
+                body[activeStep],
+              ],
+            ),
+          ),
         ),
       ),
     );

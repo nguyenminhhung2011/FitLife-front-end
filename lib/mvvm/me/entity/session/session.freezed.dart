@@ -20,7 +20,12 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Session {
-  DailyWorkout? get dailyWorkout => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get dwId => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  int? get calcTarget => throw _privateConstructorUsedError;
+  int? get time => throw _privateConstructorUsedError;
   List<Exercise>? get exercises => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,9 +38,14 @@ abstract class $SessionCopyWith<$Res> {
   factory $SessionCopyWith(Session value, $Res Function(Session) then) =
       _$SessionCopyWithImpl<$Res, Session>;
   @useResult
-  $Res call({DailyWorkout? dailyWorkout, List<Exercise>? exercises});
-
-  $DailyWorkoutCopyWith<$Res>? get dailyWorkout;
+  $Res call(
+      {String id,
+      String dwId,
+      String? description,
+      String? name,
+      int? calcTarget,
+      int? time,
+      List<Exercise>? exercises});
 }
 
 /// @nodoc
@@ -51,31 +61,44 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dailyWorkout = freezed,
+    Object? id = null,
+    Object? dwId = null,
+    Object? description = freezed,
+    Object? name = freezed,
+    Object? calcTarget = freezed,
+    Object? time = freezed,
     Object? exercises = freezed,
   }) {
     return _then(_value.copyWith(
-      dailyWorkout: freezed == dailyWorkout
-          ? _value.dailyWorkout
-          : dailyWorkout // ignore: cast_nullable_to_non_nullable
-              as DailyWorkout?,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      dwId: null == dwId
+          ? _value.dwId
+          : dwId // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      calcTarget: freezed == calcTarget
+          ? _value.calcTarget
+          : calcTarget // ignore: cast_nullable_to_non_nullable
+              as int?,
+      time: freezed == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as int?,
       exercises: freezed == exercises
           ? _value.exercises
           : exercises // ignore: cast_nullable_to_non_nullable
               as List<Exercise>?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $DailyWorkoutCopyWith<$Res>? get dailyWorkout {
-    if (_value.dailyWorkout == null) {
-      return null;
-    }
-
-    return $DailyWorkoutCopyWith<$Res>(_value.dailyWorkout!, (value) {
-      return _then(_value.copyWith(dailyWorkout: value) as $Val);
-    });
   }
 }
 
@@ -86,10 +109,14 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       __$$_SessionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DailyWorkout? dailyWorkout, List<Exercise>? exercises});
-
-  @override
-  $DailyWorkoutCopyWith<$Res>? get dailyWorkout;
+  $Res call(
+      {String id,
+      String dwId,
+      String? description,
+      String? name,
+      int? calcTarget,
+      int? time,
+      List<Exercise>? exercises});
 }
 
 /// @nodoc
@@ -102,14 +129,39 @@ class __$$_SessionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dailyWorkout = freezed,
+    Object? id = null,
+    Object? dwId = null,
+    Object? description = freezed,
+    Object? name = freezed,
+    Object? calcTarget = freezed,
+    Object? time = freezed,
     Object? exercises = freezed,
   }) {
     return _then(_$_Session(
-      dailyWorkout: freezed == dailyWorkout
-          ? _value.dailyWorkout
-          : dailyWorkout // ignore: cast_nullable_to_non_nullable
-              as DailyWorkout?,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      dwId: null == dwId
+          ? _value.dwId
+          : dwId // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      calcTarget: freezed == calcTarget
+          ? _value.calcTarget
+          : calcTarget // ignore: cast_nullable_to_non_nullable
+              as int?,
+      time: freezed == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as int?,
       exercises: freezed == exercises
           ? _value._exercises
           : exercises // ignore: cast_nullable_to_non_nullable
@@ -121,14 +173,31 @@ class __$$_SessionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Session implements _Session {
-  const _$_Session({this.dailyWorkout, final List<Exercise>? exercises})
+  const _$_Session(
+      {required this.id,
+      required this.dwId,
+      this.description,
+      this.name,
+      this.calcTarget,
+      this.time,
+      final List<Exercise>? exercises})
       : _exercises = exercises;
 
   factory _$_Session.fromJson(Map<String, dynamic> json) =>
       _$$_SessionFromJson(json);
 
   @override
-  final DailyWorkout? dailyWorkout;
+  final String id;
+  @override
+  final String dwId;
+  @override
+  final String? description;
+  @override
+  final String? name;
+  @override
+  final int? calcTarget;
+  @override
+  final int? time;
   final List<Exercise>? _exercises;
   @override
   List<Exercise>? get exercises {
@@ -141,7 +210,7 @@ class _$_Session implements _Session {
 
   @override
   String toString() {
-    return 'Session(dailyWorkout: $dailyWorkout, exercises: $exercises)';
+    return 'Session(id: $id, dwId: $dwId, description: $description, name: $name, calcTarget: $calcTarget, time: $time, exercises: $exercises)';
   }
 
   @override
@@ -149,16 +218,22 @@ class _$_Session implements _Session {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Session &&
-            (identical(other.dailyWorkout, dailyWorkout) ||
-                other.dailyWorkout == dailyWorkout) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.dwId, dwId) || other.dwId == dwId) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.calcTarget, calcTarget) ||
+                other.calcTarget == calcTarget) &&
+            (identical(other.time, time) || other.time == time) &&
             const DeepCollectionEquality()
                 .equals(other._exercises, _exercises));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, dailyWorkout,
-      const DeepCollectionEquality().hash(_exercises));
+  int get hashCode => Object.hash(runtimeType, id, dwId, description, name,
+      calcTarget, time, const DeepCollectionEquality().hash(_exercises));
 
   @JsonKey(ignore: true)
   @override
@@ -176,13 +251,28 @@ class _$_Session implements _Session {
 
 abstract class _Session implements Session {
   const factory _Session(
-      {final DailyWorkout? dailyWorkout,
+      {required final String id,
+      required final String dwId,
+      final String? description,
+      final String? name,
+      final int? calcTarget,
+      final int? time,
       final List<Exercise>? exercises}) = _$_Session;
 
   factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
 
   @override
-  DailyWorkout? get dailyWorkout;
+  String get id;
+  @override
+  String get dwId;
+  @override
+  String? get description;
+  @override
+  String? get name;
+  @override
+  int? get calcTarget;
+  @override
+  int? get time;
   @override
   List<Exercise>? get exercises;
   @override

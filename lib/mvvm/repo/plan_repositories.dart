@@ -10,5 +10,8 @@ abstract class PlanRepositories {
     required DateTime timeStart,
     required DateTime timeFinish,
     required int currentPage,
+    required int perPage,
   });
+
+  Future<SResult<List<WorkoutPlan>>> getTopPlan({int topCountable = 2});
 }

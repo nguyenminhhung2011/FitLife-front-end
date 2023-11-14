@@ -5,8 +5,14 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:flutter_svg/svg.dart';
 
 class FitnessOverViewStatistic extends StatelessWidget {
+  final double toDo;
+  final int heartRate;
+  final int calories;
   const FitnessOverViewStatistic({
     super.key,
+    required this.toDo,
+    required this.heartRate,
+    required this.calories,
   });
 
   @override
@@ -21,7 +27,7 @@ class FitnessOverViewStatistic extends StatelessWidget {
       ),
       child: Row(
         children: [
-          ...[81, 32.5, 100]
+          ...[heartRate, toDo * 100, calories]
               .mapIndexed(
                 (index, e) => Expanded(
                   child: Column(

@@ -7,8 +7,5 @@ import '../../components/configurations/configurations.dart';
 @module
 abstract class DataSourceModule {
   @prod
-  Dio dioProd() => AppCoreFactory.createDio(
-        Configurations.baseUrl,
-        // appStorage, sharepreferencess
-      );
+  Dio dioProd() => AppCoreFactory.createDio(Configurations.baseUrl);
 }

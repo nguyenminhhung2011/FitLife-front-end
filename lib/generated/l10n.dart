@@ -779,6 +779,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Your goal`
+  String get yourGoal {
+    return Intl.message(
+      'Your goal',
+      name: 'yourGoal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily steps`
+  String get dailySteps {
+    return Intl.message(
+      'Daily steps',
+      name: 'dailySteps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Burned kCal`
+  String get burnedCal {
+    return Intl.message(
+      'Burned kCal',
+      name: 'burnedCal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hours slept`
+  String get hoursSlept {
+    return Intl.message(
+      'Hours slept',
+      name: 'hoursSlept',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Session schedule`
+  String get sessionSchedule {
+    return Intl.message(
+      'Session schedule',
+      name: 'sessionSchedule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How are you feeling today?`
+  String get howAreYou {
+    return Intl.message(
+      'How are you feeling today?',
+      name: 'howAreYou',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Feature`
+  String get feature {
+    return Intl.message(
+      'Feature',
+      name: 'feature',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exercise`
+  String get exercise {
+    return Intl.message(
+      'Exercise',
+      name: 'exercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Today session`
+  String get toDaySession {
+    return Intl.message(
+      'Today session',
+      name: 'toDaySession',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

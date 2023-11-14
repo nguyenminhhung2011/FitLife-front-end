@@ -72,5 +72,15 @@
     "prompt7": "I want to improve my cardiovascular endurance and stamina. Can you help me establish an effective cardio workout plan and provide advice on increasing endurance?",
     "prompt8": "I'm interested in exploring new fitness methods such as yoga, pilates, or swimming. Can you provide information and guidance on these techniques?",
     "prompt9": "I want to understand the role of nutrition in achieving my fitness goals. Can you advise me on proper nutrition and a suitable eating plan?",
-    "prompt10": "I'm feeling demotivated and would like to know how to maintain motivation throughout my fitness journey. Can you provide strategies and advice to help me stay on track and reach my goals?"
+    "prompt10": "I'm feeling demotivated and would like to know how to maintain motivation throughout my fitness journey. Can you provide strategies and advice to help me stay on track and reach my goals?",
+    "yourGoal": "Your goal",
+    "dailySteps": "Daily steps",
+    "burnedCal": "Burned kCal",
+    "hoursSlept": "Hours slept",
+    "sessionSchedule": "Session schedule",
+    "howAreYou": "How are you feeling today?",
+    "feature": "Feature",
+    "exercise": "Exercise",
+    "toDaySession": "Today session"
+
 }

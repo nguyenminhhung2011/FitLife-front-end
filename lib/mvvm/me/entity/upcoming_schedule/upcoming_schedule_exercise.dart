@@ -7,13 +7,13 @@ part 'upcoming_schedule_exercise.g.dart';
 @freezed
 class UpcomingScheduleExercise with _$UpcomingScheduleExercise {
   const factory UpcomingScheduleExercise({
-    DateTime? startAt,
+    int? minutes,
+    String? image,
     DateTime? endAt,
+    DateTime? startAt,
+    List<Exercise>? exercises,
     required String title,
     required String description,
-    int? minutes,
-    List<Exercise>? exercises,
-    String? image,
   }) = _UpcomingScheduleExercise;
 
   factory UpcomingScheduleExercise.fromJson(Map<String, dynamic> json) =>

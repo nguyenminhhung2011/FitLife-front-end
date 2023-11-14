@@ -1,5 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/widgets/loading_page.dart';
+import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/me/entity/upcoming_session/upcoming_session.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_data.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_view_model.dart';
 import 'package:fit_life/routes/routes.dart';
@@ -30,6 +33,8 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
   OverviewViewModel get _vm => ref.read(overviewStateNotifier.notifier);
 
   OverviewData get _data => ref.watch(overviewStateNotifier).data;
+
+  UpComingSession? get _upComingSession => _data.upComingSession;
 
   Color get _backGroundColor => Theme.of(context).scaffoldBackgroundColor;
 
@@ -64,19 +69,19 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
       ),
       body: ListView(
         scrollDirection: Axis.vertical,
-        children: [
+        children: <Widget>[
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(width: 15.0),
               DotCustom(color: _primaryColor, full: true, radius: 7.0),
               const SizedBox(width: 5.0),
-              Text('How are you feeling today?', style: context.titleSmall),
+              Text(S.of(context).howAreYou, style: context.titleSmall),
             ],
           ),
           FeelingField(primaryColor: _primaryColor),
           HeaderTextCustom(
-            headerText: 'Feature',
+            headerText: S.of(context).feature,
             textStyle: _headerStyle,
             isShowSeeMore: true,
           ),
@@ -93,7 +98,7 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
           ),
           const SizedBox(),
           HeaderTextCustom(
-            headerText: 'Exercise',
+            headerText: S.of(context).exercise,
             textStyle: _headerStyle,
             isShowSeeMore: true,
             onPress: () => context.openListPageWithRoute(Routes.categories),
@@ -129,16 +134,17 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
           ),
           const SizedBox(height: 5.0),
           HeaderTextCustom(
-            headerText: 'Schedule exercises',
+            headerText: S.of(context).sessionSchedule,
             textStyle: _headerStyle,
           ),
           const SizedBox(height: 5.0),
           if (_data.isLoadingUpcomingScheduleExercise)
-            const Center(child: CircularProgressIndicator())
-          else
-            UpComingScheduleExItem(
-              upcomingScheduleExercise: _data.upcomingScheduleExercise,
-            ),
+            Center(
+              child: StyleLoadingWidget.foldingCube.renderWidget(
+                  size: 40.0, color: Theme.of(context).primaryColor),
+            )
+          else if (_upComingSession != null)
+            UpComingScheduleExItem(upComingSession: _upComingSession!),
           const SizedBox(),
           HeaderTextCustom(
             headerText: 'Health paper',

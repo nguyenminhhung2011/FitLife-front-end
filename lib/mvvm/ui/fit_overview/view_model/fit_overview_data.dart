@@ -1,4 +1,5 @@
-import 'package:fit_life/core/components/widgets/fit_life/exercise_category.dart';
+import 'package:fit_life/mvvm/me/entity/calories_chart/calories_chart.dart';
+import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/me/entity/upcoming_workout/upcoming_workout.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -12,12 +13,15 @@ class FitOverViewData with _$FitOverViewData {
     /// List upcoming workout
     List<UpcomingWorkout>? upcomingWorkouts,
 
-    /// check loading upcoming workout status
-    @Default(false) bool isLoadingUpcomingWorkout,
 
     /// List exercise category
     List<ExerciseCategory>? exerciseCategories,
 
+    required CaloriesChart caloriesChart, 
+
+    @Default(false) bool isLoadingCaloriesChart,
+    /// check loading upcoming workout status
+    @Default(false) bool isLoadingUpcomingWorkout,
     /// check loading exercise category status
     @Default(false) bool isLoadingExerciseCategory,
   }) = _FitOverViewData;

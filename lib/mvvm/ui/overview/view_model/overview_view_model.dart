@@ -1,5 +1,5 @@
-import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
-import 'package:fit_life/mvvm/me/entity/upcoming_schedule/upcoming_schedule_exercise.dart';
+import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/repo/session_repositories.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -15,43 +15,29 @@ final overviewStateNotifier =
 
 @injectable
 class OverviewViewModel extends StateNotifier<OverviewState> {
+  final _overviewViewModel = injector.get<SessionRepositories>();
+
   OverviewViewModel() : super(const _Initial(data: OverviewData()));
 
   OverviewData get data => state.data;
 
-  void getUpcomingScheduleExercise() {
+  Future<void> getUpcomingScheduleExercise() async {
     state = state.copyWith(
-      data: state.data.copyWith(
-        isLoadingUpcomingScheduleExercise: true,
-      ),
+      data: data.copyWith(isLoadingUpcomingScheduleExercise: true),
     );
-
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        state = _Success(
-          data: data.copyWith(
-            isLoadingUpcomingScheduleExercise: false,
-            upcomingScheduleExercise: UpcomingScheduleExercise(
-              title: 'Test header yoga',
-              description: 'This is description of yoga exercise yeah yeah',
-              minutes: 30,
-              exercises: const [
-                Exercise(
-                  name: 'Test header yoga',
-                  description: 'This is description of yoga exercise yeah yeah',
-                ),
-                Exercise(
-                  name: 'Test header yoga',
-                  description: 'This is description of yoga exercise yeah yeah',
-                )
-              ],
-              startAt: DateTime.now(),
-              endAt: DateTime.now().subtract(const Duration(days: 3)),
-            ),
-          ),
-        );
-      },
+    final call = await _overviewViewModel.getUpComingSession();
+    await Future.delayed(const Duration(seconds: 3));
+    state = call.fold(
+      ifLeft: (error) => _GetUpComingSessionFailed(
+        data: data.copyWith(isLoadingUpcomingScheduleExercise: false),
+        message: error.toString(),
+      ),
+      ifRight: (rData) => _GetUpComingSessionSuccess(
+        data: data.copyWith(
+          upComingSession: rData,
+          isLoadingUpcomingScheduleExercise: false, 
+        ),
+      ),
     );
   }
 }

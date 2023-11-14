@@ -27,12 +27,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "alwayChangeItLater": MessageLookupByLibrary.simpleMessage(
             "Don\'t worry you can always change it later,or you can skip it for now"),
         "appearance": MessageLookupByLibrary.simpleMessage("Appearance"),
+        "burnedCal": MessageLookupByLibrary.simpleMessage("Burned kCal"),
         "byPrice": MessageLookupByLibrary.simpleMessage("By Price"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),
         "codeAndFingerPrints":
             MessageLookupByLibrary.simpleMessage("Code and fingerprint"),
         "currencies": MessageLookupByLibrary.simpleMessage("Currencies"),
+        "dailySteps": MessageLookupByLibrary.simpleMessage("Daily steps"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Dark theme"),
         "durationExercise": MessageLookupByLibrary.simpleMessage(
             "How many time in week you exercise?"),
@@ -45,6 +47,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterYourPassword":
             MessageLookupByLibrary.simpleMessage("Enter your Password"),
         "errorCode": MessageLookupByLibrary.simpleMessage("Error code"),
+        "exercise": MessageLookupByLibrary.simpleMessage("Exercise"),
+        "feature": MessageLookupByLibrary.simpleMessage("Feature"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "fillYourProfile":
             MessageLookupByLibrary.simpleMessage("Fill your profile"),
@@ -59,6 +63,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Health and overview"),
         "heightDesc": MessageLookupByLibrary.simpleMessage(
             "Provide your height so that we can choose the most conform exercise for you. "),
+        "hoursSlept": MessageLookupByLibrary.simpleMessage("Hours slept"),
+        "howAreYou":
+            MessageLookupByLibrary.simpleMessage("How are you feeling today?"),
         "howOldAreYou":
             MessageLookupByLibrary.simpleMessage("How old are you?"),
         "howTallAreYou":
@@ -108,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
         "selectYourGender":
             MessageLookupByLibrary.simpleMessage("Select Your Gender"),
+        "sessionSchedule":
+            MessageLookupByLibrary.simpleMessage("Session schedule"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "six2SevenMuchOrMore":
@@ -120,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("3 - 5 days in week"),
         "timeInWeekToExercise": MessageLookupByLibrary.simpleMessage(
             "How many times a week do you exercise?"),
+        "toDaySession": MessageLookupByLibrary.simpleMessage("Today session"),
         "twoToThereDaysInWeek":
             MessageLookupByLibrary.simpleMessage("2 - 3 days in week"),
         "update": MessageLookupByLibrary.simpleMessage("update"),
@@ -134,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "whatIsYourWeight":
             MessageLookupByLibrary.simpleMessage("What is your weight?"),
         "worksEveryDayOfTheWeek":
-            MessageLookupByLibrary.simpleMessage("Works every day of the week")
+            MessageLookupByLibrary.simpleMessage("Works every day of the week"),
+        "yourGoal": MessageLookupByLibrary.simpleMessage("Your goal")
       };
 }

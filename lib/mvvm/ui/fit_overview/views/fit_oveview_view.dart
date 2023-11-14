@@ -1,3 +1,10 @@
+import 'dart:math';
+
+import 'package:collection/collection.dart';
+import 'package:fit_life/core/components/widgets/loading_page.dart';
+import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/me/entity/calories_chart/calories_chart.dart';
+import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -30,27 +37,26 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
 
   FitOverViewData get _data => ref.watch(fitOverViewNotifier).data;
 
+  List<ExerciseCategory>? get _exerciseCategories => _data.exerciseCategories;
+
   List<DateTime> get _rangeDate => _data.rangeDate;
+
+  CaloriesChart get _caloriesChart => _data.caloriesChart;
+
+  int get _totalCalories => _caloriesChart.calories.reduce((a, b) => a + b);
+
+  int get _findMaxCalories => _caloriesChart.calories.reduce(max);
 
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
 
   final RangeDateController _rangeDateController = RangeDateController();
-
-  List<FlSpot> listFlSpotCaloriesBurned = <FlSpot>[
-    const FlSpot(1, 1),
-    const FlSpot(2, 2.0),
-    const FlSpot(3, 4.2),
-    const FlSpot(4, 2.4),
-    const FlSpot(5, 4.5),
-    const FlSpot(6, 3.9),
-    const FlSpot(7, 6.0),
-  ];
 
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
       _vm.getUpcomingWorkout();
       _vm.getExerciseCategory();
+      _vm.onSelectedDate(_rangeDateController.listDate);
     });
     super.initState();
   }
@@ -70,10 +76,17 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
 
   void _listenStateChange(FitOverViewState state) {
     state.maybeWhen(
+      selectedDateSuccess: (_) {
+        if (_data.rangeDate.isNotEmpty) {
+          _vm.getCaloriesChart();
+        }
+      },
       getExerciseCategoryFailed: (_, message) =>
           context.showSnackBar("🐛[Get exercise category] $message"),
       getUpComingFailed: (_, message) =>
           context.showSnackBar("🐛[Get upcoming exercise] $message"),
+      getCaloriesChartFailed: (_, message) =>
+          context.showSnackBar("🐛[Get calories chart] $message"),
       orElse: () {},
     );
   }
@@ -143,13 +156,23 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
             width: double.infinity,
             height: context.heightDevice * 0.3,
             child: LineChartOneLine(
-              listData: listFlSpotCaloriesBurned,
+              listData: [
+                if (_findMaxCalories != 0)
+                  ..._caloriesChart.calories.mapIndexed((index, element) =>
+                      FlSpot(index + 1, (element / _findMaxCalories) * 6))
+                else
+                  ...List.generate(7, (index) => FlSpot(index + 1, 1))
+              ],
               callBack: (_, __) {},
               lineColor: Theme.of(context).primaryColor,
             ),
           ),
           const SizedBox(height: 15.0),
-          const FitnessOverViewStatistic(),
+          FitnessOverViewStatistic(
+            heartRate: _caloriesChart.heartRate,
+            calories: _totalCalories,
+            toDo: _caloriesChart.todo,
+          ),
           HeaderTextCustom(
             headerText: 'What do you want to train',
             textStyle:
@@ -159,7 +182,10 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
           ),
           const SizedBox(height: 10.0),
           if (_data.isLoadingExerciseCategory)
-            const Center(child: CircularProgressIndicator())
+            Center(
+              child: StyleLoadingWidget.foldingCube.renderWidget(
+                  size: 40.0, color: Theme.of(context).primaryColor),
+            )
           else if (_data.exerciseCategories?.isNotEmpty ?? false)
             SizedBox(
               width: double.infinity,
@@ -168,12 +194,12 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   const SizedBox(width: 15.0),
-                  ..._data.exerciseCategories!
+                  ..._exerciseCategories!
                       .map<Widget>(
-                        (e) => ExerciseCategory(
+                        (e) => ExerciseCategoryWidget(
                           header: e.header,
-                          description: e.description,
                           exCountable: e.exCountable,
+                          description: e.description ?? "",
                           level: e.level,
                           image: e.image,
                         ),
@@ -184,7 +210,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
             ),
           const SizedBox(height: 15.0),
           HeaderTextCustom(
-            headerText: 'Upcoming workout',
+            headerText: S.of(context).toDaySession,
             textStyle:
                 context.titleMedium.copyWith(fontWeight: FontWeight.w600),
           ),

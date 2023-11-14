@@ -66,6 +66,7 @@ class ViewMorePlanViewModel extends StateNotifier<ViewMorePlanState> {
       timeStart: data.startDate ?? DateTime.now(),
       timeFinish: data.endDate ?? DateTime.now(),
       currentPage: data.workoutPlans.currentPage,
+      perPage: data.workoutPlans.perPage,
     );
     Future.delayed(const Duration(seconds: 3), () {
       state = response.fold(

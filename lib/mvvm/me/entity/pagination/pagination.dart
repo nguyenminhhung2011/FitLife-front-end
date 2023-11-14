@@ -8,5 +8,6 @@ class Pagination<T> with _$Pagination<T> {
     required List<T> items,
     @Default(0) int currentPage,
     @Default(0) int totalPage,
+    @Default(10) int perPage,
   }) = _Pagination<T>;
 }

@@ -1,6 +1,7 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
+import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
 
@@ -28,6 +29,8 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
 
   PlanOverViewData get _data => ref.watch(planOverviewStateNotifier).data;
 
+  CurrentPlan? get _currentPlan => _data.currentPlan;
+
   Color get _backGroundColor => Theme.of(context).scaffoldBackgroundColor;
 
   @override
@@ -36,6 +39,7 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
     super.initState();
     Future.delayed(Duration.zero, () {
       _vm.getSessionPlanHistory();
+      _vm.getCurrentPlan();
     });
   }
 
@@ -43,6 +47,8 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
     state.maybeWhen(
       getCurrentPlanFailed: (_, error) =>
           context.showSnackBar("🐛[Get current plan] $error"),
+      getSessionPlanHistoryFailed: (_, error) =>
+          context.showSnackBar("🐛[Get session plan] $error"),
       orElse: () {},
     );
   }
@@ -77,90 +83,106 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
       body: SizedBox(
         width: double.infinity,
         height: double.infinity,
-        child: ListView(
-          padding: const EdgeInsets.only(top: 0),
-          children: [
-            Container(
-              height: context.heightDevice * 0.72,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(ImageConst.banner3), fit: BoxFit.cover),
-              ),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  PlanOverViewGradientField(),
-                  SizedBox(height: 15.0),
-                  PlanOverViewProgressField(),
-                  SizedBox(height: 15.0)
-                ],
-              ),
-            ),
-            SizedBox(
-              height: context.heightDevice * 0.23,
-              width: double.infinity,
-              child: Column(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: LayoutBuilder(builder: (_, constraints) {
-                      return PlanOverViewUpComingSession(
-                        maxHeight: constraints.maxHeight,
-                      );
-                    }),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Container(
-                      width: double.infinity,
-                      color: Theme.of(context).cardColor.withOpacity(0.5),
-                      child: PlanOverViewCard(context: context),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(height: 10),
-            HeaderTextCustom(
-              headerText: 'Plan history',
-              isShowSeeMore: true,
-              onPress: () => context.openViewMorePlan(),
-              textStyle:
-                  context.titleMedium.copyWith(fontWeight: FontWeight.w600),
-            ),
-            _renderTimeToText(context, time: DateTime.now()),
-            const SizedBox(height: 10.0),
-            if (_data.isLoadingWorkoutPlans)
-              ...List.generate(2, (index) => const WorkoutPlanSkelton())
-            else
-              ..._data.workoutPlans
-                      ?.map((e) => WorkoutPlanItemWidget(
-                            workoutPlan: e,
-                            progress: 0.6,
-                          ))
-                      .toList() ??
-                  const [],
-            const SizedBox(height: 10.0),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ButtonCustom(
-                height: 40.0,
-                radius: 10.0,
-                child: Text(
-                  "Create new plan",
-                  style: context.titleSmall.copyWith(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                onPress: () {
-                  context.openListPageWithRoute(Routes.addPlan);
-                },
-              ),
-            ),
-            const SizedBox(height: 100),
-          ],
+        child: RefreshIndicator(
+          onRefresh: () async {
+            Future.delayed(Duration.zero, () {
+              _vm.getSessionPlanHistory();
+              _vm.getCurrentPlan();
+            });
+          },
+          child: _body(context),
         ),
       ),
+    );
+  }
+
+  ListView _body(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.only(top: 0),
+      children: [
+        Container(
+          height: context.heightDevice * 0.72,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(ImageConst.banner3), fit: BoxFit.cover),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              if (_data.isLoadingCurrentPlan) ...[
+                const PlanOverViewGradientFieldLoading(),
+                const PlanOverviewProgressLoading(),
+              ] else if (_currentPlan != null) ...[
+                PlanOverViewGradientField(currentPlan: _currentPlan!),
+                PlanOverViewProgressField(currentPlan: _currentPlan!),
+              ],
+            ].expand((e) => [e, const SizedBox(height: 15.0)]).toList(),
+          ),
+        ),
+        SizedBox(
+          height: context.heightDevice * 0.23,
+          width: double.infinity,
+          child: Column(
+            children: [
+              Expanded(
+                flex: 3,
+                child: LayoutBuilder(
+                  builder: (_, constraints) {
+                    return PlanOverViewUpComingSession(
+                      maxHeight: constraints.maxHeight,
+                    );
+                  },
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  width: double.infinity,
+                  color: Theme.of(context).cardColor.withOpacity(0.5),
+                  child: PlanOverViewCard(context: context),
+                ),
+              )
+            ],
+          ),
+        ),
+        const SizedBox(height: 10),
+        HeaderTextCustom(
+          headerText: 'Plan history',
+          isShowSeeMore: true,
+          onPress: () => context.openViewMorePlan(),
+          textStyle: context.titleMedium.copyWith(fontWeight: FontWeight.w600),
+        ),
+        _renderTimeToText(context, time: DateTime.now()),
+        const SizedBox(height: 10.0),
+        if (_data.isLoadingWorkoutPlans)
+          ...List.generate(2, (index) => const WorkoutPlanSkelton())
+        else
+          ..._data.workoutPlans
+                  ?.map((e) => WorkoutPlanItemWidget(
+                        workoutPlan: e,
+                        progress: 0.6,
+                      ))
+                  .toList() ??
+              const [],
+        const SizedBox(height: 10.0),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ButtonCustom(
+            height: 40.0,
+            radius: 10.0,
+            child: Text(
+              "Create new plan",
+              style: context.titleSmall
+                  .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+            onPress: () {
+              context.openListPageWithRoute(Routes.addPlan);
+            },
+          ),
+        ),
+        const SizedBox(height: 100),
+      ],
     );
   }
 

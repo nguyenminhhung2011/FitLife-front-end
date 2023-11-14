@@ -126,6 +126,8 @@ class Constant {
       isIconData: false,
     ),
   ];
+
+  static List<int> calories = [400, 200, 500, 600, 300, 700, 300];
 }
 
 class MainPageViewIntro {

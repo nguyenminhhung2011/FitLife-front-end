@@ -17,4 +17,12 @@ class PlanOverViewState with _$PlanOverViewState {
     required PlanOverViewData data,
     required String message,
   }) = _GetCurrentPlanFailed;
+
+  const factory PlanOverViewState.getSessionPlanHistorySuccess(
+      {required PlanOverViewData data}) = _GetSessionPlanHistorySuccess;
+
+  const factory PlanOverViewState.getSessionPlanHistoryFailed({
+    required PlanOverViewData data,
+    required String message,
+  }) = _GetSessionPlanHistoryFailed;
 }

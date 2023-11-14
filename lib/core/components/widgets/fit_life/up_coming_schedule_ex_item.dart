@@ -1,24 +1,19 @@
-import 'package:fit_life/mvvm/me/entity/upcoming_schedule/upcoming_schedule_exercise.dart';
+import 'package:fit_life/mvvm/me/entity/upcoming_session/upcoming_session.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
 class UpComingScheduleExItem extends StatelessWidget {
-  final UpcomingScheduleExercise? upcomingScheduleExercise;
+  final UpComingSession upComingSession;
 
   const UpComingScheduleExItem({
-    required this.upcomingScheduleExercise,
+    required this.upComingSession,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (upcomingScheduleExercise == null) {
-      return const SizedBox();
-    }
-    final exercise = upcomingScheduleExercise!.exercises;
-
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 15.0),
       width: double.infinity,
@@ -41,14 +36,14 @@ class UpComingScheduleExItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  upcomingScheduleExercise?.title ?? '',
+                  upComingSession.session.name ?? '',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style:
                       context.titleSmall.copyWith(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  upcomingScheduleExercise?.description ?? '',
+                  upComingSession.session.description ?? '',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: context.titleSmall.copyWith(
@@ -57,15 +52,15 @@ class UpComingScheduleExItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '🌟 Start in ${gemmFormat(upcomingScheduleExercise?.startAt ?? DateTime.now())}',
+                  '🌟 Start in ${gemmFormat(upComingSession.time)}',
                   style: context.titleSmall.copyWith(fontSize: 12.0),
                 ),
                 const SizedBox(),
                 Wrap(spacing: 5.0, children: [
                   ...List<String>.from([
-                    '${exercise?.length ?? 0} exercises',
-                    if (upcomingScheduleExercise?.minutes != null) ...[
-                      '${upcomingScheduleExercise?.minutes} mins'
+                    '${upComingSession.session.exercises?.length ?? 0} exercises',
+                    if (upComingSession.session.time != null) ...[
+                      '${upComingSession.session.time} mins'
                     ]
                   ])
                       .map(
@@ -100,15 +95,8 @@ class UpComingScheduleExItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 color: context.primaryColor.withOpacity(0.2),
-                image: upcomingScheduleExercise!.image?.isEmpty ?? true
-                    ? const DecorationImage(
-                        image: AssetImage(ImageConst.banner1),
-                        fit: BoxFit.cover,
-                      )
-                    : DecorationImage(
-                        image: NetworkImage(upcomingScheduleExercise!.image!),
-                        fit: BoxFit.cover,
-                      ),
+                image: const DecorationImage(
+                    image: AssetImage(ImageConst.banner1), fit: BoxFit.cover),
               ),
             ),
           )

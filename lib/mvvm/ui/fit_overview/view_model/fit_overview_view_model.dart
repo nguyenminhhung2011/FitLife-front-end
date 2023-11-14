@@ -1,7 +1,8 @@
-import 'package:fit_life/core/components/constant/image_const.dart';
-import 'package:fit_life/core/components/widgets/fit_life/exercise_category.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/me/entity/calories_chart/calories_chart.dart';
 import 'package:fit_life/mvvm/me/entity/upcoming_workout/upcoming_workout.dart';
+import 'package:fit_life/mvvm/repo/calories_repositories.dart';
+import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
 import 'package:fit_life/mvvm/repo/plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -19,10 +20,23 @@ final fitOverViewNotifier =
 @injectable
 class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
   final _planRepositories = injector.get<PlanRepositories>();
+  final _exerciseRepositories = injector.get<ExerciseRepositories>();
+  final _caloriesRepositories = injector.get<CaloriesRepositories>();
 
   ///---------------
   FitOverViewData get data => state.data;
-  FitOverViewViewModel() : super(const _Initial(data: FitOverViewData()));
+  FitOverViewViewModel()
+      : super(
+          _Initial(
+            data: FitOverViewData(
+              caloriesChart: CaloriesChart(
+                heartRate: 0,
+                todo: 0.0,
+                calories: List.generate(7, (_) => 0),
+              ),
+            ),
+          ),
+        );
 
   void onSelectedDate(List<DateTime> times) {
     state = _SelectedDataSuccess(data: data.copyWith(rangeDate: times));
@@ -48,42 +62,40 @@ class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
     );
   }
 
-  void getExerciseCategory() {
+  Future<void> getCaloriesChart() async {
+    state = state.copyWith(data: data.copyWith(isLoadingCaloriesChart: true));
+    final response = await _caloriesRepositories.getCaloriesChart(
+        startDate: data.rangeDate.first, endTime: data.rangeDate.last);
+    await Future.delayed(const Duration(seconds: 2));
+    state = response.fold(
+      ifLeft: (error) => _GetCaloriesChartFailed(
+        data: data.copyWith(isLoadingCaloriesChart: false),
+        message: error.message,
+      ),
+      ifRight: (rData) => _GetCaloriesChartSuccess(
+        data: data.copyWith(
+          caloriesChart: rData,
+          isLoadingCaloriesChart: false,
+        ),
+      ),
+    );
+  }
+
+  Future<void> getExerciseCategory() async {
     state =
         state.copyWith(data: data.copyWith(isLoadingExerciseCategory: true));
-
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        state = _GetExerciseCategorySuccess(
-          data: state.data.copyWith(
-            isLoadingExerciseCategory: false,
-            exerciseCategories: const [
-              ExerciseCategory(
-                header: 'Upper Body',
-                description: 'This is description of upper body',
-                exCountable: 21,
-                level: 'Beginner ⚡ Advanced',
-                image: ImageConst.banner1,
-              ),
-              ExerciseCategory(
-                header: 'Cardio',
-                description: 'This is description of Cardio',
-                exCountable: 31,
-                level: 'Medium ⚡ Advanced',
-                image: ImageConst.banner2,
-              ),
-              ExerciseCategory(
-                header: 'Stretch',
-                description: 'This is description of Stretch',
-                exCountable: 19,
-                level: 'Beginner ⚡ Advanced',
-                image: ImageConst.banner3,
-              ),
-            ],
-          ),
-        );
-      },
+    final response = await _exerciseRepositories.getExerciseCategories(
+        currentPage: 0, perPage: 3);
+    await Future.delayed(const Duration(seconds: 3));
+    state = response.fold(
+      ifLeft: (error) => _GetExerciseCategoryFailed(
+        data: data.copyWith(isLoadingExerciseCategory: false),
+        message: error.message,
+      ),
+      ifRight: (rData) => _GetExerciseCategorySuccess(
+        data: data.copyWith(
+            isLoadingExerciseCategory: false, exerciseCategories: rData),
+      ),
     );
   }
 }

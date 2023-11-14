@@ -21,13 +21,13 @@ UpcomingScheduleExercise _$UpcomingScheduleExerciseFromJson(
 
 /// @nodoc
 mixin _$UpcomingScheduleExercise {
-  DateTime? get startAt => throw _privateConstructorUsedError;
+  int? get minutes => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   DateTime? get endAt => throw _privateConstructorUsedError;
+  DateTime? get startAt => throw _privateConstructorUsedError;
+  List<Exercise>? get exercises => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  int? get minutes => throw _privateConstructorUsedError;
-  List<Exercise>? get exercises => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,13 +42,13 @@ abstract class $UpcomingScheduleExerciseCopyWith<$Res> {
       _$UpcomingScheduleExerciseCopyWithImpl<$Res, UpcomingScheduleExercise>;
   @useResult
   $Res call(
-      {DateTime? startAt,
+      {int? minutes,
+      String? image,
       DateTime? endAt,
-      String title,
-      String description,
-      int? minutes,
+      DateTime? startAt,
       List<Exercise>? exercises,
-      String? image});
+      String title,
+      String description});
 }
 
 /// @nodoc
@@ -65,23 +65,35 @@ class _$UpcomingScheduleExerciseCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startAt = freezed,
+    Object? minutes = freezed,
+    Object? image = freezed,
     Object? endAt = freezed,
+    Object? startAt = freezed,
+    Object? exercises = freezed,
     Object? title = null,
     Object? description = null,
-    Object? minutes = freezed,
-    Object? exercises = freezed,
-    Object? image = freezed,
   }) {
     return _then(_value.copyWith(
-      startAt: freezed == startAt
-          ? _value.startAt
-          : startAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+      minutes: freezed == minutes
+          ? _value.minutes
+          : minutes // ignore: cast_nullable_to_non_nullable
+              as int?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       endAt: freezed == endAt
           ? _value.endAt
           : endAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      startAt: freezed == startAt
+          ? _value.startAt
+          : startAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      exercises: freezed == exercises
+          ? _value.exercises
+          : exercises // ignore: cast_nullable_to_non_nullable
+              as List<Exercise>?,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -90,18 +102,6 @@ class _$UpcomingScheduleExerciseCopyWithImpl<$Res,
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      minutes: freezed == minutes
-          ? _value.minutes
-          : minutes // ignore: cast_nullable_to_non_nullable
-              as int?,
-      exercises: freezed == exercises
-          ? _value.exercises
-          : exercises // ignore: cast_nullable_to_non_nullable
-              as List<Exercise>?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -116,13 +116,13 @@ abstract class _$$_UpcomingScheduleExerciseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {DateTime? startAt,
+      {int? minutes,
+      String? image,
       DateTime? endAt,
-      String title,
-      String description,
-      int? minutes,
+      DateTime? startAt,
       List<Exercise>? exercises,
-      String? image});
+      String title,
+      String description});
 }
 
 /// @nodoc
@@ -137,23 +137,35 @@ class __$$_UpcomingScheduleExerciseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? startAt = freezed,
+    Object? minutes = freezed,
+    Object? image = freezed,
     Object? endAt = freezed,
+    Object? startAt = freezed,
+    Object? exercises = freezed,
     Object? title = null,
     Object? description = null,
-    Object? minutes = freezed,
-    Object? exercises = freezed,
-    Object? image = freezed,
   }) {
     return _then(_$_UpcomingScheduleExercise(
-      startAt: freezed == startAt
-          ? _value.startAt
-          : startAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+      minutes: freezed == minutes
+          ? _value.minutes
+          : minutes // ignore: cast_nullable_to_non_nullable
+              as int?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       endAt: freezed == endAt
           ? _value.endAt
           : endAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      startAt: freezed == startAt
+          ? _value.startAt
+          : startAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      exercises: freezed == exercises
+          ? _value._exercises
+          : exercises // ignore: cast_nullable_to_non_nullable
+              as List<Exercise>?,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -162,18 +174,6 @@ class __$$_UpcomingScheduleExerciseCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      minutes: freezed == minutes
-          ? _value.minutes
-          : minutes // ignore: cast_nullable_to_non_nullable
-              as int?,
-      exercises: freezed == exercises
-          ? _value._exercises
-          : exercises // ignore: cast_nullable_to_non_nullable
-              as List<Exercise>?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -182,28 +182,26 @@ class __$$_UpcomingScheduleExerciseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UpcomingScheduleExercise implements _UpcomingScheduleExercise {
   const _$_UpcomingScheduleExercise(
-      {this.startAt,
+      {this.minutes,
+      this.image,
       this.endAt,
-      required this.title,
-      required this.description,
-      this.minutes,
+      this.startAt,
       final List<Exercise>? exercises,
-      this.image})
+      required this.title,
+      required this.description})
       : _exercises = exercises;
 
   factory _$_UpcomingScheduleExercise.fromJson(Map<String, dynamic> json) =>
       _$$_UpcomingScheduleExerciseFromJson(json);
 
   @override
-  final DateTime? startAt;
+  final int? minutes;
+  @override
+  final String? image;
   @override
   final DateTime? endAt;
   @override
-  final String title;
-  @override
-  final String description;
-  @override
-  final int? minutes;
+  final DateTime? startAt;
   final List<Exercise>? _exercises;
   @override
   List<Exercise>? get exercises {
@@ -215,11 +213,13 @@ class _$_UpcomingScheduleExercise implements _UpcomingScheduleExercise {
   }
 
   @override
-  final String? image;
+  final String title;
+  @override
+  final String description;
 
   @override
   String toString() {
-    return 'UpcomingScheduleExercise(startAt: $startAt, endAt: $endAt, title: $title, description: $description, minutes: $minutes, exercises: $exercises, image: $image)';
+    return 'UpcomingScheduleExercise(minutes: $minutes, image: $image, endAt: $endAt, startAt: $startAt, exercises: $exercises, title: $title, description: $description)';
   }
 
   @override
@@ -227,28 +227,21 @@ class _$_UpcomingScheduleExercise implements _UpcomingScheduleExercise {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpcomingScheduleExercise &&
-            (identical(other.startAt, startAt) || other.startAt == startAt) &&
-            (identical(other.endAt, endAt) || other.endAt == endAt) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
             (identical(other.minutes, minutes) || other.minutes == minutes) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.endAt, endAt) || other.endAt == endAt) &&
+            (identical(other.startAt, startAt) || other.startAt == startAt) &&
             const DeepCollectionEquality()
                 .equals(other._exercises, _exercises) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      startAt,
-      endAt,
-      title,
-      description,
-      minutes,
-      const DeepCollectionEquality().hash(_exercises),
-      image);
+  int get hashCode => Object.hash(runtimeType, minutes, image, endAt, startAt,
+      const DeepCollectionEquality().hash(_exercises), title, description);
 
   @JsonKey(ignore: true)
   @override
@@ -267,31 +260,31 @@ class _$_UpcomingScheduleExercise implements _UpcomingScheduleExercise {
 
 abstract class _UpcomingScheduleExercise implements UpcomingScheduleExercise {
   const factory _UpcomingScheduleExercise(
-      {final DateTime? startAt,
+      {final int? minutes,
+      final String? image,
       final DateTime? endAt,
-      required final String title,
-      required final String description,
-      final int? minutes,
+      final DateTime? startAt,
       final List<Exercise>? exercises,
-      final String? image}) = _$_UpcomingScheduleExercise;
+      required final String title,
+      required final String description}) = _$_UpcomingScheduleExercise;
 
   factory _UpcomingScheduleExercise.fromJson(Map<String, dynamic> json) =
       _$_UpcomingScheduleExercise.fromJson;
 
   @override
-  DateTime? get startAt;
+  int? get minutes;
+  @override
+  String? get image;
   @override
   DateTime? get endAt;
+  @override
+  DateTime? get startAt;
+  @override
+  List<Exercise>? get exercises;
   @override
   String get title;
   @override
   String get description;
-  @override
-  int? get minutes;
-  @override
-  List<Exercise>? get exercises;
-  @override
-  String? get image;
   @override
   @JsonKey(ignore: true)
   _$$_UpcomingScheduleExerciseCopyWith<_$_UpcomingScheduleExercise>

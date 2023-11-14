@@ -1,11 +1,65 @@
+import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
+import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
+class PlanOverviewProgressLoading extends StatelessWidget {
+  const PlanOverviewProgressLoading({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+      margin: const EdgeInsets.symmetric(horizontal: 15.0),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: BorderRadius.circular(10.0),
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).shadowColor.withOpacity(0.2),
+            blurRadius: 5.0,
+          )
+        ],
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SkeletonContainer.circular(
+                  width: double.infinity,
+                  height: 25,
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                SkeletonContainer.circular(
+                  width: double.infinity,
+                  height: 25,
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+              ]
+                  .expand((element) => [element, const SizedBox(height: 5.0)])
+                  .toList()
+                ..removeLast(),
+            ),
+          ),
+          const SizedBox(width: 10.0),
+          SkeletonContainer.circular(
+            width: 50,
+            height: 50,
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class PlanOverViewProgressField extends StatelessWidget {
-  const PlanOverViewProgressField({
-    super.key,
-  });
+  final CurrentPlan currentPlan;
+  const PlanOverViewProgressField({super.key, required this.currentPlan});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +84,7 @@ class PlanOverViewProgressField extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Part 1 Fitness plan',
+                  'Part 1 ${currentPlan.name}',
                   style:
                       context.titleMedium.copyWith(fontWeight: FontWeight.w600),
                 ),

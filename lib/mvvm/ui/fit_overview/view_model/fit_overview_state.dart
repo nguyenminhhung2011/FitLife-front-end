@@ -20,4 +20,12 @@ class FitOverViewState with _$FitOverViewState {
   const factory FitOverViewState.getExerciseCategoryFailed(
       {required FitOverViewData data,
       required String message}) = _GetExerciseCategoryFailed;
+
+  const factory FitOverViewState.getCaloriesChartSuccess(
+      {required FitOverViewData data}) = _GetCaloriesChartSuccess;
+
+  const factory FitOverViewState.getCaloriesChartFailed({
+    required FitOverViewData data,
+    required String message,
+  }) = _GetCaloriesChartFailed;
 }

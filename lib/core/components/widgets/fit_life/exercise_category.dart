@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
-class ExerciseCategory extends StatelessWidget {
+class ExerciseCategoryWidget extends StatelessWidget {
   final String header;
   final String description;
   final String level;
   final String image;
   final int exCountable;
-  const ExerciseCategory({
+  const ExerciseCategoryWidget({
     super.key,
     required this.header,
     required this.description,

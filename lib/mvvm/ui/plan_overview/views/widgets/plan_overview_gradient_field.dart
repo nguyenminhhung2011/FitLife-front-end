@@ -1,9 +1,61 @@
 import 'package:collection/collection.dart';
+import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
+import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
+class PlanOverViewGradientFieldLoading extends StatelessWidget {
+  const PlanOverViewGradientFieldLoading({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(horizontal: 15.0),
+      padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        gradient: LinearGradient(
+          colors: [Colors.grey.withOpacity(0.5), Colors.grey.withOpacity(0.5)],
+        ),
+      ),
+      child: Column(
+        children: [
+          SkeletonContainer.circular(
+            width: double.infinity,
+            height: 30,
+            borderRadius: BorderRadius.circular(10.0),
+            color: Theme.of(context).dividerColor.withOpacity(0.2),
+          ),
+          const SizedBox(height: 5.0),
+          const Divider(color: Colors.grey, thickness: 1),
+          const SizedBox(height: 5.0),
+          Row(
+            children: [
+              ...List.generate(
+                3,
+                (index) => Expanded(
+                  child: SkeletonContainer.circular(
+                    width: double.infinity,
+                    height: 40,
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Theme.of(context).dividerColor,
+                  ),
+                ),
+              )
+            ].expand((e) => [e, const SizedBox(width: 10.0)]).toList()
+              ..removeLast(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class PlanOverViewGradientField extends StatelessWidget {
-  const PlanOverViewGradientField({super.key});
+  final CurrentPlan currentPlan;
+  const PlanOverViewGradientField({super.key, required this.currentPlan});
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +78,13 @@ class PlanOverViewGradientField extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Your goal',
+                      S.of(context).yourGoal,
                       style: context.titleSmall
                           .copyWith(color: Colors.white, fontSize: 12.0),
                     ),
                     const SizedBox(height: 5.0),
                     Text(
-                      'Getting back in shape',
+                      currentPlan.goal,
                       style: context.titleMedium.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -51,7 +103,7 @@ class PlanOverViewGradientField extends StatelessWidget {
           const Divider(color: Colors.grey, thickness: 1),
           Row(
             children: [
-              ...['2320', '280', '7.5'].mapIndexed(
+              ...['2320', currentPlan.totalCaloriesBurn, '7.5'].mapIndexed(
                 (index, e) => Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,9 +116,9 @@ class PlanOverViewGradientField extends StatelessWidget {
                       const SizedBox(height: 5.0),
                       Text(
                         switch (index) {
-                          0 => 'Daily steps',
-                          1 => 'burned kCal',
-                          _ => 'hours slept'
+                          0 => S.of(context).dailySteps,
+                          1 => S.of(context).burnedCal,
+                          _ => S.of(context).hoursSlept,
                         },
                         style: context.titleSmall.copyWith(color: Colors.white),
                       ),

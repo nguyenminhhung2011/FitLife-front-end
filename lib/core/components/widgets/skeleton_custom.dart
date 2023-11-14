@@ -4,6 +4,7 @@ import "package:skeleton_text/skeleton_text.dart";
 class SkeletonContainer extends StatelessWidget {
   final double width;
   final double height;
+  final Color? color;
   final BorderRadius borderRadius;
 
   const SkeletonContainer._({
@@ -11,6 +12,7 @@ class SkeletonContainer extends StatelessWidget {
     this.height = double.infinity,
     this.borderRadius = const BorderRadius.all(Radius.circular(0)),
     super.key,
+    this.color,
   });
 
   const SkeletonContainer.square({
@@ -25,10 +27,16 @@ class SkeletonContainer extends StatelessWidget {
   }) : this._(width: width, height: height, borderRadius: borderRadius);
 
   const SkeletonContainer.circular({
-    required double width,  
+    required double width,
     required double height,
     BorderRadius borderRadius = const BorderRadius.all(Radius.circular(80)),
-  }) : this._(width: width, height: height, borderRadius: borderRadius);
+    Color? color,
+  }) : this._(
+          width: width,
+          height: height,
+          borderRadius: borderRadius,
+          color: color,
+        );
 
   @override
   Widget build(BuildContext context) => SkeletonAnimation(
@@ -40,7 +48,7 @@ class SkeletonContainer extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
-            color: Theme.of(context).dividerColor.withOpacity(0.05),
+            color: color ?? Theme.of(context).dividerColor.withOpacity(0.05),
             borderRadius: borderRadius,
           ),
         ),

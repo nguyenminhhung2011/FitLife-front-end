@@ -19,6 +19,7 @@ mixin _$Pagination<T> {
   List<T> get items => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
   int get totalPage => throw _privateConstructorUsedError;
+  int get perPage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PaginationCopyWith<T, Pagination<T>> get copyWith =>
@@ -31,7 +32,7 @@ abstract class $PaginationCopyWith<T, $Res> {
           Pagination<T> value, $Res Function(Pagination<T>) then) =
       _$PaginationCopyWithImpl<T, $Res, Pagination<T>>;
   @useResult
-  $Res call({List<T> items, int currentPage, int totalPage});
+  $Res call({List<T> items, int currentPage, int totalPage, int perPage});
 }
 
 /// @nodoc
@@ -50,6 +51,7 @@ class _$PaginationCopyWithImpl<T, $Res, $Val extends Pagination<T>>
     Object? items = null,
     Object? currentPage = null,
     Object? totalPage = null,
+    Object? perPage = null,
   }) {
     return _then(_value.copyWith(
       items: null == items
@@ -64,6 +66,10 @@ class _$PaginationCopyWithImpl<T, $Res, $Val extends Pagination<T>>
           ? _value.totalPage
           : totalPage // ignore: cast_nullable_to_non_nullable
               as int,
+      perPage: null == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -76,7 +82,7 @@ abstract class _$$_PaginationCopyWith<T, $Res>
       __$$_PaginationCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call({List<T> items, int currentPage, int totalPage});
+  $Res call({List<T> items, int currentPage, int totalPage, int perPage});
 }
 
 /// @nodoc
@@ -93,6 +99,7 @@ class __$$_PaginationCopyWithImpl<T, $Res>
     Object? items = null,
     Object? currentPage = null,
     Object? totalPage = null,
+    Object? perPage = null,
   }) {
     return _then(_$_Pagination<T>(
       items: null == items
@@ -107,6 +114,10 @@ class __$$_PaginationCopyWithImpl<T, $Res>
           ? _value.totalPage
           : totalPage // ignore: cast_nullable_to_non_nullable
               as int,
+      perPage: null == perPage
+          ? _value.perPage
+          : perPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -115,7 +126,10 @@ class __$$_PaginationCopyWithImpl<T, $Res>
 
 class _$_Pagination<T> implements _Pagination<T> {
   const _$_Pagination(
-      {required final List<T> items, this.currentPage = 0, this.totalPage = 0})
+      {required final List<T> items,
+      this.currentPage = 0,
+      this.totalPage = 0,
+      this.perPage = 10})
       : _items = items;
 
   final List<T> _items;
@@ -132,10 +146,13 @@ class _$_Pagination<T> implements _Pagination<T> {
   @override
   @JsonKey()
   final int totalPage;
+  @override
+  @JsonKey()
+  final int perPage;
 
   @override
   String toString() {
-    return 'Pagination<$T>(items: $items, currentPage: $currentPage, totalPage: $totalPage)';
+    return 'Pagination<$T>(items: $items, currentPage: $currentPage, totalPage: $totalPage, perPage: $perPage)';
   }
 
   @override
@@ -147,12 +164,17 @@ class _$_Pagination<T> implements _Pagination<T> {
             (identical(other.currentPage, currentPage) ||
                 other.currentPage == currentPage) &&
             (identical(other.totalPage, totalPage) ||
-                other.totalPage == totalPage));
+                other.totalPage == totalPage) &&
+            (identical(other.perPage, perPage) || other.perPage == perPage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_items), currentPage, totalPage);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_items),
+      currentPage,
+      totalPage,
+      perPage);
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +187,8 @@ abstract class _Pagination<T> implements Pagination<T> {
   const factory _Pagination(
       {required final List<T> items,
       final int currentPage,
-      final int totalPage}) = _$_Pagination<T>;
+      final int totalPage,
+      final int perPage}) = _$_Pagination<T>;
 
   @override
   List<T> get items;
@@ -173,6 +196,8 @@ abstract class _Pagination<T> implements Pagination<T> {
   int get currentPage;
   @override
   int get totalPage;
+  @override
+  int get perPage;
   @override
   @JsonKey(ignore: true)
   _$$_PaginationCopyWith<T, _$_Pagination<T>> get copyWith =>

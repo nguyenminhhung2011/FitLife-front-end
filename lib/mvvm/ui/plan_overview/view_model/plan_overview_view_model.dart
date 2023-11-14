@@ -1,6 +1,5 @@
-import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
-// import 'package:fit_life/core/dependency_injection/di.dart';
-// import 'package:fit_life/mvvm/repo/plan_repositories.dart';
+import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/repo/plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,51 +15,47 @@ final planOverviewStateNotifier =
 
 @injectable
 class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
-  // final _planRepositories = injector.get<PlanRepositories>();
+  final _planRepositories = injector.get<PlanRepositories>();
   PlanOverViewViewModel() : super(const _Initial(data: PlanOverViewData()));
 
   PlanOverViewData get data => state.data;
 
-  // Future<void> getCurrentPlan() async {
-  //   state = _Loading(data: data);
-  //   final response = await _planRepositories.getCurrentPlan();
-  //   state = response.fold(
-  //     ifLeft: (error) =>
-  //         _GetCurrentPlanFailed(data: data, message: error.message),
-  //     ifRight: (currentPlan) =>
-  //         _GetCurrentPlanSuccess(data: data.copyWith(currentPlan: currentPlan)),
-  //   );
-  // }
-
-  void getSessionPlanHistory() {
-    state = state.copyWith(
-      data: state.data.copyWith(
-        isLoadingWorkoutPlans: true,
+  Future<void> getCurrentPlan() async {
+    state = state.copyWith(data: data.copyWith(isLoadingCurrentPlan: true));
+    final response = await _planRepositories.getCurrentPlan();
+    await Future.delayed(const Duration(seconds: 3));
+    state = response.fold(
+      ifLeft: (error) => _GetCurrentPlanFailed(
+        data: data.copyWith(isLoadingCurrentPlan: false),
+        message: error.message,
+      ),
+      ifRight: (currentPlan) => _GetCurrentPlanSuccess(
+        data: data.copyWith(
+            currentPlan: currentPlan, isLoadingCurrentPlan: false),
       ),
     );
+  }
 
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        state = _Success(
-            data: data.copyWith(
-          isLoadingWorkoutPlans: false,
-          workoutPlans: [
-            WorkoutPlan(
-              name: 'How to lose 10kg in 14 days',
-              description: "Target to lose 10kg in 3 months",
-              startDate: DateTime.now(),
-              endDate: DateTime.now().add(const Duration(days: 14)),
-            ),
-            WorkoutPlan(
-              name: 'How to lose 10kg in 14 days',
-              description: "Target to lose 10kg in 3 months",
-              startDate: DateTime.now(),
-              endDate: DateTime.now().add(const Duration(days: 14)),
-            ),
-          ],
-        ));
-      },
+  Future<void> getSessionPlanHistory() async {
+    state = state.copyWith(
+      data: data.copyWith(isLoadingWorkoutPlans: true),
+    );
+
+    final call = await _planRepositories.getTopPlan(topCountable: 2);
+
+    Future.delayed(const Duration(seconds: 3)).whenComplete(
+      () => state = call.fold(
+        ifLeft: (error) => _GetSessionPlanHistoryFailed(
+          data: data.copyWith(isLoadingWorkoutPlans: false),
+          message: error.message,
+        ),
+        ifRight: (rData) => _GetCurrentPlanSuccess(
+          data: data.copyWith(
+            workoutPlans: [...rData],
+            isLoadingWorkoutPlans: false,
+          ),
+        ),
+      ),
     );
   }
 }

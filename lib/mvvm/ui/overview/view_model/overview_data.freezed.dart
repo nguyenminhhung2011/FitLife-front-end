@@ -17,8 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$OverviewData {
   /// Upcoming schedule exercise
-  UpcomingScheduleExercise? get upcomingScheduleExercise =>
-      throw _privateConstructorUsedError;
+  UpComingSession? get upComingSession => throw _privateConstructorUsedError;
 
   /// Is loading upcoming schedule exercise finish or not
   bool get isLoadingUpcomingScheduleExercise =>
@@ -36,10 +35,10 @@ abstract class $OverviewDataCopyWith<$Res> {
       _$OverviewDataCopyWithImpl<$Res, OverviewData>;
   @useResult
   $Res call(
-      {UpcomingScheduleExercise? upcomingScheduleExercise,
+      {UpComingSession? upComingSession,
       bool isLoadingUpcomingScheduleExercise});
 
-  $UpcomingScheduleExerciseCopyWith<$Res>? get upcomingScheduleExercise;
+  $UpComingSessionCopyWith<$Res>? get upComingSession;
 }
 
 /// @nodoc
@@ -55,14 +54,14 @@ class _$OverviewDataCopyWithImpl<$Res, $Val extends OverviewData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? upcomingScheduleExercise = freezed,
+    Object? upComingSession = freezed,
     Object? isLoadingUpcomingScheduleExercise = null,
   }) {
     return _then(_value.copyWith(
-      upcomingScheduleExercise: freezed == upcomingScheduleExercise
-          ? _value.upcomingScheduleExercise
-          : upcomingScheduleExercise // ignore: cast_nullable_to_non_nullable
-              as UpcomingScheduleExercise?,
+      upComingSession: freezed == upComingSession
+          ? _value.upComingSession
+          : upComingSession // ignore: cast_nullable_to_non_nullable
+              as UpComingSession?,
       isLoadingUpcomingScheduleExercise: null ==
               isLoadingUpcomingScheduleExercise
           ? _value.isLoadingUpcomingScheduleExercise
@@ -73,14 +72,13 @@ class _$OverviewDataCopyWithImpl<$Res, $Val extends OverviewData>
 
   @override
   @pragma('vm:prefer-inline')
-  $UpcomingScheduleExerciseCopyWith<$Res>? get upcomingScheduleExercise {
-    if (_value.upcomingScheduleExercise == null) {
+  $UpComingSessionCopyWith<$Res>? get upComingSession {
+    if (_value.upComingSession == null) {
       return null;
     }
 
-    return $UpcomingScheduleExerciseCopyWith<$Res>(
-        _value.upcomingScheduleExercise!, (value) {
-      return _then(_value.copyWith(upcomingScheduleExercise: value) as $Val);
+    return $UpComingSessionCopyWith<$Res>(_value.upComingSession!, (value) {
+      return _then(_value.copyWith(upComingSession: value) as $Val);
     });
   }
 }
@@ -94,11 +92,11 @@ abstract class _$$_OverviewDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {UpcomingScheduleExercise? upcomingScheduleExercise,
+      {UpComingSession? upComingSession,
       bool isLoadingUpcomingScheduleExercise});
 
   @override
-  $UpcomingScheduleExerciseCopyWith<$Res>? get upcomingScheduleExercise;
+  $UpComingSessionCopyWith<$Res>? get upComingSession;
 }
 
 /// @nodoc
@@ -112,14 +110,14 @@ class __$$_OverviewDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? upcomingScheduleExercise = freezed,
+    Object? upComingSession = freezed,
     Object? isLoadingUpcomingScheduleExercise = null,
   }) {
     return _then(_$_OverviewData(
-      upcomingScheduleExercise: freezed == upcomingScheduleExercise
-          ? _value.upcomingScheduleExercise
-          : upcomingScheduleExercise // ignore: cast_nullable_to_non_nullable
-              as UpcomingScheduleExercise?,
+      upComingSession: freezed == upComingSession
+          ? _value.upComingSession
+          : upComingSession // ignore: cast_nullable_to_non_nullable
+              as UpComingSession?,
       isLoadingUpcomingScheduleExercise: null ==
               isLoadingUpcomingScheduleExercise
           ? _value.isLoadingUpcomingScheduleExercise
@@ -133,12 +131,11 @@ class __$$_OverviewDataCopyWithImpl<$Res>
 
 class _$_OverviewData implements _OverviewData {
   const _$_OverviewData(
-      {this.upcomingScheduleExercise,
-      this.isLoadingUpcomingScheduleExercise = false});
+      {this.upComingSession, this.isLoadingUpcomingScheduleExercise = false});
 
   /// Upcoming schedule exercise
   @override
-  final UpcomingScheduleExercise? upcomingScheduleExercise;
+  final UpComingSession? upComingSession;
 
   /// Is loading upcoming schedule exercise finish or not
   @override
@@ -147,7 +144,7 @@ class _$_OverviewData implements _OverviewData {
 
   @override
   String toString() {
-    return 'OverviewData(upcomingScheduleExercise: $upcomingScheduleExercise, isLoadingUpcomingScheduleExercise: $isLoadingUpcomingScheduleExercise)';
+    return 'OverviewData(upComingSession: $upComingSession, isLoadingUpcomingScheduleExercise: $isLoadingUpcomingScheduleExercise)';
   }
 
   @override
@@ -155,9 +152,8 @@ class _$_OverviewData implements _OverviewData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OverviewData &&
-            (identical(
-                    other.upcomingScheduleExercise, upcomingScheduleExercise) ||
-                other.upcomingScheduleExercise == upcomingScheduleExercise) &&
+            (identical(other.upComingSession, upComingSession) ||
+                other.upComingSession == upComingSession) &&
             (identical(other.isLoadingUpcomingScheduleExercise,
                     isLoadingUpcomingScheduleExercise) ||
                 other.isLoadingUpcomingScheduleExercise ==
@@ -166,7 +162,7 @@ class _$_OverviewData implements _OverviewData {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, upcomingScheduleExercise, isLoadingUpcomingScheduleExercise);
+      runtimeType, upComingSession, isLoadingUpcomingScheduleExercise);
 
   @JsonKey(ignore: true)
   @override
@@ -177,13 +173,13 @@ class _$_OverviewData implements _OverviewData {
 
 abstract class _OverviewData implements OverviewData {
   const factory _OverviewData(
-      {final UpcomingScheduleExercise? upcomingScheduleExercise,
+      {final UpComingSession? upComingSession,
       final bool isLoadingUpcomingScheduleExercise}) = _$_OverviewData;
 
   @override
 
   /// Upcoming schedule exercise
-  UpcomingScheduleExercise? get upcomingScheduleExercise;
+  UpComingSession? get upComingSession;
   @override
 
   /// Is loading upcoming schedule exercise finish or not

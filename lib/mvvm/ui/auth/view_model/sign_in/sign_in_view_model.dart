@@ -10,7 +10,7 @@ part 'sign_in_view_model.freezed.dart';
 
 final signInStateNotifier =
     AutoDisposeStateNotifierProvider<SignInViewModel, SignInState>(
-        (ref) => SignInViewModel());
+        (ref) => injector.get<SignInViewModel>());
 
 @injectable
 class SignInViewModel extends StateNotifier<SignInState> {

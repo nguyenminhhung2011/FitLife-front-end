@@ -53,10 +53,14 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
 
   @override
   void initState() {
-    Future.delayed(Duration.zero, () {
-      _vm.getUpcomingWorkout();
-      _vm.getExerciseCategory();
-      _vm.onSelectedDate(_rangeDateController.listDate);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        Future.delayed(Duration.zero, () {
+          _vm.getUpcomingWorkout();
+          _vm.getExerciseCategory();
+          _vm.onSelectedDate(_rangeDateController.listDate);
+        });
+      }
     });
     super.initState();
   }

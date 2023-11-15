@@ -45,10 +45,12 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
 
   @override
   void initState() {
-    super.initState();
-    Future.delayed(Duration.zero, () {
-      _vm.getUpcomingScheduleExercise();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _vm.getUpcomingScheduleExercise();
+      }
     });
+    super.initState();
   }
 
   @override

@@ -28,4 +28,8 @@ class FitOverViewState with _$FitOverViewState {
     required FitOverViewData data,
     required String message,
   }) = _GetCaloriesChartFailed;
+
+  const factory FitOverViewState.loading({
+    required FitOverViewData data,
+  }) = _Loading;
 }

@@ -21,6 +21,7 @@ mixin _$OverviewState {
   TResult when<TResult extends Object?>({
     required TResult Function(OverviewData data) initial,
     required TResult Function(OverviewData data) success,
+    required TResult Function(OverviewData data) loading,
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
@@ -30,6 +31,7 @@ mixin _$OverviewState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(OverviewData data)? initial,
     TResult? Function(OverviewData data)? success,
+    TResult? Function(OverviewData data)? loading,
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
@@ -39,6 +41,7 @@ mixin _$OverviewState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OverviewData data)? initial,
     TResult Function(OverviewData data)? success,
+    TResult Function(OverviewData data)? loading,
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
@@ -49,6 +52,7 @@ mixin _$OverviewState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_GetUpComingSessionSuccess value)
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
@@ -59,6 +63,7 @@ mixin _$OverviewState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
@@ -69,6 +74,7 @@ mixin _$OverviewState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
@@ -194,6 +200,7 @@ class _$_Initial extends _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function(OverviewData data) initial,
     required TResult Function(OverviewData data) success,
+    required TResult Function(OverviewData data) loading,
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
@@ -206,6 +213,7 @@ class _$_Initial extends _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(OverviewData data)? initial,
     TResult? Function(OverviewData data)? success,
+    TResult? Function(OverviewData data)? loading,
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
@@ -218,6 +226,7 @@ class _$_Initial extends _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OverviewData data)? initial,
     TResult Function(OverviewData data)? success,
+    TResult Function(OverviewData data)? loading,
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
@@ -234,6 +243,7 @@ class _$_Initial extends _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_GetUpComingSessionSuccess value)
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
@@ -247,6 +257,7 @@ class _$_Initial extends _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
@@ -260,6 +271,7 @@ class _$_Initial extends _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
@@ -354,6 +366,7 @@ class _$_Success extends _Success {
   TResult when<TResult extends Object?>({
     required TResult Function(OverviewData data) initial,
     required TResult Function(OverviewData data) success,
+    required TResult Function(OverviewData data) loading,
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
@@ -366,6 +379,7 @@ class _$_Success extends _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(OverviewData data)? initial,
     TResult? Function(OverviewData data)? success,
+    TResult? Function(OverviewData data)? loading,
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
@@ -378,6 +392,7 @@ class _$_Success extends _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OverviewData data)? initial,
     TResult Function(OverviewData data)? success,
+    TResult Function(OverviewData data)? loading,
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
@@ -394,6 +409,7 @@ class _$_Success extends _Success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_GetUpComingSessionSuccess value)
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
@@ -407,6 +423,7 @@ class _$_Success extends _Success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
@@ -420,6 +437,7 @@ class _$_Success extends _Success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
@@ -441,6 +459,172 @@ abstract class _Success extends OverviewState {
   @override
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadingCopyWith<$Res>
+    implements $OverviewStateCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({OverviewData data});
+
+  @override
+  $OverviewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$OverviewStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Loading(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as OverviewData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Loading extends _Loading {
+  const _$_Loading({required this.data}) : super._();
+
+  @override
+  final OverviewData data;
+
+  @override
+  String toString() {
+    return 'OverviewState.loading(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Loading &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(OverviewData data) initial,
+    required TResult Function(OverviewData data) success,
+    required TResult Function(OverviewData data) loading,
+    required TResult Function(OverviewData data) getUpComingSessionSuccess,
+    required TResult Function(OverviewData data, String message)
+        getUpComingSessionFailed,
+  }) {
+    return loading(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(OverviewData data)? initial,
+    TResult? Function(OverviewData data)? success,
+    TResult? Function(OverviewData data)? loading,
+    TResult? Function(OverviewData data)? getUpComingSessionSuccess,
+    TResult? Function(OverviewData data, String message)?
+        getUpComingSessionFailed,
+  }) {
+    return loading?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(OverviewData data)? initial,
+    TResult Function(OverviewData data)? success,
+    TResult Function(OverviewData data)? loading,
+    TResult Function(OverviewData data)? getUpComingSessionSuccess,
+    TResult Function(OverviewData data, String message)?
+        getUpComingSessionFailed,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetUpComingSessionSuccess value)
+        getUpComingSessionSuccess,
+    required TResult Function(_GetUpComingSessionFailed value)
+        getUpComingSessionFailed,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetUpComingSessionSuccess value)?
+        getUpComingSessionSuccess,
+    TResult? Function(_GetUpComingSessionFailed value)?
+        getUpComingSessionFailed,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetUpComingSessionSuccess value)?
+        getUpComingSessionSuccess,
+    TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading extends OverviewState {
+  const factory _Loading({required final OverviewData data}) = _$_Loading;
+  const _Loading._() : super._();
+
+  @override
+  OverviewData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -518,6 +702,7 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(OverviewData data) initial,
     required TResult Function(OverviewData data) success,
+    required TResult Function(OverviewData data) loading,
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
@@ -530,6 +715,7 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(OverviewData data)? initial,
     TResult? Function(OverviewData data)? success,
+    TResult? Function(OverviewData data)? loading,
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
@@ -542,6 +728,7 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OverviewData data)? initial,
     TResult Function(OverviewData data)? success,
+    TResult Function(OverviewData data)? loading,
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
@@ -558,6 +745,7 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_GetUpComingSessionSuccess value)
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
@@ -571,6 +759,7 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
@@ -584,6 +773,7 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
@@ -691,6 +881,7 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
   TResult when<TResult extends Object?>({
     required TResult Function(OverviewData data) initial,
     required TResult Function(OverviewData data) success,
+    required TResult Function(OverviewData data) loading,
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
@@ -703,6 +894,7 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(OverviewData data)? initial,
     TResult? Function(OverviewData data)? success,
+    TResult? Function(OverviewData data)? loading,
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
@@ -715,6 +907,7 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OverviewData data)? initial,
     TResult Function(OverviewData data)? success,
+    TResult Function(OverviewData data)? loading,
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
@@ -731,6 +924,7 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_GetUpComingSessionSuccess value)
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
@@ -744,6 +938,7 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
     TResult? Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
@@ -757,6 +952,7 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,

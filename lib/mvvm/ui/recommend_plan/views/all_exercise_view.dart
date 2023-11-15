@@ -1,6 +1,7 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/ui/auth/mixins/auth_mixin.dart';
 import 'package:fit_life/mvvm/ui/recommend_plan/views/widgets/exercise_child_item.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,15 @@ class _AllExerCiseViewState extends State<AllExerCiseView> with AuthMixin {
                 child: Divider(),
               ),
               itemCount: 10,
-              itemBuilder: (_, __) => const ExerciseChidItem(),
+              itemBuilder: (_, __) => const ExerciseChidItem(
+                exercise: Exercise(
+                  name: "Barbell Bench press",
+                  exerciseCategory: "Category",
+                  reps: 30,
+                  caloriesPerMinute: 100,
+                  description: "This is descrion this is description",
+                ),
+              ),
             ),
           ),
         ],

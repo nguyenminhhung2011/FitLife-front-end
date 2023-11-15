@@ -12,14 +12,14 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../core/components/widgets/category_layout/category_layout.dart';
 import '../../../../core/components/widgets/category_layout/category_layout_type.dart';
 
-class Exercise {
+class ExerciseUI {
   final String id;
   final String image;
   final String headerText;
   final String subText;
   final String categoryId;
   final int calories;
-  Exercise({
+  ExerciseUI({
     required this.id,
     required this.image,
     required this.subText,
@@ -97,34 +97,34 @@ class _CategoryViewState extends State<CategoryView>
     )
   ];
 
-  Future<List<Exercise>> paginationCall(
+  Future<List<ExerciseUI>> paginationCall(
       int currentPage, String categoryId) async {
     log(categoryId);
 
     await Future.delayed(const Duration(seconds: 3));
     if (categoryId == '0') {
-      return <Exercise>[
+      return <ExerciseUI>[
         for (var i = 1; i <= 4; i++)
           for (var t = 0; t < 6; t++)
-            Exercise(
-              id: 'Exercise $t',
+            ExerciseUI(
+              id: 'ExerciseUI $t',
               categoryId: categoryId,
               image: ImageConst.banner1,
               subText: 'Relax and try hard',
               calories: 1000,
-              headerText: 'Russian Exercise',
+              headerText: 'Russian ExerciseUI',
             )
       ];
     }
-    return <Exercise>[
+    return <ExerciseUI>[
       for (int t = 0; t < 6; t++)
-        Exercise(
-          id: 'Exercise $t',
+        ExerciseUI(
+          id: 'ExerciseUI $t',
           categoryId: categoryId,
           image: ImageConst.banner1,
           subText: 'Relax and try hard',
           calories: 1000,
-          headerText: 'Russian Exercise',
+          headerText: 'Russian ExerciseUI',
         )
     ];
   }
@@ -144,15 +144,15 @@ class _CategoryViewState extends State<CategoryView>
       body: Column(
         children: [
           const SizedBox(height: 10.0),
-          _listExerciseField(context, backgroundColor),
+          _listExerciseUIField(context, backgroundColor),
         ],
       ),
     );
   }
 
-  Expanded _listExerciseField(BuildContext context, Color backgroundColor) {
+  Expanded _listExerciseUIField(BuildContext context, Color backgroundColor) {
     return Expanded(
-      child: CategoryLayoutView<Exercise>(
+      child: CategoryLayoutView<ExerciseUI>(
         hPadding: 10,
         vPadding: 10,
         categoryLayoutType: CategoryLayoutType.both,
@@ -193,7 +193,7 @@ class _CategoryViewState extends State<CategoryView>
         ),
         categoryLayoutModel: categoryTest,
         paginationDataCall: paginationCall,
-        itemBuilder: (Exercise data) {
+        itemBuilder: (ExerciseUI data) {
           return Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -299,7 +299,7 @@ class _CategoryViewState extends State<CategoryView>
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "💪 200 exercises",
+              "💪 200 exerciseUIs",
               style: context.titleSmall.copyWith(
                 fontWeight: FontWeight.w600,
                 fontSize: 12.0,

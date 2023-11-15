@@ -1,12 +1,15 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class ExerciseChidItem extends StatelessWidget {
+  final Exercise exercise;
   const ExerciseChidItem({
     super.key,
+    required this.exercise,
   });
 
   @override
@@ -30,12 +33,12 @@ class ExerciseChidItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Russian workout",
+                    exercise.name,
                     style: context.titleSmall
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "This is description of russian exercise",
+                    exercise.description,
                     style: context.titleSmall.copyWith(
                       color: Theme.of(context).hintColor,
                       fontSize: 12.0,
@@ -43,7 +46,11 @@ class ExerciseChidItem extends StatelessWidget {
                   ),
                   Wrap(
                     spacing: 5.0,
-                    children: ['30 mins', '7 exercises']
+                    children: [
+                      '${exercise.reps} mins',
+                      '${exercise.exerciseCategory} category',
+                      '${exercise.caloriesPerMinute} calories'
+                    ]
                         .map(
                           (e) => Container(
                             padding: const EdgeInsets.all(5.0),

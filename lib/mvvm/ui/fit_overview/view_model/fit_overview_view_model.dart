@@ -15,7 +15,7 @@ part 'fit_overview_view_model.freezed.dart';
 
 final fitOverViewNotifier =
     AutoDisposeStateNotifierProvider<FitOverViewViewModel, FitOverViewState>(
-        (ref) => FitOverViewViewModel());
+        (ref) => injector.get<FitOverViewViewModel>());
 
 @injectable
 class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
@@ -43,34 +43,33 @@ class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
   }
 
   void getUpcomingWorkout() {
-    state = state.copyWith(data: data.copyWith(isLoadingUpcomingWorkout: true));
+    state = _Loading(data: data.copyWith(isLoadingUpcomingWorkout: true));
 
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        state = _GetUpComingSuccess(
-            data: state.data
-                .copyWith(isLoadingUpcomingWorkout: false, upcomingWorkouts: [
-          UpcomingWorkout(
-            title: 'Dash Strength',
-            minutes: 30,
-            kCalo: 200,
-            startTime: DateTime(2021, 10, 10, 17, 30),
-          ),
-        ]));
-      },
-    );
+    Future.delayed(const Duration(seconds: 3));
+    if (!mounted) return;
+
+    state = _GetUpComingSuccess(
+        data: state.data
+            .copyWith(isLoadingUpcomingWorkout: false, upcomingWorkouts: [
+      UpcomingWorkout(
+        title: 'Dash Strength',
+        minutes: 30,
+        kCalo: 200,
+        startTime: DateTime(2021, 10, 10, 17, 30),
+      ),
+    ]));
   }
 
   Future<void> getCaloriesChart() async {
-    state = state.copyWith(data: data.copyWith(isLoadingCaloriesChart: true));
+    state = _Loading(data: data);
     final response = await _caloriesRepositories.getCaloriesChart(
         startDate: data.rangeDate.first, endTime: data.rangeDate.last);
     await Future.delayed(const Duration(seconds: 2));
+    if (!mounted) return;
     state = response.fold(
       ifLeft: (error) => _GetCaloriesChartFailed(
-        data: data.copyWith(isLoadingCaloriesChart: false),
         message: error.message,
+        data: data.copyWith(isLoadingCaloriesChart: false),
       ),
       ifRight: (rData) => _GetCaloriesChartSuccess(
         data: data.copyWith(
@@ -82,11 +81,11 @@ class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
   }
 
   Future<void> getExerciseCategory() async {
-    state =
-        state.copyWith(data: data.copyWith(isLoadingExerciseCategory: true));
+    state = _Loading(data: data.copyWith(isLoadingExerciseCategory: true));
     final response = await _exerciseRepositories.getExerciseCategories(
         currentPage: 0, perPage: 3);
     await Future.delayed(const Duration(seconds: 3));
+    if (!mounted) return;
     state = response.fold(
       ifLeft: (error) => _GetExerciseCategoryFailed(
         data: data.copyWith(isLoadingExerciseCategory: false),
@@ -94,7 +93,9 @@ class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
       ),
       ifRight: (rData) => _GetExerciseCategorySuccess(
         data: data.copyWith(
-            isLoadingExerciseCategory: false, exerciseCategories: rData),
+          exerciseCategories: rData,
+          isLoadingExerciseCategory: false,
+        ),
       ),
     );
   }

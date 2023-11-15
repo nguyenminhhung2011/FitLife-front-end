@@ -11,7 +11,7 @@ part 'overview_view_model.freezed.dart';
 
 final overviewStateNotifier =
     AutoDisposeStateNotifierProvider<OverviewViewModel, OverviewState>(
-        (ref) => OverviewViewModel());
+        (ref) => injector.get<OverviewViewModel>());
 
 @injectable
 class OverviewViewModel extends StateNotifier<OverviewState> {
@@ -22,11 +22,11 @@ class OverviewViewModel extends StateNotifier<OverviewState> {
   OverviewData get data => state.data;
 
   Future<void> getUpcomingScheduleExercise() async {
-    state = state.copyWith(
-      data: data.copyWith(isLoadingUpcomingScheduleExercise: true),
-    );
+    state =
+        _Loading(data: data.copyWith(isLoadingUpcomingScheduleExercise: true));
     final call = await _overviewViewModel.getUpComingSession();
     await Future.delayed(const Duration(seconds: 3));
+    if (!mounted) return;
     state = call.fold(
       ifLeft: (error) => _GetUpComingSessionFailed(
         data: data.copyWith(isLoadingUpcomingScheduleExercise: false),
@@ -35,7 +35,7 @@ class OverviewViewModel extends StateNotifier<OverviewState> {
       ifRight: (rData) => _GetUpComingSessionSuccess(
         data: data.copyWith(
           upComingSession: rData,
-          isLoadingUpcomingScheduleExercise: false, 
+          isLoadingUpcomingScheduleExercise: false,
         ),
       ),
     );

@@ -30,6 +30,7 @@ mixin _$FitOverViewState {
     required TResult Function(FitOverViewData data) getCaloriesChartSuccess,
     required TResult Function(FitOverViewData data, String message)
         getCaloriesChartFailed,
+    required TResult Function(FitOverViewData data) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +45,7 @@ mixin _$FitOverViewState {
     TResult? Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult? Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult? Function(FitOverViewData data)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +60,7 @@ mixin _$FitOverViewState {
     TResult Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult Function(FitOverViewData data)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +78,7 @@ mixin _$FitOverViewState {
         getCaloriesChartSuccess,
     required TResult Function(_GetCaloriesChartFailed value)
         getCaloriesChartFailed,
+    required TResult Function(_Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -89,6 +93,7 @@ mixin _$FitOverViewState {
         getExerciseCategoryFailed,
     TResult? Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult? Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult? Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -103,6 +108,7 @@ mixin _$FitOverViewState {
         getExerciseCategoryFailed,
     TResult Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -234,6 +240,7 @@ class _$_Initial implements _Initial {
     required TResult Function(FitOverViewData data) getCaloriesChartSuccess,
     required TResult Function(FitOverViewData data, String message)
         getCaloriesChartFailed,
+    required TResult Function(FitOverViewData data) loading,
   }) {
     return initial(data);
   }
@@ -251,6 +258,7 @@ class _$_Initial implements _Initial {
     TResult? Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult? Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult? Function(FitOverViewData data)? loading,
   }) {
     return initial?.call(data);
   }
@@ -268,6 +276,7 @@ class _$_Initial implements _Initial {
     TResult Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult Function(FitOverViewData data)? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -291,6 +300,7 @@ class _$_Initial implements _Initial {
         getCaloriesChartSuccess,
     required TResult Function(_GetCaloriesChartFailed value)
         getCaloriesChartFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return initial(this);
   }
@@ -308,6 +318,7 @@ class _$_Initial implements _Initial {
         getExerciseCategoryFailed,
     TResult? Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult? Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return initial?.call(this);
   }
@@ -325,6 +336,7 @@ class _$_Initial implements _Initial {
         getExerciseCategoryFailed,
     TResult Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -426,6 +438,7 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
     required TResult Function(FitOverViewData data) getCaloriesChartSuccess,
     required TResult Function(FitOverViewData data, String message)
         getCaloriesChartFailed,
+    required TResult Function(FitOverViewData data) loading,
   }) {
     return selectedDateSuccess(data);
   }
@@ -443,6 +456,7 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
     TResult? Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult? Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult? Function(FitOverViewData data)? loading,
   }) {
     return selectedDateSuccess?.call(data);
   }
@@ -460,6 +474,7 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
     TResult Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult Function(FitOverViewData data)? loading,
     required TResult orElse(),
   }) {
     if (selectedDateSuccess != null) {
@@ -483,6 +498,7 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
         getCaloriesChartSuccess,
     required TResult Function(_GetCaloriesChartFailed value)
         getCaloriesChartFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return selectedDateSuccess(this);
   }
@@ -500,6 +516,7 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
         getExerciseCategoryFailed,
     TResult? Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult? Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return selectedDateSuccess?.call(this);
   }
@@ -517,6 +534,7 @@ class _$_SelectedDataSuccess implements _SelectedDataSuccess {
         getExerciseCategoryFailed,
     TResult Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (selectedDateSuccess != null) {
@@ -619,6 +637,7 @@ class _$_GetUpComingSuccess implements _GetUpComingSuccess {
     required TResult Function(FitOverViewData data) getCaloriesChartSuccess,
     required TResult Function(FitOverViewData data, String message)
         getCaloriesChartFailed,
+    required TResult Function(FitOverViewData data) loading,
   }) {
     return getUpComingSuccess(data);
   }
@@ -636,6 +655,7 @@ class _$_GetUpComingSuccess implements _GetUpComingSuccess {
     TResult? Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult? Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult? Function(FitOverViewData data)? loading,
   }) {
     return getUpComingSuccess?.call(data);
   }
@@ -653,6 +673,7 @@ class _$_GetUpComingSuccess implements _GetUpComingSuccess {
     TResult Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult Function(FitOverViewData data)? loading,
     required TResult orElse(),
   }) {
     if (getUpComingSuccess != null) {
@@ -676,6 +697,7 @@ class _$_GetUpComingSuccess implements _GetUpComingSuccess {
         getCaloriesChartSuccess,
     required TResult Function(_GetCaloriesChartFailed value)
         getCaloriesChartFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return getUpComingSuccess(this);
   }
@@ -693,6 +715,7 @@ class _$_GetUpComingSuccess implements _GetUpComingSuccess {
         getExerciseCategoryFailed,
     TResult? Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult? Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return getUpComingSuccess?.call(this);
   }
@@ -710,6 +733,7 @@ class _$_GetUpComingSuccess implements _GetUpComingSuccess {
         getExerciseCategoryFailed,
     TResult Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (getUpComingSuccess != null) {
@@ -820,6 +844,7 @@ class _$_GetUpComingFailed implements _GetUpComingFailed {
     required TResult Function(FitOverViewData data) getCaloriesChartSuccess,
     required TResult Function(FitOverViewData data, String message)
         getCaloriesChartFailed,
+    required TResult Function(FitOverViewData data) loading,
   }) {
     return getUpComingFailed(data, message);
   }
@@ -837,6 +862,7 @@ class _$_GetUpComingFailed implements _GetUpComingFailed {
     TResult? Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult? Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult? Function(FitOverViewData data)? loading,
   }) {
     return getUpComingFailed?.call(data, message);
   }
@@ -854,6 +880,7 @@ class _$_GetUpComingFailed implements _GetUpComingFailed {
     TResult Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult Function(FitOverViewData data)? loading,
     required TResult orElse(),
   }) {
     if (getUpComingFailed != null) {
@@ -877,6 +904,7 @@ class _$_GetUpComingFailed implements _GetUpComingFailed {
         getCaloriesChartSuccess,
     required TResult Function(_GetCaloriesChartFailed value)
         getCaloriesChartFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return getUpComingFailed(this);
   }
@@ -894,6 +922,7 @@ class _$_GetUpComingFailed implements _GetUpComingFailed {
         getExerciseCategoryFailed,
     TResult? Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult? Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return getUpComingFailed?.call(this);
   }
@@ -911,6 +940,7 @@ class _$_GetUpComingFailed implements _GetUpComingFailed {
         getExerciseCategoryFailed,
     TResult Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (getUpComingFailed != null) {
@@ -1017,6 +1047,7 @@ class _$_GetExerciseCategorySuccess implements _GetExerciseCategorySuccess {
     required TResult Function(FitOverViewData data) getCaloriesChartSuccess,
     required TResult Function(FitOverViewData data, String message)
         getCaloriesChartFailed,
+    required TResult Function(FitOverViewData data) loading,
   }) {
     return getExerciseCategorySuccess(data);
   }
@@ -1034,6 +1065,7 @@ class _$_GetExerciseCategorySuccess implements _GetExerciseCategorySuccess {
     TResult? Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult? Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult? Function(FitOverViewData data)? loading,
   }) {
     return getExerciseCategorySuccess?.call(data);
   }
@@ -1051,6 +1083,7 @@ class _$_GetExerciseCategorySuccess implements _GetExerciseCategorySuccess {
     TResult Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult Function(FitOverViewData data)? loading,
     required TResult orElse(),
   }) {
     if (getExerciseCategorySuccess != null) {
@@ -1074,6 +1107,7 @@ class _$_GetExerciseCategorySuccess implements _GetExerciseCategorySuccess {
         getCaloriesChartSuccess,
     required TResult Function(_GetCaloriesChartFailed value)
         getCaloriesChartFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return getExerciseCategorySuccess(this);
   }
@@ -1091,6 +1125,7 @@ class _$_GetExerciseCategorySuccess implements _GetExerciseCategorySuccess {
         getExerciseCategoryFailed,
     TResult? Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult? Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return getExerciseCategorySuccess?.call(this);
   }
@@ -1108,6 +1143,7 @@ class _$_GetExerciseCategorySuccess implements _GetExerciseCategorySuccess {
         getExerciseCategoryFailed,
     TResult Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (getExerciseCategorySuccess != null) {
@@ -1221,6 +1257,7 @@ class _$_GetExerciseCategoryFailed implements _GetExerciseCategoryFailed {
     required TResult Function(FitOverViewData data) getCaloriesChartSuccess,
     required TResult Function(FitOverViewData data, String message)
         getCaloriesChartFailed,
+    required TResult Function(FitOverViewData data) loading,
   }) {
     return getExerciseCategoryFailed(data, message);
   }
@@ -1238,6 +1275,7 @@ class _$_GetExerciseCategoryFailed implements _GetExerciseCategoryFailed {
     TResult? Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult? Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult? Function(FitOverViewData data)? loading,
   }) {
     return getExerciseCategoryFailed?.call(data, message);
   }
@@ -1255,6 +1293,7 @@ class _$_GetExerciseCategoryFailed implements _GetExerciseCategoryFailed {
     TResult Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult Function(FitOverViewData data)? loading,
     required TResult orElse(),
   }) {
     if (getExerciseCategoryFailed != null) {
@@ -1278,6 +1317,7 @@ class _$_GetExerciseCategoryFailed implements _GetExerciseCategoryFailed {
         getCaloriesChartSuccess,
     required TResult Function(_GetCaloriesChartFailed value)
         getCaloriesChartFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return getExerciseCategoryFailed(this);
   }
@@ -1295,6 +1335,7 @@ class _$_GetExerciseCategoryFailed implements _GetExerciseCategoryFailed {
         getExerciseCategoryFailed,
     TResult? Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult? Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return getExerciseCategoryFailed?.call(this);
   }
@@ -1312,6 +1353,7 @@ class _$_GetExerciseCategoryFailed implements _GetExerciseCategoryFailed {
         getExerciseCategoryFailed,
     TResult Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (getExerciseCategoryFailed != null) {
@@ -1417,6 +1459,7 @@ class _$_GetCaloriesChartSuccess implements _GetCaloriesChartSuccess {
     required TResult Function(FitOverViewData data) getCaloriesChartSuccess,
     required TResult Function(FitOverViewData data, String message)
         getCaloriesChartFailed,
+    required TResult Function(FitOverViewData data) loading,
   }) {
     return getCaloriesChartSuccess(data);
   }
@@ -1434,6 +1477,7 @@ class _$_GetCaloriesChartSuccess implements _GetCaloriesChartSuccess {
     TResult? Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult? Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult? Function(FitOverViewData data)? loading,
   }) {
     return getCaloriesChartSuccess?.call(data);
   }
@@ -1451,6 +1495,7 @@ class _$_GetCaloriesChartSuccess implements _GetCaloriesChartSuccess {
     TResult Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult Function(FitOverViewData data)? loading,
     required TResult orElse(),
   }) {
     if (getCaloriesChartSuccess != null) {
@@ -1474,6 +1519,7 @@ class _$_GetCaloriesChartSuccess implements _GetCaloriesChartSuccess {
         getCaloriesChartSuccess,
     required TResult Function(_GetCaloriesChartFailed value)
         getCaloriesChartFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return getCaloriesChartSuccess(this);
   }
@@ -1491,6 +1537,7 @@ class _$_GetCaloriesChartSuccess implements _GetCaloriesChartSuccess {
         getExerciseCategoryFailed,
     TResult? Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult? Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return getCaloriesChartSuccess?.call(this);
   }
@@ -1508,6 +1555,7 @@ class _$_GetCaloriesChartSuccess implements _GetCaloriesChartSuccess {
         getExerciseCategoryFailed,
     TResult Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (getCaloriesChartSuccess != null) {
@@ -1618,6 +1666,7 @@ class _$_GetCaloriesChartFailed implements _GetCaloriesChartFailed {
     required TResult Function(FitOverViewData data) getCaloriesChartSuccess,
     required TResult Function(FitOverViewData data, String message)
         getCaloriesChartFailed,
+    required TResult Function(FitOverViewData data) loading,
   }) {
     return getCaloriesChartFailed(data, message);
   }
@@ -1635,6 +1684,7 @@ class _$_GetCaloriesChartFailed implements _GetCaloriesChartFailed {
     TResult? Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult? Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult? Function(FitOverViewData data)? loading,
   }) {
     return getCaloriesChartFailed?.call(data, message);
   }
@@ -1652,6 +1702,7 @@ class _$_GetCaloriesChartFailed implements _GetCaloriesChartFailed {
     TResult Function(FitOverViewData data)? getCaloriesChartSuccess,
     TResult Function(FitOverViewData data, String message)?
         getCaloriesChartFailed,
+    TResult Function(FitOverViewData data)? loading,
     required TResult orElse(),
   }) {
     if (getCaloriesChartFailed != null) {
@@ -1675,6 +1726,7 @@ class _$_GetCaloriesChartFailed implements _GetCaloriesChartFailed {
         getCaloriesChartSuccess,
     required TResult Function(_GetCaloriesChartFailed value)
         getCaloriesChartFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return getCaloriesChartFailed(this);
   }
@@ -1692,6 +1744,7 @@ class _$_GetCaloriesChartFailed implements _GetCaloriesChartFailed {
         getExerciseCategoryFailed,
     TResult? Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult? Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return getCaloriesChartFailed?.call(this);
   }
@@ -1709,6 +1762,7 @@ class _$_GetCaloriesChartFailed implements _GetCaloriesChartFailed {
         getExerciseCategoryFailed,
     TResult Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
     TResult Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (getCaloriesChartFailed != null) {
@@ -1729,5 +1783,201 @@ abstract class _GetCaloriesChartFailed implements FitOverViewState {
   @override
   @JsonKey(ignore: true)
   _$$_GetCaloriesChartFailedCopyWith<_$_GetCaloriesChartFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadingCopyWith<$Res>
+    implements $FitOverViewStateCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FitOverViewData data});
+
+  @override
+  $FitOverViewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$FitOverViewStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Loading(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as FitOverViewData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Loading implements _Loading {
+  const _$_Loading({required this.data});
+
+  @override
+  final FitOverViewData data;
+
+  @override
+  String toString() {
+    return 'FitOverViewState.loading(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Loading &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FitOverViewData data) initial,
+    required TResult Function(FitOverViewData data) selectedDateSuccess,
+    required TResult Function(FitOverViewData data) getUpComingSuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getUpComingFailed,
+    required TResult Function(FitOverViewData data) getExerciseCategorySuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getExerciseCategoryFailed,
+    required TResult Function(FitOverViewData data) getCaloriesChartSuccess,
+    required TResult Function(FitOverViewData data, String message)
+        getCaloriesChartFailed,
+    required TResult Function(FitOverViewData data) loading,
+  }) {
+    return loading(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FitOverViewData data)? initial,
+    TResult? Function(FitOverViewData data)? selectedDateSuccess,
+    TResult? Function(FitOverViewData data)? getUpComingSuccess,
+    TResult? Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult? Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult? Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
+    TResult? Function(FitOverViewData data)? getCaloriesChartSuccess,
+    TResult? Function(FitOverViewData data, String message)?
+        getCaloriesChartFailed,
+    TResult? Function(FitOverViewData data)? loading,
+  }) {
+    return loading?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FitOverViewData data)? initial,
+    TResult Function(FitOverViewData data)? selectedDateSuccess,
+    TResult Function(FitOverViewData data)? getUpComingSuccess,
+    TResult Function(FitOverViewData data, String message)? getUpComingFailed,
+    TResult Function(FitOverViewData data)? getExerciseCategorySuccess,
+    TResult Function(FitOverViewData data, String message)?
+        getExerciseCategoryFailed,
+    TResult Function(FitOverViewData data)? getCaloriesChartSuccess,
+    TResult Function(FitOverViewData data, String message)?
+        getCaloriesChartFailed,
+    TResult Function(FitOverViewData data)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SelectedDataSuccess value) selectedDateSuccess,
+    required TResult Function(_GetUpComingSuccess value) getUpComingSuccess,
+    required TResult Function(_GetUpComingFailed value) getUpComingFailed,
+    required TResult Function(_GetExerciseCategorySuccess value)
+        getExerciseCategorySuccess,
+    required TResult Function(_GetExerciseCategoryFailed value)
+        getExerciseCategoryFailed,
+    required TResult Function(_GetCaloriesChartSuccess value)
+        getCaloriesChartSuccess,
+    required TResult Function(_GetCaloriesChartFailed value)
+        getCaloriesChartFailed,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult? Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult? Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult? Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult? Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
+    TResult? Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
+    TResult? Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SelectedDataSuccess value)? selectedDateSuccess,
+    TResult Function(_GetUpComingSuccess value)? getUpComingSuccess,
+    TResult Function(_GetUpComingFailed value)? getUpComingFailed,
+    TResult Function(_GetExerciseCategorySuccess value)?
+        getExerciseCategorySuccess,
+    TResult Function(_GetExerciseCategoryFailed value)?
+        getExerciseCategoryFailed,
+    TResult Function(_GetCaloriesChartSuccess value)? getCaloriesChartSuccess,
+    TResult Function(_GetCaloriesChartFailed value)? getCaloriesChartFailed,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements FitOverViewState {
+  const factory _Loading({required final FitOverViewData data}) = _$_Loading;
+
+  @override
+  FitOverViewData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       throw _privateConstructorUsedError;
 }

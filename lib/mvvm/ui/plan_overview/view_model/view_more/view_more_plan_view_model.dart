@@ -30,7 +30,11 @@ class SearchPlanRequest {
 
 final viewMorePlanStateNotifier =
     AutoDisposeStateNotifierProvider<ViewMorePlanViewModel, ViewMorePlanState>(
-        (ref) => ViewMorePlanViewModel());
+  (ref) {
+    final viewModel = injector.get<ViewMorePlanViewModel>();
+    return viewModel;
+  },
+);
 
 @injectable
 class ViewMorePlanViewModel extends StateNotifier<ViewMorePlanState> {
@@ -68,22 +72,23 @@ class ViewMorePlanViewModel extends StateNotifier<ViewMorePlanState> {
       currentPage: data.workoutPlans.currentPage,
       perPage: data.workoutPlans.perPage,
     );
-    Future.delayed(const Duration(seconds: 3), () {
-      state = response.fold(
-        ifLeft: (error) => _GetItemFailed(data: data, message: error.message),
-        ifRight: (rData) => _GetItemSuccess(
-          data: data.copyWith(
-            workoutPlans: Pagination(
-              items:
-                  isNewSearch ? rData : [...data.workoutPlans.items, ...rData],
-              currentPage: currentPage + 1,
-              totalPage: data.workoutPlans.totalPage,
-            ),
-            searchContent: content,
+
+    if (!mounted) {
+      return;
+    }
+    state = response.fold(
+      ifLeft: (error) => _GetItemFailed(data: data, message: error.message),
+      ifRight: (rData) => _GetItemSuccess(
+        data: data.copyWith(
+          workoutPlans: Pagination(
+            items: isNewSearch ? rData : [...data.workoutPlans.items, ...rData],
+            currentPage: currentPage + 1,
+            totalPage: data.workoutPlans.totalPage,
           ),
+          searchContent: content,
         ),
-      );
-    });
+      ),
+    );
   }
 
   void selectRangeTime(

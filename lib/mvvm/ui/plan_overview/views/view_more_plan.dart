@@ -15,7 +15,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 
-
 class ViewMorePlan extends ConsumerStatefulWidget {
   const ViewMorePlan({super.key});
 
@@ -42,10 +41,10 @@ class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
 
   @override
   void initState() {
-    super.initState();
     Future.delayed(Duration.zero, () {
       _vm.getSessionPlanHistory(content: "");
     });
+    super.initState();
   }
 
   void _onSelectedDate() async {
@@ -79,7 +78,10 @@ class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
   Widget build(BuildContext context) {
     ref.listen(
         viewMorePlanStateNotifier, (_, next) => _listenStateChange(next));
+    return _body(context);
+  }
 
+  Container _body(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
         maxHeight: context.heightDevice * .9,

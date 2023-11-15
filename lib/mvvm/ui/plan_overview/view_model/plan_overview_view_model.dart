@@ -11,7 +11,7 @@ part 'plan_overview_view_model.freezed.dart';
 
 final planOverviewStateNotifier =
     AutoDisposeStateNotifierProvider<PlanOverViewViewModel, PlanOverViewState>(
-        (ref) => PlanOverViewViewModel());
+        (ref) => injector.get<PlanOverViewViewModel>());
 
 @injectable
 class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
@@ -21,9 +21,11 @@ class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
   PlanOverViewData get data => state.data;
 
   Future<void> getCurrentPlan() async {
-    state = state.copyWith(data: data.copyWith(isLoadingCurrentPlan: true));
+    state = _Loading(data: data.copyWith(isLoadingCurrentPlan: true));
     final response = await _planRepositories.getCurrentPlan();
     await Future.delayed(const Duration(seconds: 3));
+    if (!mounted) return;
+
     state = response.fold(
       ifLeft: (error) => _GetCurrentPlanFailed(
         data: data.copyWith(isLoadingCurrentPlan: false),
@@ -37,23 +39,22 @@ class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
   }
 
   Future<void> getSessionPlanHistory() async {
-    state = state.copyWith(
-      data: data.copyWith(isLoadingWorkoutPlans: true),
-    );
+    state = _Loading(data: data.copyWith(isLoadingWorkoutPlans: true));
 
     final call = await _planRepositories.getTopPlan(topCountable: 2);
 
-    Future.delayed(const Duration(seconds: 3)).whenComplete(
-      () => state = call.fold(
-        ifLeft: (error) => _GetSessionPlanHistoryFailed(
-          data: data.copyWith(isLoadingWorkoutPlans: false),
-          message: error.message,
-        ),
-        ifRight: (rData) => _GetCurrentPlanSuccess(
-          data: data.copyWith(
-            workoutPlans: [...rData],
-            isLoadingWorkoutPlans: false,
-          ),
+    await Future.delayed(const Duration(seconds: 3));
+    if (!mounted) return;
+
+    state = call.fold(
+      ifLeft: (error) => _GetSessionPlanHistoryFailed(
+        data: data.copyWith(isLoadingWorkoutPlans: false),
+        message: error.message,
+      ),
+      ifRight: (rData) => _GetCurrentPlanSuccess(
+        data: data.copyWith(
+          workoutPlans: [...rData],
+          isLoadingWorkoutPlans: false,
         ),
       ),
     );

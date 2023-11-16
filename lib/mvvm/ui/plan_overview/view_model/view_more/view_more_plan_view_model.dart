@@ -57,10 +57,7 @@ class ViewMorePlanViewModel extends StateNotifier<ViewMorePlanState> {
     state = _Loading(
       data: data.copyWith(
         workoutPlans: isNewSearch
-            ? data.workoutPlans.copyWith(
-                items: [],
-                currentPage: currentPage,
-              )
+            ? data.workoutPlans.copyWith(items: [], currentPage: currentPage)
             : data.workoutPlans,
       ),
     );
@@ -73,9 +70,8 @@ class ViewMorePlanViewModel extends StateNotifier<ViewMorePlanState> {
       perPage: data.workoutPlans.perPage,
     );
 
-    if (!mounted) {
-      return;
-    }
+    if (!mounted) return;
+
     state = response.fold(
       ifLeft: (error) => _GetItemFailed(data: data, message: error.message),
       ifRight: (rData) => _GetItemSuccess(

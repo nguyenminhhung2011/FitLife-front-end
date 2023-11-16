@@ -46,6 +46,7 @@ class ExerciseChidItem extends StatelessWidget {
                   ),
                   Wrap(
                     spacing: 5.0,
+                    runSpacing: 5.0,
                     children: [
                       '${exercise.reps} mins',
                       '${exercise.exerciseCategory} category',

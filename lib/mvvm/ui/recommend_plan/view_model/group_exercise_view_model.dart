@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';

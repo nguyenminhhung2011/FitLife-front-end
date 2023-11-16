@@ -7,7 +7,7 @@ import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/ui/recommend_plan/view_model/group_exercise_data.dart';
 import 'package:fit_life/mvvm/ui/recommend_plan/view_model/group_exercise_view_model.dart';
-import 'package:fit_life/mvvm/ui/recommend_plan/views/widgets/exercise_child_item.dart';
+import 'package:fit_life/core/components/widgets/fit_life/exercise_child_item.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -105,8 +105,10 @@ class _GroupExerciseViewState extends ConsumerState<GroupExerciseView> {
                   textStyle:
                       context.titleMedium.copyWith(fontWeight: FontWeight.w600),
                   isShowSeeMore: true,
-                  onPress: () =>
-                      context.openListPageWithRoute(Routes.allExercise),
+                  onPress: () => context.openPageWithRouteAndParams(
+                    Routes.allExercise,
+                    header.header,
+                  ),
                 ),
                 ...items
                     .map((e) => ExerciseChidItem(exercise: e))

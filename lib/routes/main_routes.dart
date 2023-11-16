@@ -101,7 +101,7 @@ class MainRoutes {
       case Routes.groupExercise:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const GroupExerciseView(),
+          builder: (_) => const ProviderScope(child: GroupExerciseView()),
         );
       case Routes.exerciseOverview:
         return MaterialPageRoute(

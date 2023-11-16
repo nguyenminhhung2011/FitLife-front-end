@@ -1,3 +1,5 @@
+import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/ui/all_exercise/view_model/all_exercise_view_model.dart';
 import 'package:fit_life/mvvm/ui/auth/views/introduction_view.dart';
 import 'package:fit_life/mvvm/ui/auth/views/sign_up_view.dart';
 import 'package:fit_life/mvvm/ui/calendar/views/calendar_view.dart';
@@ -11,7 +13,7 @@ import 'package:fit_life/mvvm/ui/plan_detail/views/add_new_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/plan_detail_view.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/add_plan_view.dart';
 import 'package:fit_life/mvvm/ui/previeew_exercise/views/preview_exercise_view.dart';
-import 'package:fit_life/mvvm/ui/recommend_plan/views/all_exercise_view.dart';
+import 'package:fit_life/mvvm/ui/all_exercise/views/all_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/recommend_plan/views/group_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/wo_trac_view.dart';
 import 'package:flutter/material.dart';
@@ -143,7 +145,20 @@ class MainRoutes {
       case Routes.allExercise:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: AllExerCiseView()),
+          builder: (_) {
+            if (settings.arguments is String) {
+              return ProviderScope(
+                overrides: [
+                  allExerciseStateNotifier = AutoDisposeStateNotifierProvider(
+                    (ref) => injector.get<AllExerciseViewModel>(
+                        param1: settings.arguments),
+                  )
+                ],
+                child:const  AllExerCiseView(),
+              );
+            }
+            return const SizedBox();
+          },
         );
       case Routes.introduction:
         return MaterialPageRoute(

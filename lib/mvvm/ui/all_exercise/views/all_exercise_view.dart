@@ -1,21 +1,44 @@
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/widgets/pagination_view/default_pagination.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
+import 'package:fit_life/mvvm/me/entity/pagination/pagination.dart';
+import 'package:fit_life/mvvm/ui/all_exercise/view_model/all_exercise_data.dart';
+import 'package:fit_life/mvvm/ui/all_exercise/view_model/all_exercise_view_model.dart';
 import 'package:fit_life/mvvm/ui/auth/mixins/auth_mixin.dart';
-import 'package:fit_life/mvvm/ui/recommend_plan/views/widgets/exercise_child_item.dart';
+import 'package:fit_life/core/components/widgets/fit_life/exercise_child_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
-class AllExerCiseView extends StatefulWidget {
+class AllExerCiseView extends ConsumerStatefulWidget {
   const AllExerCiseView({super.key});
 
   @override
-  State<AllExerCiseView> createState() => _AllExerCiseViewState();
+  ConsumerState<AllExerCiseView> createState() => _AllExerCiseViewState();
 }
 
-class _AllExerCiseViewState extends State<AllExerCiseView> with AuthMixin {
+class _AllExerCiseViewState extends ConsumerState<AllExerCiseView>
+    with AuthMixin {
+  AllExerciseViewModel get _vm => ref.read(allExerciseStateNotifier.notifier);
+
+  AllExerciseData get _data => ref.watch(allExerciseStateNotifier).data;
+
+  AllExerciseState get _state => ref.watch(allExerciseStateNotifier);
+
+  Pagination<Exercise> get _items => _data.exercises;
+
   final _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, () {
+      _vm.getExercise(content: "");
+    });
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -34,7 +57,7 @@ class _AllExerCiseViewState extends State<AllExerCiseView> with AuthMixin {
           icon: Icon(Icons.arrow_back, color: context.titleLarge.color),
         ),
         title: Text(
-          "🌟 Stretch",
+          "🌟 ${_vm.categoryId}",
           style: context.titleLarge.copyWith(fontWeight: FontWeight.bold),
         ),
         actions: [
@@ -48,27 +71,24 @@ class _AllExerCiseViewState extends State<AllExerCiseView> with AuthMixin {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          const SizedBox(height: 10.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: _searchBox(),
           ),
           const SizedBox(height: 15.0),
           Expanded(
-            child: ListView.separated(
-              separatorBuilder: (_, __) => const Padding(
-                padding: EdgeInsets.symmetric(vertical: 5.0),
-                child: Divider(),
-              ),
-              itemCount: 10,
-              itemBuilder: (_, __) => const ExerciseChidItem(
-                exercise: Exercise(
-                  name: "Barbell Bench press",
-                  exerciseCategory: "Category",
-                  reps: 30,
-                  caloriesPerMinute: 100,
-                  description: "This is descrion this is description",
+            child: DefaultPagination<Exercise>(
+              items: _items.items,
+              loading: _state.loading,
+              itemBuilder: (_, index) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5.0),
+                child: ExerciseChidItem(
+                  exercise: _items.items[index],
                 ),
               ),
+              listenScrollBottom: () =>
+                  _vm.getExercise(content: _searchController.text),
             ),
           ),
         ],
@@ -104,7 +124,13 @@ class _AllExerCiseViewState extends State<AllExerCiseView> with AuthMixin {
       keyboardType: TextInputType.emailAddress,
       maxLines: 1,
       style: context.titleSmall,
-      onChanged: (text) {},
+      onChanged: (text) {
+        EasyDebounce.debounce(
+          'search exercise',
+          const Duration(milliseconds: 500),
+          () => _vm.getExercise(content: text),
+        );
+      },
       textInputAction: TextInputAction.next,
       onSubmitted: (_) {},
     );

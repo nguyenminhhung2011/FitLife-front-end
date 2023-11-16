@@ -17,4 +17,4 @@ class Exercise with _$Exercise {
 
   factory Exercise.fromJson(Map<String, dynamic> json) =>
       _$ExerciseFromJson(json); 
-}
+} 

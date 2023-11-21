@@ -52,6 +52,8 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
           context.showSnackBar("🐛[Get current plan] $error"),
       getSessionPlanHistoryFailed: (_, error) =>
           context.showSnackBar("🐛[Get session plan] $error"),
+      createPlanFailed: (_, message) =>
+          context.showSnackBar("🐛[Create session plan] $message"),
       orElse: () {},
     );
   }

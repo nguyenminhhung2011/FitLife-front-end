@@ -29,6 +29,9 @@ mixin _$PlanOverViewState {
         getSessionPlanHistorySuccess,
     required TResult Function(PlanOverViewData data, String message)
         getSessionPlanHistoryFailed,
+    required TResult Function(PlanOverViewData data) createPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        createPlanFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +45,8 @@ mixin _$PlanOverViewState {
     TResult? Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult? Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult? Function(PlanOverViewData data)? createPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)? createPlanFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,8 @@ mixin _$PlanOverViewState {
     TResult Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult Function(PlanOverViewData data)? createPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)? createPlanFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -70,6 +77,8 @@ mixin _$PlanOverViewState {
         getSessionPlanHistorySuccess,
     required TResult Function(_GetSessionPlanHistoryFailed value)
         getSessionPlanHistoryFailed,
+    required TResult Function(_CreatePlanSuccess value) createPlanSuccess,
+    required TResult Function(_CreatePlanFailed value) createPlanFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +92,8 @@ mixin _$PlanOverViewState {
         getSessionPlanHistorySuccess,
     TResult? Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult? Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult? Function(_CreatePlanFailed value)? createPlanFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,6 +107,8 @@ mixin _$PlanOverViewState {
         getSessionPlanHistorySuccess,
     TResult Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult Function(_CreatePlanFailed value)? createPlanFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -226,6 +239,9 @@ class _$_Initial implements _Initial {
         getSessionPlanHistorySuccess,
     required TResult Function(PlanOverViewData data, String message)
         getSessionPlanHistoryFailed,
+    required TResult Function(PlanOverViewData data) createPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        createPlanFailed,
   }) {
     return initial(data);
   }
@@ -242,6 +258,8 @@ class _$_Initial implements _Initial {
     TResult? Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult? Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult? Function(PlanOverViewData data)? createPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)? createPlanFailed,
   }) {
     return initial?.call(data);
   }
@@ -258,6 +276,8 @@ class _$_Initial implements _Initial {
     TResult Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult Function(PlanOverViewData data)? createPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -279,6 +299,8 @@ class _$_Initial implements _Initial {
         getSessionPlanHistorySuccess,
     required TResult Function(_GetSessionPlanHistoryFailed value)
         getSessionPlanHistoryFailed,
+    required TResult Function(_CreatePlanSuccess value) createPlanSuccess,
+    required TResult Function(_CreatePlanFailed value) createPlanFailed,
   }) {
     return initial(this);
   }
@@ -295,6 +317,8 @@ class _$_Initial implements _Initial {
         getSessionPlanHistorySuccess,
     TResult? Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult? Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult? Function(_CreatePlanFailed value)? createPlanFailed,
   }) {
     return initial?.call(this);
   }
@@ -311,6 +335,8 @@ class _$_Initial implements _Initial {
         getSessionPlanHistorySuccess,
     TResult Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult Function(_CreatePlanFailed value)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -409,6 +435,9 @@ class _$_Success implements _Success {
         getSessionPlanHistorySuccess,
     required TResult Function(PlanOverViewData data, String message)
         getSessionPlanHistoryFailed,
+    required TResult Function(PlanOverViewData data) createPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        createPlanFailed,
   }) {
     return success(data);
   }
@@ -425,6 +454,8 @@ class _$_Success implements _Success {
     TResult? Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult? Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult? Function(PlanOverViewData data)? createPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)? createPlanFailed,
   }) {
     return success?.call(data);
   }
@@ -441,6 +472,8 @@ class _$_Success implements _Success {
     TResult Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult Function(PlanOverViewData data)? createPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -462,6 +495,8 @@ class _$_Success implements _Success {
         getSessionPlanHistorySuccess,
     required TResult Function(_GetSessionPlanHistoryFailed value)
         getSessionPlanHistoryFailed,
+    required TResult Function(_CreatePlanSuccess value) createPlanSuccess,
+    required TResult Function(_CreatePlanFailed value) createPlanFailed,
   }) {
     return success(this);
   }
@@ -478,6 +513,8 @@ class _$_Success implements _Success {
         getSessionPlanHistorySuccess,
     TResult? Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult? Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult? Function(_CreatePlanFailed value)? createPlanFailed,
   }) {
     return success?.call(this);
   }
@@ -494,6 +531,8 @@ class _$_Success implements _Success {
         getSessionPlanHistorySuccess,
     TResult Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult Function(_CreatePlanFailed value)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -592,6 +631,9 @@ class _$_Loading implements _Loading {
         getSessionPlanHistorySuccess,
     required TResult Function(PlanOverViewData data, String message)
         getSessionPlanHistoryFailed,
+    required TResult Function(PlanOverViewData data) createPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        createPlanFailed,
   }) {
     return loading(data);
   }
@@ -608,6 +650,8 @@ class _$_Loading implements _Loading {
     TResult? Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult? Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult? Function(PlanOverViewData data)? createPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)? createPlanFailed,
   }) {
     return loading?.call(data);
   }
@@ -624,6 +668,8 @@ class _$_Loading implements _Loading {
     TResult Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult Function(PlanOverViewData data)? createPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -645,6 +691,8 @@ class _$_Loading implements _Loading {
         getSessionPlanHistorySuccess,
     required TResult Function(_GetSessionPlanHistoryFailed value)
         getSessionPlanHistoryFailed,
+    required TResult Function(_CreatePlanSuccess value) createPlanSuccess,
+    required TResult Function(_CreatePlanFailed value) createPlanFailed,
   }) {
     return loading(this);
   }
@@ -661,6 +709,8 @@ class _$_Loading implements _Loading {
         getSessionPlanHistorySuccess,
     TResult? Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult? Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult? Function(_CreatePlanFailed value)? createPlanFailed,
   }) {
     return loading?.call(this);
   }
@@ -677,6 +727,8 @@ class _$_Loading implements _Loading {
         getSessionPlanHistorySuccess,
     TResult Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult Function(_CreatePlanFailed value)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -777,6 +829,9 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
         getSessionPlanHistorySuccess,
     required TResult Function(PlanOverViewData data, String message)
         getSessionPlanHistoryFailed,
+    required TResult Function(PlanOverViewData data) createPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        createPlanFailed,
   }) {
     return getCurrentPlanSuccess(data);
   }
@@ -793,6 +848,8 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
     TResult? Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult? Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult? Function(PlanOverViewData data)? createPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)? createPlanFailed,
   }) {
     return getCurrentPlanSuccess?.call(data);
   }
@@ -809,6 +866,8 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
     TResult Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult Function(PlanOverViewData data)? createPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (getCurrentPlanSuccess != null) {
@@ -830,6 +889,8 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
         getSessionPlanHistorySuccess,
     required TResult Function(_GetSessionPlanHistoryFailed value)
         getSessionPlanHistoryFailed,
+    required TResult Function(_CreatePlanSuccess value) createPlanSuccess,
+    required TResult Function(_CreatePlanFailed value) createPlanFailed,
   }) {
     return getCurrentPlanSuccess(this);
   }
@@ -846,6 +907,8 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
         getSessionPlanHistorySuccess,
     TResult? Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult? Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult? Function(_CreatePlanFailed value)? createPlanFailed,
   }) {
     return getCurrentPlanSuccess?.call(this);
   }
@@ -862,6 +925,8 @@ class _$_GetCurrentPlanSuccess implements _GetCurrentPlanSuccess {
         getSessionPlanHistorySuccess,
     TResult Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult Function(_CreatePlanFailed value)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (getCurrentPlanSuccess != null) {
@@ -971,6 +1036,9 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
         getSessionPlanHistorySuccess,
     required TResult Function(PlanOverViewData data, String message)
         getSessionPlanHistoryFailed,
+    required TResult Function(PlanOverViewData data) createPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        createPlanFailed,
   }) {
     return getCurrentPlanFailed(data, message);
   }
@@ -987,6 +1055,8 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
     TResult? Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult? Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult? Function(PlanOverViewData data)? createPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)? createPlanFailed,
   }) {
     return getCurrentPlanFailed?.call(data, message);
   }
@@ -1003,6 +1073,8 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
     TResult Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult Function(PlanOverViewData data)? createPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (getCurrentPlanFailed != null) {
@@ -1024,6 +1096,8 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
         getSessionPlanHistorySuccess,
     required TResult Function(_GetSessionPlanHistoryFailed value)
         getSessionPlanHistoryFailed,
+    required TResult Function(_CreatePlanSuccess value) createPlanSuccess,
+    required TResult Function(_CreatePlanFailed value) createPlanFailed,
   }) {
     return getCurrentPlanFailed(this);
   }
@@ -1040,6 +1114,8 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
         getSessionPlanHistorySuccess,
     TResult? Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult? Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult? Function(_CreatePlanFailed value)? createPlanFailed,
   }) {
     return getCurrentPlanFailed?.call(this);
   }
@@ -1056,6 +1132,8 @@ class _$_GetCurrentPlanFailed implements _GetCurrentPlanFailed {
         getSessionPlanHistorySuccess,
     TResult Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult Function(_CreatePlanFailed value)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (getCurrentPlanFailed != null) {
@@ -1162,6 +1240,9 @@ class _$_GetSessionPlanHistorySuccess implements _GetSessionPlanHistorySuccess {
         getSessionPlanHistorySuccess,
     required TResult Function(PlanOverViewData data, String message)
         getSessionPlanHistoryFailed,
+    required TResult Function(PlanOverViewData data) createPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        createPlanFailed,
   }) {
     return getSessionPlanHistorySuccess(data);
   }
@@ -1178,6 +1259,8 @@ class _$_GetSessionPlanHistorySuccess implements _GetSessionPlanHistorySuccess {
     TResult? Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult? Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult? Function(PlanOverViewData data)? createPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)? createPlanFailed,
   }) {
     return getSessionPlanHistorySuccess?.call(data);
   }
@@ -1194,6 +1277,8 @@ class _$_GetSessionPlanHistorySuccess implements _GetSessionPlanHistorySuccess {
     TResult Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult Function(PlanOverViewData data)? createPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (getSessionPlanHistorySuccess != null) {
@@ -1215,6 +1300,8 @@ class _$_GetSessionPlanHistorySuccess implements _GetSessionPlanHistorySuccess {
         getSessionPlanHistorySuccess,
     required TResult Function(_GetSessionPlanHistoryFailed value)
         getSessionPlanHistoryFailed,
+    required TResult Function(_CreatePlanSuccess value) createPlanSuccess,
+    required TResult Function(_CreatePlanFailed value) createPlanFailed,
   }) {
     return getSessionPlanHistorySuccess(this);
   }
@@ -1231,6 +1318,8 @@ class _$_GetSessionPlanHistorySuccess implements _GetSessionPlanHistorySuccess {
         getSessionPlanHistorySuccess,
     TResult? Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult? Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult? Function(_CreatePlanFailed value)? createPlanFailed,
   }) {
     return getSessionPlanHistorySuccess?.call(this);
   }
@@ -1247,6 +1336,8 @@ class _$_GetSessionPlanHistorySuccess implements _GetSessionPlanHistorySuccess {
         getSessionPlanHistorySuccess,
     TResult Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult Function(_CreatePlanFailed value)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (getSessionPlanHistorySuccess != null) {
@@ -1360,6 +1451,9 @@ class _$_GetSessionPlanHistoryFailed implements _GetSessionPlanHistoryFailed {
         getSessionPlanHistorySuccess,
     required TResult Function(PlanOverViewData data, String message)
         getSessionPlanHistoryFailed,
+    required TResult Function(PlanOverViewData data) createPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        createPlanFailed,
   }) {
     return getSessionPlanHistoryFailed(data, message);
   }
@@ -1376,6 +1470,8 @@ class _$_GetSessionPlanHistoryFailed implements _GetSessionPlanHistoryFailed {
     TResult? Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult? Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult? Function(PlanOverViewData data)? createPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)? createPlanFailed,
   }) {
     return getSessionPlanHistoryFailed?.call(data, message);
   }
@@ -1392,6 +1488,8 @@ class _$_GetSessionPlanHistoryFailed implements _GetSessionPlanHistoryFailed {
     TResult Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
     TResult Function(PlanOverViewData data, String message)?
         getSessionPlanHistoryFailed,
+    TResult Function(PlanOverViewData data)? createPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (getSessionPlanHistoryFailed != null) {
@@ -1413,6 +1511,8 @@ class _$_GetSessionPlanHistoryFailed implements _GetSessionPlanHistoryFailed {
         getSessionPlanHistorySuccess,
     required TResult Function(_GetSessionPlanHistoryFailed value)
         getSessionPlanHistoryFailed,
+    required TResult Function(_CreatePlanSuccess value) createPlanSuccess,
+    required TResult Function(_CreatePlanFailed value) createPlanFailed,
   }) {
     return getSessionPlanHistoryFailed(this);
   }
@@ -1429,6 +1529,8 @@ class _$_GetSessionPlanHistoryFailed implements _GetSessionPlanHistoryFailed {
         getSessionPlanHistorySuccess,
     TResult? Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult? Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult? Function(_CreatePlanFailed value)? createPlanFailed,
   }) {
     return getSessionPlanHistoryFailed?.call(this);
   }
@@ -1445,6 +1547,8 @@ class _$_GetSessionPlanHistoryFailed implements _GetSessionPlanHistoryFailed {
         getSessionPlanHistorySuccess,
     TResult Function(_GetSessionPlanHistoryFailed value)?
         getSessionPlanHistoryFailed,
+    TResult Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult Function(_CreatePlanFailed value)? createPlanFailed,
     required TResult orElse(),
   }) {
     if (getSessionPlanHistoryFailed != null) {
@@ -1466,4 +1570,411 @@ abstract class _GetSessionPlanHistoryFailed implements PlanOverViewState {
   @JsonKey(ignore: true)
   _$$_GetSessionPlanHistoryFailedCopyWith<_$_GetSessionPlanHistoryFailed>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CreatePlanSuccessCopyWith<$Res>
+    implements $PlanOverViewStateCopyWith<$Res> {
+  factory _$$_CreatePlanSuccessCopyWith(_$_CreatePlanSuccess value,
+          $Res Function(_$_CreatePlanSuccess) then) =
+      __$$_CreatePlanSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PlanOverViewData data});
+
+  @override
+  $PlanOverViewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_CreatePlanSuccessCopyWithImpl<$Res>
+    extends _$PlanOverViewStateCopyWithImpl<$Res, _$_CreatePlanSuccess>
+    implements _$$_CreatePlanSuccessCopyWith<$Res> {
+  __$$_CreatePlanSuccessCopyWithImpl(
+      _$_CreatePlanSuccess _value, $Res Function(_$_CreatePlanSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_CreatePlanSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PlanOverViewData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CreatePlanSuccess implements _CreatePlanSuccess {
+  const _$_CreatePlanSuccess({required this.data});
+
+  @override
+  final PlanOverViewData data;
+
+  @override
+  String toString() {
+    return 'PlanOverViewState.createPlanSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CreatePlanSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CreatePlanSuccessCopyWith<_$_CreatePlanSuccess> get copyWith =>
+      __$$_CreatePlanSuccessCopyWithImpl<_$_CreatePlanSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PlanOverViewData data) initial,
+    required TResult Function(PlanOverViewData data) success,
+    required TResult Function(PlanOverViewData data) loading,
+    required TResult Function(PlanOverViewData data) getCurrentPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        getCurrentPlanFailed,
+    required TResult Function(PlanOverViewData data)
+        getSessionPlanHistorySuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        getSessionPlanHistoryFailed,
+    required TResult Function(PlanOverViewData data) createPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        createPlanFailed,
+  }) {
+    return createPlanSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PlanOverViewData data)? initial,
+    TResult? Function(PlanOverViewData data)? success,
+    TResult? Function(PlanOverViewData data)? loading,
+    TResult? Function(PlanOverViewData data)? getCurrentPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)?
+        getCurrentPlanFailed,
+    TResult? Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
+    TResult? Function(PlanOverViewData data, String message)?
+        getSessionPlanHistoryFailed,
+    TResult? Function(PlanOverViewData data)? createPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)? createPlanFailed,
+  }) {
+    return createPlanSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PlanOverViewData data)? initial,
+    TResult Function(PlanOverViewData data)? success,
+    TResult Function(PlanOverViewData data)? loading,
+    TResult Function(PlanOverViewData data)? getCurrentPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)?
+        getCurrentPlanFailed,
+    TResult Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
+    TResult Function(PlanOverViewData data, String message)?
+        getSessionPlanHistoryFailed,
+    TResult Function(PlanOverViewData data)? createPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)? createPlanFailed,
+    required TResult orElse(),
+  }) {
+    if (createPlanSuccess != null) {
+      return createPlanSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetCurrentPlanSuccess value)
+        getCurrentPlanSuccess,
+    required TResult Function(_GetCurrentPlanFailed value) getCurrentPlanFailed,
+    required TResult Function(_GetSessionPlanHistorySuccess value)
+        getSessionPlanHistorySuccess,
+    required TResult Function(_GetSessionPlanHistoryFailed value)
+        getSessionPlanHistoryFailed,
+    required TResult Function(_CreatePlanSuccess value) createPlanSuccess,
+    required TResult Function(_CreatePlanFailed value) createPlanFailed,
+  }) {
+    return createPlanSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
+    TResult? Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
+    TResult? Function(_GetSessionPlanHistorySuccess value)?
+        getSessionPlanHistorySuccess,
+    TResult? Function(_GetSessionPlanHistoryFailed value)?
+        getSessionPlanHistoryFailed,
+    TResult? Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult? Function(_CreatePlanFailed value)? createPlanFailed,
+  }) {
+    return createPlanSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
+    TResult Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
+    TResult Function(_GetSessionPlanHistorySuccess value)?
+        getSessionPlanHistorySuccess,
+    TResult Function(_GetSessionPlanHistoryFailed value)?
+        getSessionPlanHistoryFailed,
+    TResult Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult Function(_CreatePlanFailed value)? createPlanFailed,
+    required TResult orElse(),
+  }) {
+    if (createPlanSuccess != null) {
+      return createPlanSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreatePlanSuccess implements PlanOverViewState {
+  const factory _CreatePlanSuccess({required final PlanOverViewData data}) =
+      _$_CreatePlanSuccess;
+
+  @override
+  PlanOverViewData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CreatePlanSuccessCopyWith<_$_CreatePlanSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CreatePlanFailedCopyWith<$Res>
+    implements $PlanOverViewStateCopyWith<$Res> {
+  factory _$$_CreatePlanFailedCopyWith(
+          _$_CreatePlanFailed value, $Res Function(_$_CreatePlanFailed) then) =
+      __$$_CreatePlanFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PlanOverViewData data, String message});
+
+  @override
+  $PlanOverViewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_CreatePlanFailedCopyWithImpl<$Res>
+    extends _$PlanOverViewStateCopyWithImpl<$Res, _$_CreatePlanFailed>
+    implements _$$_CreatePlanFailedCopyWith<$Res> {
+  __$$_CreatePlanFailedCopyWithImpl(
+      _$_CreatePlanFailed _value, $Res Function(_$_CreatePlanFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_CreatePlanFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PlanOverViewData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CreatePlanFailed implements _CreatePlanFailed {
+  const _$_CreatePlanFailed({required this.data, required this.message});
+
+  @override
+  final PlanOverViewData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'PlanOverViewState.createPlanFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CreatePlanFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CreatePlanFailedCopyWith<_$_CreatePlanFailed> get copyWith =>
+      __$$_CreatePlanFailedCopyWithImpl<_$_CreatePlanFailed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PlanOverViewData data) initial,
+    required TResult Function(PlanOverViewData data) success,
+    required TResult Function(PlanOverViewData data) loading,
+    required TResult Function(PlanOverViewData data) getCurrentPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        getCurrentPlanFailed,
+    required TResult Function(PlanOverViewData data)
+        getSessionPlanHistorySuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        getSessionPlanHistoryFailed,
+    required TResult Function(PlanOverViewData data) createPlanSuccess,
+    required TResult Function(PlanOverViewData data, String message)
+        createPlanFailed,
+  }) {
+    return createPlanFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PlanOverViewData data)? initial,
+    TResult? Function(PlanOverViewData data)? success,
+    TResult? Function(PlanOverViewData data)? loading,
+    TResult? Function(PlanOverViewData data)? getCurrentPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)?
+        getCurrentPlanFailed,
+    TResult? Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
+    TResult? Function(PlanOverViewData data, String message)?
+        getSessionPlanHistoryFailed,
+    TResult? Function(PlanOverViewData data)? createPlanSuccess,
+    TResult? Function(PlanOverViewData data, String message)? createPlanFailed,
+  }) {
+    return createPlanFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PlanOverViewData data)? initial,
+    TResult Function(PlanOverViewData data)? success,
+    TResult Function(PlanOverViewData data)? loading,
+    TResult Function(PlanOverViewData data)? getCurrentPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)?
+        getCurrentPlanFailed,
+    TResult Function(PlanOverViewData data)? getSessionPlanHistorySuccess,
+    TResult Function(PlanOverViewData data, String message)?
+        getSessionPlanHistoryFailed,
+    TResult Function(PlanOverViewData data)? createPlanSuccess,
+    TResult Function(PlanOverViewData data, String message)? createPlanFailed,
+    required TResult orElse(),
+  }) {
+    if (createPlanFailed != null) {
+      return createPlanFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetCurrentPlanSuccess value)
+        getCurrentPlanSuccess,
+    required TResult Function(_GetCurrentPlanFailed value) getCurrentPlanFailed,
+    required TResult Function(_GetSessionPlanHistorySuccess value)
+        getSessionPlanHistorySuccess,
+    required TResult Function(_GetSessionPlanHistoryFailed value)
+        getSessionPlanHistoryFailed,
+    required TResult Function(_CreatePlanSuccess value) createPlanSuccess,
+    required TResult Function(_CreatePlanFailed value) createPlanFailed,
+  }) {
+    return createPlanFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
+    TResult? Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
+    TResult? Function(_GetSessionPlanHistorySuccess value)?
+        getSessionPlanHistorySuccess,
+    TResult? Function(_GetSessionPlanHistoryFailed value)?
+        getSessionPlanHistoryFailed,
+    TResult? Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult? Function(_CreatePlanFailed value)? createPlanFailed,
+  }) {
+    return createPlanFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetCurrentPlanSuccess value)? getCurrentPlanSuccess,
+    TResult Function(_GetCurrentPlanFailed value)? getCurrentPlanFailed,
+    TResult Function(_GetSessionPlanHistorySuccess value)?
+        getSessionPlanHistorySuccess,
+    TResult Function(_GetSessionPlanHistoryFailed value)?
+        getSessionPlanHistoryFailed,
+    TResult Function(_CreatePlanSuccess value)? createPlanSuccess,
+    TResult Function(_CreatePlanFailed value)? createPlanFailed,
+    required TResult orElse(),
+  }) {
+    if (createPlanFailed != null) {
+      return createPlanFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreatePlanFailed implements PlanOverViewState {
+  const factory _CreatePlanFailed(
+      {required final PlanOverViewData data,
+      required final String message}) = _$_CreatePlanFailed;
+
+  @override
+  PlanOverViewData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CreatePlanFailedCopyWith<_$_CreatePlanFailed> get copyWith =>
+      throw _privateConstructorUsedError;
 }

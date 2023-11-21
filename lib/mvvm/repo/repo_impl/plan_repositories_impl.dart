@@ -3,6 +3,7 @@ import 'package:fit_life/core/components/enum/plan_type.dart';
 import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/components/network/base_api.dart';
 import 'package:fit_life/mvvm/data/remote/plan/plan_api.dart';
+import 'package:fit_life/mvvm/me/entity/plan/add_plan_dto.dart';
 import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/repo/plan_repositories.dart';
@@ -82,4 +83,19 @@ class PlanRepositoriesImpl extends BaseApi implements PlanRepositories {
           )
         ],
       );
+
+  @override
+  Future<SResult<WorkoutPlan>> createPlan({required AddPlanDto plan}) async {
+    await Future.delayed(const Duration(seconds: 3));
+
+    return Either.right(
+      WorkoutPlan(
+        name: plan.title ?? "",
+        description: plan.goal ?? "",
+        startDate: plan.timeStart ?? DateTime.now(),
+        endDate:
+            plan.timeFinish ?? DateTime.now().add(const Duration(days: 14)),
+      ),
+    );
+  }
 }

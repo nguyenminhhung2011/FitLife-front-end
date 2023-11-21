@@ -64,7 +64,7 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const AddPlanView();
+            return const ProviderScope(child: AddPlanView());
           },
         );
       case Routes.passCode:
@@ -163,7 +163,7 @@ class MainRoutes {
       case Routes.introduction:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const IntroductionView(), 
+          builder: (_) => const IntroductionView(),
         );
 
       case Routes.dashboard:

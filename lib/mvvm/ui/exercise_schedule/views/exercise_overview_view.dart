@@ -12,15 +12,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fit_life/core/components/widgets/appbar.dart';
 import 'package:readmore/readmore.dart';
 
-class ExerciseScheduleView extends ConsumerStatefulWidget {
-  const ExerciseScheduleView({super.key});
+class ExerciseOverviewView extends ConsumerStatefulWidget {
+  const ExerciseOverviewView({super.key});
 
   @override
-  ConsumerState<ExerciseScheduleView> createState() =>
-      _ExerciseScheduleViewState();
+  ConsumerState<ExerciseOverviewView> createState() =>
+      _ExerciseOverviewViewState();
 }
 
-class _ExerciseScheduleViewState extends ConsumerState<ExerciseScheduleView> {
+class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
 
   Color get _primaryColor => Theme.of(context).primaryColor;

@@ -6,7 +6,7 @@ import 'package:fit_life/mvvm/ui/calendar/views/calendar_view.dart';
 import 'package:fit_life/mvvm/ui/category/views/category_view.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/session_plan_view.dart';
-import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_schedule_view.dart';
+import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_overview_view.dart';
 import 'package:fit_life/mvvm/ui/health_overview/views/health_overview_view.dart';
 import 'package:fit_life/mvvm/ui/notification/views/notification_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/add_new_exercise_view.dart';
@@ -154,7 +154,7 @@ class MainRoutes {
                         param1: settings.arguments),
                   )
                 ],
-                child:const  AllExerCiseView(),
+                child: const AllExerCiseView(),
               );
             }
             return const SizedBox();
@@ -163,7 +163,7 @@ class MainRoutes {
       case Routes.introduction:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const IntroductionView(),
+          builder: (_) => const IntroductionView(), 
         );
 
       case Routes.dashboard:
@@ -181,10 +181,10 @@ class MainRoutes {
           settings: settings,
           builder: (_) => const ProviderScope(child: PlanDetailView()),
         );
-      case Routes.exerciseSchedule:
+      case Routes.exerciseOverview:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: ExerciseScheduleView()),
+          builder: (_) => const ProviderScope(child: ExerciseOverviewView()),
         );
 
       default:

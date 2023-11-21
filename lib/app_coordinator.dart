@@ -81,6 +81,44 @@ extension AppCoordinator<T> on BuildContext {
     return null;
   }
 
+  Future<bool> showAlertDialog(
+      {required String header, required String content}) async {
+    Widget cancelButton = TextButton(
+      child: Text("Cancel",
+          style: titleMedium.copyWith(
+              fontWeight: FontWeight.w500, color: Theme.of(this).primaryColor)),
+      onPressed: () => this.popArgs(false),
+    );
+    Widget continueButton = TextButton(
+      child: Text(
+        "Continue",
+        style: titleMedium.copyWith(
+            fontWeight: FontWeight.w500, color: Theme.of(this).primaryColor),
+      ),
+      onPressed: () => this.popArgs(true),
+    );
+    final show = await showDialog(
+      context: this,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+            header,
+            style: titleMedium.copyWith(fontWeight: FontWeight.bold),
+          ),
+          content: Text(content, style: titleSmall),
+          actions: [
+            cancelButton,
+            continueButton,
+          ],
+        );
+      },
+    );
+    if (show is bool) {
+      return show;
+    }
+    return false;
+  }
+
   Future<List<FilterResponse>> bottomFilter({
     required List<FilterModel> body,
     List<FilterResponse>? initData,

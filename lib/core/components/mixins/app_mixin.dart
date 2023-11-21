@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
+import 'package:fit_life/core/components/widgets/fit_life/dot_waiting.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/config/app_config.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/image_custom.dart';
-import 'package:jumping_dot/jumping_dot.dart';
 
 enum LoadingType { jumpingDot, circular }
 
@@ -36,7 +36,7 @@ mixin AppMixin<T extends StatefulWidget> on State<T> {
       switch (loadingType) {
         LoadingType.circular =>
           CircularProgressIndicator(color: loadingColor ?? _primaryColor),
-        _ => JumpingDots(
+        _ => DotWaiting(
             radius: dotRadius,
             animationDuration:
                 animaDuration ?? const Duration(milliseconds: 300),

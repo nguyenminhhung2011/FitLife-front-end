@@ -62,7 +62,7 @@ class _InputWidgetState extends State<InputWidget> {
                   textInputAction: TextInputAction.newline,
                   decoration: InputDecoration(
                     hintText:
-                        widget.isListening ? 'Listening' : 'Type a message',
+                        widget.isListening ? 'Listening...' : 'Type a message',
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.only(bottom: 8),
                   ),

@@ -13,6 +13,7 @@ class Routes {
   static const String planDetail = '/plan_detail';
   static const String allExercise = '/all_exercise';
   static const String fitOverView = '/fit_overview';
+  static const String sessionPlan = '/session_plan';
   static const String introduction = '/introduction';
   static const String notification = '/notification';
   static const String wooTrackView = '/wo_track_view';
@@ -22,5 +23,4 @@ class Routes {
   static const String exerciseDetail = '/exercise_detail';
   static const String previewExercise = '/preview_exercise';
   static const String exerciseSchedule = '/exercise_schedule';
-  static const String exerciseOverview = '/exercise_overview';
 }

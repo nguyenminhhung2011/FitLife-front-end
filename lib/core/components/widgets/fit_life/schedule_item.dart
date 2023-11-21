@@ -10,7 +10,7 @@ class ScheduleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.openListPageWithRoute(Routes.exerciseOverview),
+      onTap: () => context.openListPageWithRoute(Routes.sessionPlan),
       child: Container(
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),

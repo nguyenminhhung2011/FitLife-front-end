@@ -5,7 +5,7 @@ import 'package:fit_life/mvvm/ui/auth/views/sign_up_view.dart';
 import 'package:fit_life/mvvm/ui/calendar/views/calendar_view.dart';
 import 'package:fit_life/mvvm/ui/category/views/category_view.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
-import 'package:fit_life/mvvm/ui/exercise_overview/views/exercise_overview_view.dart';
+import 'package:fit_life/mvvm/ui/exercise_overview/views/session_plan_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_schedule_view.dart';
 import 'package:fit_life/mvvm/ui/health_overview/views/health_overview_view.dart';
 import 'package:fit_life/mvvm/ui/notification/views/notification_view.dart';
@@ -105,10 +105,10 @@ class MainRoutes {
           settings: settings,
           builder: (_) => const ProviderScope(child: GroupExerciseView()),
         );
-      case Routes.exerciseOverview:
+      case Routes.sessionPlan:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: ExerciseOverViewView()),
+          builder: (_) => const ProviderScope(child: SessionPlanView()),
         );
 
       case Routes.exerciseDetail:

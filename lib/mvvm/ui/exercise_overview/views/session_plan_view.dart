@@ -10,15 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:readmore/readmore.dart';
 
-class ExerciseOverViewView extends ConsumerStatefulWidget {
-  const ExerciseOverViewView({super.key});
+class SessionPlanView extends ConsumerStatefulWidget {
+  const SessionPlanView({super.key});
 
   @override
-  ConsumerState<ExerciseOverViewView> createState() =>
-      _ExerciseOverViewViewState();
+  ConsumerState<SessionPlanView> createState() => _SessionPlanViewState();
 }
 
-class _ExerciseOverViewViewState extends ConsumerState<ExerciseOverViewView> {
+class _SessionPlanViewState extends ConsumerState<SessionPlanView> {
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
 
   Color get _primaryColor => Theme.of(context).primaryColor;

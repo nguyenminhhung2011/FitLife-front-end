@@ -17,4 +17,13 @@ class PlanDetailState with _$PlanDetailState {
     required PlanDetailData data,
     required String message,
   }) = _GetPlanDetailFailed;
+
+  const factory PlanDetailState.addExerciseSuccess({
+    required PlanDetailData data,
+  }) = _AddExerciseSuccess;
+
+  const factory PlanDetailState.addExerciseFailed({
+    required PlanDetailData data,
+    required String message,
+  }) = _AddExerciseFailed;
 }

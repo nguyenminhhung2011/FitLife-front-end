@@ -311,7 +311,7 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             radius: 30.0,
             percent: planDetail.progress ?? 0,
             center: Text(
-              ((planDetail.progress ?? 0) * 100).toStringAsFixed(0),
+              '${((planDetail.progress ?? 0) * 100).toStringAsFixed(0)}%',
               style: context.titleSmall.copyWith(fontWeight: FontWeight.w600),
             ),
             backgroundColor: Theme.of(context).dividerColor,

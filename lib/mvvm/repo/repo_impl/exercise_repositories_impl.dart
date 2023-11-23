@@ -1,6 +1,7 @@
 import 'package:dart_either/dart_either.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/network/app_exception.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/add_exercise_dto.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
@@ -95,5 +96,12 @@ class ExerciseRepositoriesImpl implements ExerciseRepositories {
         )
       ],
     );
+  }
+
+  @override
+  Future<SResult<bool>> createExercise({
+    required AddExerciseDto dto,
+  }) async {
+    return const Either.right(true);
   }
 }

@@ -25,6 +25,9 @@ mixin _$PlanDetailState {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
+    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data, String message)
+        addExerciseFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +37,8 @@ mixin _$PlanDetailState {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult? Function(PlanDetailData data)? addExerciseSuccess,
+    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,6 +48,8 @@ mixin _$PlanDetailState {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult Function(PlanDetailData data)? addExerciseSuccess,
+    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +60,8 @@ mixin _$PlanDetailState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
+    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
+    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +71,8 @@ mixin _$PlanDetailState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +82,8 @@ mixin _$PlanDetailState {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -197,6 +210,9 @@ class _$_Initial implements _Initial {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
+    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data, String message)
+        addExerciseFailed,
   }) {
     return initial(data);
   }
@@ -209,6 +225,8 @@ class _$_Initial implements _Initial {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult? Function(PlanDetailData data)? addExerciseSuccess,
+    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
   }) {
     return initial?.call(data);
   }
@@ -221,6 +239,8 @@ class _$_Initial implements _Initial {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult Function(PlanDetailData data)? addExerciseSuccess,
+    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -237,6 +257,8 @@ class _$_Initial implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
+    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
+    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
   }) {
     return initial(this);
   }
@@ -249,6 +271,8 @@ class _$_Initial implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
   }) {
     return initial?.call(this);
   }
@@ -261,6 +285,8 @@ class _$_Initial implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -355,6 +381,9 @@ class _$_Success implements _Success {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
+    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data, String message)
+        addExerciseFailed,
   }) {
     return success(data);
   }
@@ -367,6 +396,8 @@ class _$_Success implements _Success {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult? Function(PlanDetailData data)? addExerciseSuccess,
+    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
   }) {
     return success?.call(data);
   }
@@ -379,6 +410,8 @@ class _$_Success implements _Success {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult Function(PlanDetailData data)? addExerciseSuccess,
+    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -395,6 +428,8 @@ class _$_Success implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
+    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
+    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
   }) {
     return success(this);
   }
@@ -407,6 +442,8 @@ class _$_Success implements _Success {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
   }) {
     return success?.call(this);
   }
@@ -419,6 +456,8 @@ class _$_Success implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -513,6 +552,9 @@ class _$_Loading implements _Loading {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
+    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data, String message)
+        addExerciseFailed,
   }) {
     return loading(data);
   }
@@ -525,6 +567,8 @@ class _$_Loading implements _Loading {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult? Function(PlanDetailData data)? addExerciseSuccess,
+    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
   }) {
     return loading?.call(data);
   }
@@ -537,6 +581,8 @@ class _$_Loading implements _Loading {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult Function(PlanDetailData data)? addExerciseSuccess,
+    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -553,6 +599,8 @@ class _$_Loading implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
+    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
+    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
   }) {
     return loading(this);
   }
@@ -565,6 +613,8 @@ class _$_Loading implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
   }) {
     return loading?.call(this);
   }
@@ -577,6 +627,8 @@ class _$_Loading implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -673,6 +725,9 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
+    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data, String message)
+        addExerciseFailed,
   }) {
     return getPlanDetailSuccess(data);
   }
@@ -685,6 +740,8 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult? Function(PlanDetailData data)? addExerciseSuccess,
+    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
   }) {
     return getPlanDetailSuccess?.call(data);
   }
@@ -697,6 +754,8 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult Function(PlanDetailData data)? addExerciseSuccess,
+    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
     required TResult orElse(),
   }) {
     if (getPlanDetailSuccess != null) {
@@ -713,6 +772,8 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
+    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
+    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
   }) {
     return getPlanDetailSuccess(this);
   }
@@ -725,6 +786,8 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
   }) {
     return getPlanDetailSuccess?.call(this);
   }
@@ -737,6 +800,8 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
     required TResult orElse(),
   }) {
     if (getPlanDetailSuccess != null) {
@@ -842,6 +907,9 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
+    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data, String message)
+        addExerciseFailed,
   }) {
     return getPlanDetailFailed(data, message);
   }
@@ -854,6 +922,8 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult? Function(PlanDetailData data)? addExerciseSuccess,
+    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
   }) {
     return getPlanDetailFailed?.call(data, message);
   }
@@ -866,6 +936,8 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult Function(PlanDetailData data)? addExerciseSuccess,
+    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
     required TResult orElse(),
   }) {
     if (getPlanDetailFailed != null) {
@@ -882,6 +954,8 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
+    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
+    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
   }) {
     return getPlanDetailFailed(this);
   }
@@ -894,6 +968,8 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
   }) {
     return getPlanDetailFailed?.call(this);
   }
@@ -906,6 +982,8 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
     required TResult orElse(),
   }) {
     if (getPlanDetailFailed != null) {
@@ -926,5 +1004,363 @@ abstract class _GetPlanDetailFailed implements PlanDetailState {
   @override
   @JsonKey(ignore: true)
   _$$_GetPlanDetailFailedCopyWith<_$_GetPlanDetailFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddExerciseSuccessCopyWith<$Res>
+    implements $PlanDetailStateCopyWith<$Res> {
+  factory _$$_AddExerciseSuccessCopyWith(_$_AddExerciseSuccess value,
+          $Res Function(_$_AddExerciseSuccess) then) =
+      __$$_AddExerciseSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PlanDetailData data});
+
+  @override
+  $PlanDetailDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_AddExerciseSuccessCopyWithImpl<$Res>
+    extends _$PlanDetailStateCopyWithImpl<$Res, _$_AddExerciseSuccess>
+    implements _$$_AddExerciseSuccessCopyWith<$Res> {
+  __$$_AddExerciseSuccessCopyWithImpl(
+      _$_AddExerciseSuccess _value, $Res Function(_$_AddExerciseSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_AddExerciseSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PlanDetailData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddExerciseSuccess implements _AddExerciseSuccess {
+  const _$_AddExerciseSuccess({required this.data});
+
+  @override
+  final PlanDetailData data;
+
+  @override
+  String toString() {
+    return 'PlanDetailState.addExerciseSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddExerciseSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddExerciseSuccessCopyWith<_$_AddExerciseSuccess> get copyWith =>
+      __$$_AddExerciseSuccessCopyWithImpl<_$_AddExerciseSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PlanDetailData data) initial,
+    required TResult Function(PlanDetailData data) success,
+    required TResult Function(PlanDetailData data) loading,
+    required TResult Function(PlanDetailData data) getPlanDetailSuccess,
+    required TResult Function(PlanDetailData data, String message)
+        getPlanDetailFailed,
+    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data, String message)
+        addExerciseFailed,
+  }) {
+    return addExerciseSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PlanDetailData data)? initial,
+    TResult? Function(PlanDetailData data)? success,
+    TResult? Function(PlanDetailData data)? loading,
+    TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
+    TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult? Function(PlanDetailData data)? addExerciseSuccess,
+    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
+  }) {
+    return addExerciseSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PlanDetailData data)? initial,
+    TResult Function(PlanDetailData data)? success,
+    TResult Function(PlanDetailData data)? loading,
+    TResult Function(PlanDetailData data)? getPlanDetailSuccess,
+    TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult Function(PlanDetailData data)? addExerciseSuccess,
+    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
+    required TResult orElse(),
+  }) {
+    if (addExerciseSuccess != null) {
+      return addExerciseSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
+    required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
+    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
+    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
+  }) {
+    return addExerciseSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
+    TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
+  }) {
+    return addExerciseSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
+    TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
+    required TResult orElse(),
+  }) {
+    if (addExerciseSuccess != null) {
+      return addExerciseSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddExerciseSuccess implements PlanDetailState {
+  const factory _AddExerciseSuccess({required final PlanDetailData data}) =
+      _$_AddExerciseSuccess;
+
+  @override
+  PlanDetailData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddExerciseSuccessCopyWith<_$_AddExerciseSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddExerciseFailedCopyWith<$Res>
+    implements $PlanDetailStateCopyWith<$Res> {
+  factory _$$_AddExerciseFailedCopyWith(_$_AddExerciseFailed value,
+          $Res Function(_$_AddExerciseFailed) then) =
+      __$$_AddExerciseFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PlanDetailData data, String message});
+
+  @override
+  $PlanDetailDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_AddExerciseFailedCopyWithImpl<$Res>
+    extends _$PlanDetailStateCopyWithImpl<$Res, _$_AddExerciseFailed>
+    implements _$$_AddExerciseFailedCopyWith<$Res> {
+  __$$_AddExerciseFailedCopyWithImpl(
+      _$_AddExerciseFailed _value, $Res Function(_$_AddExerciseFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_AddExerciseFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as PlanDetailData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddExerciseFailed implements _AddExerciseFailed {
+  const _$_AddExerciseFailed({required this.data, required this.message});
+
+  @override
+  final PlanDetailData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'PlanDetailState.addExerciseFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddExerciseFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddExerciseFailedCopyWith<_$_AddExerciseFailed> get copyWith =>
+      __$$_AddExerciseFailedCopyWithImpl<_$_AddExerciseFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PlanDetailData data) initial,
+    required TResult Function(PlanDetailData data) success,
+    required TResult Function(PlanDetailData data) loading,
+    required TResult Function(PlanDetailData data) getPlanDetailSuccess,
+    required TResult Function(PlanDetailData data, String message)
+        getPlanDetailFailed,
+    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data, String message)
+        addExerciseFailed,
+  }) {
+    return addExerciseFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PlanDetailData data)? initial,
+    TResult? Function(PlanDetailData data)? success,
+    TResult? Function(PlanDetailData data)? loading,
+    TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
+    TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult? Function(PlanDetailData data)? addExerciseSuccess,
+    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
+  }) {
+    return addExerciseFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PlanDetailData data)? initial,
+    TResult Function(PlanDetailData data)? success,
+    TResult Function(PlanDetailData data)? loading,
+    TResult Function(PlanDetailData data)? getPlanDetailSuccess,
+    TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
+    TResult Function(PlanDetailData data)? addExerciseSuccess,
+    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
+    required TResult orElse(),
+  }) {
+    if (addExerciseFailed != null) {
+      return addExerciseFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
+    required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
+    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
+    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
+  }) {
+    return addExerciseFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
+    TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
+  }) {
+    return addExerciseFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
+    TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
+    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
+    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
+    required TResult orElse(),
+  }) {
+    if (addExerciseFailed != null) {
+      return addExerciseFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddExerciseFailed implements PlanDetailState {
+  const factory _AddExerciseFailed(
+      {required final PlanDetailData data,
+      required final String message}) = _$_AddExerciseFailed;
+
+  @override
+  PlanDetailData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddExerciseFailedCopyWith<_$_AddExerciseFailed> get copyWith =>
       throw _privateConstructorUsedError;
 }

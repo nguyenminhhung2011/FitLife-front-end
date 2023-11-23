@@ -1,7 +1,10 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/add_exercise_dto.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/ob/add_actions.dart';
+import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,6 +22,9 @@ class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
   late String exercise;
   late String duration;
   late String weight;
+
+  PlanDetailViewModel get viewModel =>
+      ref.read(planDetailStateNotifier.notifier);
 
   DateTime startDate = DateTime(2023, 1, 7);
   DateTime endDate = DateTime(2023, 1, 10);
@@ -48,6 +54,23 @@ class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
         date = value;
       });
     }
+  }
+
+  void onTapSave() async {
+    await viewModel
+        .addExercise(
+          dto: AddExerciseDto(
+            exercise: Exercise(
+              name: exercise,
+              description: "This is description of upper body",
+            ),
+            time: date,
+            difficulty: difficultyValue,
+            reputation: int.parse(duration),
+            weights: int.parse(weight),
+          ),
+        )
+        .then((value) => context.pop());
   }
 
   @override
@@ -149,7 +172,7 @@ class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
                   .expand((e) => [e, const SizedBox(height: 10.0)]),
               const SizedBox(height: 20),
               ButtonCustom(
-                onPress: () {},
+                onPress: onTapSave,
                 height: 45.0,
                 child: Text(
                   "Save",

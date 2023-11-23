@@ -22,6 +22,7 @@ DailyWorkout _$DailyWorkoutFromJson(Map<String, dynamic> json) {
 mixin _$DailyWorkout {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  int? get totalMinute => throw _privateConstructorUsedError;
   double? get caloTarget => throw _privateConstructorUsedError;
   DateTime? get time => throw _privateConstructorUsedError;
   int? get workoutDuration => throw _privateConstructorUsedError;
@@ -46,6 +47,7 @@ abstract class $DailyWorkoutCopyWith<$Res> {
   $Res call(
       {String name,
       String description,
+      int? totalMinute,
       double? caloTarget,
       DateTime? time,
       int? workoutDuration,
@@ -71,6 +73,7 @@ class _$DailyWorkoutCopyWithImpl<$Res, $Val extends DailyWorkout>
   $Res call({
     Object? name = null,
     Object? description = null,
+    Object? totalMinute = freezed,
     Object? caloTarget = freezed,
     Object? time = freezed,
     Object? workoutDuration = freezed,
@@ -89,6 +92,10 @@ class _$DailyWorkoutCopyWithImpl<$Res, $Val extends DailyWorkout>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      totalMinute: freezed == totalMinute
+          ? _value.totalMinute
+          : totalMinute // ignore: cast_nullable_to_non_nullable
+              as int?,
       caloTarget: freezed == caloTarget
           ? _value.caloTarget
           : caloTarget // ignore: cast_nullable_to_non_nullable
@@ -136,6 +143,7 @@ abstract class _$$_DailyWorkoutCopyWith<$Res>
   $Res call(
       {String name,
       String description,
+      int? totalMinute,
       double? caloTarget,
       DateTime? time,
       int? workoutDuration,
@@ -159,6 +167,7 @@ class __$$_DailyWorkoutCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? description = null,
+    Object? totalMinute = freezed,
     Object? caloTarget = freezed,
     Object? time = freezed,
     Object? workoutDuration = freezed,
@@ -177,6 +186,10 @@ class __$$_DailyWorkoutCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      totalMinute: freezed == totalMinute
+          ? _value.totalMinute
+          : totalMinute // ignore: cast_nullable_to_non_nullable
+              as int?,
       caloTarget: freezed == caloTarget
           ? _value.caloTarget
           : caloTarget // ignore: cast_nullable_to_non_nullable
@@ -219,6 +232,7 @@ class _$_DailyWorkout implements _DailyWorkout {
   const _$_DailyWorkout(
       {required this.name,
       required this.description,
+      this.totalMinute,
       this.caloTarget,
       this.time,
       this.workoutDuration,
@@ -236,6 +250,8 @@ class _$_DailyWorkout implements _DailyWorkout {
   final String name;
   @override
   final String description;
+  @override
+  final int? totalMinute;
   @override
   final double? caloTarget;
   @override
@@ -262,7 +278,7 @@ class _$_DailyWorkout implements _DailyWorkout {
 
   @override
   String toString() {
-    return 'DailyWorkout(name: $name, description: $description, caloTarget: $caloTarget, time: $time, workoutDuration: $workoutDuration, numberRound: $numberRound, execPerRound: $execPerRound, timeForEachExe: $timeForEachExe, breakTime: $breakTime, sessions: $sessions)';
+    return 'DailyWorkout(name: $name, description: $description, totalMinute: $totalMinute, caloTarget: $caloTarget, time: $time, workoutDuration: $workoutDuration, numberRound: $numberRound, execPerRound: $execPerRound, timeForEachExe: $timeForEachExe, breakTime: $breakTime, sessions: $sessions)';
   }
 
   @override
@@ -273,6 +289,8 @@ class _$_DailyWorkout implements _DailyWorkout {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.totalMinute, totalMinute) ||
+                other.totalMinute == totalMinute) &&
             (identical(other.caloTarget, caloTarget) ||
                 other.caloTarget == caloTarget) &&
             (identical(other.time, time) || other.time == time) &&
@@ -295,6 +313,7 @@ class _$_DailyWorkout implements _DailyWorkout {
       runtimeType,
       name,
       description,
+      totalMinute,
       caloTarget,
       time,
       workoutDuration,
@@ -322,6 +341,7 @@ abstract class _DailyWorkout implements DailyWorkout {
   const factory _DailyWorkout(
       {required final String name,
       required final String description,
+      final int? totalMinute,
       final double? caloTarget,
       final DateTime? time,
       final int? workoutDuration,
@@ -338,6 +358,8 @@ abstract class _DailyWorkout implements DailyWorkout {
   String get name;
   @override
   String get description;
+  @override
+  int? get totalMinute;
   @override
   double? get caloTarget;
   @override

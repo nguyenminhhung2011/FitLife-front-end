@@ -4,16 +4,17 @@ import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/ob/add_actions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-class AddNewExerciseView extends StatefulWidget {
+class AddNewExerciseView extends ConsumerStatefulWidget {
   const AddNewExerciseView({super.key});
 
   @override
-  State<AddNewExerciseView> createState() => _AddNewExerciseViewState();
+  ConsumerState<AddNewExerciseView> createState() => _AddNewExerciseViewState();
 }
 
-class _AddNewExerciseViewState extends State<AddNewExerciseView> {
+class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
   late String difficultyValue;
   late String exercise;
   late String duration;

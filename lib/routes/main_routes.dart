@@ -57,7 +57,7 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const AddNewExerciseView();
+            return const ProviderScope(child: AddNewExerciseView());
           },
         );
       case Routes.addPlan:

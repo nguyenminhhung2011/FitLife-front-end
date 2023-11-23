@@ -1,11 +1,17 @@
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
 class ScheduleItem extends StatelessWidget {
-  const ScheduleItem({super.key});
+  final DailyWorkout item;
+
+  const ScheduleItem({
+    super.key,
+    required this.item,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,7 @@ class ScheduleItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    gemmFormat(DateTime.now()),
+                    gemmFormat(item.time!),
                     style: context.titleLarge.copyWith(
                       fontWeight: FontWeight.w600,
                       fontSize: 22.0,
@@ -49,8 +55,9 @@ class ScheduleItem extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 5.0),
+                  if (item.totalMinute != null)
                   Text(
-                    '⌚ 30 mins',
+                    '⌚ ${item.totalMinute} mins',
                     style: context.titleSmall.copyWith(color: Colors.white),
                   )
                 ],
@@ -64,14 +71,14 @@ class ScheduleItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Cyclone with Alastar',
+                      item.name,
                       overflow: TextOverflow.ellipsis,
                       style: context.titleMedium
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 2.0),
                     Text(
-                      'Cyclone studio',
+                      item.description,
                       style: context.titleSmall
                           .copyWith(color: Theme.of(context).hintColor),
                     ),
@@ -95,7 +102,7 @@ class ScheduleItem extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

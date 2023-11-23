@@ -10,6 +10,7 @@ _$_DailyWorkout _$$_DailyWorkoutFromJson(Map<String, dynamic> json) =>
     _$_DailyWorkout(
       name: json['name'] as String,
       description: json['description'] as String,
+      totalMinute: json['totalMinute'] as int?,
       caloTarget: (json['caloTarget'] as num?)?.toDouble(),
       time:
           json['time'] == null ? null : DateTime.parse(json['time'] as String),
@@ -27,6 +28,7 @@ Map<String, dynamic> _$$_DailyWorkoutToJson(_$_DailyWorkout instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
+      'totalMinute': instance.totalMinute,
       'caloTarget': instance.caloTarget,
       'time': instance.time?.toIso8601String(),
       'workoutDuration': instance.workoutDuration,

@@ -9,6 +9,7 @@ class DailyWorkout with _$DailyWorkout {
   const factory DailyWorkout({
     required String name,
     required String description,
+    int? totalMinute,
     double? caloTarget,
     DateTime? time,
     int? workoutDuration,

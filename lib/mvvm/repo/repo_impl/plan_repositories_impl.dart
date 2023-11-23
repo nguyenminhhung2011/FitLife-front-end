@@ -5,6 +5,7 @@ import 'package:fit_life/core/components/network/base_api.dart';
 import 'package:fit_life/mvvm/data/remote/plan/plan_api.dart';
 import 'package:fit_life/mvvm/me/entity/plan/add_plan_dto.dart';
 import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
+import 'package:fit_life/mvvm/me/entity/plan_detail/plan_detail.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/repo/plan_repositories.dart';
 import 'package:injectable/injectable.dart';
@@ -95,6 +96,22 @@ class PlanRepositoriesImpl extends BaseApi implements PlanRepositories {
         startDate: plan.timeStart ?? DateTime.now(),
         endDate:
             plan.timeFinish ?? DateTime.now().add(const Duration(days: 14)),
+      ),
+    );
+  }
+
+  @override
+  Future<SResult<PlanDetail>> getDetailPlan({required String id}) async {
+    await Future.delayed(const Duration(seconds: 3));
+
+    return Either.right(
+      PlanDetail(
+        name: "Beginner plan",
+        description: "This is a plan",
+        startDate: DateTime.now(),
+        endDate: DateTime.now().add(const Duration(days: 120)),
+        progress: 0.5,
+        dailyWorkouts: [],
       ),
     );
   }

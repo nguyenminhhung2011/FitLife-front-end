@@ -3,7 +3,6 @@ import 'package:fit_life/mvvm/me/entity/calories_chart/calories_chart.dart';
 import 'package:fit_life/mvvm/me/entity/upcoming_workout/upcoming_workout.dart';
 import 'package:fit_life/mvvm/repo/calories_repositories.dart';
 import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
-import 'package:fit_life/mvvm/repo/plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -19,7 +18,6 @@ final fitOverViewNotifier =
 
 @injectable
 class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
-  final _planRepositories = injector.get<PlanRepositories>();
   final _exerciseRepositories = injector.get<ExerciseRepositories>();
   final _caloriesRepositories = injector.get<CaloriesRepositories>();
 

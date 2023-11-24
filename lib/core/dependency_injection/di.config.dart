@@ -14,25 +14,25 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../clean_architectures/domain/usecase/setting/setting_usecase.dart'
-    as _i29;
-import '../../mvvm/data/remote/auth/auth_api.dart' as _i37;
+    as _i30;
+import '../../mvvm/data/remote/auth/auth_api.dart' as _i38;
 import '../../mvvm/data/remote/plan/plan_api.dart' as _i23;
 import '../../mvvm/repo/auth_repositories.dart' as _i4;
 import '../../mvvm/repo/calories_repositories.dart' as _i7;
 import '../../mvvm/repo/chat_repositories.dart' as _i10;
 import '../../mvvm/repo/exercise_repositories.dart' as _i16;
-import '../../mvvm/repo/plan_repositories.dart' as _i25;
+import '../../mvvm/repo/plan_repositories.dart' as _i26;
 import '../../mvvm/repo/repo_impl/auth_repositories_impl.dart' as _i5;
 import '../../mvvm/repo/repo_impl/calories_repositories_impl.dart' as _i8;
 import '../../mvvm/repo/repo_impl/chat_repositories_impl.dart' as _i11;
 import '../../mvvm/repo/repo_impl/exercise_repositories_impl.dart' as _i17;
-import '../../mvvm/repo/repo_impl/plan_repositories_impl.dart' as _i26;
-import '../../mvvm/repo/repo_impl/session_repositories_impl.dart' as _i28;
-import '../../mvvm/repo/session_repositories.dart' as _i27;
+import '../../mvvm/repo/repo_impl/plan_repositories_impl.dart' as _i27;
+import '../../mvvm/repo/repo_impl/session_repositories_impl.dart' as _i29;
+import '../../mvvm/repo/session_repositories.dart' as _i28;
 import '../../mvvm/ui/all_exercise/view_model/all_exercise_view_model.dart'
     as _i3;
-import '../../mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart' as _i30;
-import '../../mvvm/ui/auth/view_model/sign_up/sign_up_view_model.dart' as _i31;
+import '../../mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart' as _i31;
+import '../../mvvm/ui/auth/view_model/sign_up/sign_up_view_model.dart' as _i32;
 import '../../mvvm/ui/calendar/view_model/calendar_view_model.dart' as _i6;
 import '../../mvvm/ui/chat_bot/view_model/chat_bot_view_model.dart' as _i9;
 import '../../mvvm/ui/dashboard/view_model/dashboard_view_model.dart' as _i13;
@@ -43,21 +43,23 @@ import '../../mvvm/ui/fit_overview/view_model/fit_overview_view_model.dart'
 import '../../mvvm/ui/notification/view_model/notification_view_model.dart'
     as _i21;
 import '../../mvvm/ui/overview/view_model/overview_view_model.dart' as _i22;
-import '../../mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart'
+import '../../mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart'
     as _i24;
+import '../../mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart'
+    as _i25;
 import '../../mvvm/ui/plan_overview/view_model/view_more/view_more_plan_view_model.dart'
-    as _i35;
+    as _i36;
 import '../../mvvm/ui/recommend_plan/view_model/group_exercise_view_model.dart'
     as _i19;
-import '../../mvvm/ui/splash/view_model/splash_view_model.dart' as _i33;
-import '../../mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart' as _i36;
+import '../../mvvm/ui/splash/view_model/splash_view_model.dart' as _i34;
+import '../../mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart' as _i37;
 import '../components/layout/setting_layout/controller/setting_bloc.dart'
-    as _i38;
+    as _i39;
 import '../services/cloundinary_service.dart' as _i12;
 import '../services/image_pic_service.dart' as _i20;
-import '../services/speach_text_service.dart' as _i32;
-import '../services/text_speech_service.dart' as _i34;
-import 'modules/data_source_module.dart' as _i39;
+import '../services/speach_text_service.dart' as _i33;
+import '../services/text_speech_service.dart' as _i35;
+import 'modules/data_source_module.dart' as _i40;
 
 const String _prod = 'prod';
 
@@ -99,22 +101,23 @@ _i1.GetIt init(
       () => _i21.NotificationViewModel(gh<_i21.NotificationState>()));
   gh.factory<_i22.OverviewViewModel>(() => _i22.OverviewViewModel());
   gh.factory<_i23.PlanApi>(() => _i23.PlanApi(gh<_i14.Dio>()));
-  gh.factory<_i24.PlanOverViewViewModel>(() => _i24.PlanOverViewViewModel());
-  gh.factory<_i25.PlanRepositories>(
-      () => _i26.PlanRepositoriesImpl(gh<_i23.PlanApi>()));
-  gh.factory<_i27.SessionRepositories>(() => _i28.SessionRepositoriesImpl());
-  gh.factory<_i29.SettingUseCase>(() => _i29.SettingUseCase());
-  gh.factory<_i30.SignInViewModel>(() => _i30.SignInViewModel());
-  gh.factory<_i31.SignUpViewModel>(() => _i31.SignUpViewModel());
-  gh.factory<_i32.SpeechTextService>(() => _i32.SpeechTextService());
-  gh.factory<_i33.SplashViewModel>(() => _i33.SplashViewModel());
-  gh.factory<_i34.TextSpeechService>(() => _i34.TextSpeechService());
-  gh.factory<_i35.ViewMorePlanViewModel>(() => _i35.ViewMorePlanViewModel());
-  gh.factory<_i36.WooTrackViewModel>(() => _i36.WooTrackViewModel());
-  gh.factory<_i37.AuthApi>(() => _i37.AuthApi(gh<_i14.Dio>()));
-  gh.factory<_i38.SettingBloc>(
-      () => _i38.SettingBloc(gh<_i29.SettingUseCase>()));
+  gh.factory<_i24.PlanDetailViewModel>(() => _i24.PlanDetailViewModel());
+  gh.factory<_i25.PlanOverViewViewModel>(() => _i25.PlanOverViewViewModel());
+  gh.factory<_i26.PlanRepositories>(
+      () => _i27.PlanRepositoriesImpl(gh<_i23.PlanApi>()));
+  gh.factory<_i28.SessionRepositories>(() => _i29.SessionRepositoriesImpl());
+  gh.factory<_i30.SettingUseCase>(() => _i30.SettingUseCase());
+  gh.factory<_i31.SignInViewModel>(() => _i31.SignInViewModel());
+  gh.factory<_i32.SignUpViewModel>(() => _i32.SignUpViewModel());
+  gh.factory<_i33.SpeechTextService>(() => _i33.SpeechTextService());
+  gh.factory<_i34.SplashViewModel>(() => _i34.SplashViewModel());
+  gh.factory<_i35.TextSpeechService>(() => _i35.TextSpeechService());
+  gh.factory<_i36.ViewMorePlanViewModel>(() => _i36.ViewMorePlanViewModel());
+  gh.factory<_i37.WooTrackViewModel>(() => _i37.WooTrackViewModel());
+  gh.factory<_i38.AuthApi>(() => _i38.AuthApi(gh<_i14.Dio>()));
+  gh.factory<_i39.SettingBloc>(
+      () => _i39.SettingBloc(gh<_i30.SettingUseCase>()));
   return getIt;
 }
 
-class _$DataSourceModule extends _i39.DataSourceModule {}
+class _$DataSourceModule extends _i40.DataSourceModule {}

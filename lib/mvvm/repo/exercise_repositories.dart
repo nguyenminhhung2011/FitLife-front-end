@@ -1,4 +1,5 @@
 import 'package:fit_life/core/components/network/app_exception.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/add_exercise_dto.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 
@@ -13,5 +14,9 @@ abstract class ExerciseRepositories {
     String? category,
     int currentPage = 0,
     int perPage = 5,
+  });
+
+  Future<SResult<bool>> createExercise({
+    required AddExerciseDto dto,
   });
 }

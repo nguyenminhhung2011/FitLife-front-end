@@ -1,4 +1,5 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/me/entity/plan/add_plan_dto.dart';
 import 'package:fit_life/mvvm/repo/plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -55,6 +56,46 @@ class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
         data: data.copyWith(
           workoutPlans: [...rData],
           isLoadingWorkoutPlans: false,
+        ),
+      ),
+    );
+  }
+
+  Future<void> createPlan({
+    bool isUsingAIGenerate = false,
+    required String title,
+    required DateTime timeStart,
+    required DateTime timeFinish,
+    String? level,
+    String? goal,
+    String? preferences,
+  }) async {
+    state = _Loading(data: data.copyWith(isLoadingCreatePlan: true));
+
+    final call = await _planRepositories.createPlan(
+      plan: AddPlanDto(
+        title: title,
+        timeStart: timeStart,
+        timeFinish: timeFinish,
+        isUsingAIGeneratePlan: isUsingAIGenerate,
+        level: level,
+        goal: goal,
+        preferences: preferences,
+      ),
+    );
+
+    await Future.delayed(const Duration(seconds: 3));
+    if (!mounted) return;
+
+    state = call.fold(
+      ifLeft: (error) => _CreatePlanFailed(
+        data: data.copyWith(isLoadingCreatePlan: false),
+        message: error.message,
+      ),
+      ifRight: (rData) => _CreatePlanSuccess(
+        data: data.copyWith(
+          workoutPlans: [...?data.workoutPlans, rData],
+          isLoadingCreatePlan: false,
         ),
       ),
     );

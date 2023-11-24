@@ -8,6 +8,8 @@ import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_time_text.dart';
 import 'package:fit_life/core/components/widgets/fit_life/schedule_item.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
+import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_data.dart';
+import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,11 +23,28 @@ class PlanDetailView extends ConsumerStatefulWidget {
 }
 
 class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
-  Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
+  PlanDetailViewModel get viewModel =>
+      ref.read(planDetailStateNotifier.notifier);
+  PlanDetailData get data => ref.watch(planDetailStateNotifier).data;
 
+  Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
   Color get _primaryColor => Theme.of(context).primaryColor;
 
   EdgeInsets get _padding => const EdgeInsets.symmetric(horizontal: 15.0);
+
+  int get totalDate =>
+      data.planDetail.endDate!.difference(data.planDetail.startDate!).inDays;
+
+  int get currentDate =>
+      DateTime.now().difference(data.planDetail.startDate!).inDays;
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      viewModel.getPlanDetail();
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,43 +103,54 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
                 const SizedBox(height: 10.0),
                 _progressField(context),
                 const SizedBox(height: 5.0),
-                Row(
-                  children: [
-                    const SizedBox(width: 15.0),
-                    Expanded(
-                      child: Text(
-                        "Schedule",
-                        style: context.titleMedium
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () =>
-                          context.openListPageWithRoute(Routes.calendar),
-                      child: Text(
-                        'view in calendar',
-                        style: context.titleSmall.copyWith(
-                          fontSize: 12.0,
-                          color: _primaryColor,
-                          fontWeight: FontWeight.w500,
+                if (data.isLoadingSchedule)
+                  const Padding(
+                    padding: EdgeInsets.only(top: 12.0),
+                    child: Center(child: CircularProgressIndicator()),
+                  )
+                else ...[
+                  Row(
+                    children: [
+                      const SizedBox(width: 15.0),
+                      Expanded(
+                        child: Text(
+                          "Schedule",
+                          style: context.titleMedium
+                              .copyWith(fontWeight: FontWeight.bold),
                         ),
                       ),
-                    )
-                  ],
-                ),
-                DividerTimeText(day: 1, time: DateTime.now()),
-                const SizedBox(height: 10.0),
-                const ScheduleItem(),
-                const ScheduleItem(),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'View all dates planning',
-                    style: context.titleSmall.copyWith(
-                        color: _primaryColor, fontWeight: FontWeight.w600),
+                      TextButton(
+                        onPressed: () =>
+                            context.openListPageWithRoute(Routes.calendar),
+                        child: Text(
+                          'view in calendar',
+                          style: context.titleSmall.copyWith(
+                            fontSize: 12.0,
+                            color: _primaryColor,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                ),
-                const Divider(),
+                  DividerTimeText(day: 1, time: DateTime.now()),
+                  const SizedBox(height: 10.0),
+                  ...List.generate(
+                    data.planDetail.dailyWorkouts?.length ?? 0,
+                    (index) => ScheduleItem(
+                      item: data.planDetail.dailyWorkouts![index],
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'View all dates planning',
+                      style: context.titleSmall.copyWith(
+                          color: _primaryColor, fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                  const Divider(),
+                ],
                 const SizedBox(height: 45.0),
               ],
             ),
@@ -152,7 +182,9 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             children: [
               Expanded(
                 child: Text(
-                  'Current date 10',
+                  (currentDate < totalDate)
+                      ? 'Current date ${currentDate + 1}'
+                      : "Finish your plan",
                   style:
                       context.titleMedium.copyWith(fontWeight: FontWeight.w600),
                 ),
@@ -195,9 +227,9 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
 
   Wrap _wrapperView(double itemWidth, double itemHeight, BuildContext context) {
     return Wrap(
-      alignment: WrapAlignment.center,
+      alignment: WrapAlignment.start,
       children: [
-        for (int i = 0; i < 120; i++)
+        for (int i = 0; i < totalDate; i++)
           SizedBox(
             width: itemWidth,
             height: itemHeight,
@@ -209,7 +241,7 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
                     text: '🔥\n',
                     style: context.titleLarge.copyWith(
                       fontSize: 23.0,
-                      color: i > 9
+                      color: i > currentDate
                           ? Theme.of(context).hintColor.withOpacity(0.2)
                           : null,
                     ),
@@ -230,6 +262,11 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
   }
 
   Widget _headerBannerField(BuildContext context) {
+    final planDetail = data.planDetail;
+    final startDate = planDetail.startDate!;
+    final endDate = planDetail.endDate!;
+    final difference = planDetail.endDate!.difference(planDetail.startDate!);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -238,15 +275,15 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Beginner plan',
-                style: context.titleMedium.copyWith(
-                  fontWeight: FontWeight.bold,
+              if (planDetail.name != null)
+                Text(
+                  planDetail.name!,
+                  style: context.titleMedium.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
               Text(
-                getRangeDateFormat(DateTime.now(),
-                    DateTime.now().subtract(const Duration(days: 7))),
+                getRangeDateFormat(startDate, endDate),
                 style: context.titleSmall.copyWith(
                   color: Theme.of(context).hintColor,
                   fontSize: 12.0,
@@ -254,7 +291,7 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
                 ),
               ),
               Text(
-                '120 Days - 60 Weeks',
+                '${difference.inDays} Days - ${(difference.inDays / 7).ceil()} Weeks',
                 style: context.titleSmall.copyWith(
                   color: Theme.of(context).hintColor,
                   fontSize: 12.0,
@@ -272,9 +309,9 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             animation: true,
             animationDuration: 1000,
             radius: 30.0,
-            percent: 0.5,
+            percent: planDetail.progress ?? 0,
             center: Text(
-              '50%',
+              '${((planDetail.progress ?? 0) * 100).toStringAsFixed(0)}%',
               style: context.titleSmall.copyWith(fontWeight: FontWeight.w600),
             ),
             backgroundColor: Theme.of(context).dividerColor,

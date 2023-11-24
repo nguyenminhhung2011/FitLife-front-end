@@ -12,5 +12,6 @@ class PlanOverViewData with _$PlanOverViewData {
     List<WorkoutPlan>? workoutPlans,
     @Default(false) bool isLoadingWorkoutPlans,
     @Default(false) bool isLoadingCurrentPlan,
+    @Default(false) bool isLoadingCreatePlan,
   }) = _PlanOverViewData;
 }

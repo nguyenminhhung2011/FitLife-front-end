@@ -4,16 +4,24 @@ import 'package:fit_life/core/components/extensions/date_time_extension.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/custom_input_label_field.dart';
 import 'package:fit_life/core/components/widgets/range_date_picker_custom.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AddPlanView extends StatefulWidget {
+class AddPlanView extends ConsumerStatefulWidget {
   const AddPlanView({super.key});
 
   @override
-  State<AddPlanView> createState() => _AddPlanViewState();
+  ConsumerState<AddPlanView> createState() => _AddPlanViewState();
 }
 
-class _AddPlanViewState extends State<AddPlanView> {
+class _AddPlanViewState extends ConsumerState<AddPlanView> {
+  PlanOverViewViewModel get viewModel =>
+      ref.read(planOverviewStateNotifier.notifier);
+
+  PlanOverViewData get data => ref.watch(planOverviewStateNotifier).data;
+
   final RangeDateController rangeDateController = RangeDateController();
   final TextEditingController titleCtrl = TextEditingController();
   final TextEditingController goalCtrl = TextEditingController();
@@ -70,6 +78,20 @@ class _AddPlanViewState extends State<AddPlanView> {
         _selectedEndDate = selectedRangeDate?.end ?? _selectedEndDate;
       });
     });
+  }
+
+  void onTapAddPlan() async {
+    await viewModel
+        .createPlan(
+          isUsingAIGenerate: isUsingAIGenerate,
+          title: titleCtrl.text,
+          timeStart: _selectedStartDate,
+          timeFinish: _selectedEndDate,
+          level: levelCtrl.text,
+          goal: goalCtrl.text,
+          preferences: preferencesCtrl.text,
+        )
+        .then((value) => context.pop());
   }
 
   @override
@@ -177,7 +199,8 @@ class _AddPlanViewState extends State<AddPlanView> {
               const SizedBox(height: 20),
               ButtonCustom(
                 height: 50,
-                onPress: () {},
+                onPress: onTapAddPlan,
+                loading: data.isLoadingCreatePlan,
                 child: Text(
                   isUsingAIGenerate ? "Generate" : "Create",
                   style: context.titleMedium.copyWith(

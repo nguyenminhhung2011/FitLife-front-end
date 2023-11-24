@@ -20,6 +20,7 @@ mixin _$PlanOverViewData {
   List<WorkoutPlan>? get workoutPlans => throw _privateConstructorUsedError;
   bool get isLoadingWorkoutPlans => throw _privateConstructorUsedError;
   bool get isLoadingCurrentPlan => throw _privateConstructorUsedError;
+  bool get isLoadingCreatePlan => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlanOverViewDataCopyWith<PlanOverViewData> get copyWith =>
@@ -36,7 +37,8 @@ abstract class $PlanOverViewDataCopyWith<$Res> {
       {CurrentPlan? currentPlan,
       List<WorkoutPlan>? workoutPlans,
       bool isLoadingWorkoutPlans,
-      bool isLoadingCurrentPlan});
+      bool isLoadingCurrentPlan,
+      bool isLoadingCreatePlan});
 
   $CurrentPlanCopyWith<$Res>? get currentPlan;
 }
@@ -58,6 +60,7 @@ class _$PlanOverViewDataCopyWithImpl<$Res, $Val extends PlanOverViewData>
     Object? workoutPlans = freezed,
     Object? isLoadingWorkoutPlans = null,
     Object? isLoadingCurrentPlan = null,
+    Object? isLoadingCreatePlan = null,
   }) {
     return _then(_value.copyWith(
       currentPlan: freezed == currentPlan
@@ -75,6 +78,10 @@ class _$PlanOverViewDataCopyWithImpl<$Res, $Val extends PlanOverViewData>
       isLoadingCurrentPlan: null == isLoadingCurrentPlan
           ? _value.isLoadingCurrentPlan
           : isLoadingCurrentPlan // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoadingCreatePlan: null == isLoadingCreatePlan
+          ? _value.isLoadingCreatePlan
+          : isLoadingCreatePlan // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -104,7 +111,8 @@ abstract class _$$_PlanOverViewDataCopyWith<$Res>
       {CurrentPlan? currentPlan,
       List<WorkoutPlan>? workoutPlans,
       bool isLoadingWorkoutPlans,
-      bool isLoadingCurrentPlan});
+      bool isLoadingCurrentPlan,
+      bool isLoadingCreatePlan});
 
   @override
   $CurrentPlanCopyWith<$Res>? get currentPlan;
@@ -125,6 +133,7 @@ class __$$_PlanOverViewDataCopyWithImpl<$Res>
     Object? workoutPlans = freezed,
     Object? isLoadingWorkoutPlans = null,
     Object? isLoadingCurrentPlan = null,
+    Object? isLoadingCreatePlan = null,
   }) {
     return _then(_$_PlanOverViewData(
       currentPlan: freezed == currentPlan
@@ -143,6 +152,10 @@ class __$$_PlanOverViewDataCopyWithImpl<$Res>
           ? _value.isLoadingCurrentPlan
           : isLoadingCurrentPlan // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoadingCreatePlan: null == isLoadingCreatePlan
+          ? _value.isLoadingCreatePlan
+          : isLoadingCreatePlan // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -154,7 +167,8 @@ class _$_PlanOverViewData implements _PlanOverViewData {
       {this.currentPlan,
       final List<WorkoutPlan>? workoutPlans,
       this.isLoadingWorkoutPlans = false,
-      this.isLoadingCurrentPlan = false})
+      this.isLoadingCurrentPlan = false,
+      this.isLoadingCreatePlan = false})
       : _workoutPlans = workoutPlans;
 
   @override
@@ -175,10 +189,13 @@ class _$_PlanOverViewData implements _PlanOverViewData {
   @override
   @JsonKey()
   final bool isLoadingCurrentPlan;
+  @override
+  @JsonKey()
+  final bool isLoadingCreatePlan;
 
   @override
   String toString() {
-    return 'PlanOverViewData(currentPlan: $currentPlan, workoutPlans: $workoutPlans, isLoadingWorkoutPlans: $isLoadingWorkoutPlans, isLoadingCurrentPlan: $isLoadingCurrentPlan)';
+    return 'PlanOverViewData(currentPlan: $currentPlan, workoutPlans: $workoutPlans, isLoadingWorkoutPlans: $isLoadingWorkoutPlans, isLoadingCurrentPlan: $isLoadingCurrentPlan, isLoadingCreatePlan: $isLoadingCreatePlan)';
   }
 
   @override
@@ -193,7 +210,9 @@ class _$_PlanOverViewData implements _PlanOverViewData {
             (identical(other.isLoadingWorkoutPlans, isLoadingWorkoutPlans) ||
                 other.isLoadingWorkoutPlans == isLoadingWorkoutPlans) &&
             (identical(other.isLoadingCurrentPlan, isLoadingCurrentPlan) ||
-                other.isLoadingCurrentPlan == isLoadingCurrentPlan));
+                other.isLoadingCurrentPlan == isLoadingCurrentPlan) &&
+            (identical(other.isLoadingCreatePlan, isLoadingCreatePlan) ||
+                other.isLoadingCreatePlan == isLoadingCreatePlan));
   }
 
   @override
@@ -202,7 +221,8 @@ class _$_PlanOverViewData implements _PlanOverViewData {
       currentPlan,
       const DeepCollectionEquality().hash(_workoutPlans),
       isLoadingWorkoutPlans,
-      isLoadingCurrentPlan);
+      isLoadingCurrentPlan,
+      isLoadingCreatePlan);
 
   @JsonKey(ignore: true)
   @override
@@ -216,7 +236,8 @@ abstract class _PlanOverViewData implements PlanOverViewData {
       {final CurrentPlan? currentPlan,
       final List<WorkoutPlan>? workoutPlans,
       final bool isLoadingWorkoutPlans,
-      final bool isLoadingCurrentPlan}) = _$_PlanOverViewData;
+      final bool isLoadingCurrentPlan,
+      final bool isLoadingCreatePlan}) = _$_PlanOverViewData;
 
   @override
   CurrentPlan? get currentPlan;
@@ -226,6 +247,8 @@ abstract class _PlanOverViewData implements PlanOverViewData {
   bool get isLoadingWorkoutPlans;
   @override
   bool get isLoadingCurrentPlan;
+  @override
+  bool get isLoadingCreatePlan;
   @override
   @JsonKey(ignore: true)
   _$$_PlanOverViewDataCopyWith<_$_PlanOverViewData> get copyWith =>

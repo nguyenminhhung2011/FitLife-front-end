@@ -36,17 +36,15 @@ class WorkoutPlanItemWidget extends StatelessWidget {
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
         decoration: decoration,
+        padding: const EdgeInsets.all(5.0),
         child: Row(
           children: [
             Container(
               width: 120.0,
-              constraints: const BoxConstraints(minHeight: 140.0),
-              decoration: const BoxDecoration(
+              height: 120.0,
+              decoration: BoxDecoration(
                 color: Colors.black87,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10.0),
-                  bottomLeft: Radius.circular(10.0),
-                ),
+                borderRadius: BorderRadius.circular(10.0),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,26 +68,24 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(width: 10.0),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      workoutPlan.name,
-                      style: context.titleMedium
-                          .copyWith(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 2.0),
-                    Text(workoutPlan.description,
-                        style: context.textTheme.labelMedium
-                            ?.copyWith(color: Theme.of(context).hintColor)),
-                    const SizedBox(height: 10.0),
-                    _progressField(context),
-                  ],
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    workoutPlan.name,
+                    style: context.titleMedium
+                        .copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 2.0),
+                  Text(workoutPlan.description,
+                      style: context.textTheme.labelMedium
+                          ?.copyWith(color: Theme.of(context).hintColor)),
+                  const SizedBox(height: 10.0),
+                  _progressField(context),
+                ],
               ),
             )
           ],

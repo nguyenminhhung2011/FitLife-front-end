@@ -1,11 +1,11 @@
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:flutter/material.dart';
 
 class ExerciseVerticalItem extends StatelessWidget {
-  const ExerciseVerticalItem({
-    super.key,
-  });
+  final Exercise exercise;
+  const ExerciseVerticalItem({super.key, required this.exercise});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,8 @@ class ExerciseVerticalItem extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Text('♻️', style: context.titleMedium.copyWith(fontSize: 20.0)),
+            child:
+                Text('♻️', style: context.titleMedium.copyWith(fontSize: 20.0)),
           ),
           Expanded(
             child: Column(
@@ -36,7 +37,7 @@ class ExerciseVerticalItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Diamond push up 13x2',
+                  exercise.name,
                   overflow: TextOverflow.ellipsis,
                   style:
                       context.titleSmall.copyWith(fontWeight: FontWeight.w700),
@@ -57,7 +58,7 @@ class ExerciseVerticalItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(7.0),
 
             ///[😪 Dumb code] change image url here
-            child: Image.asset(ImageConst.banner2,
+            child: Image.asset(exercise.videoUrl ?? ImageConst.banner1,
                 width: 100.0, height: 100.0, fit: BoxFit.cover),
           ),
         ].expand((e) => [e, const SizedBox(width: 10.0)]).toList()

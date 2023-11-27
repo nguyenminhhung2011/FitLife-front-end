@@ -138,6 +138,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 color: activeStep < upperBound
                     ? context.primaryColor
                     : Colors.green,
+                borderColor: activeStep < upperBound
+                    ? context.primaryColor
+                    : Colors.green,
                 onPress: onTapNext,
                 child: Text(
                   activeStep < upperBound

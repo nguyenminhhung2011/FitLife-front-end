@@ -43,12 +43,6 @@ class SignInViewModel extends StateNotifier<SignInState> {
       );
       return;
     }
-    if (!Validator.isValidEmail(text)) {
-      state = _InvalidFormat(
-        data: data.copyWith(emailError: "Email is not format"),
-      );
-      return;
-    }
     state = _Initial(data: data.copyWith(emailError: null));
   }
 
@@ -59,17 +53,10 @@ class SignInViewModel extends StateNotifier<SignInState> {
       state = _SignInFailed(data: data, message: "Invalid input format");
       return;
     }
-    await Future.delayed(const Duration(seconds: 3));
-    try {
-      final result =
-          await _authRepositories.signIn(email: email, password: password);
-      if (result == null) {
-        state = _SignInFailed(data: data, message: "Data null");
-        return;
-      }
-      state = _SignInSuccess(data: data);
-    } catch (e) {
-      state = _SignInFailed(data: data, message: e.toString());
-    }
+    state =
+        (await _authRepositories.signIn(email: email, password: password)).fold(
+      ifLeft: (error) => _SignInFailed(data: data, message: error.message),
+      ifRight: (isCreated) => _SignInSuccess(data: data, isCreated: isCreated),
+    );
   }
 }

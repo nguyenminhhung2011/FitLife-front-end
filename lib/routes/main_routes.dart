@@ -51,7 +51,7 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const OnboardingScreen();
+            return const ProviderScope(child: OnboardingScreen());
           },
         );
       case Routes.addNewExercise:

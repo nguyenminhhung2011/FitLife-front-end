@@ -11,7 +11,7 @@ part 'auth_api.g.dart';
 abstract class AuthApi {
   static const String branch = "";
   static const String loginApi = "/auth/login";
-  static const String refreshTokenApi = "$branch/auth/refresh-token";
+  static const String refreshTokenApi = "$branch/auth/refreshToken";
   static const String registerApi = "$branch/auth/register";
   static const String logoutApi = "$branch/auth/logout";
   static const String resetPasswordApi = "/user/forgotPassword";
@@ -22,7 +22,7 @@ abstract class AuthApi {
   factory AuthApi(Dio dio) = _AuthApi;
 
   @POST(loginApi)
-  Future<HttpResponse<SignInResponse?>> login(
+  Future<HttpResponse<AuthenticateResponse?>> login(
       {@Body() required Map<String, dynamic> body});
 
   @POST(registerApi)
@@ -33,8 +33,7 @@ abstract class AuthApi {
   Future<HttpResponse<AuthenticateResponse>> logout();
 
   @POST(refreshTokenApi)
-  Future<HttpResponse<AuthenticateResponse>> refreshToken(
-      {@Body() required Map<String, dynamic> body});
+  Future<HttpResponse<AuthenticateResponse>> refreshToken();
 
   @POST(resetPasswordApi)
   Future<HttpResponse> resetPassword({

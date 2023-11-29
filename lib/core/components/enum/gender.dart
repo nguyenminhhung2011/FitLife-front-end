@@ -1,6 +1,6 @@
-enum Gender { man, woman }
+enum Gender { male, female }
 
 extension GenderExtension on Gender {
   String get toGenderString =>
-      switch (this) { Gender.man => "man", _ => "woman" };
+      switch (this) { Gender.male => "MALE", _ => "FEMALE" };
 }

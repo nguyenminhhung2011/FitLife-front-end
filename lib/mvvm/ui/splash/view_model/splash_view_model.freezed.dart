@@ -20,7 +20,7 @@ mixin _$SplashState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SplashData data) initial,
-    required TResult Function(SplashData data) isAuth,
+    required TResult Function(SplashData data, bool isCreated) isAuth,
     required TResult Function(SplashData data) isNotAuth,
     required TResult Function(SplashData data) loading,
   }) =>
@@ -28,7 +28,7 @@ mixin _$SplashState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SplashData data)? initial,
-    TResult? Function(SplashData data)? isAuth,
+    TResult? Function(SplashData data, bool isCreated)? isAuth,
     TResult? Function(SplashData data)? isNotAuth,
     TResult? Function(SplashData data)? loading,
   }) =>
@@ -36,7 +36,7 @@ mixin _$SplashState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SplashData data)? initial,
-    TResult Function(SplashData data)? isAuth,
+    TResult Function(SplashData data, bool isCreated)? isAuth,
     TResult Function(SplashData data)? isNotAuth,
     TResult Function(SplashData data)? loading,
     required TResult orElse(),
@@ -184,7 +184,7 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SplashData data) initial,
-    required TResult Function(SplashData data) isAuth,
+    required TResult Function(SplashData data, bool isCreated) isAuth,
     required TResult Function(SplashData data) isNotAuth,
     required TResult Function(SplashData data) loading,
   }) {
@@ -195,7 +195,7 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SplashData data)? initial,
-    TResult? Function(SplashData data)? isAuth,
+    TResult? Function(SplashData data, bool isCreated)? isAuth,
     TResult? Function(SplashData data)? isNotAuth,
     TResult? Function(SplashData data)? loading,
   }) {
@@ -206,7 +206,7 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SplashData data)? initial,
-    TResult Function(SplashData data)? isAuth,
+    TResult Function(SplashData data, bool isCreated)? isAuth,
     TResult Function(SplashData data)? isNotAuth,
     TResult Function(SplashData data)? loading,
     required TResult orElse(),
@@ -273,7 +273,7 @@ abstract class _$$_IsAuthCopyWith<$Res> implements $SplashStateCopyWith<$Res> {
       __$$_IsAuthCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({SplashData data});
+  $Res call({SplashData data, bool isCreated});
 
   @override
   $SplashDataCopyWith<$Res> get data;
@@ -290,12 +290,17 @@ class __$$_IsAuthCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? isCreated = null,
   }) {
     return _then(_$_IsAuth(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as SplashData,
+      isCreated: null == isCreated
+          ? _value.isCreated
+          : isCreated // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -303,14 +308,16 @@ class __$$_IsAuthCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_IsAuth extends _IsAuth {
-  const _$_IsAuth({required this.data}) : super._();
+  const _$_IsAuth({required this.data, required this.isCreated}) : super._();
 
   @override
   final SplashData data;
+  @override
+  final bool isCreated;
 
   @override
   String toString() {
-    return 'SplashState.isAuth(data: $data)';
+    return 'SplashState.isAuth(data: $data, isCreated: $isCreated)';
   }
 
   @override
@@ -318,11 +325,13 @@ class _$_IsAuth extends _IsAuth {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IsAuth &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.isCreated, isCreated) ||
+                other.isCreated == isCreated));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, isCreated);
 
   @JsonKey(ignore: true)
   @override
@@ -334,35 +343,35 @@ class _$_IsAuth extends _IsAuth {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SplashData data) initial,
-    required TResult Function(SplashData data) isAuth,
+    required TResult Function(SplashData data, bool isCreated) isAuth,
     required TResult Function(SplashData data) isNotAuth,
     required TResult Function(SplashData data) loading,
   }) {
-    return isAuth(data);
+    return isAuth(data, isCreated);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SplashData data)? initial,
-    TResult? Function(SplashData data)? isAuth,
+    TResult? Function(SplashData data, bool isCreated)? isAuth,
     TResult? Function(SplashData data)? isNotAuth,
     TResult? Function(SplashData data)? loading,
   }) {
-    return isAuth?.call(data);
+    return isAuth?.call(data, isCreated);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SplashData data)? initial,
-    TResult Function(SplashData data)? isAuth,
+    TResult Function(SplashData data, bool isCreated)? isAuth,
     TResult Function(SplashData data)? isNotAuth,
     TResult Function(SplashData data)? loading,
     required TResult orElse(),
   }) {
     if (isAuth != null) {
-      return isAuth(data);
+      return isAuth(data, isCreated);
     }
     return orElse();
   }
@@ -406,11 +415,14 @@ class _$_IsAuth extends _IsAuth {
 }
 
 abstract class _IsAuth extends SplashState {
-  const factory _IsAuth({required final SplashData data}) = _$_IsAuth;
+  const factory _IsAuth(
+      {required final SplashData data,
+      required final bool isCreated}) = _$_IsAuth;
   const _IsAuth._() : super._();
 
   @override
   SplashData get data;
+  bool get isCreated;
   @override
   @JsonKey(ignore: true)
   _$$_IsAuthCopyWith<_$_IsAuth> get copyWith =>
@@ -487,7 +499,7 @@ class _$_IsNotAuth extends _IsNotAuth {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SplashData data) initial,
-    required TResult Function(SplashData data) isAuth,
+    required TResult Function(SplashData data, bool isCreated) isAuth,
     required TResult Function(SplashData data) isNotAuth,
     required TResult Function(SplashData data) loading,
   }) {
@@ -498,7 +510,7 @@ class _$_IsNotAuth extends _IsNotAuth {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SplashData data)? initial,
-    TResult? Function(SplashData data)? isAuth,
+    TResult? Function(SplashData data, bool isCreated)? isAuth,
     TResult? Function(SplashData data)? isNotAuth,
     TResult? Function(SplashData data)? loading,
   }) {
@@ -509,7 +521,7 @@ class _$_IsNotAuth extends _IsNotAuth {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SplashData data)? initial,
-    TResult Function(SplashData data)? isAuth,
+    TResult Function(SplashData data, bool isCreated)? isAuth,
     TResult Function(SplashData data)? isNotAuth,
     TResult Function(SplashData data)? loading,
     required TResult orElse(),
@@ -638,7 +650,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SplashData data) initial,
-    required TResult Function(SplashData data) isAuth,
+    required TResult Function(SplashData data, bool isCreated) isAuth,
     required TResult Function(SplashData data) isNotAuth,
     required TResult Function(SplashData data) loading,
   }) {
@@ -649,7 +661,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SplashData data)? initial,
-    TResult? Function(SplashData data)? isAuth,
+    TResult? Function(SplashData data, bool isCreated)? isAuth,
     TResult? Function(SplashData data)? isNotAuth,
     TResult? Function(SplashData data)? loading,
   }) {
@@ -660,7 +672,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SplashData data)? initial,
-    TResult Function(SplashData data)? isAuth,
+    TResult Function(SplashData data, bool isCreated)? isAuth,
     TResult Function(SplashData data)? isNotAuth,
     TResult Function(SplashData data)? loading,
     required TResult orElse(),

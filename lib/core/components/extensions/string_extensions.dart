@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:fit_life/core/components/enum/frequency.dart';
 import 'package:fit_life/core/components/enum/gender.dart';
 import 'package:fit_life/core/components/enum/plan_type.dart';
 
@@ -19,5 +20,13 @@ extension ColorExtension on String {
       };
 
   Gender get toGender =>
-      switch (this) { "man" => Gender.man, _ => Gender.woman };
+      switch (toUpperCase()) { "MALE" => Gender.male, _ => Gender.female };
+
+  Frequency get toFrequency => switch (toUpperCase()) {
+        "MUCH" => Frequency.much,
+        "VERY_MUCH" => Frequency.veryMuch,
+        "AVERAGE" => Frequency.average,
+        "LITTLE" => Frequency.little,
+        _ => Frequency.notMuch
+      };
 }

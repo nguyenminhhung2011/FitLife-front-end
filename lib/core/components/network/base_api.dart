@@ -4,6 +4,9 @@ import 'package:fit_life/core/components/network/data_state.dart';
 import 'package:retrofit/dio.dart';
 
 abstract class BaseApi {
+  final String dataNullError = "Data null";
+  final String baseError = "Error";
+
   Future<DataState<T>> getStateOf<T>({
     required Future<HttpResponse<T>> Function() request,
   }) async {

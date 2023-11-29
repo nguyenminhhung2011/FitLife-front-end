@@ -21,9 +21,9 @@ class SignInView extends ConsumerStatefulWidget {
 }
 
 class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
-  final _emailController = TextEditingController();
+  final _emailController = TextEditingController(text: "hoangtruong");
 
-  final _passController = TextEditingController();
+  final _passController = TextEditingController(text: "123456");
 
   SignInViewModel get _vm => ref.read(signInStateNotifier.notifier);
 
@@ -58,7 +58,13 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
   void _listenStateChange(SignInState state) {
     state.maybeWhen(
       signInFailed: (_, message) => context.showSnackBar("🐛 $message"),
-      signInSuccess: (_) {},
+      signInSuccess: (_, isCreated) {
+        if (isCreated) {
+          context.openListPageWithRoute(Routes.dashboard);
+        } else {
+          context.pushAndRemoveAll(Routes.onboarding);
+        }
+      },
       orElse: () {},
     );
   }

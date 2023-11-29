@@ -1,13 +1,17 @@
 import 'package:fit_life/clean_architectures/domain/usecase/base/base_usecase.dart';
 import 'package:fit_life/mvvm/me/entity/user/user_entity.dart';
+import 'package:fit_life/mvvm/repo/user_repositories.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
 class SettingUseCase extends BaseUseCase<User> {
-  SettingUseCase();
+  final UserRepositories _userRepositories;
+  SettingUseCase(this._userRepositories);
 
   @override
-  Future<User?> getUserInfo(token) async => null;
+  Future<User?> getUserInfo(token) async =>
+      (await _userRepositories.getUserProfile())
+          .fold(ifLeft: (_) => null, ifRight: (rData) => rData);
   @override
   Future<bool> logOut({required String token}) async => true;
 }

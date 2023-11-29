@@ -18,7 +18,6 @@ class SplashViewModel extends StateNotifier<SplashState> {
   ///-----------------
   SplashData get data => state.data;
 
-
   SplashViewModel() : super(const _Initial(data: SplashData()));
 
   Future<void> isAuthCall() async {
@@ -26,23 +25,13 @@ class SplashViewModel extends StateNotifier<SplashState> {
     await Future.delayed(const Duration(seconds: 3));
     String accessToken = CommonAppSettingPref.getAccessToken();
     String refreshToken = CommonAppSettingPref.getRefreshToken();
-    int expiredTime = CommonAppSettingPref.getExpiredTime();
+    bool isCreated = CommonAppSettingPref.getIsCreated();
 
-    if (accessToken.isNotEmpty ||
-        refreshToken.isNotEmpty ||
-        expiredTime != -1) {
-      final expiredTimeParsed =
-          DateTime.fromMillisecondsSinceEpoch(expiredTime);
-      log("[Access] $accessToken\n[Refresh] $refreshToken\n[Expired time] ${DateFormat().add_yMd().add_Hm().format(expiredTimeParsed)}");
+    if (accessToken.isNotEmpty || refreshToken.isNotEmpty) {
+      log("🎉 [Access] $accessToken\n🎉 [Refresh] $refreshToken\n");
 
-      final isExpired = DateTime.now().isAfter(expiredTimeParsed);
-      // ignore: avoid_print
-      print(expiredTimeParsed);
-
-      if (!isExpired) {
-        state = _IsAuth(data: data);
-        return;
-      }
+      state = _IsAuth(data: data, isCreated: isCreated);
+      return;
     }
     state = _IsNotAuth(data: data);
   }

@@ -48,11 +48,10 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
         settingConfig: SettingConfig.fromJson({
           'enable_user': true,
           'setting_layout': 'view1',
-          'app_bar_color': '8763c4',
           'hPadding': 10.0,
           'vPadding': 10.0,
           'shadow_elevation': 0.2,
-          'pop_up_route': Routes.splash,
+          'pop_up_route': Routes.signIn,
           'behindBackground':
               'https://wallpapers.com/images/featured/panda-background-ymceqx76sixgb2ni.jpg',
           'list_view': [

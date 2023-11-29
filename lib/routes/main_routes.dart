@@ -33,20 +33,8 @@ import '../core/components/layout/setting_layout/views/passcode_screen.dart';
 // import 'package:go_router/go_router.dart';
 
 class MainRoutes {
-  static Map<String, WidgetBuilder> getRoutesWithSettings() {
-    final routes = {Routes.auth: (context) => const SizedBox()};
-    return routes;
-  }
-
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.auth:
-        return MaterialPageRoute(
-          settings: settings,
-          builder: (_) {
-            return const SizedBox();
-          },
-        );
       case Routes.onboarding:
         return MaterialPageRoute(
           settings: settings,

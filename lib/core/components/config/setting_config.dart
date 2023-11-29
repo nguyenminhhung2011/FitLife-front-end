@@ -43,8 +43,9 @@ class SettingConfig {
 
     behindBackground =
         data['behindBackground']?.toString() ?? ImageConst.baseImageView;
-
-    appBarColor = data['app_bar_color'].toString().toColor();
+    if (data['app_bar_color'] != null) {
+      appBarColor = data?['app_bar_color'].toString().toColor();
+    }
 
     if (data['list_view'] != null && data['list_view'] is List<dynamic>) {
       List<dynamic> views = data['list_view'];

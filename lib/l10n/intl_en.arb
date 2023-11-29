@@ -81,6 +81,6 @@
     "howAreYou": "How are you feeling today?",
     "feature": "Feature",
     "exercise": "Exercise",
-    "toDaySession": "Today session"
-
+    "toDaySession": "Today session",
+    "signUpSuccess": "Sign up success"
 }

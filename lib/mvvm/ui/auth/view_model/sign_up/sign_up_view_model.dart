@@ -35,6 +35,8 @@ class SignUpViewModel extends StateNotifier<SignUpState> {
       state = _InvalidFormat(
         data: data.copyWith(passwordError: "Password is not format"),
       );
+    } else {
+      state = _Initial(data: data.copyWith(passwordError: null));
     }
   }
 
@@ -43,11 +45,8 @@ class SignUpViewModel extends StateNotifier<SignUpState> {
       state = _InvalidFormat(data: data.copyWith(emailError: "Email is empty"));
       return;
     }
-    if (!Validator.isValidEmail(text)) {
-      state = _InvalidFormat(
-        data: data.copyWith(emailError: "Email is not format"),
-      );
-    }
+
+    state = _Initial(data: data.copyWith(emailError: null));
   }
 
   Future<void> signUp(
@@ -61,7 +60,6 @@ class SignUpViewModel extends StateNotifier<SignUpState> {
       state = _SignUpFailed(data: data, message: "RepPassword is in valid");
       return;
     }
-    await Future.delayed(const Duration(seconds: 3));
     try {
       final result =
           await _authRepositories.register(email: email, password: password);

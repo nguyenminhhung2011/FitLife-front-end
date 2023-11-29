@@ -6,7 +6,6 @@ import 'package:fit_life/core/components/network/base_api.dart';
 import 'package:fit_life/core/components/network/data_state.dart';
 import 'package:fit_life/mvvm/data/local/preferences.dart';
 import 'package:fit_life/mvvm/data/remote/auth/auth_api.dart';
-import 'package:fit_life/mvvm/me/entity/token/token.dart';
 import 'package:fit_life/mvvm/repo/auth_repositories.dart';
 import 'package:injectable/injectable.dart';
 
@@ -48,7 +47,23 @@ class AuthRepositoriesImpl extends BaseApi implements AuthRepositories {
   }
 
   @override
-  Future<Token?> register({required String email, required String password}) {
-    throw UnimplementedError();
+  Future<SResult<bool>> register(
+      {required String email, required String password}) async {
+    final body = {'username': email, 'password': password};
+    try {
+      final response = await getStateOf(
+          request: () async => await _authApi.register(body: body));
+      if (response is DataFailed) {
+        return Either.left(
+            AppException(message: response.dioError?.message ?? baseError));
+      }
+      final responseData = response.data;
+      if (responseData == null) {
+        return Either.left(AppException(message: dataNullError));
+      }
+      return const Either.right(true);
+    } catch (error) {
+      return Either.left(AppException(message: error.toString()));
+    }
   }
 }

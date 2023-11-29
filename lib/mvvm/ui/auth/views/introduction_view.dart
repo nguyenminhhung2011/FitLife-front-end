@@ -112,7 +112,9 @@ class _IntroductionViewState extends State<IntroductionView> {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.openListPageWithRoute(Routes.signIn);
+                          },
                           child: Text(
                             "Skip for no",
                             style: context.titleSmall.copyWith(

@@ -119,6 +119,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Session schedule"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "signUpSuccess":
+            MessageLookupByLibrary.simpleMessage("Sign up success"),
         "six2SevenMuchOrMore":
             MessageLookupByLibrary.simpleMessage("6  - 7 days in week"),
         "soMany": MessageLookupByLibrary.simpleMessage("So Many"),

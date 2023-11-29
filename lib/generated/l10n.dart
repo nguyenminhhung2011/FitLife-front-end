@@ -869,6 +869,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Sign up success`
+  String get signUpSuccess {
+    return Intl.message(
+      'Sign up success',
+      name: 'signUpSuccess',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

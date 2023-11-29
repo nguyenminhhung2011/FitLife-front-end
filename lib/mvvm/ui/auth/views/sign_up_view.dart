@@ -59,6 +59,17 @@ class _SignUpViewState extends ConsumerState<SignUpView> with AuthMixin {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen<SignUpState>(signUpStateNotifier, (_, state) {
+      state.maybeWhen(
+        signUpSuccess: (_) {
+          context.showSnackBar(S.of(context).signUpSuccess);
+        },
+        signUpFailed: (_, message) {
+          context.showSnackBar(message);
+        },
+        orElse: () {},
+      );
+    });
     return Stack(
       children: [
         _body(context),
@@ -152,6 +163,11 @@ class _SignUpViewState extends ConsumerState<SignUpView> with AuthMixin {
                 textStyle: context.titleMedium
                     .copyWith(fontWeight: FontWeight.w600, color: Colors.white),
                 call: () async {
+                  await _vm.signUp(
+                    email: _emailController.text,
+                    password: _passController.text,
+                    rePassword: _rePassword.text,
+                  );
                   return true;
                 },
                 textInside: S.of(context).signUp,

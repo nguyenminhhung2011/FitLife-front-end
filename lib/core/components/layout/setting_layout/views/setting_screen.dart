@@ -210,6 +210,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
   CustomScrollView _view1() {
     return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
         _renderAppBar(),
         SliverList(
@@ -237,6 +238,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   ],
                 ),
               ),
+              const SizedBox(height: 50)
             ],
           ),
         )

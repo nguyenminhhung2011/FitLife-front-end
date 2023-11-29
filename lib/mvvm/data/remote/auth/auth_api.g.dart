@@ -19,7 +19,7 @@ class _AuthApi implements AuthApi {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<SignInResponse?>> login(
+  Future<HttpResponse<AuthenticateResponse?>> login(
       {required Map<String, dynamic> body}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -27,7 +27,7 @@ class _AuthApi implements AuthApi {
     final _data = <String, dynamic>{};
     _data.addAll(body);
     final _result = await _dio.fetch<Map<String, dynamic>?>(
-        _setStreamType<HttpResponse<SignInResponse>>(Options(
+        _setStreamType<HttpResponse<AuthenticateResponse>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -43,8 +43,9 @@ class _AuthApi implements AuthApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value =
-        _result.data == null ? null : SignInResponse.fromJson(_result.data!);
+    final value = _result.data == null
+        ? null
+        : AuthenticateResponse.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }
@@ -109,13 +110,11 @@ class _AuthApi implements AuthApi {
   }
 
   @override
-  Future<HttpResponse<AuthenticateResponse>> refreshToken(
-      {required Map<String, dynamic> body}) async {
+  Future<HttpResponse<AuthenticateResponse>> refreshToken() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(body);
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<AuthenticateResponse>>(Options(
       method: 'POST',
@@ -124,7 +123,7 @@ class _AuthApi implements AuthApi {
     )
             .compose(
               _dio.options,
-              '/auth/refresh-token',
+              '/auth/refreshToken',
               queryParameters: queryParameters,
               data: _data,
             )

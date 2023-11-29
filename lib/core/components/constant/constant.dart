@@ -1,4 +1,5 @@
 import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/enum/frequency.dart';
 import 'package:fit_life/core/components/extensions/string_extensions.dart';
 import 'package:fit_life/core/components/widgets/category/category_model.dart';
 import 'package:fit_life/core/config/color_config.dart';
@@ -94,6 +95,14 @@ class Constant {
     S.current.prompt8,
     S.current.prompt9,
     S.current.prompt10,
+  ];
+
+  static List<Frequency> durationConst = [
+    Frequency.much,
+    Frequency.veryMuch,
+    Frequency.average,
+    Frequency.little,
+    Frequency.notMuch,
   ];
 
   static List<CategoryModel> listCategory = <CategoryModel>[

@@ -9,21 +9,17 @@ part of 'auth_response.dart';
 _$_AuthenticateResponse _$$_AuthenticateResponseFromJson(
         Map<String, dynamic> json) =>
     _$_AuthenticateResponse(
-      message: json['message'] as String? ?? "",
-      isSuccess: json['isSuccess'] as bool? ?? false,
-      accessToken: json['accessToken'] as String? ?? "",
+      jwt: json['jwt'] as String? ?? "",
       refreshToken: json['refreshToken'] as String? ?? "",
-      role: json['role'] as String? ?? "",
-      expiredTime: json['expiredTime'] as int? ?? 0,
+      user: json['user'] == null
+          ? null
+          : UserModel.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_AuthenticateResponseToJson(
         _$_AuthenticateResponse instance) =>
     <String, dynamic>{
-      'message': instance.message,
-      'isSuccess': instance.isSuccess,
-      'accessToken': instance.accessToken,
+      'jwt': instance.jwt,
       'refreshToken': instance.refreshToken,
-      'role': instance.role,
-      'expiredTime': instance.expiredTime,
+      'user': instance.user,
     };

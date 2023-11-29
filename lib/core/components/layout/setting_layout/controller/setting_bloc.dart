@@ -138,6 +138,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     Emitter<SettingState> emit,
   ) {
     _settingUseCase.removeAccessToken();
+    _settingUseCase.removeRefreshToken();
     emit(_LogOutSuccess(data: data));
   }
 

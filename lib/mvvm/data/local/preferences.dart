@@ -23,6 +23,7 @@ class CommonAppSettingPref {
   static const String _branch = 'branch';
   static const String _userId = 'userId';
   static const String _passCode = 'passCode';
+  static const String _isCreated = 'isCreated';
 
   static const String _securePassword = 'secretAppKey';
   static const String _biometricLogin = 'biometricLogin';
@@ -95,6 +96,10 @@ class CommonAppSettingPref {
     return Preferences.setString(_refreshToken, value);
   }
 
+  static Future<bool> setIsCreated(bool value) {
+    return Preferences.setBool(_isCreated, value);
+  }
+
   static String getPassCode() {
     return Preferences.getString(_passCode) ?? '';
   }
@@ -109,6 +114,10 @@ class CommonAppSettingPref {
 
   static String getRefreshToken() {
     return Preferences.getString(_refreshToken) ?? '';
+  }
+
+  static bool getIsCreated() {
+    return Preferences.getBool(_isCreated);
   }
 
   static Future<bool> setExpiredTime(int value) {

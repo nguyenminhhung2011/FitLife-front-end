@@ -9,59 +9,63 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dio/dio.dart' as _i14;
+import 'package:dio/dio.dart' as _i12;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../clean_architectures/domain/usecase/setting/setting_usecase.dart'
-    as _i31;
-import '../../mvvm/data/remote/auth/auth_api.dart' as _i39;
-import '../../mvvm/data/remote/plan/plan_api.dart' as _i24;
-import '../../mvvm/repo/auth_repositories.dart' as _i4;
-import '../../mvvm/repo/calories_repositories.dart' as _i7;
-import '../../mvvm/repo/chat_repositories.dart' as _i10;
-import '../../mvvm/repo/exercise_repositories.dart' as _i17;
-import '../../mvvm/repo/plan_repositories.dart' as _i27;
-import '../../mvvm/repo/repo_impl/auth_repositories_impl.dart' as _i5;
-import '../../mvvm/repo/repo_impl/calories_repositories_impl.dart' as _i8;
-import '../../mvvm/repo/repo_impl/chat_repositories_impl.dart' as _i11;
-import '../../mvvm/repo/repo_impl/exercise_repositories_impl.dart' as _i18;
-import '../../mvvm/repo/repo_impl/plan_repositories_impl.dart' as _i28;
-import '../../mvvm/repo/repo_impl/session_repositories_impl.dart' as _i30;
-import '../../mvvm/repo/session_repositories.dart' as _i29;
+    as _i43;
+import '../../mvvm/data/remote/auth/auth_api.dart' as _i40;
+import '../../mvvm/data/remote/plan/plan_api.dart' as _i23;
+import '../../mvvm/data/remote/user/user_api.dart' as _i35;
+import '../../mvvm/repo/auth_repositories.dart' as _i41;
+import '../../mvvm/repo/calories_repositories.dart' as _i5;
+import '../../mvvm/repo/chat_repositories.dart' as _i8;
+import '../../mvvm/repo/exercise_repositories.dart' as _i15;
+import '../../mvvm/repo/plan_repositories.dart' as _i26;
+import '../../mvvm/repo/repo_impl/auth_repositories_impl.dart' as _i42;
+import '../../mvvm/repo/repo_impl/calories_repositories_impl.dart' as _i6;
+import '../../mvvm/repo/repo_impl/chat_repositories_impl.dart' as _i9;
+import '../../mvvm/repo/repo_impl/exercise_repositories_impl.dart' as _i16;
+import '../../mvvm/repo/repo_impl/plan_repositories_impl.dart' as _i27;
+import '../../mvvm/repo/repo_impl/session_repositories_impl.dart' as _i29;
+import '../../mvvm/repo/repo_impl/user_repositories_impl.dart' as _i37;
+import '../../mvvm/repo/session_repositories.dart' as _i28;
+import '../../mvvm/repo/user_repositories.dart' as _i36;
 import '../../mvvm/ui/all_exercise/view_model/all_exercise_view_model.dart'
     as _i3;
-import '../../mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart' as _i32;
-import '../../mvvm/ui/auth/view_model/sign_up/sign_up_view_model.dart' as _i33;
-import '../../mvvm/ui/calendar/view_model/calendar_view_model.dart' as _i6;
-import '../../mvvm/ui/chat_bot/view_model/chat_bot_view_model.dart' as _i9;
-import '../../mvvm/ui/dashboard/view_model/dashboard_view_model.dart' as _i13;
+import '../../mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart' as _i30;
+import '../../mvvm/ui/auth/view_model/sign_up/sign_up_view_model.dart' as _i31;
+import '../../mvvm/ui/calendar/view_model/calendar_view_model.dart' as _i4;
+import '../../mvvm/ui/chat_bot/view_model/chat_bot_view_model.dart' as _i7;
+import '../../mvvm/ui/dashboard/view_model/dashboard_view_model.dart' as _i11;
 import '../../mvvm/ui/execise_detail/view_model/exercise_detail_view_model.dart'
-    as _i15;
+    as _i13;
 import '../../mvvm/ui/exercise_schedule/view_model/exercise_overview_view_model.dart'
-    as _i16;
+    as _i14;
 import '../../mvvm/ui/fit_overview/view_model/fit_overview_view_model.dart'
-    as _i19;
+    as _i17;
 import '../../mvvm/ui/notification/view_model/notification_view_model.dart'
-    as _i22;
-import '../../mvvm/ui/overview/view_model/overview_view_model.dart' as _i23;
-import '../../mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart'
-    as _i25;
-import '../../mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart'
-    as _i26;
-import '../../mvvm/ui/plan_overview/view_model/view_more/view_more_plan_view_model.dart'
-    as _i37;
-import '../../mvvm/ui/recommend_plan/view_model/group_exercise_view_model.dart'
     as _i20;
-import '../../mvvm/ui/splash/view_model/splash_view_model.dart' as _i35;
-import '../../mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart' as _i38;
+import '../../mvvm/ui/onboarding/view_model/onboarding_view_model.dart' as _i21;
+import '../../mvvm/ui/overview/view_model/overview_view_model.dart' as _i22;
+import '../../mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart'
+    as _i24;
+import '../../mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart'
+    as _i25;
+import '../../mvvm/ui/plan_overview/view_model/view_more/view_more_plan_view_model.dart'
+    as _i38;
+import '../../mvvm/ui/recommend_plan/view_model/group_exercise_view_model.dart'
+    as _i18;
+import '../../mvvm/ui/splash/view_model/splash_view_model.dart' as _i33;
+import '../../mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart' as _i39;
 import '../components/layout/setting_layout/controller/setting_bloc.dart'
-    as _i40;
-import '../services/cloundinary_service.dart' as _i12;
-import '../services/image_pic_service.dart' as _i21;
-import '../services/speach_text_service.dart' as _i34;
-import '../services/text_speech_service.dart' as _i36;
-import 'modules/data_source_module.dart' as _i41;
+    as _i44;
+import '../services/cloundinary_service.dart' as _i10;
+import '../services/image_pic_service.dart' as _i19;
+import '../services/speach_text_service.dart' as _i32;
+import '../services/text_speech_service.dart' as _i34;
+import 'modules/data_source_module.dart' as _i45;
 
 const String _prod = 'prod';
 
@@ -82,49 +86,55 @@ _i1.GetIt init(
     _,
   ) =>
       _i3.AllExerciseViewModel(categoryId: categoryId));
-  gh.factory<_i4.AuthRepositories>(() => _i5.AuthRepositoriesImpl());
-  gh.factory<_i6.CalendarViewModel>(() => _i6.CalendarViewModel());
-  gh.factory<_i7.CaloriesRepositories>(() => _i8.CaloriesRepositoriesImpl());
-  gh.factory<_i9.ChatBotViewModel>(() => _i9.ChatBotViewModel());
-  gh.factory<_i10.ChatRepositories>(() => _i11.ChatRepositoriesImpl());
-  gh.factory<_i12.CloundinaryService>(() => _i12.CloundinaryService());
-  gh.factory<_i13.DashboardViewModel>(() => _i13.DashboardViewModel(gh<int>()));
-  gh.factory<_i14.Dio>(
+  gh.factory<_i4.CalendarViewModel>(() => _i4.CalendarViewModel());
+  gh.factory<_i5.CaloriesRepositories>(() => _i6.CaloriesRepositoriesImpl());
+  gh.factory<_i7.ChatBotViewModel>(() => _i7.ChatBotViewModel());
+  gh.factory<_i8.ChatRepositories>(() => _i9.ChatRepositoriesImpl());
+  gh.factory<_i10.CloundinaryService>(() => _i10.CloundinaryService());
+  gh.factory<_i11.DashboardViewModel>(() => _i11.DashboardViewModel(gh<int>()));
+  gh.factory<_i12.Dio>(
     () => dataSourceModule.dioProd(),
     registerFor: {_prod},
   );
-  gh.factory<_i15.ExerciseDetailViewModel>(
-      () => _i15.ExerciseDetailViewModel());
-  gh.factoryParam<_i16.ExerciseOverviewViewModel, String, dynamic>((
+  gh.factory<_i13.ExerciseDetailViewModel>(
+      () => _i13.ExerciseDetailViewModel());
+  gh.factoryParam<_i14.ExerciseOverviewViewModel, String, dynamic>((
     sessionId,
     _,
   ) =>
-      _i16.ExerciseOverviewViewModel(sessionId: sessionId));
-  gh.factory<_i17.ExerciseRepositories>(() => _i18.ExerciseRepositoriesImpl());
-  gh.factory<_i19.FitOverViewViewModel>(() => _i19.FitOverViewViewModel());
-  gh.factory<_i20.GroupExerciseViewModel>(() => _i20.GroupExerciseViewModel());
-  gh.factory<_i21.ImagePicService>(() => _i21.ImagePicService());
-  gh.factory<_i22.NotificationViewModel>(
-      () => _i22.NotificationViewModel(gh<_i22.NotificationState>()));
-  gh.factory<_i23.OverviewViewModel>(() => _i23.OverviewViewModel());
-  gh.factory<_i24.PlanApi>(() => _i24.PlanApi(gh<_i14.Dio>()));
-  gh.factory<_i25.PlanDetailViewModel>(() => _i25.PlanDetailViewModel());
-  gh.factory<_i26.PlanOverViewViewModel>(() => _i26.PlanOverViewViewModel());
-  gh.factory<_i27.PlanRepositories>(
-      () => _i28.PlanRepositoriesImpl(gh<_i24.PlanApi>()));
-  gh.factory<_i29.SessionRepositories>(() => _i30.SessionRepositoriesImpl());
-  gh.factory<_i31.SettingUseCase>(() => _i31.SettingUseCase());
-  gh.factory<_i32.SignInViewModel>(() => _i32.SignInViewModel());
-  gh.factory<_i33.SignUpViewModel>(() => _i33.SignUpViewModel());
-  gh.factory<_i34.SpeechTextService>(() => _i34.SpeechTextService());
-  gh.factory<_i35.SplashViewModel>(() => _i35.SplashViewModel());
-  gh.factory<_i36.TextSpeechService>(() => _i36.TextSpeechService());
-  gh.factory<_i37.ViewMorePlanViewModel>(() => _i37.ViewMorePlanViewModel());
-  gh.factory<_i38.WooTrackViewModel>(() => _i38.WooTrackViewModel());
-  gh.factory<_i39.AuthApi>(() => _i39.AuthApi(gh<_i14.Dio>()));
-  gh.factory<_i40.SettingBloc>(
-      () => _i40.SettingBloc(gh<_i31.SettingUseCase>()));
+      _i14.ExerciseOverviewViewModel(sessionId: sessionId));
+  gh.factory<_i15.ExerciseRepositories>(() => _i16.ExerciseRepositoriesImpl());
+  gh.factory<_i17.FitOverViewViewModel>(() => _i17.FitOverViewViewModel());
+  gh.factory<_i18.GroupExerciseViewModel>(() => _i18.GroupExerciseViewModel());
+  gh.factory<_i19.ImagePicService>(() => _i19.ImagePicService());
+  gh.factory<_i20.NotificationViewModel>(
+      () => _i20.NotificationViewModel(gh<_i20.NotificationState>()));
+  gh.factory<_i21.OnboardingViewModel>(() => _i21.OnboardingViewModel());
+  gh.factory<_i22.OverviewViewModel>(() => _i22.OverviewViewModel());
+  gh.factory<_i23.PlanApi>(() => _i23.PlanApi(gh<_i12.Dio>()));
+  gh.factory<_i24.PlanDetailViewModel>(() => _i24.PlanDetailViewModel());
+  gh.factory<_i25.PlanOverViewViewModel>(() => _i25.PlanOverViewViewModel());
+  gh.factory<_i26.PlanRepositories>(
+      () => _i27.PlanRepositoriesImpl(gh<_i23.PlanApi>()));
+  gh.factory<_i28.SessionRepositories>(() => _i29.SessionRepositoriesImpl());
+  gh.factory<_i30.SignInViewModel>(() => _i30.SignInViewModel());
+  gh.factory<_i31.SignUpViewModel>(() => _i31.SignUpViewModel());
+  gh.factory<_i32.SpeechTextService>(() => _i32.SpeechTextService());
+  gh.factory<_i33.SplashViewModel>(() => _i33.SplashViewModel());
+  gh.factory<_i34.TextSpeechService>(() => _i34.TextSpeechService());
+  gh.factory<_i35.UserApi>(() => _i35.UserApi(gh<_i12.Dio>()));
+  gh.factory<_i36.UserRepositories>(
+      () => _i37.UserRepositoriesImpl(gh<_i35.UserApi>()));
+  gh.factory<_i38.ViewMorePlanViewModel>(() => _i38.ViewMorePlanViewModel());
+  gh.factory<_i39.WooTrackViewModel>(() => _i39.WooTrackViewModel());
+  gh.factory<_i40.AuthApi>(() => _i40.AuthApi(gh<_i12.Dio>()));
+  gh.factory<_i41.AuthRepositories>(
+      () => _i42.AuthRepositoriesImpl(gh<_i40.AuthApi>()));
+  gh.factory<_i43.SettingUseCase>(
+      () => _i43.SettingUseCase(gh<_i36.UserRepositories>()));
+  gh.factory<_i44.SettingBloc>(
+      () => _i44.SettingBloc(gh<_i43.SettingUseCase>()));
   return getIt;
 }
 
-class _$DataSourceModule extends _i41.DataSourceModule {}
+class _$DataSourceModule extends _i45.DataSourceModule {}

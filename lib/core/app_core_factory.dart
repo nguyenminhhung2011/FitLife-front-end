@@ -35,11 +35,22 @@ class AppCoreFactory {
 }
 
 class TokenInterceptor implements Interceptor {
-  // final AuthApi _authApi = injector.get<AuthApi>();
-
   @override
   // ignore: deprecated_member_use
   void onError(DioError err, ErrorInterceptorHandler handler) async {
+    log("🐛[Dio error] ${err.message}");
+    if (err.message?.contains("401") ?? false) {
+      try {
+        final response = await injector.get<AuthApi>().refreshToken();
+        if (response.response.statusCode == HttpStatus.ok) {
+          final responseData = response.data;
+          await CommonAppSettingPref.setAccessToken(responseData.jwt);
+          await CommonAppSettingPref.setRefreshToken(responseData.refreshToken);
+        }
+      } catch (_) {
+        ///[Do something]
+      }
+    }
     return handler.next(err);
   }
 
@@ -48,45 +59,24 @@ class TokenInterceptor implements Interceptor {
       RequestOptions options, RequestInterceptorHandler handler) async {
     String accessToken = CommonAppSettingPref.getAccessToken();
     String refreshToken = CommonAppSettingPref.getRefreshToken();
-    int expiredTime = CommonAppSettingPref.getExpiredTime();
+    log("🌐[Optional] ${options.path}");
+    log('🎉[Access] $accessToken\n🎉[Refresh] $refreshToken');
 
-    log('🌟[Access] $accessToken\n[Refresh] $refreshToken');
+    ///[✏️ Config time out]
+    options.connectTimeout = const Duration(seconds: 30);
+    options.receiveTimeout = const Duration(seconds: 30);
 
-    if (accessToken.isEmpty || refreshToken.isEmpty || expiredTime == -1) {
+    if (accessToken.isEmpty || refreshToken.isEmpty) {
       return handler.next(options);
     }
-
-    final expiredTimeParsed = DateTime.fromMillisecondsSinceEpoch(expiredTime);
-    final isExpired = DateTime.now().isAfter(expiredTimeParsed);
-
-    if (isExpired) {
-      ///[Warning] if don't have this line code render dio call => duplicate
-      await CommonAppSettingPref.setExpiredTime(-1);
-      try {
-        final response = await injector.get<AuthApi>().refreshToken(body: {
-          'refreshToken': refreshToken,
-          'timezone': "7",
-        });
-        if (response.response.statusCode == HttpStatus.ok &&
-            response.data.isSuccess) {
-          final responseData = response.data;
-          options.headers["Authorization"] =
-              "Bearer ${responseData.accessToken}";
-          await CommonAppSettingPref.setAccessToken(responseData.accessToken);
-          await CommonAppSettingPref.setRefreshToken(responseData.refreshToken);
-          await CommonAppSettingPref.setExpiredTime(responseData.expiredTime);
-          // return handler.next(options);
-        } else {
-          log("Logging out");
-        }
-      } catch (e) {
-        log(e.toString());
-        return;
-      }
-    } else {
-      options.headers["Authorization"] = "Bearer $accessToken";
-      return handler.next(options);
+    if (options.path.contains("refreshToken")) {
+      options.headers["Authorization"] = "Bearer $refreshToken";
+      handler.next(options);
     }
+
+    options.headers["Authorization"] =
+        "Bearer ${CommonAppSettingPref.getAccessToken()}";
+    return handler.next(options);
   }
 
   @override

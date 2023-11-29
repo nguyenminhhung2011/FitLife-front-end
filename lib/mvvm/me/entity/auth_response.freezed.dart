@@ -20,12 +20,9 @@ AuthenticateResponse _$AuthenticateResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AuthenticateResponse {
-  String get message => throw _privateConstructorUsedError;
-  bool get isSuccess => throw _privateConstructorUsedError;
-  String get accessToken => throw _privateConstructorUsedError;
+  String get jwt => throw _privateConstructorUsedError;
   String get refreshToken => throw _privateConstructorUsedError;
-  String get role => throw _privateConstructorUsedError;
-  int get expiredTime => throw _privateConstructorUsedError;
+  UserModel? get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,13 +36,7 @@ abstract class $AuthenticateResponseCopyWith<$Res> {
           $Res Function(AuthenticateResponse) then) =
       _$AuthenticateResponseCopyWithImpl<$Res, AuthenticateResponse>;
   @useResult
-  $Res call(
-      {String message,
-      bool isSuccess,
-      String accessToken,
-      String refreshToken,
-      String role,
-      int expiredTime});
+  $Res call({String jwt, String refreshToken, UserModel? user});
 }
 
 /// @nodoc
@@ -62,38 +53,23 @@ class _$AuthenticateResponseCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
-    Object? isSuccess = null,
-    Object? accessToken = null,
+    Object? jwt = null,
     Object? refreshToken = null,
-    Object? role = null,
-    Object? expiredTime = null,
+    Object? user = freezed,
   }) {
     return _then(_value.copyWith(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      isSuccess: null == isSuccess
-          ? _value.isSuccess
-          : isSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      accessToken: null == accessToken
-          ? _value.accessToken
-          : accessToken // ignore: cast_nullable_to_non_nullable
+      jwt: null == jwt
+          ? _value.jwt
+          : jwt // ignore: cast_nullable_to_non_nullable
               as String,
       refreshToken: null == refreshToken
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
               as String,
-      role: null == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
-              as String,
-      expiredTime: null == expiredTime
-          ? _value.expiredTime
-          : expiredTime // ignore: cast_nullable_to_non_nullable
-              as int,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
     ) as $Val);
   }
 }
@@ -106,13 +82,7 @@ abstract class _$$_AuthenticateResponseCopyWith<$Res>
       __$$_AuthenticateResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String message,
-      bool isSuccess,
-      String accessToken,
-      String refreshToken,
-      String role,
-      int expiredTime});
+  $Res call({String jwt, String refreshToken, UserModel? user});
 }
 
 /// @nodoc
@@ -126,38 +96,23 @@ class __$$_AuthenticateResponseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
-    Object? isSuccess = null,
-    Object? accessToken = null,
+    Object? jwt = null,
     Object? refreshToken = null,
-    Object? role = null,
-    Object? expiredTime = null,
+    Object? user = freezed,
   }) {
     return _then(_$_AuthenticateResponse(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      isSuccess: null == isSuccess
-          ? _value.isSuccess
-          : isSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      accessToken: null == accessToken
-          ? _value.accessToken
-          : accessToken // ignore: cast_nullable_to_non_nullable
+      jwt: null == jwt
+          ? _value.jwt
+          : jwt // ignore: cast_nullable_to_non_nullable
               as String,
       refreshToken: null == refreshToken
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
               as String,
-      role: null == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
-              as String,
-      expiredTime: null == expiredTime
-          ? _value.expiredTime
-          : expiredTime // ignore: cast_nullable_to_non_nullable
-              as int,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
     ));
   }
 }
@@ -166,38 +121,23 @@ class __$$_AuthenticateResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AuthenticateResponse implements _AuthenticateResponse {
   const _$_AuthenticateResponse(
-      {this.message = "",
-      this.isSuccess = false,
-      this.accessToken = "",
-      this.refreshToken = "",
-      this.role = "",
-      this.expiredTime = 0});
+      {this.jwt = "", this.refreshToken = "", this.user});
 
   factory _$_AuthenticateResponse.fromJson(Map<String, dynamic> json) =>
       _$$_AuthenticateResponseFromJson(json);
 
   @override
   @JsonKey()
-  final String message;
-  @override
-  @JsonKey()
-  final bool isSuccess;
-  @override
-  @JsonKey()
-  final String accessToken;
+  final String jwt;
   @override
   @JsonKey()
   final String refreshToken;
   @override
-  @JsonKey()
-  final String role;
-  @override
-  @JsonKey()
-  final int expiredTime;
+  final UserModel? user;
 
   @override
   String toString() {
-    return 'AuthenticateResponse(message: $message, isSuccess: $isSuccess, accessToken: $accessToken, refreshToken: $refreshToken, role: $role, expiredTime: $expiredTime)';
+    return 'AuthenticateResponse(jwt: $jwt, refreshToken: $refreshToken, user: $user)';
   }
 
   @override
@@ -205,22 +145,15 @@ class _$_AuthenticateResponse implements _AuthenticateResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AuthenticateResponse &&
-            (identical(other.message, message) || other.message == message) &&
-            (identical(other.isSuccess, isSuccess) ||
-                other.isSuccess == isSuccess) &&
-            (identical(other.accessToken, accessToken) ||
-                other.accessToken == accessToken) &&
+            (identical(other.jwt, jwt) || other.jwt == jwt) &&
             (identical(other.refreshToken, refreshToken) ||
                 other.refreshToken == refreshToken) &&
-            (identical(other.role, role) || other.role == role) &&
-            (identical(other.expiredTime, expiredTime) ||
-                other.expiredTime == expiredTime));
+            (identical(other.user, user) || other.user == user));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, message, isSuccess, accessToken,
-      refreshToken, role, expiredTime);
+  int get hashCode => Object.hash(runtimeType, jwt, refreshToken, user);
 
   @JsonKey(ignore: true)
   @override
@@ -239,28 +172,19 @@ class _$_AuthenticateResponse implements _AuthenticateResponse {
 
 abstract class _AuthenticateResponse implements AuthenticateResponse {
   const factory _AuthenticateResponse(
-      {final String message,
-      final bool isSuccess,
-      final String accessToken,
+      {final String jwt,
       final String refreshToken,
-      final String role,
-      final int expiredTime}) = _$_AuthenticateResponse;
+      final UserModel? user}) = _$_AuthenticateResponse;
 
   factory _AuthenticateResponse.fromJson(Map<String, dynamic> json) =
       _$_AuthenticateResponse.fromJson;
 
   @override
-  String get message;
-  @override
-  bool get isSuccess;
-  @override
-  String get accessToken;
+  String get jwt;
   @override
   String get refreshToken;
   @override
-  String get role;
-  @override
-  int get expiredTime;
+  UserModel? get user;
   @override
   @JsonKey(ignore: true)
   _$$_AuthenticateResponseCopyWith<_$_AuthenticateResponse> get copyWith =>

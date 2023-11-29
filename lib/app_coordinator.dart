@@ -1,4 +1,5 @@
 import 'package:fit_life/core/components/layout/setting_layout/views/widgets/bottom_change_paassword.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/all_pt_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/setting_exercise_bottom.dart';
 import 'package:fit_life/mvvm/ui/health_overview/ob/health_overview_row.dart';
 import 'package:fit_life/mvvm/ui/health_overview/views/bottom_edit_infor.dart';
@@ -27,8 +28,7 @@ extension AppCoordinator<T> on BuildContext {
     final snackBar = SnackBar(
       content: Text(
         title,
-        style: titleSmall.copyWith(
-            fontWeight: FontWeight.w500, color: Colors.white),
+        style: titleSmall.copyWith(fontWeight: FontWeight.w500),
       ),
       backgroundColor: Theme.of(this).cardColor,
     );
@@ -239,6 +239,24 @@ extension AppCoordinator<T> on BuildContext {
       return data;
     }
     return '';
+  }
+
+  Future<String> selectChatPt() async {
+    final data = await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(14)),
+      ),
+      backgroundColor: Theme.of(this).scaffoldBackgroundColor,
+      builder: (context) {
+        return const AllPtView();
+      },
+    );
+    if (data is String) {
+      return data;
+    }
+    return "";
   }
 
   Future<List<DateTime>?> pickWeekRange(

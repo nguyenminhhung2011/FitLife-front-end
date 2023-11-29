@@ -71,7 +71,7 @@ class TokenInterceptor implements Interceptor {
     }
     if (options.path.contains("refreshToken")) {
       options.headers["Authorization"] = "Bearer $refreshToken";
-      handler.next(options);
+      return handler.next(options);
     }
 
     options.headers["Authorization"] =

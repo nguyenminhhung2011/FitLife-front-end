@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:drag_ball/drag_ball.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot_data.dart';
@@ -12,12 +13,13 @@ import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/input_widget.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/message_item.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-enum ChatActions { regenerate, clear, share }
+enum ChatActions { regenerate, clear, share, changeChatPt }
 
 extension ChatActionsExt on ChatActions {
   String get toDisplayText => switch (this) {
         ChatActions.clear => "Clear conversation",
         ChatActions.regenerate => "Regenerate response",
+        ChatActions.changeChatPt => "Change chat pt",
         _ => "Share"
       };
 }
@@ -92,6 +94,10 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
     if (dialog) {
       _vm.deleteMessage(messageId: messageId.toString());
     }
+  }
+
+  void _changeChatPt() async {
+    final show = await context.selectChatPt();
   }
 
   @override
@@ -174,6 +180,8 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
               switch (item) {
                 case ChatActions.clear:
                   _onClearConversation();
+                case ChatActions.changeChatPt:
+                  _changeChatPt();
                 case ChatActions.regenerate:
                   _vm.reSendMessage();
 
@@ -183,8 +191,12 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
             },
             itemBuilder: (BuildContext context) =>
                 <PopupMenuEntry<ChatActions>>[
-              ...[ChatActions.regenerate, ChatActions.share, ChatActions.clear]
-                  .map(
+              ...[
+                ChatActions.regenerate,
+                ChatActions.share,
+                ChatActions.clear,
+                ChatActions.changeChatPt
+              ].map(
                 (e) => PopupMenuItem<ChatActions>(
                   value: e,
                   child: Text(e.toDisplayText, style: context.titleMedium),
@@ -199,8 +211,35 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
           Expanded(
             child: ListView.builder(
               reverse: true,
-              itemCount: _data.messages.length,
+              itemCount: _data.messages.length + 1,
               itemBuilder: (_, index) {
+                if (index == _data.messages.length) {
+                  return Container(
+                    width: double.infinity,
+                    margin: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(15.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 5.0,
+                          color: Theme.of(context).shadowColor.withOpacity(0.1),
+                        )
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(50.0),
+                          child: Image.asset(ImageConst.avatar,
+                              width: 60.0, height: 60.0),
+                        ),
+                        const SizedBox(width: 10.0),
+                      ],
+                    ),
+                  );
+                }
                 final message = _data.messages[index];
                 return MessageItem(
                   isBot: message.type.isSystem || message.type.isAssistant,

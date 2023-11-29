@@ -6,6 +6,7 @@ import 'package:fit_life/mvvm/ui/calendar/views/calendar_view.dart';
 import 'package:fit_life/mvvm/ui/category/views/category_view.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/session_plan_view.dart';
+import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_view_model.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_overview_view.dart';
 import 'package:fit_life/mvvm/ui/health_overview/views/health_overview_view.dart';
 import 'package:fit_life/mvvm/ui/notification/views/notification_view.dart';
@@ -50,7 +51,7 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const OnboardingScreen();
+            return const ProviderScope(child: OnboardingScreen());
           },
         );
       case Routes.addNewExercise:
@@ -184,7 +185,22 @@ class MainRoutes {
       case Routes.exerciseOverview:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: ExerciseOverviewView()),
+          builder: (_) {
+            if (settings.arguments is String) {
+              return ProviderScope(
+                overrides: [
+                  exerciseOverviewStateNotifier =
+                      AutoDisposeStateNotifierProvider(
+                    (ref) => injector.get<ExerciseOverviewViewModel>(
+                      param1: settings.arguments,
+                    ),
+                  )
+                ],
+                child: const ExerciseOverviewView(),
+              );
+            }
+            return const SizedBox();
+          },
         );
 
       default:

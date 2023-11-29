@@ -38,8 +38,13 @@ class _SplashViewState extends ConsumerState<SplashView> {
     ref.listen<SplashState>(splashStateNotifier, (previous, next) {
       next.maybeWhen(
         orElse: () {},
-        isAuth: (_) {
+        isAuth: (_, isCreated) {
           log("🌟🌟 Is auth");
+          if (isCreated) {
+            context.pushAndRemoveAll(Routes.dashboard);
+          } else {
+            context.pushAndRemoveAll(Routes.onboarding);
+          }
         },
         isNotAuth: (_) {
           log("🐛🐛  Is not auth");

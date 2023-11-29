@@ -37,7 +37,7 @@ class _SelectDurationScreenState extends State<SelectDurationScreen> {
       description: S.of(context).durationExerciseDesc,
       child: Column(
         children: List.generate(
-          durationList.length,
+          Constant.durationConst.length,
           (index) => Column(
             children: [
               SelectDurationButton(

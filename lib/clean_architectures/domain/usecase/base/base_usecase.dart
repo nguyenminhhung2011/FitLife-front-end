@@ -19,6 +19,10 @@ abstract class BaseUseCase<T> {
     CommonAppSettingPref.removeAccessToken();
   }
 
+  void removeRefreshToken() {
+    CommonAppSettingPref.removeRefreshToken();
+  }
+
   void removePassCode() {
     CommonAppSettingPref.removePassCode();
   }

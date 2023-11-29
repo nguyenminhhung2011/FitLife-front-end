@@ -1,4 +1,5 @@
 import 'package:fit_life/core/components/layout/setting_layout/views/widgets/bottom_change_paassword.dart';
+import 'package:fit_life/mvvm/ui/exercise_schedule/views/setting_exercise_bottom.dart';
 import 'package:fit_life/mvvm/ui/health_overview/ob/health_overview_row.dart';
 import 'package:fit_life/mvvm/ui/health_overview/views/bottom_edit_infor.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/view_more_plan.dart';
@@ -29,7 +30,7 @@ extension AppCoordinator<T> on BuildContext {
         style: titleSmall.copyWith(
             fontWeight: FontWeight.w500, color: Colors.white),
       ),
-      backgroundColor: Theme.of(this).primaryColor,
+      backgroundColor: Theme.of(this).cardColor,
     );
 
     ScaffoldMessenger.of(this).showSnackBar(snackBar);
@@ -141,6 +142,20 @@ extension AppCoordinator<T> on BuildContext {
       return data;
     }
     return List<FilterResponse>.empty();
+  }
+
+  Future<void> settingExerciseBottom() async {
+    final bottom = await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(14.0)),
+      ),
+      backgroundColor: Theme.of(this).scaffoldBackgroundColor,
+      builder: (context) {
+        return const SettingExerciseBottom();
+      },
+    );
   }
 
   Future<dynamic> bottomEditInformation(

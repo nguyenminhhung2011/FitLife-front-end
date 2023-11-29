@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/data/local/preferences.dart';
 import 'package:fit_life/mvvm/me/entity/upcoming_session/upcoming_session.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_data.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_view_model.dart';
@@ -86,6 +87,7 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
             headerText: S.of(context).feature,
             textStyle: _headerStyle,
             isShowSeeMore: true,
+            onPress: () async => CommonAppSettingPref.setIsCreated(false),
           ),
           SwipeCustom(
             itemCount: 3,

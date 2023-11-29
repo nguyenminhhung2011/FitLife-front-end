@@ -18,7 +18,8 @@ class TodayExerciseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.openListPageWithRoute(Routes.exerciseOverview),
+      onTap: () => context.openPageWithRouteAndParams(
+          Routes.exerciseOverview, "sessionPlanId"),
       child: Container(
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 15.0),

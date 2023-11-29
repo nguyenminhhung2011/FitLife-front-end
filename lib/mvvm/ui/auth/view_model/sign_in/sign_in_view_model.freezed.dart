@@ -21,7 +21,7 @@ mixin _$SignInState {
   TResult when<TResult extends Object?>({
     required TResult Function(SignInData data) initial,
     required TResult Function(SignInData data) loading,
-    required TResult Function(SignInData data) signInSuccess,
+    required TResult Function(SignInData data, bool isCreated) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
     required TResult Function(SignInData data) inValidFormat,
   }) =>
@@ -30,7 +30,7 @@ mixin _$SignInState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SignInData data)? initial,
     TResult? Function(SignInData data)? loading,
-    TResult? Function(SignInData data)? signInSuccess,
+    TResult? Function(SignInData data, bool isCreated)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
     TResult? Function(SignInData data)? inValidFormat,
   }) =>
@@ -39,7 +39,7 @@ mixin _$SignInState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SignInData data)? initial,
     TResult Function(SignInData data)? loading,
-    TResult Function(SignInData data)? signInSuccess,
+    TResult Function(SignInData data, bool isCreated)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
     TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),
@@ -191,7 +191,7 @@ class _$_Initial extends _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function(SignInData data) initial,
     required TResult Function(SignInData data) loading,
-    required TResult Function(SignInData data) signInSuccess,
+    required TResult Function(SignInData data, bool isCreated) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
     required TResult Function(SignInData data) inValidFormat,
   }) {
@@ -203,7 +203,7 @@ class _$_Initial extends _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SignInData data)? initial,
     TResult? Function(SignInData data)? loading,
-    TResult? Function(SignInData data)? signInSuccess,
+    TResult? Function(SignInData data, bool isCreated)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
     TResult? Function(SignInData data)? inValidFormat,
   }) {
@@ -215,7 +215,7 @@ class _$_Initial extends _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SignInData data)? initial,
     TResult Function(SignInData data)? loading,
-    TResult Function(SignInData data)? signInSuccess,
+    TResult Function(SignInData data, bool isCreated)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
     TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),
@@ -348,7 +348,7 @@ class _$_Loading extends _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function(SignInData data) initial,
     required TResult Function(SignInData data) loading,
-    required TResult Function(SignInData data) signInSuccess,
+    required TResult Function(SignInData data, bool isCreated) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
     required TResult Function(SignInData data) inValidFormat,
   }) {
@@ -360,7 +360,7 @@ class _$_Loading extends _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SignInData data)? initial,
     TResult? Function(SignInData data)? loading,
-    TResult? Function(SignInData data)? signInSuccess,
+    TResult? Function(SignInData data, bool isCreated)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
     TResult? Function(SignInData data)? inValidFormat,
   }) {
@@ -372,7 +372,7 @@ class _$_Loading extends _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SignInData data)? initial,
     TResult Function(SignInData data)? loading,
-    TResult Function(SignInData data)? signInSuccess,
+    TResult Function(SignInData data, bool isCreated)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
     TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),
@@ -444,7 +444,7 @@ abstract class _$$_SignInSuccessCopyWith<$Res>
       __$$_SignInSuccessCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({SignInData data});
+  $Res call({SignInData data, bool isCreated});
 
   @override
   $SignInDataCopyWith<$Res> get data;
@@ -462,12 +462,17 @@ class __$$_SignInSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? isCreated = null,
   }) {
     return _then(_$_SignInSuccess(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as SignInData,
+      isCreated: null == isCreated
+          ? _value.isCreated
+          : isCreated // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -475,14 +480,17 @@ class __$$_SignInSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SignInSuccess extends _SignInSuccess {
-  const _$_SignInSuccess({required this.data}) : super._();
+  const _$_SignInSuccess({required this.data, required this.isCreated})
+      : super._();
 
   @override
   final SignInData data;
+  @override
+  final bool isCreated;
 
   @override
   String toString() {
-    return 'SignInState.signInSuccess(data: $data)';
+    return 'SignInState.signInSuccess(data: $data, isCreated: $isCreated)';
   }
 
   @override
@@ -490,11 +498,13 @@ class _$_SignInSuccess extends _SignInSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SignInSuccess &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.isCreated, isCreated) ||
+                other.isCreated == isCreated));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, isCreated);
 
   @JsonKey(ignore: true)
   @override
@@ -507,11 +517,11 @@ class _$_SignInSuccess extends _SignInSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(SignInData data) initial,
     required TResult Function(SignInData data) loading,
-    required TResult Function(SignInData data) signInSuccess,
+    required TResult Function(SignInData data, bool isCreated) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
     required TResult Function(SignInData data) inValidFormat,
   }) {
-    return signInSuccess(data);
+    return signInSuccess(data, isCreated);
   }
 
   @override
@@ -519,11 +529,11 @@ class _$_SignInSuccess extends _SignInSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SignInData data)? initial,
     TResult? Function(SignInData data)? loading,
-    TResult? Function(SignInData data)? signInSuccess,
+    TResult? Function(SignInData data, bool isCreated)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
     TResult? Function(SignInData data)? inValidFormat,
   }) {
-    return signInSuccess?.call(data);
+    return signInSuccess?.call(data, isCreated);
   }
 
   @override
@@ -531,13 +541,13 @@ class _$_SignInSuccess extends _SignInSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SignInData data)? initial,
     TResult Function(SignInData data)? loading,
-    TResult Function(SignInData data)? signInSuccess,
+    TResult Function(SignInData data, bool isCreated)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
     TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),
   }) {
     if (signInSuccess != null) {
-      return signInSuccess(data);
+      return signInSuccess(data, isCreated);
     }
     return orElse();
   }
@@ -584,12 +594,14 @@ class _$_SignInSuccess extends _SignInSuccess {
 }
 
 abstract class _SignInSuccess extends SignInState {
-  const factory _SignInSuccess({required final SignInData data}) =
-      _$_SignInSuccess;
+  const factory _SignInSuccess(
+      {required final SignInData data,
+      required final bool isCreated}) = _$_SignInSuccess;
   const _SignInSuccess._() : super._();
 
   @override
   SignInData get data;
+  bool get isCreated;
   @override
   @JsonKey(ignore: true)
   _$$_SignInSuccessCopyWith<_$_SignInSuccess> get copyWith =>
@@ -676,7 +688,7 @@ class _$_SignInFailed extends _SignInFailed {
   TResult when<TResult extends Object?>({
     required TResult Function(SignInData data) initial,
     required TResult Function(SignInData data) loading,
-    required TResult Function(SignInData data) signInSuccess,
+    required TResult Function(SignInData data, bool isCreated) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
     required TResult Function(SignInData data) inValidFormat,
   }) {
@@ -688,7 +700,7 @@ class _$_SignInFailed extends _SignInFailed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SignInData data)? initial,
     TResult? Function(SignInData data)? loading,
-    TResult? Function(SignInData data)? signInSuccess,
+    TResult? Function(SignInData data, bool isCreated)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
     TResult? Function(SignInData data)? inValidFormat,
   }) {
@@ -700,7 +712,7 @@ class _$_SignInFailed extends _SignInFailed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SignInData data)? initial,
     TResult Function(SignInData data)? loading,
-    TResult Function(SignInData data)? signInSuccess,
+    TResult Function(SignInData data, bool isCreated)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
     TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),
@@ -838,7 +850,7 @@ class _$_InvalidFormat extends _InvalidFormat {
   TResult when<TResult extends Object?>({
     required TResult Function(SignInData data) initial,
     required TResult Function(SignInData data) loading,
-    required TResult Function(SignInData data) signInSuccess,
+    required TResult Function(SignInData data, bool isCreated) signInSuccess,
     required TResult Function(SignInData data, String message) signInFailed,
     required TResult Function(SignInData data) inValidFormat,
   }) {
@@ -850,7 +862,7 @@ class _$_InvalidFormat extends _InvalidFormat {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SignInData data)? initial,
     TResult? Function(SignInData data)? loading,
-    TResult? Function(SignInData data)? signInSuccess,
+    TResult? Function(SignInData data, bool isCreated)? signInSuccess,
     TResult? Function(SignInData data, String message)? signInFailed,
     TResult? Function(SignInData data)? inValidFormat,
   }) {
@@ -862,7 +874,7 @@ class _$_InvalidFormat extends _InvalidFormat {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SignInData data)? initial,
     TResult Function(SignInData data)? loading,
-    TResult Function(SignInData data)? signInSuccess,
+    TResult Function(SignInData data, bool isCreated)? signInSuccess,
     TResult Function(SignInData data, String message)? signInFailed,
     TResult Function(SignInData data)? inValidFormat,
     required TResult orElse(),

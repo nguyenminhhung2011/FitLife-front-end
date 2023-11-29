@@ -6,6 +6,10 @@ import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/equipment_horizontal_item.dart';
 import 'package:fit_life/core/components/widgets/fit_life/exercise_vertial_item.dart';
+import 'package:fit_life/core/components/widgets/loading_page.dart';
+import 'package:fit_life/mvvm/me/entity/session/session.dart';
+import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_data.dart';
+import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_view_model.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,6 +25,16 @@ class ExerciseOverviewView extends ConsumerStatefulWidget {
 }
 
 class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
+  ExerciseOverviewViewModel get _vm =>
+      ref.read(exerciseOverviewStateNotifier.notifier);
+
+  ExerciseOverviewData get _data =>
+      ref.watch(exerciseOverviewStateNotifier).data;
+
+  ExerciseOverviewState get _state => ref.watch(exerciseOverviewStateNotifier);
+
+  Session? get _session => _data.sessionPlan;
+
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
 
   Color get _primaryColor => Theme.of(context).primaryColor;
@@ -31,20 +45,81 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
       context.titleSmall.copyWith(color: Theme.of(context).hintColor);
 
   @override
+  void initState() {
+    Future.delayed(Duration.zero, () async {
+      await _vm.getExerciseOverview();
+    });
+    super.initState();
+  }
+
+  void _listenStateChange(ExerciseOverviewState state) {
+    state.maybeWhen(
+      getSessionPlanFailed: (_, error) =>
+          context.showSnackBar("🐛[Get session plan] $error"),
+      orElse: () {},
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    ref.listen(
+        exerciseOverviewStateNotifier, (_, next) => _listenStateChange(next));
+    return Stack(
+      children: [
+        if (_session != null)
+          _body(context)
+        else
+          Scaffold(backgroundColor: _backgroundColor),
+        if (_state.loading)
+          Container(
+            color: Colors.black45,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Center(
+              child: StyleLoadingWidget.foldingCube.renderWidget(
+                  size: 40.0, color: Theme.of(context).primaryColor),
+            ),
+          )
+      ],
+    );
+  }
+
+  Scaffold _body(BuildContext context) {
     return Scaffold(
       backgroundColor: _backgroundColor,
       bottomSheet: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: ButtonCustom(
-          height: 45.0,
-          radius: 5.0,
-          onPress: () => context.openListPageWithRoute(Routes.previewExercise),
-          child: Text(
-            'Start practice',
-            style: context.titleMedium
-                .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
-          ),
+        child: Row(
+          children: [
+            ButtonCustom(
+              width: 45.0,
+              height: 45.0,
+              radius: 5.0,
+              onPress: () async {
+                await context.settingExerciseBottom();
+              },
+              child: const Icon(Icons.settings, color: Colors.white, size: 16),
+            ),
+            const SizedBox(width: 5.0),
+            Expanded(
+              child: ButtonCustom(
+                height: 45.0,
+                radius: 5.0,
+                onPress: () =>
+                    context.openListPageWithRoute(Routes.previewExercise),
+                child: Text(
+                  'Start practice',
+                  style: context.titleMedium.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
       body: CustomScrollView(
@@ -78,7 +153,7 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                 Padding(
                   padding: _padding,
                   child: Text(
-                    'Sessions 1',
+                    _session?.name ?? "",
                     style: context.titleLarge
                         .copyWith(fontWeight: FontWeight.bold, fontSize: 22.0),
                   ),
@@ -98,7 +173,7 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                 Padding(
                   padding: _padding,
                   child: ReadMoreText(
-                    'one\'s ability to execute daily activities with optimal performance, endurance, and strength with the management of disease, fatigue, and stress and reduced sedentary behavio, fatigue, and stress and reduced sedentary behavio, fatigue, and stress and reduced sedentary behavio',
+                    _session?.description ?? "",
                     trimLines: 2,
                     trimCollapsedText: ' Show more',
                     trimExpandedText: ' Show less',
@@ -120,16 +195,14 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                   ),
                 ),
                 const SizedBox(height: 15.0),
-                _headerRowWidget(header: 'Exercises', trailing: '5 exs'),
+                _headerRowWidget(
+                    header: 'Exercises',
+                    trailing: '${_session?.exercises?.length ?? 0} exs'),
                 const SizedBox(height: 10.0),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    ExerciseVerticalItem(),
-                    ExerciseVerticalItem(),
-                    ExerciseVerticalItem(),
-                  ].expand((e) => [e, const SizedBox(height: 10.0)]).toList(),
-                ),
+                ..._session?.exercises
+                        ?.map((e) => ExerciseVerticalItem(exercise: e))
+                        .expand((e) => [e, const SizedBox(height: 10.0)]) ??
+                    <Widget>[],
                 const SizedBox(height: 70.0),
               ],
             ),
@@ -163,7 +236,12 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
         TextSpan(
           style: context.titleSmall.copyWith(fontWeight: FontWeight.w600),
           children: [
-            ...['🕑', ' 55 minutes | ', '🔥 ', '297 calo'].mapIndexed(
+            ...[
+              '🕑',
+              ' ${_session?.time ?? 0} minutes | ',
+              '🔥 ',
+              '${_session?.calcTarget ?? 0} calo'
+            ].mapIndexed(
               (index, element) => TextSpan(
                 text: element,
                 style: TextStyle(

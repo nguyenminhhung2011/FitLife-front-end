@@ -35,10 +35,11 @@ class EquipmentHorizontalItem extends StatelessWidget {
                   style:
                       context.titleMedium.copyWith(fontWeight: FontWeight.bold),
                 ),
-                Text('Countable : 4 dumbbell', style: smallStyle),
+                Text('Countable : 4 dumbbell', style: smallStyle, maxLines: 1),
                 Text(
                   'This is description about how to use dumbbell for this exercise',
                   style: smallStyle,
+                  maxLines: 2,
                 )
               ].expand((e) => [e, const SizedBox(height: 5.0)]).toList()
                 ..removeLast(),

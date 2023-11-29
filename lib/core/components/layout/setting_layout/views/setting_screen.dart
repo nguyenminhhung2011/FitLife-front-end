@@ -98,7 +98,7 @@ class _SettingScreenState extends State<SettingScreen> {
       logOutSuccess: (_) {
         final popUpRoutes = widget.settingConfig.popUpRoute;
         if (popUpRoutes?.isNotEmpty ?? false) {
-          context.popUntil(popUpRoutes!);
+          context.pushAndRemoveAll(popUpRoutes!);
         }
       },
       updateAppearanceSuccess: (data) {
@@ -252,25 +252,22 @@ class _SettingScreenState extends State<SettingScreen> {
       const SizedBox(height: 10.0),
       if (_currentUser != null) ...[
         ...<String>[
-          _currentUser?.name ?? '',
-          _currentUser?.email ?? '',
-          _currentUser?.phone ?? '',
-          _currentUser?.creditCardNumber ?? '',
+          _currentUser?.username ?? "",
+          _currentUser?.userProfile?.phone ?? "",
         ].mapIndexed(
           (index, text) {
             if (text.isEmpty) {
               return const SizedBox();
             }
             final icon = index == 0
-                ? AvatarWidget(
+                ? const AvatarWidget(
                     width: 40.0,
                     height: 40.0,
-                    imageUrl: _currentUser?.avatar ?? ImageConst.baseImageView,
+                    imageUrl: ImageConst.baseImageView,
                   )
                 : Icon(
                     switch (index) {
-                      1 => Icons.email,
-                      2 => Icons.phone,
+                      1 => Icons.phone,
                       _ => CupertinoIcons.creditcard_fill,
                     },
                     size: 24.0);
@@ -296,7 +293,13 @@ class _SettingScreenState extends State<SettingScreen> {
         color: Theme.of(context).cardColor,
         elevation: 0.3,
         child: ListTile(
-          onTap: () {},
+          onTap: () async {
+            final show = await context.showAlertDialog(
+                header: "Log out", content: "Do you want log out?");
+            if (show) {
+              _settingController.add(const SettingEvent.logOut());
+            }
+          },
           leading: Icon(logIcon),
           title: Text(logText, style: context.titleMedium),
           trailing: _forwardIcon,

@@ -1,6 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/constant/constant.dart';
+import 'package:fit_life/core/components/enum/gender.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
+import 'package:fit_life/core/components/widgets/loading_page.dart';
+import 'package:fit_life/mvvm/ui/onboarding/view_model/onboarding_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/generated/l10n.dart';
@@ -12,16 +16,20 @@ import 'package:fit_life/mvvm/ui/onboarding/views/step/get_weight_target_screen.
 import 'package:fit_life/mvvm/ui/onboarding/views/step/select_duration_screen.dart';
 import 'package:fit_life/mvvm/ui/onboarding/views/step/select_gender_screen.dart';
 import 'package:fit_life/routes/routes.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:im_stepper/stepper.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  ConsumerState<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
+  OnboardingViewModel get _vm => ref.read(onboardingStateNotifier.notifier);
+  OnboardingState get _state => ref.watch(onboardingStateNotifier);
+
   int activeStep = 0;
   int upperBound = 6;
 
@@ -47,12 +55,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         activeStep++;
       });
     } else {
-      context.openListPageWithRoute(Routes.dashboard);
+      _vm.updateUserProfile(
+        gender: isMale ? Gender.male : Gender.female,
+        frequency: Constant.durationConst[duration],
+        height: height.toDouble(),
+        weight: weight.toDouble(),
+        birthDay: birthday?.millisecondsSinceEpoch ?? 0,
+        phone: phoneCtrl.text,
+      );
     }
+  }
+
+  void _listStateChange(OnboardingState state) {
+    state.maybeWhen(
+      updateProfileFailed: (err) =>
+          context.showSnackBar("🐛[Update profile] $err"),
+      updateProfileSuccess: () async {
+        context.pushAndRemoveAll(Routes.dashboard);
+      },
+      orElse: () {},
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(onboardingStateNotifier, (_, next) => _listStateChange(next));
     final body = [
       FillYourProfileScreen(
         fullNameCtrl: fullNameCtrl,
@@ -108,6 +135,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     ];
 
+    return Stack(
+      children: [
+        _bod(context, body),
+        if (_state.loading)
+          Container(
+            color: Colors.black45,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Center(
+              child: StyleLoadingWidget.foldingCube.renderWidget(
+                  size: 40.0, color: Theme.of(context).primaryColor),
+            ),
+          )
+      ],
+    );
+  }
+
+  Scaffold _bod(BuildContext context, List<Widget> body) {
     return Scaffold(
       bottomSheet: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -136,6 +181,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 height: 45.0,
                 radius: 5.0,
                 color: activeStep < upperBound
+                    ? context.primaryColor
+                    : Colors.green,
+                borderColor: activeStep < upperBound
                     ? context.primaryColor
                     : Colors.green,
                 onPress: onTapNext,

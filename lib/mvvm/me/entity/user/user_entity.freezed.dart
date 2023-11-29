@@ -16,25 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$User {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
-  String? get avatar => throw _privateConstructorUsedError;
-  String? get level => throw _privateConstructorUsedError;
-  String? get country => throw _privateConstructorUsedError;
-  String? get language => throw _privateConstructorUsedError;
-  String? get requireNote => throw _privateConstructorUsedError;
-  String? get studySchedule => throw _privateConstructorUsedError;
-  String? get creditCardNumber => throw _privateConstructorUsedError;
-  DateTime? get birthday => throw _privateConstructorUsedError;
-  int? get timezone => throw _privateConstructorUsedError;
-  double? get avgRating => throw _privateConstructorUsedError;
-  List<String>? get roles => throw _privateConstructorUsedError;
-  bool get isActivated => throw _privateConstructorUsedError;
-  bool get isPhoneActivated => throw _privateConstructorUsedError;
-  bool get canSendMessage => throw _privateConstructorUsedError;
-  HealthOverview? get healthOverview => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
+  UserProfile? get userProfile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -45,28 +29,9 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call(
-      {String id,
-      String name,
-      String? email,
-      String? phone,
-      String? avatar,
-      String? level,
-      String? country,
-      String? language,
-      String? requireNote,
-      String? studySchedule,
-      String? creditCardNumber,
-      DateTime? birthday,
-      int? timezone,
-      double? avgRating,
-      List<String>? roles,
-      bool isActivated,
-      bool isPhoneActivated,
-      bool canSendMessage,
-      HealthOverview? healthOverview});
+  $Res call({int id, String username, UserProfile? userProfile});
 
-  $HealthOverviewCopyWith<$Res>? get healthOverview;
+  $UserProfileCopyWith<$Res>? get userProfile;
 }
 
 /// @nodoc
@@ -83,114 +48,34 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
-    Object? email = freezed,
-    Object? phone = freezed,
-    Object? avatar = freezed,
-    Object? level = freezed,
-    Object? country = freezed,
-    Object? language = freezed,
-    Object? requireNote = freezed,
-    Object? studySchedule = freezed,
-    Object? creditCardNumber = freezed,
-    Object? birthday = freezed,
-    Object? timezone = freezed,
-    Object? avgRating = freezed,
-    Object? roles = freezed,
-    Object? isActivated = null,
-    Object? isPhoneActivated = null,
-    Object? canSendMessage = null,
-    Object? healthOverview = freezed,
+    Object? username = null,
+    Object? userProfile = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      avatar: freezed == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as String?,
-      level: freezed == level
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      requireNote: freezed == requireNote
-          ? _value.requireNote
-          : requireNote // ignore: cast_nullable_to_non_nullable
-              as String?,
-      studySchedule: freezed == studySchedule
-          ? _value.studySchedule
-          : studySchedule // ignore: cast_nullable_to_non_nullable
-              as String?,
-      creditCardNumber: freezed == creditCardNumber
-          ? _value.creditCardNumber
-          : creditCardNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
-      birthday: freezed == birthday
-          ? _value.birthday
-          : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      timezone: freezed == timezone
-          ? _value.timezone
-          : timezone // ignore: cast_nullable_to_non_nullable
-              as int?,
-      avgRating: freezed == avgRating
-          ? _value.avgRating
-          : avgRating // ignore: cast_nullable_to_non_nullable
-              as double?,
-      roles: freezed == roles
-          ? _value.roles
-          : roles // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      isActivated: null == isActivated
-          ? _value.isActivated
-          : isActivated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPhoneActivated: null == isPhoneActivated
-          ? _value.isPhoneActivated
-          : isPhoneActivated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      canSendMessage: null == canSendMessage
-          ? _value.canSendMessage
-          : canSendMessage // ignore: cast_nullable_to_non_nullable
-              as bool,
-      healthOverview: freezed == healthOverview
-          ? _value.healthOverview
-          : healthOverview // ignore: cast_nullable_to_non_nullable
-              as HealthOverview?,
+      userProfile: freezed == userProfile
+          ? _value.userProfile
+          : userProfile // ignore: cast_nullable_to_non_nullable
+              as UserProfile?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $HealthOverviewCopyWith<$Res>? get healthOverview {
-    if (_value.healthOverview == null) {
+  $UserProfileCopyWith<$Res>? get userProfile {
+    if (_value.userProfile == null) {
       return null;
     }
 
-    return $HealthOverviewCopyWith<$Res>(_value.healthOverview!, (value) {
-      return _then(_value.copyWith(healthOverview: value) as $Val);
+    return $UserProfileCopyWith<$Res>(_value.userProfile!, (value) {
+      return _then(_value.copyWith(userProfile: value) as $Val);
     });
   }
 }
@@ -201,29 +86,10 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String name,
-      String? email,
-      String? phone,
-      String? avatar,
-      String? level,
-      String? country,
-      String? language,
-      String? requireNote,
-      String? studySchedule,
-      String? creditCardNumber,
-      DateTime? birthday,
-      int? timezone,
-      double? avgRating,
-      List<String>? roles,
-      bool isActivated,
-      bool isPhoneActivated,
-      bool canSendMessage,
-      HealthOverview? healthOverview});
+  $Res call({int id, String username, UserProfile? userProfile});
 
   @override
-  $HealthOverviewCopyWith<$Res>? get healthOverview;
+  $UserProfileCopyWith<$Res>? get userProfile;
 }
 
 /// @nodoc
@@ -236,102 +102,22 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
-    Object? email = freezed,
-    Object? phone = freezed,
-    Object? avatar = freezed,
-    Object? level = freezed,
-    Object? country = freezed,
-    Object? language = freezed,
-    Object? requireNote = freezed,
-    Object? studySchedule = freezed,
-    Object? creditCardNumber = freezed,
-    Object? birthday = freezed,
-    Object? timezone = freezed,
-    Object? avgRating = freezed,
-    Object? roles = freezed,
-    Object? isActivated = null,
-    Object? isPhoneActivated = null,
-    Object? canSendMessage = null,
-    Object? healthOverview = freezed,
+    Object? username = null,
+    Object? userProfile = freezed,
   }) {
     return _then(_$_User(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      avatar: freezed == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as String?,
-      level: freezed == level
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      requireNote: freezed == requireNote
-          ? _value.requireNote
-          : requireNote // ignore: cast_nullable_to_non_nullable
-              as String?,
-      studySchedule: freezed == studySchedule
-          ? _value.studySchedule
-          : studySchedule // ignore: cast_nullable_to_non_nullable
-              as String?,
-      creditCardNumber: freezed == creditCardNumber
-          ? _value.creditCardNumber
-          : creditCardNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
-      birthday: freezed == birthday
-          ? _value.birthday
-          : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      timezone: freezed == timezone
-          ? _value.timezone
-          : timezone // ignore: cast_nullable_to_non_nullable
-              as int?,
-      avgRating: freezed == avgRating
-          ? _value.avgRating
-          : avgRating // ignore: cast_nullable_to_non_nullable
-              as double?,
-      roles: freezed == roles
-          ? _value._roles
-          : roles // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      isActivated: null == isActivated
-          ? _value.isActivated
-          : isActivated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPhoneActivated: null == isPhoneActivated
-          ? _value.isPhoneActivated
-          : isPhoneActivated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      canSendMessage: null == canSendMessage
-          ? _value.canSendMessage
-          : canSendMessage // ignore: cast_nullable_to_non_nullable
-              as bool,
-      healthOverview: freezed == healthOverview
-          ? _value.healthOverview
-          : healthOverview // ignore: cast_nullable_to_non_nullable
-              as HealthOverview?,
+      userProfile: freezed == userProfile
+          ? _value.userProfile
+          : userProfile // ignore: cast_nullable_to_non_nullable
+              as UserProfile?,
     ));
   }
 }
@@ -339,81 +125,18 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 /// @nodoc
 
 class _$_User implements _User {
-  const _$_User(
-      {required this.id,
-      required this.name,
-      this.email,
-      this.phone,
-      this.avatar,
-      this.level,
-      this.country,
-      this.language,
-      this.requireNote,
-      this.studySchedule,
-      this.creditCardNumber,
-      this.birthday,
-      this.timezone,
-      this.avgRating,
-      final List<String>? roles,
-      this.isActivated = true,
-      this.isPhoneActivated = true,
-      this.canSendMessage = false,
-      this.healthOverview})
-      : _roles = roles;
+  const _$_User({required this.id, required this.username, this.userProfile});
 
   @override
-  final String id;
+  final int id;
   @override
-  final String name;
+  final String username;
   @override
-  final String? email;
-  @override
-  final String? phone;
-  @override
-  final String? avatar;
-  @override
-  final String? level;
-  @override
-  final String? country;
-  @override
-  final String? language;
-  @override
-  final String? requireNote;
-  @override
-  final String? studySchedule;
-  @override
-  final String? creditCardNumber;
-  @override
-  final DateTime? birthday;
-  @override
-  final int? timezone;
-  @override
-  final double? avgRating;
-  final List<String>? _roles;
-  @override
-  List<String>? get roles {
-    final value = _roles;
-    if (value == null) return null;
-    if (_roles is EqualUnmodifiableListView) return _roles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  @JsonKey()
-  final bool isActivated;
-  @override
-  @JsonKey()
-  final bool isPhoneActivated;
-  @override
-  @JsonKey()
-  final bool canSendMessage;
-  @override
-  final HealthOverview? healthOverview;
+  final UserProfile? userProfile;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, email: $email, phone: $phone, avatar: $avatar, level: $level, country: $country, language: $language, requireNote: $requireNote, studySchedule: $studySchedule, creditCardNumber: $creditCardNumber, birthday: $birthday, timezone: $timezone, avgRating: $avgRating, roles: $roles, isActivated: $isActivated, isPhoneActivated: $isPhoneActivated, canSendMessage: $canSendMessage, healthOverview: $healthOverview)';
+    return 'User(id: $id, username: $username, userProfile: $userProfile)';
   }
 
   @override
@@ -422,60 +145,14 @@ class _$_User implements _User {
         (other.runtimeType == runtimeType &&
             other is _$_User &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            (identical(other.avatar, avatar) || other.avatar == avatar) &&
-            (identical(other.level, level) || other.level == level) &&
-            (identical(other.country, country) || other.country == country) &&
-            (identical(other.language, language) ||
-                other.language == language) &&
-            (identical(other.requireNote, requireNote) ||
-                other.requireNote == requireNote) &&
-            (identical(other.studySchedule, studySchedule) ||
-                other.studySchedule == studySchedule) &&
-            (identical(other.creditCardNumber, creditCardNumber) ||
-                other.creditCardNumber == creditCardNumber) &&
-            (identical(other.birthday, birthday) ||
-                other.birthday == birthday) &&
-            (identical(other.timezone, timezone) ||
-                other.timezone == timezone) &&
-            (identical(other.avgRating, avgRating) ||
-                other.avgRating == avgRating) &&
-            const DeepCollectionEquality().equals(other._roles, _roles) &&
-            (identical(other.isActivated, isActivated) ||
-                other.isActivated == isActivated) &&
-            (identical(other.isPhoneActivated, isPhoneActivated) ||
-                other.isPhoneActivated == isPhoneActivated) &&
-            (identical(other.canSendMessage, canSendMessage) ||
-                other.canSendMessage == canSendMessage) &&
-            (identical(other.healthOverview, healthOverview) ||
-                other.healthOverview == healthOverview));
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.userProfile, userProfile) ||
+                other.userProfile == userProfile));
   }
 
   @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        id,
-        name,
-        email,
-        phone,
-        avatar,
-        level,
-        country,
-        language,
-        requireNote,
-        studySchedule,
-        creditCardNumber,
-        birthday,
-        timezone,
-        avgRating,
-        const DeepCollectionEquality().hash(_roles),
-        isActivated,
-        isPhoneActivated,
-        canSendMessage,
-        healthOverview
-      ]);
+  int get hashCode => Object.hash(runtimeType, id, username, userProfile);
 
   @JsonKey(ignore: true)
   @override
@@ -486,64 +163,16 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final String id,
-      required final String name,
-      final String? email,
-      final String? phone,
-      final String? avatar,
-      final String? level,
-      final String? country,
-      final String? language,
-      final String? requireNote,
-      final String? studySchedule,
-      final String? creditCardNumber,
-      final DateTime? birthday,
-      final int? timezone,
-      final double? avgRating,
-      final List<String>? roles,
-      final bool isActivated,
-      final bool isPhoneActivated,
-      final bool canSendMessage,
-      final HealthOverview? healthOverview}) = _$_User;
+      {required final int id,
+      required final String username,
+      final UserProfile? userProfile}) = _$_User;
 
   @override
-  String get id;
+  int get id;
   @override
-  String get name;
+  String get username;
   @override
-  String? get email;
-  @override
-  String? get phone;
-  @override
-  String? get avatar;
-  @override
-  String? get level;
-  @override
-  String? get country;
-  @override
-  String? get language;
-  @override
-  String? get requireNote;
-  @override
-  String? get studySchedule;
-  @override
-  String? get creditCardNumber;
-  @override
-  DateTime? get birthday;
-  @override
-  int? get timezone;
-  @override
-  double? get avgRating;
-  @override
-  List<String>? get roles;
-  @override
-  bool get isActivated;
-  @override
-  bool get isPhoneActivated;
-  @override
-  bool get canSendMessage;
-  @override
-  HealthOverview? get healthOverview;
+  UserProfile? get userProfile;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

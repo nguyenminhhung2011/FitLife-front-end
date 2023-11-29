@@ -5,6 +5,7 @@ import 'package:fit_life/core/components/widgets/appbar.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/ob/action.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
+import 'package:fit_life/mvvm/ui/exercise_overview/views/widgets/render_setting_item.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/widgets/todey_exercise_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -88,7 +89,7 @@ class _SessionPlanViewState extends ConsumerState<SessionPlanView> {
                   SettingExerciseActions.transferTime,
                   SettingExerciseActions.breakTime,
                   SettingExerciseActions.leave,
-                ].map((e) => _renderItem(action: e, data: 12)).expand(
+                ].map((e) => RenderSettingItem(action: e, data: 12)).expand(
                       (e) => [e, const SizedBox(height: 5.0)],
                     ),
                 _header(context, header: "Today exercises"),
@@ -112,55 +113,6 @@ class _SessionPlanViewState extends ConsumerState<SessionPlanView> {
       child: Text(
         header,
         style: context.titleMedium.copyWith(fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-
-  Widget _renderItem({required SettingExerciseActions action, int? data}) {
-    final icon = action.renderIcon;
-    Widget? trailing;
-    Function()? onPress;
-
-    if (action.isSwitch) {
-      trailing = Switch(
-          value: true, onChanged: (value) {}, activeColor: _primaryColor);
-      onPress = () {};
-    } else {
-      trailing = Text(
-        action.renderTrailing(strData: data?.toString() ?? '0') ?? '',
-        style: _smallStyle.copyWith(fontSize: 14.0),
-      );
-      onPress = () {};
-    }
-
-    return _settingItem(
-      onTap: onPress,
-      icon: icon,
-      title: action.renderText,
-      trailing: trailing,
-    );
-  }
-
-  Widget _settingItem({
-    IconData? icon,
-    Widget? iconWidget,
-    String? title,
-    Widget? titleWidget,
-    Widget? trailing,
-    required Function()? onTap,
-  }) {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 15.0),
-      color: Theme.of(context).cardColor,
-      elevation: 0.3,
-      child: ListTile(
-        onTap: onTap,
-        leading: iconWidget ?? Icon(icon ?? Icons.person, size: 24),
-        title: titleWidget ??
-            Text(title ?? '',
-                style:
-                    context.titleSmall.copyWith(fontWeight: FontWeight.w600)),
-        trailing: trailing,
       ),
     );
   }

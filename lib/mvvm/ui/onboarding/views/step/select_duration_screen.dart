@@ -1,3 +1,4 @@
+import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/generated/l10n.dart';
@@ -28,21 +29,8 @@ class _SelectDurationScreenState extends State<SelectDurationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final durationList = [
-      S.of(context).many,
-      S.of(context).soMany,
-      S.of(context).medium,
-      S.of(context).aLittle,
-      S.of(context).notMuch,
-    ];
-
-    final frequencyList = [
-      S.of(context).notMuchOrMore,
-      S.of(context).six2SevenMuchOrMore,
-      S.of(context).three2FiveDaysInWeek,
-      S.of(context).twoToThereDaysInWeek,
-      S.of(context).worksEveryDayOfTheWeek,
-    ];
+    final durationList = Constant.durationList;
+    final frequencyList = Constant.frequencyList;
 
     return OnboardingStepLayout(
       title: S.of(context).durationExercise,

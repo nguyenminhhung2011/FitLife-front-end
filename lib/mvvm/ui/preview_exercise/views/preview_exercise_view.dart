@@ -5,7 +5,7 @@ import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/appbar.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
-import 'package:fit_life/mvvm/ui/previeew_exercise/views/perview_exercise_item.dart';
+import 'package:fit_life/mvvm/ui/preview_exercise/views/perview_exercise_item.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

@@ -1,3 +1,4 @@
+import 'package:fit_life/mvvm/me/entity/user/health_overview.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'user_entity.freezed.dart';
 
@@ -22,5 +23,7 @@ class User with _$User {
     @Default(true) bool isActivated,
     @Default(true) bool isPhoneActivated,
     @Default(false) bool canSendMessage,
+    
+    HealthOverview? healthOverview,
   }) = _User;
 }

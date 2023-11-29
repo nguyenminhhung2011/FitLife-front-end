@@ -34,6 +34,7 @@ mixin _$User {
   bool get isActivated => throw _privateConstructorUsedError;
   bool get isPhoneActivated => throw _privateConstructorUsedError;
   bool get canSendMessage => throw _privateConstructorUsedError;
+  HealthOverview? get healthOverview => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -62,7 +63,10 @@ abstract class $UserCopyWith<$Res> {
       List<String>? roles,
       bool isActivated,
       bool isPhoneActivated,
-      bool canSendMessage});
+      bool canSendMessage,
+      HealthOverview? healthOverview});
+
+  $HealthOverviewCopyWith<$Res>? get healthOverview;
 }
 
 /// @nodoc
@@ -96,6 +100,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? isActivated = null,
     Object? isPhoneActivated = null,
     Object? canSendMessage = null,
+    Object? healthOverview = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -170,7 +175,23 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.canSendMessage
           : canSendMessage // ignore: cast_nullable_to_non_nullable
               as bool,
+      healthOverview: freezed == healthOverview
+          ? _value.healthOverview
+          : healthOverview // ignore: cast_nullable_to_non_nullable
+              as HealthOverview?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HealthOverviewCopyWith<$Res>? get healthOverview {
+    if (_value.healthOverview == null) {
+      return null;
+    }
+
+    return $HealthOverviewCopyWith<$Res>(_value.healthOverview!, (value) {
+      return _then(_value.copyWith(healthOverview: value) as $Val);
+    });
   }
 }
 
@@ -198,7 +219,11 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       List<String>? roles,
       bool isActivated,
       bool isPhoneActivated,
-      bool canSendMessage});
+      bool canSendMessage,
+      HealthOverview? healthOverview});
+
+  @override
+  $HealthOverviewCopyWith<$Res>? get healthOverview;
 }
 
 /// @nodoc
@@ -228,6 +253,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? isActivated = null,
     Object? isPhoneActivated = null,
     Object? canSendMessage = null,
+    Object? healthOverview = freezed,
   }) {
     return _then(_$_User(
       id: null == id
@@ -302,6 +328,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.canSendMessage
           : canSendMessage // ignore: cast_nullable_to_non_nullable
               as bool,
+      healthOverview: freezed == healthOverview
+          ? _value.healthOverview
+          : healthOverview // ignore: cast_nullable_to_non_nullable
+              as HealthOverview?,
     ));
   }
 }
@@ -327,7 +357,8 @@ class _$_User implements _User {
       final List<String>? roles,
       this.isActivated = true,
       this.isPhoneActivated = true,
-      this.canSendMessage = false})
+      this.canSendMessage = false,
+      this.healthOverview})
       : _roles = roles;
 
   @override
@@ -377,10 +408,12 @@ class _$_User implements _User {
   @override
   @JsonKey()
   final bool canSendMessage;
+  @override
+  final HealthOverview? healthOverview;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, email: $email, phone: $phone, avatar: $avatar, level: $level, country: $country, language: $language, requireNote: $requireNote, studySchedule: $studySchedule, creditCardNumber: $creditCardNumber, birthday: $birthday, timezone: $timezone, avgRating: $avgRating, roles: $roles, isActivated: $isActivated, isPhoneActivated: $isPhoneActivated, canSendMessage: $canSendMessage)';
+    return 'User(id: $id, name: $name, email: $email, phone: $phone, avatar: $avatar, level: $level, country: $country, language: $language, requireNote: $requireNote, studySchedule: $studySchedule, creditCardNumber: $creditCardNumber, birthday: $birthday, timezone: $timezone, avgRating: $avgRating, roles: $roles, isActivated: $isActivated, isPhoneActivated: $isPhoneActivated, canSendMessage: $canSendMessage, healthOverview: $healthOverview)';
   }
 
   @override
@@ -415,30 +448,34 @@ class _$_User implements _User {
             (identical(other.isPhoneActivated, isPhoneActivated) ||
                 other.isPhoneActivated == isPhoneActivated) &&
             (identical(other.canSendMessage, canSendMessage) ||
-                other.canSendMessage == canSendMessage));
+                other.canSendMessage == canSendMessage) &&
+            (identical(other.healthOverview, healthOverview) ||
+                other.healthOverview == healthOverview));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      email,
-      phone,
-      avatar,
-      level,
-      country,
-      language,
-      requireNote,
-      studySchedule,
-      creditCardNumber,
-      birthday,
-      timezone,
-      avgRating,
-      const DeepCollectionEquality().hash(_roles),
-      isActivated,
-      isPhoneActivated,
-      canSendMessage);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        name,
+        email,
+        phone,
+        avatar,
+        level,
+        country,
+        language,
+        requireNote,
+        studySchedule,
+        creditCardNumber,
+        birthday,
+        timezone,
+        avgRating,
+        const DeepCollectionEquality().hash(_roles),
+        isActivated,
+        isPhoneActivated,
+        canSendMessage,
+        healthOverview
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -466,7 +503,8 @@ abstract class _User implements User {
       final List<String>? roles,
       final bool isActivated,
       final bool isPhoneActivated,
-      final bool canSendMessage}) = _$_User;
+      final bool canSendMessage,
+      final HealthOverview? healthOverview}) = _$_User;
 
   @override
   String get id;
@@ -504,6 +542,8 @@ abstract class _User implements User {
   bool get isPhoneActivated;
   @override
   bool get canSendMessage;
+  @override
+  HealthOverview? get healthOverview;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

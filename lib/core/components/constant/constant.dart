@@ -137,6 +137,22 @@ class Constant {
   ];
 
   static List<int> calories = [400, 200, 500, 600, 300, 700, 300];
+
+  static final durationList = [
+    S.current.many,
+    S.current.soMany,
+    S.current.medium,
+    S.current.aLittle,
+    S.current.notMuch,
+  ];
+
+  static final frequencyList = [
+    S.current.notMuchOrMore,
+    S.current.six2SevenMuchOrMore,
+    S.current.three2FiveDaysInWeek,
+    S.current.twoToThereDaysInWeek,
+    S.current.worksEveryDayOfTheWeek,
+  ];
 }
 
 class MainPageViewIntro {

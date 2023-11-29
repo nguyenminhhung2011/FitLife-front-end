@@ -1,5 +1,4 @@
 import 'package:fit_life/core/components/constant/constant.dart';
-import 'package:fit_life/core/components/enum/frequency.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/generated/l10n.dart';
@@ -30,6 +29,9 @@ class _SelectDurationScreenState extends State<SelectDurationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final durationList = Constant.durationList;
+    final frequencyList = Constant.frequencyList;
+
     return OnboardingStepLayout(
       title: S.of(context).durationExercise,
       description: S.of(context).durationExerciseDesc,
@@ -40,8 +42,8 @@ class _SelectDurationScreenState extends State<SelectDurationScreen> {
             children: [
               SelectDurationButton(
                 isSelected: index == _index,
-                duration: Constant.durationConst[index].toMainText,
-                frequency: Constant.durationConst[index].toSubText,
+                duration: durationList[index],
+                frequency: frequencyList[index],
                 onTap: () {
                   if (widget.onChange != null) {
                     widget.onChange!(index);

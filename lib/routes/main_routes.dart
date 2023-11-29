@@ -13,7 +13,7 @@ import 'package:fit_life/mvvm/ui/notification/views/notification_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/add_new_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/plan_detail_view.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/add_plan_view.dart';
-import 'package:fit_life/mvvm/ui/previeew_exercise/views/preview_exercise_view.dart';
+import 'package:fit_life/mvvm/ui/preview_exercise/views/preview_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/all_exercise/views/all_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/recommend_plan/views/group_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/wo_trac_view.dart';

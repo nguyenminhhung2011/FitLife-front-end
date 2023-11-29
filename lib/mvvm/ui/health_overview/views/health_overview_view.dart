@@ -1,10 +1,13 @@
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/ui/health_overview/ob/health_overview_row.dart';
+import 'package:fit_life/mvvm/ui/health_overview/view_model/health_overview_data.dart';
+import 'package:fit_life/mvvm/ui/health_overview/view_model/health_overview_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -18,11 +21,16 @@ class HealthOverviewView extends ConsumerStatefulWidget {
 class _HealthOverviewViewState extends ConsumerState<HealthOverviewView> {
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
 
+  HealthOverviewViewModel get _vm =>
+      ref.read(healthOverviewStateNotifier.notifier);
+
+  HealthOverviewData get _data => ref.watch(healthOverviewStateNotifier).data;
+
   int weight = 10;
   int height = 177;
   int targetWeight = 10;
-  String gender = S.current.male;
-  String duration = S.current.notMuchOrMore;
+  bool isMale = true;
+  int duration = 0;
 
   EdgeInsets get _padding => const EdgeInsets.symmetric(horizontal: 15.0);
 
@@ -30,18 +38,12 @@ class _HealthOverviewViewState extends ConsumerState<HealthOverviewView> {
     final show = await context.bottomEditInformation(type: type);
     if (show != null) {
       if (type.isGender && show is bool) {
-        if (show) {
-          setState(() {
-            gender = S.current.male;
-          });
-        } else {
-          setState(() {
-            gender = S.current.female;
-          });
-        }
-      } else if (type.isDuration && show is String) {
         setState(() {
-          duration = show.toString();
+          isMale = show;
+        });
+      } else if (type.isDuration && show is int) {
+        setState(() {
+          duration = show;
         });
       } else if (type.isHeight && show is int) {
         setState(() {
@@ -59,8 +61,20 @@ class _HealthOverviewViewState extends ConsumerState<HealthOverviewView> {
     }
   }
 
+  void _listener(HealthOverviewState state) {
+    state.maybeWhen(
+        updateInformationSuccess: (_) =>
+            context.showSnackBar("✅ Update user profile success"),
+        updateInformationFailed: (_, message) =>
+            context.showSnackBar("🐛Get error: $message"),
+        orElse: () {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    ref.listen(healthOverviewStateNotifier,
+        (_, HealthOverviewState state) => _listener(state));
+
     return Scaffold(
       backgroundColor: _backgroundColor,
       bottomSheet: Padding(
@@ -73,7 +87,15 @@ class _HealthOverviewViewState extends ConsumerState<HealthOverviewView> {
             style: context.titleMedium
                 .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          onPress: () {},
+          onPress: () {
+            _vm.updateUserProfile(HealthOverviewData(
+              duration: duration,
+              height: height,
+              isMale: isMale,
+              targetWeight: targetWeight,
+              weight: weight,
+            ));
+          },
         ),
       ),
       appBar: AppBar(
@@ -162,9 +184,10 @@ class _HealthOverviewViewState extends ConsumerState<HealthOverviewView> {
                         switch (e) {
                           HealthOverviewRow.weight => "$weight kg",
                           HealthOverviewRow.height => "$height cm",
-                          HealthOverviewRow.gender => gender,
+                          HealthOverviewRow.gender =>
+                            isMale ? S.current.male : S.current.female,
                           HealthOverviewRow.targetWeight => "$targetWeight kg",
-                          _ => duration,
+                          _ => Constant.durationList[duration],
                         },
                         style: context.titleSmall,
                       )),

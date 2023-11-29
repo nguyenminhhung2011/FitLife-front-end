@@ -1,5 +1,4 @@
 import 'package:fit_life/app_coordinator.dart';
-import 'package:fit_life/core/components/enum/duration_exercise.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
@@ -13,6 +12,7 @@ import 'package:flutter/material.dart';
 
 class BottomEditInformation extends StatefulWidget {
   final HealthOverviewRow type;
+
   const BottomEditInformation({super.key, required this.type});
 
   @override
@@ -74,8 +74,7 @@ class _BottomEditInformationState extends State<BottomEditInformation> {
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: switch (widget.type) {
                       HealthOverviewRow.duration => SelectDurationScreen(
-                          onChange: (d) =>
-                              data = DurationExercise.values[d].name,
+                          onChange: (d) => data = d.toInt(),
                         ),
                       HealthOverviewRow.weight => GetWeightScreen(
                           onChange: (d) => data = d.toInt(),

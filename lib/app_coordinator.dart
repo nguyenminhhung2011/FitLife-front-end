@@ -30,7 +30,7 @@ extension AppCoordinator<T> on BuildContext {
         style: titleSmall.copyWith(
             fontWeight: FontWeight.w500, color: Colors.white),
       ),
-      backgroundColor: Theme.of(this).primaryColor,
+      backgroundColor: Theme.of(this).cardColor,
     );
 
     ScaffoldMessenger.of(this).showSnackBar(snackBar);

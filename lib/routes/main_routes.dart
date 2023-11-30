@@ -4,6 +4,7 @@ import 'package:fit_life/mvvm/ui/auth/views/introduction_view.dart';
 import 'package:fit_life/mvvm/ui/auth/views/sign_up_view.dart';
 import 'package:fit_life/mvvm/ui/calendar/views/calendar_view.dart';
 import 'package:fit_life/mvvm/ui/category/views/category_view.dart';
+import 'package:fit_life/mvvm/ui/conversation/view/conversation_view.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/session_plan_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_view_model.dart';
@@ -72,6 +73,11 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const ProviderScope(child: ChatBotView()),
+        );
+      case Routes.conversation:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProviderScope(child: ConversationView()),
         );
       case Routes.wooTrackView:
         return MaterialPageRoute(

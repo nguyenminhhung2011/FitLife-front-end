@@ -10,6 +10,7 @@ class Routes {
   static const String onboarding = '/onboarding';
   static const String categories = '/categories';
   static const String planDetail = '/plan_detail';
+  static const String conversation = '/conversation';
   static const String allExercise = '/all_exercise';
   static const String fitOverView = '/fit_overview';
   static const String sessionPlan = '/session_plan';

@@ -71,7 +71,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
   Widget build(BuildContext context) {
     return Dragball(
       ball: Image.asset(ImageConst.brainIcon, width: 50.0, height: 50.0),
-      onTap: () => context.openListPageWithRoute(Routes.chatBot),
+      onTap: () => context.openListPageWithRoute(Routes.conversation),
       iconSize: 16.0,
       initialPosition: const DragballPosition.defaultPosition(),
       onPositionChanged: (position) {},

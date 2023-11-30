@@ -118,12 +118,12 @@ class _MessageItemState extends State<MessageItem> {
       children: [
         const SizedBox(width: 5.0),
         Container(
-          width: 18.0,
-          height: 18.0,
+          width: 20.0,
+          height: 20.0,
           decoration: BoxDecoration(
             border: Border.all(width: 1, color: Colors.white),
             image: const DecorationImage(
-              image: AssetImage(ImageConst.brainIcon),
+              image: AssetImage(ImageConst.banner2),
               fit: BoxFit.cover,
             ),
             shape: BoxShape.circle,

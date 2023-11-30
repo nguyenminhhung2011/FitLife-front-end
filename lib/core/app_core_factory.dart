@@ -48,7 +48,7 @@ class TokenInterceptor implements Interceptor {
           await CommonAppSettingPref.setRefreshToken(responseData.refreshToken);
         }
       } catch (_) {
-        ///[Do something]
+        ///[Do something ]
       }
     }
     return handler.next(err);
@@ -63,15 +63,15 @@ class TokenInterceptor implements Interceptor {
     log('🎉[Access] $accessToken\n🎉[Refresh] $refreshToken');
 
     ///[✏️ Config time out]
-    options.connectTimeout = const Duration(seconds: 30);
-    options.receiveTimeout = const Duration(seconds: 30);
+    options.connectTimeout = const Duration(seconds: 3);
+    options.receiveTimeout = const Duration(seconds: 3);
 
     if (accessToken.isEmpty || refreshToken.isEmpty) {
       return handler.next(options);
     }
     if (options.path.contains("refreshToken")) {
       options.headers["Authorization"] = "Bearer $refreshToken";
-      return handler.next(options);
+      handler.next(options);
     }
 
     options.headers["Authorization"] =

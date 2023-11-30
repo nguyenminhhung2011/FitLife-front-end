@@ -12,6 +12,7 @@ import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot_view_model.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/input_widget.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/message_item.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:readmore/readmore.dart';
 
 enum ChatActions { regenerate, clear, share, changeChatPt }
 
@@ -214,31 +215,7 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
               itemCount: _data.messages.length + 1,
               itemBuilder: (_, index) {
                 if (index == _data.messages.length) {
-                  return Container(
-                    width: double.infinity,
-                    margin: const EdgeInsets.all(10.0),
-                    padding: const EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Theme.of(context).scaffoldBackgroundColor,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5.0,
-                          color: Theme.of(context).shadowColor.withOpacity(0.1),
-                        )
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(50.0),
-                          child: Image.asset(ImageConst.avatar,
-                              width: 60.0, height: 60.0),
-                        ),
-                        const SizedBox(width: 10.0),
-                      ],
-                    ),
-                  );
+                  return _botInformationView(context);
                 }
                 final message = _data.messages[index];
                 return MessageItem(
@@ -268,6 +245,95 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
             onVoiceStop: () => _vm.stopListeningSpeech(),
             micAvailable: _data.micAvailable,
             onSubmitted: () => _vm.sendMessage(content: _textController.text),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _botInformationView(BuildContext context) {
+    TextStyle smallStyle = context.titleSmall
+        .copyWith(fontSize: 12.0, color: Theme.of(context).hintColor);
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(15.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Theme.of(context).scaffoldBackgroundColor,
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 5.0,
+            color: Theme.of(context).shadowColor.withOpacity(0.1),
+          )
+        ],
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(50.0),
+                child: Image.asset(
+                  ImageConst.banner2,
+                  width: 60.0,
+                  height: 60.0,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(width: 10.0),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "Yoga train chat bot",
+                            style: context.titleMedium
+                                .copyWith(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const SizedBox(width: 5.0),
+                        InkWell(
+                          onTap: () {},
+                          child: Icon(Icons.info_outline, color: _primaryColor),
+                        )
+                      ],
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        style: smallStyle,
+                        children: [
+                          const TextSpan(text: "Created by "),
+                          TextSpan(
+                            text: "Nguyen Minh Hung",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).primaryColor),
+                          )
+                        ],
+                      ),
+                    ),
+                    Text("233 Followers", style: smallStyle)
+                  ].expand((e) => [e, const SizedBox(height: 2.0)]).toList()
+                    ..removeLast(),
+                ),
+              )
+            ],
+          ),
+          const SizedBox(height: 5.0),
+          const Divider(),
+          const SizedBox(height: 5.0),
+          ReadMoreText(
+            'one\'s ability to execute daily activities with optimal performance, endurance, and strength with the management of disease, fatigue, and stress and reduced sedentary behavio, fatigue, and stress and reduced sedentary behavio, fatigue, and stress and reduced sedentary behavio',
+            trimLines: 2,
+            trimCollapsedText: ' Show more',
+            trimExpandedText: ' Show less',
+            moreStyle: smallStyle.copyWith(color: _primaryColor),
+            lessStyle: smallStyle.copyWith(color: _primaryColor),
+            style: smallStyle.copyWith(fontWeight: FontWeight.w400),
           ),
         ],
       ),

@@ -2,7 +2,6 @@ import 'package:fit_life/core/components/widgets/fit_life/dot_waiting.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/speech_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
@@ -34,33 +33,7 @@ class MessageItem extends StatefulWidget {
 class _MessageItemState extends State<MessageItem> {
   @override
   Widget build(BuildContext context) {
-    final borderRadius = BorderRadius.only(
-      topLeft: const Radius.circular(10.0),
-      topRight: const Radius.circular(10.0),
-      bottomRight: widget.isBot
-          ? const Radius.circular(10.0)
-          : const Radius.circular(0.0),
-      bottomLeft: widget.isBot
-          ? const Radius.circular(0.0)
-          : const Radius.circular(10.0),
-    );
-
     var content = [
-      if (widget.isBot) ...[
-        Container(
-          width: 35.0,
-          height: 35.0,
-          decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.white),
-            image: const DecorationImage(
-              image: AssetImage(ImageConst.brainIcon),
-              fit: BoxFit.cover,
-            ),
-            shape: BoxShape.circle,
-          ),
-        ),
-        const SizedBox(width: 5.0),
-      ],
       Flexible(
         flex: 10,
         child: Column(
@@ -68,8 +41,12 @@ class _MessageItemState extends State<MessageItem> {
           crossAxisAlignment:
               widget.isBot ? CrossAxisAlignment.start : CrossAxisAlignment.end,
           children: [
+            if (widget.isBot) ...[
+              _chatBotInformation(context),
+              const SizedBox(height: 5.0),
+            ],
             InkWell(
-              borderRadius: borderRadius,
+              borderRadius: BorderRadius.circular(10.0),
               onLongPress: () {
                 if (!widget.isErrorMessage) {
                   widget.longPressText();
@@ -83,7 +60,7 @@ class _MessageItemState extends State<MessageItem> {
                       : widget.isBot
                           ? Theme.of(context).scaffoldBackgroundColor
                           : Theme.of(context).primaryColor,
-                  borderRadius: borderRadius,
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: widget.loading
                     ? Padding(
@@ -110,11 +87,6 @@ class _MessageItemState extends State<MessageItem> {
                       ),
               ),
             ),
-            const SizedBox(height: 3.0),
-            Text(
-              gemmFormat(widget.time),
-              style: context.titleSmall.copyWith(fontSize: 12.0),
-            )
           ],
         ),
       ),
@@ -124,7 +96,7 @@ class _MessageItemState extends State<MessageItem> {
           onTap: widget.speechOnPress,
           child: widget.isSpeechText
               ? SpeechIcon()
-              : const Icon(CupertinoIcons.volume_mute, size: 18),
+              : const Icon(CupertinoIcons.volume_mute, size: 16),
         ),
       ],
       if (!widget.isBot) SizedBox(width: context.widthDevice * 0.1),
@@ -133,11 +105,51 @@ class _MessageItemState extends State<MessageItem> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment:
             widget.isBot ? MainAxisAlignment.start : MainAxisAlignment.end,
         children: widget.isBot ? content : content.reversed.toList(),
       ),
+    );
+  }
+
+  Row _chatBotInformation(BuildContext context) {
+    return Row(
+      children: [
+        const SizedBox(width: 5.0),
+        Container(
+          width: 18.0,
+          height: 18.0,
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+            image: const DecorationImage(
+              image: AssetImage(ImageConst.brainIcon),
+              fit: BoxFit.cover,
+            ),
+            shape: BoxShape.circle,
+          ),
+        ),
+        const SizedBox(width: 5.0),
+        Text(
+          "NIS_AI_Coach",
+          style: context.titleSmall.copyWith(fontSize: 12.0),
+        ),
+        const SizedBox(width: 5.0),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.0),
+            border: Border.all(width: 1, color: Theme.of(context).hintColor),
+          ),
+          child: Text(
+            "Yoga",
+            style: context.titleSmall.copyWith(
+                fontSize: 10.0,
+                color: Theme.of(context).primaryColor,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
     );
   }
 }

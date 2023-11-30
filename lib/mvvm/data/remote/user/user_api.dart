@@ -10,6 +10,7 @@ abstract class UserApi {
   static const String branch = "";
   static const String getMyProfileApi = "/user/me";
   static const String updateUserProfileApi = "/user/update-profile";
+  static const String changePasswordApi = "/user/change-password";
 
   @factoryMethod
   factory UserApi(Dio dio) = _UserApi;
@@ -19,5 +20,9 @@ abstract class UserApi {
 
   @PUT(updateUserProfileApi)
   Future<HttpResponse<UserModel?>> updateUserProfile(
+      {@Body() required Map<String, dynamic> body});
+
+  @PATCH(changePasswordApi)
+  Future<HttpResponse> changePassword(
       {@Body() required Map<String, dynamic> body});
 }

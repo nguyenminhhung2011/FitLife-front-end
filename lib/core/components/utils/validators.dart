@@ -8,7 +8,7 @@ class Validator {
 
   static final _emailRegex = RegExp(_emailRegExpString, caseSensitive: false);
 
-  static bool isValidPassword(String password) => password.length >= 6;
+  static bool isValidPassword(String password) => password.length >= 8;
 
   static bool iSValidRePassword(String password, String rePassword) =>
       password == rePassword;

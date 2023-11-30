@@ -5,6 +5,7 @@ import 'package:fit_life/core/components/network/data_state.dart';
 import 'package:fit_life/mvvm/data/local/preferences.dart';
 import 'package:fit_life/mvvm/data/remote/user/user_api.dart';
 import 'package:fit_life/mvvm/me/entity/user/user_entity.dart';
+import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:fit_life/mvvm/me/model/user/update_user_profile.dart';
 import 'package:fit_life/mvvm/repo/user_repositories.dart';
 import 'package:injectable/injectable.dart';
@@ -47,5 +48,19 @@ class UserRepositoriesImpl extends BaseApi implements UserRepositories {
       return Either.left(AppException(message: dataNullError));
     }
     return Either.right(responseData.toEntity);
+  }
+
+  @override
+  Future<SResult<bool>> changePassword(
+      {required ChangePassword request}) async {
+    final response = await getStateOf(
+      request: () async => await _userApi.changePassword(body: request.toMap),
+    );
+    if (response is DataFailed) {
+      return Either.left(
+        AppException(message: response.dioError?.message ?? baseError),
+      );
+    }
+    return const Either.right(true);
   }
 }

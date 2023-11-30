@@ -1,3 +1,4 @@
+import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:collection/collection.dart';
@@ -76,6 +77,13 @@ class _SettingScreenState extends State<SettingScreen> {
     _settingController.add(const SettingEvent.updateAppearance());
   }
 
+  void _onChangePassword() async {
+    final show = await context.showChangePassword();
+    if (show is ChangePassword) {
+      _settingController.add(SettingEvent.changePassword(changePass: show));
+    }
+  }
+
   void _onSecurityChange(bool value) async {
     final passCodeChange =
         await context.openPageWithRouteAndParams(Routes.passCode, '');
@@ -92,23 +100,26 @@ class _SettingScreenState extends State<SettingScreen> {
 
   void _listenStateChange(_, SettingState state) {
     state.maybeWhen(
-      orElse: () {
-        // do nothing
-      },
-      logOutSuccess: (_) {
-        final popUpRoutes = widget.settingConfig.popUpRoute;
-        if (popUpRoutes?.isNotEmpty ?? false) {
-          context.pushAndRemoveAll(popUpRoutes!);
-        }
-      },
-      updateAppearanceSuccess: (data) {
-        if (_appearance.isDark) {
-          AdaptiveTheme.of(context).setDark();
-        } else {
-          AdaptiveTheme.of(context).setLight();
-        }
-      },
-    );
+        orElse: () {
+          // do nothing
+        },
+        logOutSuccess: (_) {
+          final popUpRoutes = widget.settingConfig.popUpRoute;
+          if (popUpRoutes?.isNotEmpty ?? false) {
+            context.pushAndRemoveAll(popUpRoutes!);
+          }
+        },
+        updateAppearanceSuccess: (data) {
+          if (_appearance.isDark) {
+            AdaptiveTheme.of(context).setDark();
+          } else {
+            AdaptiveTheme.of(context).setLight();
+          }
+        },
+        changePasswordFailed: (_, error) =>
+            context.showSnackBar("🐛[Change password] $error"),
+        changePasswordSuccess: (_) =>
+            context.showSnackBar("✅[Change password] success"));
   }
 
   @override
@@ -409,7 +420,7 @@ class _SettingScreenState extends State<SettingScreen> {
         {
           icon = Icons.lock_outline;
           title = S.of(context).changePassword;
-          onPress = () => context.showChangePassword();
+          onPress = _onChangePassword;
         }
       case 'security':
         {

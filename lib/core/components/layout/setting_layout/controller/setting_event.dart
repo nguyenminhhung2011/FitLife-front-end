@@ -16,6 +16,9 @@ class SettingEvent with _$SettingEvent {
     required Currencies currencies,
   }) = _UpdateCurrencies;
 
+  const factory SettingEvent.changePassword(
+      {required ChangePassword changePass}) = _ChangePassword;
+
   const factory SettingEvent.updatePassCode({
     required String newPassCode,
   }) = _UpdatePassCode;

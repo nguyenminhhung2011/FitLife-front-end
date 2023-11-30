@@ -1,4 +1,5 @@
 import 'package:fit_life/core/components/layout/setting_layout/views/widgets/bottom_change_paassword.dart';
+import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/all_pt_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/setting_exercise_bottom.dart';
 import 'package:fit_life/mvvm/ui/health_overview/ob/health_overview_row.dart';
@@ -187,7 +188,7 @@ extension AppCoordinator<T> on BuildContext {
     return (data ?? false);
   }
 
-  Future<T?> showChangePassword() {
+  Future<ChangePassword?> showChangePassword() {
     return showModalBottomSheet(
       context: this,
       isScrollControlled: true,

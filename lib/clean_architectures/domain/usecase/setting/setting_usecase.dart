@@ -1,5 +1,7 @@
 import 'package:fit_life/clean_architectures/domain/usecase/base/base_usecase.dart';
+import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/mvvm/me/entity/user/user_entity.dart';
+import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:fit_life/mvvm/repo/user_repositories.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,4 +16,7 @@ class SettingUseCase extends BaseUseCase<User> {
           .fold(ifLeft: (_) => null, ifRight: (rData) => rData);
   @override
   Future<bool> logOut({required String token}) async => true;
+
+  Future<SResult<bool>> changePassword({required ChangePassword changePass}) =>
+      _userRepositories.changePassword(request: changePass);
 }

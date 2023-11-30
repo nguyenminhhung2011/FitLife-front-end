@@ -40,6 +40,14 @@ class SettingState with _$SettingState {
     required SettingModalState data,
   }) = _RemovePassCodeSuccess;
 
+  const factory SettingState.changePasswordSuccess({
+    required SettingModalState data,
+  }) = _ChangePasswordSuccess;
+
+  const factory SettingState.changePasswordFailed(
+      {required SettingModalState data,
+      required String message}) = _ChangePasswordFailed;
+
   bool get isLoading => maybeWhen(
       orElse: () => false, loading: (_, loadingType) => loadingType == 0);
 }

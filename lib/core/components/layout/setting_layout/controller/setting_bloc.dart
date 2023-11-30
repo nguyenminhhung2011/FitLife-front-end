@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:fit_life/core/components/layout/setting_layout/controller/setting_modal_state.dart';
+import 'package:fit_life/core/components/utils/validators.dart';
 import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:fit_life/core/components/network/app_exception.dart';
@@ -51,6 +53,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     on<_UpdatePassCode>(_onUpdatePassCode);
     on<_LogOut>(_onLogOut);
     on<_RemovePassCode>(_onRemovePassCode);
+    on<_ChangePassword>(_onChangePassword);
   }
 
   FutureOr<void> _onStarted(
@@ -88,6 +91,24 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
         ),
       ));
     }
+  }
+
+  FutureOr<void> _onChangePassword(
+    _ChangePassword event,
+    Emitter<SettingState> emit,
+  ) async {
+    emit(_Loading(data: data));
+    if (!Validator.isValidPassword(event.changePass.newPassword)) {
+      return emit(
+        _ChangePasswordFailed(data: data, message: "Invalid new password"),
+      );
+    }
+    (await _settingUseCase.changePassword(changePass: event.changePass)).fold(
+      ifLeft: (err) => emit(
+        _ChangePasswordFailed(data: data, message: err.message),
+      ),
+      ifRight: (_) => emit(_ChangePasswordSuccess(data: data)),
+    );
   }
 
   FutureOr<void> _onUpdatePassCode(

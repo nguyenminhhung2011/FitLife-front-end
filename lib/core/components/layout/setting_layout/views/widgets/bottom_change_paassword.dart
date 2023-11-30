@@ -3,6 +3,7 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/text_form_field_custom.dart';
 import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:flutter/material.dart';
 
 const _hMargin = 15.0;
@@ -65,10 +66,10 @@ class _BottomChangePasswordState extends State<BottomChangePassword> {
           paddingLeft: _hMargin,
           isPasswordField: true,
           paddingRight: _hMargin,
-          headerText: S.of(context).rePassword,
+          headerText: "New  password",
           headerTextStyle: headerStyle,
           hintStyle: context.titleMedium,
-          hintText: S.of(context).enterRePassword,
+          hintText: "Enter new password",
           spacingText: 10.0,
           controller: _rePasswordController,
           prefix: const Icon(Icons.lock_outline),
@@ -78,7 +79,12 @@ class _BottomChangePasswordState extends State<BottomChangePassword> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
           child: ButtonCustom(
-            onPress: () => context.pop(),
+            onPress: () => context.popArgs(
+              ChangePassword(
+                  oldPassword: _passwordController.text,
+                  newPassword: _rePasswordController.text,
+                  confirmPassword: _rePasswordController.text),
+            ),
             width: double.infinity,
             height: 45.0,
             child: Text(

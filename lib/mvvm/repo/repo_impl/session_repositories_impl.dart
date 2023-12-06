@@ -25,6 +25,7 @@ class SessionRepositoriesImpl implements SessionRepositories {
             ...List.generate(
               2,
               (index) => const Exercise(
+                  id: 0,
                   name: "Exercise name",
                   description: "This is description of exercise"),
             )
@@ -49,6 +50,7 @@ class SessionRepositoriesImpl implements SessionRepositories {
           ...List.generate(
             4,
             (index) => const Exercise(
+              id: 0,
               name: "Exercise name",
               description: "This is description of exercise",
               videoUrl: ImageConst.banner1,

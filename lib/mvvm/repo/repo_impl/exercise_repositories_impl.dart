@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dart_either/dart_either.dart';
 import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/components/network/base_api.dart';
@@ -6,6 +8,7 @@ import 'package:fit_life/mvvm/data/remote/exercise/exercise_api.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/add_exercise_dto.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
+import 'package:fit_life/mvvm/me/model/search_exercise/search_exercise_request.dart';
 import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
 import 'package:injectable/injectable.dart';
 
@@ -81,9 +84,10 @@ class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
         ...List.generate(
           perPage,
           (index) => Exercise(
+            id: 0,
             name: "Barbell Bench press",
             description: "This is descrion this is description",
-            BodyPart: category,
+            bodyPart: category,
             reps: 30,
             caloriesPerMinute: 100,
           ),
@@ -97,5 +101,34 @@ class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
     required AddExerciseDto dto,
   }) async {
     return const Either.right(true);
+  }
+
+  @override
+  Future<SResult<List<Exercise>>> searchExercise(
+      SearchExerciseRequest request) async {
+    try {
+      final response = await getStateOf(
+        request: () async =>
+            await _exerciseApi.searchExercise(body: request.toJson),
+      );
+      if (response is DataFailed) {
+        return Either.left(
+          AppException(message: response.dioError?.message ?? baseError),
+        );
+      }
+      if (response.data == null) {
+        return Either.left(AppException(message: dataNullError));
+      }
+
+      for (var element in response.data!.content) {
+        log(element.name);
+      }
+      return Either.right(
+        response.data?.content.map((e) => e.toEntity).toList() ??
+            List.empty(growable: true),
+      );
+    } catch (error) {
+      return Either.left(AppException(message: error.toString()));
+    }
   }
 }

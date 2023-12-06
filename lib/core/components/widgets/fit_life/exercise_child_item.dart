@@ -38,7 +38,9 @@ class ExerciseChidItem extends StatelessWidget {
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    exercise.description,
+                    exercise.description.isNotEmpty
+                        ? exercise.description
+                        : "This is descriptions of ${exercise.name}",
                     style: context.titleSmall.copyWith(
                       color: Theme.of(context).hintColor,
                       fontSize: 12.0,
@@ -48,9 +50,9 @@ class ExerciseChidItem extends StatelessWidget {
                     spacing: 5.0,
                     runSpacing: 5.0,
                     children: [
-                      '${exercise.reps} mins',
-                      '${exercise.BodyPart} category',
-                      '${exercise.caloriesPerMinute} calories'
+                      '${exercise.reps ?? 0} mins',
+                      '${exercise.bodyPart}',
+                      '${exercise.caloriesPerMinute ?? 0} calories'
                     ]
                         .map(
                           (e) => Container(

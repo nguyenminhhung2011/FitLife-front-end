@@ -6,9 +6,10 @@ part 'exercise.g.dart';
 @freezed
 class Exercise with _$Exercise {
   const factory Exercise({
+    required int id,
     required String name,
     required String description,
-    String? BodyPart,
+    String? bodyPart,
     double? caloriesPerMinute,
     String? videoUrl,
     int? set,
@@ -16,5 +17,5 @@ class Exercise with _$Exercise {
   }) = _Exercise;
 
   factory Exercise.fromJson(Map<String, dynamic> json) =>
-      _$ExerciseFromJson(json); 
-} 
+      _$ExerciseFromJson(json);
+}

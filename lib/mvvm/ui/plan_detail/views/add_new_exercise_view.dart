@@ -61,6 +61,7 @@ class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
         .addExercise(
           dto: AddExerciseDto(
             exercise: Exercise(
+              id: 0,
               name: exercise,
               description: "This is description of upper body",
             ),

@@ -1,6 +1,8 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
+import 'package:fit_life/mvvm/me/model/page_request/page_request.dart';
+import 'package:fit_life/mvvm/me/model/search_exercise/search_exercise_request.dart';
 import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
 import 'package:fit_life/mvvm/ui/recommend_plan/view_model/group_exercise_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,8 +23,7 @@ class GroupExerciseViewModel extends StateNotifier<GroupExerciseState> {
 
   GroupExerciseViewModel()
       : super(
-          const _Initial(
-              data: GroupExerciseData(exercises: <BodyPart>[])),
+          const _Initial(data: GroupExerciseData(exercises: <BodyPart>[])),
         );
 
   GroupExerciseData get data => state.data;
@@ -30,7 +31,6 @@ class GroupExerciseViewModel extends StateNotifier<GroupExerciseState> {
   Future<void> getExerciseCategories() async {
     state = _Loading(data: data.copyWith(isGetExerciseLoading: true));
     final response = await _exerciseRepositories.getAllExerciseCategories();
-    await Future.delayed(const Duration(seconds: 3));
     if (!mounted) {
       return;
     }
@@ -48,10 +48,13 @@ class GroupExerciseViewModel extends StateNotifier<GroupExerciseState> {
   }
 
   Future<List<Exercise>> getExerciseByCategory(
-      {required String category, int perPage = 5}) async {
-    final response = await _exerciseRepositories.getExerciseByFilter(
-        category: category, perPage: perPage);
-    await Future.delayed(const Duration(seconds: 3));
-    return response.fold(ifLeft: (_) => [], ifRight: (rData) => rData);
+      {required String category}) async {
+    return (await _exerciseRepositories.searchExercise(
+      SearchExerciseRequest(
+        bodyPart: category,
+        pageRequest: const PageRequest(perPage: 3, page: 0),
+      ),
+    ))
+        .fold(ifLeft: (_) => [], ifRight: (data) => data);
   }
 }

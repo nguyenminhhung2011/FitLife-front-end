@@ -124,8 +124,7 @@ class _GroupExerciseViewState extends ConsumerState<GroupExerciseView> {
                   ..removeLast(),
               ]),
               loadBody: (index) async => await _vm.getExerciseByCategory(
-                perPage: index + 1,
-                category: _data.exercises[index].header,
+                category: _data.exercises[index].header.toLowerCase(),
               ),
             ),
           const SizedBox(height: 40.0),

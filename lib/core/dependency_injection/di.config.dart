@@ -100,8 +100,11 @@ _i1.GetIt init(
     registerFor: {_prod},
   );
   gh.factory<_i13.ExerciseApi>(() => _i13.ExerciseApi(gh<_i12.Dio>()));
-  gh.factory<_i14.ExerciseDetailViewModel>(
-      () => _i14.ExerciseDetailViewModel());
+  gh.factoryParam<_i14.ExerciseDetailViewModel, int, dynamic>((
+    exerciseId,
+    _,
+  ) =>
+      _i14.ExerciseDetailViewModel(exerciseId));
   gh.factoryParam<_i15.ExerciseOverviewViewModel, String, dynamic>((
     sessionId,
     _,

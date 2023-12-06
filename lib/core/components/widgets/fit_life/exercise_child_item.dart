@@ -15,7 +15,8 @@ class ExerciseChidItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.openListPageWithRoute(Routes.exerciseDetail),
+      onTap: () => context.openPageWithRouteAndParams(
+          Routes.exerciseDetail, exercise.id),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Row(

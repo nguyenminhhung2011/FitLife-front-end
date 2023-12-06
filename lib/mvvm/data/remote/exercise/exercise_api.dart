@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fit_life/mvvm/me/model/body_part/body_part_model.dart';
+import 'package:fit_life/mvvm/me/model/exercise/exercise_model.dart';
 import 'package:fit_life/mvvm/me/model/search_exercise/search_exercise_response.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
@@ -22,4 +23,7 @@ abstract class ExerciseApi {
   @GET(searchExerciseApi)
   Future<HttpResponse<SearchExerciseResponse>> searchExercise(
       {@Body() required Map<String, dynamic> body});
+
+  @GET("$branch/{id}")
+  Future<HttpResponse<ExerciseModel>> getExerciseById(@Path('id') int id);
 }

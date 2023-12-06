@@ -62,41 +62,6 @@ class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
   }
 
   @override
-  Future<SResult<List<Exercise>>> getExerciseByFilter({
-    String? content,
-    String? category,
-    int currentPage = 0,
-    int perPage = 5,
-  }) async {
-    final mapCall = {
-      "currentPage": currentPage.toString(),
-      "size": perPage.toString()
-    };
-    if (content != null) {
-      mapCall.addAll({"content": content});
-    }
-    if (category != null) {
-      mapCall.addAll({"category": category});
-    }
-
-    return Either.right(
-      <Exercise>[
-        ...List.generate(
-          perPage,
-          (index) => Exercise(
-            id: 0,
-            name: "Barbell Bench press",
-            description: "This is descrion this is description",
-            bodyPart: category,
-            reps: 30,
-            caloriesPerMinute: 100,
-          ),
-        )
-      ],
-    );
-  }
-
-  @override
   Future<SResult<bool>> createExercise({
     required AddExerciseDto dto,
   }) async {
@@ -127,6 +92,25 @@ class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
         response.data?.content.map((e) => e.toEntity).toList() ??
             List.empty(growable: true),
       );
+    } catch (error) {
+      return Either.left(AppException(message: error.toString()));
+    }
+  }
+
+  @override
+  Future<SResult<Exercise>> getExerciseById(int exerciseId) async {
+    try {
+      final response = await getStateOf(
+          request: () async => await _exerciseApi.getExerciseById(exerciseId));
+      if (response is DataFailed) {
+        return Either.left(
+          AppException(message: response.dioError?.message ?? baseError),
+        );
+      }
+      if (response.data == null) {
+        return Either.left(AppException(message: dataNullError));
+      }
+      return Either.right(response.data!.toEntity);
     } catch (error) {
       return Either.left(AppException(message: error.toString()));
     }

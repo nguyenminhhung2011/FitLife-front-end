@@ -10,16 +10,11 @@ abstract class ExerciseRepositories {
 
   Future<SResult<List<BodyPart>>> getAllExerciseCategories();
 
-  Future<SResult<List<Exercise>>> getExerciseByFilter({
-    String? content,
-    String? category,
-    int currentPage = 0,
-    int perPage = 5,
-  });
-
   Future<SResult<bool>> createExercise({
     required AddExerciseDto dto,
   });
 
   Future<SResult<List<Exercise>>> searchExercise(SearchExerciseRequest request);
+
+  Future<SResult<Exercise>> getExerciseById(int exerciseId);
 }

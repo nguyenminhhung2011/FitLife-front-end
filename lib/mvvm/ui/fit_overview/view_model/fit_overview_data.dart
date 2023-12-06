@@ -15,7 +15,7 @@ class FitOverViewData with _$FitOverViewData {
 
 
     /// List exercise category
-    List<ExerciseCategory>? exerciseCategories,
+    List<BodyPart>? exerciseCategories,
 
     required CaloriesChart caloriesChart, 
 
@@ -23,6 +23,6 @@ class FitOverViewData with _$FitOverViewData {
     /// check loading upcoming workout status
     @Default(false) bool isLoadingUpcomingWorkout,
     /// check loading exercise category status
-    @Default(false) bool isLoadingExerciseCategory,
+    @Default(false) bool isLoadingBodyPart,
   }) = _FitOverViewData;
 }

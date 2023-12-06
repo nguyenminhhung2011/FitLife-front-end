@@ -22,7 +22,7 @@ Exercise _$ExerciseFromJson(Map<String, dynamic> json) {
 mixin _$Exercise {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String? get exerciseCategory => throw _privateConstructorUsedError;
+  String? get BodyPart => throw _privateConstructorUsedError;
   double? get caloriesPerMinute => throw _privateConstructorUsedError;
   String? get videoUrl => throw _privateConstructorUsedError;
   int? get set => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $ExerciseCopyWith<$Res> {
   $Res call(
       {String name,
       String description,
-      String? exerciseCategory,
+      String? BodyPart,
       double? caloriesPerMinute,
       String? videoUrl,
       int? set,
@@ -64,7 +64,7 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
   $Res call({
     Object? name = null,
     Object? description = null,
-    Object? exerciseCategory = freezed,
+    Object? BodyPart = freezed,
     Object? caloriesPerMinute = freezed,
     Object? videoUrl = freezed,
     Object? set = freezed,
@@ -79,9 +79,9 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      exerciseCategory: freezed == exerciseCategory
-          ? _value.exerciseCategory
-          : exerciseCategory // ignore: cast_nullable_to_non_nullable
+      BodyPart: freezed == BodyPart
+          ? _value.BodyPart
+          : BodyPart // ignore: cast_nullable_to_non_nullable
               as String?,
       caloriesPerMinute: freezed == caloriesPerMinute
           ? _value.caloriesPerMinute
@@ -113,7 +113,7 @@ abstract class _$$_ExerciseCopyWith<$Res> implements $ExerciseCopyWith<$Res> {
   $Res call(
       {String name,
       String description,
-      String? exerciseCategory,
+      String? BodyPart,
       double? caloriesPerMinute,
       String? videoUrl,
       int? set,
@@ -133,7 +133,7 @@ class __$$_ExerciseCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? description = null,
-    Object? exerciseCategory = freezed,
+    Object? BodyPart = freezed,
     Object? caloriesPerMinute = freezed,
     Object? videoUrl = freezed,
     Object? set = freezed,
@@ -148,9 +148,9 @@ class __$$_ExerciseCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      exerciseCategory: freezed == exerciseCategory
-          ? _value.exerciseCategory
-          : exerciseCategory // ignore: cast_nullable_to_non_nullable
+      BodyPart: freezed == BodyPart
+          ? _value.BodyPart
+          : BodyPart // ignore: cast_nullable_to_non_nullable
               as String?,
       caloriesPerMinute: freezed == caloriesPerMinute
           ? _value.caloriesPerMinute
@@ -178,7 +178,7 @@ class _$_Exercise implements _Exercise {
   const _$_Exercise(
       {required this.name,
       required this.description,
-      this.exerciseCategory,
+      this.BodyPart,
       this.caloriesPerMinute,
       this.videoUrl,
       this.set,
@@ -192,7 +192,7 @@ class _$_Exercise implements _Exercise {
   @override
   final String description;
   @override
-  final String? exerciseCategory;
+  final String? BodyPart;
   @override
   final double? caloriesPerMinute;
   @override
@@ -204,7 +204,7 @@ class _$_Exercise implements _Exercise {
 
   @override
   String toString() {
-    return 'Exercise(name: $name, description: $description, exerciseCategory: $exerciseCategory, caloriesPerMinute: $caloriesPerMinute, videoUrl: $videoUrl, set: $set, reps: $reps)';
+    return 'Exercise(name: $name, description: $description, BodyPart: $BodyPart, caloriesPerMinute: $caloriesPerMinute, videoUrl: $videoUrl, set: $set, reps: $reps)';
   }
 
   @override
@@ -215,8 +215,8 @@ class _$_Exercise implements _Exercise {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.exerciseCategory, exerciseCategory) ||
-                other.exerciseCategory == exerciseCategory) &&
+            (identical(other.BodyPart, BodyPart) ||
+                other.BodyPart == BodyPart) &&
             (identical(other.caloriesPerMinute, caloriesPerMinute) ||
                 other.caloriesPerMinute == caloriesPerMinute) &&
             (identical(other.videoUrl, videoUrl) ||
@@ -227,8 +227,8 @@ class _$_Exercise implements _Exercise {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description,
-      exerciseCategory, caloriesPerMinute, videoUrl, set, reps);
+  int get hashCode => Object.hash(runtimeType, name, description, BodyPart,
+      caloriesPerMinute, videoUrl, set, reps);
 
   @JsonKey(ignore: true)
   @override
@@ -248,7 +248,7 @@ abstract class _Exercise implements Exercise {
   const factory _Exercise(
       {required final String name,
       required final String description,
-      final String? exerciseCategory,
+      final String? BodyPart,
       final double? caloriesPerMinute,
       final String? videoUrl,
       final int? set,
@@ -261,7 +261,7 @@ abstract class _Exercise implements Exercise {
   @override
   String get description;
   @override
-  String? get exerciseCategory;
+  String? get BodyPart;
   @override
   double? get caloriesPerMinute;
   @override

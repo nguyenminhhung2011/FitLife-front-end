@@ -9,7 +9,7 @@ part of 'exercise.dart';
 _$_Exercise _$$_ExerciseFromJson(Map<String, dynamic> json) => _$_Exercise(
       name: json['name'] as String,
       description: json['description'] as String,
-      exerciseCategory: json['exerciseCategory'] as String?,
+      BodyPart: json['BodyPart'] as String?,
       caloriesPerMinute: (json['caloriesPerMinute'] as num?)?.toDouble(),
       videoUrl: json['videoUrl'] as String?,
       set: json['set'] as int?,
@@ -20,7 +20,7 @@ Map<String, dynamic> _$$_ExerciseToJson(_$_Exercise instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
-      'exerciseCategory': instance.exerciseCategory,
+      'BodyPart': instance.BodyPart,
       'caloriesPerMinute': instance.caloriesPerMinute,
       'videoUrl': instance.videoUrl,
       'set': instance.set,

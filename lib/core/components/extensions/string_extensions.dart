@@ -29,4 +29,7 @@ extension ColorExtension on String {
         "LITTLE" => Frequency.little,
         _ => Frequency.notMuch
       };
+
+  String get upCaseFirstCharacter =>
+      isNotEmpty ? (this[0].toUpperCase() + substring(1, length)) : this;
 }

@@ -6,8 +6,8 @@ part of 'exercise_category.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ExerciseCategory _$$_ExerciseCategoryFromJson(Map<String, dynamic> json) =>
-    _$_ExerciseCategory(
+_$_BodyPart _$$_BodyPartFromJson(Map<String, dynamic> json) => _$_BodyPart(
+      id: json['id'] as int,
       header: json['header'] as String,
       description: json['description'] as String?,
       exCountable: json['exCountable'] as int,
@@ -15,8 +15,9 @@ _$_ExerciseCategory _$$_ExerciseCategoryFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String,
     );
 
-Map<String, dynamic> _$$_ExerciseCategoryToJson(_$_ExerciseCategory instance) =>
+Map<String, dynamic> _$$_BodyPartToJson(_$_BodyPart instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'header': instance.header,
       'description': instance.description,
       'exCountable': instance.exCountable,

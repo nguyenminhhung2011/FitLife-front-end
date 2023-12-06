@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$GroupExerciseData {
-  List<ExerciseCategory> get exercises => throw _privateConstructorUsedError;
+  List<BodyPart> get exercises => throw _privateConstructorUsedError;
   bool get isGetExerciseLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +30,7 @@ abstract class $GroupExerciseDataCopyWith<$Res> {
           GroupExerciseData value, $Res Function(GroupExerciseData) then) =
       _$GroupExerciseDataCopyWithImpl<$Res, GroupExerciseData>;
   @useResult
-  $Res call({List<ExerciseCategory> exercises, bool isGetExerciseLoading});
+  $Res call({List<BodyPart> exercises, bool isGetExerciseLoading});
 }
 
 /// @nodoc
@@ -53,7 +53,7 @@ class _$GroupExerciseDataCopyWithImpl<$Res, $Val extends GroupExerciseData>
       exercises: null == exercises
           ? _value.exercises
           : exercises // ignore: cast_nullable_to_non_nullable
-              as List<ExerciseCategory>,
+              as List<BodyPart>,
       isGetExerciseLoading: null == isGetExerciseLoading
           ? _value.isGetExerciseLoading
           : isGetExerciseLoading // ignore: cast_nullable_to_non_nullable
@@ -70,7 +70,7 @@ abstract class _$$_GroupExerciseDataCopyWith<$Res>
       __$$_GroupExerciseDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ExerciseCategory> exercises, bool isGetExerciseLoading});
+  $Res call({List<BodyPart> exercises, bool isGetExerciseLoading});
 }
 
 /// @nodoc
@@ -91,7 +91,7 @@ class __$$_GroupExerciseDataCopyWithImpl<$Res>
       exercises: null == exercises
           ? _value._exercises
           : exercises // ignore: cast_nullable_to_non_nullable
-              as List<ExerciseCategory>,
+              as List<BodyPart>,
       isGetExerciseLoading: null == isGetExerciseLoading
           ? _value.isGetExerciseLoading
           : isGetExerciseLoading // ignore: cast_nullable_to_non_nullable
@@ -104,13 +104,13 @@ class __$$_GroupExerciseDataCopyWithImpl<$Res>
 
 class _$_GroupExerciseData implements _GroupExerciseData {
   const _$_GroupExerciseData(
-      {required final List<ExerciseCategory> exercises,
+      {required final List<BodyPart> exercises,
       this.isGetExerciseLoading = false})
       : _exercises = exercises;
 
-  final List<ExerciseCategory> _exercises;
+  final List<BodyPart> _exercises;
   @override
-  List<ExerciseCategory> get exercises {
+  List<BodyPart> get exercises {
     if (_exercises is EqualUnmodifiableListView) return _exercises;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_exercises);
@@ -150,11 +150,11 @@ class _$_GroupExerciseData implements _GroupExerciseData {
 
 abstract class _GroupExerciseData implements GroupExerciseData {
   const factory _GroupExerciseData(
-      {required final List<ExerciseCategory> exercises,
+      {required final List<BodyPart> exercises,
       final bool isGetExerciseLoading}) = _$_GroupExerciseData;
 
   @override
-  List<ExerciseCategory> get exercises;
+  List<BodyPart> get exercises;
   @override
   bool get isGetExerciseLoading;
   @override

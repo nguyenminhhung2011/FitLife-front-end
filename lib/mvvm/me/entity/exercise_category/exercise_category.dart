@@ -4,15 +4,16 @@ part 'exercise_category.freezed.dart';
 part 'exercise_category.g.dart';
 
 @freezed
-class ExerciseCategory with _$ExerciseCategory {
-  const factory ExerciseCategory({
+class BodyPart with _$BodyPart {
+  const factory BodyPart({
+    required int id,
     required String header,
     String? description,
     required int exCountable,
     required String level,
     required String image,
-  }) = _ExerciseCategory;
+  }) = _BodyPart;
 
-  factory ExerciseCategory.fromJson(Map<String, dynamic> json) =>
-      _$ExerciseCategoryFromJson(json);
+  factory BodyPart.fromJson(Map<String, dynamic> json) =>
+      _$BodyPartFromJson(json);
 }

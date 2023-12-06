@@ -6,7 +6,7 @@ part 'group_exercise_data.freezed.dart';
 @freezed
 class GroupExerciseData with _$GroupExerciseData {
   const factory GroupExerciseData({
-    required List<ExerciseCategory> exercises,
+    required List<BodyPart> exercises,
     @Default(false) bool isGetExerciseLoading, 
   }) = _GroupExerciseData;
 }

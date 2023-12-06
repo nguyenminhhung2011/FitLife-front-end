@@ -14,12 +14,12 @@ class FitOverViewState with _$FitOverViewState {
       {required FitOverViewData data,
       required String message}) = _GetUpComingFailed;
 
-  const factory FitOverViewState.getExerciseCategorySuccess(
-      {required FitOverViewData data}) = _GetExerciseCategorySuccess;
+  const factory FitOverViewState.getBodyPartSuccess(
+      {required FitOverViewData data}) = _GetBodyPartSuccess;
 
-  const factory FitOverViewState.getExerciseCategoryFailed(
+  const factory FitOverViewState.getBodyPartFailed(
       {required FitOverViewData data,
-      required String message}) = _GetExerciseCategoryFailed;
+      required String message}) = _GetBodyPartFailed;
 
   const factory FitOverViewState.getCaloriesChartSuccess(
       {required FitOverViewData data}) = _GetCaloriesChartSuccess;

@@ -89,7 +89,8 @@ class _BottomChangePasswordState extends State<BottomChangePassword> {
             height: 45.0,
             child: Text(
               S.of(context).update,
-              style: context.titleMedium.copyWith(fontWeight: FontWeight.bold),
+              style: context.titleMedium
+                  .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ),
         ),

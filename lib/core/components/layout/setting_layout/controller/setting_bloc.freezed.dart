@@ -1063,10 +1063,10 @@ class __$$_ChangePasswordCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? changePass = freezed,
+    Object? changePass = null,
   }) {
     return _then(_$_ChangePassword(
-      changePass: freezed == changePass
+      changePass: null == changePass
           ? _value.changePass
           : changePass // ignore: cast_nullable_to_non_nullable
               as ChangePassword,
@@ -1092,13 +1092,12 @@ class _$_ChangePassword implements _ChangePassword {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChangePassword &&
-            const DeepCollectionEquality()
-                .equals(other.changePass, changePass));
+            (identical(other.changePass, changePass) ||
+                other.changePass == changePass));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(changePass));
+  int get hashCode => Object.hash(runtimeType, changePass);
 
   @JsonKey(ignore: true)
   @override

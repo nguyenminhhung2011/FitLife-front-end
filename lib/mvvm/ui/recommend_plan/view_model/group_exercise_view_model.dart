@@ -22,7 +22,7 @@ class GroupExerciseViewModel extends StateNotifier<GroupExerciseState> {
   GroupExerciseViewModel()
       : super(
           const _Initial(
-              data: GroupExerciseData(exercises: <ExerciseCategory>[])),
+              data: GroupExerciseData(exercises: <BodyPart>[])),
         );
 
   GroupExerciseData get data => state.data;

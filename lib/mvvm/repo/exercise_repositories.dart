@@ -4,10 +4,10 @@ import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 
 abstract class ExerciseRepositories {
-  Future<SResult<List<ExerciseCategory>>> getExerciseCategories(
+  Future<SResult<List<BodyPart>>> getExerciseCategories(
       {required int currentPage, required int perPage});
 
-  Future<SResult<List<ExerciseCategory>>> getAllExerciseCategories();
+  Future<SResult<List<BodyPart>>> getAllExerciseCategories();
 
   Future<SResult<List<Exercise>>> getExerciseByFilter({
     String? content,

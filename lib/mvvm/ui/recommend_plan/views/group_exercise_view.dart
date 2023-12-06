@@ -1,5 +1,6 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/extensions/string_extensions.dart';
 import 'package:fit_life/core/components/widgets/expansion_panel_list/expansion_panel_list.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
@@ -92,16 +93,16 @@ class _GroupExerciseViewState extends ConsumerState<GroupExerciseView> {
       body: ListView(
         children: [
           if (_data.exercises.isNotEmpty)
-            ExpansionPanelCustom<ExerciseCategory, List<Exercise>>(
+            ExpansionPanelCustom<BodyPart, List<Exercise>>(
               parentItems: _data.exercises,
               parentItemBuilder: (_, item, isExpanded) {
-                return _exerciseCategoryItem(item, context);
+                return _bodyPartItem(item, context);
               },
               expandPanelColor: Theme.of(context).scaffoldBackgroundColor,
               bodyItem: (_, items, header) => Column(children: [
                 const SizedBox(height: 10.0),
                 HeaderTextCustom(
-                  headerText: "🌟 ${header.header}",
+                  headerText: "🌟 ${header.header.upCaseFirstCharacter}",
                   textStyle:
                       context.titleMedium.copyWith(fontWeight: FontWeight.w600),
                   isShowSeeMore: true,
@@ -133,7 +134,7 @@ class _GroupExerciseViewState extends ConsumerState<GroupExerciseView> {
     );
   }
 
-  Stack _exerciseCategoryItem(ExerciseCategory item, BuildContext context) {
+  Stack _bodyPartItem(BodyPart item, BuildContext context) {
     return Stack(
       children: [
         Image.asset(item.image.toString(),
@@ -152,7 +153,7 @@ class _GroupExerciseViewState extends ConsumerState<GroupExerciseView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                item.header,
+                item.header.upCaseFirstCharacter,
                 style: context.titleMedium
                     .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
               ),

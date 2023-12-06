@@ -49,7 +49,7 @@ class ExerciseChidItem extends StatelessWidget {
                     runSpacing: 5.0,
                     children: [
                       '${exercise.reps} mins',
-                      '${exercise.exerciseCategory} category',
+                      '${exercise.BodyPart} category',
                       '${exercise.caloriesPerMinute} calories'
                     ]
                         .map(

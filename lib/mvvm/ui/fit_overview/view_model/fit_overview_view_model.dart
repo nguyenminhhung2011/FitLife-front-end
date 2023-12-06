@@ -78,21 +78,21 @@ class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
     );
   }
 
-  Future<void> getExerciseCategory() async {
-    state = _Loading(data: data.copyWith(isLoadingExerciseCategory: true));
+  Future<void> getBodyPart() async {
+    state = _Loading(data: data.copyWith(isLoadingBodyPart: true));
     final response = await _exerciseRepositories.getExerciseCategories(
         currentPage: 0, perPage: 3);
     await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
     state = response.fold(
-      ifLeft: (error) => _GetExerciseCategoryFailed(
-        data: data.copyWith(isLoadingExerciseCategory: false),
+      ifLeft: (error) => _GetBodyPartFailed(
+        data: data.copyWith(isLoadingBodyPart: false),
         message: error.message,
       ),
-      ifRight: (rData) => _GetExerciseCategorySuccess(
+      ifRight: (rData) => _GetBodyPartSuccess(
         data: data.copyWith(
           exerciseCategories: rData,
-          isLoadingExerciseCategory: false,
+          isLoadingBodyPart: false,
         ),
       ),
     );

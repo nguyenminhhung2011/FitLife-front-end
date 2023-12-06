@@ -1,6 +1,8 @@
 import 'package:dart_either/dart_either.dart';
-import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/network/app_exception.dart';
+import 'package:fit_life/core/components/network/base_api.dart';
+import 'package:fit_life/core/components/network/data_state.dart';
+import 'package:fit_life/mvvm/data/remote/exercise/exercise_api.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/add_exercise_dto.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
@@ -8,60 +10,52 @@ import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: ExerciseRepositories)
-class ExerciseRepositoriesImpl implements ExerciseRepositories {
+class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
+  final ExerciseApi _exerciseApi;
+  ExerciseRepositoriesImpl(this._exerciseApi);
+
   @override
-  Future<SResult<List<ExerciseCategory>>> getExerciseCategories(
+  Future<SResult<List<BodyPart>>> getExerciseCategories(
       {required int currentPage, required int perPage}) async {
-    return const Either.right(<ExerciseCategory>[
-      ExerciseCategory(
-        header: 'Upper Body',
-        description: 'This is description of upper body',
-        exCountable: 21,
-        level: 'Beginner ⚡ Advanced',
-        image: ImageConst.banner1,
-      ),
-      ExerciseCategory(
-        header: 'Cardio',
-        description: 'This is description of Cardio',
-        exCountable: 31,
-        level: 'Medium ⚡ Advanced',
-        image: ImageConst.banner2,
-      ),
-      ExerciseCategory(
-        header: 'Stretch',
-        description: 'This is description of Stretch',
-        exCountable: 19,
-        level: 'Beginner ⚡ Advanced',
-        image: ImageConst.banner3,
-      ),
-    ]);
+    try {
+      final response = await getStateOf(
+          request: () async => await _exerciseApi.getBodyPart());
+      if (response is DataFailed) {
+        return Either.left(
+          AppException(message: response.dioError?.message ?? baseError),
+        );
+      }
+      if (response.data?.isNotEmpty ?? false) {
+        final startIndex = currentPage * perPage;
+        return Either.right(
+          response.data!
+              .map((e) => e.toEntity)
+              .toList()
+              .sublist(startIndex, startIndex + perPage),
+        );
+      }
+      return Either.left(AppException(message: dataNullError));
+    } catch (error) {
+      return Either.left(AppException(message: error.toString()));
+    }
   }
 
   @override
-  Future<SResult<List<ExerciseCategory>>> getAllExerciseCategories() async {
-    return const Either.right(<ExerciseCategory>[
-      ExerciseCategory(
-        header: 'Upper Body',
-        description: 'This is description of upper body',
-        exCountable: 21,
-        level: 'Beginner ⚡ Advanced',
-        image: ImageConst.banner1,
-      ),
-      ExerciseCategory(
-        header: 'Cardio',
-        description: 'This is description of Cardio',
-        exCountable: 31,
-        level: 'Medium ⚡ Advanced',
-        image: ImageConst.banner2,
-      ),
-      ExerciseCategory(
-        header: 'Stretch',
-        description: 'This is description of Stretch',
-        exCountable: 19,
-        level: 'Beginner ⚡ Advanced',
-        image: ImageConst.banner3,
-      ),
-    ]);
+  Future<SResult<List<BodyPart>>> getAllExerciseCategories() async {
+    try {
+      final response = await getStateOf(
+          request: () async => await _exerciseApi.getBodyPart());
+      if (response is DataFailed) {
+        return Either.left(
+            AppException(message: response.dioError?.message ?? baseError));
+      }
+      if (response.data?.isNotEmpty ?? false) {
+        return Either.right(response.data!.map((e) => e.toEntity).toList());
+      }
+      return Either.left(AppException(message: dataNullError));
+    } catch (error) {
+      return Either.left(AppException(message: error.toString()));
+    }
   }
 
   @override
@@ -89,7 +83,7 @@ class ExerciseRepositoriesImpl implements ExerciseRepositories {
           (index) => Exercise(
             name: "Barbell Bench press",
             description: "This is descrion this is description",
-            exerciseCategory: category,
+            BodyPart: category,
             reps: 30,
             caloriesPerMinute: 100,
           ),

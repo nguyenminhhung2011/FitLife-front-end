@@ -37,7 +37,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
 
   FitOverViewData get _data => ref.watch(fitOverViewNotifier).data;
 
-  List<ExerciseCategory>? get _exerciseCategories => _data.exerciseCategories;
+  List<BodyPart>? get _exerciseCategories => _data.exerciseCategories;
 
   List<DateTime> get _rangeDate => _data.rangeDate;
 
@@ -57,7 +57,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
       if (mounted) {
         Future.delayed(Duration.zero, () {
           _vm.getUpcomingWorkout();
-          _vm.getExerciseCategory();
+          _vm.getBodyPart();
           _vm.onSelectedDate(_rangeDateController.listDate);
         });
       }
@@ -85,7 +85,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
           _vm.getCaloriesChart();
         }
       },
-      getExerciseCategoryFailed: (_, message) =>
+      getBodyPartFailed: (_, message) =>
           context.showSnackBar("🐛[Get exercise category] $message"),
       getUpComingFailed: (_, message) =>
           context.showSnackBar("🐛[Get upcoming exercise] $message"),
@@ -185,7 +185,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
             onPress: () => context.openListPageWithRoute(Routes.groupExercise),
           ),
           const SizedBox(height: 10.0),
-          if (_data.isLoadingExerciseCategory)
+          if (_data.isLoadingBodyPart)
             Center(
               child: StyleLoadingWidget.foldingCube.renderWidget(
                   size: 40.0, color: Theme.of(context).primaryColor),
@@ -200,7 +200,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
                   const SizedBox(width: 15.0),
                   ..._exerciseCategories!
                       .map<Widget>(
-                        (e) => ExerciseCategoryWidget(
+                        (e) => BodyPartWidget(
                           header: e.header,
                           exCountable: e.exCountable,
                           description: e.description ?? "",

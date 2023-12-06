@@ -1,13 +1,14 @@
+import 'package:fit_life/core/components/extensions/string_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
-class ExerciseCategoryWidget extends StatelessWidget {
+class BodyPartWidget extends StatelessWidget {
   final String header;
   final String description;
   final String level;
   final String image;
   final int exCountable;
-  const ExerciseCategoryWidget({
+  const BodyPartWidget({
     super.key,
     required this.header,
     required this.description,
@@ -49,7 +50,7 @@ class ExerciseCategoryWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                header,
+                header.upCaseFirstCharacter,
                 style: context.titleMedium.copyWith(
                   fontWeight: FontWeight.w700,
                   color: Colors.white,

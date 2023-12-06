@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ExerciseCategory _$ExerciseCategoryFromJson(Map<String, dynamic> json) {
-  return _ExerciseCategory.fromJson(json);
+BodyPart _$BodyPartFromJson(Map<String, dynamic> json) {
+  return _BodyPart.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ExerciseCategory {
+mixin _$BodyPart {
+  int get id => throw _privateConstructorUsedError;
   String get header => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   int get exCountable => throw _privateConstructorUsedError;
@@ -28,18 +29,18 @@ mixin _$ExerciseCategory {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ExerciseCategoryCopyWith<ExerciseCategory> get copyWith =>
+  $BodyPartCopyWith<BodyPart> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ExerciseCategoryCopyWith<$Res> {
-  factory $ExerciseCategoryCopyWith(
-          ExerciseCategory value, $Res Function(ExerciseCategory) then) =
-      _$ExerciseCategoryCopyWithImpl<$Res, ExerciseCategory>;
+abstract class $BodyPartCopyWith<$Res> {
+  factory $BodyPartCopyWith(BodyPart value, $Res Function(BodyPart) then) =
+      _$BodyPartCopyWithImpl<$Res, BodyPart>;
   @useResult
   $Res call(
-      {String header,
+      {int id,
+      String header,
       String? description,
       int exCountable,
       String level,
@@ -47,9 +48,9 @@ abstract class $ExerciseCategoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ExerciseCategoryCopyWithImpl<$Res, $Val extends ExerciseCategory>
-    implements $ExerciseCategoryCopyWith<$Res> {
-  _$ExerciseCategoryCopyWithImpl(this._value, this._then);
+class _$BodyPartCopyWithImpl<$Res, $Val extends BodyPart>
+    implements $BodyPartCopyWith<$Res> {
+  _$BodyPartCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -59,6 +60,7 @@ class _$ExerciseCategoryCopyWithImpl<$Res, $Val extends ExerciseCategory>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? header = null,
     Object? description = freezed,
     Object? exCountable = null,
@@ -66,6 +68,10 @@ class _$ExerciseCategoryCopyWithImpl<$Res, $Val extends ExerciseCategory>
     Object? image = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       header: null == header
           ? _value.header
           : header // ignore: cast_nullable_to_non_nullable
@@ -91,15 +97,15 @@ class _$ExerciseCategoryCopyWithImpl<$Res, $Val extends ExerciseCategory>
 }
 
 /// @nodoc
-abstract class _$$_ExerciseCategoryCopyWith<$Res>
-    implements $ExerciseCategoryCopyWith<$Res> {
-  factory _$$_ExerciseCategoryCopyWith(
-          _$_ExerciseCategory value, $Res Function(_$_ExerciseCategory) then) =
-      __$$_ExerciseCategoryCopyWithImpl<$Res>;
+abstract class _$$_BodyPartCopyWith<$Res> implements $BodyPartCopyWith<$Res> {
+  factory _$$_BodyPartCopyWith(
+          _$_BodyPart value, $Res Function(_$_BodyPart) then) =
+      __$$_BodyPartCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String header,
+      {int id,
+      String header,
       String? description,
       int exCountable,
       String level,
@@ -107,23 +113,28 @@ abstract class _$$_ExerciseCategoryCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ExerciseCategoryCopyWithImpl<$Res>
-    extends _$ExerciseCategoryCopyWithImpl<$Res, _$_ExerciseCategory>
-    implements _$$_ExerciseCategoryCopyWith<$Res> {
-  __$$_ExerciseCategoryCopyWithImpl(
-      _$_ExerciseCategory _value, $Res Function(_$_ExerciseCategory) _then)
+class __$$_BodyPartCopyWithImpl<$Res>
+    extends _$BodyPartCopyWithImpl<$Res, _$_BodyPart>
+    implements _$$_BodyPartCopyWith<$Res> {
+  __$$_BodyPartCopyWithImpl(
+      _$_BodyPart _value, $Res Function(_$_BodyPart) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? header = null,
     Object? description = freezed,
     Object? exCountable = null,
     Object? level = null,
     Object? image = null,
   }) {
-    return _then(_$_ExerciseCategory(
+    return _then(_$_BodyPart(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       header: null == header
           ? _value.header
           : header // ignore: cast_nullable_to_non_nullable
@@ -150,17 +161,20 @@ class __$$_ExerciseCategoryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ExerciseCategory implements _ExerciseCategory {
-  const _$_ExerciseCategory(
-      {required this.header,
+class _$_BodyPart implements _BodyPart {
+  const _$_BodyPart(
+      {required this.id,
+      required this.header,
       this.description,
       required this.exCountable,
       required this.level,
       required this.image});
 
-  factory _$_ExerciseCategory.fromJson(Map<String, dynamic> json) =>
-      _$$_ExerciseCategoryFromJson(json);
+  factory _$_BodyPart.fromJson(Map<String, dynamic> json) =>
+      _$$_BodyPartFromJson(json);
 
+  @override
+  final int id;
   @override
   final String header;
   @override
@@ -174,14 +188,15 @@ class _$_ExerciseCategory implements _ExerciseCategory {
 
   @override
   String toString() {
-    return 'ExerciseCategory(header: $header, description: $description, exCountable: $exCountable, level: $level, image: $image)';
+    return 'BodyPart(id: $id, header: $header, description: $description, exCountable: $exCountable, level: $level, image: $image)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ExerciseCategory &&
+            other is _$_BodyPart &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.header, header) || other.header == header) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -193,34 +208,36 @@ class _$_ExerciseCategory implements _ExerciseCategory {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, header, description, exCountable, level, image);
+  int get hashCode => Object.hash(
+      runtimeType, id, header, description, exCountable, level, image);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ExerciseCategoryCopyWith<_$_ExerciseCategory> get copyWith =>
-      __$$_ExerciseCategoryCopyWithImpl<_$_ExerciseCategory>(this, _$identity);
+  _$$_BodyPartCopyWith<_$_BodyPart> get copyWith =>
+      __$$_BodyPartCopyWithImpl<_$_BodyPart>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ExerciseCategoryToJson(
+    return _$$_BodyPartToJson(
       this,
     );
   }
 }
 
-abstract class _ExerciseCategory implements ExerciseCategory {
-  const factory _ExerciseCategory(
-      {required final String header,
+abstract class _BodyPart implements BodyPart {
+  const factory _BodyPart(
+      {required final int id,
+      required final String header,
       final String? description,
       required final int exCountable,
       required final String level,
-      required final String image}) = _$_ExerciseCategory;
+      required final String image}) = _$_BodyPart;
 
-  factory _ExerciseCategory.fromJson(Map<String, dynamic> json) =
-      _$_ExerciseCategory.fromJson;
+  factory _BodyPart.fromJson(Map<String, dynamic> json) = _$_BodyPart.fromJson;
 
+  @override
+  int get id;
   @override
   String get header;
   @override
@@ -233,6 +250,6 @@ abstract class _ExerciseCategory implements ExerciseCategory {
   String get image;
   @override
   @JsonKey(ignore: true)
-  _$$_ExerciseCategoryCopyWith<_$_ExerciseCategory> get copyWith =>
+  _$$_BodyPartCopyWith<_$_BodyPart> get copyWith =>
       throw _privateConstructorUsedError;
 }

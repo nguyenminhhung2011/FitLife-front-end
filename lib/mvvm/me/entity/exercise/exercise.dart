@@ -8,7 +8,7 @@ class Exercise with _$Exercise {
   const factory Exercise({
     required String name,
     required String description,
-    String? exerciseCategory,
+    String? BodyPart,
     double? caloriesPerMinute,
     String? videoUrl,
     int? set,

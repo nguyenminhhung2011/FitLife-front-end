@@ -63,8 +63,8 @@ class TokenInterceptor implements Interceptor {
     log('🎉[Access] $accessToken\n🎉[Refresh] $refreshToken');
 
     ///[✏️ Config time out]
-    options.connectTimeout = const Duration(seconds: 3);
-    options.receiveTimeout = const Duration(seconds: 3);
+    options.connectTimeout = const Duration(seconds: 30);
+    options.receiveTimeout = const Duration(seconds: 30);
 
     if (accessToken.isEmpty || refreshToken.isEmpty) {
       return handler.next(options);

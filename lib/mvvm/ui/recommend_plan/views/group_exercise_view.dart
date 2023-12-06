@@ -108,7 +108,7 @@ class _GroupExerciseViewState extends ConsumerState<GroupExerciseView> {
                   isShowSeeMore: true,
                   onPress: () => context.openPageWithRouteAndParams(
                     Routes.allExercise,
-                    header.header,
+                    header.header.toLowerCase(),
                   ),
                 ),
                 ...items

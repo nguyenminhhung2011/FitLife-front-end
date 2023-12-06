@@ -1,6 +1,8 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/pagination/pagination.dart';
+import 'package:fit_life/mvvm/me/model/page_request/page_request.dart';
+import 'package:fit_life/mvvm/me/model/search_exercise/search_exercise_request.dart';
 import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
 import 'package:fit_life/mvvm/ui/all_exercise/view_model/all_exercise_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -40,8 +42,13 @@ class AllExerciseViewModel extends StateNotifier<AllExerciseState> {
           : data.exercises,
     ));
 
-    final response = await _exerciseRepositories.getExerciseByFilter(
-        content: content, category: _categoryId, perPage: 10);
+    final response = await _exerciseRepositories.searchExercise(
+      SearchExerciseRequest(
+        pageRequest: PageRequest(perPage: 10, page: currentPage),
+        name: content,
+        bodyPart: _categoryId,
+      ),
+    );
 
     await Future.delayed(const Duration(seconds: 3));
 

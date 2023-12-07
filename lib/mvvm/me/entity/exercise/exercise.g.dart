@@ -15,6 +15,9 @@ _$_Exercise _$$_ExerciseFromJson(Map<String, dynamic> json) => _$_Exercise(
       videoUrl: json['videoUrl'] as String?,
       set: json['set'] as int?,
       reps: json['reps'] as int?,
+      instructions: (json['instructions'] as List<dynamic>?)
+          ?.map((e) => Instruction.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_ExerciseToJson(_$_Exercise instance) =>
@@ -27,4 +30,5 @@ Map<String, dynamic> _$$_ExerciseToJson(_$_Exercise instance) =>
       'videoUrl': instance.videoUrl,
       'set': instance.set,
       'reps': instance.reps,
+      'instructions': instance.instructions,
     };

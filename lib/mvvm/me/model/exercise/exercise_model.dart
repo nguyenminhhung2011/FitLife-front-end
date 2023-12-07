@@ -42,7 +42,7 @@ class ExerciseModel {
 
   @Default([])
   @JsonKey(name: 'instructions')
-  final List<InstructionModel>? instructions;
+  final List<Instruction>? instructions;
 
   ExerciseModel({
     required this.id,
@@ -71,6 +71,7 @@ class ExerciseModel {
         set: sets,
         reps: reps,
         videoUrl: gifUrl,
-        bodyPart: bodyPart,
+        bodyPart: bodyPart, 
+        instructions: instructions ?? List.empty(),
       );
 }

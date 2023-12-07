@@ -1,3 +1,4 @@
+import 'package:fit_life/mvvm/me/model/exercise/instruction_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'exercise.freezed.dart';
@@ -14,6 +15,7 @@ class Exercise with _$Exercise {
     String? videoUrl,
     int? set,
     int? reps,
+    List<Instruction>? instructions,
   }) = _Exercise;
 
   factory Exercise.fromJson(Map<String, dynamic> json) =>

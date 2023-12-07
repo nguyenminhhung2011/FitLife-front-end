@@ -25,6 +25,7 @@ class ExerciseDetailViewModel extends StateNotifier<ExerciseDetailState> {
   Future<void> getExerciseById() async {
     state = _Loading(data: data);
     final response = await _exerciseRepositories.getExerciseById(_exerciseId);
+    await Future.delayed(const Duration(seconds: 1));
     if (!mounted) return;
     state = response.fold(
       ifLeft: (error) =>

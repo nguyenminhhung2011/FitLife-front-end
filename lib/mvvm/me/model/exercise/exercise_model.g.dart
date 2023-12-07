@@ -20,7 +20,7 @@ ExerciseModel _$ExerciseModelFromJson(Map<String, dynamic> json) =>
       equipment: json['equipment'] as String?,
       bodyPart: json['bodyPart'] as String,
       instructions: (json['instructions'] as List<dynamic>?)
-          ?.map((e) => InstructionModel.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Instruction.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

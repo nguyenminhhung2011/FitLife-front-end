@@ -5,6 +5,7 @@ import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/core/components/widgets/video_player.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
+import 'package:fit_life/mvvm/me/model/exercise/instruction_model.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/view_model/exercise_detail_data.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/view_model/exercise_detail_view_model.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/widgets/step_item_widget.dart';
@@ -41,7 +42,9 @@ class _ExerciseDetailViewState extends ConsumerState<ExerciseDetailView> {
 
   @override
   void initState() {
-    _vm.getExerciseById();
+    Future.delayed(Duration.zero, () async {
+      await _vm.getExerciseById();
+    });
     super.initState();
   }
 
@@ -167,23 +170,15 @@ class _ExerciseDetailViewState extends ConsumerState<ExerciseDetailView> {
                       context.titleMedium.copyWith(fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
-                Text('4 steps', style: _smallStyle)
+                Text('${_exercise?.instructions?.length ?? 0} steps',
+                    style: _smallStyle)
               ],
             ),
           ),
           const SizedBox(height: 10.0),
           Padding(
             padding: _itemPadding,
-            child: _stepField(
-              steps: {
-                'Lie on a bench with your arms bent ':
-                    'Lie on a bench with your arms bent and your elbows by your ears so that you can grip the top of the bench.',
-                'Lie on a bench with your arms bent 1':
-                    'Lie on a bench with your arms bent and your elbows by your ears so that you can grip the top of the bench.',
-                'Lie on a bench with your arms bent 2':
-                    'Lie on a bench with your arms bent and your elbows by your ears so that you can grip the top of the bench.',
-              },
-            ),
+            child: _stepField(steps: _exercise?.instructions ?? List.empty()),
           ),
           const SizedBox(height: 15.0),
           _headerText(content: 'Custom Repetitions'),
@@ -257,16 +252,15 @@ class _ExerciseDetailViewState extends ConsumerState<ExerciseDetailView> {
     );
   }
 
-  Widget _stepField({required Map<String, String> steps}) {
-    final entries = steps.entries;
-    final length = entries.length;
+  Widget _stepField({required List<Instruction> steps}) {
+    final length = steps.length;
     return Column(
       children: [
-        ...entries.mapIndexed((index, element) {
+        ...steps.mapIndexed((index, element) {
           return StepItemWidget(
-            header: element.key,
-            content: element.value,
-            step: index + 1,
+            header: "${_exercise?.name} step ${element.step}",
+            content: element.instruction,
+            step: element.step,
             isShowIndication: index < (length - 1),
           );
         })

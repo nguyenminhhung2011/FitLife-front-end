@@ -28,6 +28,7 @@ mixin _$Exercise {
   String? get videoUrl => throw _privateConstructorUsedError;
   int? get set => throw _privateConstructorUsedError;
   int? get reps => throw _privateConstructorUsedError;
+  List<Instruction>? get instructions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +49,8 @@ abstract class $ExerciseCopyWith<$Res> {
       double? caloriesPerMinute,
       String? videoUrl,
       int? set,
-      int? reps});
+      int? reps,
+      List<Instruction>? instructions});
 }
 
 /// @nodoc
@@ -72,6 +74,7 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
     Object? videoUrl = freezed,
     Object? set = freezed,
     Object? reps = freezed,
+    Object? instructions = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -106,6 +109,10 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
           ? _value.reps
           : reps // ignore: cast_nullable_to_non_nullable
               as int?,
+      instructions: freezed == instructions
+          ? _value.instructions
+          : instructions // ignore: cast_nullable_to_non_nullable
+              as List<Instruction>?,
     ) as $Val);
   }
 }
@@ -125,7 +132,8 @@ abstract class _$$_ExerciseCopyWith<$Res> implements $ExerciseCopyWith<$Res> {
       double? caloriesPerMinute,
       String? videoUrl,
       int? set,
-      int? reps});
+      int? reps,
+      List<Instruction>? instructions});
 }
 
 /// @nodoc
@@ -147,6 +155,7 @@ class __$$_ExerciseCopyWithImpl<$Res>
     Object? videoUrl = freezed,
     Object? set = freezed,
     Object? reps = freezed,
+    Object? instructions = freezed,
   }) {
     return _then(_$_Exercise(
       id: null == id
@@ -181,6 +190,10 @@ class __$$_ExerciseCopyWithImpl<$Res>
           ? _value.reps
           : reps // ignore: cast_nullable_to_non_nullable
               as int?,
+      instructions: freezed == instructions
+          ? _value._instructions
+          : instructions // ignore: cast_nullable_to_non_nullable
+              as List<Instruction>?,
     ));
   }
 }
@@ -196,7 +209,9 @@ class _$_Exercise implements _Exercise {
       this.caloriesPerMinute,
       this.videoUrl,
       this.set,
-      this.reps});
+      this.reps,
+      final List<Instruction>? instructions})
+      : _instructions = instructions;
 
   factory _$_Exercise.fromJson(Map<String, dynamic> json) =>
       _$$_ExerciseFromJson(json);
@@ -217,10 +232,19 @@ class _$_Exercise implements _Exercise {
   final int? set;
   @override
   final int? reps;
+  final List<Instruction>? _instructions;
+  @override
+  List<Instruction>? get instructions {
+    final value = _instructions;
+    if (value == null) return null;
+    if (_instructions is EqualUnmodifiableListView) return _instructions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'Exercise(id: $id, name: $name, description: $description, bodyPart: $bodyPart, caloriesPerMinute: $caloriesPerMinute, videoUrl: $videoUrl, set: $set, reps: $reps)';
+    return 'Exercise(id: $id, name: $name, description: $description, bodyPart: $bodyPart, caloriesPerMinute: $caloriesPerMinute, videoUrl: $videoUrl, set: $set, reps: $reps, instructions: $instructions)';
   }
 
   @override
@@ -239,13 +263,24 @@ class _$_Exercise implements _Exercise {
             (identical(other.videoUrl, videoUrl) ||
                 other.videoUrl == videoUrl) &&
             (identical(other.set, set) || other.set == set) &&
-            (identical(other.reps, reps) || other.reps == reps));
+            (identical(other.reps, reps) || other.reps == reps) &&
+            const DeepCollectionEquality()
+                .equals(other._instructions, _instructions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, description, bodyPart,
-      caloriesPerMinute, videoUrl, set, reps);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      description,
+      bodyPart,
+      caloriesPerMinute,
+      videoUrl,
+      set,
+      reps,
+      const DeepCollectionEquality().hash(_instructions));
 
   @JsonKey(ignore: true)
   @override
@@ -270,7 +305,8 @@ abstract class _Exercise implements Exercise {
       final double? caloriesPerMinute,
       final String? videoUrl,
       final int? set,
-      final int? reps}) = _$_Exercise;
+      final int? reps,
+      final List<Instruction>? instructions}) = _$_Exercise;
 
   factory _Exercise.fromJson(Map<String, dynamic> json) = _$_Exercise.fromJson;
 
@@ -290,6 +326,8 @@ abstract class _Exercise implements Exercise {
   int? get set;
   @override
   int? get reps;
+  @override
+  List<Instruction>? get instructions;
   @override
   @JsonKey(ignore: true)
   _$$_ExerciseCopyWith<_$_Exercise> get copyWith =>

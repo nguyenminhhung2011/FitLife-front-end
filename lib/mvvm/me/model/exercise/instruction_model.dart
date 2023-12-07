@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'instruction_model.g.dart';
 
 @JsonSerializable()
-class InstructionModel {
+class Instruction {
   @JsonKey(name: 'id')
   final int id;
 
@@ -13,14 +13,14 @@ class InstructionModel {
   @JsonKey(name: 'instruction')
   final String instruction;
 
-  InstructionModel({
+  Instruction({
     required this.id,
     required this.step,
     required this.instruction,
   });
 
-  factory InstructionModel.fromJson(Map<String, dynamic> json) =>
-      _$InstructionModelFromJson(json);
+  factory Instruction.fromJson(Map<String, dynamic> json) =>
+      _$InstructionFromJson(json);
 
-  Map<String, dynamic> toJson() => _$InstructionModelToJson(this);
+  Map<String, dynamic> toJson() => _$InstructionToJson(this);
 }

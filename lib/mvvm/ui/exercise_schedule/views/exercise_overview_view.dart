@@ -183,14 +183,16 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                   ),
                 ),
                 const SizedBox(height: 15.0),
-                _headerRowWidget(header: 'Equipments', trailing: '4 equips'),
+                _headerRowWidget(
+                    header: 'Equipments',
+                    trailing: '${_session?.equipments?.length ?? 0} equips'),
                 const SizedBox(height: 10.0),
                 SizedBox(
                   width: double.infinity,
                   height: context.heightDevice * 0.15,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 3,
+                    itemCount: _session?.equipments?.length ?? 4, // TODO: need to change default to 0 when api return null
                     itemBuilder: (_, index) => const EquipmentHorizontalItem(),
                   ),
                 ),

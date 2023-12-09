@@ -8,18 +8,22 @@ import 'package:flutter/material.dart';
 class TodayExerciseItem extends StatelessWidget {
   final String header;
   final Level level;
+  final String? id;
 
   const TodayExerciseItem({
     super.key,
     required this.header,
     required this.level,
+    this.id,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.openPageWithRouteAndParams(
-          Routes.exerciseOverview, "sessionPlanId"),
+      onTap: id != null
+          ? () =>
+              context.openPageWithRouteAndParams(Routes.exerciseOverview, id)
+          : null,
       child: Container(
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 15.0),

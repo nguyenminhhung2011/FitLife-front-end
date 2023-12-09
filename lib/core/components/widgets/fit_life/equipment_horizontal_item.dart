@@ -1,9 +1,19 @@
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:flutter/material.dart';
 
 class EquipmentHorizontalItem extends StatelessWidget {
+  final Equipment equipment;
   const EquipmentHorizontalItem({
+    this.equipment = const Equipment(
+      image: "",
+      name: 'DumBell',
+      description:
+          "This is description about how to use dumbbell for this exercise",
+      type: " type",
+      quantity: 4,
+    ),
     super.key,
   });
 
@@ -19,6 +29,7 @@ class EquipmentHorizontalItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(width: 15.0),
+          // TODO: need to change to image network
           Image.asset(
             ImageConst.dumbbell,
             width: context.heightDevice * 0.2,
@@ -31,13 +42,14 @@ class EquipmentHorizontalItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'DumBell',
+                  equipment.name,
                   style:
                       context.titleMedium.copyWith(fontWeight: FontWeight.bold),
                 ),
-                Text('Countable : 4 dumbbell', style: smallStyle, maxLines: 1),
+                Text('Countable : ${equipment.quantity} ${equipment.name}',
+                    style: smallStyle, maxLines: 1),
                 Text(
-                  'This is description about how to use dumbbell for this exercise',
+                  equipment.description,
                   style: smallStyle,
                   maxLines: 2,
                 )

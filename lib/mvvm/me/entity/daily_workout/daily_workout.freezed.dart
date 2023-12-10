@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-DailyWorkout _$DailyWorkoutFromJson(Map<String, dynamic> json) {
-  return _DailyWorkout.fromJson(json);
-}
-
 /// @nodoc
 mixin _$DailyWorkout {
   String get name => throw _privateConstructorUsedError;
@@ -32,7 +28,6 @@ mixin _$DailyWorkout {
   int? get breakTime => throw _privateConstructorUsedError;
   List<Session>? get sessions => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $DailyWorkoutCopyWith<DailyWorkout> get copyWith =>
       throw _privateConstructorUsedError;
@@ -227,7 +222,7 @@ class __$$_DailyWorkoutCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_DailyWorkout implements _DailyWorkout {
   const _$_DailyWorkout(
       {required this.name,
@@ -242,9 +237,6 @@ class _$_DailyWorkout implements _DailyWorkout {
       this.breakTime,
       final List<Session>? sessions})
       : _sessions = sessions;
-
-  factory _$_DailyWorkout.fromJson(Map<String, dynamic> json) =>
-      _$$_DailyWorkoutFromJson(json);
 
   @override
   final String name;
@@ -307,7 +299,6 @@ class _$_DailyWorkout implements _DailyWorkout {
             const DeepCollectionEquality().equals(other._sessions, _sessions));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -328,13 +319,6 @@ class _$_DailyWorkout implements _DailyWorkout {
   @pragma('vm:prefer-inline')
   _$$_DailyWorkoutCopyWith<_$_DailyWorkout> get copyWith =>
       __$$_DailyWorkoutCopyWithImpl<_$_DailyWorkout>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_DailyWorkoutToJson(
-      this,
-    );
-  }
 }
 
 abstract class _DailyWorkout implements DailyWorkout {
@@ -350,9 +334,6 @@ abstract class _DailyWorkout implements DailyWorkout {
       final int? timeForEachExe,
       final int? breakTime,
       final List<Session>? sessions}) = _$_DailyWorkout;
-
-  factory _DailyWorkout.fromJson(Map<String, dynamic> json) =
-      _$_DailyWorkout.fromJson;
 
   @override
   String get name;

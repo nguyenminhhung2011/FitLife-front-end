@@ -58,9 +58,9 @@ class UpComingScheduleExItem extends StatelessWidget {
                 const SizedBox(),
                 Wrap(spacing: 5.0, children: [
                   ...List<String>.from([
-                    '${upComingSession.session.exercises?.length ?? 0} exercises',
-                    if (upComingSession.session.time != null) ...[
-                      '${upComingSession.session.time} mins'
+                    '${upComingSession.session.customExercise?.length ?? 0} exercises',
+                    if (upComingSession.session.timePerLesson != null) ...[
+                      '${upComingSession.session.timePerLesson} mins'
                     ]
                   ])
                       .map(

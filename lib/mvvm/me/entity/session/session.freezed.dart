@@ -14,23 +14,20 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Session _$SessionFromJson(Map<String, dynamic> json) {
-  return _Session.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Session {
   String get id => throw _privateConstructorUsedError;
   String get dwId => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   Level? get level => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
   int? get calcTarget => throw _privateConstructorUsedError;
-  int? get time => throw _privateConstructorUsedError;
+  int? get timePerLesson => throw _privateConstructorUsedError;
+  int? get transferTime => throw _privateConstructorUsedError;
   List<Equipment>? get equipments => throw _privateConstructorUsedError;
-  List<Exercise>? get exercises => throw _privateConstructorUsedError;
+  List<CustomExercise>? get customExercise =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SessionCopyWith<Session> get copyWith => throw _privateConstructorUsedError;
 }
@@ -43,13 +40,14 @@ abstract class $SessionCopyWith<$Res> {
   $Res call(
       {String id,
       String dwId,
+      String? name,
       Level? level,
       String? description,
-      String? name,
       int? calcTarget,
-      int? time,
+      int? timePerLesson,
+      int? transferTime,
       List<Equipment>? equipments,
-      List<Exercise>? exercises});
+      List<CustomExercise>? customExercise});
 }
 
 /// @nodoc
@@ -67,13 +65,14 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   $Res call({
     Object? id = null,
     Object? dwId = null,
+    Object? name = freezed,
     Object? level = freezed,
     Object? description = freezed,
-    Object? name = freezed,
     Object? calcTarget = freezed,
-    Object? time = freezed,
+    Object? timePerLesson = freezed,
+    Object? transferTime = freezed,
     Object? equipments = freezed,
-    Object? exercises = freezed,
+    Object? customExercise = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -84,6 +83,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.dwId
           : dwId // ignore: cast_nullable_to_non_nullable
               as String,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -92,26 +95,26 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       calcTarget: freezed == calcTarget
           ? _value.calcTarget
           : calcTarget // ignore: cast_nullable_to_non_nullable
               as int?,
-      time: freezed == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
+      timePerLesson: freezed == timePerLesson
+          ? _value.timePerLesson
+          : timePerLesson // ignore: cast_nullable_to_non_nullable
+              as int?,
+      transferTime: freezed == transferTime
+          ? _value.transferTime
+          : transferTime // ignore: cast_nullable_to_non_nullable
               as int?,
       equipments: freezed == equipments
           ? _value.equipments
           : equipments // ignore: cast_nullable_to_non_nullable
               as List<Equipment>?,
-      exercises: freezed == exercises
-          ? _value.exercises
-          : exercises // ignore: cast_nullable_to_non_nullable
-              as List<Exercise>?,
+      customExercise: freezed == customExercise
+          ? _value.customExercise
+          : customExercise // ignore: cast_nullable_to_non_nullable
+              as List<CustomExercise>?,
     ) as $Val);
   }
 }
@@ -126,13 +129,14 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   $Res call(
       {String id,
       String dwId,
+      String? name,
       Level? level,
       String? description,
-      String? name,
       int? calcTarget,
-      int? time,
+      int? timePerLesson,
+      int? transferTime,
       List<Equipment>? equipments,
-      List<Exercise>? exercises});
+      List<CustomExercise>? customExercise});
 }
 
 /// @nodoc
@@ -147,13 +151,14 @@ class __$$_SessionCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? dwId = null,
+    Object? name = freezed,
     Object? level = freezed,
     Object? description = freezed,
-    Object? name = freezed,
     Object? calcTarget = freezed,
-    Object? time = freezed,
+    Object? timePerLesson = freezed,
+    Object? transferTime = freezed,
     Object? equipments = freezed,
-    Object? exercises = freezed,
+    Object? customExercise = freezed,
   }) {
     return _then(_$_Session(
       id: null == id
@@ -164,6 +169,10 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.dwId
           : dwId // ignore: cast_nullable_to_non_nullable
               as String,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -172,63 +181,63 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       calcTarget: freezed == calcTarget
           ? _value.calcTarget
           : calcTarget // ignore: cast_nullable_to_non_nullable
               as int?,
-      time: freezed == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
+      timePerLesson: freezed == timePerLesson
+          ? _value.timePerLesson
+          : timePerLesson // ignore: cast_nullable_to_non_nullable
+              as int?,
+      transferTime: freezed == transferTime
+          ? _value.transferTime
+          : transferTime // ignore: cast_nullable_to_non_nullable
               as int?,
       equipments: freezed == equipments
           ? _value._equipments
           : equipments // ignore: cast_nullable_to_non_nullable
               as List<Equipment>?,
-      exercises: freezed == exercises
-          ? _value._exercises
-          : exercises // ignore: cast_nullable_to_non_nullable
-              as List<Exercise>?,
+      customExercise: freezed == customExercise
+          ? _value._customExercise
+          : customExercise // ignore: cast_nullable_to_non_nullable
+              as List<CustomExercise>?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Session implements _Session {
   const _$_Session(
       {required this.id,
       required this.dwId,
+      this.name,
       this.level,
       this.description,
-      this.name,
       this.calcTarget,
-      this.time,
+      this.timePerLesson,
+      this.transferTime,
       final List<Equipment>? equipments,
-      final List<Exercise>? exercises})
+      final List<CustomExercise>? customExercise})
       : _equipments = equipments,
-        _exercises = exercises;
-
-  factory _$_Session.fromJson(Map<String, dynamic> json) =>
-      _$$_SessionFromJson(json);
+        _customExercise = customExercise;
 
   @override
   final String id;
   @override
   final String dwId;
   @override
+  final String? name;
+  @override
   final Level? level;
   @override
   final String? description;
   @override
-  final String? name;
-  @override
   final int? calcTarget;
   @override
-  final int? time;
+  final int? timePerLesson;
+  @override
+  final int? transferTime;
   final List<Equipment>? _equipments;
   @override
   List<Equipment>? get equipments {
@@ -239,19 +248,19 @@ class _$_Session implements _Session {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Exercise>? _exercises;
+  final List<CustomExercise>? _customExercise;
   @override
-  List<Exercise>? get exercises {
-    final value = _exercises;
+  List<CustomExercise>? get customExercise {
+    final value = _customExercise;
     if (value == null) return null;
-    if (_exercises is EqualUnmodifiableListView) return _exercises;
+    if (_customExercise is EqualUnmodifiableListView) return _customExercise;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'Session(id: $id, dwId: $dwId, level: $level, description: $description, name: $name, calcTarget: $calcTarget, time: $time, equipments: $equipments, exercises: $exercises)';
+    return 'Session(id: $id, dwId: $dwId, name: $name, level: $level, description: $description, calcTarget: $calcTarget, timePerLesson: $timePerLesson, transferTime: $transferTime, equipments: $equipments, customExercise: $customExercise)';
   }
 
   @override
@@ -261,87 +270,80 @@ class _$_Session implements _Session {
             other is _$_Session &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.dwId, dwId) || other.dwId == dwId) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.level, level) || other.level == level) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.calcTarget, calcTarget) ||
                 other.calcTarget == calcTarget) &&
-            (identical(other.time, time) || other.time == time) &&
+            (identical(other.timePerLesson, timePerLesson) ||
+                other.timePerLesson == timePerLesson) &&
+            (identical(other.transferTime, transferTime) ||
+                other.transferTime == transferTime) &&
             const DeepCollectionEquality()
                 .equals(other._equipments, _equipments) &&
             const DeepCollectionEquality()
-                .equals(other._exercises, _exercises));
+                .equals(other._customExercise, _customExercise));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       id,
       dwId,
+      name,
       level,
       description,
-      name,
       calcTarget,
-      time,
+      timePerLesson,
+      transferTime,
       const DeepCollectionEquality().hash(_equipments),
-      const DeepCollectionEquality().hash(_exercises));
+      const DeepCollectionEquality().hash(_customExercise));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_SessionCopyWith<_$_Session> get copyWith =>
       __$$_SessionCopyWithImpl<_$_Session>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_SessionToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Session implements Session {
   const factory _Session(
       {required final String id,
       required final String dwId,
+      final String? name,
       final Level? level,
       final String? description,
-      final String? name,
       final int? calcTarget,
-      final int? time,
+      final int? timePerLesson,
+      final int? transferTime,
       final List<Equipment>? equipments,
-      final List<Exercise>? exercises}) = _$_Session;
-
-  factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
+      final List<CustomExercise>? customExercise}) = _$_Session;
 
   @override
   String get id;
   @override
   String get dwId;
   @override
+  String? get name;
+  @override
   Level? get level;
   @override
   String? get description;
   @override
-  String? get name;
-  @override
   int? get calcTarget;
   @override
-  int? get time;
+  int? get timePerLesson;
+  @override
+  int? get transferTime;
   @override
   List<Equipment>? get equipments;
   @override
-  List<Exercise>? get exercises;
+  List<CustomExercise>? get customExercise;
   @override
   @JsonKey(ignore: true)
   _$$_SessionCopyWith<_$_Session> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-Equipment _$EquipmentFromJson(Map<String, dynamic> json) {
-  return _Equipment.fromJson(json);
 }
 
 /// @nodoc
@@ -352,7 +354,6 @@ mixin _$Equipment {
   String get type => throw _privateConstructorUsedError;
   int? get quantity => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $EquipmentCopyWith<Equipment> get copyWith =>
       throw _privateConstructorUsedError;
@@ -473,7 +474,7 @@ class __$$_EquipmentCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Equipment implements _Equipment {
   const _$_Equipment(
       {required this.image,
@@ -481,9 +482,6 @@ class _$_Equipment implements _Equipment {
       required this.description,
       required this.type,
       this.quantity});
-
-  factory _$_Equipment.fromJson(Map<String, dynamic> json) =>
-      _$$_EquipmentFromJson(json);
 
   @override
   final String image;
@@ -515,7 +513,6 @@ class _$_Equipment implements _Equipment {
                 other.quantity == quantity));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, image, name, description, type, quantity);
@@ -525,13 +522,6 @@ class _$_Equipment implements _Equipment {
   @pragma('vm:prefer-inline')
   _$$_EquipmentCopyWith<_$_Equipment> get copyWith =>
       __$$_EquipmentCopyWithImpl<_$_Equipment>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_EquipmentToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Equipment implements Equipment {
@@ -541,9 +531,6 @@ abstract class _Equipment implements Equipment {
       required final String description,
       required final String type,
       final int? quantity}) = _$_Equipment;
-
-  factory _Equipment.fromJson(Map<String, dynamic> json) =
-      _$_Equipment.fromJson;
 
   @override
   String get image;

@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PlanDetail _$PlanDetailFromJson(Map<String, dynamic> json) {
-  return _PlanDetail.fromJson(json);
-}
-
 /// @nodoc
 mixin _$PlanDetail {
   String? get name => throw _privateConstructorUsedError;
@@ -27,7 +23,6 @@ mixin _$PlanDetail {
   double? get progress => throw _privateConstructorUsedError;
   List<DailyWorkout>? get dailyWorkouts => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PlanDetailCopyWith<PlanDetail> get copyWith =>
       throw _privateConstructorUsedError;
@@ -162,7 +157,7 @@ class __$$_PlanDetailCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_PlanDetail implements _PlanDetail {
   const _$_PlanDetail(
       {this.name,
@@ -172,9 +167,6 @@ class _$_PlanDetail implements _PlanDetail {
       this.progress,
       final List<DailyWorkout>? dailyWorkouts})
       : _dailyWorkouts = dailyWorkouts;
-
-  factory _$_PlanDetail.fromJson(Map<String, dynamic> json) =>
-      _$$_PlanDetailFromJson(json);
 
   @override
   final String? name;
@@ -218,7 +210,6 @@ class _$_PlanDetail implements _PlanDetail {
                 .equals(other._dailyWorkouts, _dailyWorkouts));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, description, startDate,
       endDate, progress, const DeepCollectionEquality().hash(_dailyWorkouts));
@@ -228,13 +219,6 @@ class _$_PlanDetail implements _PlanDetail {
   @pragma('vm:prefer-inline')
   _$$_PlanDetailCopyWith<_$_PlanDetail> get copyWith =>
       __$$_PlanDetailCopyWithImpl<_$_PlanDetail>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_PlanDetailToJson(
-      this,
-    );
-  }
 }
 
 abstract class _PlanDetail implements PlanDetail {
@@ -245,9 +229,6 @@ abstract class _PlanDetail implements PlanDetail {
       final DateTime? endDate,
       final double? progress,
       final List<DailyWorkout>? dailyWorkouts}) = _$_PlanDetail;
-
-  factory _PlanDetail.fromJson(Map<String, dynamic> json) =
-      _$_PlanDetail.fromJson;
 
   @override
   String? get name;

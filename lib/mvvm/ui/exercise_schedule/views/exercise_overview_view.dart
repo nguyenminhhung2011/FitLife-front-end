@@ -199,10 +199,10 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                 const SizedBox(height: 15.0),
                 _headerRowWidget(
                     header: 'Exercises',
-                    trailing: '${_session?.exercises?.length ?? 0} exs'),
+                    trailing: '${_session?.customExercise?.length ?? 0} exs'),
                 const SizedBox(height: 10.0),
-                ..._session?.exercises
-                        ?.map((e) => ExerciseVerticalItem(exercise: e))
+                ..._session?.customExercise
+                        ?.map((e) => ExerciseVerticalItem(exercise: e.exercise))
                         .expand((e) => [e, const SizedBox(height: 10.0)]) ??
                     <Widget>[],
                 const SizedBox(height: 70.0),
@@ -240,7 +240,7 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
           children: [
             ...[
               '🕑',
-              ' ${_session?.time ?? 0} minutes | ',
+              ' ${_session?.timePerLesson ?? 0} minutes | ',
               '🔥 ',
               '${_session?.calcTarget ?? 0} calo'
             ].mapIndexed(

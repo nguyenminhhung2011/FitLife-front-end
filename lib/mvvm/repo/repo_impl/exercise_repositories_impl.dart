@@ -23,10 +23,13 @@ class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
       await apiCall<List<BodyPartModel>, List<BodyPart>>(
         mapper: (result) {
           final startIndex = currentPage * perPage;
-          return result
-              .map((e) => e.toEntity)
-              .toList()
-              .sublist(startIndex, startIndex + perPage);
+          if (result.length > startIndex + perPage) {
+            return result
+                .map((e) => e.toEntity)
+                .toList()
+                .sublist(startIndex, startIndex + perPage);
+          }
+          return List.empty();
         },
         request: () async => await _exerciseApi.getBodyPart(),
       );

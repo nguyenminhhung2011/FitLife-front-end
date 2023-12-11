@@ -17,7 +17,7 @@ class UpComingWorkoutItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final smallTextStyle = context.titleSmall.copyWith(fontSize: 11.0);
     return GestureDetector(
-      onTap: () => context.openPageWithRouteAndParams(Routes.exerciseOverview, "sessionPlanId"),
+      onTap: () => context.openPageWithRouteAndParams(Routes.exerciseOverview, "1"),
       child: Stack(
         children: [
           Container(

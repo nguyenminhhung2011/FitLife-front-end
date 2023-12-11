@@ -58,7 +58,7 @@ class ExerciseVerticalItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(7.0),
 
             ///[😪 Dumb code] change image url here
-            child: Image.asset(exercise.videoUrl ?? ImageConst.banner1,
+            child: Image.asset(ImageConst.banner1,
                 width: 100.0, height: 100.0, fit: BoxFit.cover),
           ),
         ].expand((e) => [e, const SizedBox(width: 10.0)]).toList()

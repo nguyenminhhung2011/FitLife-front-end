@@ -15,10 +15,10 @@ ExerciseModel _$ExerciseModelFromJson(Map<String, dynamic> json) =>
       caloriesPerMinute: (json['caloriesPerMinute'] as num?)?.toDouble(),
       sets: json['sets'] as int?,
       reps: json['reps'] as int?,
-      target: json['target'] as String,
-      gifUrl: json['gifUrl'] as String,
+      target: json['target'] as String?,
+      gifUrl: json['gifUrl'] as String?,
       equipment: json['equipment'] as String?,
-      bodyPart: json['bodyPart'] as String,
+      bodyPart: json['bodyPart'] as String?,
       instructions: (json['instructions'] as List<dynamic>?)
           ?.map((e) => Instruction.fromJson(e as Map<String, dynamic>))
           .toList(),

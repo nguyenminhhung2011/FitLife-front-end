@@ -15,18 +15,18 @@ abstract class SessionApi {
   @factoryMethod
   factory SessionApi(Dio dio) = _SessionApi;
 
-  @GET("$getAllSessionByDailyApi?{id}")
+  @GET("$getAllSessionByDailyApi?id={id}")
   Future<HttpResponse<List<SessionModel>>> getAllSessionByDaily(
     @Path('id') int id,
   );
 
-  @GET("$branch?{id}")
+  @GET("$branch?id={id}")
   Future<HttpResponse<SessionModel>> getSessionById(@Path('id') int id);
 
   @POST(createSessionApi)
   Future<HttpResponse<SessionModel>> createSession(
       {@Body() required Map<String, dynamic> body});
 
-  @POST("$deleteSessionApi?{id}")
+  @POST("$deleteSessionApi?id={id}")
   Future<HttpResponse> deleteSession(@Path('id') int id);
 }

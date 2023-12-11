@@ -32,7 +32,7 @@ class _SessionApi implements SessionApi {
     )
             .compose(
               _dio.options,
-              '/session/getall?${id}',
+              '/session/getall?id=${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -62,7 +62,7 @@ class _SessionApi implements SessionApi {
     )
             .compose(
               _dio.options,
-              '/session?${id}',
+              '/session?id=${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -120,7 +120,7 @@ class _SessionApi implements SessionApi {
     )
             .compose(
               _dio.options,
-              '/session/delete?${id}',
+              '/session/delete?id=${id}',
               queryParameters: queryParameters,
               data: _data,
             )

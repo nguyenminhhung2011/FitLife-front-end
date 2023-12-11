@@ -29,16 +29,16 @@ class ExerciseModel {
   final int? reps;
 
   @JsonKey(name: 'target')
-  final String target;
+  final String? target;
 
   @JsonKey(name: 'gifUrl')
-  final String gifUrl;
+  final String? gifUrl;
 
   @JsonKey(name: 'equipment')
   final String? equipment;
 
   @JsonKey(name: 'bodyPart')
-  final String bodyPart;
+  final String? bodyPart;
 
   @Default([])
   @JsonKey(name: 'instructions')

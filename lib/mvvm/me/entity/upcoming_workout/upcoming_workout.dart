@@ -6,12 +6,12 @@ part 'upcoming_workout.g.dart';
 @freezed
 class UpcomingWorkout with _$UpcomingWorkout {
   const factory UpcomingWorkout({
+    required DateTime startTime,
     required String title,
     String? description,
-    required DateTime startTime,
+    String? image,
     int? minutes,
     int? kCalo,
-    String? image,
     @Default(false) bool enableNotification,
   }) = _UpcomingWorkout;
 

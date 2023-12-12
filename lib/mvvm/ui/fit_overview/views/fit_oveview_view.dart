@@ -17,7 +17,7 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/fit_life/exercise_category.dart';
 import 'package:fit_life/core/components/widgets/fit_life/line_chart.dart';
-import 'package:fit_life/core/components/widgets/fit_life/upcoming_workout_item.dart';
+import 'package:fit_life/core/components/widgets/fit_life/upcoming_session_item.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
 import 'package:fit_life/core/components/widgets/range_date_picker_custom.dart';
 import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_view_model.dart';
@@ -56,7 +56,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         Future.delayed(Duration.zero, () {
-          _vm.getUpcomingWorkout();
+          _vm.getUpcomingSession();
           _vm.getBodyPart();
           _vm.onSelectedDate(_rangeDateController.listDate);
         });
@@ -221,17 +221,17 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
           const SizedBox(height: 10.0),
           if (_data.isLoadingUpcomingWorkout)
             const Center(child: CircularProgressIndicator())
-          else if (_data.upcomingWorkouts?.isEmpty ?? false)
+          else if (_data.upcomingSessions?.isEmpty ?? false)
             Center(
                 child: Text('No upcoming workout', style: context.titleSmall))
           else
             ...List.generate(
-              _data.upcomingWorkouts?.length ?? 0,
+              _data.upcomingSessions?.length ?? 0,
               (index) {
                 return Column(
                   children: [
-                    UpComingWorkoutItem(
-                        upcomingWorkout: _data.upcomingWorkouts![index]),
+                    UpComingSessionItem(
+                        session: _data.upcomingSessions![index]),
                     const SizedBox(height: 10.0),
                   ],
                 );

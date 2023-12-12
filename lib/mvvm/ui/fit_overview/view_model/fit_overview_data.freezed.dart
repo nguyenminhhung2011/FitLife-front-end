@@ -19,8 +19,7 @@ mixin _$FitOverViewData {
   List<DateTime> get rangeDate => throw _privateConstructorUsedError;
 
   /// List upcoming workout
-  List<UpcomingWorkout>? get upcomingWorkouts =>
-      throw _privateConstructorUsedError;
+  List<Session>? get upcomingSessions => throw _privateConstructorUsedError;
 
   /// List exercise category
   List<BodyPart>? get exerciseCategories => throw _privateConstructorUsedError;
@@ -46,7 +45,7 @@ abstract class $FitOverViewDataCopyWith<$Res> {
   @useResult
   $Res call(
       {List<DateTime> rangeDate,
-      List<UpcomingWorkout>? upcomingWorkouts,
+      List<Session>? upcomingSessions,
       List<BodyPart>? exerciseCategories,
       CaloriesChart caloriesChart,
       bool isLoadingCaloriesChart,
@@ -70,7 +69,7 @@ class _$FitOverViewDataCopyWithImpl<$Res, $Val extends FitOverViewData>
   @override
   $Res call({
     Object? rangeDate = null,
-    Object? upcomingWorkouts = freezed,
+    Object? upcomingSessions = freezed,
     Object? exerciseCategories = freezed,
     Object? caloriesChart = null,
     Object? isLoadingCaloriesChart = null,
@@ -82,10 +81,10 @@ class _$FitOverViewDataCopyWithImpl<$Res, $Val extends FitOverViewData>
           ? _value.rangeDate
           : rangeDate // ignore: cast_nullable_to_non_nullable
               as List<DateTime>,
-      upcomingWorkouts: freezed == upcomingWorkouts
-          ? _value.upcomingWorkouts
-          : upcomingWorkouts // ignore: cast_nullable_to_non_nullable
-              as List<UpcomingWorkout>?,
+      upcomingSessions: freezed == upcomingSessions
+          ? _value.upcomingSessions
+          : upcomingSessions // ignore: cast_nullable_to_non_nullable
+              as List<Session>?,
       exerciseCategories: freezed == exerciseCategories
           ? _value.exerciseCategories
           : exerciseCategories // ignore: cast_nullable_to_non_nullable
@@ -128,7 +127,7 @@ abstract class _$$_FitOverViewDataCopyWith<$Res>
   @useResult
   $Res call(
       {List<DateTime> rangeDate,
-      List<UpcomingWorkout>? upcomingWorkouts,
+      List<Session>? upcomingSessions,
       List<BodyPart>? exerciseCategories,
       CaloriesChart caloriesChart,
       bool isLoadingCaloriesChart,
@@ -151,7 +150,7 @@ class __$$_FitOverViewDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? rangeDate = null,
-    Object? upcomingWorkouts = freezed,
+    Object? upcomingSessions = freezed,
     Object? exerciseCategories = freezed,
     Object? caloriesChart = null,
     Object? isLoadingCaloriesChart = null,
@@ -163,10 +162,10 @@ class __$$_FitOverViewDataCopyWithImpl<$Res>
           ? _value._rangeDate
           : rangeDate // ignore: cast_nullable_to_non_nullable
               as List<DateTime>,
-      upcomingWorkouts: freezed == upcomingWorkouts
-          ? _value._upcomingWorkouts
-          : upcomingWorkouts // ignore: cast_nullable_to_non_nullable
-              as List<UpcomingWorkout>?,
+      upcomingSessions: freezed == upcomingSessions
+          ? _value._upcomingSessions
+          : upcomingSessions // ignore: cast_nullable_to_non_nullable
+              as List<Session>?,
       exerciseCategories: freezed == exerciseCategories
           ? _value._exerciseCategories
           : exerciseCategories // ignore: cast_nullable_to_non_nullable
@@ -196,14 +195,14 @@ class __$$_FitOverViewDataCopyWithImpl<$Res>
 class _$_FitOverViewData implements _FitOverViewData {
   const _$_FitOverViewData(
       {final List<DateTime> rangeDate = const [],
-      final List<UpcomingWorkout>? upcomingWorkouts,
+      final List<Session>? upcomingSessions,
       final List<BodyPart>? exerciseCategories,
       required this.caloriesChart,
       this.isLoadingCaloriesChart = false,
       this.isLoadingUpcomingWorkout = false,
       this.isLoadingBodyPart = false})
       : _rangeDate = rangeDate,
-        _upcomingWorkouts = upcomingWorkouts,
+        _upcomingSessions = upcomingSessions,
         _exerciseCategories = exerciseCategories;
 
   final List<DateTime> _rangeDate;
@@ -216,15 +215,15 @@ class _$_FitOverViewData implements _FitOverViewData {
   }
 
   /// List upcoming workout
-  final List<UpcomingWorkout>? _upcomingWorkouts;
+  final List<Session>? _upcomingSessions;
 
   /// List upcoming workout
   @override
-  List<UpcomingWorkout>? get upcomingWorkouts {
-    final value = _upcomingWorkouts;
+  List<Session>? get upcomingSessions {
+    final value = _upcomingSessions;
     if (value == null) return null;
-    if (_upcomingWorkouts is EqualUnmodifiableListView)
-      return _upcomingWorkouts;
+    if (_upcomingSessions is EqualUnmodifiableListView)
+      return _upcomingSessions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -261,7 +260,7 @@ class _$_FitOverViewData implements _FitOverViewData {
 
   @override
   String toString() {
-    return 'FitOverViewData(rangeDate: $rangeDate, upcomingWorkouts: $upcomingWorkouts, exerciseCategories: $exerciseCategories, caloriesChart: $caloriesChart, isLoadingCaloriesChart: $isLoadingCaloriesChart, isLoadingUpcomingWorkout: $isLoadingUpcomingWorkout, isLoadingBodyPart: $isLoadingBodyPart)';
+    return 'FitOverViewData(rangeDate: $rangeDate, upcomingSessions: $upcomingSessions, exerciseCategories: $exerciseCategories, caloriesChart: $caloriesChart, isLoadingCaloriesChart: $isLoadingCaloriesChart, isLoadingUpcomingWorkout: $isLoadingUpcomingWorkout, isLoadingBodyPart: $isLoadingBodyPart)';
   }
 
   @override
@@ -272,7 +271,7 @@ class _$_FitOverViewData implements _FitOverViewData {
             const DeepCollectionEquality()
                 .equals(other._rangeDate, _rangeDate) &&
             const DeepCollectionEquality()
-                .equals(other._upcomingWorkouts, _upcomingWorkouts) &&
+                .equals(other._upcomingSessions, _upcomingSessions) &&
             const DeepCollectionEquality()
                 .equals(other._exerciseCategories, _exerciseCategories) &&
             (identical(other.caloriesChart, caloriesChart) ||
@@ -290,7 +289,7 @@ class _$_FitOverViewData implements _FitOverViewData {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_rangeDate),
-      const DeepCollectionEquality().hash(_upcomingWorkouts),
+      const DeepCollectionEquality().hash(_upcomingSessions),
       const DeepCollectionEquality().hash(_exerciseCategories),
       caloriesChart,
       isLoadingCaloriesChart,
@@ -307,7 +306,7 @@ class _$_FitOverViewData implements _FitOverViewData {
 abstract class _FitOverViewData implements FitOverViewData {
   const factory _FitOverViewData(
       {final List<DateTime> rangeDate,
-      final List<UpcomingWorkout>? upcomingWorkouts,
+      final List<Session>? upcomingSessions,
       final List<BodyPart>? exerciseCategories,
       required final CaloriesChart caloriesChart,
       final bool isLoadingCaloriesChart,
@@ -319,7 +318,7 @@ abstract class _FitOverViewData implements FitOverViewData {
   @override
 
   /// List upcoming workout
-  List<UpcomingWorkout>? get upcomingWorkouts;
+  List<Session>? get upcomingSessions;
   @override
 
   /// List exercise category

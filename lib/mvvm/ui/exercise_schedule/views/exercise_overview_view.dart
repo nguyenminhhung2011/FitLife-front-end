@@ -192,7 +192,7 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                   height: context.heightDevice * 0.15,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: _session?.equipments?.length ?? 4, // TODO: need to change default to 0 when api return null
+                    itemCount: _session?.equipments?.length ?? 4,
                     itemBuilder: (_, index) => const EquipmentHorizontalItem(),
                   ),
                 ),
@@ -242,7 +242,7 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
               '🕑',
               ' ${_session?.timePerLesson ?? 0} minutes | ',
               '🔥 ',
-              '${_session?.calcTarget ?? 0} calo'
+              '${_session?.calcTarget ?? 0} calories'
             ].mapIndexed(
               (index, element) => TextSpan(
                 text: element,

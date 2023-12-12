@@ -14,7 +14,7 @@ class Session with _$Session {
     String? description,
     int? calcTarget,
     int? timePerLesson,
-    int? transferTime, 
+    int? transferTime,
     List<Equipment>? equipments,
     List<CustomExercise>? customExercise,
   }) = _Session;

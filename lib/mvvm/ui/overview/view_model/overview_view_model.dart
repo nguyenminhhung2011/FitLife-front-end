@@ -1,4 +1,5 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/me/entity/upcoming_session/upcoming_session.dart';
 import 'package:fit_life/mvvm/repo/session_repositories.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -34,7 +35,10 @@ class OverviewViewModel extends StateNotifier<OverviewState> {
       ),
       ifRight: (rData) => _GetUpComingSessionSuccess(
         data: data.copyWith(
-          upComingSession: rData,
+          upComingSession: rData
+              .map((e) => UpComingSession(session: e, time: DateTime.now()))
+              .toList()
+              .first,
           isLoadingUpcomingScheduleExercise: false,
         ),
       ),

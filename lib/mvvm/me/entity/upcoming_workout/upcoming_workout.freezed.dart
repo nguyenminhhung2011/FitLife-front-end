@@ -20,12 +20,12 @@ UpcomingWorkout _$UpcomingWorkoutFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UpcomingWorkout {
+  DateTime get startTime => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  DateTime get startTime => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   int? get minutes => throw _privateConstructorUsedError;
   int? get kCalo => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
   bool get enableNotification => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,12 +41,12 @@ abstract class $UpcomingWorkoutCopyWith<$Res> {
       _$UpcomingWorkoutCopyWithImpl<$Res, UpcomingWorkout>;
   @useResult
   $Res call(
-      {String title,
+      {DateTime startTime,
+      String title,
       String? description,
-      DateTime startTime,
+      String? image,
       int? minutes,
       int? kCalo,
-      String? image,
       bool enableNotification});
 }
 
@@ -63,15 +63,19 @@ class _$UpcomingWorkoutCopyWithImpl<$Res, $Val extends UpcomingWorkout>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? startTime = null,
     Object? title = null,
     Object? description = freezed,
-    Object? startTime = null,
+    Object? image = freezed,
     Object? minutes = freezed,
     Object? kCalo = freezed,
-    Object? image = freezed,
     Object? enableNotification = null,
   }) {
     return _then(_value.copyWith(
+      startTime: null == startTime
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -80,10 +84,10 @@ class _$UpcomingWorkoutCopyWithImpl<$Res, $Val extends UpcomingWorkout>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      startTime: null == startTime
-          ? _value.startTime
-          : startTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       minutes: freezed == minutes
           ? _value.minutes
           : minutes // ignore: cast_nullable_to_non_nullable
@@ -92,10 +96,6 @@ class _$UpcomingWorkoutCopyWithImpl<$Res, $Val extends UpcomingWorkout>
           ? _value.kCalo
           : kCalo // ignore: cast_nullable_to_non_nullable
               as int?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
       enableNotification: null == enableNotification
           ? _value.enableNotification
           : enableNotification // ignore: cast_nullable_to_non_nullable
@@ -113,12 +113,12 @@ abstract class _$$_UpcomingWorkoutCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String title,
+      {DateTime startTime,
+      String title,
       String? description,
-      DateTime startTime,
+      String? image,
       int? minutes,
       int? kCalo,
-      String? image,
       bool enableNotification});
 }
 
@@ -133,15 +133,19 @@ class __$$_UpcomingWorkoutCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? startTime = null,
     Object? title = null,
     Object? description = freezed,
-    Object? startTime = null,
+    Object? image = freezed,
     Object? minutes = freezed,
     Object? kCalo = freezed,
-    Object? image = freezed,
     Object? enableNotification = null,
   }) {
     return _then(_$_UpcomingWorkout(
+      startTime: null == startTime
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -150,10 +154,10 @@ class __$$_UpcomingWorkoutCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      startTime: null == startTime
-          ? _value.startTime
-          : startTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       minutes: freezed == minutes
           ? _value.minutes
           : minutes // ignore: cast_nullable_to_non_nullable
@@ -162,10 +166,6 @@ class __$$_UpcomingWorkoutCopyWithImpl<$Res>
           ? _value.kCalo
           : kCalo // ignore: cast_nullable_to_non_nullable
               as int?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
       enableNotification: null == enableNotification
           ? _value.enableNotification
           : enableNotification // ignore: cast_nullable_to_non_nullable
@@ -178,36 +178,36 @@ class __$$_UpcomingWorkoutCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UpcomingWorkout implements _UpcomingWorkout {
   const _$_UpcomingWorkout(
-      {required this.title,
+      {required this.startTime,
+      required this.title,
       this.description,
-      required this.startTime,
+      this.image,
       this.minutes,
       this.kCalo,
-      this.image,
       this.enableNotification = false});
 
   factory _$_UpcomingWorkout.fromJson(Map<String, dynamic> json) =>
       _$$_UpcomingWorkoutFromJson(json);
 
   @override
+  final DateTime startTime;
+  @override
   final String title;
   @override
   final String? description;
   @override
-  final DateTime startTime;
+  final String? image;
   @override
   final int? minutes;
   @override
   final int? kCalo;
-  @override
-  final String? image;
   @override
   @JsonKey()
   final bool enableNotification;
 
   @override
   String toString() {
-    return 'UpcomingWorkout(title: $title, description: $description, startTime: $startTime, minutes: $minutes, kCalo: $kCalo, image: $image, enableNotification: $enableNotification)';
+    return 'UpcomingWorkout(startTime: $startTime, title: $title, description: $description, image: $image, minutes: $minutes, kCalo: $kCalo, enableNotification: $enableNotification)';
   }
 
   @override
@@ -215,22 +215,22 @@ class _$_UpcomingWorkout implements _UpcomingWorkout {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpcomingWorkout &&
+            (identical(other.startTime, startTime) ||
+                other.startTime == startTime) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.startTime, startTime) ||
-                other.startTime == startTime) &&
+            (identical(other.image, image) || other.image == image) &&
             (identical(other.minutes, minutes) || other.minutes == minutes) &&
             (identical(other.kCalo, kCalo) || other.kCalo == kCalo) &&
-            (identical(other.image, image) || other.image == image) &&
             (identical(other.enableNotification, enableNotification) ||
                 other.enableNotification == enableNotification));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, description, startTime,
-      minutes, kCalo, image, enableNotification);
+  int get hashCode => Object.hash(runtimeType, startTime, title, description,
+      image, minutes, kCalo, enableNotification);
 
   @JsonKey(ignore: true)
   @override
@@ -248,29 +248,29 @@ class _$_UpcomingWorkout implements _UpcomingWorkout {
 
 abstract class _UpcomingWorkout implements UpcomingWorkout {
   const factory _UpcomingWorkout(
-      {required final String title,
+      {required final DateTime startTime,
+      required final String title,
       final String? description,
-      required final DateTime startTime,
+      final String? image,
       final int? minutes,
       final int? kCalo,
-      final String? image,
       final bool enableNotification}) = _$_UpcomingWorkout;
 
   factory _UpcomingWorkout.fromJson(Map<String, dynamic> json) =
       _$_UpcomingWorkout.fromJson;
 
   @override
+  DateTime get startTime;
+  @override
   String get title;
   @override
   String? get description;
   @override
-  DateTime get startTime;
+  String? get image;
   @override
   int? get minutes;
   @override
   int? get kCalo;
-  @override
-  String? get image;
   @override
   bool get enableNotification;
   @override

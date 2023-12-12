@@ -9,9 +9,11 @@ part 'session_api.g.dart';
 @injectable
 abstract class SessionApi {
   static const String branch = "/session";
-  static const String getAllSessionByDailyApi = "/session/getall";
-  static const String createSessionApi = "/session/add";
-  static const String deleteSessionApi = "/session/delete";
+  static const String getAllSessionByDailyApi = "$branch/getall";
+  static const String createSessionApi = "$branch/add";
+  static const String deleteSessionApi = "$branch/delete";
+  static const String getUpComingSessionApi = "$branch/up-coming";
+
   @factoryMethod
   factory SessionApi(Dio dio) = _SessionApi;
 
@@ -22,6 +24,9 @@ abstract class SessionApi {
 
   @GET("$branch?id={id}")
   Future<HttpResponse<SessionModel>> getSessionById(@Path('id') int id);
+
+  @GET(getUpComingSessionApi)
+  Future<HttpResponse<List<SessionModel>>> getUpComingSession();
 
   @POST(createSessionApi)
   Future<HttpResponse<SessionModel>> createSession(

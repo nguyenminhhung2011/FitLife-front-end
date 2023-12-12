@@ -13,6 +13,8 @@ abstract class SessionApi {
   static const String createSessionApi = "$branch/add";
   static const String deleteSessionApi = "$branch/delete";
   static const String getUpComingSessionApi = "$branch/up-coming";
+  static const String updateSettingSessionApi =
+      "$branch/update-setting-session";
 
   @factoryMethod
   factory SessionApi(Dio dio) = _SessionApi;
@@ -27,6 +29,10 @@ abstract class SessionApi {
 
   @GET(getUpComingSessionApi)
   Future<HttpResponse<List<SessionModel>>> getUpComingSession();
+
+  @PUT("$updateSettingSessionApi?id={id}")
+  Future<HttpResponse<SessionModel>> updateSettingSession(@Path('id') int id,
+      {@Body() required Map<String, dynamic> body});
 
   @POST(createSessionApi)
   Future<HttpResponse<SessionModel>> createSession(

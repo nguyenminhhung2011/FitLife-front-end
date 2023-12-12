@@ -87,8 +87,9 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
       },
       getBodyPartFailed: (_, message) =>
           context.showSnackBar("🐛[Get exercise category] $message"),
-      getUpComingFailed: (_, message) =>
-          context.showSnackBar("🐛[Get upcoming exercise] $message"),
+      getUpComingFailed: (_, message) {
+        context.showSnackBar("🐛[Get upcoming exercise] $message");
+      },
       getCaloriesChartFailed: (_, message) =>
           context.showSnackBar("🐛[Get calories chart] $message"),
       orElse: () {},

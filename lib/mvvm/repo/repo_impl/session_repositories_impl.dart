@@ -16,7 +16,9 @@ class SessionRepositoriesImpl extends BaseApi implements SessionRepositories {
   @override
   Future<SResult<List<Session>>> getUpComingSession() async {
     return await apiCall<List<SessionModel>, List<Session>>(
-      mapper: (result) => result.map((e) => e.toEntity).toList(),
+      mapper: (result) {
+        return result.map((e) => e.toEntity).toList();
+      },
       request: () async => await _sessionApi.getUpComingSession(),
     );
   }

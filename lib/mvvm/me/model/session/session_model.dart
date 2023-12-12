@@ -53,7 +53,7 @@ class SessionModel {
     required this.transferTime,
     required this.calcTarget,
     required this.numberRound,
-    required this.breakTime, 
+    required this.breakTime,
     this.level,
     this.customExercise,
   });
@@ -68,15 +68,15 @@ class SessionModel {
         dwId: '',
         name: name,
         level: (level?.isNotEmpty ?? false)
-            ? Level.values
-                .firstWhere((element) => element.name.toLowerCase() == level)
+            ? Level.values.firstWhere(
+                (element) => element.name.toLowerCase() == level!.toLowerCase())
             : Level.beginner,
         description: description,
         calcTarget: calcTarget,
         timePerLesson: timePerLesson,
         transferTime: transferTime,
         customExercise: customExercise?.map((e) => e.toEntity).toList(),
-        numberRound: numberRound, 
+        numberRound: numberRound,
         breakTime: breakTime,
       );
 }

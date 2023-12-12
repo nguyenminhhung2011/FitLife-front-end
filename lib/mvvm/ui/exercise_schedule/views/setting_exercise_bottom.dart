@@ -31,7 +31,8 @@ class _SettingExerciseBottomState extends State<SettingExerciseBottom> {
             height: 45.0,
             child: Text(
               "Update",
-              style: context.titleMedium.copyWith(fontWeight: FontWeight.bold),
+              style: context.titleMedium
+                  .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ),
         ),

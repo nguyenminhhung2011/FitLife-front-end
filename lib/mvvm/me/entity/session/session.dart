@@ -14,6 +14,8 @@ class Session with _$Session {
     String? description,
     int? calcTarget,
     int? timePerLesson,
+    int? numberRound,
+    int? breakTime,
     int? transferTime,
     List<Equipment>? equipments,
     List<CustomExercise>? customExercise,

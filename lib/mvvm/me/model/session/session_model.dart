@@ -34,6 +34,12 @@ class SessionModel {
   @JsonKey(name: 'calcTarget')
   final int? calcTarget;
 
+  @JsonKey(name: 'numberRound')
+  final int? numberRound;
+
+  @JsonKey(name: 'breakTime')
+  final int? breakTime;
+
   @JsonKey(name: 'customExercise')
   final List<CustomExerciseModel>? customExercise;
 
@@ -46,6 +52,8 @@ class SessionModel {
     required this.timePerLesson,
     required this.transferTime,
     required this.calcTarget,
+    required this.numberRound,
+    required this.breakTime, 
     this.level,
     this.customExercise,
   });
@@ -68,5 +76,7 @@ class SessionModel {
         timePerLesson: timePerLesson,
         transferTime: transferTime,
         customExercise: customExercise?.map((e) => e.toEntity).toList(),
+        numberRound: numberRound, 
+        breakTime: breakTime,
       );
 }

@@ -26,7 +26,6 @@ class OverviewViewModel extends StateNotifier<OverviewState> {
     state =
         _Loading(data: data.copyWith(isLoadingUpcomingScheduleExercise: true));
     final call = await _overviewViewModel.getUpComingSession();
-    await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
     state = call.fold(
       ifLeft: (error) => _GetUpComingSessionFailed(
@@ -35,10 +34,12 @@ class OverviewViewModel extends StateNotifier<OverviewState> {
       ),
       ifRight: (rData) => _GetUpComingSessionSuccess(
         data: data.copyWith(
-          upComingSession: rData
-              .map((e) => UpComingSession(session: e, time: DateTime.now()))
-              .toList()
-              .first,
+          upComingSession: rData.isNotEmpty
+              ? rData
+                  .map((e) => UpComingSession(session: e, time: DateTime.now()))
+                  .toList()
+                  .first
+              : null,
           isLoadingUpcomingScheduleExercise: false,
         ),
       ),

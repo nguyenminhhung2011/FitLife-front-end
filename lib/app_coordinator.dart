@@ -1,4 +1,5 @@
 import 'package:fit_life/core/components/layout/setting_layout/views/widgets/bottom_change_paassword.dart';
+import 'package:fit_life/mvvm/me/entity/session/setting_session.dart';
 import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/all_pt_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/setting_exercise_bottom.dart';
@@ -145,7 +146,7 @@ extension AppCoordinator<T> on BuildContext {
     return List<FilterResponse>.empty();
   }
 
-  Future<void> settingExerciseBottom() async {
+  Future<void> settingExerciseBottom(SettingSession settingSession) async {
     final bottom = await showModalBottomSheet(
       context: this,
       isScrollControlled: true,
@@ -154,7 +155,7 @@ extension AppCoordinator<T> on BuildContext {
       ),
       backgroundColor: Theme.of(this).scaffoldBackgroundColor,
       builder: (context) {
-        return const SettingExerciseBottom();
+        return SettingExerciseBottom(settingSession: settingSession);
       },
     );
   }

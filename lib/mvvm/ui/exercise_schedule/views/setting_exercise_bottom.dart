@@ -1,12 +1,14 @@
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
+import 'package:fit_life/mvvm/me/entity/session/setting_session.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/ob/action.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/widgets/render_setting_item.dart';
 import 'package:flutter/material.dart';
 
 class SettingExerciseBottom extends StatefulWidget {
-  const SettingExerciseBottom({super.key});
+  final SettingSession settingSession;
+  const SettingExerciseBottom({super.key, required this.settingSession});
 
   @override
   State<SettingExerciseBottom> createState() => _SettingExerciseBottomState();

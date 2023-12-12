@@ -8,6 +8,7 @@ import 'package:fit_life/core/components/widgets/fit_life/equipment_horizontal_i
 import 'package:fit_life/core/components/widgets/fit_life/exercise_vertial_item.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/mvvm/me/entity/session/session.dart';
+import 'package:fit_life/mvvm/me/entity/session/setting_session.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_data.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_view_model.dart';
 import 'package:fit_life/routes/routes.dart';
@@ -101,7 +102,11 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
               height: 45.0,
               radius: 5.0,
               onPress: () async {
-                await context.settingExerciseBottom();
+                if (_session != null) {
+                  await context.settingExerciseBottom(
+                    SettingSession.fromSession(_session!),
+                  );
+                }
               },
               child: const Icon(Icons.settings, color: Colors.white, size: 16),
             ),

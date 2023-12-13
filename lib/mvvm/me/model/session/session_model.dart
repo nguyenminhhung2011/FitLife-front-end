@@ -78,5 +78,7 @@ class SessionModel {
         customExercise: customExercise?.map((e) => e.toEntity).toList(),
         numberRound: numberRound,
         breakTime: breakTime,
+        startWithBoot: startWithBoot,
+        randomMix: randomMix,
       );
 }

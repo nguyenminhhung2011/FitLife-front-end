@@ -42,11 +42,12 @@ class SessionRepositoriesImpl extends BaseApi implements SessionRepositories {
 
   @override
   Future<SResult<Session>> updateSettingSession(
-          {required int id,
-          required UpdateSettingSessionRequest request}) async =>
-      await apiCall<SessionModel, Session>(
-        mapper: (result) => result.toEntity,
-        request: () async =>
-            await _sessionApi.updateSettingSession(id, body: request.toJson()),
-      );
+      {required int id, required UpdateSettingSessionRequest request}) async {
+    // log(request.toJson().toString());
+    return await apiCall<SessionModel, Session>(
+      mapper: (result) => result.toEntity,
+      request: () async =>
+          await _sessionApi.updateSettingSession(id, body: request.toJson()),
+    );
+  }
 }

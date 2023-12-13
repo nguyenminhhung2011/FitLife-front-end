@@ -24,6 +24,10 @@ mixin _$ExerciseOverviewState {
     required TResult Function(ExerciseOverviewData data) getSessionPlanSuccess,
     required TResult Function(ExerciseOverviewData data, String message)
         getSessionPlanFailed,
+    required TResult Function(ExerciseOverviewData data)
+        updateSettingSessionSuccess,
+    required TResult Function(ExerciseOverviewData data, String message)
+        updateSettingSessionFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +37,9 @@ mixin _$ExerciseOverviewState {
     TResult? Function(ExerciseOverviewData data)? getSessionPlanSuccess,
     TResult? Function(ExerciseOverviewData data, String message)?
         getSessionPlanFailed,
+    TResult? Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult? Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +49,9 @@ mixin _$ExerciseOverviewState {
     TResult Function(ExerciseOverviewData data)? getSessionPlanSuccess,
     TResult Function(ExerciseOverviewData data, String message)?
         getSessionPlanFailed,
+    TResult Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +62,10 @@ mixin _$ExerciseOverviewState {
     required TResult Function(_GetSessionPlanSuccess value)
         getSessionPlanSuccess,
     required TResult Function(_GetSessionPlanFailed value) getSessionPlanFailed,
+    required TResult Function(_UpdateSettingSessionSuccess value)
+        updateSettingSessionSuccess,
+    required TResult Function(_UpdateSettingSessionFailed value)
+        updateSettingSessionFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +74,10 @@ mixin _$ExerciseOverviewState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
     TResult? Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult? Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult? Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +86,10 @@ mixin _$ExerciseOverviewState {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
     TResult Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -194,6 +216,10 @@ class _$_Initial extends _Initial {
     required TResult Function(ExerciseOverviewData data) getSessionPlanSuccess,
     required TResult Function(ExerciseOverviewData data, String message)
         getSessionPlanFailed,
+    required TResult Function(ExerciseOverviewData data)
+        updateSettingSessionSuccess,
+    required TResult Function(ExerciseOverviewData data, String message)
+        updateSettingSessionFailed,
   }) {
     return initial(data);
   }
@@ -206,6 +232,9 @@ class _$_Initial extends _Initial {
     TResult? Function(ExerciseOverviewData data)? getSessionPlanSuccess,
     TResult? Function(ExerciseOverviewData data, String message)?
         getSessionPlanFailed,
+    TResult? Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult? Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
   }) {
     return initial?.call(data);
   }
@@ -218,6 +247,9 @@ class _$_Initial extends _Initial {
     TResult Function(ExerciseOverviewData data)? getSessionPlanSuccess,
     TResult Function(ExerciseOverviewData data, String message)?
         getSessionPlanFailed,
+    TResult Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -234,6 +266,10 @@ class _$_Initial extends _Initial {
     required TResult Function(_GetSessionPlanSuccess value)
         getSessionPlanSuccess,
     required TResult Function(_GetSessionPlanFailed value) getSessionPlanFailed,
+    required TResult Function(_UpdateSettingSessionSuccess value)
+        updateSettingSessionSuccess,
+    required TResult Function(_UpdateSettingSessionFailed value)
+        updateSettingSessionFailed,
   }) {
     return initial(this);
   }
@@ -245,6 +281,10 @@ class _$_Initial extends _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
     TResult? Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult? Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult? Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
   }) {
     return initial?.call(this);
   }
@@ -256,6 +296,10 @@ class _$_Initial extends _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
     TResult Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -351,6 +395,10 @@ class _$_Loading extends _Loading {
     required TResult Function(ExerciseOverviewData data) getSessionPlanSuccess,
     required TResult Function(ExerciseOverviewData data, String message)
         getSessionPlanFailed,
+    required TResult Function(ExerciseOverviewData data)
+        updateSettingSessionSuccess,
+    required TResult Function(ExerciseOverviewData data, String message)
+        updateSettingSessionFailed,
   }) {
     return loading(data);
   }
@@ -363,6 +411,9 @@ class _$_Loading extends _Loading {
     TResult? Function(ExerciseOverviewData data)? getSessionPlanSuccess,
     TResult? Function(ExerciseOverviewData data, String message)?
         getSessionPlanFailed,
+    TResult? Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult? Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
   }) {
     return loading?.call(data);
   }
@@ -375,6 +426,9 @@ class _$_Loading extends _Loading {
     TResult Function(ExerciseOverviewData data)? getSessionPlanSuccess,
     TResult Function(ExerciseOverviewData data, String message)?
         getSessionPlanFailed,
+    TResult Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -391,6 +445,10 @@ class _$_Loading extends _Loading {
     required TResult Function(_GetSessionPlanSuccess value)
         getSessionPlanSuccess,
     required TResult Function(_GetSessionPlanFailed value) getSessionPlanFailed,
+    required TResult Function(_UpdateSettingSessionSuccess value)
+        updateSettingSessionSuccess,
+    required TResult Function(_UpdateSettingSessionFailed value)
+        updateSettingSessionFailed,
   }) {
     return loading(this);
   }
@@ -402,6 +460,10 @@ class _$_Loading extends _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
     TResult? Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult? Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult? Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
   }) {
     return loading?.call(this);
   }
@@ -413,6 +475,10 @@ class _$_Loading extends _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
     TResult Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -510,6 +576,10 @@ class _$_GetSessionPlanSuccess extends _GetSessionPlanSuccess {
     required TResult Function(ExerciseOverviewData data) getSessionPlanSuccess,
     required TResult Function(ExerciseOverviewData data, String message)
         getSessionPlanFailed,
+    required TResult Function(ExerciseOverviewData data)
+        updateSettingSessionSuccess,
+    required TResult Function(ExerciseOverviewData data, String message)
+        updateSettingSessionFailed,
   }) {
     return getSessionPlanSuccess(data);
   }
@@ -522,6 +592,9 @@ class _$_GetSessionPlanSuccess extends _GetSessionPlanSuccess {
     TResult? Function(ExerciseOverviewData data)? getSessionPlanSuccess,
     TResult? Function(ExerciseOverviewData data, String message)?
         getSessionPlanFailed,
+    TResult? Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult? Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
   }) {
     return getSessionPlanSuccess?.call(data);
   }
@@ -534,6 +607,9 @@ class _$_GetSessionPlanSuccess extends _GetSessionPlanSuccess {
     TResult Function(ExerciseOverviewData data)? getSessionPlanSuccess,
     TResult Function(ExerciseOverviewData data, String message)?
         getSessionPlanFailed,
+    TResult Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
     required TResult orElse(),
   }) {
     if (getSessionPlanSuccess != null) {
@@ -550,6 +626,10 @@ class _$_GetSessionPlanSuccess extends _GetSessionPlanSuccess {
     required TResult Function(_GetSessionPlanSuccess value)
         getSessionPlanSuccess,
     required TResult Function(_GetSessionPlanFailed value) getSessionPlanFailed,
+    required TResult Function(_UpdateSettingSessionSuccess value)
+        updateSettingSessionSuccess,
+    required TResult Function(_UpdateSettingSessionFailed value)
+        updateSettingSessionFailed,
   }) {
     return getSessionPlanSuccess(this);
   }
@@ -561,6 +641,10 @@ class _$_GetSessionPlanSuccess extends _GetSessionPlanSuccess {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
     TResult? Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult? Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult? Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
   }) {
     return getSessionPlanSuccess?.call(this);
   }
@@ -572,6 +656,10 @@ class _$_GetSessionPlanSuccess extends _GetSessionPlanSuccess {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
     TResult Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
     required TResult orElse(),
   }) {
     if (getSessionPlanSuccess != null) {
@@ -678,6 +766,10 @@ class _$_GetSessionPlanFailed extends _GetSessionPlanFailed {
     required TResult Function(ExerciseOverviewData data) getSessionPlanSuccess,
     required TResult Function(ExerciseOverviewData data, String message)
         getSessionPlanFailed,
+    required TResult Function(ExerciseOverviewData data)
+        updateSettingSessionSuccess,
+    required TResult Function(ExerciseOverviewData data, String message)
+        updateSettingSessionFailed,
   }) {
     return getSessionPlanFailed(data, message);
   }
@@ -690,6 +782,9 @@ class _$_GetSessionPlanFailed extends _GetSessionPlanFailed {
     TResult? Function(ExerciseOverviewData data)? getSessionPlanSuccess,
     TResult? Function(ExerciseOverviewData data, String message)?
         getSessionPlanFailed,
+    TResult? Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult? Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
   }) {
     return getSessionPlanFailed?.call(data, message);
   }
@@ -702,6 +797,9 @@ class _$_GetSessionPlanFailed extends _GetSessionPlanFailed {
     TResult Function(ExerciseOverviewData data)? getSessionPlanSuccess,
     TResult Function(ExerciseOverviewData data, String message)?
         getSessionPlanFailed,
+    TResult Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
     required TResult orElse(),
   }) {
     if (getSessionPlanFailed != null) {
@@ -718,6 +816,10 @@ class _$_GetSessionPlanFailed extends _GetSessionPlanFailed {
     required TResult Function(_GetSessionPlanSuccess value)
         getSessionPlanSuccess,
     required TResult Function(_GetSessionPlanFailed value) getSessionPlanFailed,
+    required TResult Function(_UpdateSettingSessionSuccess value)
+        updateSettingSessionSuccess,
+    required TResult Function(_UpdateSettingSessionFailed value)
+        updateSettingSessionFailed,
   }) {
     return getSessionPlanFailed(this);
   }
@@ -729,6 +831,10 @@ class _$_GetSessionPlanFailed extends _GetSessionPlanFailed {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
     TResult? Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult? Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult? Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
   }) {
     return getSessionPlanFailed?.call(this);
   }
@@ -740,6 +846,10 @@ class _$_GetSessionPlanFailed extends _GetSessionPlanFailed {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
     TResult Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
     required TResult orElse(),
   }) {
     if (getSessionPlanFailed != null) {
@@ -762,4 +872,385 @@ abstract class _GetSessionPlanFailed extends ExerciseOverviewState {
   @JsonKey(ignore: true)
   _$$_GetSessionPlanFailedCopyWith<_$_GetSessionPlanFailed> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateSettingSessionSuccessCopyWith<$Res>
+    implements $ExerciseOverviewStateCopyWith<$Res> {
+  factory _$$_UpdateSettingSessionSuccessCopyWith(
+          _$_UpdateSettingSessionSuccess value,
+          $Res Function(_$_UpdateSettingSessionSuccess) then) =
+      __$$_UpdateSettingSessionSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ExerciseOverviewData data});
+
+  @override
+  $ExerciseOverviewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_UpdateSettingSessionSuccessCopyWithImpl<$Res>
+    extends _$ExerciseOverviewStateCopyWithImpl<$Res,
+        _$_UpdateSettingSessionSuccess>
+    implements _$$_UpdateSettingSessionSuccessCopyWith<$Res> {
+  __$$_UpdateSettingSessionSuccessCopyWithImpl(
+      _$_UpdateSettingSessionSuccess _value,
+      $Res Function(_$_UpdateSettingSessionSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_UpdateSettingSessionSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ExerciseOverviewData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateSettingSessionSuccess extends _UpdateSettingSessionSuccess {
+  const _$_UpdateSettingSessionSuccess({required this.data}) : super._();
+
+  @override
+  final ExerciseOverviewData data;
+
+  @override
+  String toString() {
+    return 'ExerciseOverviewState.updateSettingSessionSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateSettingSessionSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateSettingSessionSuccessCopyWith<_$_UpdateSettingSessionSuccess>
+      get copyWith => __$$_UpdateSettingSessionSuccessCopyWithImpl<
+          _$_UpdateSettingSessionSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ExerciseOverviewData data) initial,
+    required TResult Function(ExerciseOverviewData data) loading,
+    required TResult Function(ExerciseOverviewData data) getSessionPlanSuccess,
+    required TResult Function(ExerciseOverviewData data, String message)
+        getSessionPlanFailed,
+    required TResult Function(ExerciseOverviewData data)
+        updateSettingSessionSuccess,
+    required TResult Function(ExerciseOverviewData data, String message)
+        updateSettingSessionFailed,
+  }) {
+    return updateSettingSessionSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ExerciseOverviewData data)? initial,
+    TResult? Function(ExerciseOverviewData data)? loading,
+    TResult? Function(ExerciseOverviewData data)? getSessionPlanSuccess,
+    TResult? Function(ExerciseOverviewData data, String message)?
+        getSessionPlanFailed,
+    TResult? Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult? Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
+  }) {
+    return updateSettingSessionSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ExerciseOverviewData data)? initial,
+    TResult Function(ExerciseOverviewData data)? loading,
+    TResult Function(ExerciseOverviewData data)? getSessionPlanSuccess,
+    TResult Function(ExerciseOverviewData data, String message)?
+        getSessionPlanFailed,
+    TResult Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
+    required TResult orElse(),
+  }) {
+    if (updateSettingSessionSuccess != null) {
+      return updateSettingSessionSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetSessionPlanSuccess value)
+        getSessionPlanSuccess,
+    required TResult Function(_GetSessionPlanFailed value) getSessionPlanFailed,
+    required TResult Function(_UpdateSettingSessionSuccess value)
+        updateSettingSessionSuccess,
+    required TResult Function(_UpdateSettingSessionFailed value)
+        updateSettingSessionFailed,
+  }) {
+    return updateSettingSessionSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
+    TResult? Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult? Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult? Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
+  }) {
+    return updateSettingSessionSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
+    TResult Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
+    required TResult orElse(),
+  }) {
+    if (updateSettingSessionSuccess != null) {
+      return updateSettingSessionSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateSettingSessionSuccess extends ExerciseOverviewState {
+  const factory _UpdateSettingSessionSuccess(
+          {required final ExerciseOverviewData data}) =
+      _$_UpdateSettingSessionSuccess;
+  const _UpdateSettingSessionSuccess._() : super._();
+
+  @override
+  ExerciseOverviewData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UpdateSettingSessionSuccessCopyWith<_$_UpdateSettingSessionSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateSettingSessionFailedCopyWith<$Res>
+    implements $ExerciseOverviewStateCopyWith<$Res> {
+  factory _$$_UpdateSettingSessionFailedCopyWith(
+          _$_UpdateSettingSessionFailed value,
+          $Res Function(_$_UpdateSettingSessionFailed) then) =
+      __$$_UpdateSettingSessionFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ExerciseOverviewData data, String message});
+
+  @override
+  $ExerciseOverviewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_UpdateSettingSessionFailedCopyWithImpl<$Res>
+    extends _$ExerciseOverviewStateCopyWithImpl<$Res,
+        _$_UpdateSettingSessionFailed>
+    implements _$$_UpdateSettingSessionFailedCopyWith<$Res> {
+  __$$_UpdateSettingSessionFailedCopyWithImpl(
+      _$_UpdateSettingSessionFailed _value,
+      $Res Function(_$_UpdateSettingSessionFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_UpdateSettingSessionFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ExerciseOverviewData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateSettingSessionFailed extends _UpdateSettingSessionFailed {
+  const _$_UpdateSettingSessionFailed(
+      {required this.data, required this.message})
+      : super._();
+
+  @override
+  final ExerciseOverviewData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ExerciseOverviewState.updateSettingSessionFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateSettingSessionFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateSettingSessionFailedCopyWith<_$_UpdateSettingSessionFailed>
+      get copyWith => __$$_UpdateSettingSessionFailedCopyWithImpl<
+          _$_UpdateSettingSessionFailed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ExerciseOverviewData data) initial,
+    required TResult Function(ExerciseOverviewData data) loading,
+    required TResult Function(ExerciseOverviewData data) getSessionPlanSuccess,
+    required TResult Function(ExerciseOverviewData data, String message)
+        getSessionPlanFailed,
+    required TResult Function(ExerciseOverviewData data)
+        updateSettingSessionSuccess,
+    required TResult Function(ExerciseOverviewData data, String message)
+        updateSettingSessionFailed,
+  }) {
+    return updateSettingSessionFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ExerciseOverviewData data)? initial,
+    TResult? Function(ExerciseOverviewData data)? loading,
+    TResult? Function(ExerciseOverviewData data)? getSessionPlanSuccess,
+    TResult? Function(ExerciseOverviewData data, String message)?
+        getSessionPlanFailed,
+    TResult? Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult? Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
+  }) {
+    return updateSettingSessionFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ExerciseOverviewData data)? initial,
+    TResult Function(ExerciseOverviewData data)? loading,
+    TResult Function(ExerciseOverviewData data)? getSessionPlanSuccess,
+    TResult Function(ExerciseOverviewData data, String message)?
+        getSessionPlanFailed,
+    TResult Function(ExerciseOverviewData data)? updateSettingSessionSuccess,
+    TResult Function(ExerciseOverviewData data, String message)?
+        updateSettingSessionFailed,
+    required TResult orElse(),
+  }) {
+    if (updateSettingSessionFailed != null) {
+      return updateSettingSessionFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetSessionPlanSuccess value)
+        getSessionPlanSuccess,
+    required TResult Function(_GetSessionPlanFailed value) getSessionPlanFailed,
+    required TResult Function(_UpdateSettingSessionSuccess value)
+        updateSettingSessionSuccess,
+    required TResult Function(_UpdateSettingSessionFailed value)
+        updateSettingSessionFailed,
+  }) {
+    return updateSettingSessionFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
+    TResult? Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult? Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult? Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
+  }) {
+    return updateSettingSessionFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetSessionPlanSuccess value)? getSessionPlanSuccess,
+    TResult Function(_GetSessionPlanFailed value)? getSessionPlanFailed,
+    TResult Function(_UpdateSettingSessionSuccess value)?
+        updateSettingSessionSuccess,
+    TResult Function(_UpdateSettingSessionFailed value)?
+        updateSettingSessionFailed,
+    required TResult orElse(),
+  }) {
+    if (updateSettingSessionFailed != null) {
+      return updateSettingSessionFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateSettingSessionFailed extends ExerciseOverviewState {
+  const factory _UpdateSettingSessionFailed(
+      {required final ExerciseOverviewData data,
+      required final String message}) = _$_UpdateSettingSessionFailed;
+  const _UpdateSettingSessionFailed._() : super._();
+
+  @override
+  ExerciseOverviewData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UpdateSettingSessionFailedCopyWith<_$_UpdateSettingSessionFailed>
+      get copyWith => throw _privateConstructorUsedError;
 }

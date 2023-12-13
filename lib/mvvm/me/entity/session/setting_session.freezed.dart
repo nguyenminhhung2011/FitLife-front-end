@@ -22,6 +22,8 @@ mixin _$SettingSession {
   int get numberRound => throw _privateConstructorUsedError;
   int get breakTime => throw _privateConstructorUsedError;
   int get transferTime => throw _privateConstructorUsedError;
+  bool get startWithBoot => throw _privateConstructorUsedError;
+  bool get randomMix => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SettingSessionCopyWith<SettingSession> get copyWith =>
@@ -40,7 +42,9 @@ abstract class $SettingSessionCopyWith<$Res> {
       int timePerLesson,
       int numberRound,
       int breakTime,
-      int transferTime});
+      int transferTime,
+      bool startWithBoot,
+      bool randomMix});
 }
 
 /// @nodoc
@@ -62,6 +66,8 @@ class _$SettingSessionCopyWithImpl<$Res, $Val extends SettingSession>
     Object? numberRound = null,
     Object? breakTime = null,
     Object? transferTime = null,
+    Object? startWithBoot = null,
+    Object? randomMix = null,
   }) {
     return _then(_value.copyWith(
       level: null == level
@@ -88,6 +94,14 @@ class _$SettingSessionCopyWithImpl<$Res, $Val extends SettingSession>
           ? _value.transferTime
           : transferTime // ignore: cast_nullable_to_non_nullable
               as int,
+      startWithBoot: null == startWithBoot
+          ? _value.startWithBoot
+          : startWithBoot // ignore: cast_nullable_to_non_nullable
+              as bool,
+      randomMix: null == randomMix
+          ? _value.randomMix
+          : randomMix // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -106,7 +120,9 @@ abstract class _$$_SettingSessionCopyWith<$Res>
       int timePerLesson,
       int numberRound,
       int breakTime,
-      int transferTime});
+      int transferTime,
+      bool startWithBoot,
+      bool randomMix});
 }
 
 /// @nodoc
@@ -126,6 +142,8 @@ class __$$_SettingSessionCopyWithImpl<$Res>
     Object? numberRound = null,
     Object? breakTime = null,
     Object? transferTime = null,
+    Object? startWithBoot = null,
+    Object? randomMix = null,
   }) {
     return _then(_$_SettingSession(
       level: null == level
@@ -152,6 +170,14 @@ class __$$_SettingSessionCopyWithImpl<$Res>
           ? _value.transferTime
           : transferTime // ignore: cast_nullable_to_non_nullable
               as int,
+      startWithBoot: null == startWithBoot
+          ? _value.startWithBoot
+          : startWithBoot // ignore: cast_nullable_to_non_nullable
+              as bool,
+      randomMix: null == randomMix
+          ? _value.randomMix
+          : randomMix // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -165,7 +191,9 @@ class _$_SettingSession implements _SettingSession {
       required this.timePerLesson,
       required this.numberRound,
       required this.breakTime,
-      required this.transferTime});
+      required this.transferTime,
+      required this.startWithBoot,
+      required this.randomMix});
 
   @override
   final Level level;
@@ -179,10 +207,14 @@ class _$_SettingSession implements _SettingSession {
   final int breakTime;
   @override
   final int transferTime;
+  @override
+  final bool startWithBoot;
+  @override
+  final bool randomMix;
 
   @override
   String toString() {
-    return 'SettingSession(level: $level, calcTarget: $calcTarget, timePerLesson: $timePerLesson, numberRound: $numberRound, breakTime: $breakTime, transferTime: $transferTime)';
+    return 'SettingSession(level: $level, calcTarget: $calcTarget, timePerLesson: $timePerLesson, numberRound: $numberRound, breakTime: $breakTime, transferTime: $transferTime, startWithBoot: $startWithBoot, randomMix: $randomMix)';
   }
 
   @override
@@ -200,12 +232,16 @@ class _$_SettingSession implements _SettingSession {
             (identical(other.breakTime, breakTime) ||
                 other.breakTime == breakTime) &&
             (identical(other.transferTime, transferTime) ||
-                other.transferTime == transferTime));
+                other.transferTime == transferTime) &&
+            (identical(other.startWithBoot, startWithBoot) ||
+                other.startWithBoot == startWithBoot) &&
+            (identical(other.randomMix, randomMix) ||
+                other.randomMix == randomMix));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, level, calcTarget, timePerLesson,
-      numberRound, breakTime, transferTime);
+      numberRound, breakTime, transferTime, startWithBoot, randomMix);
 
   @JsonKey(ignore: true)
   @override
@@ -221,7 +257,9 @@ abstract class _SettingSession implements SettingSession {
       required final int timePerLesson,
       required final int numberRound,
       required final int breakTime,
-      required final int transferTime}) = _$_SettingSession;
+      required final int transferTime,
+      required final bool startWithBoot,
+      required final bool randomMix}) = _$_SettingSession;
 
   @override
   Level get level;
@@ -235,6 +273,10 @@ abstract class _SettingSession implements SettingSession {
   int get breakTime;
   @override
   int get transferTime;
+  @override
+  bool get startWithBoot;
+  @override
+  bool get randomMix;
   @override
   @JsonKey(ignore: true)
   _$$_SettingSessionCopyWith<_$_SettingSession> get copyWith =>

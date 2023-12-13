@@ -1,8 +1,9 @@
+import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/ob/action.dart';
 import 'package:flutter/material.dart';
 
-class RenderSettingItem extends StatelessWidget {
+class RenderSettingItem extends StatefulWidget {
   final SettingExerciseActions action;
   final int? data;
   final bool isEnable;
@@ -15,6 +16,35 @@ class RenderSettingItem extends StatelessWidget {
     this.isEnable = false,
     this.onChangeValue,
   });
+
+  @override
+  State<RenderSettingItem> createState() => _RenderSettingItemState();
+}
+
+class _RenderSettingItemState extends State<RenderSettingItem> {
+  late int _data;
+  late bool _isEnable;
+
+  @override
+  void initState() {
+    _data = widget.data ?? 0;
+    _isEnable = widget.isEnable;
+    super.initState();
+  }
+
+  void _onChangeNumberData() async {
+    final showSliderChangeValue = await context.showSliderChangeValue(
+      initData: _data.toDouble(),
+      max: widget.action.renderMaxData.toDouble(),
+      header: widget.action.renderText,
+    );
+    if (showSliderChangeValue != -1) {
+      setState(() {
+        _data = showSliderChangeValue.round();
+      });
+      widget.onChangeValue?.call(showSliderChangeValue);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,29 +77,34 @@ class RenderSettingItem extends StatelessWidget {
     final smallStyle = context.titleSmall
         .copyWith(fontSize: 12.0, color: Theme.of(context).hintColor);
 
-    final icon = action.renderIcon;
+    final icon = widget.action.renderIcon;
     Widget? trailing;
     Function()? onPress;
 
-    if (action.isSwitch) {
+    if (widget.action.isSwitch) {
       trailing = Switch(
-        value: isEnable,
-        onChanged: onChangeValue?.call(!isEnable) ?? (p0) {},
+        value: _isEnable,
+        onChanged: (p0) {
+          setState(() {
+            _isEnable = p0;
+          });
+          widget.onChangeValue?.call(p0) ?? {};
+        },
         activeColor: primaryColor,
       );
-      onPress = onChangeValue?.call(!isEnable) ?? () {};
+      onPress = null;
     } else {
       trailing = Text(
-        action.renderTrailing(strData: data?.toString() ?? '0') ?? '',
+        widget.action.renderTrailing(strData: _data.toString()) ?? '',
         style: smallStyle.copyWith(fontSize: 14.0),
       );
-      onPress = () {};
+      onPress = _onChangeNumberData;
     }
 
     return settingItem(
       onTap: onPress,
       icon: icon,
-      title: action.renderText,
+      title: widget.action.renderText,
       trailing: trailing,
     );
   }

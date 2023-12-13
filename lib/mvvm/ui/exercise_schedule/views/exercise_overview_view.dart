@@ -57,8 +57,22 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
     state.maybeWhen(
       getSessionPlanFailed: (_, error) =>
           context.showSnackBar("🐛[Get session plan] $error"),
+      updateSettingSessionFailed: (_, error) =>
+          context.showSnackBar("🐛[Update setting session] $error"),
       orElse: () {},
     );
+  }
+
+  void _openSettingExercise() async {
+    if (_session != null) {
+      final show = await context.settingExerciseBottom(
+        SettingSession.fromSession(_session!),
+      );
+
+      if (show is SettingSession) {
+        _vm.updateSettingSession(show);
+      }
+    }
   }
 
   @override
@@ -101,13 +115,7 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
               width: 45.0,
               height: 45.0,
               radius: 5.0,
-              onPress: () async {
-                if (_session != null) {
-                  await context.settingExerciseBottom(
-                    SettingSession.fromSession(_session!),
-                  );
-                }
-              },
+              onPress: _openSettingExercise,
               child: const Icon(Icons.settings, color: Colors.white, size: 16),
             ),
             const SizedBox(width: 5.0),

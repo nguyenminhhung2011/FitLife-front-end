@@ -1,3 +1,4 @@
+import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
@@ -15,20 +16,59 @@ class SettingExerciseBottom extends StatefulWidget {
 }
 
 class _SettingExerciseBottomState extends State<SettingExerciseBottom> {
+  late SettingSession _settingSession;
+  @override
+  void initState() {
+    _settingSession = widget.settingSession;
+    super.initState();
+  }
+
+  void _renderAction(SettingExerciseActions action, dynamic data) {
+    ///[😶 Dumb code]
+    if (action.isSwitch) {
+      _settingSession = _settingSession.copyWith(
+        startWithBoot: (action == SettingExerciseActions.startWithBoot)
+            ? (data as bool)
+            : _settingSession.startWithBoot,
+        randomMix: (action == SettingExerciseActions.randomMix)
+            ? (data as bool)
+            : _settingSession.randomMix,
+      );
+    } else {
+      _settingSession = _settingSession.copyWith(
+        calcTarget: (action == SettingExerciseActions.calories)
+            ? (data.round())
+            : _settingSession.calcTarget,
+        timePerLesson: (action == SettingExerciseActions.timForEach)
+            ? (data.round())
+            : _settingSession.timePerLesson,
+        numberRound: (action == SettingExerciseActions.numberRound)
+            ? (data.round())
+            : _settingSession.numberRound,
+        breakTime: (action == SettingExerciseActions.breakTime)
+            ? (data.round())
+            : _settingSession.breakTime,
+        transferTime: (action == SettingExerciseActions.transferTime)
+            ? (data.round())
+            : _settingSession.transferTime,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: context.widthDevice,
       constraints: BoxConstraints(
-        maxHeight: context.heightDevice * 0.8,
         minHeight: context.heightDevice * 0.6,
+        maxHeight: context.heightDevice * 0.8,
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         bottomSheet: Padding(
           padding: const EdgeInsets.all(15.0),
           child: ButtonCustom(
-            onPress: () {},
+            onPress: () => context.popArgs(_settingSession),
             radius: 5.0,
             height: 45.0,
             child: Text(
@@ -56,18 +96,16 @@ class _SettingExerciseBottomState extends State<SettingExerciseBottom> {
             Expanded(
               child: ListView(
                 children: [
-                  ...[
-                    SettingExerciseActions.numberRound,
-                    SettingExerciseActions.numberOfExerciseRound,
-                    SettingExerciseActions.startWithBoot,
-                    SettingExerciseActions.randomMix,
-                    SettingExerciseActions.timForEach,
-                    SettingExerciseActions.transferTime,
-                    SettingExerciseActions.breakTime,
-                    SettingExerciseActions.leave,
-                  ].map((e) => RenderSettingItem(action: e, data: 12)).expand(
-                        (e) => [e, const SizedBox(height: 5.0)],
-                      ),
+                  ..._settingSession.createMap.map((e) {
+                    final data = e["data"];
+                    return RenderSettingItem(
+                      action: e["action"] ?? SettingExerciseActions.breakTime,
+                      isEnable: (data is bool) ? data : false,
+                      data: (data is int) ? data : null,
+                      onChangeValue: (changeData) =>
+                          _renderAction(e["action"], changeData),
+                    );
+                  }).expand((e) => [e, const SizedBox(height: 5.0)])
                 ],
               ),
             ),

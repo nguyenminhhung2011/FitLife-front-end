@@ -2,6 +2,7 @@ import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'custom_exercise.freezed.dart';
+part 'custom_exercise.g.dart';
 
 @freezed
 class CustomExercise with _$CustomExercise {
@@ -14,4 +15,7 @@ class CustomExercise with _$CustomExercise {
     required int rep,
     required int weight,
   }) = _CustomExercise;
+
+  factory CustomExercise.fromJson(Map<String, dynamic> json) =>
+      _$CustomExerciseFromJson(json);
 }

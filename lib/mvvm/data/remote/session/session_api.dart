@@ -11,6 +11,7 @@ abstract class SessionApi {
   static const String branch = "/session";
   static const String getAllSessionByDailyApi = "$branch/getall";
   static const String createSessionApi = "$branch/add";
+  static const String createExerciseIntoSessionApi = "$branch/add/exercise";
   static const String deleteSessionApi = "$branch/delete";
   static const String getUpComingSessionApi = "$branch/up-coming";
   static const String updateSettingSessionApi =
@@ -36,6 +37,10 @@ abstract class SessionApi {
 
   @POST(createSessionApi)
   Future<HttpResponse<SessionModel>> createSession(
+      {@Body() required Map<String, dynamic> body});
+
+  @POST(createExerciseIntoSessionApi)
+  Future<HttpResponse<SessionModel>> createExercise(@Query('id') int id,
       {@Body() required Map<String, dynamic> body});
 
   @POST("$deleteSessionApi?id={id}")

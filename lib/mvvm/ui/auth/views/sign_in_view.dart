@@ -23,7 +23,7 @@ class SignInView extends ConsumerStatefulWidget {
 class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
   final _emailController = TextEditingController(text: "hoangtruong");
 
-  final _passController = TextEditingController(text: "123456");
+  final _passController = TextEditingController(text: "12345678");
 
   SignInViewModel get _vm => ref.read(signInStateNotifier.notifier);
 

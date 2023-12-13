@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+WorkoutPlan _$WorkoutPlanFromJson(Map<String, dynamic> json) {
+  return _WorkoutPlan.fromJson(json);
+}
+
 /// @nodoc
 mixin _$WorkoutPlan {
   String get name => throw _privateConstructorUsedError;
@@ -23,6 +27,7 @@ mixin _$WorkoutPlan {
   PlanType get planType => throw _privateConstructorUsedError;
   List<DailyWorkout>? get dailyWorkouts => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $WorkoutPlanCopyWith<WorkoutPlan> get copyWith =>
       throw _privateConstructorUsedError;
@@ -157,7 +162,7 @@ class __$$_WorkoutPlanCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_WorkoutPlan implements _WorkoutPlan {
   const _$_WorkoutPlan(
       {required this.name,
@@ -167,6 +172,9 @@ class _$_WorkoutPlan implements _WorkoutPlan {
       this.planType = PlanType.def,
       final List<DailyWorkout>? dailyWorkouts})
       : _dailyWorkouts = dailyWorkouts;
+
+  factory _$_WorkoutPlan.fromJson(Map<String, dynamic> json) =>
+      _$$_WorkoutPlanFromJson(json);
 
   @override
   final String name;
@@ -211,6 +219,7 @@ class _$_WorkoutPlan implements _WorkoutPlan {
                 .equals(other._dailyWorkouts, _dailyWorkouts));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, description, startDate,
       endDate, planType, const DeepCollectionEquality().hash(_dailyWorkouts));
@@ -220,6 +229,13 @@ class _$_WorkoutPlan implements _WorkoutPlan {
   @pragma('vm:prefer-inline')
   _$$_WorkoutPlanCopyWith<_$_WorkoutPlan> get copyWith =>
       __$$_WorkoutPlanCopyWithImpl<_$_WorkoutPlan>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_WorkoutPlanToJson(
+      this,
+    );
+  }
 }
 
 abstract class _WorkoutPlan implements WorkoutPlan {
@@ -230,6 +246,9 @@ abstract class _WorkoutPlan implements WorkoutPlan {
       final DateTime? endDate,
       final PlanType planType,
       final List<DailyWorkout>? dailyWorkouts}) = _$_WorkoutPlan;
+
+  factory _WorkoutPlan.fromJson(Map<String, dynamic> json) =
+      _$_WorkoutPlan.fromJson;
 
   @override
   String get name;

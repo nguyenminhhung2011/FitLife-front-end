@@ -33,7 +33,7 @@ class SessionRepositoriesImpl extends BaseApi implements SessionRepositories {
 
   @override
   Future<SResult<List<Session>>> getAllSessionByDailyID(String dailyId) async {
-    return await apiCall<List<SessionModel>, List<Session>>(
+    return apiCall<List<SessionModel>, List<Session>>(
       mapper: (result) => result.map((e) => e.toEntity).toList(),
       request: () async =>
           await _sessionApi.getAllSessionByDaily(int.parse(dailyId)),
@@ -42,11 +42,28 @@ class SessionRepositoriesImpl extends BaseApi implements SessionRepositories {
 
   @override
   Future<SResult<Session>> updateSettingSession(
-          {required int id,
-          required UpdateSettingSessionRequest request}) async =>
-      await apiCall<SessionModel, Session>(
-        mapper: (result) => result.toEntity,
-        request: () async =>
-            await _sessionApi.updateSettingSession(id, body: request.toJson()),
-      );
+      {required int id, required UpdateSettingSessionRequest request}) async {
+    return apiCall<SessionModel, Session>(
+      mapper: (result) => result.toEntity,
+      request: () async =>
+          await _sessionApi.updateSettingSession(id, body: request.toJson()),
+    );
+  }
+
+  @override
+  Future<SResult<Session>> createSession({required Session session}) {
+    return apiCall<SessionModel, Session>(
+      mapper: (result) => result.toEntity,
+      request: () async =>
+          await _sessionApi.createSession(body: session.toJson()),
+    );
+  }
+
+  @override
+  Future<SResult> deleteSession({required int id}) {
+    return apiCall<void, void>(
+      mapper: (_) {},
+      request: () async => await _sessionApi.deleteSession(id),
+    );
+  }
 }

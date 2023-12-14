@@ -20,7 +20,7 @@ import 'core/components/layout/search_layout/model/filter_model.dart';
 import 'core/components/layout/search_layout/model/filter_response.dart';
 
 extension AppCoordinator<T> on BuildContext {
-  void pop() => Navigator.of(this).pop();
+  void pop([T? result]) => Navigator.of(this).pop(result);
 
   void popUntil(String nRoute) =>
       Navigator.popUntil(this, ModalRoute.withName(nRoute));

@@ -51,7 +51,7 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "${workoutPlan.endDate?.difference(workoutPlan.startDate!).inDays} days",
+                    "${DateTime.fromMillisecondsSinceEpoch(workoutPlan.endDate! - (workoutPlan.startDate!)).day} days",
                     style: context.titleLarge.copyWith(
                       fontWeight: FontWeight.w600,
                       fontSize: 22.0,
@@ -61,7 +61,10 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text(
                     getRangeDateFormat(
-                        workoutPlan.startDate!, workoutPlan.endDate!),
+                      DateTime.fromMillisecondsSinceEpoch(
+                          workoutPlan.startDate!),
+                      DateTime.fromMillisecondsSinceEpoch(workoutPlan.endDate!),
+                    ),
                     textAlign: TextAlign.center,
                     style: const TextStyle(color: Colors.white, fontSize: 10.0),
                   )

@@ -90,7 +90,7 @@ class _SessionApi implements SessionApi {
     )
             .compose(
               _dio.options,
-              '/session/update-setting-session',
+              '/session/up-coming',
               queryParameters: queryParameters,
               data: _data,
             )

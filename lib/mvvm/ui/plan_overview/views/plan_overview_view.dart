@@ -35,7 +35,6 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
 
   @override
   void initState() {
-    // _vm.getCurrentPlan();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         _vm.getSessionPlanHistory();
@@ -181,8 +180,16 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
               style: context.titleSmall
                   .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
             ),
-            onPress: () {
-              context.openListPageWithRoute(Routes.addPlan);
+            onPress: () async {
+              final res = await context.openListPageWithRoute(Routes.addPlan);
+              if (res != null) {
+                if (res[0] is bool && res[0] == true) {
+                  context.showSnackBar("🎉[Create plan] Success");
+                  await _vm.getSessionPlanHistory();
+                } else {
+                  context.showSnackBar("🐛[Create plan] Failed");
+                }
+              }
             },
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
+import 'package:fit_life/mvvm/me/model/workout_plan/workout_plan_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -18,14 +19,14 @@ abstract class WorkoutPlanApi {
   factory WorkoutPlanApi(Dio dio) = _WorkoutPlanApi;
 
   @GET(getWorkoutPlanApi)
-  Future<HttpResponse<List<WorkoutPlan>?>> getAllWorkoutPlan();
+  Future<HttpResponse<List<WorkoutPlanModel>?>> getAllWorkoutPlan();
 
   @POST(addWorkoutPlanApi)
-  Future<HttpResponse<WorkoutPlan>> addWorkoutPlan(
+  Future<HttpResponse<WorkoutPlanModel>> addWorkoutPlan(
       @Body() Map<String, dynamic> body);
 
   @GET(searchWorkoutPlanApi)
-  Future<HttpResponse<List<WorkoutPlan>?>> searchWorkoutPlan(
+  Future<HttpResponse<List<WorkoutPlanModel>?>> searchWorkoutPlan(
     @Query('name') String? name, {
     @Query('startDate') int? startDate,
     @Query('endDate') int? endDate,

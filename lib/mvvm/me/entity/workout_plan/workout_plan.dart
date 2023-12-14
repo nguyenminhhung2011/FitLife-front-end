@@ -10,9 +10,9 @@ class WorkoutPlan with _$WorkoutPlan {
   const factory WorkoutPlan({
     required String name,
     required String description,
-    DateTime? startDate,
-    DateTime? endDate,
-    @Default(PlanType.def) PlanType planType,
+    int? startDate,
+    int? endDate,
+    @Default(PlanType.def) PlanType type,
     List<DailyWorkout>? dailyWorkouts,
   }) = _WorkoutPlan;
 

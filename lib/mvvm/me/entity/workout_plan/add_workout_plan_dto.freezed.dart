@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'workout_plan.dart';
+part of 'add_workout_plan_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,44 +14,48 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-WorkoutPlan _$WorkoutPlanFromJson(Map<String, dynamic> json) {
-  return _WorkoutPlan.fromJson(json);
+AddWorkoutPlanDto _$AddWorkoutPlanDtoFromJson(Map<String, dynamic> json) {
+  return _AddWorkoutPlanDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$WorkoutPlan {
+mixin _$AddWorkoutPlanDto {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   int? get startDate => throw _privateConstructorUsedError;
   int? get endDate => throw _privateConstructorUsedError;
-  PlanType get type => throw _privateConstructorUsedError;
-  List<DailyWorkout>? get dailyWorkouts => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
+  String? get preference => throw _privateConstructorUsedError;
+  Level? get fitnessLevelCurrent => throw _privateConstructorUsedError;
+  String? get fitnessGoal => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $WorkoutPlanCopyWith<WorkoutPlan> get copyWith =>
+  $AddWorkoutPlanDtoCopyWith<AddWorkoutPlanDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WorkoutPlanCopyWith<$Res> {
-  factory $WorkoutPlanCopyWith(
-          WorkoutPlan value, $Res Function(WorkoutPlan) then) =
-      _$WorkoutPlanCopyWithImpl<$Res, WorkoutPlan>;
+abstract class $AddWorkoutPlanDtoCopyWith<$Res> {
+  factory $AddWorkoutPlanDtoCopyWith(
+          AddWorkoutPlanDto value, $Res Function(AddWorkoutPlanDto) then) =
+      _$AddWorkoutPlanDtoCopyWithImpl<$Res, AddWorkoutPlanDto>;
   @useResult
   $Res call(
       {String name,
       String description,
       int? startDate,
       int? endDate,
-      PlanType type,
-      List<DailyWorkout>? dailyWorkouts});
+      String type,
+      String? preference,
+      Level? fitnessLevelCurrent,
+      String? fitnessGoal});
 }
 
 /// @nodoc
-class _$WorkoutPlanCopyWithImpl<$Res, $Val extends WorkoutPlan>
-    implements $WorkoutPlanCopyWith<$Res> {
-  _$WorkoutPlanCopyWithImpl(this._value, this._then);
+class _$AddWorkoutPlanDtoCopyWithImpl<$Res, $Val extends AddWorkoutPlanDto>
+    implements $AddWorkoutPlanDtoCopyWith<$Res> {
+  _$AddWorkoutPlanDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,7 +70,9 @@ class _$WorkoutPlanCopyWithImpl<$Res, $Val extends WorkoutPlan>
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? type = null,
-    Object? dailyWorkouts = freezed,
+    Object? preference = freezed,
+    Object? fitnessLevelCurrent = freezed,
+    Object? fitnessGoal = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -88,21 +94,29 @@ class _$WorkoutPlanCopyWithImpl<$Res, $Val extends WorkoutPlan>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as PlanType,
-      dailyWorkouts: freezed == dailyWorkouts
-          ? _value.dailyWorkouts
-          : dailyWorkouts // ignore: cast_nullable_to_non_nullable
-              as List<DailyWorkout>?,
+              as String,
+      preference: freezed == preference
+          ? _value.preference
+          : preference // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fitnessLevelCurrent: freezed == fitnessLevelCurrent
+          ? _value.fitnessLevelCurrent
+          : fitnessLevelCurrent // ignore: cast_nullable_to_non_nullable
+              as Level?,
+      fitnessGoal: freezed == fitnessGoal
+          ? _value.fitnessGoal
+          : fitnessGoal // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_WorkoutPlanCopyWith<$Res>
-    implements $WorkoutPlanCopyWith<$Res> {
-  factory _$$_WorkoutPlanCopyWith(
-          _$_WorkoutPlan value, $Res Function(_$_WorkoutPlan) then) =
-      __$$_WorkoutPlanCopyWithImpl<$Res>;
+abstract class _$$_AddWorkoutPlanDtoCopyWith<$Res>
+    implements $AddWorkoutPlanDtoCopyWith<$Res> {
+  factory _$$_AddWorkoutPlanDtoCopyWith(_$_AddWorkoutPlanDto value,
+          $Res Function(_$_AddWorkoutPlanDto) then) =
+      __$$_AddWorkoutPlanDtoCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -110,16 +124,18 @@ abstract class _$$_WorkoutPlanCopyWith<$Res>
       String description,
       int? startDate,
       int? endDate,
-      PlanType type,
-      List<DailyWorkout>? dailyWorkouts});
+      String type,
+      String? preference,
+      Level? fitnessLevelCurrent,
+      String? fitnessGoal});
 }
 
 /// @nodoc
-class __$$_WorkoutPlanCopyWithImpl<$Res>
-    extends _$WorkoutPlanCopyWithImpl<$Res, _$_WorkoutPlan>
-    implements _$$_WorkoutPlanCopyWith<$Res> {
-  __$$_WorkoutPlanCopyWithImpl(
-      _$_WorkoutPlan _value, $Res Function(_$_WorkoutPlan) _then)
+class __$$_AddWorkoutPlanDtoCopyWithImpl<$Res>
+    extends _$AddWorkoutPlanDtoCopyWithImpl<$Res, _$_AddWorkoutPlanDto>
+    implements _$$_AddWorkoutPlanDtoCopyWith<$Res> {
+  __$$_AddWorkoutPlanDtoCopyWithImpl(
+      _$_AddWorkoutPlanDto _value, $Res Function(_$_AddWorkoutPlanDto) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,9 +146,11 @@ class __$$_WorkoutPlanCopyWithImpl<$Res>
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? type = null,
-    Object? dailyWorkouts = freezed,
+    Object? preference = freezed,
+    Object? fitnessLevelCurrent = freezed,
+    Object? fitnessGoal = freezed,
   }) {
-    return _then(_$_WorkoutPlan(
+    return _then(_$_AddWorkoutPlanDto(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -152,29 +170,38 @@ class __$$_WorkoutPlanCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as PlanType,
-      dailyWorkouts: freezed == dailyWorkouts
-          ? _value._dailyWorkouts
-          : dailyWorkouts // ignore: cast_nullable_to_non_nullable
-              as List<DailyWorkout>?,
+              as String,
+      preference: freezed == preference
+          ? _value.preference
+          : preference // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fitnessLevelCurrent: freezed == fitnessLevelCurrent
+          ? _value.fitnessLevelCurrent
+          : fitnessLevelCurrent // ignore: cast_nullable_to_non_nullable
+              as Level?,
+      fitnessGoal: freezed == fitnessGoal
+          ? _value.fitnessGoal
+          : fitnessGoal // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_WorkoutPlan implements _WorkoutPlan {
-  const _$_WorkoutPlan(
+class _$_AddWorkoutPlanDto implements _AddWorkoutPlanDto {
+  const _$_AddWorkoutPlanDto(
       {required this.name,
       required this.description,
       this.startDate,
       this.endDate,
-      this.type = PlanType.def,
-      final List<DailyWorkout>? dailyWorkouts})
-      : _dailyWorkouts = dailyWorkouts;
+      this.type = "DEFAULT",
+      this.preference,
+      this.fitnessLevelCurrent,
+      this.fitnessGoal});
 
-  factory _$_WorkoutPlan.fromJson(Map<String, dynamic> json) =>
-      _$$_WorkoutPlanFromJson(json);
+  factory _$_AddWorkoutPlanDto.fromJson(Map<String, dynamic> json) =>
+      _$$_AddWorkoutPlanDtoFromJson(json);
 
   @override
   final String name;
@@ -186,27 +213,24 @@ class _$_WorkoutPlan implements _WorkoutPlan {
   final int? endDate;
   @override
   @JsonKey()
-  final PlanType type;
-  final List<DailyWorkout>? _dailyWorkouts;
+  final String type;
   @override
-  List<DailyWorkout>? get dailyWorkouts {
-    final value = _dailyWorkouts;
-    if (value == null) return null;
-    if (_dailyWorkouts is EqualUnmodifiableListView) return _dailyWorkouts;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final String? preference;
+  @override
+  final Level? fitnessLevelCurrent;
+  @override
+  final String? fitnessGoal;
 
   @override
   String toString() {
-    return 'WorkoutPlan(name: $name, description: $description, startDate: $startDate, endDate: $endDate, type: $type, dailyWorkouts: $dailyWorkouts)';
+    return 'AddWorkoutPlanDto(name: $name, description: $description, startDate: $startDate, endDate: $endDate, type: $type, preference: $preference, fitnessLevelCurrent: $fitnessLevelCurrent, fitnessGoal: $fitnessGoal)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WorkoutPlan &&
+            other is _$_AddWorkoutPlanDto &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -214,40 +238,47 @@ class _$_WorkoutPlan implements _WorkoutPlan {
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             (identical(other.type, type) || other.type == type) &&
-            const DeepCollectionEquality()
-                .equals(other._dailyWorkouts, _dailyWorkouts));
+            (identical(other.preference, preference) ||
+                other.preference == preference) &&
+            (identical(other.fitnessLevelCurrent, fitnessLevelCurrent) ||
+                other.fitnessLevelCurrent == fitnessLevelCurrent) &&
+            (identical(other.fitnessGoal, fitnessGoal) ||
+                other.fitnessGoal == fitnessGoal));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, description, startDate,
-      endDate, type, const DeepCollectionEquality().hash(_dailyWorkouts));
+      endDate, type, preference, fitnessLevelCurrent, fitnessGoal);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WorkoutPlanCopyWith<_$_WorkoutPlan> get copyWith =>
-      __$$_WorkoutPlanCopyWithImpl<_$_WorkoutPlan>(this, _$identity);
+  _$$_AddWorkoutPlanDtoCopyWith<_$_AddWorkoutPlanDto> get copyWith =>
+      __$$_AddWorkoutPlanDtoCopyWithImpl<_$_AddWorkoutPlanDto>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WorkoutPlanToJson(
+    return _$$_AddWorkoutPlanDtoToJson(
       this,
     );
   }
 }
 
-abstract class _WorkoutPlan implements WorkoutPlan {
-  const factory _WorkoutPlan(
+abstract class _AddWorkoutPlanDto implements AddWorkoutPlanDto {
+  const factory _AddWorkoutPlanDto(
       {required final String name,
       required final String description,
       final int? startDate,
       final int? endDate,
-      final PlanType type,
-      final List<DailyWorkout>? dailyWorkouts}) = _$_WorkoutPlan;
+      final String type,
+      final String? preference,
+      final Level? fitnessLevelCurrent,
+      final String? fitnessGoal}) = _$_AddWorkoutPlanDto;
 
-  factory _WorkoutPlan.fromJson(Map<String, dynamic> json) =
-      _$_WorkoutPlan.fromJson;
+  factory _AddWorkoutPlanDto.fromJson(Map<String, dynamic> json) =
+      _$_AddWorkoutPlanDto.fromJson;
 
   @override
   String get name;
@@ -258,11 +289,15 @@ abstract class _WorkoutPlan implements WorkoutPlan {
   @override
   int? get endDate;
   @override
-  PlanType get type;
+  String get type;
   @override
-  List<DailyWorkout>? get dailyWorkouts;
+  String? get preference;
+  @override
+  Level? get fitnessLevelCurrent;
+  @override
+  String? get fitnessGoal;
   @override
   @JsonKey(ignore: true)
-  _$$_WorkoutPlanCopyWith<_$_WorkoutPlan> get copyWith =>
+  _$$_AddWorkoutPlanDtoCopyWith<_$_AddWorkoutPlanDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

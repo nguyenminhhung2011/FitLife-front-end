@@ -1,7 +1,9 @@
 import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/components/network/base_api.dart';
 import 'package:fit_life/mvvm/data/remote/workout_plan/workout_plan_api.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/add_workout_plan_dto.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
+import 'package:fit_life/mvvm/me/model/workout_plan/workout_plan_model.dart';
 import 'package:fit_life/mvvm/repo/workout_plan_repositories.dart';
 import 'package:injectable/injectable.dart';
 
@@ -12,19 +14,19 @@ class WorkoutPlanRepositoriesImpl extends BaseApi
   WorkoutPlanRepositoriesImpl(this._workoutPlanApi);
 
   @override
-  Future<SResult<WorkoutPlan>> addWorkoutPlan(
-      {required WorkoutPlan workoutPlan}) {
-    return apiCall<WorkoutPlan, WorkoutPlan>(
-      mapper: (result) => result,
-      request: () async =>
-          await _workoutPlanApi.addWorkoutPlan(workoutPlan.toJson()),
+  Future<SResult<WorkoutPlan>> addWorkoutPlan({
+    required AddWorkoutPlanDto data,
+  }) {
+    return apiCall<WorkoutPlanModel, WorkoutPlan>(
+      mapper: (result) => result.toEntity(),
+      request: () async => await _workoutPlanApi.addWorkoutPlan(data.toJson()),
     );
   }
 
   @override
   Future<SResult<List<WorkoutPlan>?>> getWorkoutPlans() {
-    return apiCall<List<WorkoutPlan>?, List<WorkoutPlan>?>(
-      mapper: (result) => result,
+    return apiCall<List<WorkoutPlanModel>?, List<WorkoutPlan>?>(
+      mapper: (result) => result?.map((e) => e.toEntity()).toList(),
       request: () async => await _workoutPlanApi.getAllWorkoutPlan(),
     );
   }
@@ -40,8 +42,8 @@ class WorkoutPlanRepositoriesImpl extends BaseApi
   @override
   Future<SResult<List<WorkoutPlan>?>> searchWorkoutPlan(String? name,
       {int? startDate, int? endDate, int? page, int? size}) {
-    return apiCall<List<WorkoutPlan>?, List<WorkoutPlan>?>(
-      mapper: (result) => result,
+    return apiCall<List<WorkoutPlanModel>?, List<WorkoutPlan>?>(
+      mapper: (result) => result?.map((e) => e.toEntity()).toList(),
       request: () async => await _workoutPlanApi.searchWorkoutPlan(
         name,
         startDate: startDate,

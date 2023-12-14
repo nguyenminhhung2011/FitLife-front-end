@@ -19,13 +19,13 @@ class _WorkoutPlanApi implements WorkoutPlanApi {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<List<WorkoutPlan>?>> getAllWorkoutPlan() async {
+  Future<HttpResponse<List<WorkoutPlanModel>?>> getAllWorkoutPlan() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<WorkoutPlan>>>(Options(
+        _setStreamType<HttpResponse<List<WorkoutPlanModel>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -42,14 +42,15 @@ class _WorkoutPlanApi implements WorkoutPlanApi {
               baseUrl,
             ))));
     var value = _result.data
-        ?.map((dynamic i) => WorkoutPlan.fromJson(i as Map<String, dynamic>))
+        ?.map(
+            (dynamic i) => WorkoutPlanModel.fromJson(i as Map<String, dynamic>))
         .toList();
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }
 
   @override
-  Future<HttpResponse<WorkoutPlan>> addWorkoutPlan(
+  Future<HttpResponse<WorkoutPlanModel>> addWorkoutPlan(
       Map<String, dynamic> body) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -57,7 +58,7 @@ class _WorkoutPlanApi implements WorkoutPlanApi {
     final _data = <String, dynamic>{};
     _data.addAll(body);
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<HttpResponse<WorkoutPlan>>(Options(
+        _setStreamType<HttpResponse<WorkoutPlanModel>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -73,13 +74,13 @@ class _WorkoutPlanApi implements WorkoutPlanApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = WorkoutPlan.fromJson(_result.data!);
+    final value = WorkoutPlanModel.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }
 
   @override
-  Future<HttpResponse<List<WorkoutPlan>?>> searchWorkoutPlan(
+  Future<HttpResponse<List<WorkoutPlanModel>?>> searchWorkoutPlan(
     String? name, {
     int? startDate,
     int? endDate,
@@ -98,7 +99,7 @@ class _WorkoutPlanApi implements WorkoutPlanApi {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<WorkoutPlan>>>(Options(
+        _setStreamType<HttpResponse<List<WorkoutPlanModel>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -115,7 +116,8 @@ class _WorkoutPlanApi implements WorkoutPlanApi {
               baseUrl,
             ))));
     var value = _result.data
-        ?.map((dynamic i) => WorkoutPlan.fromJson(i as Map<String, dynamic>))
+        ?.map(
+            (dynamic i) => WorkoutPlanModel.fromJson(i as Map<String, dynamic>))
         .toList();
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;

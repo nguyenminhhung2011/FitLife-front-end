@@ -1,36 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'workout_plan.dart';
+part of 'workout_plan_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WorkoutPlan _$$_WorkoutPlanFromJson(Map<String, dynamic> json) =>
-    _$_WorkoutPlan(
+WorkoutPlanModel _$WorkoutPlanModelFromJson(Map<String, dynamic> json) =>
+    WorkoutPlanModel(
       name: json['name'] as String,
       description: json['description'] as String,
       startDate: json['startDate'] as int?,
       endDate: json['endDate'] as int?,
-      type:
-          $enumDecodeNullable(_$PlanTypeEnumMap, json['type']) ?? PlanType.def,
+      type: json['type'] as String?,
       dailyWorkouts: (json['dailyWorkouts'] as List<dynamic>?)
           ?.map((e) => DailyWorkout.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_WorkoutPlanToJson(_$_WorkoutPlan instance) =>
+Map<String, dynamic> _$WorkoutPlanModelToJson(WorkoutPlanModel instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
       'startDate': instance.startDate,
       'endDate': instance.endDate,
-      'type': _$PlanTypeEnumMap[instance.type]!,
+      'type': instance.type,
       'dailyWorkouts': instance.dailyWorkouts,
     };
-
-const _$PlanTypeEnumMap = {
-  PlanType.user: 'user',
-  PlanType.ai: 'ai',
-  PlanType.def: 'def',
-};

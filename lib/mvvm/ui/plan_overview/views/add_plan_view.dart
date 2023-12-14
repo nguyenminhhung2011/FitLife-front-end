@@ -1,9 +1,13 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/extensions/date_time_extension.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/custom_input_label_field.dart';
+import 'package:fit_life/core/components/widgets/dropdown_button_custom.dart';
 import 'package:fit_life/core/components/widgets/range_date_picker_custom.dart';
+import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
 import 'package:flutter/material.dart';
@@ -25,21 +29,22 @@ class _AddPlanViewState extends ConsumerState<AddPlanView> {
   final RangeDateController rangeDateController = RangeDateController();
   final TextEditingController titleCtrl = TextEditingController();
   final TextEditingController goalCtrl = TextEditingController();
-  final TextEditingController levelCtrl = TextEditingController();
   final TextEditingController preferencesCtrl = TextEditingController();
+  final TextEditingController descriptionCtrl = TextEditingController();
   bool isUsingAIGenerate = false;
 
-  DateTime _selectedStartDate =
-      DateTime.now().subtract(const Duration(days: 10));
-  DateTime _selectedEndDate = DateTime.now();
+  Level level = Level.beginner;
+
+  DateTime _selectedStartDate = DateTime.now();
+  DateTime _selectedEndDate = DateTime.now().add(const Duration(days: 10));
 
   @override
   void dispose() {
     titleCtrl.dispose();
     rangeDateController.dispose();
     goalCtrl.dispose();
-    levelCtrl.dispose();
     preferencesCtrl.dispose();
+    descriptionCtrl.dispose();
     super.dispose();
   }
 
@@ -80,18 +85,30 @@ class _AddPlanViewState extends ConsumerState<AddPlanView> {
     });
   }
 
-  void onTapAddPlan() async {
+  Future<void> onTapAddPlan() async {
     await viewModel
         .createPlan(
           isUsingAIGenerate: isUsingAIGenerate,
           title: titleCtrl.text,
           timeStart: _selectedStartDate,
           timeFinish: _selectedEndDate,
-          level: levelCtrl.text,
+          level: level,
           goal: goalCtrl.text,
           preferences: preferencesCtrl.text,
+          isUsingAI: isUsingAIGenerate,
         )
-        .then((value) => context.pop());
+        .then((_) => {
+              viewModel.state.maybeWhen(createPlanSuccess: (data) {
+                context.showSnackBar("Create plan success");
+                context.pop([true]);
+              }, createPlanFailed: (data, message) {
+                context.showSnackBar("Create plan failed: $message");
+                context.pop([false]);
+              }, orElse: () {
+                context.showSnackBar("Create plan failed");
+                context.pop([false]);
+              }),
+            });
   }
 
   @override
@@ -117,6 +134,12 @@ class _AddPlanViewState extends ConsumerState<AddPlanView> {
                   label: 'Title',
                   controller: titleCtrl,
                   hintText: "Enter title"),
+              const SizedBox(height: 12),
+              CustomInputLabelField(
+                label: 'Description',
+                controller: descriptionCtrl,
+                hintText: "",
+              ),
               const SizedBox(height: 12),
               Align(
                 alignment: Alignment.topLeft,
@@ -183,10 +206,34 @@ class _AddPlanViewState extends ConsumerState<AddPlanView> {
                   hintText: "Enter your goal",
                 ),
                 const SizedBox(height: 10),
-                CustomInputLabelField(
-                  label: 'Current fitness level: ',
-                  controller: levelCtrl,
-                  hintText: "Enter your level",
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 12.0),
+                    child: Text(
+                      'Current fitness level: ',
+                      textAlign: TextAlign.left,
+                      style: context.titleMedium.copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: context.textColor,
+                      ),
+                    ),
+                  ),
+                ),
+                DropdownButtonCustom<Level>(
+                  radius: 10,
+                  borderColor: Colors.grey,
+                  items: Level.values
+                      .map((e) => DropdownMenuItem(
+                            value: e,
+                            child: Text(e.name),
+                          ))
+                      .toList(),
+                  value: level,
+                  onChange: (value) {
+                    level = value!;
+                  },
                 ),
                 const SizedBox(height: 10),
                 CustomInputLabelField(

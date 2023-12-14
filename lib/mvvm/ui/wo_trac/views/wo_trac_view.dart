@@ -6,6 +6,7 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/extensions/interger_extension.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/video_player.dart';
+import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/congratulation.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/widgets/exercise_set_item.dart';
@@ -16,11 +17,12 @@ import 'package:timer_count_down/timer_controller.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 
 class WooTrackView extends ConsumerStatefulWidget {
-  const WooTrackView({super.key});
+  final Session session;
+  const WooTrackView({required this.session, super.key});
 
   @override
   ConsumerState<WooTrackView> createState() => _WooTrackViewState();
-}
+}4
 
 class _WooTrackViewState extends ConsumerState<WooTrackView> {
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;

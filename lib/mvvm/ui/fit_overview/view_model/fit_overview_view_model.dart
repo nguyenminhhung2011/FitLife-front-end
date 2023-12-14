@@ -9,7 +9,7 @@ import 'package:injectable/injectable.dart';
 import 'package:riverpod/riverpod.dart';
 
 part 'fit_overview_state.dart';
-
+  
 part 'fit_overview_view_model.freezed.dart';
 
 final fitOverViewNotifier =

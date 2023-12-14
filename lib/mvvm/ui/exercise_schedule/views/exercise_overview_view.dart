@@ -123,8 +123,8 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
               child: ButtonCustom(
                 height: 45.0,
                 radius: 5.0,
-                onPress: () =>
-                    context.openListPageWithRoute(Routes.previewExercise),
+                onPress: () => context.openPageWithRouteAndParams(
+                    Routes.previewExercise, _session),
                 child: Text(
                   'Start practice',
                   style: context.titleMedium.copyWith(

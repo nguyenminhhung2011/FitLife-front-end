@@ -41,8 +41,6 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
     super.dispose();
   }
 
-  void _listStateChange(_, SettingState state) {}
-
   @override
   Widget build(BuildContext context) {
     return AdaptiveTheme(

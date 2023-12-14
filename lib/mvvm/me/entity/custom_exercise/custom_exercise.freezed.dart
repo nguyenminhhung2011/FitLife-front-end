@@ -17,8 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CustomExercise {
   int get id => throw _privateConstructorUsedError;
-  int get dateStart => throw _privateConstructorUsedError;
-  String get time => throw _privateConstructorUsedError;
+  int get time => throw _privateConstructorUsedError;
   String get difficulty => throw _privateConstructorUsedError;
   Exercise get exercise => throw _privateConstructorUsedError;
   int get rep => throw _privateConstructorUsedError;
@@ -37,8 +36,7 @@ abstract class $CustomExerciseCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      int dateStart,
-      String time,
+      int time,
       String difficulty,
       Exercise exercise,
       int rep,
@@ -61,7 +59,6 @@ class _$CustomExerciseCopyWithImpl<$Res, $Val extends CustomExercise>
   @override
   $Res call({
     Object? id = null,
-    Object? dateStart = null,
     Object? time = null,
     Object? difficulty = null,
     Object? exercise = null,
@@ -73,14 +70,10 @@ class _$CustomExerciseCopyWithImpl<$Res, $Val extends CustomExercise>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      dateStart: null == dateStart
-          ? _value.dateStart
-          : dateStart // ignore: cast_nullable_to_non_nullable
-              as int,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       difficulty: null == difficulty
           ? _value.difficulty
           : difficulty // ignore: cast_nullable_to_non_nullable
@@ -119,8 +112,7 @@ abstract class _$$_CustomExerciseCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      int dateStart,
-      String time,
+      int time,
       String difficulty,
       Exercise exercise,
       int rep,
@@ -142,7 +134,6 @@ class __$$_CustomExerciseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? dateStart = null,
     Object? time = null,
     Object? difficulty = null,
     Object? exercise = null,
@@ -154,14 +145,10 @@ class __$$_CustomExerciseCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      dateStart: null == dateStart
-          ? _value.dateStart
-          : dateStart // ignore: cast_nullable_to_non_nullable
-              as int,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       difficulty: null == difficulty
           ? _value.difficulty
           : difficulty // ignore: cast_nullable_to_non_nullable
@@ -187,7 +174,6 @@ class __$$_CustomExerciseCopyWithImpl<$Res>
 class _$_CustomExercise implements _CustomExercise {
   const _$_CustomExercise(
       {required this.id,
-      required this.dateStart,
       required this.time,
       required this.difficulty,
       required this.exercise,
@@ -197,9 +183,7 @@ class _$_CustomExercise implements _CustomExercise {
   @override
   final int id;
   @override
-  final int dateStart;
-  @override
-  final String time;
+  final int time;
   @override
   final String difficulty;
   @override
@@ -211,7 +195,7 @@ class _$_CustomExercise implements _CustomExercise {
 
   @override
   String toString() {
-    return 'CustomExercise(id: $id, dateStart: $dateStart, time: $time, difficulty: $difficulty, exercise: $exercise, rep: $rep, weight: $weight)';
+    return 'CustomExercise(id: $id, time: $time, difficulty: $difficulty, exercise: $exercise, rep: $rep, weight: $weight)';
   }
 
   @override
@@ -220,8 +204,6 @@ class _$_CustomExercise implements _CustomExercise {
         (other.runtimeType == runtimeType &&
             other is _$_CustomExercise &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.dateStart, dateStart) ||
-                other.dateStart == dateStart) &&
             (identical(other.time, time) || other.time == time) &&
             (identical(other.difficulty, difficulty) ||
                 other.difficulty == difficulty) &&
@@ -232,8 +214,8 @@ class _$_CustomExercise implements _CustomExercise {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, dateStart, time, difficulty, exercise, rep, weight);
+  int get hashCode =>
+      Object.hash(runtimeType, id, time, difficulty, exercise, rep, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -245,8 +227,7 @@ class _$_CustomExercise implements _CustomExercise {
 abstract class _CustomExercise implements CustomExercise {
   const factory _CustomExercise(
       {required final int id,
-      required final int dateStart,
-      required final String time,
+      required final int time,
       required final String difficulty,
       required final Exercise exercise,
       required final int rep,
@@ -255,9 +236,7 @@ abstract class _CustomExercise implements CustomExercise {
   @override
   int get id;
   @override
-  int get dateStart;
-  @override
-  String get time;
+  int get time;
   @override
   String get difficulty;
   @override

@@ -9,8 +9,7 @@ part of 'custom_exercise_model.dart';
 CustomExerciseModel _$CustomExerciseModelFromJson(Map<String, dynamic> json) =>
     CustomExerciseModel(
       id: json['id'] as int,
-      dateStart: json['dateStart'] as int,
-      time: json['time'] as String,
+      time: json['time'] as int,
       difficulty: json['difficulty'] as String,
       exercise:
           ExerciseModel.fromJson(json['exercise'] as Map<String, dynamic>),
@@ -22,7 +21,6 @@ Map<String, dynamic> _$CustomExerciseModelToJson(
         CustomExerciseModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'dateStart': instance.dateStart,
       'time': instance.time,
       'difficulty': instance.difficulty,
       'exercise': instance.exercise,

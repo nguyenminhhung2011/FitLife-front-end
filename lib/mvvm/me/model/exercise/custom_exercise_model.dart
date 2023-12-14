@@ -9,11 +9,9 @@ class CustomExerciseModel {
   @JsonKey(name: 'id')
   final int id;
 
-  @JsonKey(name: 'dateStart')
-  final int dateStart;
 
   @JsonKey(name: 'time')
-  final String time;
+  final int time;
 
   @JsonKey(name: 'difficulty')
   final String difficulty;
@@ -29,7 +27,6 @@ class CustomExerciseModel {
 
   CustomExerciseModel({
     required this.id,
-    required this.dateStart,
     required this.time,
     required this.difficulty,
     required this.exercise,
@@ -44,7 +41,6 @@ class CustomExerciseModel {
 
   CustomExercise get toEntity => CustomExercise(
         id: id,
-        dateStart: dateStart,
         time: time,
         difficulty: difficulty,
         exercise: exercise.toEntity,

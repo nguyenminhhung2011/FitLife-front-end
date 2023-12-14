@@ -22,7 +22,7 @@ class WooTrackView extends ConsumerStatefulWidget {
 
   @override
   ConsumerState<WooTrackView> createState() => _WooTrackViewState();
-}4
+}
 
 class _WooTrackViewState extends ConsumerState<WooTrackView> {
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;

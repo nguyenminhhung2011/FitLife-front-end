@@ -7,8 +7,7 @@ part 'custom_exercise.freezed.dart';
 class CustomExercise with _$CustomExercise {
   const factory CustomExercise({
     required int id,
-    required int dateStart,
-    required String time,
+    required int time,
     required String difficulty,
     required Exercise exercise,
     required int rep,

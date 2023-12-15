@@ -8,6 +8,7 @@ class ButtonCustom extends StatelessWidget {
   final double? height;
   final Widget child;
   final Function() onPress;
+  final EdgeInsetsGeometry? padding;
   final bool enableWidth;
   final bool loading;
   final Color? borderColor;
@@ -17,6 +18,7 @@ class ButtonCustom extends StatelessWidget {
     this.radius,
     this.width,
     this.height,
+    this.padding,
     this.enableWidth = true,
     this.loading = false,
     this.borderColor,
@@ -35,6 +37,9 @@ class ButtonCustom extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all<Color>(
             color ?? context.primaryColor,
           ),
+          padding: padding != null
+              ? MaterialStateProperty.all<EdgeInsetsGeometry>(padding!)
+              : null,
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.all(

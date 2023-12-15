@@ -1,12 +1,14 @@
 // ignore_for_file: unrelated_type_equality_checks
 
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/enum/plan_type.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/extensions/date_time_extension.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/custom_input_label_field.dart';
 import 'package:fit_life/core/components/widgets/dropdown_button_custom.dart';
 import 'package:fit_life/core/components/widgets/range_date_picker_custom.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/add_workout_plan_dto.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
@@ -85,31 +87,18 @@ class _AddPlanViewState extends ConsumerState<AddPlanView> {
     });
   }
 
-  Future<void> onTapAddPlan() async {
-    await viewModel
-        .createPlan(
-          isUsingAIGenerate: isUsingAIGenerate,
-          title: titleCtrl.text,
-          timeStart: _selectedStartDate,
-          timeFinish: _selectedEndDate,
-          level: level,
-          goal: goalCtrl.text,
-          preferences: preferencesCtrl.text,
-          isUsingAI: isUsingAIGenerate,
-        )
-        .then((_) => {
-              viewModel.state.maybeWhen(createPlanSuccess: (data) {
-                context.showSnackBar("Create plan success");
-                context.pop([true]);
-              }, createPlanFailed: (data, message) {
-                context.showSnackBar("Create plan failed: $message");
-                context.pop([false]);
-              }, orElse: () {
-                context.showSnackBar("Create plan failed");
-                context.pop([false]);
-              }),
-            });
-  }
+  Future<void> onTapAddPlan() async => context.popArgs(
+        AddWorkoutPlanDto(
+          name: titleCtrl.text,
+          description: descriptionCtrl.text,
+          endDate: _selectedEndDate.millisecondsSinceEpoch,
+          startDate: _selectedStartDate.millisecondsSinceEpoch,
+          fitnessLevelCurrent: level,
+          fitnessGoal: goalCtrl.text,
+          preference: preferencesCtrl.text,
+          type: isUsingAIGenerate ? PlanType.ai.name : PlanType.def.name,
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {

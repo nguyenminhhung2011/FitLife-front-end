@@ -2,6 +2,7 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/add_workout_plan_dto.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
 
@@ -175,6 +176,8 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
           child: ButtonCustom(
             height: 40.0,
             radius: 10.0,
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            loading: _data.isLoadingCreatePlan,
             child: Text(
               "Create new plan",
               style: context.titleSmall
@@ -182,13 +185,8 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
             ),
             onPress: () async {
               final res = await context.openListPageWithRoute(Routes.addPlan);
-              if (res != null) {
-                if (res[0] is bool && res[0] == true) {
-                  context.showSnackBar("🎉[Create plan] Success");
-                  await _vm.getSessionPlanHistory();
-                } else {
-                  context.showSnackBar("🐛[Create plan] Failed");
-                }
+              if (res is AddWorkoutPlanDto) {
+                await _vm.createPlan(dto: res);
               }
             },
           ),

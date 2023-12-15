@@ -65,29 +65,12 @@ class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
     );
   }
 
-  Future<void> createPlan({
-    bool isUsingAIGenerate = false,
-    required String title,
-    String? description,
-    required DateTime timeStart,
-    required DateTime timeFinish,
-    Level? level,
-    String? goal,
-    String? preferences,
-    bool isUsingAI = false,
-  }) async {
+  Future<void> createPlan({required AddWorkoutPlanDto dto}) async {
     state = _Loading(data: data.copyWith(isLoadingCreatePlan: true));
-    final call = await _workoutPlanRepositories.addWorkoutPlan(
-        data: AddWorkoutPlanDto(
-      name: title,
-      description: description ?? "",
-      endDate: timeFinish.millisecondsSinceEpoch,
-      startDate: timeStart.millisecondsSinceEpoch,
-      fitnessLevelCurrent: level,
-      fitnessGoal: goal ?? "",
-      preference: preferences ?? "",
-      type: isUsingAI ? PlanType.ai.name : PlanType.def.name,
-    ));
+    final call = await _workoutPlanRepositories.addWorkoutPlan(data: dto);
+    await Future.delayed(const Duration(seconds: 1));
+
+    if (!mounted) return;
 
     state = call.fold(
       ifLeft: (error) => _CreatePlanFailed(

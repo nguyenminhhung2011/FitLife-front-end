@@ -12,5 +12,6 @@ class CustomExercise with _$CustomExercise {
     required Exercise exercise,
     required int rep,
     required int weight,
+    required int calories ,
   }) = _CustomExercise;
 }

@@ -17,6 +17,8 @@ SessionModel _$SessionModelFromJson(Map<String, dynamic> json) => SessionModel(
       calcTarget: json['calcTarget'] as int?,
       numberRound: json['numberRound'] as int?,
       breakTime: json['breakTime'] as int?,
+      done: json['done'] as bool?,
+      calcCompleted: json['calcCompleted'] as int?,
       level: json['level'] as String?,
       customExercise: (json['customExercise'] as List<dynamic>?)
           ?.map((e) => CustomExerciseModel.fromJson(e as Map<String, dynamic>))
@@ -31,8 +33,10 @@ Map<String, dynamic> _$SessionModelToJson(SessionModel instance) =>
       'description': instance.description,
       'startWithBoot': instance.startWithBoot,
       'randomMix': instance.randomMix,
+      'done': instance.done,
       'timePerLesson': instance.timePerLesson,
       'transferTime': instance.transferTime,
+      'calcCompleted': instance.calcCompleted,
       'calcTarget': instance.calcTarget,
       'numberRound': instance.numberRound,
       'breakTime': instance.breakTime,

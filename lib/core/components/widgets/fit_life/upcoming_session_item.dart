@@ -1,6 +1,4 @@
-import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/mvvm/me/entity/session/session.dart';
-import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
@@ -8,8 +6,10 @@ import 'package:intl/intl.dart';
 
 class UpComingSessionItem extends StatelessWidget {
   final Session session;
+  final Function() onPress;
   const UpComingSessionItem({
     required this.session,
+    required this.onPress,
     super.key,
   });
 
@@ -17,8 +17,7 @@ class UpComingSessionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final smallTextStyle = context.titleSmall.copyWith(fontSize: 11.0);
     return GestureDetector(
-      onTap: () => context.openPageWithRouteAndParams(
-          Routes.exerciseOverview, session.id.toString()),
+      onTap: onPress,
       child: Stack(
         children: [
           Container(
@@ -65,6 +64,17 @@ class UpComingSessionItem extends StatelessWidget {
                             color: Theme.of(context).hintColor,
                           ),
                         ),
+                      ],
+                      if (session.done ?? false) ...[
+                        const SizedBox(height: 4.0),
+                        Text(
+                          "Completed with ${session.calcCompleted} calc burn",
+                          style: context.titleSmall.copyWith(
+                            color: Colors.green,
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        )
                       ],
                       const SizedBox(height: 5.0),
                       Text(

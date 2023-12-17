@@ -15,6 +15,7 @@ CustomExerciseModel _$CustomExerciseModelFromJson(Map<String, dynamic> json) =>
           ExerciseModel.fromJson(json['exercise'] as Map<String, dynamic>),
       rep: json['rep'] as int,
       weight: json['weight'] as int,
+      calories: json['calories'] as int,
     );
 
 Map<String, dynamic> _$CustomExerciseModelToJson(
@@ -26,4 +27,5 @@ Map<String, dynamic> _$CustomExerciseModelToJson(
       'exercise': instance.exercise,
       'rep': instance.rep,
       'weight': instance.weight,
+      'calories': instance.calories,
     };

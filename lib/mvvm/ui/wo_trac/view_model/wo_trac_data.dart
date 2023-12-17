@@ -6,6 +6,7 @@ part 'wo_trac_data.freezed.dart';
 class WooTrackData with _$WooTrackData {
   const factory WooTrackData({
     required int currentExIndex,
+    required int currentRound,
     required bool isPlayed,
   }) = _WooTrackData;
 }

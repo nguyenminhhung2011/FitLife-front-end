@@ -16,6 +16,8 @@ abstract class SessionApi {
   static const String updateSettingSessionApi =
       "$branch/update-setting-session";
 
+  static const String completeSessionApi = "$branch/complete-session";
+
   @factoryMethod
   factory SessionApi(Dio dio) = _SessionApi;
 
@@ -23,6 +25,9 @@ abstract class SessionApi {
   Future<HttpResponse<List<SessionModel>>> getAllSessionByDaily(
     @Path('id') int id,
   );
+
+  @POST("$completeSessionApi?id={id}")
+  Future<HttpResponse<SessionModel>> completeSession(@Path('id') int id);
 
   @GET("$branch?id={id}")
   Future<HttpResponse<SessionModel>> getSessionById(@Path('id') int id);

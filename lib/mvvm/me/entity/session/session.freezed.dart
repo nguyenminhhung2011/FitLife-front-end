@@ -25,7 +25,9 @@ mixin _$Session {
   int? get timePerLesson => throw _privateConstructorUsedError;
   int? get numberRound => throw _privateConstructorUsedError;
   int? get breakTime => throw _privateConstructorUsedError;
+  int? get calcCompleted => throw _privateConstructorUsedError;
   bool? get startWithBoot => throw _privateConstructorUsedError;
+  bool? get done => throw _privateConstructorUsedError;
   bool? get randomMix => throw _privateConstructorUsedError;
   int? get transferTime => throw _privateConstructorUsedError;
   List<Equipment>? get equipments => throw _privateConstructorUsedError;
@@ -51,7 +53,9 @@ abstract class $SessionCopyWith<$Res> {
       int? timePerLesson,
       int? numberRound,
       int? breakTime,
+      int? calcCompleted,
       bool? startWithBoot,
+      bool? done,
       bool? randomMix,
       int? transferTime,
       List<Equipment>? equipments,
@@ -80,7 +84,9 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? timePerLesson = freezed,
     Object? numberRound = freezed,
     Object? breakTime = freezed,
+    Object? calcCompleted = freezed,
     Object? startWithBoot = freezed,
+    Object? done = freezed,
     Object? randomMix = freezed,
     Object? transferTime = freezed,
     Object? equipments = freezed,
@@ -123,9 +129,17 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.breakTime
           : breakTime // ignore: cast_nullable_to_non_nullable
               as int?,
+      calcCompleted: freezed == calcCompleted
+          ? _value.calcCompleted
+          : calcCompleted // ignore: cast_nullable_to_non_nullable
+              as int?,
       startWithBoot: freezed == startWithBoot
           ? _value.startWithBoot
           : startWithBoot // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      done: freezed == done
+          ? _value.done
+          : done // ignore: cast_nullable_to_non_nullable
               as bool?,
       randomMix: freezed == randomMix
           ? _value.randomMix
@@ -164,7 +178,9 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       int? timePerLesson,
       int? numberRound,
       int? breakTime,
+      int? calcCompleted,
       bool? startWithBoot,
+      bool? done,
       bool? randomMix,
       int? transferTime,
       List<Equipment>? equipments,
@@ -190,7 +206,9 @@ class __$$_SessionCopyWithImpl<$Res>
     Object? timePerLesson = freezed,
     Object? numberRound = freezed,
     Object? breakTime = freezed,
+    Object? calcCompleted = freezed,
     Object? startWithBoot = freezed,
+    Object? done = freezed,
     Object? randomMix = freezed,
     Object? transferTime = freezed,
     Object? equipments = freezed,
@@ -233,9 +251,17 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.breakTime
           : breakTime // ignore: cast_nullable_to_non_nullable
               as int?,
+      calcCompleted: freezed == calcCompleted
+          ? _value.calcCompleted
+          : calcCompleted // ignore: cast_nullable_to_non_nullable
+              as int?,
       startWithBoot: freezed == startWithBoot
           ? _value.startWithBoot
           : startWithBoot // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      done: freezed == done
+          ? _value.done
+          : done // ignore: cast_nullable_to_non_nullable
               as bool?,
       randomMix: freezed == randomMix
           ? _value.randomMix
@@ -270,7 +296,9 @@ class _$_Session implements _Session {
       this.timePerLesson,
       this.numberRound,
       this.breakTime,
+      this.calcCompleted,
       this.startWithBoot,
+      this.done,
       this.randomMix,
       this.transferTime,
       final List<Equipment>? equipments,
@@ -297,7 +325,11 @@ class _$_Session implements _Session {
   @override
   final int? breakTime;
   @override
+  final int? calcCompleted;
+  @override
   final bool? startWithBoot;
+  @override
+  final bool? done;
   @override
   final bool? randomMix;
   @override
@@ -324,7 +356,7 @@ class _$_Session implements _Session {
 
   @override
   String toString() {
-    return 'Session(id: $id, dwId: $dwId, name: $name, description: $description, level: $level, calcTarget: $calcTarget, timePerLesson: $timePerLesson, numberRound: $numberRound, breakTime: $breakTime, startWithBoot: $startWithBoot, randomMix: $randomMix, transferTime: $transferTime, equipments: $equipments, customExercise: $customExercise)';
+    return 'Session(id: $id, dwId: $dwId, name: $name, description: $description, level: $level, calcTarget: $calcTarget, timePerLesson: $timePerLesson, numberRound: $numberRound, breakTime: $breakTime, calcCompleted: $calcCompleted, startWithBoot: $startWithBoot, done: $done, randomMix: $randomMix, transferTime: $transferTime, equipments: $equipments, customExercise: $customExercise)';
   }
 
   @override
@@ -346,8 +378,11 @@ class _$_Session implements _Session {
                 other.numberRound == numberRound) &&
             (identical(other.breakTime, breakTime) ||
                 other.breakTime == breakTime) &&
+            (identical(other.calcCompleted, calcCompleted) ||
+                other.calcCompleted == calcCompleted) &&
             (identical(other.startWithBoot, startWithBoot) ||
                 other.startWithBoot == startWithBoot) &&
+            (identical(other.done, done) || other.done == done) &&
             (identical(other.randomMix, randomMix) ||
                 other.randomMix == randomMix) &&
             (identical(other.transferTime, transferTime) ||
@@ -370,7 +405,9 @@ class _$_Session implements _Session {
       timePerLesson,
       numberRound,
       breakTime,
+      calcCompleted,
       startWithBoot,
+      done,
       randomMix,
       transferTime,
       const DeepCollectionEquality().hash(_equipments),
@@ -394,7 +431,9 @@ abstract class _Session implements Session {
       final int? timePerLesson,
       final int? numberRound,
       final int? breakTime,
+      final int? calcCompleted,
       final bool? startWithBoot,
+      final bool? done,
       final bool? randomMix,
       final int? transferTime,
       final List<Equipment>? equipments,
@@ -419,7 +458,11 @@ abstract class _Session implements Session {
   @override
   int? get breakTime;
   @override
+  int? get calcCompleted;
+  @override
   bool? get startWithBoot;
+  @override
+  bool? get done;
   @override
   bool? get randomMix;
   @override

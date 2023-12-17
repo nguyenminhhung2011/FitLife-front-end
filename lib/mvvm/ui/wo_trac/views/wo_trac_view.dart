@@ -50,7 +50,9 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
   }
 
   void _onProcessFinish() {
-    _vm.changeCurrentEx(_exercises.length);
+    _vm.changeCurrentEx(
+        length: _exercises.length,
+        numberRound: widget.session.numberRound ?? 1);
   }
 
   void _handleExChange() async {
@@ -83,6 +85,11 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
         }
       },
       completeRound: (_) async {
+        await _vm.completeSession(sessionId: int.parse(widget.session.id));
+      },
+      completeSessionFailed: (_, error) =>
+          context.showSnackBar("🐛[Complete session] $error"),
+      completeSessionSuccess: (_) async {
         await showDialog(
           context: context,
           builder: (_) => const Dialog(
@@ -229,6 +236,10 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
         padding: const EdgeInsets.all(0.0),
         children: [
           Text(
+            "Round ${_vm.data.currentRound + 1} / ${widget.session.numberRound}",
+            style: context.titleMedium.copyWith(fontWeight: FontWeight.bold),
+          ),
+          Text(
             'Day 1',
             style: context.titleSmall.copyWith(
               color: Theme.of(context).hintColor,
@@ -357,6 +368,7 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
             onPress: () => _vm.nextPreviousEx(
               wooExerciseAction: WooExerciseAction.previous,
               length: _exercises.length,
+              numberRound: widget.session.numberRound ?? 1,
             ),
           ),
           _controllerBtn(
@@ -369,8 +381,10 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
           _controllerBtn(
             icon: Icons.arrow_forward,
             onPress: () => _vm.nextPreviousEx(
-                wooExerciseAction: WooExerciseAction.next,
-                length: _exercises.length),
+              wooExerciseAction: WooExerciseAction.next,
+              length: _exercises.length,
+              numberRound: widget.session.numberRound ?? 1,
+            ),
           )
         ],
       ),

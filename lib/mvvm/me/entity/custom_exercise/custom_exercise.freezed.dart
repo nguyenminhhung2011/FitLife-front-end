@@ -22,6 +22,7 @@ mixin _$CustomExercise {
   Exercise get exercise => throw _privateConstructorUsedError;
   int get rep => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
+  int get calories => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CustomExerciseCopyWith<CustomExercise> get copyWith =>
@@ -40,7 +41,8 @@ abstract class $CustomExerciseCopyWith<$Res> {
       String difficulty,
       Exercise exercise,
       int rep,
-      int weight});
+      int weight,
+      int calories});
 
   $ExerciseCopyWith<$Res> get exercise;
 }
@@ -64,6 +66,7 @@ class _$CustomExerciseCopyWithImpl<$Res, $Val extends CustomExercise>
     Object? exercise = null,
     Object? rep = null,
     Object? weight = null,
+    Object? calories = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -89,6 +92,10 @@ class _$CustomExerciseCopyWithImpl<$Res, $Val extends CustomExercise>
       weight: null == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
+              as int,
+      calories: null == calories
+          ? _value.calories
+          : calories // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -116,7 +123,8 @@ abstract class _$$_CustomExerciseCopyWith<$Res>
       String difficulty,
       Exercise exercise,
       int rep,
-      int weight});
+      int weight,
+      int calories});
 
   @override
   $ExerciseCopyWith<$Res> get exercise;
@@ -139,6 +147,7 @@ class __$$_CustomExerciseCopyWithImpl<$Res>
     Object? exercise = null,
     Object? rep = null,
     Object? weight = null,
+    Object? calories = null,
   }) {
     return _then(_$_CustomExercise(
       id: null == id
@@ -165,6 +174,10 @@ class __$$_CustomExerciseCopyWithImpl<$Res>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as int,
+      calories: null == calories
+          ? _value.calories
+          : calories // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -178,7 +191,8 @@ class _$_CustomExercise implements _CustomExercise {
       required this.difficulty,
       required this.exercise,
       required this.rep,
-      required this.weight});
+      required this.weight,
+      required this.calories});
 
   @override
   final int id;
@@ -192,10 +206,12 @@ class _$_CustomExercise implements _CustomExercise {
   final int rep;
   @override
   final int weight;
+  @override
+  final int calories;
 
   @override
   String toString() {
-    return 'CustomExercise(id: $id, time: $time, difficulty: $difficulty, exercise: $exercise, rep: $rep, weight: $weight)';
+    return 'CustomExercise(id: $id, time: $time, difficulty: $difficulty, exercise: $exercise, rep: $rep, weight: $weight, calories: $calories)';
   }
 
   @override
@@ -210,12 +226,14 @@ class _$_CustomExercise implements _CustomExercise {
             (identical(other.exercise, exercise) ||
                 other.exercise == exercise) &&
             (identical(other.rep, rep) || other.rep == rep) &&
-            (identical(other.weight, weight) || other.weight == weight));
+            (identical(other.weight, weight) || other.weight == weight) &&
+            (identical(other.calories, calories) ||
+                other.calories == calories));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, time, difficulty, exercise, rep, weight);
+  int get hashCode => Object.hash(
+      runtimeType, id, time, difficulty, exercise, rep, weight, calories);
 
   @JsonKey(ignore: true)
   @override
@@ -231,7 +249,8 @@ abstract class _CustomExercise implements CustomExercise {
       required final String difficulty,
       required final Exercise exercise,
       required final int rep,
-      required final int weight}) = _$_CustomExercise;
+      required final int weight,
+      required final int calories}) = _$_CustomExercise;
 
   @override
   int get id;
@@ -245,6 +264,8 @@ abstract class _CustomExercise implements CustomExercise {
   int get rep;
   @override
   int get weight;
+  @override
+  int get calories;
   @override
   @JsonKey(ignore: true)
   _$$_CustomExerciseCopyWith<_$_CustomExercise> get copyWith =>

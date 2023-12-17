@@ -25,11 +25,17 @@ class SessionModel {
   @JsonKey(name: 'randomMix')
   final bool? randomMix;
 
+  @JsonKey(name: 'done')
+  final bool? done;
+
   @JsonKey(name: 'timePerLesson')
   final int? timePerLesson;
 
   @JsonKey(name: 'transferTime')
   final int? transferTime;
+
+  @JsonKey(name: 'calcCompleted')
+  final int? calcCompleted;
 
   @JsonKey(name: 'calcTarget')
   final int? calcTarget;
@@ -54,6 +60,8 @@ class SessionModel {
     required this.calcTarget,
     required this.numberRound,
     required this.breakTime,
+    this.done,
+    this.calcCompleted,
     this.level,
     this.customExercise,
   });
@@ -80,5 +88,7 @@ class SessionModel {
         breakTime: breakTime,
         startWithBoot: startWithBoot,
         randomMix: randomMix,
+        done: done,
+        calcCompleted: calcCompleted,
       );
 }

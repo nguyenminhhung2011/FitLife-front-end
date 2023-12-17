@@ -183,7 +183,9 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
             textStyle:
                 context.titleMedium.copyWith(fontWeight: FontWeight.w600),
             isShowSeeMore: true,
-            onPress: () => context.openListPageWithRoute(Routes.groupExercise),
+            onPress: () async {
+              await context.openListPageWithRoute(Routes.groupExercise);
+            },
           ),
           const SizedBox(height: 10.0),
           if (_data.isLoadingBodyPart)
@@ -232,7 +234,15 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
                 return Column(
                   children: [
                     UpComingSessionItem(
-                        session: _data.upcomingSessions![index]),
+                      session: _data.upcomingSessions![index],
+                      onPress: () async {
+                        await context.openPageWithRouteAndParams(
+                          Routes.exerciseOverview,
+                          _data.upcomingSessions![index].id.toString(),
+                        );
+                        await _vm.getUpcomingSession();
+                      },
+                    ),
                     const SizedBox(height: 10.0),
                   ],
                 );

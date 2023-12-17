@@ -177,7 +177,8 @@ extension AppCoordinator<T> on BuildContext {
     return data;
   }
 
-  Future<bool> bottomRelax() async {
+  Future<bool> bottomRelax(int restTime,
+      {required int current, required int total}) async {
     final data = await showModalBottomSheet(
       context: this,
       isScrollControlled: true,
@@ -186,7 +187,8 @@ extension AppCoordinator<T> on BuildContext {
       ),
       backgroundColor: Theme.of(this).scaffoldBackgroundColor,
       builder: (context) {
-        return const RelaxView();
+        return RelaxView(
+            restTime: restTime, currentExercise: current, totalExercise: total);
       },
     );
     return (data ?? false);

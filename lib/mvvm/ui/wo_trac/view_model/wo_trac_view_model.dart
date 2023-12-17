@@ -19,14 +19,15 @@ class WooTrackViewModel extends StateNotifier<WooTrackState> {
       : super(const _Initial(
             data: WooTrackData(currentExIndex: 0, isPlayed: true)));
 
-  void changeCurrentEx() {
+  void changeCurrentEx(int length) {
     final currentEx = state.data.currentExIndex;
-    if (currentEx < 4) {
+    if (currentEx < length - 1) {
       state = _ChangeExerciseSuccess(
         data: state.data.copyWith(currentExIndex: currentEx + 1),
       );
     } else {
-      state = _CompletedRound(data: state.data.copyWith(currentExIndex: 5));
+      state = _CompletedRound(
+          data: state.data.copyWith(currentExIndex: length - 1));
     }
   }
 
@@ -36,10 +37,11 @@ class WooTrackViewModel extends StateNotifier<WooTrackState> {
         _PlayPauseSuccess(data: state.data.copyWith(isPlayed: !currentStatus));
   }
 
-  void nextPreviousEx({required WooExerciseAction wooExerciseAction}) {
+  void nextPreviousEx(
+      {required WooExerciseAction wooExerciseAction, required int length}) {
     final currentEx = state.data.currentExIndex;
     if (wooExerciseAction == WooExerciseAction.next) {
-      if (currentEx >= 4) {
+      if (currentEx >= (length - 1)) {
         return;
       }
       state = _NextPreviousSuccess(

@@ -21,7 +21,7 @@ class PreviewExerciseView extends ConsumerStatefulWidget {
 
 class _PreviewExerciseViewState extends ConsumerState<PreviewExerciseView> {
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
-
+  
   Color get _primaryColor => Theme.of(context).primaryColor;
 
   final ValueNotifier<List<CustomExercise>> _exerciseItem = ValueNotifier(

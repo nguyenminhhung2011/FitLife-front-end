@@ -47,7 +47,7 @@ abstract class BaseApi {
       if (response.data == null) {
         return Either.left(AppException(message: dataNullError));
       }
-      return Either.right(mapper(response.data!));
+      return Either.right(mapper(response.data as T));
     } catch (e) {
       return Either.left(AppException(message: e.toString()));
     }

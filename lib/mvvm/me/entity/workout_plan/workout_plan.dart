@@ -8,6 +8,7 @@ part 'workout_plan.g.dart';
 @freezed
 class WorkoutPlan with _$WorkoutPlan {
   const factory WorkoutPlan({
+    int? id,
     required String name,
     required String description,
     int? startDate,

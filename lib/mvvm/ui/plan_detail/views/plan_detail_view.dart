@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
@@ -8,15 +10,21 @@ import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_time_text.dart';
 import 'package:fit_life/core/components/widgets/fit_life/schedule_item.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_data.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class PlanDetailView extends ConsumerStatefulWidget {
-  const PlanDetailView({super.key});
+  final WorkoutPlan plan;
+  const PlanDetailView({
+    super.key,
+    required this.plan,
+  });
 
   @override
   ConsumerState<PlanDetailView> createState() => _PlanDetailViewState();
@@ -26,22 +34,25 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
   PlanDetailViewModel get viewModel =>
       ref.read(planDetailStateNotifier.notifier);
   PlanDetailData get data => ref.watch(planDetailStateNotifier).data;
+  WorkoutPlan get plan => widget.plan;
 
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
   Color get _primaryColor => Theme.of(context).primaryColor;
 
   EdgeInsets get _padding => const EdgeInsets.symmetric(horizontal: 15.0);
 
-  int get totalDate =>
-      data.planDetail.endDate!.difference(data.planDetail.startDate!).inDays;
-
+  int get totalDate => endDate.difference(startDate).inDays;
   int get currentDate =>
-      DateTime.now().difference(data.planDetail.startDate!).inDays;
+      min(DateTime.now().difference(startDate).inDays, totalDate);
+
+  DateTime get startDate =>
+      DateTime.fromMillisecondsSinceEpoch(plan.startDate!);
+  DateTime get endDate => DateTime.fromMillisecondsSinceEpoch(plan.endDate!);
 
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      viewModel.getPlanDetail();
+      viewModel.getPlanDetail(widget.plan.id!);
     });
     super.initState();
   }
@@ -58,7 +69,7 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
           height: 45.0,
           radius: 5.0,
           child: Text(
-            "Add new exercise",
+            "Add new session",
             style: context.titleMedium
                 .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
           ),
@@ -67,96 +78,105 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
           },
         ),
       ),
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(
-          parent: AlwaysScrollableScrollPhysics(),
-        ),
-        slivers: <Widget>[
-          AppBarCustom(
-            backgroundColor: _primaryColor,
-            pinned: true,
-            expandedHeight: context.heightDevice * 0.25,
-            leading: IconButton(
-              onPressed: () => context.pop(),
-              icon: const Icon(Icons.arrow_back),
-            ),
-            title: const <Widget>[],
-            actions: <Widget>[
-              IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz))
-            ],
-            afterImage: ImageConst.banner2,
-            radius: 10.0,
-            // widgetExpanded: _headerBannerField(context),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              <Widget>[
-                const DividerDot(),
-                const SizedBox(height: 15.0),
-                Padding(padding: _padding, child: _headerBannerField(context)),
-                const SizedBox(height: 15.0),
-                HeaderTextCustom(
-                  headerText: 'Progress',
-                  textStyle:
-                      context.titleMedium.copyWith(fontWeight: FontWeight.bold),
+      body: data.isLoadingSchedule
+          ? const Center(child: CircularProgressIndicator())
+          : CustomScrollView(
+              physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics(),
+              ),
+              slivers: <Widget>[
+                AppBarCustom(
+                  backgroundColor: _primaryColor,
+                  pinned: true,
+                  expandedHeight: context.heightDevice * 0.25,
+                  leading: IconButton(
+                    onPressed: () => context.pop(),
+                    icon: const Icon(Icons.arrow_back),
+                  ),
+                  title: const <Widget>[],
+                  actions: <Widget>[
+                    IconButton(
+                        onPressed: () {}, icon: const Icon(Icons.more_horiz))
+                  ],
+                  afterImage: ImageConst.banner2,
+                  radius: 10.0,
+                  // widgetExpanded: _headerBannerField(context),
                 ),
-                const SizedBox(height: 10.0),
-                _progressField(context),
-                const SizedBox(height: 5.0),
-                if (data.isLoadingSchedule)
-                  const Padding(
-                    padding: EdgeInsets.only(top: 12.0),
-                    child: Center(child: CircularProgressIndicator()),
-                  )
-                else ...[
-                  Row(
-                    children: [
-                      const SizedBox(width: 15.0),
-                      Expanded(
-                        child: Text(
-                          "Schedule",
-                          style: context.titleMedium
-                              .copyWith(fontWeight: FontWeight.bold),
-                        ),
+                SliverList(
+                  delegate: SliverChildListDelegate(
+                    <Widget>[
+                      const DividerDot(),
+                      const SizedBox(height: 15.0),
+                      Padding(
+                          padding: _padding,
+                          child: _headerBannerField(context)),
+                      const SizedBox(height: 15.0),
+                      HeaderTextCustom(
+                        headerText: 'Progress',
+                        textStyle: context.titleMedium
+                            .copyWith(fontWeight: FontWeight.bold),
                       ),
-                      TextButton(
-                        onPressed: () =>
-                            context.openListPageWithRoute(Routes.calendar),
-                        child: Text(
-                          'view in calendar',
-                          style: context.titleSmall.copyWith(
-                            fontSize: 12.0,
-                            color: _primaryColor,
-                            fontWeight: FontWeight.w500,
+                      const SizedBox(height: 10.0),
+                      _progressField(context),
+                      const SizedBox(height: 5.0),
+                      if (data.isLoadingSchedule)
+                        const Padding(
+                          padding: EdgeInsets.only(top: 12.0),
+                          child: Center(child: CircularProgressIndicator()),
+                        )
+                      else ...[
+                        Row(
+                          children: [
+                            const SizedBox(width: 15.0),
+                            Expanded(
+                              child: Text(
+                                "Schedule",
+                                style: context.titleMedium
+                                    .copyWith(fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () => context
+                                  .openListPageWithRoute(Routes.calendar),
+                              child: Text(
+                                'view in calendar',
+                                style: context.titleSmall.copyWith(
+                                  fontSize: 12.0,
+                                  color: _primaryColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        DividerTimeText(
+                            day: currentDate + 1,
+                            time: startDate.add(Duration(days: currentDate))),
+                        const SizedBox(height: 10.0),
+                        ...List.generate(
+                          data.planDetail.dailyWorkouts?.length ?? 0,
+                          (index) => ScheduleItem(
+                            item: data.planDetail.dailyWorkouts![index],
+                            currentDate: currentDate,
                           ),
                         ),
-                      )
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'View all dates planning',
+                            style: context.titleSmall.copyWith(
+                                color: _primaryColor,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        const Divider(),
+                      ],
+                      const SizedBox(height: 45.0),
                     ],
                   ),
-                  DividerTimeText(day: 1, time: DateTime.now()),
-                  const SizedBox(height: 10.0),
-                  ...List.generate(
-                    data.planDetail.dailyWorkouts?.length ?? 0,
-                    (index) => ScheduleItem(
-                      item: data.planDetail.dailyWorkouts![index],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'View all dates planning',
-                      style: context.titleSmall.copyWith(
-                          color: _primaryColor, fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  const Divider(),
-                ],
-                const SizedBox(height: 45.0),
+                ),
               ],
             ),
-          ),
-        ],
-      ),
     );
   }
 
@@ -262,10 +282,11 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
   }
 
   Widget _headerBannerField(BuildContext context) {
-    final planDetail = data.planDetail;
-    final startDate = planDetail.startDate!;
-    final endDate = planDetail.endDate!;
-    final difference = planDetail.endDate!.difference(planDetail.startDate!);
+    final difference = endDate.difference(startDate);
+    final progress = min(
+        DateTime.now().difference(startDate).inDays /
+            endDate.difference(startDate).inDays,
+        1.0);
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -275,13 +296,12 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if (planDetail.name != null)
-                Text(
-                  planDetail.name!,
-                  style: context.titleMedium.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              Text(
+                plan.name,
+                style: context.titleMedium.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
               Text(
                 getRangeDateFormat(startDate, endDate),
                 style: context.titleSmall.copyWith(
@@ -309,9 +329,9 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             animation: true,
             animationDuration: 1000,
             radius: 30.0,
-            percent: planDetail.progress ?? 0,
+            percent: progress,
             center: Text(
-              '${((planDetail.progress ?? 0) * 100).toStringAsFixed(0)}%',
+              '${((progress) * 100).toStringAsFixed(0)}%',
               style: context.titleSmall.copyWith(fontWeight: FontWeight.w600),
             ),
             backgroundColor: Theme.of(context).dividerColor,

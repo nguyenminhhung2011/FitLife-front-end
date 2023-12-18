@@ -11,6 +11,7 @@ class PlanDetail with _$PlanDetail {
     DateTime? startDate,
     DateTime? endDate,
     double? progress,
+    double? caloTarget,
     List<DailyWorkout>? dailyWorkouts,
   }) = _PlanDetail;
 }

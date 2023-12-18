@@ -7,10 +7,12 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
 class ScheduleItem extends StatelessWidget {
   final DailyWorkout item;
+  final int currentDate;
 
   const ScheduleItem({
     super.key,
     required this.item,
+    required this.currentDate,
   });
 
   @override
@@ -47,7 +49,8 @@ class ScheduleItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    gemmFormat(item.time!),
+                    gemmFormat(DateTime.fromMillisecondsSinceEpoch(
+                        item.time ?? DateTime.now().millisecondsSinceEpoch)),
                     style: context.titleLarge.copyWith(
                       fontWeight: FontWeight.w600,
                       fontSize: 22.0,
@@ -56,10 +59,10 @@ class ScheduleItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 5.0),
                   if (item.totalMinute != null)
-                  Text(
-                    '⌚ ${item.totalMinute} mins',
-                    style: context.titleSmall.copyWith(color: Colors.white),
-                  )
+                    Text(
+                      '⌚ ${item.totalMinute} mins',
+                      style: context.titleSmall.copyWith(color: Colors.white),
+                    )
                 ],
               ),
             ),

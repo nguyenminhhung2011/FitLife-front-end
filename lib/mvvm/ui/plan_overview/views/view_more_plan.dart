@@ -154,7 +154,9 @@ class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
                 items: _items ?? const [],
                 loading: _state.loading,
                 itemBuilder: (_, index) => WorkoutPlanItemWidget(
-                    workoutPlan: _items![index], progress: 0.6),
+                  workoutPlan: _items![index],
+                  progress: 0.6,
+                ),
                 listenScrollBottom: () =>
                     _vm.getSessionPlanHistory(content: _searchController.text),
               ),

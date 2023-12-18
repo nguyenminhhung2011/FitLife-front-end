@@ -1,4 +1,5 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/ui/all_exercise/view_model/all_exercise_view_model.dart';
 import 'package:fit_life/mvvm/ui/auth/views/introduction_view.dart';
 import 'package:fit_life/mvvm/ui/auth/views/sign_up_view.dart';
@@ -189,7 +190,10 @@ class MainRoutes {
       case Routes.planDetail:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: PlanDetailView()),
+          builder: (_) => ProviderScope(
+              child: PlanDetailView(
+            plan: settings.arguments as WorkoutPlan,
+          )),
         );
       case Routes.exerciseOverview:
         return MaterialPageRoute(

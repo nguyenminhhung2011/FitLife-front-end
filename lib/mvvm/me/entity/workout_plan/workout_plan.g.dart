@@ -8,6 +8,7 @@ part of 'workout_plan.dart';
 
 _$_WorkoutPlan _$$_WorkoutPlanFromJson(Map<String, dynamic> json) =>
     _$_WorkoutPlan(
+      id: json['id'] as int?,
       name: json['name'] as String,
       description: json['description'] as String,
       startDate: json['startDate'] as int?,
@@ -21,6 +22,7 @@ _$_WorkoutPlan _$$_WorkoutPlanFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_WorkoutPlanToJson(_$_WorkoutPlan instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'startDate': instance.startDate,

@@ -1,5 +1,4 @@
 import 'package:fit_life/app_coordinator.dart';
-import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/routes/routes.dart';
@@ -31,7 +30,8 @@ class WorkoutPlanItemWidget extends StatelessWidget {
     );
 
     return GestureDetector(
-      onTap: () => context.openListPageWithRoute(Routes.planDetail),
+      onTap: () =>
+          context.openPageWithRouteAndParams(Routes.planDetail, workoutPlan),
       child: Container(
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
@@ -50,6 +50,8 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text("🔥", style: context.titleLarge),
+                  const SizedBox(height: 8.0),
                   Text(
                     "${DateTime.fromMillisecondsSinceEpoch(workoutPlan.endDate! - (workoutPlan.startDate!)).day} days",
                     style: context.titleLarge.copyWith(
@@ -58,16 +60,6 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 12),
-                  Text(
-                    getRangeDateFormat(
-                      DateTime.fromMillisecondsSinceEpoch(
-                          workoutPlan.startDate!),
-                      DateTime.fromMillisecondsSinceEpoch(workoutPlan.endDate!),
-                    ),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.white, fontSize: 10.0),
-                  )
                 ],
               ),
             ),
@@ -126,7 +118,7 @@ class WorkoutPlanItemWidget extends StatelessWidget {
             animation: true,
             animationDuration: 1000,
             radius: 20.0,
-            percent: 0.5,
+            percent: progress,
             center: Text(
               '${(progress * 100).toStringAsFixed(0)}%',
               style: context.titleSmall

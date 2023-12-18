@@ -7,6 +7,9 @@ part 'workout_plan_model.g.dart';
 
 @JsonSerializable()
 class WorkoutPlanModel {
+  @JsonKey(name: 'id')
+  final int id;
+
   @JsonKey(name: 'name')
   final String name;
 
@@ -24,6 +27,7 @@ class WorkoutPlanModel {
 
   final List<DailyWorkout>? dailyWorkouts;
   const WorkoutPlanModel({
+    required this.id,
     required this.name,
     required this.description,
     this.startDate,
@@ -39,6 +43,7 @@ class WorkoutPlanModel {
 
   WorkoutPlan toEntity() {
     return WorkoutPlan(
+      id: id,
       name: name,
       description: description,
       startDate: startDate,

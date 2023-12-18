@@ -1,7 +1,8 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/calories_chart/calories_chart.dart';
-import 'package:fit_life/mvvm/repo/calories_repositories.dart';
+import 'package:fit_life/mvvm/me/entity/request/get_chart_request.dart';
 import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
+import 'package:fit_life/mvvm/repo/plan_repositories.dart';
 import 'package:fit_life/mvvm/repo/session_repositories.dart';
 import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -19,8 +20,8 @@ final fitOverViewNotifier =
 @injectable
 class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
   final _exerciseRepositories = injector.get<ExerciseRepositories>();
-  final _caloriesRepositories = injector.get<CaloriesRepositories>();
   final _sessionRepositories = injector.get<SessionRepositories>();
+  final _planRepositories = injector.get<PlanRepositories>();
 
   ///---------------
   FitOverViewData get data => state.data;
@@ -61,9 +62,14 @@ class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
 
   Future<void> getCaloriesChart() async {
     state = _Loading(data: data);
-    final response = await _caloriesRepositories.getCaloriesChart(
-        startDate: data.rangeDate.first, endTime: data.rangeDate.last);
-    await Future.delayed(const Duration(seconds: 2));
+    final response = await _planRepositories.getChartView(
+      getChartRequest: GetChartRequest(
+        endDate: data.rangeDate.last
+            .add(const Duration(days: 1))
+            .millisecondsSinceEpoch,
+        startDate: data.rangeDate.first.millisecondsSinceEpoch,
+      ),
+    );
     if (!mounted) return;
     state = response.fold(
       ifLeft: (error) => _GetCaloriesChartFailed(
@@ -72,7 +78,10 @@ class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
       ),
       ifRight: (rData) => _GetCaloriesChartSuccess(
         data: data.copyWith(
-          caloriesChart: rData,
+          chartViews: rData,
+          caloriesChart: data.caloriesChart.copyWith(
+            calories: rData.map((e) => e.calories).toList(),
+          ),
           isLoadingCaloriesChart: false,
         ),
       ),

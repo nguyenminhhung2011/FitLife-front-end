@@ -163,8 +163,10 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
             child: LineChartOneLine(
               listData: [
                 if (_findMaxCalories != 0)
-                  ..._caloriesChart.calories.mapIndexed((index, element) =>
-                      FlSpot(index + 1, (element / _findMaxCalories) * 6))
+                  ..._caloriesChart.calories.mapIndexed(
+                    (index, element) => FlSpot(index + 1,
+                        element == 0 ? 1 : (element / _findMaxCalories) * 6),
+                  )
                 else
                   ...List.generate(7, (index) => FlSpot(index + 1, 1))
               ],

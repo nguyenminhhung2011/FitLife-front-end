@@ -3,9 +3,11 @@ import 'package:fit_life/core/components/enum/plan_type.dart';
 import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/components/network/base_api.dart';
 import 'package:fit_life/mvvm/data/remote/plan/plan_api.dart';
+import 'package:fit_life/mvvm/me/entity/chart/chart.dart';
 import 'package:fit_life/mvvm/me/entity/plan/add_plan_dto.dart';
 import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
 import 'package:fit_life/mvvm/me/entity/plan_detail/plan_detail.dart';
+import 'package:fit_life/mvvm/me/entity/request/get_chart_request.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/repo/plan_repositories.dart';
 import 'package:injectable/injectable.dart';
@@ -115,4 +117,13 @@ class PlanRepositoriesImpl extends BaseApi implements PlanRepositories {
       ),
     );
   }
+
+  @override
+  Future<SResult<List<Chart>>> getChartView(
+          {required GetChartRequest getChartRequest}) async =>
+      await apiCall(
+        mapper: (result) => result.map((e) => e.toEntity).toList(),
+        request: () async =>
+            await planApi.getChartView(body: getChartRequest.toJson),
+      );
 }

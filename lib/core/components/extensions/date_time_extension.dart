@@ -5,7 +5,12 @@ extension DateTimeExtension on DateTime {
     return DateFormat.yMMMd().format(this).toString();
   }
 
-  bool isSameDate(int time) {
-    return toDDMMYYYY() == DateTime.fromMillisecondsSinceEpoch(time).toDDMMYYYY();
+  bool isSameDateWith(int time) {
+    return toDDMMYYYY() ==
+        DateTime.fromMillisecondsSinceEpoch(time).toDDMMYYYY();
+  }
+
+  bool isSameDate(DateTime time) {
+    return toDDMMYYYY() == time.toDDMMYYYY();
   }
 }

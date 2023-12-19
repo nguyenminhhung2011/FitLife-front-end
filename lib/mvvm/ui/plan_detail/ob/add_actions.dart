@@ -1,19 +1,6 @@
 import 'package:flutter/material.dart';
 
-List<String> exercises = [
-  'Squats',
-  'Deadlifts',
-  'Planks',
-  'benchPress',
-  'Treadmill Running',
-  'Leg Raises',
-];
-List<String> difficulty = [
-  'Beginner',
-  'Intermediate',
-  'Advance',
-];
-List<String> durations = [
+const workoutDurations = [
   '10',
   '15',
   '20',
@@ -22,42 +9,26 @@ List<String> durations = [
   '35',
   '40',
   '45',
+  '50',
+  '55',
+  '60',
 ];
-List<String> weights = [
-  '10',
-  '15',
-  '20',
-  '25',
-  '30',
-  '35',
-  '40',
-  '45',
-];
+const numRounds = ['1', '2', '3', '4', '5', '6', '7', '8'];
+const exercisePerRounds = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+const timeForEachExs = ['10', '15', '20', '25', '30', '35', '40', '45'];
+const breakTimes = ['10', '15', '20', '25', '30', '35', '40', '45'];
 
-enum AddActions { chooseExercise, difficulty, customReputation, customWeights }
+enum AddActions {
+  workoutDuration("Workout Duration", Icons.loop, workoutDurations),
+  numOfRound("Number round", Icons.loop, numRounds),
+  exerPerRound("Exercise per round", Icons.explore_rounded, exercisePerRounds),
+  timeForEachExer(
+      "Custom weights (kg)", Icons.hourglass_bottom, timeForEachExs),
+  breakTime("Break time (s)", Icons.free_breakfast_sharp, breakTimes),
+  ;
 
-extension AddActionExtension on AddActions {
-  String get renderText => switch (this) {
-        AddActions.chooseExercise => "Choose exercise",
-        AddActions.difficulty => "Difficulty",
-        AddActions.customReputation => "Custom reputation",
-        _ => "Custom weights"
-      };
-
-  IconData get renderIcon => switch (this) {
-        AddActions.chooseExercise => Icons.line_weight,
-        AddActions.difficulty => Icons.change_circle_outlined,
-        AddActions.customReputation => Icons.repeat,
-        _ => Icons.scale,
-      };
-
-  List<String> get renderMapperData => switch (this) {
-        AddActions.chooseExercise => exercises,
-        AddActions.difficulty => difficulty,
-        AddActions.customReputation => durations,
-        _ => weights
-      };
-  bool get isChooseExercise => this == AddActions.chooseExercise;
-  bool get isDifficulty => this == AddActions.difficulty;
-  bool get isCustomReputation => this == AddActions.customReputation;
+  final String title;
+  final IconData icon;
+  final List<String> data;
+  const AddActions(this.title, this.icon, this.data);
 }

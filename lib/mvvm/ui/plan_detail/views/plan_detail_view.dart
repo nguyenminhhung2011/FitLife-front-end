@@ -11,6 +11,7 @@ import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_time_text.dart';
 import 'package:fit_life/core/components/widgets/fit_life/schedule_item.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
+import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout_dto.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_data.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart';
@@ -74,6 +75,18 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
     );
   }
 
+  void listenStateChange(PlanDetailState state) {
+    state.maybeWhen(
+      addDailyWorkoutSuccess: (data) {
+        context.showSnackBar("Add daily plan success");
+      },
+      addDailyWorkoutFailed: (_, message) {
+        context.showSnackBar("Add daily plan failed: $message");
+      },
+      orElse: () {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final dailyWorkoutCurrentDay = data.planDetail.dailyWorkouts
@@ -83,6 +96,9 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
                     startDate.add(Duration(days: currentDate)).day)
             .toList() ??
         [];
+
+    ref.listen<PlanDetailState>(
+        planDetailStateNotifier, (_, next) => listenStateChange(next));
 
     return Scaffold(
       extendBody: true,
@@ -94,12 +110,16 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
           height: 45.0,
           radius: 5.0,
           child: Text(
-            "Add new daily plan",
+            "Create daily plan",
             style: context.titleMedium
                 .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          onPress: () {
-            context.openListPageWithRoute(Routes.addNewExercise);
+          onPress: () async {
+            final dto =
+                await context.openListPageWithRoute(Routes.addDailyWorkout);
+            if (dto is DailyWorkoutDTO) {
+              await viewModel.addDailyPlan(id: plan.id!, dto: dto);
+            }
           },
         ),
       ),

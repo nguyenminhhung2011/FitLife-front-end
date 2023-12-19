@@ -22,7 +22,9 @@ abstract class DailyPlanApi {
 
   @POST(addDailyPlanApi)
   Future<HttpResponse<DailyWorkout>> addDailyPlan(
-      @Body() Map<String, dynamic> body);
+    @Query('id') int id,
+    @Body() Map<String, dynamic> body,
+  );
 
   @POST(removeDailyPlanApi)
   Future<HttpResponse> removeDailyPlan(@Query('id') int id);

@@ -2,6 +2,7 @@ import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/components/network/base_api.dart';
 import 'package:fit_life/mvvm/data/remote/daily_plan/daily_plan_api.dart';
 import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
+import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout_dto.dart';
 import 'package:fit_life/mvvm/repo/daily_plan_repositories.dart';
 import 'package:injectable/injectable.dart';
 
@@ -12,12 +13,16 @@ class DailyPlanRepositoriesImpl extends BaseApi
   DailyPlanRepositoriesImpl(this._dailyPlanApi);
 
   @override
-  Future<SResult<DailyWorkout>> addDailyPlan(
-      {required DailyWorkout dailyWorkout}) {
+  Future<SResult<DailyWorkout>> addDailyPlan({
+    required DailyWorkoutDTO dto,
+    required int id,
+  }) {
     return apiCall<DailyWorkout, DailyWorkout>(
       mapper: (result) => result,
-      request: () async =>
-          await _dailyPlanApi.addDailyPlan(dailyWorkout.toJson()),
+      request: () async => await _dailyPlanApi.addDailyPlan(
+        id,
+        dto.toJson(),
+      ),
     );
   }
 

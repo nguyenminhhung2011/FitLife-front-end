@@ -50,9 +50,11 @@ class _DailyPlanApi implements DailyPlanApi {
 
   @override
   Future<HttpResponse<DailyWorkout>> addDailyPlan(
-      Map<String, dynamic> body) async {
+    int id,
+    Map<String, dynamic> body,
+  ) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'id': id};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body);

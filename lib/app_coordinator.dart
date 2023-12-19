@@ -20,7 +20,7 @@ import 'core/components/layout/search_layout/model/filter_model.dart';
 import 'core/components/layout/search_layout/model/filter_response.dart';
 
 extension AppCoordinator<T> on BuildContext {
-  void pop([T? result]) => Navigator.of(this).pop(result);
+  void pop() => Navigator.of(this).pop();
 
   void popUntil(String nRoute) =>
       Navigator.popUntil(this, ModalRoute.withName(nRoute));
@@ -147,7 +147,7 @@ extension AppCoordinator<T> on BuildContext {
   }
 
   Future<void> settingExerciseBottom(SettingSession settingSession) async {
-    final bottom = await showModalBottomSheet(
+    await showModalBottomSheet(
       context: this,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(

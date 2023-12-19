@@ -86,7 +86,7 @@ class RangeDateController extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool isSameDate(DateTime date1, DateTime date2) {
+  bool isSameDateWith(DateTime date1, DateTime date2) {
     if (date2 == date1) {
       return true;
     }
@@ -110,8 +110,8 @@ class RangeDateController extends ChangeNotifier {
 
     DateTime dat1 = _startDate.add(Duration(days: (firstDayOfWeek - day1)));
     DateTime dat2 = _endDate.add(Duration(days: (endDayOfWeek - day2)));
-    if (!isSameDate(dat1, ranges.startDate!) ||
-        !isSameDate(dat2, ranges.endDate!)) {
+    if (!isSameDateWith(dat1, ranges.startDate!) ||
+        !isSameDateWith(dat2, ranges.endDate!)) {
       datePick.selectedRange = PickerDateRange(dat1, dat2);
     }
     _listDate = _updateListDatePic();

@@ -25,9 +25,9 @@ mixin _$PlanDetailState {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
-    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data) addDailyWorkoutSuccess,
     required TResult Function(PlanDetailData data, String message)
-        addExerciseFailed,
+        addDailyWorkoutFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,8 +37,9 @@ mixin _$PlanDetailState {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult? Function(PlanDetailData data)? addExerciseSuccess,
-    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult? Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult? Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,8 +49,9 @@ mixin _$PlanDetailState {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult Function(PlanDetailData data)? addExerciseSuccess,
-    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,8 +62,10 @@ mixin _$PlanDetailState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
-    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
-    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
+    required TResult Function(_AddDailyWorkoutSuccess value)
+        addDailyWorkoutSuccess,
+    required TResult Function(_AddDailyWorkoutFailed value)
+        addDailyWorkoutFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,8 +75,8 @@ mixin _$PlanDetailState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult? Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult? Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,8 +86,8 @@ mixin _$PlanDetailState {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -210,9 +214,9 @@ class _$_Initial implements _Initial {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
-    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data) addDailyWorkoutSuccess,
     required TResult Function(PlanDetailData data, String message)
-        addExerciseFailed,
+        addDailyWorkoutFailed,
   }) {
     return initial(data);
   }
@@ -225,8 +229,9 @@ class _$_Initial implements _Initial {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult? Function(PlanDetailData data)? addExerciseSuccess,
-    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult? Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult? Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
   }) {
     return initial?.call(data);
   }
@@ -239,8 +244,9 @@ class _$_Initial implements _Initial {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult Function(PlanDetailData data)? addExerciseSuccess,
-    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -257,8 +263,10 @@ class _$_Initial implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
-    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
-    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
+    required TResult Function(_AddDailyWorkoutSuccess value)
+        addDailyWorkoutSuccess,
+    required TResult Function(_AddDailyWorkoutFailed value)
+        addDailyWorkoutFailed,
   }) {
     return initial(this);
   }
@@ -271,8 +279,8 @@ class _$_Initial implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult? Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult? Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
   }) {
     return initial?.call(this);
   }
@@ -285,8 +293,8 @@ class _$_Initial implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -381,9 +389,9 @@ class _$_Success implements _Success {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
-    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data) addDailyWorkoutSuccess,
     required TResult Function(PlanDetailData data, String message)
-        addExerciseFailed,
+        addDailyWorkoutFailed,
   }) {
     return success(data);
   }
@@ -396,8 +404,9 @@ class _$_Success implements _Success {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult? Function(PlanDetailData data)? addExerciseSuccess,
-    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult? Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult? Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
   }) {
     return success?.call(data);
   }
@@ -410,8 +419,9 @@ class _$_Success implements _Success {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult Function(PlanDetailData data)? addExerciseSuccess,
-    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -428,8 +438,10 @@ class _$_Success implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
-    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
-    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
+    required TResult Function(_AddDailyWorkoutSuccess value)
+        addDailyWorkoutSuccess,
+    required TResult Function(_AddDailyWorkoutFailed value)
+        addDailyWorkoutFailed,
   }) {
     return success(this);
   }
@@ -442,8 +454,8 @@ class _$_Success implements _Success {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult? Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult? Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
   }) {
     return success?.call(this);
   }
@@ -456,8 +468,8 @@ class _$_Success implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -552,9 +564,9 @@ class _$_Loading implements _Loading {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
-    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data) addDailyWorkoutSuccess,
     required TResult Function(PlanDetailData data, String message)
-        addExerciseFailed,
+        addDailyWorkoutFailed,
   }) {
     return loading(data);
   }
@@ -567,8 +579,9 @@ class _$_Loading implements _Loading {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult? Function(PlanDetailData data)? addExerciseSuccess,
-    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult? Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult? Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
   }) {
     return loading?.call(data);
   }
@@ -581,8 +594,9 @@ class _$_Loading implements _Loading {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult Function(PlanDetailData data)? addExerciseSuccess,
-    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -599,8 +613,10 @@ class _$_Loading implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
-    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
-    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
+    required TResult Function(_AddDailyWorkoutSuccess value)
+        addDailyWorkoutSuccess,
+    required TResult Function(_AddDailyWorkoutFailed value)
+        addDailyWorkoutFailed,
   }) {
     return loading(this);
   }
@@ -613,8 +629,8 @@ class _$_Loading implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult? Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult? Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
   }) {
     return loading?.call(this);
   }
@@ -627,8 +643,8 @@ class _$_Loading implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -725,9 +741,9 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
-    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data) addDailyWorkoutSuccess,
     required TResult Function(PlanDetailData data, String message)
-        addExerciseFailed,
+        addDailyWorkoutFailed,
   }) {
     return getPlanDetailSuccess(data);
   }
@@ -740,8 +756,9 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult? Function(PlanDetailData data)? addExerciseSuccess,
-    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult? Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult? Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
   }) {
     return getPlanDetailSuccess?.call(data);
   }
@@ -754,8 +771,9 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult Function(PlanDetailData data)? addExerciseSuccess,
-    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
     if (getPlanDetailSuccess != null) {
@@ -772,8 +790,10 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
-    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
-    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
+    required TResult Function(_AddDailyWorkoutSuccess value)
+        addDailyWorkoutSuccess,
+    required TResult Function(_AddDailyWorkoutFailed value)
+        addDailyWorkoutFailed,
   }) {
     return getPlanDetailSuccess(this);
   }
@@ -786,8 +806,8 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult? Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult? Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
   }) {
     return getPlanDetailSuccess?.call(this);
   }
@@ -800,8 +820,8 @@ class _$_GetPlanDetailSuccess implements _GetPlanDetailSuccess {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
     if (getPlanDetailSuccess != null) {
@@ -907,9 +927,9 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
-    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data) addDailyWorkoutSuccess,
     required TResult Function(PlanDetailData data, String message)
-        addExerciseFailed,
+        addDailyWorkoutFailed,
   }) {
     return getPlanDetailFailed(data, message);
   }
@@ -922,8 +942,9 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult? Function(PlanDetailData data)? addExerciseSuccess,
-    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult? Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult? Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
   }) {
     return getPlanDetailFailed?.call(data, message);
   }
@@ -936,8 +957,9 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult Function(PlanDetailData data)? addExerciseSuccess,
-    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
     if (getPlanDetailFailed != null) {
@@ -954,8 +976,10 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
-    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
-    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
+    required TResult Function(_AddDailyWorkoutSuccess value)
+        addDailyWorkoutSuccess,
+    required TResult Function(_AddDailyWorkoutFailed value)
+        addDailyWorkoutFailed,
   }) {
     return getPlanDetailFailed(this);
   }
@@ -968,8 +992,8 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult? Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult? Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
   }) {
     return getPlanDetailFailed?.call(this);
   }
@@ -982,8 +1006,8 @@ class _$_GetPlanDetailFailed implements _GetPlanDetailFailed {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
     if (getPlanDetailFailed != null) {
@@ -1008,11 +1032,11 @@ abstract class _GetPlanDetailFailed implements PlanDetailState {
 }
 
 /// @nodoc
-abstract class _$$_AddExerciseSuccessCopyWith<$Res>
+abstract class _$$_AddDailyWorkoutSuccessCopyWith<$Res>
     implements $PlanDetailStateCopyWith<$Res> {
-  factory _$$_AddExerciseSuccessCopyWith(_$_AddExerciseSuccess value,
-          $Res Function(_$_AddExerciseSuccess) then) =
-      __$$_AddExerciseSuccessCopyWithImpl<$Res>;
+  factory _$$_AddDailyWorkoutSuccessCopyWith(_$_AddDailyWorkoutSuccess value,
+          $Res Function(_$_AddDailyWorkoutSuccess) then) =
+      __$$_AddDailyWorkoutSuccessCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PlanDetailData data});
@@ -1022,11 +1046,11 @@ abstract class _$$_AddExerciseSuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AddExerciseSuccessCopyWithImpl<$Res>
-    extends _$PlanDetailStateCopyWithImpl<$Res, _$_AddExerciseSuccess>
-    implements _$$_AddExerciseSuccessCopyWith<$Res> {
-  __$$_AddExerciseSuccessCopyWithImpl(
-      _$_AddExerciseSuccess _value, $Res Function(_$_AddExerciseSuccess) _then)
+class __$$_AddDailyWorkoutSuccessCopyWithImpl<$Res>
+    extends _$PlanDetailStateCopyWithImpl<$Res, _$_AddDailyWorkoutSuccess>
+    implements _$$_AddDailyWorkoutSuccessCopyWith<$Res> {
+  __$$_AddDailyWorkoutSuccessCopyWithImpl(_$_AddDailyWorkoutSuccess _value,
+      $Res Function(_$_AddDailyWorkoutSuccess) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1034,7 +1058,7 @@ class __$$_AddExerciseSuccessCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_AddExerciseSuccess(
+    return _then(_$_AddDailyWorkoutSuccess(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1045,22 +1069,22 @@ class __$$_AddExerciseSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddExerciseSuccess implements _AddExerciseSuccess {
-  const _$_AddExerciseSuccess({required this.data});
+class _$_AddDailyWorkoutSuccess implements _AddDailyWorkoutSuccess {
+  const _$_AddDailyWorkoutSuccess({required this.data});
 
   @override
   final PlanDetailData data;
 
   @override
   String toString() {
-    return 'PlanDetailState.addExerciseSuccess(data: $data)';
+    return 'PlanDetailState.addDailyWorkoutSuccess(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddExerciseSuccess &&
+            other is _$_AddDailyWorkoutSuccess &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1070,8 +1094,8 @@ class _$_AddExerciseSuccess implements _AddExerciseSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddExerciseSuccessCopyWith<_$_AddExerciseSuccess> get copyWith =>
-      __$$_AddExerciseSuccessCopyWithImpl<_$_AddExerciseSuccess>(
+  _$$_AddDailyWorkoutSuccessCopyWith<_$_AddDailyWorkoutSuccess> get copyWith =>
+      __$$_AddDailyWorkoutSuccessCopyWithImpl<_$_AddDailyWorkoutSuccess>(
           this, _$identity);
 
   @override
@@ -1083,11 +1107,11 @@ class _$_AddExerciseSuccess implements _AddExerciseSuccess {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
-    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data) addDailyWorkoutSuccess,
     required TResult Function(PlanDetailData data, String message)
-        addExerciseFailed,
+        addDailyWorkoutFailed,
   }) {
-    return addExerciseSuccess(data);
+    return addDailyWorkoutSuccess(data);
   }
 
   @override
@@ -1098,10 +1122,11 @@ class _$_AddExerciseSuccess implements _AddExerciseSuccess {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult? Function(PlanDetailData data)? addExerciseSuccess,
-    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult? Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult? Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
   }) {
-    return addExerciseSuccess?.call(data);
+    return addDailyWorkoutSuccess?.call(data);
   }
 
   @override
@@ -1112,12 +1137,13 @@ class _$_AddExerciseSuccess implements _AddExerciseSuccess {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult Function(PlanDetailData data)? addExerciseSuccess,
-    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
-    if (addExerciseSuccess != null) {
-      return addExerciseSuccess(data);
+    if (addDailyWorkoutSuccess != null) {
+      return addDailyWorkoutSuccess(data);
     }
     return orElse();
   }
@@ -1130,10 +1156,12 @@ class _$_AddExerciseSuccess implements _AddExerciseSuccess {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
-    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
-    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
+    required TResult Function(_AddDailyWorkoutSuccess value)
+        addDailyWorkoutSuccess,
+    required TResult Function(_AddDailyWorkoutFailed value)
+        addDailyWorkoutFailed,
   }) {
-    return addExerciseSuccess(this);
+    return addDailyWorkoutSuccess(this);
   }
 
   @override
@@ -1144,10 +1172,10 @@ class _$_AddExerciseSuccess implements _AddExerciseSuccess {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult? Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult? Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
   }) {
-    return addExerciseSuccess?.call(this);
+    return addDailyWorkoutSuccess?.call(this);
   }
 
   @override
@@ -1158,35 +1186,35 @@ class _$_AddExerciseSuccess implements _AddExerciseSuccess {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
-    if (addExerciseSuccess != null) {
-      return addExerciseSuccess(this);
+    if (addDailyWorkoutSuccess != null) {
+      return addDailyWorkoutSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class _AddExerciseSuccess implements PlanDetailState {
-  const factory _AddExerciseSuccess({required final PlanDetailData data}) =
-      _$_AddExerciseSuccess;
+abstract class _AddDailyWorkoutSuccess implements PlanDetailState {
+  const factory _AddDailyWorkoutSuccess({required final PlanDetailData data}) =
+      _$_AddDailyWorkoutSuccess;
 
   @override
   PlanDetailData get data;
   @override
   @JsonKey(ignore: true)
-  _$$_AddExerciseSuccessCopyWith<_$_AddExerciseSuccess> get copyWith =>
+  _$$_AddDailyWorkoutSuccessCopyWith<_$_AddDailyWorkoutSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AddExerciseFailedCopyWith<$Res>
+abstract class _$$_AddDailyWorkoutFailedCopyWith<$Res>
     implements $PlanDetailStateCopyWith<$Res> {
-  factory _$$_AddExerciseFailedCopyWith(_$_AddExerciseFailed value,
-          $Res Function(_$_AddExerciseFailed) then) =
-      __$$_AddExerciseFailedCopyWithImpl<$Res>;
+  factory _$$_AddDailyWorkoutFailedCopyWith(_$_AddDailyWorkoutFailed value,
+          $Res Function(_$_AddDailyWorkoutFailed) then) =
+      __$$_AddDailyWorkoutFailedCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PlanDetailData data, String message});
@@ -1196,11 +1224,11 @@ abstract class _$$_AddExerciseFailedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AddExerciseFailedCopyWithImpl<$Res>
-    extends _$PlanDetailStateCopyWithImpl<$Res, _$_AddExerciseFailed>
-    implements _$$_AddExerciseFailedCopyWith<$Res> {
-  __$$_AddExerciseFailedCopyWithImpl(
-      _$_AddExerciseFailed _value, $Res Function(_$_AddExerciseFailed) _then)
+class __$$_AddDailyWorkoutFailedCopyWithImpl<$Res>
+    extends _$PlanDetailStateCopyWithImpl<$Res, _$_AddDailyWorkoutFailed>
+    implements _$$_AddDailyWorkoutFailedCopyWith<$Res> {
+  __$$_AddDailyWorkoutFailedCopyWithImpl(_$_AddDailyWorkoutFailed _value,
+      $Res Function(_$_AddDailyWorkoutFailed) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1209,7 +1237,7 @@ class __$$_AddExerciseFailedCopyWithImpl<$Res>
     Object? data = null,
     Object? message = null,
   }) {
-    return _then(_$_AddExerciseFailed(
+    return _then(_$_AddDailyWorkoutFailed(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1224,8 +1252,8 @@ class __$$_AddExerciseFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddExerciseFailed implements _AddExerciseFailed {
-  const _$_AddExerciseFailed({required this.data, required this.message});
+class _$_AddDailyWorkoutFailed implements _AddDailyWorkoutFailed {
+  const _$_AddDailyWorkoutFailed({required this.data, required this.message});
 
   @override
   final PlanDetailData data;
@@ -1234,14 +1262,14 @@ class _$_AddExerciseFailed implements _AddExerciseFailed {
 
   @override
   String toString() {
-    return 'PlanDetailState.addExerciseFailed(data: $data, message: $message)';
+    return 'PlanDetailState.addDailyWorkoutFailed(data: $data, message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddExerciseFailed &&
+            other is _$_AddDailyWorkoutFailed &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -1252,8 +1280,8 @@ class _$_AddExerciseFailed implements _AddExerciseFailed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddExerciseFailedCopyWith<_$_AddExerciseFailed> get copyWith =>
-      __$$_AddExerciseFailedCopyWithImpl<_$_AddExerciseFailed>(
+  _$$_AddDailyWorkoutFailedCopyWith<_$_AddDailyWorkoutFailed> get copyWith =>
+      __$$_AddDailyWorkoutFailedCopyWithImpl<_$_AddDailyWorkoutFailed>(
           this, _$identity);
 
   @override
@@ -1265,11 +1293,11 @@ class _$_AddExerciseFailed implements _AddExerciseFailed {
     required TResult Function(PlanDetailData data) getPlanDetailSuccess,
     required TResult Function(PlanDetailData data, String message)
         getPlanDetailFailed,
-    required TResult Function(PlanDetailData data) addExerciseSuccess,
+    required TResult Function(PlanDetailData data) addDailyWorkoutSuccess,
     required TResult Function(PlanDetailData data, String message)
-        addExerciseFailed,
+        addDailyWorkoutFailed,
   }) {
-    return addExerciseFailed(data, message);
+    return addDailyWorkoutFailed(data, message);
   }
 
   @override
@@ -1280,10 +1308,11 @@ class _$_AddExerciseFailed implements _AddExerciseFailed {
     TResult? Function(PlanDetailData data)? loading,
     TResult? Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult? Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult? Function(PlanDetailData data)? addExerciseSuccess,
-    TResult? Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult? Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult? Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
   }) {
-    return addExerciseFailed?.call(data, message);
+    return addDailyWorkoutFailed?.call(data, message);
   }
 
   @override
@@ -1294,12 +1323,13 @@ class _$_AddExerciseFailed implements _AddExerciseFailed {
     TResult Function(PlanDetailData data)? loading,
     TResult Function(PlanDetailData data)? getPlanDetailSuccess,
     TResult Function(PlanDetailData data, String message)? getPlanDetailFailed,
-    TResult Function(PlanDetailData data)? addExerciseSuccess,
-    TResult Function(PlanDetailData data, String message)? addExerciseFailed,
+    TResult Function(PlanDetailData data)? addDailyWorkoutSuccess,
+    TResult Function(PlanDetailData data, String message)?
+        addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
-    if (addExerciseFailed != null) {
-      return addExerciseFailed(data, message);
+    if (addDailyWorkoutFailed != null) {
+      return addDailyWorkoutFailed(data, message);
     }
     return orElse();
   }
@@ -1312,10 +1342,12 @@ class _$_AddExerciseFailed implements _AddExerciseFailed {
     required TResult Function(_Loading value) loading,
     required TResult Function(_GetPlanDetailSuccess value) getPlanDetailSuccess,
     required TResult Function(_GetPlanDetailFailed value) getPlanDetailFailed,
-    required TResult Function(_AddExerciseSuccess value) addExerciseSuccess,
-    required TResult Function(_AddExerciseFailed value) addExerciseFailed,
+    required TResult Function(_AddDailyWorkoutSuccess value)
+        addDailyWorkoutSuccess,
+    required TResult Function(_AddDailyWorkoutFailed value)
+        addDailyWorkoutFailed,
   }) {
-    return addExerciseFailed(this);
+    return addDailyWorkoutFailed(this);
   }
 
   @override
@@ -1326,10 +1358,10 @@ class _$_AddExerciseFailed implements _AddExerciseFailed {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult? Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult? Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult? Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult? Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult? Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
   }) {
-    return addExerciseFailed?.call(this);
+    return addDailyWorkoutFailed?.call(this);
   }
 
   @override
@@ -1340,27 +1372,27 @@ class _$_AddExerciseFailed implements _AddExerciseFailed {
     TResult Function(_Loading value)? loading,
     TResult Function(_GetPlanDetailSuccess value)? getPlanDetailSuccess,
     TResult Function(_GetPlanDetailFailed value)? getPlanDetailFailed,
-    TResult Function(_AddExerciseSuccess value)? addExerciseSuccess,
-    TResult Function(_AddExerciseFailed value)? addExerciseFailed,
+    TResult Function(_AddDailyWorkoutSuccess value)? addDailyWorkoutSuccess,
+    TResult Function(_AddDailyWorkoutFailed value)? addDailyWorkoutFailed,
     required TResult orElse(),
   }) {
-    if (addExerciseFailed != null) {
-      return addExerciseFailed(this);
+    if (addDailyWorkoutFailed != null) {
+      return addDailyWorkoutFailed(this);
     }
     return orElse();
   }
 }
 
-abstract class _AddExerciseFailed implements PlanDetailState {
-  const factory _AddExerciseFailed(
+abstract class _AddDailyWorkoutFailed implements PlanDetailState {
+  const factory _AddDailyWorkoutFailed(
       {required final PlanDetailData data,
-      required final String message}) = _$_AddExerciseFailed;
+      required final String message}) = _$_AddDailyWorkoutFailed;
 
   @override
   PlanDetailData get data;
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_AddExerciseFailedCopyWith<_$_AddExerciseFailed> get copyWith =>
+  _$$_AddDailyWorkoutFailedCopyWith<_$_AddDailyWorkoutFailed> get copyWith =>
       throw _privateConstructorUsedError;
 }

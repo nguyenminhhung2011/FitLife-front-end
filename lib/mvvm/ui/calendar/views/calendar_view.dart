@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/extensions/date_time_extension.dart';
 import 'package:fit_life/core/components/extensions/interger_extension.dart';
 import 'package:fit_life/core/components/widgets/calendar_custom.dart';
 import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
@@ -37,6 +38,7 @@ class _CalendarViewState extends ConsumerState<CalendarView> {
 
   final calendarHeight = 23 * 80;
   late List<CalendarExerciseItem> textExercise;
+  DateTime date = DateTime.now();
 
   @override
   void initState() {
@@ -63,12 +65,6 @@ class _CalendarViewState extends ConsumerState<CalendarView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: _backgroundColor,
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      floatingActionButton: IconButton(
-        icon: Icon(Icons.add_circle,
-            color: Theme.of(context).primaryColor, size: 50.0),
-        onPressed: () {},
-      ),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: _backgroundColor,
@@ -86,7 +82,11 @@ class _CalendarViewState extends ConsumerState<CalendarView> {
           CalendarCustom(
             type: CalendarType.timelineCalendar,
             headerText: "Daily workout",
-            onSelectedDate: (_) {},
+            onSelectedDate: (value) {
+              setState(() {
+                date = value;
+              }); 
+            },
             style: CalenderStyleCustom(),
           ),
           const SizedBox(height: 5.0),
@@ -124,9 +124,13 @@ class _CalendarViewState extends ConsumerState<CalendarView> {
         child: Column(
           children: [
             ...textExercise.mapIndexed((index, e) {
+              final startDate = DateTime.fromMillisecondsSinceEpoch(e.time!);
+              if (startDate.isSameDate(date) == false) return const SizedBox();
+
               final margin = (index == 0)
                   ? e.timeStart * 80
                   : (e.timeStart - (textExercise[index - 1].timeEnd)) * 80;
+
               return Container(
                 margin: EdgeInsets.only(top: margin.toDouble()),
                 height: (e.timeEnd - e.timeStart) * 80,

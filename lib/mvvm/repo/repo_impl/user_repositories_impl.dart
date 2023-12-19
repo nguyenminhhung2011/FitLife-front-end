@@ -7,6 +7,7 @@ import 'package:fit_life/mvvm/data/remote/user/user_api.dart';
 import 'package:fit_life/mvvm/me/entity/user/user_entity.dart';
 import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:fit_life/mvvm/me/model/user/update_user_profile.dart';
+import 'package:fit_life/mvvm/me/model/user/user_model.dart';
 import 'package:fit_life/mvvm/repo/user_repositories.dart';
 import 'package:injectable/injectable.dart';
 
@@ -35,20 +36,11 @@ class UserRepositoriesImpl extends BaseApi implements UserRepositories {
   }
 
   @override
-  Future<SResult<User>> getUserProfile() async {
-    final response =
-        await getStateOf(request: () async => await _userApi.getMyProfile());
-    if (response is DataFailed) {
-      return Either.left(
-        AppException(message: response.dioError?.message ?? baseError),
+  Future<SResult<User>> getUserProfile() async =>
+      await apiCall<UserModel?, User>(
+        mapper: (result) => result!.toEntity,
+        request: () async => await _userApi.getMyProfile(),
       );
-    }
-    final responseData = response.data;
-    if (responseData == null) {
-      return Either.left(AppException(message: dataNullError));
-    }
-    return Either.right(responseData.toEntity);
-  }
 
   @override
   Future<SResult<bool>> changePassword(
@@ -56,6 +48,18 @@ class UserRepositoriesImpl extends BaseApi implements UserRepositories {
     final response = await getStateOf(
       request: () async => await _userApi.changePassword(body: request.toMap),
     );
+    if (response is DataFailed) {
+      return Either.left(
+        AppException(message: response.dioError?.message ?? baseError),
+      );
+    }
+    return const Either.right(true);
+  }
+
+  @override
+  Future<SResult<bool>> addFavoriteExercise(int exerciseId) async {
+    final response = await getStateOf(
+        request: () async => await _userApi.addFavoriteExercise(exerciseId));
     if (response is DataFailed) {
       return Either.left(
         AppException(message: response.dioError?.message ?? baseError),

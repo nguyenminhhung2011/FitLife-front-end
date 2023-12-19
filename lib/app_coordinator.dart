@@ -1,4 +1,5 @@
 import 'package:fit_life/core/components/layout/setting_layout/views/widgets/bottom_change_paassword.dart';
+import 'package:fit_life/core/components/widgets/fit_life/slide_change_value.dart';
 import 'package:fit_life/mvvm/me/entity/session/setting_session.dart';
 import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/all_pt_view.dart';
@@ -146,8 +147,9 @@ extension AppCoordinator<T> on BuildContext {
     return List<FilterResponse>.empty();
   }
 
-  Future<void> settingExerciseBottom(SettingSession settingSession) async {
-    await showModalBottomSheet(
+  Future<SettingSession?> settingExerciseBottom(
+      SettingSession settingSession) async {
+    final bottom = await showModalBottomSheet(
       context: this,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
@@ -158,6 +160,7 @@ extension AppCoordinator<T> on BuildContext {
         return SettingExerciseBottom(settingSession: settingSession);
       },
     );
+    return bottom;
   }
 
   Future<dynamic> bottomEditInformation(
@@ -174,7 +177,8 @@ extension AppCoordinator<T> on BuildContext {
     return data;
   }
 
-  Future<bool> bottomRelax() async {
+  Future<bool> bottomRelax(int restTime,
+      {required int current, required int total}) async {
     final data = await showModalBottomSheet(
       context: this,
       isScrollControlled: true,
@@ -183,7 +187,8 @@ extension AppCoordinator<T> on BuildContext {
       ),
       backgroundColor: Theme.of(this).scaffoldBackgroundColor,
       builder: (context) {
-        return const RelaxView();
+        return RelaxView(
+            restTime: restTime, currentExercise: current, totalExercise: total);
       },
     );
     return (data ?? false);
@@ -205,6 +210,33 @@ extension AppCoordinator<T> on BuildContext {
         );
       },
     );
+  }
+
+  Future<double> showSliderChangeValue({
+    required double initData,
+    required double max,
+    required String header,
+  }) async {
+    final show = await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+        top: Radius.circular(15.0),
+      )),
+      builder: (context) {
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: SliderChangeValue(
+              initValue: initData, maxValue: max, header: header),
+        );
+      },
+    );
+    if (show is double) {
+      return show;
+    }
+    return -1;
   }
 
   Future<String> langBottom() async {

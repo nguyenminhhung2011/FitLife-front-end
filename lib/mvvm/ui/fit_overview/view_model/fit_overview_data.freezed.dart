@@ -23,7 +23,7 @@ mixin _$FitOverViewData {
 
   /// List exercise category
   List<BodyPart>? get exerciseCategories => throw _privateConstructorUsedError;
-  CaloriesChart get caloriesChart => throw _privateConstructorUsedError;
+  FitOverview? get overviewData => throw _privateConstructorUsedError;
   bool get isLoadingCaloriesChart => throw _privateConstructorUsedError;
 
   /// check loading upcoming workout status
@@ -31,6 +31,7 @@ mixin _$FitOverViewData {
 
   /// check loading exercise category status
   bool get isLoadingBodyPart => throw _privateConstructorUsedError;
+  CaloriesChart get caloriesChart => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FitOverViewDataCopyWith<FitOverViewData> get copyWith =>
@@ -47,11 +48,13 @@ abstract class $FitOverViewDataCopyWith<$Res> {
       {List<DateTime> rangeDate,
       List<Session>? upcomingSessions,
       List<BodyPart>? exerciseCategories,
-      CaloriesChart caloriesChart,
+      FitOverview? overviewData,
       bool isLoadingCaloriesChart,
       bool isLoadingUpcomingWorkout,
-      bool isLoadingBodyPart});
+      bool isLoadingBodyPart,
+      CaloriesChart caloriesChart});
 
+  $FitOverviewCopyWith<$Res>? get overviewData;
   $CaloriesChartCopyWith<$Res> get caloriesChart;
 }
 
@@ -71,10 +74,11 @@ class _$FitOverViewDataCopyWithImpl<$Res, $Val extends FitOverViewData>
     Object? rangeDate = null,
     Object? upcomingSessions = freezed,
     Object? exerciseCategories = freezed,
-    Object? caloriesChart = null,
+    Object? overviewData = freezed,
     Object? isLoadingCaloriesChart = null,
     Object? isLoadingUpcomingWorkout = null,
     Object? isLoadingBodyPart = null,
+    Object? caloriesChart = null,
   }) {
     return _then(_value.copyWith(
       rangeDate: null == rangeDate
@@ -89,10 +93,10 @@ class _$FitOverViewDataCopyWithImpl<$Res, $Val extends FitOverViewData>
           ? _value.exerciseCategories
           : exerciseCategories // ignore: cast_nullable_to_non_nullable
               as List<BodyPart>?,
-      caloriesChart: null == caloriesChart
-          ? _value.caloriesChart
-          : caloriesChart // ignore: cast_nullable_to_non_nullable
-              as CaloriesChart,
+      overviewData: freezed == overviewData
+          ? _value.overviewData
+          : overviewData // ignore: cast_nullable_to_non_nullable
+              as FitOverview?,
       isLoadingCaloriesChart: null == isLoadingCaloriesChart
           ? _value.isLoadingCaloriesChart
           : isLoadingCaloriesChart // ignore: cast_nullable_to_non_nullable
@@ -105,7 +109,23 @@ class _$FitOverViewDataCopyWithImpl<$Res, $Val extends FitOverViewData>
           ? _value.isLoadingBodyPart
           : isLoadingBodyPart // ignore: cast_nullable_to_non_nullable
               as bool,
+      caloriesChart: null == caloriesChart
+          ? _value.caloriesChart
+          : caloriesChart // ignore: cast_nullable_to_non_nullable
+              as CaloriesChart,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FitOverviewCopyWith<$Res>? get overviewData {
+    if (_value.overviewData == null) {
+      return null;
+    }
+
+    return $FitOverviewCopyWith<$Res>(_value.overviewData!, (value) {
+      return _then(_value.copyWith(overviewData: value) as $Val);
+    });
   }
 
   @override
@@ -129,11 +149,14 @@ abstract class _$$_FitOverViewDataCopyWith<$Res>
       {List<DateTime> rangeDate,
       List<Session>? upcomingSessions,
       List<BodyPart>? exerciseCategories,
-      CaloriesChart caloriesChart,
+      FitOverview? overviewData,
       bool isLoadingCaloriesChart,
       bool isLoadingUpcomingWorkout,
-      bool isLoadingBodyPart});
+      bool isLoadingBodyPart,
+      CaloriesChart caloriesChart});
 
+  @override
+  $FitOverviewCopyWith<$Res>? get overviewData;
   @override
   $CaloriesChartCopyWith<$Res> get caloriesChart;
 }
@@ -152,10 +175,11 @@ class __$$_FitOverViewDataCopyWithImpl<$Res>
     Object? rangeDate = null,
     Object? upcomingSessions = freezed,
     Object? exerciseCategories = freezed,
-    Object? caloriesChart = null,
+    Object? overviewData = freezed,
     Object? isLoadingCaloriesChart = null,
     Object? isLoadingUpcomingWorkout = null,
     Object? isLoadingBodyPart = null,
+    Object? caloriesChart = null,
   }) {
     return _then(_$_FitOverViewData(
       rangeDate: null == rangeDate
@@ -170,10 +194,10 @@ class __$$_FitOverViewDataCopyWithImpl<$Res>
           ? _value._exerciseCategories
           : exerciseCategories // ignore: cast_nullable_to_non_nullable
               as List<BodyPart>?,
-      caloriesChart: null == caloriesChart
-          ? _value.caloriesChart
-          : caloriesChart // ignore: cast_nullable_to_non_nullable
-              as CaloriesChart,
+      overviewData: freezed == overviewData
+          ? _value.overviewData
+          : overviewData // ignore: cast_nullable_to_non_nullable
+              as FitOverview?,
       isLoadingCaloriesChart: null == isLoadingCaloriesChart
           ? _value.isLoadingCaloriesChart
           : isLoadingCaloriesChart // ignore: cast_nullable_to_non_nullable
@@ -186,6 +210,10 @@ class __$$_FitOverViewDataCopyWithImpl<$Res>
           ? _value.isLoadingBodyPart
           : isLoadingBodyPart // ignore: cast_nullable_to_non_nullable
               as bool,
+      caloriesChart: null == caloriesChart
+          ? _value.caloriesChart
+          : caloriesChart // ignore: cast_nullable_to_non_nullable
+              as CaloriesChart,
     ));
   }
 }
@@ -197,10 +225,11 @@ class _$_FitOverViewData implements _FitOverViewData {
       {final List<DateTime> rangeDate = const [],
       final List<Session>? upcomingSessions,
       final List<BodyPart>? exerciseCategories,
-      required this.caloriesChart,
+      this.overviewData,
       this.isLoadingCaloriesChart = false,
       this.isLoadingUpcomingWorkout = false,
-      this.isLoadingBodyPart = false})
+      this.isLoadingBodyPart = false,
+      required this.caloriesChart})
       : _rangeDate = rangeDate,
         _upcomingSessions = upcomingSessions,
         _exerciseCategories = exerciseCategories;
@@ -243,7 +272,7 @@ class _$_FitOverViewData implements _FitOverViewData {
   }
 
   @override
-  final CaloriesChart caloriesChart;
+  final FitOverview? overviewData;
   @override
   @JsonKey()
   final bool isLoadingCaloriesChart;
@@ -257,10 +286,12 @@ class _$_FitOverViewData implements _FitOverViewData {
   @override
   @JsonKey()
   final bool isLoadingBodyPart;
+  @override
+  final CaloriesChart caloriesChart;
 
   @override
   String toString() {
-    return 'FitOverViewData(rangeDate: $rangeDate, upcomingSessions: $upcomingSessions, exerciseCategories: $exerciseCategories, caloriesChart: $caloriesChart, isLoadingCaloriesChart: $isLoadingCaloriesChart, isLoadingUpcomingWorkout: $isLoadingUpcomingWorkout, isLoadingBodyPart: $isLoadingBodyPart)';
+    return 'FitOverViewData(rangeDate: $rangeDate, upcomingSessions: $upcomingSessions, exerciseCategories: $exerciseCategories, overviewData: $overviewData, isLoadingCaloriesChart: $isLoadingCaloriesChart, isLoadingUpcomingWorkout: $isLoadingUpcomingWorkout, isLoadingBodyPart: $isLoadingBodyPart, caloriesChart: $caloriesChart)';
   }
 
   @override
@@ -274,15 +305,17 @@ class _$_FitOverViewData implements _FitOverViewData {
                 .equals(other._upcomingSessions, _upcomingSessions) &&
             const DeepCollectionEquality()
                 .equals(other._exerciseCategories, _exerciseCategories) &&
-            (identical(other.caloriesChart, caloriesChart) ||
-                other.caloriesChart == caloriesChart) &&
+            (identical(other.overviewData, overviewData) ||
+                other.overviewData == overviewData) &&
             (identical(other.isLoadingCaloriesChart, isLoadingCaloriesChart) ||
                 other.isLoadingCaloriesChart == isLoadingCaloriesChart) &&
             (identical(
                     other.isLoadingUpcomingWorkout, isLoadingUpcomingWorkout) ||
                 other.isLoadingUpcomingWorkout == isLoadingUpcomingWorkout) &&
             (identical(other.isLoadingBodyPart, isLoadingBodyPart) ||
-                other.isLoadingBodyPart == isLoadingBodyPart));
+                other.isLoadingBodyPart == isLoadingBodyPart) &&
+            (identical(other.caloriesChart, caloriesChart) ||
+                other.caloriesChart == caloriesChart));
   }
 
   @override
@@ -291,10 +324,11 @@ class _$_FitOverViewData implements _FitOverViewData {
       const DeepCollectionEquality().hash(_rangeDate),
       const DeepCollectionEquality().hash(_upcomingSessions),
       const DeepCollectionEquality().hash(_exerciseCategories),
-      caloriesChart,
+      overviewData,
       isLoadingCaloriesChart,
       isLoadingUpcomingWorkout,
-      isLoadingBodyPart);
+      isLoadingBodyPart,
+      caloriesChart);
 
   @JsonKey(ignore: true)
   @override
@@ -308,10 +342,11 @@ abstract class _FitOverViewData implements FitOverViewData {
       {final List<DateTime> rangeDate,
       final List<Session>? upcomingSessions,
       final List<BodyPart>? exerciseCategories,
-      required final CaloriesChart caloriesChart,
+      final FitOverview? overviewData,
       final bool isLoadingCaloriesChart,
       final bool isLoadingUpcomingWorkout,
-      final bool isLoadingBodyPart}) = _$_FitOverViewData;
+      final bool isLoadingBodyPart,
+      required final CaloriesChart caloriesChart}) = _$_FitOverViewData;
 
   @override
   List<DateTime> get rangeDate;
@@ -324,7 +359,7 @@ abstract class _FitOverViewData implements FitOverViewData {
   /// List exercise category
   List<BodyPart>? get exerciseCategories;
   @override
-  CaloriesChart get caloriesChart;
+  FitOverview? get overviewData;
   @override
   bool get isLoadingCaloriesChart;
   @override
@@ -335,6 +370,8 @@ abstract class _FitOverViewData implements FitOverViewData {
 
   /// check loading exercise category status
   bool get isLoadingBodyPart;
+  @override
+  CaloriesChart get caloriesChart;
   @override
   @JsonKey(ignore: true)
   _$$_FitOverViewDataCopyWith<_$_FitOverViewData> get copyWith =>

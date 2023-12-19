@@ -49,7 +49,7 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
 
   int get totalDate => endDate.difference(startDate).inDays;
   int get currentDate =>
-      DateTime.now().difference(startDate).inDays.minMaxRequired(0, totalDate);
+      (DateTime.now().day - (startDate.day)).minMaxRequired(0, totalDate);
 
   @override
   void initState() {

@@ -8,12 +8,12 @@ part 'custom_exercise.g.dart';
 class CustomExercise with _$CustomExercise {
   const factory CustomExercise({
     required int id,
-    required int dateStart,
-    required String time,
+    required int time,
     required String difficulty,
     required Exercise exercise,
     required int rep,
     required int weight,
+    required int calories ,
   }) = _CustomExercise;
 
   factory CustomExercise.fromJson(Map<String, dynamic> json) =>

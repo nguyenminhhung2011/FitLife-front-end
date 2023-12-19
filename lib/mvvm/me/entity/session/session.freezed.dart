@@ -23,12 +23,16 @@ mixin _$Session {
   String get id => throw _privateConstructorUsedError;
   String get dwId => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  Level? get level => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  Level? get level => throw _privateConstructorUsedError;
   int? get calcTarget => throw _privateConstructorUsedError;
   int? get timePerLesson => throw _privateConstructorUsedError;
   int? get numberRound => throw _privateConstructorUsedError;
   int? get breakTime => throw _privateConstructorUsedError;
+  int? get calcCompleted => throw _privateConstructorUsedError;
+  bool? get startWithBoot => throw _privateConstructorUsedError;
+  bool? get done => throw _privateConstructorUsedError;
+  bool? get randomMix => throw _privateConstructorUsedError;
   int? get transferTime => throw _privateConstructorUsedError;
   List<Equipment>? get equipments => throw _privateConstructorUsedError;
   List<CustomExercise>? get customExercise =>
@@ -48,12 +52,16 @@ abstract class $SessionCopyWith<$Res> {
       {String id,
       String dwId,
       String? name,
-      Level? level,
       String? description,
+      Level? level,
       int? calcTarget,
       int? timePerLesson,
       int? numberRound,
       int? breakTime,
+      int? calcCompleted,
+      bool? startWithBoot,
+      bool? done,
+      bool? randomMix,
       int? transferTime,
       List<Equipment>? equipments,
       List<CustomExercise>? customExercise});
@@ -75,12 +83,16 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? id = null,
     Object? dwId = null,
     Object? name = freezed,
-    Object? level = freezed,
     Object? description = freezed,
+    Object? level = freezed,
     Object? calcTarget = freezed,
     Object? timePerLesson = freezed,
     Object? numberRound = freezed,
     Object? breakTime = freezed,
+    Object? calcCompleted = freezed,
+    Object? startWithBoot = freezed,
+    Object? done = freezed,
+    Object? randomMix = freezed,
     Object? transferTime = freezed,
     Object? equipments = freezed,
     Object? customExercise = freezed,
@@ -98,14 +110,14 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      level: freezed == level
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as Level?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      level: freezed == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as Level?,
       calcTarget: freezed == calcTarget
           ? _value.calcTarget
           : calcTarget // ignore: cast_nullable_to_non_nullable
@@ -122,6 +134,22 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.breakTime
           : breakTime // ignore: cast_nullable_to_non_nullable
               as int?,
+      calcCompleted: freezed == calcCompleted
+          ? _value.calcCompleted
+          : calcCompleted // ignore: cast_nullable_to_non_nullable
+              as int?,
+      startWithBoot: freezed == startWithBoot
+          ? _value.startWithBoot
+          : startWithBoot // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      done: freezed == done
+          ? _value.done
+          : done // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      randomMix: freezed == randomMix
+          ? _value.randomMix
+          : randomMix // ignore: cast_nullable_to_non_nullable
+              as bool?,
       transferTime: freezed == transferTime
           ? _value.transferTime
           : transferTime // ignore: cast_nullable_to_non_nullable
@@ -149,12 +177,16 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       {String id,
       String dwId,
       String? name,
-      Level? level,
       String? description,
+      Level? level,
       int? calcTarget,
       int? timePerLesson,
       int? numberRound,
       int? breakTime,
+      int? calcCompleted,
+      bool? startWithBoot,
+      bool? done,
+      bool? randomMix,
       int? transferTime,
       List<Equipment>? equipments,
       List<CustomExercise>? customExercise});
@@ -173,12 +205,16 @@ class __$$_SessionCopyWithImpl<$Res>
     Object? id = null,
     Object? dwId = null,
     Object? name = freezed,
-    Object? level = freezed,
     Object? description = freezed,
+    Object? level = freezed,
     Object? calcTarget = freezed,
     Object? timePerLesson = freezed,
     Object? numberRound = freezed,
     Object? breakTime = freezed,
+    Object? calcCompleted = freezed,
+    Object? startWithBoot = freezed,
+    Object? done = freezed,
+    Object? randomMix = freezed,
     Object? transferTime = freezed,
     Object? equipments = freezed,
     Object? customExercise = freezed,
@@ -196,14 +232,14 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      level: freezed == level
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as Level?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      level: freezed == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as Level?,
       calcTarget: freezed == calcTarget
           ? _value.calcTarget
           : calcTarget // ignore: cast_nullable_to_non_nullable
@@ -220,6 +256,22 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.breakTime
           : breakTime // ignore: cast_nullable_to_non_nullable
               as int?,
+      calcCompleted: freezed == calcCompleted
+          ? _value.calcCompleted
+          : calcCompleted // ignore: cast_nullable_to_non_nullable
+              as int?,
+      startWithBoot: freezed == startWithBoot
+          ? _value.startWithBoot
+          : startWithBoot // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      done: freezed == done
+          ? _value.done
+          : done // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      randomMix: freezed == randomMix
+          ? _value.randomMix
+          : randomMix // ignore: cast_nullable_to_non_nullable
+              as bool?,
       transferTime: freezed == transferTime
           ? _value.transferTime
           : transferTime // ignore: cast_nullable_to_non_nullable
@@ -243,12 +295,16 @@ class _$_Session implements _Session {
       {required this.id,
       required this.dwId,
       this.name,
-      this.level,
       this.description,
+      this.level,
       this.calcTarget,
       this.timePerLesson,
       this.numberRound,
       this.breakTime,
+      this.calcCompleted,
+      this.startWithBoot,
+      this.done,
+      this.randomMix,
       this.transferTime,
       final List<Equipment>? equipments,
       final List<CustomExercise>? customExercise})
@@ -265,9 +321,9 @@ class _$_Session implements _Session {
   @override
   final String? name;
   @override
-  final Level? level;
-  @override
   final String? description;
+  @override
+  final Level? level;
   @override
   final int? calcTarget;
   @override
@@ -276,6 +332,14 @@ class _$_Session implements _Session {
   final int? numberRound;
   @override
   final int? breakTime;
+  @override
+  final int? calcCompleted;
+  @override
+  final bool? startWithBoot;
+  @override
+  final bool? done;
+  @override
+  final bool? randomMix;
   @override
   final int? transferTime;
   final List<Equipment>? _equipments;
@@ -300,7 +364,7 @@ class _$_Session implements _Session {
 
   @override
   String toString() {
-    return 'Session(id: $id, dwId: $dwId, name: $name, level: $level, description: $description, calcTarget: $calcTarget, timePerLesson: $timePerLesson, numberRound: $numberRound, breakTime: $breakTime, transferTime: $transferTime, equipments: $equipments, customExercise: $customExercise)';
+    return 'Session(id: $id, dwId: $dwId, name: $name, description: $description, level: $level, calcTarget: $calcTarget, timePerLesson: $timePerLesson, numberRound: $numberRound, breakTime: $breakTime, calcCompleted: $calcCompleted, startWithBoot: $startWithBoot, done: $done, randomMix: $randomMix, transferTime: $transferTime, equipments: $equipments, customExercise: $customExercise)';
   }
 
   @override
@@ -311,9 +375,9 @@ class _$_Session implements _Session {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.dwId, dwId) || other.dwId == dwId) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.level, level) || other.level == level) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.level, level) || other.level == level) &&
             (identical(other.calcTarget, calcTarget) ||
                 other.calcTarget == calcTarget) &&
             (identical(other.timePerLesson, timePerLesson) ||
@@ -322,6 +386,13 @@ class _$_Session implements _Session {
                 other.numberRound == numberRound) &&
             (identical(other.breakTime, breakTime) ||
                 other.breakTime == breakTime) &&
+            (identical(other.calcCompleted, calcCompleted) ||
+                other.calcCompleted == calcCompleted) &&
+            (identical(other.startWithBoot, startWithBoot) ||
+                other.startWithBoot == startWithBoot) &&
+            (identical(other.done, done) || other.done == done) &&
+            (identical(other.randomMix, randomMix) ||
+                other.randomMix == randomMix) &&
             (identical(other.transferTime, transferTime) ||
                 other.transferTime == transferTime) &&
             const DeepCollectionEquality()
@@ -337,12 +408,16 @@ class _$_Session implements _Session {
       id,
       dwId,
       name,
-      level,
       description,
+      level,
       calcTarget,
       timePerLesson,
       numberRound,
       breakTime,
+      calcCompleted,
+      startWithBoot,
+      done,
+      randomMix,
       transferTime,
       const DeepCollectionEquality().hash(_equipments),
       const DeepCollectionEquality().hash(_customExercise));
@@ -366,12 +441,16 @@ abstract class _Session implements Session {
       {required final String id,
       required final String dwId,
       final String? name,
-      final Level? level,
       final String? description,
+      final Level? level,
       final int? calcTarget,
       final int? timePerLesson,
       final int? numberRound,
       final int? breakTime,
+      final int? calcCompleted,
+      final bool? startWithBoot,
+      final bool? done,
+      final bool? randomMix,
       final int? transferTime,
       final List<Equipment>? equipments,
       final List<CustomExercise>? customExercise}) = _$_Session;
@@ -385,9 +464,9 @@ abstract class _Session implements Session {
   @override
   String? get name;
   @override
-  Level? get level;
-  @override
   String? get description;
+  @override
+  Level? get level;
   @override
   int? get calcTarget;
   @override
@@ -396,6 +475,14 @@ abstract class _Session implements Session {
   int? get numberRound;
   @override
   int? get breakTime;
+  @override
+  int? get calcCompleted;
+  @override
+  bool? get startWithBoot;
+  @override
+  bool? get done;
+  @override
+  bool? get randomMix;
   @override
   int? get transferTime;
   @override

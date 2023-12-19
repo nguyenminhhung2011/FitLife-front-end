@@ -24,6 +24,10 @@ mixin _$WooTrackState {
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
     required TResult Function(WooTrackData data) nextPreviousSuccess,
+    required TResult Function(WooTrackData data) completeSessionSuccess,
+    required TResult Function(WooTrackData data, String message)
+        completeSessionFailed,
+    required TResult Function(WooTrackData data) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +37,9 @@ mixin _$WooTrackState {
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
     TResult? Function(WooTrackData data)? nextPreviousSuccess,
+    TResult? Function(WooTrackData data)? completeSessionSuccess,
+    TResult? Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult? Function(WooTrackData data)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +49,9 @@ mixin _$WooTrackState {
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
     TResult Function(WooTrackData data)? nextPreviousSuccess,
+    TResult Function(WooTrackData data)? completeSessionSuccess,
+    TResult Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult Function(WooTrackData data)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +63,11 @@ mixin _$WooTrackState {
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
     required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
+    required TResult Function(_CompleteSessionSuccess value)
+        completeSessionSuccess,
+    required TResult Function(_CompleteSessionFailed value)
+        completeSessionFailed,
+    required TResult Function(_Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +77,9 @@ mixin _$WooTrackState {
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult? Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult? Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult? Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +89,9 @@ mixin _$WooTrackState {
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -160,8 +181,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial({required this.data});
+class _$_Initial extends _Initial {
+  const _$_Initial({required this.data}) : super._();
 
   @override
   final WooTrackData data;
@@ -196,6 +217,10 @@ class _$_Initial implements _Initial {
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
     required TResult Function(WooTrackData data) nextPreviousSuccess,
+    required TResult Function(WooTrackData data) completeSessionSuccess,
+    required TResult Function(WooTrackData data, String message)
+        completeSessionFailed,
+    required TResult Function(WooTrackData data) loading,
   }) {
     return initial(data);
   }
@@ -208,6 +233,9 @@ class _$_Initial implements _Initial {
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
     TResult? Function(WooTrackData data)? nextPreviousSuccess,
+    TResult? Function(WooTrackData data)? completeSessionSuccess,
+    TResult? Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult? Function(WooTrackData data)? loading,
   }) {
     return initial?.call(data);
   }
@@ -220,6 +248,9 @@ class _$_Initial implements _Initial {
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
     TResult Function(WooTrackData data)? nextPreviousSuccess,
+    TResult Function(WooTrackData data)? completeSessionSuccess,
+    TResult Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult Function(WooTrackData data)? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -237,6 +268,11 @@ class _$_Initial implements _Initial {
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
     required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
+    required TResult Function(_CompleteSessionSuccess value)
+        completeSessionSuccess,
+    required TResult Function(_CompleteSessionFailed value)
+        completeSessionFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return initial(this);
   }
@@ -249,6 +285,9 @@ class _$_Initial implements _Initial {
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult? Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult? Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return initial?.call(this);
   }
@@ -261,6 +300,9 @@ class _$_Initial implements _Initial {
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -270,8 +312,9 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements WooTrackState {
+abstract class _Initial extends WooTrackState {
   const factory _Initial({required final WooTrackData data}) = _$_Initial;
+  const _Initial._() : super._();
 
   @override
   WooTrackData get data;
@@ -319,8 +362,8 @@ class __$$_ChangeExerciseSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
-  const _$_ChangeExerciseSuccess({required this.data});
+class _$_ChangeExerciseSuccess extends _ChangeExerciseSuccess {
+  const _$_ChangeExerciseSuccess({required this.data}) : super._();
 
   @override
   final WooTrackData data;
@@ -356,6 +399,10 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
     required TResult Function(WooTrackData data) nextPreviousSuccess,
+    required TResult Function(WooTrackData data) completeSessionSuccess,
+    required TResult Function(WooTrackData data, String message)
+        completeSessionFailed,
+    required TResult Function(WooTrackData data) loading,
   }) {
     return changeExerciseSuccess(data);
   }
@@ -368,6 +415,9 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
     TResult? Function(WooTrackData data)? nextPreviousSuccess,
+    TResult? Function(WooTrackData data)? completeSessionSuccess,
+    TResult? Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult? Function(WooTrackData data)? loading,
   }) {
     return changeExerciseSuccess?.call(data);
   }
@@ -380,6 +430,9 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
     TResult Function(WooTrackData data)? nextPreviousSuccess,
+    TResult Function(WooTrackData data)? completeSessionSuccess,
+    TResult Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult Function(WooTrackData data)? loading,
     required TResult orElse(),
   }) {
     if (changeExerciseSuccess != null) {
@@ -397,6 +450,11 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
     required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
+    required TResult Function(_CompleteSessionSuccess value)
+        completeSessionSuccess,
+    required TResult Function(_CompleteSessionFailed value)
+        completeSessionFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return changeExerciseSuccess(this);
   }
@@ -409,6 +467,9 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult? Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult? Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return changeExerciseSuccess?.call(this);
   }
@@ -421,6 +482,9 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (changeExerciseSuccess != null) {
@@ -430,9 +494,10 @@ class _$_ChangeExerciseSuccess implements _ChangeExerciseSuccess {
   }
 }
 
-abstract class _ChangeExerciseSuccess implements WooTrackState {
+abstract class _ChangeExerciseSuccess extends WooTrackState {
   const factory _ChangeExerciseSuccess({required final WooTrackData data}) =
       _$_ChangeExerciseSuccess;
+  const _ChangeExerciseSuccess._() : super._();
 
   @override
   WooTrackData get data;
@@ -480,8 +545,8 @@ class __$$_CompletedRoundCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CompletedRound implements _CompletedRound {
-  const _$_CompletedRound({required this.data});
+class _$_CompletedRound extends _CompletedRound {
+  const _$_CompletedRound({required this.data}) : super._();
 
   @override
   final WooTrackData data;
@@ -516,6 +581,10 @@ class _$_CompletedRound implements _CompletedRound {
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
     required TResult Function(WooTrackData data) nextPreviousSuccess,
+    required TResult Function(WooTrackData data) completeSessionSuccess,
+    required TResult Function(WooTrackData data, String message)
+        completeSessionFailed,
+    required TResult Function(WooTrackData data) loading,
   }) {
     return completeRound(data);
   }
@@ -528,6 +597,9 @@ class _$_CompletedRound implements _CompletedRound {
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
     TResult? Function(WooTrackData data)? nextPreviousSuccess,
+    TResult? Function(WooTrackData data)? completeSessionSuccess,
+    TResult? Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult? Function(WooTrackData data)? loading,
   }) {
     return completeRound?.call(data);
   }
@@ -540,6 +612,9 @@ class _$_CompletedRound implements _CompletedRound {
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
     TResult Function(WooTrackData data)? nextPreviousSuccess,
+    TResult Function(WooTrackData data)? completeSessionSuccess,
+    TResult Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult Function(WooTrackData data)? loading,
     required TResult orElse(),
   }) {
     if (completeRound != null) {
@@ -557,6 +632,11 @@ class _$_CompletedRound implements _CompletedRound {
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
     required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
+    required TResult Function(_CompleteSessionSuccess value)
+        completeSessionSuccess,
+    required TResult Function(_CompleteSessionFailed value)
+        completeSessionFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return completeRound(this);
   }
@@ -569,6 +649,9 @@ class _$_CompletedRound implements _CompletedRound {
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult? Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult? Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return completeRound?.call(this);
   }
@@ -581,6 +664,9 @@ class _$_CompletedRound implements _CompletedRound {
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (completeRound != null) {
@@ -590,9 +676,10 @@ class _$_CompletedRound implements _CompletedRound {
   }
 }
 
-abstract class _CompletedRound implements WooTrackState {
+abstract class _CompletedRound extends WooTrackState {
   const factory _CompletedRound({required final WooTrackData data}) =
       _$_CompletedRound;
+  const _CompletedRound._() : super._();
 
   @override
   WooTrackData get data;
@@ -640,8 +727,8 @@ class __$$_PlayPauseSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PlayPauseSuccess implements _PlayPauseSuccess {
-  const _$_PlayPauseSuccess({required this.data});
+class _$_PlayPauseSuccess extends _PlayPauseSuccess {
+  const _$_PlayPauseSuccess({required this.data}) : super._();
 
   @override
   final WooTrackData data;
@@ -676,6 +763,10 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
     required TResult Function(WooTrackData data) nextPreviousSuccess,
+    required TResult Function(WooTrackData data) completeSessionSuccess,
+    required TResult Function(WooTrackData data, String message)
+        completeSessionFailed,
+    required TResult Function(WooTrackData data) loading,
   }) {
     return playPauseSuccess(data);
   }
@@ -688,6 +779,9 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
     TResult? Function(WooTrackData data)? nextPreviousSuccess,
+    TResult? Function(WooTrackData data)? completeSessionSuccess,
+    TResult? Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult? Function(WooTrackData data)? loading,
   }) {
     return playPauseSuccess?.call(data);
   }
@@ -700,6 +794,9 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
     TResult Function(WooTrackData data)? nextPreviousSuccess,
+    TResult Function(WooTrackData data)? completeSessionSuccess,
+    TResult Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult Function(WooTrackData data)? loading,
     required TResult orElse(),
   }) {
     if (playPauseSuccess != null) {
@@ -717,6 +814,11 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
     required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
+    required TResult Function(_CompleteSessionSuccess value)
+        completeSessionSuccess,
+    required TResult Function(_CompleteSessionFailed value)
+        completeSessionFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return playPauseSuccess(this);
   }
@@ -729,6 +831,9 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult? Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult? Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return playPauseSuccess?.call(this);
   }
@@ -741,6 +846,9 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (playPauseSuccess != null) {
@@ -750,9 +858,10 @@ class _$_PlayPauseSuccess implements _PlayPauseSuccess {
   }
 }
 
-abstract class _PlayPauseSuccess implements WooTrackState {
+abstract class _PlayPauseSuccess extends WooTrackState {
   const factory _PlayPauseSuccess({required final WooTrackData data}) =
       _$_PlayPauseSuccess;
+  const _PlayPauseSuccess._() : super._();
 
   @override
   WooTrackData get data;
@@ -800,8 +909,8 @@ class __$$_NextPreviousSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NextPreviousSuccess implements _NextPreviousSuccess {
-  const _$_NextPreviousSuccess({required this.data});
+class _$_NextPreviousSuccess extends _NextPreviousSuccess {
+  const _$_NextPreviousSuccess({required this.data}) : super._();
 
   @override
   final WooTrackData data;
@@ -837,6 +946,10 @@ class _$_NextPreviousSuccess implements _NextPreviousSuccess {
     required TResult Function(WooTrackData data) completeRound,
     required TResult Function(WooTrackData data) playPauseSuccess,
     required TResult Function(WooTrackData data) nextPreviousSuccess,
+    required TResult Function(WooTrackData data) completeSessionSuccess,
+    required TResult Function(WooTrackData data, String message)
+        completeSessionFailed,
+    required TResult Function(WooTrackData data) loading,
   }) {
     return nextPreviousSuccess(data);
   }
@@ -849,6 +962,9 @@ class _$_NextPreviousSuccess implements _NextPreviousSuccess {
     TResult? Function(WooTrackData data)? completeRound,
     TResult? Function(WooTrackData data)? playPauseSuccess,
     TResult? Function(WooTrackData data)? nextPreviousSuccess,
+    TResult? Function(WooTrackData data)? completeSessionSuccess,
+    TResult? Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult? Function(WooTrackData data)? loading,
   }) {
     return nextPreviousSuccess?.call(data);
   }
@@ -861,6 +977,9 @@ class _$_NextPreviousSuccess implements _NextPreviousSuccess {
     TResult Function(WooTrackData data)? completeRound,
     TResult Function(WooTrackData data)? playPauseSuccess,
     TResult Function(WooTrackData data)? nextPreviousSuccess,
+    TResult Function(WooTrackData data)? completeSessionSuccess,
+    TResult Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult Function(WooTrackData data)? loading,
     required TResult orElse(),
   }) {
     if (nextPreviousSuccess != null) {
@@ -878,6 +997,11 @@ class _$_NextPreviousSuccess implements _NextPreviousSuccess {
     required TResult Function(_CompletedRound value) completeRound,
     required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
     required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
+    required TResult Function(_CompleteSessionSuccess value)
+        completeSessionSuccess,
+    required TResult Function(_CompleteSessionFailed value)
+        completeSessionFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return nextPreviousSuccess(this);
   }
@@ -890,6 +1014,9 @@ class _$_NextPreviousSuccess implements _NextPreviousSuccess {
     TResult? Function(_CompletedRound value)? completeRound,
     TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult? Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult? Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return nextPreviousSuccess?.call(this);
   }
@@ -902,6 +1029,9 @@ class _$_NextPreviousSuccess implements _NextPreviousSuccess {
     TResult Function(_CompletedRound value)? completeRound,
     TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
     TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (nextPreviousSuccess != null) {
@@ -911,14 +1041,572 @@ class _$_NextPreviousSuccess implements _NextPreviousSuccess {
   }
 }
 
-abstract class _NextPreviousSuccess implements WooTrackState {
+abstract class _NextPreviousSuccess extends WooTrackState {
   const factory _NextPreviousSuccess({required final WooTrackData data}) =
       _$_NextPreviousSuccess;
+  const _NextPreviousSuccess._() : super._();
 
   @override
   WooTrackData get data;
   @override
   @JsonKey(ignore: true)
   _$$_NextPreviousSuccessCopyWith<_$_NextPreviousSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CompleteSessionSuccessCopyWith<$Res>
+    implements $WooTrackStateCopyWith<$Res> {
+  factory _$$_CompleteSessionSuccessCopyWith(_$_CompleteSessionSuccess value,
+          $Res Function(_$_CompleteSessionSuccess) then) =
+      __$$_CompleteSessionSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({WooTrackData data});
+
+  @override
+  $WooTrackDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_CompleteSessionSuccessCopyWithImpl<$Res>
+    extends _$WooTrackStateCopyWithImpl<$Res, _$_CompleteSessionSuccess>
+    implements _$$_CompleteSessionSuccessCopyWith<$Res> {
+  __$$_CompleteSessionSuccessCopyWithImpl(_$_CompleteSessionSuccess _value,
+      $Res Function(_$_CompleteSessionSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_CompleteSessionSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as WooTrackData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CompleteSessionSuccess extends _CompleteSessionSuccess {
+  const _$_CompleteSessionSuccess({required this.data}) : super._();
+
+  @override
+  final WooTrackData data;
+
+  @override
+  String toString() {
+    return 'WooTrackState.completeSessionSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CompleteSessionSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CompleteSessionSuccessCopyWith<_$_CompleteSessionSuccess> get copyWith =>
+      __$$_CompleteSessionSuccessCopyWithImpl<_$_CompleteSessionSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(WooTrackData data) initial,
+    required TResult Function(WooTrackData data) changeExerciseSuccess,
+    required TResult Function(WooTrackData data) completeRound,
+    required TResult Function(WooTrackData data) playPauseSuccess,
+    required TResult Function(WooTrackData data) nextPreviousSuccess,
+    required TResult Function(WooTrackData data) completeSessionSuccess,
+    required TResult Function(WooTrackData data, String message)
+        completeSessionFailed,
+    required TResult Function(WooTrackData data) loading,
+  }) {
+    return completeSessionSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(WooTrackData data)? initial,
+    TResult? Function(WooTrackData data)? changeExerciseSuccess,
+    TResult? Function(WooTrackData data)? completeRound,
+    TResult? Function(WooTrackData data)? playPauseSuccess,
+    TResult? Function(WooTrackData data)? nextPreviousSuccess,
+    TResult? Function(WooTrackData data)? completeSessionSuccess,
+    TResult? Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult? Function(WooTrackData data)? loading,
+  }) {
+    return completeSessionSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(WooTrackData data)? initial,
+    TResult Function(WooTrackData data)? changeExerciseSuccess,
+    TResult Function(WooTrackData data)? completeRound,
+    TResult Function(WooTrackData data)? playPauseSuccess,
+    TResult Function(WooTrackData data)? nextPreviousSuccess,
+    TResult Function(WooTrackData data)? completeSessionSuccess,
+    TResult Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult Function(WooTrackData data)? loading,
+    required TResult orElse(),
+  }) {
+    if (completeSessionSuccess != null) {
+      return completeSessionSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeExerciseSuccess value)
+        changeExerciseSuccess,
+    required TResult Function(_CompletedRound value) completeRound,
+    required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
+    required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
+    required TResult Function(_CompleteSessionSuccess value)
+        completeSessionSuccess,
+    required TResult Function(_CompleteSessionFailed value)
+        completeSessionFailed,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return completeSessionSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
+    TResult? Function(_CompletedRound value)? completeRound,
+    TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult? Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult? Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return completeSessionSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
+    TResult Function(_CompletedRound value)? completeRound,
+    TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (completeSessionSuccess != null) {
+      return completeSessionSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CompleteSessionSuccess extends WooTrackState {
+  const factory _CompleteSessionSuccess({required final WooTrackData data}) =
+      _$_CompleteSessionSuccess;
+  const _CompleteSessionSuccess._() : super._();
+
+  @override
+  WooTrackData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CompleteSessionSuccessCopyWith<_$_CompleteSessionSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CompleteSessionFailedCopyWith<$Res>
+    implements $WooTrackStateCopyWith<$Res> {
+  factory _$$_CompleteSessionFailedCopyWith(_$_CompleteSessionFailed value,
+          $Res Function(_$_CompleteSessionFailed) then) =
+      __$$_CompleteSessionFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({WooTrackData data, String message});
+
+  @override
+  $WooTrackDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_CompleteSessionFailedCopyWithImpl<$Res>
+    extends _$WooTrackStateCopyWithImpl<$Res, _$_CompleteSessionFailed>
+    implements _$$_CompleteSessionFailedCopyWith<$Res> {
+  __$$_CompleteSessionFailedCopyWithImpl(_$_CompleteSessionFailed _value,
+      $Res Function(_$_CompleteSessionFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_CompleteSessionFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as WooTrackData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CompleteSessionFailed extends _CompleteSessionFailed {
+  const _$_CompleteSessionFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final WooTrackData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'WooTrackState.completeSessionFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CompleteSessionFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CompleteSessionFailedCopyWith<_$_CompleteSessionFailed> get copyWith =>
+      __$$_CompleteSessionFailedCopyWithImpl<_$_CompleteSessionFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(WooTrackData data) initial,
+    required TResult Function(WooTrackData data) changeExerciseSuccess,
+    required TResult Function(WooTrackData data) completeRound,
+    required TResult Function(WooTrackData data) playPauseSuccess,
+    required TResult Function(WooTrackData data) nextPreviousSuccess,
+    required TResult Function(WooTrackData data) completeSessionSuccess,
+    required TResult Function(WooTrackData data, String message)
+        completeSessionFailed,
+    required TResult Function(WooTrackData data) loading,
+  }) {
+    return completeSessionFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(WooTrackData data)? initial,
+    TResult? Function(WooTrackData data)? changeExerciseSuccess,
+    TResult? Function(WooTrackData data)? completeRound,
+    TResult? Function(WooTrackData data)? playPauseSuccess,
+    TResult? Function(WooTrackData data)? nextPreviousSuccess,
+    TResult? Function(WooTrackData data)? completeSessionSuccess,
+    TResult? Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult? Function(WooTrackData data)? loading,
+  }) {
+    return completeSessionFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(WooTrackData data)? initial,
+    TResult Function(WooTrackData data)? changeExerciseSuccess,
+    TResult Function(WooTrackData data)? completeRound,
+    TResult Function(WooTrackData data)? playPauseSuccess,
+    TResult Function(WooTrackData data)? nextPreviousSuccess,
+    TResult Function(WooTrackData data)? completeSessionSuccess,
+    TResult Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult Function(WooTrackData data)? loading,
+    required TResult orElse(),
+  }) {
+    if (completeSessionFailed != null) {
+      return completeSessionFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeExerciseSuccess value)
+        changeExerciseSuccess,
+    required TResult Function(_CompletedRound value) completeRound,
+    required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
+    required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
+    required TResult Function(_CompleteSessionSuccess value)
+        completeSessionSuccess,
+    required TResult Function(_CompleteSessionFailed value)
+        completeSessionFailed,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return completeSessionFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
+    TResult? Function(_CompletedRound value)? completeRound,
+    TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult? Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult? Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return completeSessionFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
+    TResult Function(_CompletedRound value)? completeRound,
+    TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (completeSessionFailed != null) {
+      return completeSessionFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CompleteSessionFailed extends WooTrackState {
+  const factory _CompleteSessionFailed(
+      {required final WooTrackData data,
+      required final String message}) = _$_CompleteSessionFailed;
+  const _CompleteSessionFailed._() : super._();
+
+  @override
+  WooTrackData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CompleteSessionFailedCopyWith<_$_CompleteSessionFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadingCopyWith<$Res>
+    implements $WooTrackStateCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({WooTrackData data});
+
+  @override
+  $WooTrackDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$WooTrackStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Loading(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as WooTrackData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Loading extends _Loading {
+  const _$_Loading({required this.data}) : super._();
+
+  @override
+  final WooTrackData data;
+
+  @override
+  String toString() {
+    return 'WooTrackState.loading(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Loading &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(WooTrackData data) initial,
+    required TResult Function(WooTrackData data) changeExerciseSuccess,
+    required TResult Function(WooTrackData data) completeRound,
+    required TResult Function(WooTrackData data) playPauseSuccess,
+    required TResult Function(WooTrackData data) nextPreviousSuccess,
+    required TResult Function(WooTrackData data) completeSessionSuccess,
+    required TResult Function(WooTrackData data, String message)
+        completeSessionFailed,
+    required TResult Function(WooTrackData data) loading,
+  }) {
+    return loading(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(WooTrackData data)? initial,
+    TResult? Function(WooTrackData data)? changeExerciseSuccess,
+    TResult? Function(WooTrackData data)? completeRound,
+    TResult? Function(WooTrackData data)? playPauseSuccess,
+    TResult? Function(WooTrackData data)? nextPreviousSuccess,
+    TResult? Function(WooTrackData data)? completeSessionSuccess,
+    TResult? Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult? Function(WooTrackData data)? loading,
+  }) {
+    return loading?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(WooTrackData data)? initial,
+    TResult Function(WooTrackData data)? changeExerciseSuccess,
+    TResult Function(WooTrackData data)? completeRound,
+    TResult Function(WooTrackData data)? playPauseSuccess,
+    TResult Function(WooTrackData data)? nextPreviousSuccess,
+    TResult Function(WooTrackData data)? completeSessionSuccess,
+    TResult Function(WooTrackData data, String message)? completeSessionFailed,
+    TResult Function(WooTrackData data)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeExerciseSuccess value)
+        changeExerciseSuccess,
+    required TResult Function(_CompletedRound value) completeRound,
+    required TResult Function(_PlayPauseSuccess value) playPauseSuccess,
+    required TResult Function(_NextPreviousSuccess value) nextPreviousSuccess,
+    required TResult Function(_CompleteSessionSuccess value)
+        completeSessionSuccess,
+    required TResult Function(_CompleteSessionFailed value)
+        completeSessionFailed,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
+    TResult? Function(_CompletedRound value)? completeRound,
+    TResult? Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult? Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult? Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult? Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeExerciseSuccess value)? changeExerciseSuccess,
+    TResult Function(_CompletedRound value)? completeRound,
+    TResult Function(_PlayPauseSuccess value)? playPauseSuccess,
+    TResult Function(_NextPreviousSuccess value)? nextPreviousSuccess,
+    TResult Function(_CompleteSessionSuccess value)? completeSessionSuccess,
+    TResult Function(_CompleteSessionFailed value)? completeSessionFailed,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading extends WooTrackState {
+  const factory _Loading({required final WooTrackData data}) = _$_Loading;
+  const _Loading._() : super._();
+
+  @override
+  WooTrackData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       throw _privateConstructorUsedError;
 }

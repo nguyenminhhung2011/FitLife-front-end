@@ -9,14 +9,22 @@ import 'package:flutter/material.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 
 class RelaxView extends StatefulWidget {
-  const RelaxView({super.key});
+  final int restTime;
+  final int currentExercise;
+  final int totalExercise;
+  const RelaxView({
+    super.key,
+    required this.restTime,
+    required this.currentExercise,
+    required this.totalExercise,
+  });
 
   @override
   State<RelaxView> createState() => _RelaxViewState();
 }
 
 class _RelaxViewState extends State<RelaxView> {
-  late int _restTime = 23;
+  late int _restTime = widget.restTime;
 
   @override
   void initState() {
@@ -97,7 +105,7 @@ class _RelaxViewState extends State<RelaxView> {
           ),
           const SizedBox(),
           Text(
-            "Next exercise 4/8",
+            "Next exercise ${widget.currentExercise}/${widget.totalExercise}",
             style:
                 context.titleSmall.copyWith(color: Theme.of(context).hintColor),
           ),

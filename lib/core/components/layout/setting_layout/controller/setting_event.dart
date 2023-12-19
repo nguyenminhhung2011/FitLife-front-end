@@ -23,5 +23,8 @@ class SettingEvent with _$SettingEvent {
     required String newPassCode,
   }) = _UpdatePassCode;
 
+  const factory SettingEvent.addFavoriteExercise(Exercise exercise) =
+      _AddFavoriteExercise;
+
   const factory SettingEvent.removePassCoe() = _RemovePassCode;
 }

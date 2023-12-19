@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$WooTrackData {
   int get currentExIndex => throw _privateConstructorUsedError;
+  int get currentRound => throw _privateConstructorUsedError;
   bool get isPlayed => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +31,7 @@ abstract class $WooTrackDataCopyWith<$Res> {
           WooTrackData value, $Res Function(WooTrackData) then) =
       _$WooTrackDataCopyWithImpl<$Res, WooTrackData>;
   @useResult
-  $Res call({int currentExIndex, bool isPlayed});
+  $Res call({int currentExIndex, int currentRound, bool isPlayed});
 }
 
 /// @nodoc
@@ -47,12 +48,17 @@ class _$WooTrackDataCopyWithImpl<$Res, $Val extends WooTrackData>
   @override
   $Res call({
     Object? currentExIndex = null,
+    Object? currentRound = null,
     Object? isPlayed = null,
   }) {
     return _then(_value.copyWith(
       currentExIndex: null == currentExIndex
           ? _value.currentExIndex
           : currentExIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      currentRound: null == currentRound
+          ? _value.currentRound
+          : currentRound // ignore: cast_nullable_to_non_nullable
               as int,
       isPlayed: null == isPlayed
           ? _value.isPlayed
@@ -70,7 +76,7 @@ abstract class _$$_WooTrackDataCopyWith<$Res>
       __$$_WooTrackDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int currentExIndex, bool isPlayed});
+  $Res call({int currentExIndex, int currentRound, bool isPlayed});
 }
 
 /// @nodoc
@@ -85,12 +91,17 @@ class __$$_WooTrackDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentExIndex = null,
+    Object? currentRound = null,
     Object? isPlayed = null,
   }) {
     return _then(_$_WooTrackData(
       currentExIndex: null == currentExIndex
           ? _value.currentExIndex
           : currentExIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      currentRound: null == currentRound
+          ? _value.currentRound
+          : currentRound // ignore: cast_nullable_to_non_nullable
               as int,
       isPlayed: null == isPlayed
           ? _value.isPlayed
@@ -103,16 +114,21 @@ class __$$_WooTrackDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_WooTrackData implements _WooTrackData {
-  const _$_WooTrackData({required this.currentExIndex, required this.isPlayed});
+  const _$_WooTrackData(
+      {required this.currentExIndex,
+      required this.currentRound,
+      required this.isPlayed});
 
   @override
   final int currentExIndex;
+  @override
+  final int currentRound;
   @override
   final bool isPlayed;
 
   @override
   String toString() {
-    return 'WooTrackData(currentExIndex: $currentExIndex, isPlayed: $isPlayed)';
+    return 'WooTrackData(currentExIndex: $currentExIndex, currentRound: $currentRound, isPlayed: $isPlayed)';
   }
 
   @override
@@ -122,12 +138,15 @@ class _$_WooTrackData implements _WooTrackData {
             other is _$_WooTrackData &&
             (identical(other.currentExIndex, currentExIndex) ||
                 other.currentExIndex == currentExIndex) &&
+            (identical(other.currentRound, currentRound) ||
+                other.currentRound == currentRound) &&
             (identical(other.isPlayed, isPlayed) ||
                 other.isPlayed == isPlayed));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentExIndex, isPlayed);
+  int get hashCode =>
+      Object.hash(runtimeType, currentExIndex, currentRound, isPlayed);
 
   @JsonKey(ignore: true)
   @override
@@ -139,10 +158,13 @@ class _$_WooTrackData implements _WooTrackData {
 abstract class _WooTrackData implements WooTrackData {
   const factory _WooTrackData(
       {required final int currentExIndex,
+      required final int currentRound,
       required final bool isPlayed}) = _$_WooTrackData;
 
   @override
   int get currentExIndex;
+  @override
+  int get currentRound;
   @override
   bool get isPlayed;
   @override

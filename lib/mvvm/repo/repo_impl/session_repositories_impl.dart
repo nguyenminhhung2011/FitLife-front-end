@@ -66,4 +66,11 @@ class SessionRepositoriesImpl extends BaseApi implements SessionRepositories {
       request: () async => await _sessionApi.deleteSession(id),
     );
   }
+
+  @override
+  Future<SResult<Session>> completeSession({required int id}) async =>
+      await (apiCall<SessionModel, Session>(
+        mapper: (result) => result.toEntity,
+        request: () async => await _sessionApi.completeSession(id),
+      ));
 }

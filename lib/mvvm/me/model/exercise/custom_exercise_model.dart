@@ -9,11 +9,8 @@ class CustomExerciseModel {
   @JsonKey(name: 'id')
   final int id;
 
-  @JsonKey(name: 'dateStart')
-  final int dateStart;
-
   @JsonKey(name: 'time')
-  final String time;
+  final int time;
 
   @JsonKey(name: 'difficulty')
   final String difficulty;
@@ -27,14 +24,17 @@ class CustomExerciseModel {
   @JsonKey(name: 'weight')
   final int weight;
 
+  @JsonKey(name: 'calories')
+  final int calories;
+
   CustomExerciseModel({
     required this.id,
-    required this.dateStart,
     required this.time,
     required this.difficulty,
     required this.exercise,
     required this.rep,
     required this.weight,
+    required this.calories,
   });
 
   factory CustomExerciseModel.fromJson(Map<String, dynamic> json) =>
@@ -44,11 +44,11 @@ class CustomExerciseModel {
 
   CustomExercise get toEntity => CustomExercise(
         id: id,
-        dateStart: dateStart,
         time: time,
         difficulty: difficulty,
         exercise: exercise.toEntity,
         rep: rep,
+        calories: calories,
         weight: weight,
       );
 }

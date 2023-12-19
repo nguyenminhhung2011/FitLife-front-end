@@ -1,4 +1,6 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/me/entity/request/update_setting_session_request.dart';
+import 'package:fit_life/mvvm/me/entity/session/setting_session.dart';
 import 'package:fit_life/mvvm/repo/session_repositories.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -29,12 +31,29 @@ class ExerciseOverviewViewModel extends StateNotifier<ExerciseOverviewState> {
   Future<void> getExerciseOverview() async {
     state = _Loading(data: data);
     final response = await _sessionRepositories.getSessionById(id: _sessionId);
-    await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
     state = response.fold(
       ifLeft: (error) =>
           _GetSessionPlanFailed(data: data, message: error.message),
       ifRight: (rData) => _GetSessionPlanSuccess(
+        data: data.copyWith(sessionPlan: rData),
+      ),
+    );
+  }
+
+  Future<void> updateSettingSession(SettingSession settingSession) async {
+    if (data.sessionPlan == null) return;
+    state = _Loading(data: data);
+    final response = await _sessionRepositories.updateSettingSession(
+      id: int.parse(data.sessionPlan!.id),
+      request: UpdateSettingSessionRequest.fromSettingSession(
+          settingSession, data.sessionPlan!),
+    );
+    if (!mounted) return;
+    state = response.fold(
+      ifLeft: (error) =>
+          _UpdateSettingSessionFailed(data: data, message: error.message),
+      ifRight: (rData) => _UpdateSettingSessionSuccess(
         data: data.copyWith(sessionPlan: rData),
       ),
     );

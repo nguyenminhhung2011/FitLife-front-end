@@ -1,11 +1,11 @@
-import 'dart:developer';
-
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/enum/exercise_set.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/extensions/interger_extension.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/video_player.dart';
+import 'package:fit_life/mvvm/me/entity/custom_exercise/custom_exercise.dart';
+import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/congratulation.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/widgets/exercise_set_item.dart';
@@ -16,7 +16,8 @@ import 'package:timer_count_down/timer_controller.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 
 class WooTrackView extends ConsumerStatefulWidget {
-  const WooTrackView({super.key});
+  final Session session;
+  const WooTrackView({required this.session, super.key});
 
   @override
   ConsumerState<WooTrackView> createState() => _WooTrackViewState();
@@ -30,12 +31,13 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
   final CountdownController _countdownController =
       CountdownController(autoStart: true);
 
+  late final List<CustomExercise> _exercises =
+      widget.session.customExercise ?? <CustomExercise>[];
+
   int get _currentExIndex =>
       ref.watch(wooTrackStateNotifier).data.currentExIndex;
 
   bool get _isPlayed => ref.watch(wooTrackStateNotifier).data.isPlayed;
-
-  final _timeConstant = [10, 5, 5, 5, 5];
 
   @override
   void initState() {
@@ -48,13 +50,19 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
   }
 
   void _onProcessFinish() {
-    _vm.changeCurrentEx();
+    _vm.changeCurrentEx(
+        length: _exercises.length,
+        numberRound: widget.session.numberRound ?? 1);
   }
 
   void _handleExChange() async {
     await Future.delayed(const Duration(milliseconds: 400));
     // ignore: use_build_context_synchronously
-    final chest = await context.bottomRelax();
+    final chest = await context.bottomRelax(
+      widget.session.breakTime ?? 23,
+      current: _currentExIndex + 1,
+      total: _exercises.length,
+    );
     if (chest) {
       _countdownController.restart();
     }
@@ -77,7 +85,11 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
         }
       },
       completeRound: (_) async {
-        log("Complete round");
+        await _vm.completeSession(sessionId: int.parse(widget.session.id));
+      },
+      completeSessionFailed: (_, error) =>
+          context.showSnackBar("🐛[Complete session] $error"),
+      completeSessionSuccess: (_) async {
         await showDialog(
           context: context,
           builder: (_) => const Dialog(
@@ -181,14 +193,14 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
     );
   }
 
-  Container _processField(BuildContext context) {
+  Widget _processField(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       width: double.infinity,
       height: 40.0,
       child: Row(
         children: [
-          for (int i = 0; i < 5; i++)
+          for (int i = 0; i < _exercises.length; i++)
             Expanded(
               child: LayoutBuilder(builder: (context, constraints) {
                 return Stack(
@@ -224,6 +236,10 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
         padding: const EdgeInsets.all(0.0),
         children: [
           Text(
+            "Round ${_vm.data.currentRound + 1} / ${widget.session.numberRound}",
+            style: context.titleMedium.copyWith(fontWeight: FontWeight.bold),
+          ),
+          Text(
             'Day 1',
             style: context.titleSmall.copyWith(
               color: Theme.of(context).hintColor,
@@ -231,12 +247,12 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
             ),
           ),
           Text(
-            'Workout 1: Chest out',
+            'Session ${widget.session.name}  ',
             style: context.titleMedium.copyWith(fontWeight: FontWeight.w600),
           ),
           const SizedBox(),
           Text(
-            "Barbell Bench Press",
+            "Workout ${_currentExIndex + 1}: ${_exercises[_currentExIndex].exercise.name}",
             style: context.titleLarge
                 .copyWith(fontWeight: FontWeight.bold, fontSize: 26.0),
           ),
@@ -270,7 +286,13 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
           Row(
             children: [
               ...[ExerciseSet.weight, ExerciseSet.reps].map(
-                (e) => Expanded(child: ExerciseSetItem(e: e, data: 10)),
+                (e) => Expanded(
+                  child: ExerciseSetItem(
+                      e: e,
+                      data: (e == ExerciseSet.weight)
+                          ? _exercises[_currentExIndex].weight
+                          : _exercises[_currentExIndex].rep),
+                ),
               ),
             ].expand((e) => [e, const SizedBox(width: 10.0)]).toList()
               ..removeLast(),
@@ -289,8 +311,8 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
           children: [
             Countdown(
               controller: _countdownController,
-              seconds: (_currentExIndex < _timeConstant.length)
-                  ? _timeConstant[_currentExIndex]
+              seconds: (_currentExIndex < _exercises.length)
+                  ? _exercises[_currentExIndex].time
                   : 0,
               build: (context, time) {
                 return Text(
@@ -306,7 +328,7 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
               onFinished: _onProcessFinish,
             ),
             Text(
-              '60%',
+              '${((_currentExIndex / _exercises.length) * 100).round()}%',
               style: context.titleLarge.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 28.0,
@@ -319,7 +341,10 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ...['🔥 24 KCal Burned', 'Completed 3 of 5'].map((e) => Text(
+            ...[
+              '🔥 ${widget.session.calcTarget} KCal Burned',
+              'Completed $_currentExIndex of ${_exercises.length}'
+            ].map((e) => Text(
                   e,
                   style: context.titleSmall
                       .copyWith(overflow: TextOverflow.ellipsis),
@@ -341,7 +366,10 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
           _controllerBtn(
             icon: Icons.arrow_back,
             onPress: () => _vm.nextPreviousEx(
-                wooExerciseAction: WooExerciseAction.previous),
+              wooExerciseAction: WooExerciseAction.previous,
+              length: _exercises.length,
+              numberRound: widget.session.numberRound ?? 1,
+            ),
           ),
           _controllerBtn(
             icon: centerIcon,
@@ -352,8 +380,11 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
           ),
           _controllerBtn(
             icon: Icons.arrow_forward,
-            onPress: () =>
-                _vm.nextPreviousEx(wooExerciseAction: WooExerciseAction.next),
+            onPress: () => _vm.nextPreviousEx(
+              wooExerciseAction: WooExerciseAction.next,
+              length: _exercises.length,
+              numberRound: widget.session.numberRound ?? 1,
+            ),
           )
         ],
       ),

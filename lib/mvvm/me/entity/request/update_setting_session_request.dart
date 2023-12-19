@@ -1,3 +1,6 @@
+import 'package:fit_life/mvvm/me/entity/session/session.dart';
+import 'package:fit_life/mvvm/me/entity/session/setting_session.dart';
+import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'update_setting_session_request.g.dart';
@@ -51,5 +54,19 @@ class UpdateSettingSessionRequest {
       _$UpdateSettingSessionRequestFromJson(json);
 
   Map<String, dynamic> toJson() => _$UpdateSettingSessionRequestToJson(this);
+
+  factory UpdateSettingSessionRequest.fromSettingSession(
+          SettingSession settingSession, Session session) =>
+      UpdateSettingSessionRequest(
+        startWithBoot: settingSession.startWithBoot,
+        randomMix: settingSession.randomMix,
+        timePerLesson: settingSession.timePerLesson,
+        transferTime: settingSession.transferTime,
+        calcTarget: settingSession.calcTarget,
+        description: session.description ?? "",
+        name: session.name ?? "",
+        numberRound: settingSession.numberRound,
+        breakTime: settingSession.breakTime,
+        level: (session.level ?? Level.beginner).renderString,
+      );
 }
-  

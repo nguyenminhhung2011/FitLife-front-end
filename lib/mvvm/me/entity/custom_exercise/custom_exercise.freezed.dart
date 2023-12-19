@@ -21,12 +21,12 @@ CustomExercise _$CustomExerciseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CustomExercise {
   int get id => throw _privateConstructorUsedError;
-  int get dateStart => throw _privateConstructorUsedError;
-  String get time => throw _privateConstructorUsedError;
+  int get time => throw _privateConstructorUsedError;
   String get difficulty => throw _privateConstructorUsedError;
   Exercise get exercise => throw _privateConstructorUsedError;
   int get rep => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
+  int get calories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,12 +42,12 @@ abstract class $CustomExerciseCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      int dateStart,
-      String time,
+      int time,
       String difficulty,
       Exercise exercise,
       int rep,
-      int weight});
+      int weight,
+      int calories});
 
   $ExerciseCopyWith<$Res> get exercise;
 }
@@ -66,26 +66,22 @@ class _$CustomExerciseCopyWithImpl<$Res, $Val extends CustomExercise>
   @override
   $Res call({
     Object? id = null,
-    Object? dateStart = null,
     Object? time = null,
     Object? difficulty = null,
     Object? exercise = null,
     Object? rep = null,
     Object? weight = null,
+    Object? calories = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      dateStart: null == dateStart
-          ? _value.dateStart
-          : dateStart // ignore: cast_nullable_to_non_nullable
-              as int,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       difficulty: null == difficulty
           ? _value.difficulty
           : difficulty // ignore: cast_nullable_to_non_nullable
@@ -101,6 +97,10 @@ class _$CustomExerciseCopyWithImpl<$Res, $Val extends CustomExercise>
       weight: null == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
+              as int,
+      calories: null == calories
+          ? _value.calories
+          : calories // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -124,12 +124,12 @@ abstract class _$$_CustomExerciseCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      int dateStart,
-      String time,
+      int time,
       String difficulty,
       Exercise exercise,
       int rep,
-      int weight});
+      int weight,
+      int calories});
 
   @override
   $ExerciseCopyWith<$Res> get exercise;
@@ -147,26 +147,22 @@ class __$$_CustomExerciseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? dateStart = null,
     Object? time = null,
     Object? difficulty = null,
     Object? exercise = null,
     Object? rep = null,
     Object? weight = null,
+    Object? calories = null,
   }) {
     return _then(_$_CustomExercise(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      dateStart: null == dateStart
-          ? _value.dateStart
-          : dateStart // ignore: cast_nullable_to_non_nullable
-              as int,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       difficulty: null == difficulty
           ? _value.difficulty
           : difficulty // ignore: cast_nullable_to_non_nullable
@@ -183,6 +179,10 @@ class __$$_CustomExerciseCopyWithImpl<$Res>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as int,
+      calories: null == calories
+          ? _value.calories
+          : calories // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -192,12 +192,12 @@ class __$$_CustomExerciseCopyWithImpl<$Res>
 class _$_CustomExercise implements _CustomExercise {
   const _$_CustomExercise(
       {required this.id,
-      required this.dateStart,
       required this.time,
       required this.difficulty,
       required this.exercise,
       required this.rep,
-      required this.weight});
+      required this.weight,
+      required this.calories});
 
   factory _$_CustomExercise.fromJson(Map<String, dynamic> json) =>
       _$$_CustomExerciseFromJson(json);
@@ -205,9 +205,7 @@ class _$_CustomExercise implements _CustomExercise {
   @override
   final int id;
   @override
-  final int dateStart;
-  @override
-  final String time;
+  final int time;
   @override
   final String difficulty;
   @override
@@ -216,10 +214,12 @@ class _$_CustomExercise implements _CustomExercise {
   final int rep;
   @override
   final int weight;
+  @override
+  final int calories;
 
   @override
   String toString() {
-    return 'CustomExercise(id: $id, dateStart: $dateStart, time: $time, difficulty: $difficulty, exercise: $exercise, rep: $rep, weight: $weight)';
+    return 'CustomExercise(id: $id, time: $time, difficulty: $difficulty, exercise: $exercise, rep: $rep, weight: $weight, calories: $calories)';
   }
 
   @override
@@ -228,21 +228,21 @@ class _$_CustomExercise implements _CustomExercise {
         (other.runtimeType == runtimeType &&
             other is _$_CustomExercise &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.dateStart, dateStart) ||
-                other.dateStart == dateStart) &&
             (identical(other.time, time) || other.time == time) &&
             (identical(other.difficulty, difficulty) ||
                 other.difficulty == difficulty) &&
             (identical(other.exercise, exercise) ||
                 other.exercise == exercise) &&
             (identical(other.rep, rep) || other.rep == rep) &&
-            (identical(other.weight, weight) || other.weight == weight));
+            (identical(other.weight, weight) || other.weight == weight) &&
+            (identical(other.calories, calories) ||
+                other.calories == calories));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, dateStart, time, difficulty, exercise, rep, weight);
+      runtimeType, id, time, difficulty, exercise, rep, weight, calories);
 
   @JsonKey(ignore: true)
   @override
@@ -261,12 +261,12 @@ class _$_CustomExercise implements _CustomExercise {
 abstract class _CustomExercise implements CustomExercise {
   const factory _CustomExercise(
       {required final int id,
-      required final int dateStart,
-      required final String time,
+      required final int time,
       required final String difficulty,
       required final Exercise exercise,
       required final int rep,
-      required final int weight}) = _$_CustomExercise;
+      required final int weight,
+      required final int calories}) = _$_CustomExercise;
 
   factory _CustomExercise.fromJson(Map<String, dynamic> json) =
       _$_CustomExercise.fromJson;
@@ -274,9 +274,7 @@ abstract class _CustomExercise implements CustomExercise {
   @override
   int get id;
   @override
-  int get dateStart;
-  @override
-  String get time;
+  int get time;
   @override
   String get difficulty;
   @override
@@ -285,6 +283,8 @@ abstract class _CustomExercise implements CustomExercise {
   int get rep;
   @override
   int get weight;
+  @override
+  int get calories;
   @override
   @JsonKey(ignore: true)
   _$$_CustomExerciseCopyWith<_$_CustomExercise> get copyWith =>

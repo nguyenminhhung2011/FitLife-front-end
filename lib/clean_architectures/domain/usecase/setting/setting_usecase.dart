@@ -19,4 +19,7 @@ class SettingUseCase extends BaseUseCase<User> {
 
   Future<SResult<bool>> changePassword({required ChangePassword changePass}) =>
       _userRepositories.changePassword(request: changePass);
+
+  Future<SResult<bool>> addFavoriteExercise({required int exerciseId}) =>
+      _userRepositories.addFavoriteExercise(exerciseId);
 }

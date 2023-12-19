@@ -1,6 +1,7 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
+import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:fit_life/mvvm/ui/all_exercise/view_model/all_exercise_view_model.dart';
 import 'package:fit_life/mvvm/ui/auth/views/introduction_view.dart';
 import 'package:fit_life/mvvm/ui/auth/views/sign_up_view.dart';
@@ -33,8 +34,6 @@ import 'package:fit_life/mvvm/ui/onboarding/views/onboarding_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/components/layout/setting_layout/views/passcode_screen.dart';
-// import 'package:riverpod_annotation/riverpod_annotation.dart';
-// import 'package:go_router/go_router.dart';
 
 class MainRoutes {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -85,12 +84,27 @@ class MainRoutes {
       case Routes.wooTrackView:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: WooTrackView()),
+          builder: (_) {
+            if (settings.arguments is Session) {
+              return ProviderScope(
+                child: WooTrackView(session: settings.arguments as Session),
+              );
+            }
+            return const SizedBox();
+          },
         );
       case Routes.previewExercise:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: PreviewExerciseView()),
+          builder: (_) {
+            if (settings.arguments is Session) {
+              return ProviderScope(
+                child:
+                    PreviewExerciseView(session: settings.arguments as Session),
+              );
+            }
+            return const SizedBox();
+          },
         );
 
       case Routes.splash:

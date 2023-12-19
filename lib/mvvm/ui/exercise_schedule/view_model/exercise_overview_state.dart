@@ -19,5 +19,13 @@ class ExerciseOverviewState with _$ExerciseOverviewState {
     required String message,
   }) = _GetSessionPlanFailed;
 
+  const factory ExerciseOverviewState.updateSettingSessionSuccess(
+      {required ExerciseOverviewData data}) = _UpdateSettingSessionSuccess;
+
+  const factory ExerciseOverviewState.updateSettingSessionFailed({
+    required ExerciseOverviewData data,
+    required String message,
+  }) = _UpdateSettingSessionFailed;
+
   bool get loading => this is _Loading;
 }

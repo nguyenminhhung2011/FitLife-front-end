@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/me/entity/calories_chart/calories_chart.dart';
+import 'package:fit_life/mvvm/me/entity/chart/fit_overview.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:fit_life/routes/routes.dart';
@@ -41,9 +42,9 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
 
   List<DateTime> get _rangeDate => _data.rangeDate;
 
-  CaloriesChart get _caloriesChart => _data.caloriesChart;
+  FitOverview? get _overviewData => _data.overviewData;
 
-  int get _totalCalories => _caloriesChart.calories.reduce((a, b) => a + b);
+  CaloriesChart get _caloriesChart => _data.caloriesChart;
 
   int get _findMaxCalories => _caloriesChart.calories.reduce(max);
 
@@ -163,8 +164,10 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
             child: LineChartOneLine(
               listData: [
                 if (_findMaxCalories != 0)
-                  ..._caloriesChart.calories.mapIndexed((index, element) =>
-                      FlSpot(index + 1, (element / _findMaxCalories) * 6))
+                  ..._caloriesChart.calories.mapIndexed(
+                    (index, element) => FlSpot(index + 1,
+                        element == 0 ? 1 : (element / _findMaxCalories) * 6),
+                  )
                 else
                   ...List.generate(7, (index) => FlSpot(index + 1, 1))
               ],
@@ -175,15 +178,17 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
           const SizedBox(height: 15.0),
           FitnessOverViewStatistic(
             heartRate: _caloriesChart.heartRate,
-            calories: _totalCalories,
-            toDo: _caloriesChart.todo,
+            calories: _overviewData?.calories ?? 0,
+            toDo: _overviewData?.todoPercent ?? 0.0,
           ),
           HeaderTextCustom(
             headerText: 'What do you want to train',
             textStyle:
                 context.titleMedium.copyWith(fontWeight: FontWeight.w600),
             isShowSeeMore: true,
-            onPress: () => context.openListPageWithRoute(Routes.groupExercise),
+            onPress: () async {
+              await context.openListPageWithRoute(Routes.groupExercise);
+            },
           ),
           const SizedBox(height: 10.0),
           if (_data.isLoadingBodyPart)
@@ -200,13 +205,13 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
                 children: [
                   const SizedBox(width: 15.0),
                   ..._exerciseCategories!
-                      .map<Widget>(
-                        (e) => BodyPartWidget(
+                      .mapIndexed<Widget>(
+                        (index, e) => BodyPartWidget(
                           header: e.header,
                           exCountable: e.exCountable,
                           description: e.description ?? "",
                           level: e.level,
-                          image: e.image,
+                          image: ImageConst.listBanner[index % 3],
                         ),
                       )
                       .expand((e) => [e, const SizedBox(width: 15.0)])
@@ -232,7 +237,16 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
                 return Column(
                   children: [
                     UpComingSessionItem(
-                        session: _data.upcomingSessions![index]),
+                      session: _data.upcomingSessions![index],
+                      onPress: () async {
+                        await context.openPageWithRouteAndParams(
+                          Routes.exerciseOverview,
+                          _data.upcomingSessions![index].id.toString(),
+                        );
+                        await _vm.getUpcomingSession();
+                        await _vm.getCaloriesChart();
+                      },
+                    ),
                     const SizedBox(height: 10.0),
                   ],
                 );

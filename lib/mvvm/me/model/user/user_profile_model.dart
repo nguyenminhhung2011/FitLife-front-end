@@ -1,5 +1,6 @@
 import 'package:fit_life/core/components/extensions/string_extensions.dart';
 import 'package:fit_life/mvvm/me/entity/user/user_profile_entity.dart';
+import 'package:fit_life/mvvm/me/model/exercise/exercise_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'user_profile_model.g.dart';
 
@@ -35,6 +36,9 @@ class UserProfileModel {
   @JsonKey(name: 'created')
   final bool created;
 
+  @JsonKey(name: 'favoriteExercises')
+  final List<ExerciseModel>? favoriteExercises;
+
   UserProfileModel({
     required this.id,
     required this.birthDay,
@@ -46,6 +50,7 @@ class UserProfileModel {
     this.currentPlan,
     this.phone,
     this.frequency,
+    this.favoriteExercises,
   });
 
   factory UserProfileModel.fromJson(Map<String, dynamic> json) =>
@@ -64,5 +69,7 @@ class UserProfileModel {
         frequency: frequency?.toFrequency,
         currentPlan: currentPlan,
         phone: phone,
+        favoriteExercises: favoriteExercises?.map((e) => e.toEntity).toList() ??
+            List.empty(growable: true),
       );
 }

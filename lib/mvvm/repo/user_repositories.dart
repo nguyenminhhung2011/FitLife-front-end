@@ -8,4 +8,5 @@ abstract class UserRepositories {
       {required UpdateUserProfile updateUserProfile});
   Future<SResult<User>> getUserProfile();
   Future<SResult<bool>> changePassword({required ChangePassword request});
+  Future<SResult<bool>> addFavoriteExercise(int exerciseId);
 }

@@ -26,6 +26,7 @@ mixin _$UserProfile {
   String? get phone => throw _privateConstructorUsedError;
   Frequency? get frequency => throw _privateConstructorUsedError;
   Gender? get gender => throw _privateConstructorUsedError;
+  List<Exercise> get favoriteExercises => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserProfileCopyWith<UserProfile> get copyWith =>
@@ -48,7 +49,8 @@ abstract class $UserProfileCopyWith<$Res> {
       String? currentPlan,
       String? phone,
       Frequency? frequency,
-      Gender? gender});
+      Gender? gender,
+      List<Exercise> favoriteExercises});
 }
 
 /// @nodoc
@@ -74,6 +76,7 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
     Object? phone = freezed,
     Object? frequency = freezed,
     Object? gender = freezed,
+    Object? favoriteExercises = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -116,6 +119,10 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender?,
+      favoriteExercises: null == favoriteExercises
+          ? _value.favoriteExercises
+          : favoriteExercises // ignore: cast_nullable_to_non_nullable
+              as List<Exercise>,
     ) as $Val);
   }
 }
@@ -138,7 +145,8 @@ abstract class _$$_UserProfileCopyWith<$Res>
       String? currentPlan,
       String? phone,
       Frequency? frequency,
-      Gender? gender});
+      Gender? gender,
+      List<Exercise> favoriteExercises});
 }
 
 /// @nodoc
@@ -162,6 +170,7 @@ class __$$_UserProfileCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? frequency = freezed,
     Object? gender = freezed,
+    Object? favoriteExercises = null,
   }) {
     return _then(_$_UserProfile(
       id: null == id
@@ -204,6 +213,10 @@ class __$$_UserProfileCopyWithImpl<$Res>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender?,
+      favoriteExercises: null == favoriteExercises
+          ? _value._favoriteExercises
+          : favoriteExercises // ignore: cast_nullable_to_non_nullable
+              as List<Exercise>,
     ));
   }
 }
@@ -221,7 +234,9 @@ class _$_UserProfile implements _UserProfile {
       this.currentPlan,
       this.phone,
       this.frequency,
-      this.gender});
+      this.gender,
+      final List<Exercise> favoriteExercises = const []})
+      : _favoriteExercises = favoriteExercises;
 
   @override
   final int id;
@@ -243,10 +258,19 @@ class _$_UserProfile implements _UserProfile {
   final Frequency? frequency;
   @override
   final Gender? gender;
+  final List<Exercise> _favoriteExercises;
+  @override
+  @JsonKey()
+  List<Exercise> get favoriteExercises {
+    if (_favoriteExercises is EqualUnmodifiableListView)
+      return _favoriteExercises;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_favoriteExercises);
+  }
 
   @override
   String toString() {
-    return 'UserProfile(id: $id, weight: $weight, height: $height, created: $created, birthDay: $birthDay, level: $level, currentPlan: $currentPlan, phone: $phone, frequency: $frequency, gender: $gender)';
+    return 'UserProfile(id: $id, weight: $weight, height: $height, created: $created, birthDay: $birthDay, level: $level, currentPlan: $currentPlan, phone: $phone, frequency: $frequency, gender: $gender, favoriteExercises: $favoriteExercises)';
   }
 
   @override
@@ -266,12 +290,25 @@ class _$_UserProfile implements _UserProfile {
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.frequency, frequency) ||
                 other.frequency == frequency) &&
-            (identical(other.gender, gender) || other.gender == gender));
+            (identical(other.gender, gender) || other.gender == gender) &&
+            const DeepCollectionEquality()
+                .equals(other._favoriteExercises, _favoriteExercises));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, weight, height, created,
-      birthDay, level, currentPlan, phone, frequency, gender);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      weight,
+      height,
+      created,
+      birthDay,
+      level,
+      currentPlan,
+      phone,
+      frequency,
+      gender,
+      const DeepCollectionEquality().hash(_favoriteExercises));
 
   @JsonKey(ignore: true)
   @override
@@ -291,7 +328,8 @@ abstract class _UserProfile implements UserProfile {
       final String? currentPlan,
       final String? phone,
       final Frequency? frequency,
-      final Gender? gender}) = _$_UserProfile;
+      final Gender? gender,
+      final List<Exercise> favoriteExercises}) = _$_UserProfile;
 
   @override
   int get id;
@@ -313,6 +351,8 @@ abstract class _UserProfile implements UserProfile {
   Frequency? get frequency;
   @override
   Gender? get gender;
+  @override
+  List<Exercise> get favoriteExercises;
   @override
   @JsonKey(ignore: true)
   _$$_UserProfileCopyWith<_$_UserProfile> get copyWith =>

@@ -18,6 +18,9 @@ UserProfileModel _$UserProfileModelFromJson(Map<String, dynamic> json) =>
       currentPlan: json['currentPlan'] as String?,
       phone: json['phone'] as String?,
       frequency: json['frequency'] as String?,
+      favoriteExercises: (json['favoriteExercises'] as List<dynamic>?)
+          ?.map((e) => ExerciseModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$UserProfileModelToJson(UserProfileModel instance) =>
@@ -32,4 +35,5 @@ Map<String, dynamic> _$UserProfileModelToJson(UserProfileModel instance) =>
       'frequency': instance.frequency,
       'gender': instance.gender,
       'created': instance.created,
+      'favoriteExercises': instance.favoriteExercises,
     };

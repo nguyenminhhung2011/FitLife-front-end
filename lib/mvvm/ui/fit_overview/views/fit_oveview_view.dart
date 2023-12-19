@@ -205,13 +205,13 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
                 children: [
                   const SizedBox(width: 15.0),
                   ..._exerciseCategories!
-                      .map<Widget>(
-                        (e) => BodyPartWidget(
+                      .mapIndexed<Widget>(
+                        (index, e) => BodyPartWidget(
                           header: e.header,
                           exCountable: e.exCountable,
                           description: e.description ?? "",
                           level: e.level,
-                          image: e.image,
+                          image: ImageConst.listBanner[index % 3],
                         ),
                       )
                       .expand((e) => [e, const SizedBox(width: 15.0)])

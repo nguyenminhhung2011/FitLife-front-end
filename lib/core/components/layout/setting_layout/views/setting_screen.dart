@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -116,6 +118,8 @@ class _SettingScreenState extends State<SettingScreen> {
             AdaptiveTheme.of(context).setLight();
           }
         },
+        addFavoriteExerciseFailed: (_, error) =>
+            log("🐛[Add favorite exercise] $error"),
         changePasswordFailed: (_, error) =>
             context.showSnackBar("🐛[Change password] $error"),
         changePasswordSuccess: (_) =>

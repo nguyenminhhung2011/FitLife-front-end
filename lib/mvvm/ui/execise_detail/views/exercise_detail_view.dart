@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
@@ -8,6 +10,7 @@ import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/model/exercise/instruction_model.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/view_model/exercise_detail_data.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/view_model/exercise_detail_view_model.dart';
+import 'package:fit_life/mvvm/ui/execise_detail/views/widgets/favorite_icon_button.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/widgets/step_item_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -82,12 +85,7 @@ class _ExerciseDetailViewState extends ConsumerState<ExerciseDetailView> {
           onPressed: () => context.pop(),
           icon: Icon(Icons.arrow_back, color: context.titleLarge.color),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.more_horiz, color: context.titleMedium.color),
-          )
-        ],
+        actions: [FavoriteIconButton(data: _data.exercise!)],
       ),
       bottomSheet: Padding(
         padding: const EdgeInsets.all(10.0),

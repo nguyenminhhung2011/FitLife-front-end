@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:fit_life/core/components/layout/setting_layout/controller/setting_modal_state.dart';
 import 'package:fit_life/core/components/utils/validators.dart';
 import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -54,6 +55,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     on<_LogOut>(_onLogOut);
     on<_RemovePassCode>(_onRemovePassCode);
     on<_ChangePassword>(_onChangePassword);
+    on<_AddFavoriteExercise>(_onAddFavoriteExercise);
   }
 
   FutureOr<void> _onStarted(
@@ -72,6 +74,36 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
         passCode: passCode.toLowerCase(),
       ),
     ));
+  }
+
+  FutureOr<void> _onAddFavoriteExercise(
+      _AddFavoriteExercise event, Emitter<SettingState> emit) async {
+    emit(_Loading(data: data));
+    (await _settingUseCase.addFavoriteExercise(exerciseId: event.exercise.id))
+        .fold(
+      ifLeft: (error) =>
+          emit(_AddFavoriteExerciseFailed(data: data, message: error.message)),
+      ifRight: (_) {
+        final currentFav =
+            data.currentUser?.userProfile?.favoriteExercises ?? [];
+        List<Exercise> newFav = [];
+        if (currentFav
+            .where((element) => element.id == event.exercise.id)
+            .isNotEmpty) {
+          newFav = currentFav
+              .where((element) => element.id != event.exercise.id)
+              .toList();
+        } else {
+          newFav = [...currentFav, event.exercise];
+        }
+        emit(_AddFavoriteExerciseSuccess(
+            data: data.copyWith(
+                currentUser: data.currentUser?.copyWith(
+          userProfile: data.currentUser?.userProfile
+              ?.copyWith(favoriteExercises: newFav),
+        ))));
+      },
+    );
   }
 
   FutureOr<void> _onUpdateAppearance(

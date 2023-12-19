@@ -26,6 +26,7 @@ mixin _$SettingEvent {
     required TResult Function(Currencies currencies) updateCurrencies,
     required TResult Function(ChangePassword changePass) changePassword,
     required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
     required TResult Function() removePassCoe,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ mixin _$SettingEvent {
     TResult? Function(Currencies currencies)? updateCurrencies,
     TResult? Function(ChangePassword changePass)? changePassword,
     TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
     TResult? Function()? removePassCoe,
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +54,7 @@ mixin _$SettingEvent {
     TResult Function(Currencies currencies)? updateCurrencies,
     TResult Function(ChangePassword changePass)? changePassword,
     TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
     TResult Function()? removePassCoe,
     required TResult orElse(),
   }) =>
@@ -66,6 +69,7 @@ mixin _$SettingEvent {
     required TResult Function(_UpdateCurrencies value) updateCurrencies,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
     required TResult Function(_RemovePassCode value) removePassCoe,
   }) =>
       throw _privateConstructorUsedError;
@@ -79,6 +83,7 @@ mixin _$SettingEvent {
     TResult? Function(_UpdateCurrencies value)? updateCurrencies,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult? Function(_RemovePassCode value)? removePassCoe,
   }) =>
       throw _privateConstructorUsedError;
@@ -92,6 +97,7 @@ mixin _$SettingEvent {
     TResult Function(_UpdateCurrencies value)? updateCurrencies,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult Function(_RemovePassCode value)? removePassCoe,
     required TResult orElse(),
   }) =>
@@ -161,6 +167,7 @@ class _$_Started implements _Started {
     required TResult Function(Currencies currencies) updateCurrencies,
     required TResult Function(ChangePassword changePass) changePassword,
     required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
     required TResult Function() removePassCoe,
   }) {
     return started();
@@ -177,6 +184,7 @@ class _$_Started implements _Started {
     TResult? Function(Currencies currencies)? updateCurrencies,
     TResult? Function(ChangePassword changePass)? changePassword,
     TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
     TResult? Function()? removePassCoe,
   }) {
     return started?.call();
@@ -193,6 +201,7 @@ class _$_Started implements _Started {
     TResult Function(Currencies currencies)? updateCurrencies,
     TResult Function(ChangePassword changePass)? changePassword,
     TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
     TResult Function()? removePassCoe,
     required TResult orElse(),
   }) {
@@ -213,6 +222,7 @@ class _$_Started implements _Started {
     required TResult Function(_UpdateCurrencies value) updateCurrencies,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
     required TResult Function(_RemovePassCode value) removePassCoe,
   }) {
     return started(this);
@@ -229,6 +239,7 @@ class _$_Started implements _Started {
     TResult? Function(_UpdateCurrencies value)? updateCurrencies,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult? Function(_RemovePassCode value)? removePassCoe,
   }) {
     return started?.call(this);
@@ -245,6 +256,7 @@ class _$_Started implements _Started {
     TResult Function(_UpdateCurrencies value)? updateCurrencies,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult Function(_RemovePassCode value)? removePassCoe,
     required TResult orElse(),
   }) {
@@ -305,6 +317,7 @@ class _$_UpdateAppearance implements _UpdateAppearance {
     required TResult Function(Currencies currencies) updateCurrencies,
     required TResult Function(ChangePassword changePass) changePassword,
     required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
     required TResult Function() removePassCoe,
   }) {
     return updateAppearance();
@@ -321,6 +334,7 @@ class _$_UpdateAppearance implements _UpdateAppearance {
     TResult? Function(Currencies currencies)? updateCurrencies,
     TResult? Function(ChangePassword changePass)? changePassword,
     TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
     TResult? Function()? removePassCoe,
   }) {
     return updateAppearance?.call();
@@ -337,6 +351,7 @@ class _$_UpdateAppearance implements _UpdateAppearance {
     TResult Function(Currencies currencies)? updateCurrencies,
     TResult Function(ChangePassword changePass)? changePassword,
     TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
     TResult Function()? removePassCoe,
     required TResult orElse(),
   }) {
@@ -357,6 +372,7 @@ class _$_UpdateAppearance implements _UpdateAppearance {
     required TResult Function(_UpdateCurrencies value) updateCurrencies,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
     required TResult Function(_RemovePassCode value) removePassCoe,
   }) {
     return updateAppearance(this);
@@ -373,6 +389,7 @@ class _$_UpdateAppearance implements _UpdateAppearance {
     TResult? Function(_UpdateCurrencies value)? updateCurrencies,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult? Function(_RemovePassCode value)? removePassCoe,
   }) {
     return updateAppearance?.call(this);
@@ -389,6 +406,7 @@ class _$_UpdateAppearance implements _UpdateAppearance {
     TResult Function(_UpdateCurrencies value)? updateCurrencies,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult Function(_RemovePassCode value)? removePassCoe,
     required TResult orElse(),
   }) {
@@ -476,6 +494,7 @@ class _$_UpdateLangCode implements _UpdateLangCode {
     required TResult Function(Currencies currencies) updateCurrencies,
     required TResult Function(ChangePassword changePass) changePassword,
     required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
     required TResult Function() removePassCoe,
   }) {
     return updateLangCode(langCode);
@@ -492,6 +511,7 @@ class _$_UpdateLangCode implements _UpdateLangCode {
     TResult? Function(Currencies currencies)? updateCurrencies,
     TResult? Function(ChangePassword changePass)? changePassword,
     TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
     TResult? Function()? removePassCoe,
   }) {
     return updateLangCode?.call(langCode);
@@ -508,6 +528,7 @@ class _$_UpdateLangCode implements _UpdateLangCode {
     TResult Function(Currencies currencies)? updateCurrencies,
     TResult Function(ChangePassword changePass)? changePassword,
     TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
     TResult Function()? removePassCoe,
     required TResult orElse(),
   }) {
@@ -528,6 +549,7 @@ class _$_UpdateLangCode implements _UpdateLangCode {
     required TResult Function(_UpdateCurrencies value) updateCurrencies,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
     required TResult Function(_RemovePassCode value) removePassCoe,
   }) {
     return updateLangCode(this);
@@ -544,6 +566,7 @@ class _$_UpdateLangCode implements _UpdateLangCode {
     TResult? Function(_UpdateCurrencies value)? updateCurrencies,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult? Function(_RemovePassCode value)? removePassCoe,
   }) {
     return updateLangCode?.call(this);
@@ -560,6 +583,7 @@ class _$_UpdateLangCode implements _UpdateLangCode {
     TResult Function(_UpdateCurrencies value)? updateCurrencies,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult Function(_RemovePassCode value)? removePassCoe,
     required TResult orElse(),
   }) {
@@ -624,6 +648,7 @@ class _$_LogOut implements _LogOut {
     required TResult Function(Currencies currencies) updateCurrencies,
     required TResult Function(ChangePassword changePass) changePassword,
     required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
     required TResult Function() removePassCoe,
   }) {
     return logOut();
@@ -640,6 +665,7 @@ class _$_LogOut implements _LogOut {
     TResult? Function(Currencies currencies)? updateCurrencies,
     TResult? Function(ChangePassword changePass)? changePassword,
     TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
     TResult? Function()? removePassCoe,
   }) {
     return logOut?.call();
@@ -656,6 +682,7 @@ class _$_LogOut implements _LogOut {
     TResult Function(Currencies currencies)? updateCurrencies,
     TResult Function(ChangePassword changePass)? changePassword,
     TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
     TResult Function()? removePassCoe,
     required TResult orElse(),
   }) {
@@ -676,6 +703,7 @@ class _$_LogOut implements _LogOut {
     required TResult Function(_UpdateCurrencies value) updateCurrencies,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
     required TResult Function(_RemovePassCode value) removePassCoe,
   }) {
     return logOut(this);
@@ -692,6 +720,7 @@ class _$_LogOut implements _LogOut {
     TResult? Function(_UpdateCurrencies value)? updateCurrencies,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult? Function(_RemovePassCode value)? removePassCoe,
   }) {
     return logOut?.call(this);
@@ -708,6 +737,7 @@ class _$_LogOut implements _LogOut {
     TResult Function(_UpdateCurrencies value)? updateCurrencies,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult Function(_RemovePassCode value)? removePassCoe,
     required TResult orElse(),
   }) {
@@ -768,6 +798,7 @@ class _$_GetUserInfo implements _GetUserInfo {
     required TResult Function(Currencies currencies) updateCurrencies,
     required TResult Function(ChangePassword changePass) changePassword,
     required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
     required TResult Function() removePassCoe,
   }) {
     return getUserInfo();
@@ -784,6 +815,7 @@ class _$_GetUserInfo implements _GetUserInfo {
     TResult? Function(Currencies currencies)? updateCurrencies,
     TResult? Function(ChangePassword changePass)? changePassword,
     TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
     TResult? Function()? removePassCoe,
   }) {
     return getUserInfo?.call();
@@ -800,6 +832,7 @@ class _$_GetUserInfo implements _GetUserInfo {
     TResult Function(Currencies currencies)? updateCurrencies,
     TResult Function(ChangePassword changePass)? changePassword,
     TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
     TResult Function()? removePassCoe,
     required TResult orElse(),
   }) {
@@ -820,6 +853,7 @@ class _$_GetUserInfo implements _GetUserInfo {
     required TResult Function(_UpdateCurrencies value) updateCurrencies,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
     required TResult Function(_RemovePassCode value) removePassCoe,
   }) {
     return getUserInfo(this);
@@ -836,6 +870,7 @@ class _$_GetUserInfo implements _GetUserInfo {
     TResult? Function(_UpdateCurrencies value)? updateCurrencies,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult? Function(_RemovePassCode value)? removePassCoe,
   }) {
     return getUserInfo?.call(this);
@@ -852,6 +887,7 @@ class _$_GetUserInfo implements _GetUserInfo {
     TResult Function(_UpdateCurrencies value)? updateCurrencies,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult Function(_RemovePassCode value)? removePassCoe,
     required TResult orElse(),
   }) {
@@ -939,6 +975,7 @@ class _$_UpdateCurrencies implements _UpdateCurrencies {
     required TResult Function(Currencies currencies) updateCurrencies,
     required TResult Function(ChangePassword changePass) changePassword,
     required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
     required TResult Function() removePassCoe,
   }) {
     return updateCurrencies(currencies);
@@ -955,6 +992,7 @@ class _$_UpdateCurrencies implements _UpdateCurrencies {
     TResult? Function(Currencies currencies)? updateCurrencies,
     TResult? Function(ChangePassword changePass)? changePassword,
     TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
     TResult? Function()? removePassCoe,
   }) {
     return updateCurrencies?.call(currencies);
@@ -971,6 +1009,7 @@ class _$_UpdateCurrencies implements _UpdateCurrencies {
     TResult Function(Currencies currencies)? updateCurrencies,
     TResult Function(ChangePassword changePass)? changePassword,
     TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
     TResult Function()? removePassCoe,
     required TResult orElse(),
   }) {
@@ -991,6 +1030,7 @@ class _$_UpdateCurrencies implements _UpdateCurrencies {
     required TResult Function(_UpdateCurrencies value) updateCurrencies,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
     required TResult Function(_RemovePassCode value) removePassCoe,
   }) {
     return updateCurrencies(this);
@@ -1007,6 +1047,7 @@ class _$_UpdateCurrencies implements _UpdateCurrencies {
     TResult? Function(_UpdateCurrencies value)? updateCurrencies,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult? Function(_RemovePassCode value)? removePassCoe,
   }) {
     return updateCurrencies?.call(this);
@@ -1023,6 +1064,7 @@ class _$_UpdateCurrencies implements _UpdateCurrencies {
     TResult Function(_UpdateCurrencies value)? updateCurrencies,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult Function(_RemovePassCode value)? removePassCoe,
     required TResult orElse(),
   }) {
@@ -1116,6 +1158,7 @@ class _$_ChangePassword implements _ChangePassword {
     required TResult Function(Currencies currencies) updateCurrencies,
     required TResult Function(ChangePassword changePass) changePassword,
     required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
     required TResult Function() removePassCoe,
   }) {
     return changePassword(changePass);
@@ -1132,6 +1175,7 @@ class _$_ChangePassword implements _ChangePassword {
     TResult? Function(Currencies currencies)? updateCurrencies,
     TResult? Function(ChangePassword changePass)? changePassword,
     TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
     TResult? Function()? removePassCoe,
   }) {
     return changePassword?.call(changePass);
@@ -1148,6 +1192,7 @@ class _$_ChangePassword implements _ChangePassword {
     TResult Function(Currencies currencies)? updateCurrencies,
     TResult Function(ChangePassword changePass)? changePassword,
     TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
     TResult Function()? removePassCoe,
     required TResult orElse(),
   }) {
@@ -1168,6 +1213,7 @@ class _$_ChangePassword implements _ChangePassword {
     required TResult Function(_UpdateCurrencies value) updateCurrencies,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
     required TResult Function(_RemovePassCode value) removePassCoe,
   }) {
     return changePassword(this);
@@ -1184,6 +1230,7 @@ class _$_ChangePassword implements _ChangePassword {
     TResult? Function(_UpdateCurrencies value)? updateCurrencies,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult? Function(_RemovePassCode value)? removePassCoe,
   }) {
     return changePassword?.call(this);
@@ -1200,6 +1247,7 @@ class _$_ChangePassword implements _ChangePassword {
     TResult Function(_UpdateCurrencies value)? updateCurrencies,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult Function(_RemovePassCode value)? removePassCoe,
     required TResult orElse(),
   }) {
@@ -1293,6 +1341,7 @@ class _$_UpdatePassCode implements _UpdatePassCode {
     required TResult Function(Currencies currencies) updateCurrencies,
     required TResult Function(ChangePassword changePass) changePassword,
     required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
     required TResult Function() removePassCoe,
   }) {
     return updatePassCode(newPassCode);
@@ -1309,6 +1358,7 @@ class _$_UpdatePassCode implements _UpdatePassCode {
     TResult? Function(Currencies currencies)? updateCurrencies,
     TResult? Function(ChangePassword changePass)? changePassword,
     TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
     TResult? Function()? removePassCoe,
   }) {
     return updatePassCode?.call(newPassCode);
@@ -1325,6 +1375,7 @@ class _$_UpdatePassCode implements _UpdatePassCode {
     TResult Function(Currencies currencies)? updateCurrencies,
     TResult Function(ChangePassword changePass)? changePassword,
     TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
     TResult Function()? removePassCoe,
     required TResult orElse(),
   }) {
@@ -1345,6 +1396,7 @@ class _$_UpdatePassCode implements _UpdatePassCode {
     required TResult Function(_UpdateCurrencies value) updateCurrencies,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
     required TResult Function(_RemovePassCode value) removePassCoe,
   }) {
     return updatePassCode(this);
@@ -1361,6 +1413,7 @@ class _$_UpdatePassCode implements _UpdatePassCode {
     TResult? Function(_UpdateCurrencies value)? updateCurrencies,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult? Function(_RemovePassCode value)? removePassCoe,
   }) {
     return updatePassCode?.call(this);
@@ -1377,6 +1430,7 @@ class _$_UpdatePassCode implements _UpdatePassCode {
     TResult Function(_UpdateCurrencies value)? updateCurrencies,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult Function(_RemovePassCode value)? removePassCoe,
     required TResult orElse(),
   }) {
@@ -1394,6 +1448,190 @@ abstract class _UpdatePassCode implements SettingEvent {
   String get newPassCode;
   @JsonKey(ignore: true)
   _$$_UpdatePassCodeCopyWith<_$_UpdatePassCode> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddFavoriteExerciseCopyWith<$Res> {
+  factory _$$_AddFavoriteExerciseCopyWith(_$_AddFavoriteExercise value,
+          $Res Function(_$_AddFavoriteExercise) then) =
+      __$$_AddFavoriteExerciseCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Exercise exercise});
+}
+
+/// @nodoc
+class __$$_AddFavoriteExerciseCopyWithImpl<$Res>
+    extends _$SettingEventCopyWithImpl<$Res, _$_AddFavoriteExercise>
+    implements _$$_AddFavoriteExerciseCopyWith<$Res> {
+  __$$_AddFavoriteExerciseCopyWithImpl(_$_AddFavoriteExercise _value,
+      $Res Function(_$_AddFavoriteExercise) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? exercise = freezed,
+  }) {
+    return _then(_$_AddFavoriteExercise(
+      freezed == exercise
+          ? _value.exercise
+          : exercise // ignore: cast_nullable_to_non_nullable
+              as Exercise,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddFavoriteExercise implements _AddFavoriteExercise {
+  const _$_AddFavoriteExercise(this.exercise);
+
+  @override
+  final Exercise exercise;
+
+  @override
+  String toString() {
+    return 'SettingEvent.addFavoriteExercise(exercise: $exercise)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddFavoriteExercise &&
+            const DeepCollectionEquality().equals(other.exercise, exercise));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(exercise));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddFavoriteExerciseCopyWith<_$_AddFavoriteExercise> get copyWith =>
+      __$$_AddFavoriteExerciseCopyWithImpl<_$_AddFavoriteExercise>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() updateAppearance,
+    required TResult Function(String langCode) updateLangCode,
+    required TResult Function() logOut,
+    required TResult Function() getUserInfo,
+    required TResult Function(Currencies currencies) updateCurrencies,
+    required TResult Function(ChangePassword changePass) changePassword,
+    required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
+    required TResult Function() removePassCoe,
+  }) {
+    return addFavoriteExercise(exercise);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? updateAppearance,
+    TResult? Function(String langCode)? updateLangCode,
+    TResult? Function()? logOut,
+    TResult? Function()? getUserInfo,
+    TResult? Function(Currencies currencies)? updateCurrencies,
+    TResult? Function(ChangePassword changePass)? changePassword,
+    TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
+    TResult? Function()? removePassCoe,
+  }) {
+    return addFavoriteExercise?.call(exercise);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? updateAppearance,
+    TResult Function(String langCode)? updateLangCode,
+    TResult Function()? logOut,
+    TResult Function()? getUserInfo,
+    TResult Function(Currencies currencies)? updateCurrencies,
+    TResult Function(ChangePassword changePass)? changePassword,
+    TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
+    TResult Function()? removePassCoe,
+    required TResult orElse(),
+  }) {
+    if (addFavoriteExercise != null) {
+      return addFavoriteExercise(exercise);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_UpdateAppearance value) updateAppearance,
+    required TResult Function(_UpdateLangCode value) updateLangCode,
+    required TResult Function(_LogOut value) logOut,
+    required TResult Function(_GetUserInfo value) getUserInfo,
+    required TResult Function(_UpdateCurrencies value) updateCurrencies,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
+    required TResult Function(_RemovePassCode value) removePassCoe,
+  }) {
+    return addFavoriteExercise(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_UpdateAppearance value)? updateAppearance,
+    TResult? Function(_UpdateLangCode value)? updateLangCode,
+    TResult? Function(_LogOut value)? logOut,
+    TResult? Function(_GetUserInfo value)? getUserInfo,
+    TResult? Function(_UpdateCurrencies value)? updateCurrencies,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
+    TResult? Function(_RemovePassCode value)? removePassCoe,
+  }) {
+    return addFavoriteExercise?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_UpdateAppearance value)? updateAppearance,
+    TResult Function(_UpdateLangCode value)? updateLangCode,
+    TResult Function(_LogOut value)? logOut,
+    TResult Function(_GetUserInfo value)? getUserInfo,
+    TResult Function(_UpdateCurrencies value)? updateCurrencies,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
+    TResult Function(_RemovePassCode value)? removePassCoe,
+    required TResult orElse(),
+  }) {
+    if (addFavoriteExercise != null) {
+      return addFavoriteExercise(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddFavoriteExercise implements SettingEvent {
+  const factory _AddFavoriteExercise(final Exercise exercise) =
+      _$_AddFavoriteExercise;
+
+  Exercise get exercise;
+  @JsonKey(ignore: true)
+  _$$_AddFavoriteExerciseCopyWith<_$_AddFavoriteExercise> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1443,6 +1681,7 @@ class _$_RemovePassCode implements _RemovePassCode {
     required TResult Function(Currencies currencies) updateCurrencies,
     required TResult Function(ChangePassword changePass) changePassword,
     required TResult Function(String newPassCode) updatePassCode,
+    required TResult Function(Exercise exercise) addFavoriteExercise,
     required TResult Function() removePassCoe,
   }) {
     return removePassCoe();
@@ -1459,6 +1698,7 @@ class _$_RemovePassCode implements _RemovePassCode {
     TResult? Function(Currencies currencies)? updateCurrencies,
     TResult? Function(ChangePassword changePass)? changePassword,
     TResult? Function(String newPassCode)? updatePassCode,
+    TResult? Function(Exercise exercise)? addFavoriteExercise,
     TResult? Function()? removePassCoe,
   }) {
     return removePassCoe?.call();
@@ -1475,6 +1715,7 @@ class _$_RemovePassCode implements _RemovePassCode {
     TResult Function(Currencies currencies)? updateCurrencies,
     TResult Function(ChangePassword changePass)? changePassword,
     TResult Function(String newPassCode)? updatePassCode,
+    TResult Function(Exercise exercise)? addFavoriteExercise,
     TResult Function()? removePassCoe,
     required TResult orElse(),
   }) {
@@ -1495,6 +1736,7 @@ class _$_RemovePassCode implements _RemovePassCode {
     required TResult Function(_UpdateCurrencies value) updateCurrencies,
     required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_UpdatePassCode value) updatePassCode,
+    required TResult Function(_AddFavoriteExercise value) addFavoriteExercise,
     required TResult Function(_RemovePassCode value) removePassCoe,
   }) {
     return removePassCoe(this);
@@ -1511,6 +1753,7 @@ class _$_RemovePassCode implements _RemovePassCode {
     TResult? Function(_UpdateCurrencies value)? updateCurrencies,
     TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_UpdatePassCode value)? updatePassCode,
+    TResult? Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult? Function(_RemovePassCode value)? removePassCoe,
   }) {
     return removePassCoe?.call(this);
@@ -1527,6 +1770,7 @@ class _$_RemovePassCode implements _RemovePassCode {
     TResult Function(_UpdateCurrencies value)? updateCurrencies,
     TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_UpdatePassCode value)? updatePassCode,
+    TResult Function(_AddFavoriteExercise value)? addFavoriteExercise,
     TResult Function(_RemovePassCode value)? removePassCoe,
     required TResult orElse(),
   }) {
@@ -1560,6 +1804,10 @@ mixin _$SettingState {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1577,6 +1825,9 @@ mixin _$SettingState {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1594,6 +1845,9 @@ mixin _$SettingState {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1617,6 +1871,10 @@ mixin _$SettingState {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1633,6 +1891,10 @@ mixin _$SettingState {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1649,6 +1911,10 @@ mixin _$SettingState {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1783,6 +2049,10 @@ class _$_Initial extends _Initial {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return initial(data);
   }
@@ -1803,6 +2073,9 @@ class _$_Initial extends _Initial {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return initial?.call(data);
   }
@@ -1823,6 +2096,9 @@ class _$_Initial extends _Initial {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1852,6 +2128,10 @@ class _$_Initial extends _Initial {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return initial(this);
   }
@@ -1871,6 +2151,10 @@ class _$_Initial extends _Initial {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return initial?.call(this);
   }
@@ -1890,6 +2174,10 @@ class _$_Initial extends _Initial {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -2003,6 +2291,10 @@ class _$_Loading extends _Loading {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return loading(data, loadingType);
   }
@@ -2023,6 +2315,9 @@ class _$_Loading extends _Loading {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return loading?.call(data, loadingType);
   }
@@ -2043,6 +2338,9 @@ class _$_Loading extends _Loading {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2072,6 +2370,10 @@ class _$_Loading extends _Loading {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return loading(this);
   }
@@ -2091,6 +2393,10 @@ class _$_Loading extends _Loading {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return loading?.call(this);
   }
@@ -2110,6 +2416,10 @@ class _$_Loading extends _Loading {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2219,6 +2529,10 @@ class _$_UpdateAppearanceSuccess extends _UpdateAppearanceSuccess {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return updateAppearanceSuccess(data);
   }
@@ -2239,6 +2553,9 @@ class _$_UpdateAppearanceSuccess extends _UpdateAppearanceSuccess {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return updateAppearanceSuccess?.call(data);
   }
@@ -2259,6 +2576,9 @@ class _$_UpdateAppearanceSuccess extends _UpdateAppearanceSuccess {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (updateAppearanceSuccess != null) {
@@ -2288,6 +2608,10 @@ class _$_UpdateAppearanceSuccess extends _UpdateAppearanceSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return updateAppearanceSuccess(this);
   }
@@ -2307,6 +2631,10 @@ class _$_UpdateAppearanceSuccess extends _UpdateAppearanceSuccess {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return updateAppearanceSuccess?.call(this);
   }
@@ -2326,6 +2654,10 @@ class _$_UpdateAppearanceSuccess extends _UpdateAppearanceSuccess {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (updateAppearanceSuccess != null) {
@@ -2433,6 +2765,10 @@ class _$_UpdateCurrenciesSuccess extends _UpdateCurrenciesSuccess {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return updateCurrenciesSuccess(data);
   }
@@ -2453,6 +2789,9 @@ class _$_UpdateCurrenciesSuccess extends _UpdateCurrenciesSuccess {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return updateCurrenciesSuccess?.call(data);
   }
@@ -2473,6 +2812,9 @@ class _$_UpdateCurrenciesSuccess extends _UpdateCurrenciesSuccess {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (updateCurrenciesSuccess != null) {
@@ -2502,6 +2844,10 @@ class _$_UpdateCurrenciesSuccess extends _UpdateCurrenciesSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return updateCurrenciesSuccess(this);
   }
@@ -2521,6 +2867,10 @@ class _$_UpdateCurrenciesSuccess extends _UpdateCurrenciesSuccess {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return updateCurrenciesSuccess?.call(this);
   }
@@ -2540,6 +2890,10 @@ class _$_UpdateCurrenciesSuccess extends _UpdateCurrenciesSuccess {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (updateCurrenciesSuccess != null) {
@@ -2646,6 +3000,10 @@ class _$_UpdateLangCodeSuccess extends _UpdateLangCodeSuccess {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return updateLangCodeSuccess(data);
   }
@@ -2666,6 +3024,9 @@ class _$_UpdateLangCodeSuccess extends _UpdateLangCodeSuccess {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return updateLangCodeSuccess?.call(data);
   }
@@ -2686,6 +3047,9 @@ class _$_UpdateLangCodeSuccess extends _UpdateLangCodeSuccess {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (updateLangCodeSuccess != null) {
@@ -2715,6 +3079,10 @@ class _$_UpdateLangCodeSuccess extends _UpdateLangCodeSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return updateLangCodeSuccess(this);
   }
@@ -2734,6 +3102,10 @@ class _$_UpdateLangCodeSuccess extends _UpdateLangCodeSuccess {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return updateLangCodeSuccess?.call(this);
   }
@@ -2753,6 +3125,10 @@ class _$_UpdateLangCodeSuccess extends _UpdateLangCodeSuccess {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (updateLangCodeSuccess != null) {
@@ -2858,6 +3234,10 @@ class _$_GetUserSuccess extends _GetUserSuccess {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return getUserSuccess(data);
   }
@@ -2878,6 +3258,9 @@ class _$_GetUserSuccess extends _GetUserSuccess {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return getUserSuccess?.call(data);
   }
@@ -2898,6 +3281,9 @@ class _$_GetUserSuccess extends _GetUserSuccess {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (getUserSuccess != null) {
@@ -2927,6 +3313,10 @@ class _$_GetUserSuccess extends _GetUserSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return getUserSuccess(this);
   }
@@ -2946,6 +3336,10 @@ class _$_GetUserSuccess extends _GetUserSuccess {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return getUserSuccess?.call(this);
   }
@@ -2965,6 +3359,10 @@ class _$_GetUserSuccess extends _GetUserSuccess {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (getUserSuccess != null) {
@@ -3070,6 +3468,10 @@ class _$_LogOutSuccess extends _LogOutSuccess {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return logOutSuccess(data);
   }
@@ -3090,6 +3492,9 @@ class _$_LogOutSuccess extends _LogOutSuccess {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return logOutSuccess?.call(data);
   }
@@ -3110,6 +3515,9 @@ class _$_LogOutSuccess extends _LogOutSuccess {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (logOutSuccess != null) {
@@ -3139,6 +3547,10 @@ class _$_LogOutSuccess extends _LogOutSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return logOutSuccess(this);
   }
@@ -3158,6 +3570,10 @@ class _$_LogOutSuccess extends _LogOutSuccess {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return logOutSuccess?.call(this);
   }
@@ -3177,6 +3593,10 @@ class _$_LogOutSuccess extends _LogOutSuccess {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (logOutSuccess != null) {
@@ -3291,6 +3711,10 @@ class _$_GetUserFailed extends _GetUserFailed {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return getUserFailed(data, message);
   }
@@ -3311,6 +3735,9 @@ class _$_GetUserFailed extends _GetUserFailed {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return getUserFailed?.call(data, message);
   }
@@ -3331,6 +3758,9 @@ class _$_GetUserFailed extends _GetUserFailed {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (getUserFailed != null) {
@@ -3360,6 +3790,10 @@ class _$_GetUserFailed extends _GetUserFailed {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return getUserFailed(this);
   }
@@ -3379,6 +3813,10 @@ class _$_GetUserFailed extends _GetUserFailed {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return getUserFailed?.call(this);
   }
@@ -3398,6 +3836,10 @@ class _$_GetUserFailed extends _GetUserFailed {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (getUserFailed != null) {
@@ -3506,6 +3948,10 @@ class _$_UpdatePassCodeSuccess extends _UpdatePassCodeSuccess {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return updatePassCodeSuccess(data);
   }
@@ -3526,6 +3972,9 @@ class _$_UpdatePassCodeSuccess extends _UpdatePassCodeSuccess {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return updatePassCodeSuccess?.call(data);
   }
@@ -3546,6 +3995,9 @@ class _$_UpdatePassCodeSuccess extends _UpdatePassCodeSuccess {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (updatePassCodeSuccess != null) {
@@ -3575,6 +4027,10 @@ class _$_UpdatePassCodeSuccess extends _UpdatePassCodeSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return updatePassCodeSuccess(this);
   }
@@ -3594,6 +4050,10 @@ class _$_UpdatePassCodeSuccess extends _UpdatePassCodeSuccess {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return updatePassCodeSuccess?.call(this);
   }
@@ -3613,6 +4073,10 @@ class _$_UpdatePassCodeSuccess extends _UpdatePassCodeSuccess {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (updatePassCodeSuccess != null) {
@@ -3719,6 +4183,10 @@ class _$_RemovePassCodeSuccess extends _RemovePassCodeSuccess {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return removePassCodeSuccess(data);
   }
@@ -3739,6 +4207,9 @@ class _$_RemovePassCodeSuccess extends _RemovePassCodeSuccess {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return removePassCodeSuccess?.call(data);
   }
@@ -3759,6 +4230,9 @@ class _$_RemovePassCodeSuccess extends _RemovePassCodeSuccess {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (removePassCodeSuccess != null) {
@@ -3788,6 +4262,10 @@ class _$_RemovePassCodeSuccess extends _RemovePassCodeSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return removePassCodeSuccess(this);
   }
@@ -3807,6 +4285,10 @@ class _$_RemovePassCodeSuccess extends _RemovePassCodeSuccess {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return removePassCodeSuccess?.call(this);
   }
@@ -3826,6 +4308,10 @@ class _$_RemovePassCodeSuccess extends _RemovePassCodeSuccess {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (removePassCodeSuccess != null) {
@@ -3932,6 +4418,10 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return changePasswordSuccess(data);
   }
@@ -3952,6 +4442,9 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return changePasswordSuccess?.call(data);
   }
@@ -3972,6 +4465,9 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (changePasswordSuccess != null) {
@@ -4001,6 +4497,10 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return changePasswordSuccess(this);
   }
@@ -4020,6 +4520,10 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return changePasswordSuccess?.call(this);
   }
@@ -4039,6 +4543,10 @@ class _$_ChangePasswordSuccess extends _ChangePasswordSuccess {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (changePasswordSuccess != null) {
@@ -4154,6 +4662,10 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
     required TResult Function(SettingModalState data) changePasswordSuccess,
     required TResult Function(SettingModalState data, String message)
         changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
   }) {
     return changePasswordFailed(data, message);
   }
@@ -4174,6 +4686,9 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
     TResult? Function(SettingModalState data)? changePasswordSuccess,
     TResult? Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
   }) {
     return changePasswordFailed?.call(data, message);
   }
@@ -4194,6 +4709,9 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
     TResult Function(SettingModalState data)? changePasswordSuccess,
     TResult Function(SettingModalState data, String message)?
         changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (changePasswordFailed != null) {
@@ -4223,6 +4741,10 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
     required TResult Function(_ChangePasswordSuccess value)
         changePasswordSuccess,
     required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
   }) {
     return changePasswordFailed(this);
   }
@@ -4242,6 +4764,10 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
     TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
   }) {
     return changePasswordFailed?.call(this);
   }
@@ -4261,6 +4787,10 @@ class _$_ChangePasswordFailed extends _ChangePasswordFailed {
     TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
     TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
     TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
     required TResult orElse(),
   }) {
     if (changePasswordFailed != null) {
@@ -4283,4 +4813,490 @@ abstract class _ChangePasswordFailed extends SettingState {
   @JsonKey(ignore: true)
   _$$_ChangePasswordFailedCopyWith<_$_ChangePasswordFailed> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddFavoriteExerciseSuccessCopyWith<$Res>
+    implements $SettingStateCopyWith<$Res> {
+  factory _$$_AddFavoriteExerciseSuccessCopyWith(
+          _$_AddFavoriteExerciseSuccess value,
+          $Res Function(_$_AddFavoriteExerciseSuccess) then) =
+      __$$_AddFavoriteExerciseSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({SettingModalState data});
+
+  @override
+  $SettingModalStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_AddFavoriteExerciseSuccessCopyWithImpl<$Res>
+    extends _$SettingStateCopyWithImpl<$Res, _$_AddFavoriteExerciseSuccess>
+    implements _$$_AddFavoriteExerciseSuccessCopyWith<$Res> {
+  __$$_AddFavoriteExerciseSuccessCopyWithImpl(
+      _$_AddFavoriteExerciseSuccess _value,
+      $Res Function(_$_AddFavoriteExerciseSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_AddFavoriteExerciseSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SettingModalState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddFavoriteExerciseSuccess extends _AddFavoriteExerciseSuccess {
+  const _$_AddFavoriteExerciseSuccess({required this.data}) : super._();
+
+  @override
+  final SettingModalState data;
+
+  @override
+  String toString() {
+    return 'SettingState.addFavoriteExerciseSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddFavoriteExerciseSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddFavoriteExerciseSuccessCopyWith<_$_AddFavoriteExerciseSuccess>
+      get copyWith => __$$_AddFavoriteExerciseSuccessCopyWithImpl<
+          _$_AddFavoriteExerciseSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SettingModalState data) initial,
+    required TResult Function(SettingModalState data, int loadingType) loading,
+    required TResult Function(SettingModalState data) updateAppearanceSuccess,
+    required TResult Function(SettingModalState data) updateCurrenciesSuccess,
+    required TResult Function(SettingModalState data) updateLangCodeSuccess,
+    required TResult Function(SettingModalState data) getUserSuccess,
+    required TResult Function(SettingModalState data) logOutSuccess,
+    required TResult Function(SettingModalState data, String message)
+        getUserFailed,
+    required TResult Function(SettingModalState data) updatePassCodeSuccess,
+    required TResult Function(SettingModalState data) removePassCodeSuccess,
+    required TResult Function(SettingModalState data) changePasswordSuccess,
+    required TResult Function(SettingModalState data, String message)
+        changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
+  }) {
+    return addFavoriteExerciseSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SettingModalState data)? initial,
+    TResult? Function(SettingModalState data, int loadingType)? loading,
+    TResult? Function(SettingModalState data)? updateAppearanceSuccess,
+    TResult? Function(SettingModalState data)? updateCurrenciesSuccess,
+    TResult? Function(SettingModalState data)? updateLangCodeSuccess,
+    TResult? Function(SettingModalState data)? getUserSuccess,
+    TResult? Function(SettingModalState data)? logOutSuccess,
+    TResult? Function(SettingModalState data, String message)? getUserFailed,
+    TResult? Function(SettingModalState data)? updatePassCodeSuccess,
+    TResult? Function(SettingModalState data)? removePassCodeSuccess,
+    TResult? Function(SettingModalState data)? changePasswordSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
+  }) {
+    return addFavoriteExerciseSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SettingModalState data)? initial,
+    TResult Function(SettingModalState data, int loadingType)? loading,
+    TResult Function(SettingModalState data)? updateAppearanceSuccess,
+    TResult Function(SettingModalState data)? updateCurrenciesSuccess,
+    TResult Function(SettingModalState data)? updateLangCodeSuccess,
+    TResult Function(SettingModalState data)? getUserSuccess,
+    TResult Function(SettingModalState data)? logOutSuccess,
+    TResult Function(SettingModalState data, String message)? getUserFailed,
+    TResult Function(SettingModalState data)? updatePassCodeSuccess,
+    TResult Function(SettingModalState data)? removePassCodeSuccess,
+    TResult Function(SettingModalState data)? changePasswordSuccess,
+    TResult Function(SettingModalState data, String message)?
+        changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
+    required TResult orElse(),
+  }) {
+    if (addFavoriteExerciseSuccess != null) {
+      return addFavoriteExerciseSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_UpdateAppearanceSuccess value)
+        updateAppearanceSuccess,
+    required TResult Function(_UpdateCurrenciesSuccess value)
+        updateCurrenciesSuccess,
+    required TResult Function(_UpdateLangCodeSuccess value)
+        updateLangCodeSuccess,
+    required TResult Function(_GetUserSuccess value) getUserSuccess,
+    required TResult Function(_LogOutSuccess value) logOutSuccess,
+    required TResult Function(_GetUserFailed value) getUserFailed,
+    required TResult Function(_UpdatePassCodeSuccess value)
+        updatePassCodeSuccess,
+    required TResult Function(_RemovePassCodeSuccess value)
+        removePassCodeSuccess,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
+  }) {
+    return addFavoriteExerciseSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_UpdateAppearanceSuccess value)? updateAppearanceSuccess,
+    TResult? Function(_UpdateCurrenciesSuccess value)? updateCurrenciesSuccess,
+    TResult? Function(_UpdateLangCodeSuccess value)? updateLangCodeSuccess,
+    TResult? Function(_GetUserSuccess value)? getUserSuccess,
+    TResult? Function(_LogOutSuccess value)? logOutSuccess,
+    TResult? Function(_GetUserFailed value)? getUserFailed,
+    TResult? Function(_UpdatePassCodeSuccess value)? updatePassCodeSuccess,
+    TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
+  }) {
+    return addFavoriteExerciseSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_UpdateAppearanceSuccess value)? updateAppearanceSuccess,
+    TResult Function(_UpdateCurrenciesSuccess value)? updateCurrenciesSuccess,
+    TResult Function(_UpdateLangCodeSuccess value)? updateLangCodeSuccess,
+    TResult Function(_GetUserSuccess value)? getUserSuccess,
+    TResult Function(_LogOutSuccess value)? logOutSuccess,
+    TResult Function(_GetUserFailed value)? getUserFailed,
+    TResult Function(_UpdatePassCodeSuccess value)? updatePassCodeSuccess,
+    TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
+    required TResult orElse(),
+  }) {
+    if (addFavoriteExerciseSuccess != null) {
+      return addFavoriteExerciseSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddFavoriteExerciseSuccess extends SettingState {
+  const factory _AddFavoriteExerciseSuccess(
+      {required final SettingModalState data}) = _$_AddFavoriteExerciseSuccess;
+  const _AddFavoriteExerciseSuccess._() : super._();
+
+  @override
+  SettingModalState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddFavoriteExerciseSuccessCopyWith<_$_AddFavoriteExerciseSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddFavoriteExerciseFailedCopyWith<$Res>
+    implements $SettingStateCopyWith<$Res> {
+  factory _$$_AddFavoriteExerciseFailedCopyWith(
+          _$_AddFavoriteExerciseFailed value,
+          $Res Function(_$_AddFavoriteExerciseFailed) then) =
+      __$$_AddFavoriteExerciseFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({SettingModalState data, String message});
+
+  @override
+  $SettingModalStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_AddFavoriteExerciseFailedCopyWithImpl<$Res>
+    extends _$SettingStateCopyWithImpl<$Res, _$_AddFavoriteExerciseFailed>
+    implements _$$_AddFavoriteExerciseFailedCopyWith<$Res> {
+  __$$_AddFavoriteExerciseFailedCopyWithImpl(
+      _$_AddFavoriteExerciseFailed _value,
+      $Res Function(_$_AddFavoriteExerciseFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_AddFavoriteExerciseFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SettingModalState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddFavoriteExerciseFailed extends _AddFavoriteExerciseFailed {
+  const _$_AddFavoriteExerciseFailed(
+      {required this.data, required this.message})
+      : super._();
+
+  @override
+  final SettingModalState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'SettingState.addFavoriteExerciseFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddFavoriteExerciseFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddFavoriteExerciseFailedCopyWith<_$_AddFavoriteExerciseFailed>
+      get copyWith => __$$_AddFavoriteExerciseFailedCopyWithImpl<
+          _$_AddFavoriteExerciseFailed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SettingModalState data) initial,
+    required TResult Function(SettingModalState data, int loadingType) loading,
+    required TResult Function(SettingModalState data) updateAppearanceSuccess,
+    required TResult Function(SettingModalState data) updateCurrenciesSuccess,
+    required TResult Function(SettingModalState data) updateLangCodeSuccess,
+    required TResult Function(SettingModalState data) getUserSuccess,
+    required TResult Function(SettingModalState data) logOutSuccess,
+    required TResult Function(SettingModalState data, String message)
+        getUserFailed,
+    required TResult Function(SettingModalState data) updatePassCodeSuccess,
+    required TResult Function(SettingModalState data) removePassCodeSuccess,
+    required TResult Function(SettingModalState data) changePasswordSuccess,
+    required TResult Function(SettingModalState data, String message)
+        changePasswordFailed,
+    required TResult Function(SettingModalState data)
+        addFavoriteExerciseSuccess,
+    required TResult Function(SettingModalState data, String message)
+        addFavoriteExerciseFailed,
+  }) {
+    return addFavoriteExerciseFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SettingModalState data)? initial,
+    TResult? Function(SettingModalState data, int loadingType)? loading,
+    TResult? Function(SettingModalState data)? updateAppearanceSuccess,
+    TResult? Function(SettingModalState data)? updateCurrenciesSuccess,
+    TResult? Function(SettingModalState data)? updateLangCodeSuccess,
+    TResult? Function(SettingModalState data)? getUserSuccess,
+    TResult? Function(SettingModalState data)? logOutSuccess,
+    TResult? Function(SettingModalState data, String message)? getUserFailed,
+    TResult? Function(SettingModalState data)? updatePassCodeSuccess,
+    TResult? Function(SettingModalState data)? removePassCodeSuccess,
+    TResult? Function(SettingModalState data)? changePasswordSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        changePasswordFailed,
+    TResult? Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult? Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
+  }) {
+    return addFavoriteExerciseFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SettingModalState data)? initial,
+    TResult Function(SettingModalState data, int loadingType)? loading,
+    TResult Function(SettingModalState data)? updateAppearanceSuccess,
+    TResult Function(SettingModalState data)? updateCurrenciesSuccess,
+    TResult Function(SettingModalState data)? updateLangCodeSuccess,
+    TResult Function(SettingModalState data)? getUserSuccess,
+    TResult Function(SettingModalState data)? logOutSuccess,
+    TResult Function(SettingModalState data, String message)? getUserFailed,
+    TResult Function(SettingModalState data)? updatePassCodeSuccess,
+    TResult Function(SettingModalState data)? removePassCodeSuccess,
+    TResult Function(SettingModalState data)? changePasswordSuccess,
+    TResult Function(SettingModalState data, String message)?
+        changePasswordFailed,
+    TResult Function(SettingModalState data)? addFavoriteExerciseSuccess,
+    TResult Function(SettingModalState data, String message)?
+        addFavoriteExerciseFailed,
+    required TResult orElse(),
+  }) {
+    if (addFavoriteExerciseFailed != null) {
+      return addFavoriteExerciseFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_UpdateAppearanceSuccess value)
+        updateAppearanceSuccess,
+    required TResult Function(_UpdateCurrenciesSuccess value)
+        updateCurrenciesSuccess,
+    required TResult Function(_UpdateLangCodeSuccess value)
+        updateLangCodeSuccess,
+    required TResult Function(_GetUserSuccess value) getUserSuccess,
+    required TResult Function(_LogOutSuccess value) logOutSuccess,
+    required TResult Function(_GetUserFailed value) getUserFailed,
+    required TResult Function(_UpdatePassCodeSuccess value)
+        updatePassCodeSuccess,
+    required TResult Function(_RemovePassCodeSuccess value)
+        removePassCodeSuccess,
+    required TResult Function(_ChangePasswordSuccess value)
+        changePasswordSuccess,
+    required TResult Function(_ChangePasswordFailed value) changePasswordFailed,
+    required TResult Function(_AddFavoriteExerciseSuccess value)
+        addFavoriteExerciseSuccess,
+    required TResult Function(_AddFavoriteExerciseFailed value)
+        addFavoriteExerciseFailed,
+  }) {
+    return addFavoriteExerciseFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_UpdateAppearanceSuccess value)? updateAppearanceSuccess,
+    TResult? Function(_UpdateCurrenciesSuccess value)? updateCurrenciesSuccess,
+    TResult? Function(_UpdateLangCodeSuccess value)? updateLangCodeSuccess,
+    TResult? Function(_GetUserSuccess value)? getUserSuccess,
+    TResult? Function(_LogOutSuccess value)? logOutSuccess,
+    TResult? Function(_GetUserFailed value)? getUserFailed,
+    TResult? Function(_UpdatePassCodeSuccess value)? updatePassCodeSuccess,
+    TResult? Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
+    TResult? Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult? Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult? Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult? Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
+  }) {
+    return addFavoriteExerciseFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_UpdateAppearanceSuccess value)? updateAppearanceSuccess,
+    TResult Function(_UpdateCurrenciesSuccess value)? updateCurrenciesSuccess,
+    TResult Function(_UpdateLangCodeSuccess value)? updateLangCodeSuccess,
+    TResult Function(_GetUserSuccess value)? getUserSuccess,
+    TResult Function(_LogOutSuccess value)? logOutSuccess,
+    TResult Function(_GetUserFailed value)? getUserFailed,
+    TResult Function(_UpdatePassCodeSuccess value)? updatePassCodeSuccess,
+    TResult Function(_RemovePassCodeSuccess value)? removePassCodeSuccess,
+    TResult Function(_ChangePasswordSuccess value)? changePasswordSuccess,
+    TResult Function(_ChangePasswordFailed value)? changePasswordFailed,
+    TResult Function(_AddFavoriteExerciseSuccess value)?
+        addFavoriteExerciseSuccess,
+    TResult Function(_AddFavoriteExerciseFailed value)?
+        addFavoriteExerciseFailed,
+    required TResult orElse(),
+  }) {
+    if (addFavoriteExerciseFailed != null) {
+      return addFavoriteExerciseFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddFavoriteExerciseFailed extends SettingState {
+  const factory _AddFavoriteExerciseFailed(
+      {required final SettingModalState data,
+      required final String message}) = _$_AddFavoriteExerciseFailed;
+  const _AddFavoriteExerciseFailed._() : super._();
+
+  @override
+  SettingModalState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddFavoriteExerciseFailedCopyWith<_$_AddFavoriteExerciseFailed>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/extensions/double_extension.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
@@ -163,9 +162,16 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
         const SizedBox(height: 10.0),
         if (_data.isLoadingWorkoutPlans)
           ...List.generate(3, (index) => const WorkoutPlanSkelton())
+        else if (_data.workoutPlans?.isEmpty ?? false)
+          Text(
+            "You don't have any plan yet.\n Create new plan now!",
+            style: context.titleMedium,
+            textAlign: TextAlign.center,
+          )
         else ...[
-          ..._data.workoutPlans
-                  ?.map(
+          ..._data.workoutPlans?.reversed
+                  .take(3)
+                  .map(
                     (e) => Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,16 +179,14 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
                         _renderTimeToText(e.startDate!, e.endDate!),
                         WorkoutPlanItemWidget(
                           workoutPlan: e,
-                          progress: min(
-                            (DateTime.now().day -
-                                    DateTime.fromMillisecondsSinceEpoch(
-                                            e.startDate!)
-                                        .day) /
-                                DateTime.fromMillisecondsSinceEpoch(
-                                        e.endDate! - e.startDate!)
-                                    .day,
-                            1.0,
-                          ),
+                          progress: ((DateTime.now().day -
+                                      DateTime.fromMillisecondsSinceEpoch(
+                                              e.startDate!)
+                                          .day) /
+                                  DateTime.fromMillisecondsSinceEpoch(
+                                          e.endDate! - e.startDate!)
+                                      .day)
+                              .minMaxRequired(0, 1),
                         ),
                       ],
                     ),
@@ -196,7 +200,6 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
           child: ButtonCustom(
             height: 40.0,
             radius: 10.0,
-            padding: const EdgeInsets.symmetric(vertical: 8),
             loading: _data.isLoadingCreatePlan,
             child: Text(
               "Create new plan",

@@ -1,4 +1,5 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/ui/all_exercise/view_model/all_exercise_view_model.dart';
 import 'package:fit_life/mvvm/ui/auth/views/introduction_view.dart';
@@ -140,7 +141,10 @@ class MainRoutes {
       case Routes.calendar:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: CalendarView()),
+          builder: (_) => ProviderScope(
+              child: CalendarView(
+            dailyWorkouts: settings.arguments as List<DailyWorkout>,
+          )),
         );
       case Routes.notification:
         return MaterialPageRoute(

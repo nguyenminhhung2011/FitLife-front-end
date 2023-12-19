@@ -1,4 +1,5 @@
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/routes/routes.dart';
@@ -79,6 +80,15 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                       style: context.textTheme.labelMedium
                           ?.copyWith(color: Theme.of(context).hintColor)),
                   const SizedBox(height: 10.0),
+                  Text(
+                    '🕛 ${getRangeDateFormat(
+                      DateTime.fromMillisecondsSinceEpoch(
+                          workoutPlan.startDate!),
+                      DateTime.fromMillisecondsSinceEpoch(workoutPlan.endDate!),
+                    )}',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(color: Colors.white, fontSize: 12.0),
+                  ),
                   _progressField(context),
                 ],
               ),

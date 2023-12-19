@@ -50,12 +50,15 @@ class ButtonCustom extends StatelessWidget {
             ),
           ),
         ),
-        child: loading
-            ? const Center(
-                child: CircularProgressIndicator(
-                color: Colors.white,
-              ))
-            : child,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: loading
+              ? const Center(
+                  child: CircularProgressIndicator(
+                  color: Colors.white,
+                ))
+              : child,
+        ),
       ),
     );
   }

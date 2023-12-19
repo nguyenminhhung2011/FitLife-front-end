@@ -2,6 +2,7 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/extensions/double_extension.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/core/components/widgets/pagination_view/default_pagination.dart';
@@ -151,15 +152,23 @@ class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
             const SizedBox(height: 5.0),
             Expanded(
               child: DefaultPagination(
-                items: _items ?? const [],
-                loading: _state.loading,
-                itemBuilder: (_, index) => WorkoutPlanItemWidget(
-                  workoutPlan: _items![index],
-                  progress: 0.6,
-                ),
-                listenScrollBottom: () =>
-                    _vm.getSessionPlanHistory(content: _searchController.text),
-              ),
+                  items: _items ?? const [],
+                  loading: _state.loading,
+                  itemBuilder: (_, index) => WorkoutPlanItemWidget(
+                        workoutPlan: _items![index],
+                        progress: ((DateTime.now().day -
+                                    DateTime.fromMillisecondsSinceEpoch(
+                                            _items![index].startDate!)
+                                        .day) /
+                                DateTime.fromMillisecondsSinceEpoch(
+                                        _items![index].endDate! -
+                                            _items![index].startDate!)
+                                    .day)
+                            .minMaxRequired(0, 1),
+                      ),
+                  listenScrollBottom: () => {}
+                  // _vm.getSessionPlanHistory(content: _searchController.text),
+                  ),
             )
           ],
         ),

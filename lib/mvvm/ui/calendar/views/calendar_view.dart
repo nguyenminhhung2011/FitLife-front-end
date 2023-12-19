@@ -4,20 +4,29 @@ import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/extensions/interger_extension.dart';
 import 'package:fit_life/core/components/widgets/calendar_custom.dart';
+import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CalendarExerciseItem {
   final int timeStart;
   final int timeEnd;
+  final String name;
+  final int? time;
   CalendarExerciseItem({
     required this.timeStart,
     required this.timeEnd,
+    required this.name,
+    this.time,
   });
 }
 
 class CalendarView extends ConsumerStatefulWidget {
-  const CalendarView({super.key});
+  final List<DailyWorkout>? dailyWorkouts;
+  const CalendarView({
+    super.key,
+    this.dailyWorkouts,
+  });
 
   @override
   ConsumerState<CalendarView> createState() => _CalendarViewState();
@@ -27,13 +36,28 @@ class _CalendarViewState extends ConsumerState<CalendarView> {
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
 
   final calendarHeight = 23 * 80;
+  late List<CalendarExerciseItem> textExercise;
 
-  final textExercise = [
-    CalendarExerciseItem(timeStart: 0, timeEnd: 1),
-    CalendarExerciseItem(timeStart: 6, timeEnd: 8),
-    CalendarExerciseItem(timeStart: 15, timeEnd: 18),
-    CalendarExerciseItem(timeStart: 20, timeEnd: 21),
-  ];
+  @override
+  void initState() {
+    textExercise = List.generate(widget.dailyWorkouts?.length ?? 0, (index) {
+      final item = widget.dailyWorkouts![index];
+      final totalTimeExercise = (item.execPerRound != null &&
+              item.numberRound != null &&
+              item.timeForEachExe != null)
+          ? item.execPerRound! * item.numberRound! * item.timeForEachExe! / 3600
+          : 0;
+
+      final startTime = DateTime.fromMillisecondsSinceEpoch(item.time!);
+      return CalendarExerciseItem(
+        timeStart: startTime.hour,
+        timeEnd: startTime.hour + totalTimeExercise.ceil(),
+        name: item.name,
+        time: item.time,
+      );
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -117,16 +141,17 @@ class _CalendarViewState extends ConsumerState<CalendarView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Russian resting",
+                      e.name,
                       style: context.titleMedium.copyWith(
                           fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                     const SizedBox(height: 5.0),
-                    Text(
-                      "📅 Start in ${getMMMMEEEd(DateTime.now())}",
-                      style: context.titleSmall
-                          .copyWith(fontSize: 12.0, color: Colors.white),
-                    )
+                    if (e.time != null)
+                      Text(
+                        "📅 Start in ${getMMMMEEEd(DateTime.fromMillisecondsSinceEpoch(e.time!))}",
+                        style: context.titleSmall
+                            .copyWith(fontSize: 12.0, color: Colors.white),
+                      )
                   ],
                 ),
               );

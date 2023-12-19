@@ -1,5 +1,6 @@
 import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/mvvm/me/entity/chart/chart.dart';
+import 'package:fit_life/mvvm/me/entity/chart/fit_overview.dart';
 import 'package:fit_life/mvvm/me/entity/plan/add_plan_dto.dart';
 import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
 import 'package:fit_life/mvvm/me/entity/plan_detail/plan_detail.dart';
@@ -23,6 +24,6 @@ abstract class PlanRepositories {
 
   Future<SResult<PlanDetail>> getDetailPlan({required String id});
 
-  Future<SResult<List<Chart>>> getChartView(
+  Future<SResult<FitOverview>> getChartView(
       {required GetChartRequest getChartRequest});
 }

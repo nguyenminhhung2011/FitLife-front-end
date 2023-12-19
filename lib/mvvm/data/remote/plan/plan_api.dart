@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:fit_life/mvvm/me/model/chart/chart_model.dart';
+import 'package:fit_life/mvvm/me/model/chart/fit_overview_model.dart';
 import 'package:fit_life/mvvm/me/model/plan/plan_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
@@ -20,6 +20,6 @@ abstract class PlanApi {
   Future<HttpResponse<PlanModel?>> getCurrentPlan();
 
   @GET(getChartViewApi)
-  Future<HttpResponse<List<ChartModel>>> getChartView(
+  Future<HttpResponse<FitOverviewModel>> getChartView(
       {@Body() required Map<String, dynamic> body});
 }

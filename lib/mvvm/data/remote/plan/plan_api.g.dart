@@ -48,15 +48,15 @@ class _PlanApi implements PlanApi {
   }
 
   @override
-  Future<HttpResponse<List<ChartModel>>> getChartView(
+  Future<HttpResponse<FitOverviewModel>> getChartView(
       {required Map<String, dynamic> body}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body);
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<ChartModel>>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<HttpResponse<FitOverviewModel>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -72,9 +72,7 @@ class _PlanApi implements PlanApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var value = _result.data!
-        .map((dynamic i) => ChartModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = FitOverviewModel.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

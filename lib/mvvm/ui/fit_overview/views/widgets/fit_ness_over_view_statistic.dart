@@ -95,7 +95,7 @@ class FitnessOverViewStatistic extends StatelessWidget {
   Expanded _renderHeader(int index, BuildContext context) {
     return Expanded(
         child: Text(
-      switch (index) { 0 => 'Heart Rate', 1 => 'To-do', _ => 'Calories' },
+      switch (index) { 0 => 'Heart Rate', 1 => 'Completed', _ => 'Calories' },
       overflow: TextOverflow.ellipsis,
       style: context.titleSmall,
     ));

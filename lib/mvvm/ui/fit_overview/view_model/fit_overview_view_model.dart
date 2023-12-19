@@ -78,9 +78,9 @@ class FitOverViewViewModel extends StateNotifier<FitOverViewState> {
       ),
       ifRight: (rData) => _GetCaloriesChartSuccess(
         data: data.copyWith(
-          chartViews: rData,
+          overviewData: rData,
           caloriesChart: data.caloriesChart.copyWith(
-            calories: rData.map((e) => e.calories).toList(),
+            calories: rData.chartData.map((e) => e.calories).toList(),
           ),
           isLoadingCaloriesChart: false,
         ),

@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/me/entity/calories_chart/calories_chart.dart';
+import 'package:fit_life/mvvm/me/entity/chart/fit_overview.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:fit_life/routes/routes.dart';
@@ -41,9 +42,9 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
 
   List<DateTime> get _rangeDate => _data.rangeDate;
 
-  CaloriesChart get _caloriesChart => _data.caloriesChart;
+  FitOverview? get _overviewData => _data.overviewData;
 
-  int get _totalCalories => _caloriesChart.calories.reduce((a, b) => a + b);
+  CaloriesChart get _caloriesChart => _data.caloriesChart;
 
   int get _findMaxCalories => _caloriesChart.calories.reduce(max);
 
@@ -177,8 +178,8 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
           const SizedBox(height: 15.0),
           FitnessOverViewStatistic(
             heartRate: _caloriesChart.heartRate,
-            calories: _totalCalories,
-            toDo: _caloriesChart.todo,
+            calories: _overviewData?.calories ?? 0,
+            toDo: _overviewData?.todoPercent ?? 0.0,
           ),
           HeaderTextCustom(
             headerText: 'What do you want to train',
@@ -243,6 +244,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
                           _data.upcomingSessions![index].id.toString(),
                         );
                         await _vm.getUpcomingSession();
+                        await _vm.getCaloriesChart();
                       },
                     ),
                     const SizedBox(height: 10.0),

@@ -21,6 +21,7 @@ mixin _$PlanDetail {
   DateTime? get startDate => throw _privateConstructorUsedError;
   DateTime? get endDate => throw _privateConstructorUsedError;
   double? get progress => throw _privateConstructorUsedError;
+  double? get caloTarget => throw _privateConstructorUsedError;
   List<DailyWorkout>? get dailyWorkouts => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -40,6 +41,7 @@ abstract class $PlanDetailCopyWith<$Res> {
       DateTime? startDate,
       DateTime? endDate,
       double? progress,
+      double? caloTarget,
       List<DailyWorkout>? dailyWorkouts});
 }
 
@@ -61,6 +63,7 @@ class _$PlanDetailCopyWithImpl<$Res, $Val extends PlanDetail>
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? progress = freezed,
+    Object? caloTarget = freezed,
     Object? dailyWorkouts = freezed,
   }) {
     return _then(_value.copyWith(
@@ -84,6 +87,10 @@ class _$PlanDetailCopyWithImpl<$Res, $Val extends PlanDetail>
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
               as double?,
+      caloTarget: freezed == caloTarget
+          ? _value.caloTarget
+          : caloTarget // ignore: cast_nullable_to_non_nullable
+              as double?,
       dailyWorkouts: freezed == dailyWorkouts
           ? _value.dailyWorkouts
           : dailyWorkouts // ignore: cast_nullable_to_non_nullable
@@ -106,6 +113,7 @@ abstract class _$$_PlanDetailCopyWith<$Res>
       DateTime? startDate,
       DateTime? endDate,
       double? progress,
+      double? caloTarget,
       List<DailyWorkout>? dailyWorkouts});
 }
 
@@ -125,6 +133,7 @@ class __$$_PlanDetailCopyWithImpl<$Res>
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? progress = freezed,
+    Object? caloTarget = freezed,
     Object? dailyWorkouts = freezed,
   }) {
     return _then(_$_PlanDetail(
@@ -148,6 +157,10 @@ class __$$_PlanDetailCopyWithImpl<$Res>
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
               as double?,
+      caloTarget: freezed == caloTarget
+          ? _value.caloTarget
+          : caloTarget // ignore: cast_nullable_to_non_nullable
+              as double?,
       dailyWorkouts: freezed == dailyWorkouts
           ? _value._dailyWorkouts
           : dailyWorkouts // ignore: cast_nullable_to_non_nullable
@@ -165,6 +178,7 @@ class _$_PlanDetail implements _PlanDetail {
       this.startDate,
       this.endDate,
       this.progress,
+      this.caloTarget,
       final List<DailyWorkout>? dailyWorkouts})
       : _dailyWorkouts = dailyWorkouts;
 
@@ -178,6 +192,8 @@ class _$_PlanDetail implements _PlanDetail {
   final DateTime? endDate;
   @override
   final double? progress;
+  @override
+  final double? caloTarget;
   final List<DailyWorkout>? _dailyWorkouts;
   @override
   List<DailyWorkout>? get dailyWorkouts {
@@ -190,7 +206,7 @@ class _$_PlanDetail implements _PlanDetail {
 
   @override
   String toString() {
-    return 'PlanDetail(name: $name, description: $description, startDate: $startDate, endDate: $endDate, progress: $progress, dailyWorkouts: $dailyWorkouts)';
+    return 'PlanDetail(name: $name, description: $description, startDate: $startDate, endDate: $endDate, progress: $progress, caloTarget: $caloTarget, dailyWorkouts: $dailyWorkouts)';
   }
 
   @override
@@ -206,13 +222,22 @@ class _$_PlanDetail implements _PlanDetail {
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             (identical(other.progress, progress) ||
                 other.progress == progress) &&
+            (identical(other.caloTarget, caloTarget) ||
+                other.caloTarget == caloTarget) &&
             const DeepCollectionEquality()
                 .equals(other._dailyWorkouts, _dailyWorkouts));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, startDate,
-      endDate, progress, const DeepCollectionEquality().hash(_dailyWorkouts));
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      description,
+      startDate,
+      endDate,
+      progress,
+      caloTarget,
+      const DeepCollectionEquality().hash(_dailyWorkouts));
 
   @JsonKey(ignore: true)
   @override
@@ -228,6 +253,7 @@ abstract class _PlanDetail implements PlanDetail {
       final DateTime? startDate,
       final DateTime? endDate,
       final double? progress,
+      final double? caloTarget,
       final List<DailyWorkout>? dailyWorkouts}) = _$_PlanDetail;
 
   @override
@@ -240,6 +266,8 @@ abstract class _PlanDetail implements PlanDetail {
   DateTime? get endDate;
   @override
   double? get progress;
+  @override
+  double? get caloTarget;
   @override
   List<DailyWorkout>? get dailyWorkouts;
   @override

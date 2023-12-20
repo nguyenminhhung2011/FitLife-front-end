@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Session _$SessionFromJson(Map<String, dynamic> json) {
+  return _Session.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Session {
   String get id => throw _privateConstructorUsedError;
@@ -34,6 +38,7 @@ mixin _$Session {
   List<CustomExercise>? get customExercise =>
       throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SessionCopyWith<Session> get copyWith => throw _privateConstructorUsedError;
 }
@@ -284,7 +289,7 @@ class __$$_SessionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Session implements _Session {
   const _$_Session(
       {required this.id,
@@ -305,6 +310,9 @@ class _$_Session implements _Session {
       final List<CustomExercise>? customExercise})
       : _equipments = equipments,
         _customExercise = customExercise;
+
+  factory _$_Session.fromJson(Map<String, dynamic> json) =>
+      _$$_SessionFromJson(json);
 
   @override
   final String id;
@@ -393,6 +401,7 @@ class _$_Session implements _Session {
                 .equals(other._customExercise, _customExercise));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -418,6 +427,13 @@ class _$_Session implements _Session {
   @pragma('vm:prefer-inline')
   _$$_SessionCopyWith<_$_Session> get copyWith =>
       __$$_SessionCopyWithImpl<_$_Session>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_SessionToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Session implements Session {
@@ -438,6 +454,8 @@ abstract class _Session implements Session {
       final int? transferTime,
       final List<Equipment>? equipments,
       final List<CustomExercise>? customExercise}) = _$_Session;
+
+  factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
 
   @override
   String get id;
@@ -477,6 +495,10 @@ abstract class _Session implements Session {
       throw _privateConstructorUsedError;
 }
 
+Equipment _$EquipmentFromJson(Map<String, dynamic> json) {
+  return _Equipment.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Equipment {
   String get image => throw _privateConstructorUsedError;
@@ -485,6 +507,7 @@ mixin _$Equipment {
   String get type => throw _privateConstructorUsedError;
   int? get quantity => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $EquipmentCopyWith<Equipment> get copyWith =>
       throw _privateConstructorUsedError;
@@ -605,7 +628,7 @@ class __$$_EquipmentCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Equipment implements _Equipment {
   const _$_Equipment(
       {required this.image,
@@ -613,6 +636,9 @@ class _$_Equipment implements _Equipment {
       required this.description,
       required this.type,
       this.quantity});
+
+  factory _$_Equipment.fromJson(Map<String, dynamic> json) =>
+      _$$_EquipmentFromJson(json);
 
   @override
   final String image;
@@ -644,6 +670,7 @@ class _$_Equipment implements _Equipment {
                 other.quantity == quantity));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, image, name, description, type, quantity);
@@ -653,6 +680,13 @@ class _$_Equipment implements _Equipment {
   @pragma('vm:prefer-inline')
   _$$_EquipmentCopyWith<_$_Equipment> get copyWith =>
       __$$_EquipmentCopyWithImpl<_$_Equipment>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_EquipmentToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Equipment implements Equipment {
@@ -662,6 +696,9 @@ abstract class _Equipment implements Equipment {
       required final String description,
       required final String type,
       final int? quantity}) = _$_Equipment;
+
+  factory _Equipment.fromJson(Map<String, dynamic> json) =
+      _$_Equipment.fromJson;
 
   @override
   String get image;

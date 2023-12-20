@@ -1,6 +1,7 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/me/entity/plan/add_plan_dto.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/add_workout_plan_dto.dart';
 import 'package:fit_life/mvvm/repo/plan_repositories.dart';
+import 'package:fit_life/mvvm/repo/workout_plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -11,12 +12,14 @@ part 'plan_overview_state.dart';
 part 'plan_overview_view_model.freezed.dart';
 
 final planOverviewStateNotifier =
-    AutoDisposeStateNotifierProvider<PlanOverViewViewModel, PlanOverViewState>(
+    StateNotifierProvider<PlanOverViewViewModel, PlanOverViewState>(
         (ref) => injector.get<PlanOverViewViewModel>());
 
 @injectable
 class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
   final _planRepositories = injector.get<PlanRepositories>();
+  final _workoutPlanRepositories = injector.get<WorkoutPlanRepositories>();
+
   PlanOverViewViewModel() : super(const _Initial(data: PlanOverViewData()));
 
   PlanOverViewData get data => state.data;
@@ -42,9 +45,8 @@ class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
   Future<void> getSessionPlanHistory() async {
     state = _Loading(data: data.copyWith(isLoadingWorkoutPlans: true));
 
-    final call = await _planRepositories.getTopPlan(topCountable: 2);
+    final call = await _workoutPlanRepositories.getWorkoutPlans();
 
-    await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
 
     state = call.fold(
@@ -54,37 +56,18 @@ class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
       ),
       ifRight: (rData) => _GetCurrentPlanSuccess(
         data: data.copyWith(
-          workoutPlans: [...rData],
+          workoutPlans: rData,
           isLoadingWorkoutPlans: false,
         ),
       ),
     );
   }
 
-  Future<void> createPlan({
-    bool isUsingAIGenerate = false,
-    required String title,
-    required DateTime timeStart,
-    required DateTime timeFinish,
-    String? level,
-    String? goal,
-    String? preferences,
-  }) async {
+  Future<void> createPlan({required AddWorkoutPlanDto dto}) async {
     state = _Loading(data: data.copyWith(isLoadingCreatePlan: true));
+    final call = await _workoutPlanRepositories.addWorkoutPlan(data: dto);
+    await Future.delayed(const Duration(seconds: 1));
 
-    final call = await _planRepositories.createPlan(
-      plan: AddPlanDto(
-        title: title,
-        timeStart: timeStart,
-        timeFinish: timeFinish,
-        isUsingAIGeneratePlan: isUsingAIGenerate,
-        level: level,
-        goal: goal,
-        preferences: preferences,
-      ),
-    );
-
-    await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
 
     state = call.fold(

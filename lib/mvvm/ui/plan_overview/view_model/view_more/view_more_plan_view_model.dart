@@ -1,7 +1,7 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/pagination/pagination.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
-import 'package:fit_life/mvvm/repo/plan_repositories.dart';
+import 'package:fit_life/mvvm/repo/workout_plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/view_more/view_more_plan_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -38,8 +38,7 @@ final viewMorePlanStateNotifier =
 
 @injectable
 class ViewMorePlanViewModel extends StateNotifier<ViewMorePlanState> {
-  final _planRepositories = injector.get<PlanRepositories>();
-  // ViewMorePlanViewModel(super.state);
+  final _workoutPlanRepositories = injector.get<WorkoutPlanRepositories>();
   ViewMorePlanViewModel()
       : super(
           const _Initial(
@@ -62,13 +61,14 @@ class ViewMorePlanViewModel extends StateNotifier<ViewMorePlanState> {
       ),
     );
 
-    final response = await _planRepositories.fetchPlanByFilter(
-      content: content,
-      timeStart: data.startDate ?? DateTime.now(),
-      timeFinish: data.endDate ?? DateTime.now(),
-      currentPage: data.workoutPlans.currentPage,
-      perPage: data.workoutPlans.perPage,
-    );
+    // final response = await _workoutPlanRepositories.searchWorkoutPlan(
+    //   content,
+    //   startDate: data.startDate?.millisecondsSinceEpoch,
+    //   endDate: data.endDate?.millisecondsSinceEpoch,
+    //   page: data.workoutPlans.currentPage,
+    //   size: 5,
+    // );
+    final response = await _workoutPlanRepositories.getWorkoutPlans();
 
     if (!mounted) return;
 
@@ -77,7 +77,9 @@ class ViewMorePlanViewModel extends StateNotifier<ViewMorePlanState> {
       ifRight: (rData) => _GetItemSuccess(
         data: data.copyWith(
           workoutPlans: Pagination(
-            items: isNewSearch ? rData : [...data.workoutPlans.items, ...rData],
+            items: isNewSearch
+                ? rData ?? []
+                : [...data.workoutPlans.items, ...?rData],
             currentPage: currentPage + 1,
             totalPage: data.workoutPlans.totalPage,
           ),

@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+CustomExercise _$CustomExerciseFromJson(Map<String, dynamic> json) {
+  return _CustomExercise.fromJson(json);
+}
+
 /// @nodoc
 mixin _$CustomExercise {
   int get id => throw _privateConstructorUsedError;
@@ -24,6 +28,7 @@ mixin _$CustomExercise {
   int get weight => throw _privateConstructorUsedError;
   int get calories => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CustomExerciseCopyWith<CustomExercise> get copyWith =>
       throw _privateConstructorUsedError;
@@ -183,7 +188,7 @@ class __$$_CustomExerciseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_CustomExercise implements _CustomExercise {
   const _$_CustomExercise(
       {required this.id,
@@ -193,6 +198,9 @@ class _$_CustomExercise implements _CustomExercise {
       required this.rep,
       required this.weight,
       required this.calories});
+
+  factory _$_CustomExercise.fromJson(Map<String, dynamic> json) =>
+      _$$_CustomExerciseFromJson(json);
 
   @override
   final int id;
@@ -231,6 +239,7 @@ class _$_CustomExercise implements _CustomExercise {
                 other.calories == calories));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, id, time, difficulty, exercise, rep, weight, calories);
@@ -240,6 +249,13 @@ class _$_CustomExercise implements _CustomExercise {
   @pragma('vm:prefer-inline')
   _$$_CustomExerciseCopyWith<_$_CustomExercise> get copyWith =>
       __$$_CustomExerciseCopyWithImpl<_$_CustomExercise>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CustomExerciseToJson(
+      this,
+    );
+  }
 }
 
 abstract class _CustomExercise implements CustomExercise {
@@ -251,6 +267,9 @@ abstract class _CustomExercise implements CustomExercise {
       required final int rep,
       required final int weight,
       required final int calories}) = _$_CustomExercise;
+
+  factory _CustomExercise.fromJson(Map<String, dynamic> json) =
+      _$_CustomExercise.fromJson;
 
   @override
   int get id;

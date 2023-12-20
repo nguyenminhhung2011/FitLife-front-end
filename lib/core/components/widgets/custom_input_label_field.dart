@@ -39,11 +39,7 @@ class _CustomInputLabelFieldState extends State<CustomInputLabelField> {
           padding: const EdgeInsetsDirectional.only(bottom: 12.0),
           child: Text(
             widget.label,
-            style: context.titleMedium.copyWith(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: context.textColor,
-            ),
+            style: context.textTheme.titleLarge,
           ),
         ),
         TextFormField(

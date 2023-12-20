@@ -174,7 +174,8 @@ class _DayCalendarState extends State<DayCalendar> {
                                   child: DayCalendarItem(
                                 onSelected: () => _onDateSelected(e),
                                 time: e,
-                                isSelected: model.isSameDate(e, dateSelected),
+                                isSelected:
+                                    model.isSameDateWith(e, dateSelected),
                               )),
                             )
                             .toList(),

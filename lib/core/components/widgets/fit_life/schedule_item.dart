@@ -7,7 +7,6 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
 class ScheduleItem extends StatelessWidget {
   final DailyWorkout item;
-
   const ScheduleItem({
     super.key,
     required this.item,
@@ -15,6 +14,12 @@ class ScheduleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final totalTimeExercise = (item.execPerRound != null &&
+            item.numberRound != null &&
+            item.timeForEachExe != null)
+        ? item.execPerRound! * item.numberRound! * item.timeForEachExe! / 60
+        : -1;
+
     return GestureDetector(
       onTap: () => context.openListPageWithRoute(Routes.sessionPlan),
       child: Container(
@@ -47,7 +52,8 @@ class ScheduleItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    gemmFormat(item.time!),
+                    gemmFormat(DateTime.fromMillisecondsSinceEpoch(
+                        item.time ?? DateTime.now().millisecondsSinceEpoch)),
                     style: context.titleLarge.copyWith(
                       fontWeight: FontWeight.w600,
                       fontSize: 22.0,
@@ -55,11 +61,11 @@ class ScheduleItem extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 5.0),
-                  if (item.totalMinute != null)
-                  Text(
-                    '⌚ ${item.totalMinute} mins',
-                    style: context.titleSmall.copyWith(color: Colors.white),
-                  )
+                  if (totalTimeExercise != -1)
+                    Text(
+                      '⌚ ${totalTimeExercise.toStringAsFixed(0)} mins',
+                      style: context.titleSmall.copyWith(color: Colors.white),
+                    )
                 ],
               ),
             ),

@@ -1,4 +1,6 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:fit_life/mvvm/ui/all_exercise/view_model/all_exercise_view_model.dart';
 import 'package:fit_life/mvvm/ui/auth/views/introduction_view.dart';
@@ -13,7 +15,7 @@ import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_overview_view.dart';
 import 'package:fit_life/mvvm/ui/health_overview/views/health_overview_view.dart';
 import 'package:fit_life/mvvm/ui/notification/views/notification_view.dart';
-import 'package:fit_life/mvvm/ui/plan_detail/views/add_new_exercise_view.dart';
+import 'package:fit_life/mvvm/ui/plan_detail/views/add_daily_workout_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/plan_detail_view.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/add_plan_view.dart';
 import 'package:fit_life/mvvm/ui/preview_exercise/views/preview_exercise_view.dart';
@@ -43,11 +45,11 @@ class MainRoutes {
             return const ProviderScope(child: OnboardingScreen());
           },
         );
-      case Routes.addNewExercise:
+      case Routes.addDailyWorkout:
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const ProviderScope(child: AddNewExerciseView());
+            return const ProviderScope(child: AddDailyWorkoutView());
           },
         );
       case Routes.addPlan:
@@ -153,7 +155,10 @@ class MainRoutes {
       case Routes.calendar:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: CalendarView()),
+          builder: (_) => ProviderScope(
+              child: CalendarView(
+            dailyWorkouts: settings.arguments as List<DailyWorkout>,
+          )),
         );
       case Routes.notification:
         return MaterialPageRoute(
@@ -203,7 +208,10 @@ class MainRoutes {
       case Routes.planDetail:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: PlanDetailView()),
+          builder: (_) => ProviderScope(
+              child: PlanDetailView(
+            plan: settings.arguments as WorkoutPlan,
+          )),
         );
       case Routes.exerciseOverview:
         return MaterialPageRoute(

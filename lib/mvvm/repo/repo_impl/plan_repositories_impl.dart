@@ -65,8 +65,8 @@ class PlanRepositoriesImpl extends BaseApi implements PlanRepositories {
         (index) => WorkoutPlan(
           name: 'How to lose 10kg in 14 days',
           description: "Target to lose 10kg in 3 months",
-          startDate: DateTime.now(),
-          endDate: DateTime.now().add(const Duration(days: 14)),
+          startDate: DateTime.now().millisecondsSinceEpoch,
+          endDate: DateTime.now().add(const Duration(days: 14)).millisecondsSinceEpoch,
         ),
       )
     ]);
@@ -81,8 +81,8 @@ class PlanRepositoriesImpl extends BaseApi implements PlanRepositories {
             (index) => WorkoutPlan(
               name: 'How to lose 10kg in 14 days',
               description: "Target to lose 10kg in 3 months",
-              startDate: DateTime.now(),
-              endDate: DateTime.now().add(const Duration(days: 14)),
+              startDate: DateTime.now().millisecondsSinceEpoch,
+              endDate: DateTime.now().add(const Duration(days: 14)).millisecondsSinceEpoch,
             ),
           )
         ],
@@ -96,9 +96,10 @@ class PlanRepositoriesImpl extends BaseApi implements PlanRepositories {
       WorkoutPlan(
         name: plan.title ?? "",
         description: plan.goal ?? "",
-        startDate: plan.timeStart ?? DateTime.now(),
-        endDate:
-            plan.timeFinish ?? DateTime.now().add(const Duration(days: 14)),
+        startDate: plan.timeStart?.millisecondsSinceEpoch ??
+            DateTime.now().millisecondsSinceEpoch,
+        endDate: plan.timeFinish?.millisecondsSinceEpoch ??
+            DateTime.now().add(const Duration(days: 14)).millisecondsSinceEpoch,
       ),
     );
   }

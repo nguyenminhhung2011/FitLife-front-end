@@ -18,12 +18,12 @@ class PlanDetailState with _$PlanDetailState {
     required String message,
   }) = _GetPlanDetailFailed;
 
-  const factory PlanDetailState.addExerciseSuccess({
+  const factory PlanDetailState.addDailyWorkoutSuccess({
     required PlanDetailData data,
-  }) = _AddExerciseSuccess;
+  }) = _AddDailyWorkoutSuccess;
 
-  const factory PlanDetailState.addExerciseFailed({
+  const factory PlanDetailState.addDailyWorkoutFailed({
     required PlanDetailData data,
     required String message,
-  }) = _AddExerciseFailed;
+  }) = _AddDailyWorkoutFailed;
 }

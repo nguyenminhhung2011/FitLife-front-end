@@ -14,15 +14,21 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+WorkoutPlan _$WorkoutPlanFromJson(Map<String, dynamic> json) {
+  return _WorkoutPlan.fromJson(json);
+}
+
 /// @nodoc
 mixin _$WorkoutPlan {
+  int? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  DateTime? get startDate => throw _privateConstructorUsedError;
-  DateTime? get endDate => throw _privateConstructorUsedError;
-  PlanType get planType => throw _privateConstructorUsedError;
+  int? get startDate => throw _privateConstructorUsedError;
+  int? get endDate => throw _privateConstructorUsedError;
+  PlanType get type => throw _privateConstructorUsedError;
   List<DailyWorkout>? get dailyWorkouts => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $WorkoutPlanCopyWith<WorkoutPlan> get copyWith =>
       throw _privateConstructorUsedError;
@@ -35,11 +41,12 @@ abstract class $WorkoutPlanCopyWith<$Res> {
       _$WorkoutPlanCopyWithImpl<$Res, WorkoutPlan>;
   @useResult
   $Res call(
-      {String name,
+      {int? id,
+      String name,
       String description,
-      DateTime? startDate,
-      DateTime? endDate,
-      PlanType planType,
+      int? startDate,
+      int? endDate,
+      PlanType type,
       List<DailyWorkout>? dailyWorkouts});
 }
 
@@ -56,14 +63,19 @@ class _$WorkoutPlanCopyWithImpl<$Res, $Val extends WorkoutPlan>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = null,
     Object? description = null,
     Object? startDate = freezed,
     Object? endDate = freezed,
-    Object? planType = null,
+    Object? type = null,
     Object? dailyWorkouts = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -75,14 +87,14 @@ class _$WorkoutPlanCopyWithImpl<$Res, $Val extends WorkoutPlan>
       startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as int?,
       endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      planType: null == planType
-          ? _value.planType
-          : planType // ignore: cast_nullable_to_non_nullable
+              as int?,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as PlanType,
       dailyWorkouts: freezed == dailyWorkouts
           ? _value.dailyWorkouts
@@ -101,11 +113,12 @@ abstract class _$$_WorkoutPlanCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
+      {int? id,
+      String name,
       String description,
-      DateTime? startDate,
-      DateTime? endDate,
-      PlanType planType,
+      int? startDate,
+      int? endDate,
+      PlanType type,
       List<DailyWorkout>? dailyWorkouts});
 }
 
@@ -120,14 +133,19 @@ class __$$_WorkoutPlanCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = null,
     Object? description = null,
     Object? startDate = freezed,
     Object? endDate = freezed,
-    Object? planType = null,
+    Object? type = null,
     Object? dailyWorkouts = freezed,
   }) {
     return _then(_$_WorkoutPlan(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -139,14 +157,14 @@ class __$$_WorkoutPlanCopyWithImpl<$Res>
       startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as int?,
       endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      planType: null == planType
-          ? _value.planType
-          : planType // ignore: cast_nullable_to_non_nullable
+              as int?,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as PlanType,
       dailyWorkouts: freezed == dailyWorkouts
           ? _value._dailyWorkouts
@@ -157,28 +175,34 @@ class __$$_WorkoutPlanCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_WorkoutPlan implements _WorkoutPlan {
   const _$_WorkoutPlan(
-      {required this.name,
+      {this.id,
+      required this.name,
       required this.description,
       this.startDate,
       this.endDate,
-      this.planType = PlanType.def,
+      this.type = PlanType.def,
       final List<DailyWorkout>? dailyWorkouts})
       : _dailyWorkouts = dailyWorkouts;
 
+  factory _$_WorkoutPlan.fromJson(Map<String, dynamic> json) =>
+      _$$_WorkoutPlanFromJson(json);
+
+  @override
+  final int? id;
   @override
   final String name;
   @override
   final String description;
   @override
-  final DateTime? startDate;
+  final int? startDate;
   @override
-  final DateTime? endDate;
+  final int? endDate;
   @override
   @JsonKey()
-  final PlanType planType;
+  final PlanType type;
   final List<DailyWorkout>? _dailyWorkouts;
   @override
   List<DailyWorkout>? get dailyWorkouts {
@@ -191,7 +215,7 @@ class _$_WorkoutPlan implements _WorkoutPlan {
 
   @override
   String toString() {
-    return 'WorkoutPlan(name: $name, description: $description, startDate: $startDate, endDate: $endDate, planType: $planType, dailyWorkouts: $dailyWorkouts)';
+    return 'WorkoutPlan(id: $id, name: $name, description: $description, startDate: $startDate, endDate: $endDate, type: $type, dailyWorkouts: $dailyWorkouts)';
   }
 
   @override
@@ -199,48 +223,62 @@ class _$_WorkoutPlan implements _WorkoutPlan {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WorkoutPlan &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.planType, planType) ||
-                other.planType == planType) &&
+            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality()
                 .equals(other._dailyWorkouts, _dailyWorkouts));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, startDate,
-      endDate, planType, const DeepCollectionEquality().hash(_dailyWorkouts));
+  int get hashCode => Object.hash(runtimeType, id, name, description, startDate,
+      endDate, type, const DeepCollectionEquality().hash(_dailyWorkouts));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_WorkoutPlanCopyWith<_$_WorkoutPlan> get copyWith =>
       __$$_WorkoutPlanCopyWithImpl<_$_WorkoutPlan>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_WorkoutPlanToJson(
+      this,
+    );
+  }
 }
 
 abstract class _WorkoutPlan implements WorkoutPlan {
   const factory _WorkoutPlan(
-      {required final String name,
+      {final int? id,
+      required final String name,
       required final String description,
-      final DateTime? startDate,
-      final DateTime? endDate,
-      final PlanType planType,
+      final int? startDate,
+      final int? endDate,
+      final PlanType type,
       final List<DailyWorkout>? dailyWorkouts}) = _$_WorkoutPlan;
 
+  factory _WorkoutPlan.fromJson(Map<String, dynamic> json) =
+      _$_WorkoutPlan.fromJson;
+
+  @override
+  int? get id;
   @override
   String get name;
   @override
   String get description;
   @override
-  DateTime? get startDate;
+  int? get startDate;
   @override
-  DateTime? get endDate;
+  int? get endDate;
   @override
-  PlanType get planType;
+  PlanType get type;
   @override
   List<DailyWorkout>? get dailyWorkouts;
   @override

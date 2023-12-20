@@ -1,7 +1,9 @@
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/extensions/double_extension.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/add_workout_plan_dto.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
 
@@ -35,7 +37,6 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
 
   @override
   void initState() {
-    // _vm.getCurrentPlan();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         _vm.getSessionPlanHistory();
@@ -158,31 +159,58 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
           onPress: () => context.openViewMorePlan(),
           textStyle: context.titleMedium.copyWith(fontWeight: FontWeight.w600),
         ),
-        _renderTimeToText(context, time: DateTime.now()),
         const SizedBox(height: 10.0),
         if (_data.isLoadingWorkoutPlans)
-          ...List.generate(2, (index) => const WorkoutPlanSkelton())
-        else
-          ..._data.workoutPlans
-                  ?.map((e) => WorkoutPlanItemWidget(
-                        workoutPlan: e,
-                        progress: 0.6,
-                      ))
+          ...List.generate(3, (index) => const WorkoutPlanSkelton())
+        else if (_data.workoutPlans?.isEmpty ?? false)
+          Text(
+            "You don't have any plan yet.\n Create new plan now!",
+            style: context.titleMedium,
+            textAlign: TextAlign.center,
+          )
+        else ...[
+          ..._data.workoutPlans?.reversed
+                  .take(3)
+                  .map(
+                    (e) => Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _renderTimeToText(e.startDate!, e.endDate!),
+                        WorkoutPlanItemWidget(
+                          workoutPlan: e,
+                          progress: ((DateTime.now().day -
+                                      DateTime.fromMillisecondsSinceEpoch(
+                                              e.startDate!)
+                                          .day) /
+                                  DateTime.fromMillisecondsSinceEpoch(
+                                          e.endDate! - e.startDate!)
+                                      .day)
+                              .minMaxRequired(0, 1),
+                        ),
+                      ],
+                    ),
+                  )
                   .toList() ??
               const [],
+        ],
         const SizedBox(height: 10.0),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: ButtonCustom(
             height: 40.0,
             radius: 10.0,
+            loading: _data.isLoadingCreatePlan,
             child: Text(
               "Create new plan",
               style: context.titleSmall
                   .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
             ),
-            onPress: () {
-              context.openListPageWithRoute(Routes.addPlan);
+            onPress: () async {
+              final res = await context.openListPageWithRoute(Routes.addPlan);
+              if (res is AddWorkoutPlanDto) {
+                await _vm.createPlan(dto: res);
+              }
             },
           ),
         ),
@@ -191,11 +219,14 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
     );
   }
 
-  Padding _renderTimeToText(BuildContext context, {required DateTime time}) {
+  Padding _renderTimeToText(int start, int end) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15.0),
+      padding: const EdgeInsets.only(left: 15.0, top: 4, bottom: 4),
       child: Text(
-        getMMMMEEEd(time),
+        getRangeDateFormat(
+          DateTime.fromMillisecondsSinceEpoch(start),
+          DateTime.fromMillisecondsSinceEpoch(end),
+        ),
         style: context.titleSmall
             .copyWith(color: Theme.of(context).hintColor, fontSize: 12.0),
       ),

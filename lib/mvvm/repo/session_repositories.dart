@@ -9,4 +9,6 @@ abstract class SessionRepositories {
   Future<SResult<List<Session>>> getAllSessionByDailyID(String dailyId);
   Future<SResult<Session>> updateSettingSession(
       {required int id, required UpdateSettingSessionRequest request});
+  Future<SResult<Session>> createSession({required Session session});
+  Future<SResult> deleteSession({required int id});
 }

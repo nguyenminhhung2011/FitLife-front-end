@@ -22,7 +22,7 @@ class TodayExerciseItem extends StatelessWidget {
     return GestureDetector(
       onTap: id != null
           ? () =>
-              context.openPageWithRouteAndParams(Routes.exerciseOverview, id)
+              context.openPageWithRouteAndParams(Routes.exerciseOverview, "1")
           : null,
       child: Container(
         width: double.infinity,

@@ -14,13 +14,18 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+DailyWorkout _$DailyWorkoutFromJson(Map<String, dynamic> json) {
+  return _DailyWorkout.fromJson(json);
+}
+
 /// @nodoc
 mixin _$DailyWorkout {
+  int? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   int? get totalMinute => throw _privateConstructorUsedError;
   double? get caloTarget => throw _privateConstructorUsedError;
-  DateTime? get time => throw _privateConstructorUsedError;
+  int? get time => throw _privateConstructorUsedError;
   int? get workoutDuration => throw _privateConstructorUsedError;
   int? get numberRound => throw _privateConstructorUsedError;
   int? get execPerRound => throw _privateConstructorUsedError;
@@ -28,6 +33,7 @@ mixin _$DailyWorkout {
   int? get breakTime => throw _privateConstructorUsedError;
   List<Session>? get sessions => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $DailyWorkoutCopyWith<DailyWorkout> get copyWith =>
       throw _privateConstructorUsedError;
@@ -40,11 +46,12 @@ abstract class $DailyWorkoutCopyWith<$Res> {
       _$DailyWorkoutCopyWithImpl<$Res, DailyWorkout>;
   @useResult
   $Res call(
-      {String name,
+      {int? id,
+      String name,
       String description,
       int? totalMinute,
       double? caloTarget,
-      DateTime? time,
+      int? time,
       int? workoutDuration,
       int? numberRound,
       int? execPerRound,
@@ -66,6 +73,7 @@ class _$DailyWorkoutCopyWithImpl<$Res, $Val extends DailyWorkout>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = null,
     Object? description = null,
     Object? totalMinute = freezed,
@@ -79,6 +87,10 @@ class _$DailyWorkoutCopyWithImpl<$Res, $Val extends DailyWorkout>
     Object? sessions = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -98,7 +110,7 @@ class _$DailyWorkoutCopyWithImpl<$Res, $Val extends DailyWorkout>
       time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as int?,
       workoutDuration: freezed == workoutDuration
           ? _value.workoutDuration
           : workoutDuration // ignore: cast_nullable_to_non_nullable
@@ -136,11 +148,12 @@ abstract class _$$_DailyWorkoutCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
+      {int? id,
+      String name,
       String description,
       int? totalMinute,
       double? caloTarget,
-      DateTime? time,
+      int? time,
       int? workoutDuration,
       int? numberRound,
       int? execPerRound,
@@ -160,6 +173,7 @@ class __$$_DailyWorkoutCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = null,
     Object? description = null,
     Object? totalMinute = freezed,
@@ -173,6 +187,10 @@ class __$$_DailyWorkoutCopyWithImpl<$Res>
     Object? sessions = freezed,
   }) {
     return _then(_$_DailyWorkout(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -192,7 +210,7 @@ class __$$_DailyWorkoutCopyWithImpl<$Res>
       time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as int?,
       workoutDuration: freezed == workoutDuration
           ? _value.workoutDuration
           : workoutDuration // ignore: cast_nullable_to_non_nullable
@@ -222,10 +240,11 @@ class __$$_DailyWorkoutCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_DailyWorkout implements _DailyWorkout {
   const _$_DailyWorkout(
-      {required this.name,
+      {this.id,
+      required this.name,
       required this.description,
       this.totalMinute,
       this.caloTarget,
@@ -238,6 +257,11 @@ class _$_DailyWorkout implements _DailyWorkout {
       final List<Session>? sessions})
       : _sessions = sessions;
 
+  factory _$_DailyWorkout.fromJson(Map<String, dynamic> json) =>
+      _$$_DailyWorkoutFromJson(json);
+
+  @override
+  final int? id;
   @override
   final String name;
   @override
@@ -247,7 +271,7 @@ class _$_DailyWorkout implements _DailyWorkout {
   @override
   final double? caloTarget;
   @override
-  final DateTime? time;
+  final int? time;
   @override
   final int? workoutDuration;
   @override
@@ -270,7 +294,7 @@ class _$_DailyWorkout implements _DailyWorkout {
 
   @override
   String toString() {
-    return 'DailyWorkout(name: $name, description: $description, totalMinute: $totalMinute, caloTarget: $caloTarget, time: $time, workoutDuration: $workoutDuration, numberRound: $numberRound, execPerRound: $execPerRound, timeForEachExe: $timeForEachExe, breakTime: $breakTime, sessions: $sessions)';
+    return 'DailyWorkout(id: $id, name: $name, description: $description, totalMinute: $totalMinute, caloTarget: $caloTarget, time: $time, workoutDuration: $workoutDuration, numberRound: $numberRound, execPerRound: $execPerRound, timeForEachExe: $timeForEachExe, breakTime: $breakTime, sessions: $sessions)';
   }
 
   @override
@@ -278,6 +302,7 @@ class _$_DailyWorkout implements _DailyWorkout {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DailyWorkout &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -299,9 +324,11 @@ class _$_DailyWorkout implements _DailyWorkout {
             const DeepCollectionEquality().equals(other._sessions, _sessions));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       name,
       description,
       totalMinute,
@@ -319,15 +346,23 @@ class _$_DailyWorkout implements _DailyWorkout {
   @pragma('vm:prefer-inline')
   _$$_DailyWorkoutCopyWith<_$_DailyWorkout> get copyWith =>
       __$$_DailyWorkoutCopyWithImpl<_$_DailyWorkout>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_DailyWorkoutToJson(
+      this,
+    );
+  }
 }
 
 abstract class _DailyWorkout implements DailyWorkout {
   const factory _DailyWorkout(
-      {required final String name,
+      {final int? id,
+      required final String name,
       required final String description,
       final int? totalMinute,
       final double? caloTarget,
-      final DateTime? time,
+      final int? time,
       final int? workoutDuration,
       final int? numberRound,
       final int? execPerRound,
@@ -335,6 +370,11 @@ abstract class _DailyWorkout implements DailyWorkout {
       final int? breakTime,
       final List<Session>? sessions}) = _$_DailyWorkout;
 
+  factory _DailyWorkout.fromJson(Map<String, dynamic> json) =
+      _$_DailyWorkout.fromJson;
+
+  @override
+  int? get id;
   @override
   String get name;
   @override
@@ -344,7 +384,7 @@ abstract class _DailyWorkout implements DailyWorkout {
   @override
   double? get caloTarget;
   @override
-  DateTime? get time;
+  int? get time;
   @override
   int? get workoutDuration;
   @override

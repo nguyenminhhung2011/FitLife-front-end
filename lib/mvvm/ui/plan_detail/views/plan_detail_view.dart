@@ -1,22 +1,32 @@
+import 'dart:math';
+
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/extensions/interger_extension.dart';
 import 'package:fit_life/core/components/widgets/appbar.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_time_text.dart';
 import 'package:fit_life/core/components/widgets/fit_life/schedule_item.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
+import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout_dto.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_data.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart';
+import 'package:fit_life/mvvm/ui/plan_detail/views/all_daily_workout_dialog.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class PlanDetailView extends ConsumerStatefulWidget {
-  const PlanDetailView({super.key});
+  final WorkoutPlan plan;
+  const PlanDetailView({
+    super.key,
+    required this.plan,
+  });
 
   @override
   ConsumerState<PlanDetailView> createState() => _PlanDetailViewState();
@@ -26,28 +36,70 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
   PlanDetailViewModel get viewModel =>
       ref.read(planDetailStateNotifier.notifier);
   PlanDetailData get data => ref.watch(planDetailStateNotifier).data;
+  WorkoutPlan get plan => widget.plan;
+
+  DateTime get startDate =>
+      DateTime.fromMillisecondsSinceEpoch(plan.startDate!);
+  DateTime get endDate => DateTime.fromMillisecondsSinceEpoch(plan.endDate!);
 
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
   Color get _primaryColor => Theme.of(context).primaryColor;
 
   EdgeInsets get _padding => const EdgeInsets.symmetric(horizontal: 15.0);
 
-  int get totalDate =>
-      data.planDetail.endDate!.difference(data.planDetail.startDate!).inDays;
-
+  int get totalDate => endDate.difference(startDate).inDays;
   int get currentDate =>
-      DateTime.now().difference(data.planDetail.startDate!).inDays;
+      (DateTime.now().day - (startDate.day)).minMaxRequired(0, totalDate);
 
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      viewModel.getPlanDetail();
+      viewModel.getPlanDetail(widget.plan.id!);
     });
     super.initState();
   }
 
+  void seeAllDailyWorkoutPlan() async {
+    await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(14)),
+      ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      builder: (context) {
+        return AllDailyWorkoutDialog(
+          dailyWorkouts: data.planDetail.dailyWorkouts,
+        );
+      },
+    );
+  }
+
+  void listenStateChange(PlanDetailState state) {
+    state.maybeWhen(
+      addDailyWorkoutSuccess: (data) {
+        context.showSnackBar("Add daily plan success");
+      },
+      addDailyWorkoutFailed: (_, message) {
+        context.showSnackBar("Add daily plan failed: $message");
+      },
+      orElse: () {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final dailyWorkoutCurrentDay = data.planDetail.dailyWorkouts
+            ?.where((element) =>
+                element.time != null &&
+                DateTime.fromMillisecondsSinceEpoch(element.time!).day ==
+                    startDate.add(Duration(days: currentDate)).day)
+            .toList() ??
+        [];
+
+    ref.listen<PlanDetailState>(
+        planDetailStateNotifier, (_, next) => listenStateChange(next));
+
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
@@ -58,12 +110,16 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
           height: 45.0,
           radius: 5.0,
           child: Text(
-            "Add new exercise",
+            "Create daily plan",
             style: context.titleMedium
                 .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          onPress: () {
-            context.openListPageWithRoute(Routes.addNewExercise);
+          onPress: () async {
+            final dto =
+                await context.openListPageWithRoute(Routes.addDailyWorkout);
+            if (dto is DailyWorkoutDTO) {
+              await viewModel.addDailyPlan(id: plan.id!, dto: dto);
+            }
           },
         ),
       ),
@@ -90,69 +146,92 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
           ),
           SliverList(
             delegate: SliverChildListDelegate(
-              <Widget>[
-                const DividerDot(),
-                const SizedBox(height: 15.0),
-                Padding(padding: _padding, child: _headerBannerField(context)),
-                const SizedBox(height: 15.0),
-                HeaderTextCustom(
-                  headerText: 'Progress',
-                  textStyle:
-                      context.titleMedium.copyWith(fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 10.0),
-                _progressField(context),
-                const SizedBox(height: 5.0),
-                if (data.isLoadingSchedule)
-                  const Padding(
-                    padding: EdgeInsets.only(top: 12.0),
-                    child: Center(child: CircularProgressIndicator()),
-                  )
-                else ...[
-                  Row(
-                    children: [
-                      const SizedBox(width: 15.0),
-                      Expanded(
-                        child: Text(
-                          "Schedule",
-                          style: context.titleMedium
-                              .copyWith(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () =>
-                            context.openListPageWithRoute(Routes.calendar),
-                        child: Text(
-                          'view in calendar',
-                          style: context.titleSmall.copyWith(
-                            fontSize: 12.0,
-                            color: _primaryColor,
-                            fontWeight: FontWeight.w500,
-                          ),
+              data.isLoadingSchedule
+                  ? [
+                      const Center(
+                        child: SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(),
                         ),
                       )
+                    ]
+                  : <Widget>[
+                      const DividerDot(),
+                      const SizedBox(height: 15.0),
+                      Padding(
+                          padding: _padding,
+                          child: _headerBannerField(context)),
+                      const SizedBox(height: 15.0),
+                      HeaderTextCustom(
+                        headerText: 'Progress',
+                        textStyle: context.titleMedium
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 10.0),
+                      _progressField(context),
+                      const SizedBox(height: 5.0),
+                      Row(
+                        children: [
+                          const SizedBox(width: 15.0),
+                          Expanded(
+                            child: Text(
+                              "Schedule",
+                              style: context.titleMedium
+                                  .copyWith(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () => context.openPageWithRouteAndParams(
+                              Routes.calendar,
+                              data.planDetail.dailyWorkouts,
+                            ),
+                            child: Text(
+                              'View in calendar',
+                              style: context.titleSmall.copyWith(
+                                fontSize: 12.0,
+                                color: _primaryColor,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      DividerTimeText(
+                          day: currentDate + 1,
+                          time: startDate.add(Duration(days: currentDate))),
+                      const SizedBox(height: 10.0),
+                      if (dailyWorkoutCurrentDay.isEmpty)
+                        Padding(
+                          padding: _padding,
+                          child: Text(
+                            '💪  No workout today',
+                            style: context.titleMedium.copyWith(
+                              color: Theme.of(context).hintColor,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      else
+                        ...List.generate(
+                          dailyWorkoutCurrentDay.length,
+                          (index) => ScheduleItem(
+                            item: dailyWorkoutCurrentDay[index],
+                          ),
+                        ),
+                      TextButton(
+                        onPressed: seeAllDailyWorkoutPlan,
+                        child: Text(
+                          'View all dates planning',
+                          style: context.titleSmall.copyWith(
+                              color: _primaryColor,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      const Divider(),
+                      const SizedBox(height: 45.0),
                     ],
-                  ),
-                  DividerTimeText(day: 1, time: DateTime.now()),
-                  const SizedBox(height: 10.0),
-                  ...List.generate(
-                    data.planDetail.dailyWorkouts?.length ?? 0,
-                    (index) => ScheduleItem(
-                      item: data.planDetail.dailyWorkouts![index],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'View all dates planning',
-                      style: context.titleSmall.copyWith(
-                          color: _primaryColor, fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  const Divider(),
-                ],
-                const SizedBox(height: 45.0),
-              ],
             ),
           ),
         ],
@@ -190,17 +269,6 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
                 ),
               ),
               const SizedBox(width: 10.0),
-              ButtonCustom(
-                enableWidth: false,
-                radius: 5.0,
-                height: 30.0,
-                child: Text(
-                  "Return",
-                  style: context.titleSmall.copyWith(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                onPress: () {},
-              )
             ],
           ),
           const SizedBox(height: 10.0),
@@ -262,10 +330,11 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
   }
 
   Widget _headerBannerField(BuildContext context) {
-    final planDetail = data.planDetail;
-    final startDate = planDetail.startDate!;
-    final endDate = planDetail.endDate!;
-    final difference = planDetail.endDate!.difference(planDetail.startDate!);
+    final difference = endDate.difference(startDate);
+    final progress = min(
+        DateTime.now().difference(startDate).inDays /
+            endDate.difference(startDate).inDays,
+        1.0);
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -275,13 +344,12 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if (planDetail.name != null)
-                Text(
-                  planDetail.name!,
-                  style: context.titleMedium.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              Text(
+                plan.name,
+                style: context.titleMedium.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
               Text(
                 getRangeDateFormat(startDate, endDate),
                 style: context.titleSmall.copyWith(
@@ -309,9 +377,9 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
             animation: true,
             animationDuration: 1000,
             radius: 30.0,
-            percent: planDetail.progress ?? 0,
+            percent: progress,
             center: Text(
-              '${((planDetail.progress ?? 0) * 100).toStringAsFixed(0)}%',
+              '${((progress) * 100).toStringAsFixed(0)}%',
               style: context.titleSmall.copyWith(fontWeight: FontWeight.w600),
             ),
             backgroundColor: Theme.of(context).dividerColor,

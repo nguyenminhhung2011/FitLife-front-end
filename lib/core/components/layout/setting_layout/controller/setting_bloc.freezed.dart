@@ -1458,6 +1458,8 @@ abstract class _$$_AddFavoriteExerciseCopyWith<$Res> {
       __$$_AddFavoriteExerciseCopyWithImpl<$Res>;
   @useResult
   $Res call({Exercise exercise});
+
+  $ExerciseCopyWith<$Res> get exercise;
 }
 
 /// @nodoc
@@ -1471,14 +1473,22 @@ class __$$_AddFavoriteExerciseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? exercise = freezed,
+    Object? exercise = null,
   }) {
     return _then(_$_AddFavoriteExercise(
-      freezed == exercise
+      null == exercise
           ? _value.exercise
           : exercise // ignore: cast_nullable_to_non_nullable
               as Exercise,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ExerciseCopyWith<$Res> get exercise {
+    return $ExerciseCopyWith<$Res>(_value.exercise, (value) {
+      return _then(_value.copyWith(exercise: value));
+    });
   }
 }
 
@@ -1500,12 +1510,12 @@ class _$_AddFavoriteExercise implements _AddFavoriteExercise {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddFavoriteExercise &&
-            const DeepCollectionEquality().equals(other.exercise, exercise));
+            (identical(other.exercise, exercise) ||
+                other.exercise == exercise));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(exercise));
+  int get hashCode => Object.hash(runtimeType, exercise);
 
   @JsonKey(ignore: true)
   @override

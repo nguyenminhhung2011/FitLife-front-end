@@ -58,6 +58,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
             'health',
             'security',
             'lang',
+            "favorite",
             'appearance',
             'about',
             "changePass"

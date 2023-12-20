@@ -22,5 +22,6 @@ class Routes {
   static const String healthOverview = '/health_overview';
   static const String exerciseDetail = '/exercise_detail';
   static const String previewExercise = '/preview_exercise';
+  static const String favoriteExercise = '/favorite_exercise';
   static const String exerciseOverview = '/exercise_overview';
 }

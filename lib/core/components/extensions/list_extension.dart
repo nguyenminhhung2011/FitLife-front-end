@@ -1,3 +1,5 @@
+import 'package:collection/collection.dart';
+
 extension ListExtension<T> on List<T> {
   void removeExtensions(T data) {
     remove(data);
@@ -13,4 +15,14 @@ extension ListExtension<T> on List<T> {
 
   List<T> operator -(List<T> other) =>
       where((element) => !other.contains(element)).toList();
+
+  String get fromListLevelToText => "${mapIndexed((index, element) {
+        if (index == length - 1) {
+          return element;
+        }
+        return "$element ⚡";
+      })}"
+          .replaceAll('(', '')
+          .replaceAll(')', '')
+          .replaceAll(',', '');
 }

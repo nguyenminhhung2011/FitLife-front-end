@@ -30,7 +30,7 @@ class FavoriteExerciseItem extends StatelessWidget {
       child: Row(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(5.0),
             child: const ImageCustom(
               imageUrl: ImageConst.banner3,
               isNetworkImage: false,
@@ -69,15 +69,15 @@ class FavoriteExerciseItem extends StatelessWidget {
                   ]
                       .map(
                         (e) => Container(
-                          padding: const EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
-                              color: Theme.of(context)
-                                  .primaryColor
-                                  .withOpacity(0.1),
-                              border: Border.all(
-                                  width: 1,
-                                  color: Theme.of(context).primaryColor),
-                              borderRadius: BorderRadius.circular(5.0)),
+                            color:
+                                Theme.of(context).primaryColor.withOpacity(0.1),
+                            border: Border.all(
+                                width: 1,
+                                color: Theme.of(context).primaryColor),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           child: Text(
                             e,
                             style: context.titleSmall.copyWith(

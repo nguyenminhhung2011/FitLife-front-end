@@ -43,9 +43,8 @@ class _FavoriteExerciseViewState extends State<FavoriteExerciseView> {
           ),
           body: favoriteEx.isNotEmpty
               ? ListView.separated(
-                  separatorBuilder: (_, __) {
-                    return const SizedBox(height: 10.0);
-                  },
+                  padding: const EdgeInsets.only(bottom: 40.0),
+                  separatorBuilder: (_, __) => const SizedBox(height: 10.0),
                   itemCount: favoriteEx.length,
                   itemBuilder: (_, index) {
                     final exercise = favoriteEx[index];

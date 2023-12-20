@@ -105,6 +105,19 @@ class Constant {
     Frequency.notMuch,
   ];
 
+  static Map<String, List<String>> bodyPartLevels = {
+    "back": ["Intermediate", "Advanced"],
+    "cardio": ["Beginner"],
+    "chest": ["Intermediate"],
+    "lower arms": ["Beginner", "Intermediate"],
+    "lower legs": ["Intermediate", "Advanced"],
+    "neck": ["Beginner"],
+    "shoulders": ["Intermediate"],
+    "upper arms": ["Beginner", "Intermediate"],
+    "upper legs": ["Intermediate", "Advanced"],
+    "waist": ["Beginner"],
+  };
+
   static Map<String, String> bodyPartDescriptions = {
     "back":
         "Muscles located in the upper and lower back, responsible for posture, stability, and pulling movements.",

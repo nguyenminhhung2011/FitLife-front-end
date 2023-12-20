@@ -15,6 +15,7 @@ class Exercise with _$Exercise {
     String? videoUrl,
     int? set,
     int? reps,
+    String? equipment,
     List<Instruction>? instructions,
   }) = _Exercise;
 

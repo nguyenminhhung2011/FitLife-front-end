@@ -120,141 +120,151 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
           ],
         ),
       ),
-      body: ListView(
-        children: [
-          Row(
-            children: [
-              const SizedBox(width: 15.0),
-              if (_rangeDate.isNotEmpty)
-                Expanded(
-                  child: Text(
-                    getRangeDateFormat(_rangeDate.first, _rangeDate.last),
-                    style: context.titleSmall.copyWith(fontSize: 12.0),
-                  ),
-                ),
-              ButtonCustom(
-                enableWidth: false,
-                onPress: _onSelectedDate,
-                radius: 5.0,
-                height: 30.0,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(CupertinoIcons.calendar_badge_minus,
-                        color: Colors.white, size: 16),
-                    Text(
-                      ' Selected date',
-                      style: context.titleSmall.copyWith(
-                        color: Colors.white,
-                        fontSize: 10.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
+      body: RefreshIndicator(
+        onRefresh: () async {
+          Future.delayed(Duration.zero, () {
+            _vm.getBodyPart();
+            _vm.getCaloriesChart();
+            _vm.getUpcomingSession();
+          });
+        },
+        child: _body(context),
+      ),
+    );
+  }
+
+  ListView _body(BuildContext context) {
+    return ListView(
+      children: [
+        Row(
+          children: [
+            const SizedBox(width: 15.0),
+            if (_rangeDate.isNotEmpty)
+              Expanded(
+                child: Text(
+                  getRangeDateFormat(_rangeDate.first, _rangeDate.last),
+                  style: context.titleSmall.copyWith(fontSize: 12.0),
                 ),
               ),
-              const SizedBox(width: 15.0),
-            ],
-          ),
-          const SizedBox(height: 20.0),
-          Container(
-            margin: const EdgeInsets.only(left: 20, right: 10.0),
-            width: double.infinity,
-            height: context.heightDevice * 0.3,
-            child: LineChartOneLine(
-              listData: [
-                if (_findMaxCalories != 0)
-                  ..._caloriesChart.calories.mapIndexed(
-                    (index, element) => FlSpot(index + 1,
-                        element == 0 ? 1 : (element / _findMaxCalories) * 6),
-                  )
-                else
-                  ...List.generate(7, (index) => FlSpot(index + 1, 1))
-              ],
-              callBack: (_, __) {},
-              lineColor: Theme.of(context).primaryColor,
-            ),
-          ),
-          const SizedBox(height: 15.0),
-          FitnessOverViewStatistic(
-            heartRate: _caloriesChart.heartRate,
-            calories: _overviewData?.calories ?? 0,
-            toDo: _overviewData?.todoPercent ?? 0.0,
-          ),
-          HeaderTextCustom(
-            headerText: 'What do you want to train',
-            textStyle:
-                context.titleMedium.copyWith(fontWeight: FontWeight.w600),
-            isShowSeeMore: true,
-            onPress: () async {
-              await context.openListPageWithRoute(Routes.groupExercise);
-            },
-          ),
-          const SizedBox(height: 10.0),
-          if (_data.isLoadingBodyPart)
-            Center(
-              child: StyleLoadingWidget.foldingCube.renderWidget(
-                  size: 40.0, color: Theme.of(context).primaryColor),
-            )
-          else if (_data.exerciseCategories?.isNotEmpty ?? false)
-            SizedBox(
-              width: double.infinity,
-              height: 180.0,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
+            ButtonCustom(
+              enableWidth: false,
+              onPress: _onSelectedDate,
+              radius: 5.0,
+              height: 30.0,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(width: 15.0),
-                  ..._exerciseCategories!
-                      .mapIndexed<Widget>(
-                        (index, e) => BodyPartWidget(
-                          header: e.header,
-                          exCountable: e.exCountable,
-                          description: e.description ?? "",
-                          level: e.level,
-                          image: ImageConst.listBanner[index % 3],
-                        ),
-                      )
-                      .expand((e) => [e, const SizedBox(width: 15.0)])
+                  const Icon(CupertinoIcons.calendar_badge_minus,
+                      color: Colors.white, size: 16),
+                  Text(
+                    ' Selected date',
+                    style: context.titleSmall.copyWith(
+                      color: Colors.white,
+                      fontSize: 10.0,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ],
               ),
             ),
-          const SizedBox(height: 15.0),
-          HeaderTextCustom(
-            headerText: S.of(context).toDaySession,
-            textStyle:
-                context.titleMedium.copyWith(fontWeight: FontWeight.w600),
+            const SizedBox(width: 15.0),
+          ],
+        ),
+        const SizedBox(height: 20.0),
+        Container(
+          margin: const EdgeInsets.only(left: 20, right: 10.0),
+          width: double.infinity,
+          height: context.heightDevice * 0.3,
+          child: LineChartOneLine(
+            listData: [
+              if (_findMaxCalories != 0)
+                ..._caloriesChart.calories.mapIndexed(
+                  (index, element) => FlSpot(index + 1,
+                      element == 0 ? 1 : (element / _findMaxCalories) * 6),
+                )
+              else
+                ...List.generate(7, (index) => FlSpot(index + 1, 1))
+            ],
+            callBack: (_, __) {},
+            lineColor: Theme.of(context).primaryColor,
           ),
-          const SizedBox(height: 10.0),
-          if (_data.isLoadingUpcomingWorkout)
-            const Center(child: CircularProgressIndicator())
-          else if (_data.upcomingSessions?.isEmpty ?? false)
-            Center(
-                child: Text('No upcoming workout', style: context.titleSmall))
-          else
-            ...List.generate(
-              _data.upcomingSessions?.length ?? 0,
-              (index) {
-                return Column(
-                  children: [
-                    UpComingSessionItem(
-                      session: _data.upcomingSessions![index],
-                      onPress: () async {
-                        await context.openPageWithRouteAndParams(
-                          Routes.exerciseOverview,
-                          _data.upcomingSessions![index].id.toString(),
-                        );
-                        await _vm.getUpcomingSession();
-                        await _vm.getCaloriesChart();
-                      },
-                    ),
-                    const SizedBox(height: 10.0),
-                  ],
-                );
-              },
+        ),
+        const SizedBox(height: 15.0),
+        FitnessOverViewStatistic(
+          heartRate: _caloriesChart.heartRate,
+          calories: _overviewData?.calories ?? 0,
+          toDo: _overviewData?.todoPercent ?? 0.0,
+        ),
+        HeaderTextCustom(
+          headerText: 'What do you want to train',
+          textStyle: context.titleMedium.copyWith(fontWeight: FontWeight.w600),
+          isShowSeeMore: true,
+          onPress: () async {
+            await context.openListPageWithRoute(Routes.groupExercise);
+          },
+        ),
+        const SizedBox(height: 10.0),
+        if (_data.isLoadingBodyPart)
+          Center(
+            child: StyleLoadingWidget.foldingCube.renderWidget(
+                size: 40.0, color: Theme.of(context).primaryColor),
+          )
+        else if (_data.exerciseCategories?.isNotEmpty ?? false)
+          SizedBox(
+            width: double.infinity,
+            height: 180.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                const SizedBox(width: 15.0),
+                ..._exerciseCategories!
+                    .mapIndexed<Widget>(
+                      (index, e) => BodyPartWidget(
+                        header: e.header,
+                        exCountable: e.exCountable,
+                        description: e.description ?? "",
+                        level: e.level,
+                        image: ImageConst.listBanner[index % 3],
+                      ),
+                    )
+                    .expand((e) => [e, const SizedBox(width: 15.0)])
+              ],
             ),
-          const SizedBox(height: 40.0),
-        ],
-      ),
+          ),
+        const SizedBox(height: 15.0),
+        HeaderTextCustom(
+          headerText: S.of(context).toDaySession,
+          textStyle: context.titleMedium.copyWith(fontWeight: FontWeight.w600),
+        ),
+        const SizedBox(height: 10.0),
+        if (_data.isLoadingUpcomingWorkout)
+          const Center(child: CircularProgressIndicator())
+        else if (_data.upcomingSessions?.isEmpty ?? false)
+          Center(child: Text('No upcoming workout', style: context.titleSmall))
+        else
+          ...List.generate(
+            _data.upcomingSessions?.length ?? 0,
+            (index) {
+              return Column(
+                children: [
+                  UpComingSessionItem(
+                    session: _data.upcomingSessions![index],
+                    onPress: () async {
+                      await context.openPageWithRouteAndParams(
+                        Routes.exerciseOverview,
+                        _data.upcomingSessions![index].id.toString(),
+                      );
+                      await _vm.getUpcomingSession();
+                      await _vm.getCaloriesChart();
+                    },
+                  ),
+                  const SizedBox(height: 10.0),
+                ],
+              );
+            },
+          ),
+        const SizedBox(height: 40.0),
+      ],
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
+import 'package:fit_life/core/components/widgets/fit_life/equipment_horizontal_item.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/core/components/widgets/video_player.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
@@ -143,6 +144,13 @@ class _ExerciseDetailViewState extends ConsumerState<ExerciseDetailView> {
                 style: _smallStyle),
           ),
           const SizedBox(height: 10.0),
+          _headerText(content: 'Equipment'),
+          if (_exercise?.equipment?.isNotEmpty ?? false) ...[
+            const SizedBox(height: 10.0),
+            EquipmentHorizontalItem(
+                equipment: _exercise!.equipment!, isFillWidth: true),
+          ],
+          const SizedBox(height: 15.0),
           _headerText(content: 'Description'),
           Padding(
             padding: _itemPadding,

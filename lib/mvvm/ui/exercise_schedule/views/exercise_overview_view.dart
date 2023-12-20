@@ -36,6 +36,8 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
 
   Session? get _session => _data.sessionPlan;
 
+  List<String> get _equipments => _data.equipment ?? [];
+
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
 
   Color get _primaryColor => Theme.of(context).primaryColor;
@@ -202,15 +204,16 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                 const SizedBox(height: 15.0),
                 _headerRowWidget(
                     header: 'Equipments',
-                    trailing: '${_session?.equipments?.length ?? 0} equips'),
+                    trailing: '${_equipments.length} equips'),
                 const SizedBox(height: 10.0),
                 SizedBox(
                   width: double.infinity,
                   height: context.heightDevice * 0.15,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: _session?.equipments?.length ?? 4,
-                    itemBuilder: (_, index) => const EquipmentHorizontalItem(),
+                    itemCount: _equipments.length,
+                    itemBuilder: (_, index) =>
+                        EquipmentHorizontalItem(equipment: _equipments[index]),
                   ),
                 ),
                 const SizedBox(height: 15.0),

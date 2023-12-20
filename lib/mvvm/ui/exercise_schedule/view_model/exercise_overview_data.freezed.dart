@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ExerciseOverviewData {
   Session? get sessionPlan => throw _privateConstructorUsedError;
+  List<String>? get equipment => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ExerciseOverviewDataCopyWith<ExerciseOverviewData> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $ExerciseOverviewDataCopyWith<$Res> {
           $Res Function(ExerciseOverviewData) then) =
       _$ExerciseOverviewDataCopyWithImpl<$Res, ExerciseOverviewData>;
   @useResult
-  $Res call({Session? sessionPlan});
+  $Res call({Session? sessionPlan, List<String>? equipment});
 
   $SessionCopyWith<$Res>? get sessionPlan;
 }
@@ -49,12 +50,17 @@ class _$ExerciseOverviewDataCopyWithImpl<$Res,
   @override
   $Res call({
     Object? sessionPlan = freezed,
+    Object? equipment = freezed,
   }) {
     return _then(_value.copyWith(
       sessionPlan: freezed == sessionPlan
           ? _value.sessionPlan
           : sessionPlan // ignore: cast_nullable_to_non_nullable
               as Session?,
+      equipment: freezed == equipment
+          ? _value.equipment
+          : equipment // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 
@@ -79,7 +85,7 @@ abstract class _$$_ExerciseOverviewDataCopyWith<$Res>
       __$$_ExerciseOverviewDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Session? sessionPlan});
+  $Res call({Session? sessionPlan, List<String>? equipment});
 
   @override
   $SessionCopyWith<$Res>? get sessionPlan;
@@ -97,12 +103,17 @@ class __$$_ExerciseOverviewDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? sessionPlan = freezed,
+    Object? equipment = freezed,
   }) {
     return _then(_$_ExerciseOverviewData(
       sessionPlan: freezed == sessionPlan
           ? _value.sessionPlan
           : sessionPlan // ignore: cast_nullable_to_non_nullable
               as Session?,
+      equipment: freezed == equipment
+          ? _value._equipment
+          : equipment // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -110,14 +121,25 @@ class __$$_ExerciseOverviewDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ExerciseOverviewData implements _ExerciseOverviewData {
-  const _$_ExerciseOverviewData({this.sessionPlan});
+  const _$_ExerciseOverviewData(
+      {this.sessionPlan, final List<String>? equipment})
+      : _equipment = equipment;
 
   @override
   final Session? sessionPlan;
+  final List<String>? _equipment;
+  @override
+  List<String>? get equipment {
+    final value = _equipment;
+    if (value == null) return null;
+    if (_equipment is EqualUnmodifiableListView) return _equipment;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'ExerciseOverviewData(sessionPlan: $sessionPlan)';
+    return 'ExerciseOverviewData(sessionPlan: $sessionPlan, equipment: $equipment)';
   }
 
   @override
@@ -126,11 +148,14 @@ class _$_ExerciseOverviewData implements _ExerciseOverviewData {
         (other.runtimeType == runtimeType &&
             other is _$_ExerciseOverviewData &&
             (identical(other.sessionPlan, sessionPlan) ||
-                other.sessionPlan == sessionPlan));
+                other.sessionPlan == sessionPlan) &&
+            const DeepCollectionEquality()
+                .equals(other._equipment, _equipment));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, sessionPlan);
+  int get hashCode => Object.hash(runtimeType, sessionPlan,
+      const DeepCollectionEquality().hash(_equipment));
 
   @JsonKey(ignore: true)
   @override
@@ -141,11 +166,14 @@ class _$_ExerciseOverviewData implements _ExerciseOverviewData {
 }
 
 abstract class _ExerciseOverviewData implements ExerciseOverviewData {
-  const factory _ExerciseOverviewData({final Session? sessionPlan}) =
-      _$_ExerciseOverviewData;
+  const factory _ExerciseOverviewData(
+      {final Session? sessionPlan,
+      final List<String>? equipment}) = _$_ExerciseOverviewData;
 
   @override
   Session? get sessionPlan;
+  @override
+  List<String>? get equipment;
   @override
   @JsonKey(ignore: true)
   _$$_ExerciseOverviewDataCopyWith<_$_ExerciseOverviewData> get copyWith =>

@@ -28,6 +28,7 @@ mixin _$Exercise {
   String? get videoUrl => throw _privateConstructorUsedError;
   int? get set => throw _privateConstructorUsedError;
   int? get reps => throw _privateConstructorUsedError;
+  String? get equipment => throw _privateConstructorUsedError;
   List<Instruction>? get instructions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,6 +51,7 @@ abstract class $ExerciseCopyWith<$Res> {
       String? videoUrl,
       int? set,
       int? reps,
+      String? equipment,
       List<Instruction>? instructions});
 }
 
@@ -74,6 +76,7 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
     Object? videoUrl = freezed,
     Object? set = freezed,
     Object? reps = freezed,
+    Object? equipment = freezed,
     Object? instructions = freezed,
   }) {
     return _then(_value.copyWith(
@@ -109,6 +112,10 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
           ? _value.reps
           : reps // ignore: cast_nullable_to_non_nullable
               as int?,
+      equipment: freezed == equipment
+          ? _value.equipment
+          : equipment // ignore: cast_nullable_to_non_nullable
+              as String?,
       instructions: freezed == instructions
           ? _value.instructions
           : instructions // ignore: cast_nullable_to_non_nullable
@@ -133,6 +140,7 @@ abstract class _$$_ExerciseCopyWith<$Res> implements $ExerciseCopyWith<$Res> {
       String? videoUrl,
       int? set,
       int? reps,
+      String? equipment,
       List<Instruction>? instructions});
 }
 
@@ -155,6 +163,7 @@ class __$$_ExerciseCopyWithImpl<$Res>
     Object? videoUrl = freezed,
     Object? set = freezed,
     Object? reps = freezed,
+    Object? equipment = freezed,
     Object? instructions = freezed,
   }) {
     return _then(_$_Exercise(
@@ -190,6 +199,10 @@ class __$$_ExerciseCopyWithImpl<$Res>
           ? _value.reps
           : reps // ignore: cast_nullable_to_non_nullable
               as int?,
+      equipment: freezed == equipment
+          ? _value.equipment
+          : equipment // ignore: cast_nullable_to_non_nullable
+              as String?,
       instructions: freezed == instructions
           ? _value._instructions
           : instructions // ignore: cast_nullable_to_non_nullable
@@ -210,6 +223,7 @@ class _$_Exercise implements _Exercise {
       this.videoUrl,
       this.set,
       this.reps,
+      this.equipment,
       final List<Instruction>? instructions})
       : _instructions = instructions;
 
@@ -232,6 +246,8 @@ class _$_Exercise implements _Exercise {
   final int? set;
   @override
   final int? reps;
+  @override
+  final String? equipment;
   final List<Instruction>? _instructions;
   @override
   List<Instruction>? get instructions {
@@ -244,7 +260,7 @@ class _$_Exercise implements _Exercise {
 
   @override
   String toString() {
-    return 'Exercise(id: $id, name: $name, description: $description, bodyPart: $bodyPart, caloriesPerMinute: $caloriesPerMinute, videoUrl: $videoUrl, set: $set, reps: $reps, instructions: $instructions)';
+    return 'Exercise(id: $id, name: $name, description: $description, bodyPart: $bodyPart, caloriesPerMinute: $caloriesPerMinute, videoUrl: $videoUrl, set: $set, reps: $reps, equipment: $equipment, instructions: $instructions)';
   }
 
   @override
@@ -264,6 +280,8 @@ class _$_Exercise implements _Exercise {
                 other.videoUrl == videoUrl) &&
             (identical(other.set, set) || other.set == set) &&
             (identical(other.reps, reps) || other.reps == reps) &&
+            (identical(other.equipment, equipment) ||
+                other.equipment == equipment) &&
             const DeepCollectionEquality()
                 .equals(other._instructions, _instructions));
   }
@@ -280,6 +298,7 @@ class _$_Exercise implements _Exercise {
       videoUrl,
       set,
       reps,
+      equipment,
       const DeepCollectionEquality().hash(_instructions));
 
   @JsonKey(ignore: true)
@@ -306,6 +325,7 @@ abstract class _Exercise implements Exercise {
       final String? videoUrl,
       final int? set,
       final int? reps,
+      final String? equipment,
       final List<Instruction>? instructions}) = _$_Exercise;
 
   factory _Exercise.fromJson(Map<String, dynamic> json) = _$_Exercise.fromJson;
@@ -326,6 +346,8 @@ abstract class _Exercise implements Exercise {
   int? get set;
   @override
   int? get reps;
+  @override
+  String? get equipment;
   @override
   List<Instruction>? get instructions;
   @override

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:collection/collection.dart';
+import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/me/entity/calories_chart/calories_chart.dart';
@@ -222,9 +223,13 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
                       (index, e) => BodyPartWidget(
                         header: e.header,
                         exCountable: e.exCountable,
-                        description: e.description ?? "",
+                        description: Constant
+                                .bodyPartDescriptions[e.header.toLowerCase()] ??
+                            Constant.bodyPartDescriptions["cardio"]!,
                         level: e.level,
-                        image: ImageConst.listBanner[index % 3],
+                        image: Constant
+                                .renderBodyPartImage[e.header.toLowerCase()] ??
+                            Constant.renderBodyPartImage["cardio"],
                       ),
                     )
                     .expand((e) => [e, const SizedBox(width: 15.0)])

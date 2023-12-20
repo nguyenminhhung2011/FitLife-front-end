@@ -105,6 +105,52 @@ class Constant {
     Frequency.notMuch,
   ];
 
+  static Map<String, String> bodyPartDescriptions = {
+    "back":
+        "Muscles located in the upper and lower back, responsible for posture, stability, and pulling movements.",
+    "cardio":
+        "Exercises that elevate the heart rate and promote cardiovascular fitness.",
+    "chest":
+        "Muscles in the front of the upper body, including the pectorals, involved in pushing movements.",
+    "lower arms":
+        "Muscles in the forearm responsible for wrist and finger movements.",
+    "lower legs":
+        "Muscles located in the lower leg, including the calves and shins, responsible for walking and running.",
+    "neck":
+        "Muscles supporting the head and neck, involved in movements like rotation and flexion.",
+    "shoulders":
+        "Muscles surrounding the shoulder joint, responsible for arm movements and stability.",
+    "upper arms":
+        "Muscles in the upper arm, including the biceps and triceps, responsible for arm movements.",
+    "upper legs":
+        "Muscles in the upper leg, including the quadriceps and hamstrings, responsible for walking and running.",
+    "waist":
+        "Muscles in the abdominal and oblique regions, responsible for core stability and trunk movements."
+  };
+
+  static Map<String, dynamic> renderBodyPartImage = {
+    "back":
+        "https://res.cloudinary.com/ddopvilpr/image/upload/v1703067525/body-part/oyzqzpl36fgbnvjomxaa.webp",
+    "cardio":
+        "https://res.cloudinary.com/ddopvilpr/image/upload/v1703067524/body-part/zhezkmkonvuszzqedpfr.jpg",
+    "chest":
+        "https://res.cloudinary.com/ddopvilpr/image/upload/v1703067526/body-part/sgu0dwtxvavraylqlihr.jpg",
+    "lower arms":
+        "https://res.cloudinary.com/ddopvilpr/image/upload/v1703067525/body-part/w6j6ekcrdwrowrengmsu.webp",
+    "lower legs":
+        "https://res.cloudinary.com/ddopvilpr/image/upload/v1703067523/body-part/rlytkkli8walfu8bt7tg.jpg",
+    "neck":
+        "https://res.cloudinary.com/ddopvilpr/image/upload/v1703067523/body-part/qdlvf5rbfukwn7ysooag.webp",
+    "shoulders":
+        "https://res.cloudinary.com/ddopvilpr/image/upload/v1703067523/body-part/x1qu6kk9yvjt9ezc2ssc.jpg",
+    "upper arms":
+        "https://res.cloudinary.com/ddopvilpr/image/upload/v1703067524/body-part/llb9br1kvvjd9ygklwho.jpg",
+    "upper legs":
+        "https://res.cloudinary.com/ddopvilpr/image/upload/v1703067524/body-part/zxcimdvlmynj0kvefcxb.jpg",
+    "waist":
+        "https://res.cloudinary.com/ddopvilpr/image/upload/v1703067524/body-part/dvv7l8ztbxlywborioqn.webp",
+  };
+
   static Map<String, dynamic> renderEquipmentImage = {
     "assisted":
         "https://res.cloudinary.com/ddopvilpr/image/upload/v1703057238/fitlife/k3f5l8bpqx74wsid7fgx.webp",

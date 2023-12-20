@@ -7,11 +7,11 @@ part of 'session.dart';
 // **************************************************************************
 
 _$_Session _$$_SessionFromJson(Map<String, dynamic> json) => _$_Session(
-      id: json['id'] as String,
-      dwId: json['dwId'] as String,
+      id: json['id'] as int,
+      dwId: json['dwId'] as String?,
       name: json['name'] as String?,
       description: json['description'] as String?,
-      level: $enumDecodeNullable(_$LevelEnumMap, json['level']),
+      level: json['level'] as String?,
       calcTarget: json['calcTarget'] as int?,
       timePerLesson: json['timePerLesson'] as int?,
       numberRound: json['numberRound'] as int?,
@@ -21,9 +21,6 @@ _$_Session _$$_SessionFromJson(Map<String, dynamic> json) => _$_Session(
       done: json['done'] as bool?,
       randomMix: json['randomMix'] as bool?,
       transferTime: json['transferTime'] as int?,
-      equipments: (json['equipments'] as List<dynamic>?)
-          ?.map((e) => Equipment.fromJson(e as Map<String, dynamic>))
-          .toList(),
       customExercise: (json['customExercise'] as List<dynamic>?)
           ?.map((e) => CustomExercise.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -35,7 +32,7 @@ Map<String, dynamic> _$$_SessionToJson(_$_Session instance) =>
       'dwId': instance.dwId,
       'name': instance.name,
       'description': instance.description,
-      'level': _$LevelEnumMap[instance.level],
+      'level': instance.level,
       'calcTarget': instance.calcTarget,
       'timePerLesson': instance.timePerLesson,
       'numberRound': instance.numberRound,
@@ -45,15 +42,8 @@ Map<String, dynamic> _$$_SessionToJson(_$_Session instance) =>
       'done': instance.done,
       'randomMix': instance.randomMix,
       'transferTime': instance.transferTime,
-      'equipments': instance.equipments,
       'customExercise': instance.customExercise,
     };
-
-const _$LevelEnumMap = {
-  Level.beginner: 'beginner',
-  Level.intermediate: 'intermediate',
-  Level.advanced: 'advanced',
-};
 
 _$_Equipment _$$_EquipmentFromJson(Map<String, dynamic> json) => _$_Equipment(
       image: json['image'] as String,

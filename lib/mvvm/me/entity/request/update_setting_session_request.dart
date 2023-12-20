@@ -67,6 +67,6 @@ class UpdateSettingSessionRequest {
         name: session.name ?? "",
         numberRound: settingSession.numberRound,
         breakTime: settingSession.breakTime,
-        level: (session.level ?? Level.beginner).renderString,
+        level: session.level ?? Level.beginner.renderString,
       );
 }

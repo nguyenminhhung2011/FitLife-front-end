@@ -45,7 +45,7 @@ class ExerciseOverviewViewModel extends StateNotifier<ExerciseOverviewState> {
     if (data.sessionPlan == null) return;
     state = _Loading(data: data);
     final response = await _sessionRepositories.updateSettingSession(
-      id: int.parse(data.sessionPlan!.id),
+      id: data.sessionPlan!.id,
       request: UpdateSettingSessionRequest.fromSettingSession(
           settingSession, data.sessionPlan!),
     );

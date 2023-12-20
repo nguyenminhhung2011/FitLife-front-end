@@ -47,9 +47,9 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
 
   @override
   void initState() {
-    Future.delayed(Duration.zero, () async {
-      await _vm.getExerciseOverview();
-    });
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _vm.getExerciseOverview(),
+    );
     super.initState();
   }
 
@@ -201,15 +201,17 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                 ),
                 const SizedBox(height: 15.0),
                 _headerRowWidget(
-                    header: 'Equipments',
-                    trailing: '${_session?.equipments?.length ?? 0} equips'),
+                  header: 'Equipments',
+                  trailing:
+                      ' equips', //  TODO: ${_session?.equipments?.length ?? 0}
+                ),
                 const SizedBox(height: 10.0),
                 SizedBox(
                   width: double.infinity,
                   height: context.heightDevice * 0.15,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: _session?.equipments?.length ?? 4,
+                    itemCount: 4, // TODO: _session?.equipments?.length ??
                     itemBuilder: (_, index) => const EquipmentHorizontalItem(),
                   ),
                 ),

@@ -19,14 +19,8 @@ class AddDailyWorkoutView extends ConsumerStatefulWidget {
 }
 
 class _AddDailyWorkoutViewState extends ConsumerState<AddDailyWorkoutView> {
-  late String workoutDuration;
-  late String numOfRound;
-  late String exercisePerRound;
-  late String breakTime;
-  late String timeForEachExers;
   late TextEditingController descriptionCtrl;
   late TextEditingController titleCtrl;
-  late TextEditingController targetCaloriesCtrl;
 
   PlanDetailViewModel get viewModel =>
       ref.read(planDetailStateNotifier.notifier);
@@ -41,12 +35,6 @@ class _AddDailyWorkoutViewState extends ConsumerState<AddDailyWorkoutView> {
   void initState() {
     descriptionCtrl = TextEditingController();
     titleCtrl = TextEditingController();
-    workoutDuration = workoutDurations[0];
-    numOfRound = numRounds[0];
-    exercisePerRound = exercisePerRounds[0];
-    breakTime = breakTimes[0];
-    timeForEachExers = timeForEachExs[0];
-    targetCaloriesCtrl = TextEditingController(text: "200");
     super.initState();
   }
 
@@ -54,7 +42,6 @@ class _AddDailyWorkoutViewState extends ConsumerState<AddDailyWorkoutView> {
   void dispose() {
     descriptionCtrl.dispose();
     titleCtrl.dispose();
-    targetCaloriesCtrl.dispose();
     super.dispose();
   }
 
@@ -78,12 +65,6 @@ class _AddDailyWorkoutViewState extends ConsumerState<AddDailyWorkoutView> {
       DailyWorkoutDTO(
         name: titleCtrl.text,
         description: descriptionCtrl.text,
-        workoutDuration: int.parse(workoutDuration),
-        numberRound: int.parse(numOfRound),
-        execPerRound: int.parse(exercisePerRound),
-        breakTime: int.parse(breakTime),
-        timeForEachExe: int.parse(timeForEachExers),
-        caloTarget: double.parse(targetCaloriesCtrl.text),
         time: date.millisecondsSinceEpoch,
       ),
     );
@@ -151,53 +132,6 @@ class _AddDailyWorkoutViewState extends ConsumerState<AddDailyWorkoutView> {
               ),
               _cupertinoIcons(context),
               const SizedBox(height: 10),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Settings",
-                  style: context.textTheme.titleLarge,
-                ),
-              ),
-              const SizedBox(height: 10),
-              _customInputValueWidget(
-                title: "Target calories",
-                icon: const Icon(Icons.golf_course_sharp),
-                controller: targetCaloriesCtrl,
-              ),
-              const SizedBox(height: 10),
-              ...AddActions.values
-                  .map(
-                    (e) => _dropdownListWidget(
-                        listItem: e.data,
-                        title: e.title,
-                        itemChoice: e == AddActions.workoutDuration
-                            ? workoutDuration
-                            : e == AddActions.numOfRound
-                                ? numOfRound
-                                : e == AddActions.exerPerRound
-                                    ? exercisePerRound
-                                    : e == AddActions.breakTime
-                                        ? breakTime
-                                        : timeForEachExers,
-                        icon: Icon(e.icon),
-                        onChange: (newValue) {
-                          setState(() {
-                            if (e == AddActions.workoutDuration) {
-                              workoutDuration = newValue!;
-                            } else if (e == AddActions.numOfRound) {
-                              numOfRound = newValue!;
-                            } else if (e == AddActions.exerPerRound) {
-                              exercisePerRound = newValue!;
-                            } else if (e == AddActions.breakTime) {
-                              breakTime = newValue!;
-                            } else if (e == AddActions.timeForEachExer) {
-                              timeForEachExers = newValue!;
-                            }
-                          });
-                        }),
-                  )
-                  .expand((e) => [e, const SizedBox(height: 10.0)]),
-              const SizedBox(height: 20),
               ButtonCustom(
                 onPress: onTapSave,
                 height: 45.0,
@@ -225,102 +159,6 @@ class _AddDailyWorkoutViewState extends ConsumerState<AddDailyWorkoutView> {
               value.minute, value.second);
         },
         initialDateTime: DateTime.now(),
-      ),
-    );
-  }
-
-  Widget _dropdownListWidget({
-    Widget? icon,
-    required List<String>? listItem,
-    required String title,
-    Function(String?)? onChange,
-    required String itemChoice,
-  }) {
-    return Container(
-      height: 50,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).dividerColor.withOpacity(0.1),
-      ),
-      child: Row(
-        children: [
-          const SizedBox(width: 10),
-          if (icon != null) icon,
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(title, style: context.textTheme.bodyLarge),
-          ),
-          Container(
-            padding: const EdgeInsets.only(right: 10),
-            height: 30,
-            child: DropdownButton<String>(
-              borderRadius: BorderRadius.circular(15),
-              value: itemChoice,
-              elevation: 5,
-              icon: const Icon(Icons.arrow_drop_down),
-              items: listItem
-                  ?.map(
-                    (e) => DropdownMenuItem<String>(
-                      value: e,
-                      child: Text(
-                        e,
-                        style: context.textTheme.bodyMedium,
-                      ),
-                    ),
-                  )
-                  .toList(),
-              onChanged: onChange,
-            ),
-          ),
-          const SizedBox(height: 20),
-        ],
-      ),
-    );
-  }
-
-  Widget _customInputValueWidget({
-    Widget? icon,
-    required String title,
-    required TextEditingController controller,
-    Function(String?)? onChange,
-  }) {
-    return Container(
-      height: 50,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).dividerColor.withOpacity(0.1),
-      ),
-      child: Row(
-        children: [
-          const SizedBox(width: 10),
-          if (icon != null) icon,
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(title, style: context.textTheme.bodyLarge),
-          ),
-          Container(
-            padding: const EdgeInsets.only(right: 10),
-            height: 40,
-            width: 150,
-            child: Center(
-              child: TextField(
-                keyboardType: TextInputType.number,
-                controller: controller,
-                textAlign: TextAlign.right,
-                onChanged: onChange,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "200",
-                  suffixText: '  Calories',
-                  suffixStyle: context.textTheme.bodyMedium,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-        ],
       ),
     );
   }

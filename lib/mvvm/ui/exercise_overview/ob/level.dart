@@ -1,9 +1,10 @@
-enum Level { beginner, intermediate, advanced }
+enum Level { beginner, intermediate, advanced, hard }
 
 extension LevelExtensions on Level {
   String get renderString => switch (this) {
         Level.beginner => "Beginner",
         Level.intermediate => "Intermediate",
-        _ => "Advanced"
+        Level.advanced => "Advanced",
+        _ => "Hard"
       };
 }

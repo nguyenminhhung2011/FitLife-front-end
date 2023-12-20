@@ -1,29 +1,34 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
+import 'package:fit_life/core/components/widgets/custom_input_label_field.dart';
+import 'package:fit_life/mvvm/me/entity/session/add_session_dto.dart';
+import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/ob/add_actions.dart';
-import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 
-class AddNewExerciseView extends ConsumerStatefulWidget {
-  const AddNewExerciseView({super.key});
+class AddSessionPlan extends ConsumerStatefulWidget {
+  final int id;
+  const AddSessionPlan({super.key, required this.id});
 
   @override
-  ConsumerState<AddNewExerciseView> createState() => _AddNewExerciseViewState();
+  ConsumerState<AddSessionPlan> createState() => _AddSessionPlanState();
 }
 
-class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
-  late String workoutDuration;
+class _AddSessionPlanState extends ConsumerState<AddSessionPlan> {
+  late String calcTarget;
+  late String timePerLession;
   late String numOfRound;
-  late String exercisePerRound;
   late String breakTime;
-  late String timeForEachExers;
+  late String transferTime;
+  late String level;
 
-  PlanDetailViewModel get viewModel =>
-      ref.read(planDetailStateNotifier.notifier);
+  bool startWithBoot = false;
+  bool randomMix = false;
+
+  final TextEditingController titleCtrl = TextEditingController();
+  final TextEditingController descriptionCtrl = TextEditingController();
 
   DateTime startDate = DateTime(2023, 1, 7);
   DateTime endDate = DateTime(2023, 1, 10);
@@ -33,13 +38,21 @@ class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
 
   @override
   void initState() {
-    workoutDuration = workoutDurations[0];
+    calcTarget = calcTargets[0];
+    timePerLession = timePerLessions[0];
     numOfRound = numRounds[0];
-    exercisePerRound = exercisePerRounds[0];
     breakTime = breakTimes[0];
-    timeForEachExers = timeForEachExs[0];
+    transferTime = transferTimes[0];
+    level = Level.beginner.renderString;
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    titleCtrl.dispose();
+    descriptionCtrl.dispose();
+    super.dispose();
   }
 
   void onTapChangeDateTime() async {
@@ -58,21 +71,21 @@ class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
   }
 
   void onTapSave() async {
-    // await viewModel
-    //     .addExercise(
-    //       dto: AddExerciseDto(
-    //         exercise: Exercise(
-    //           id: 0,
-    //           name: exercise,
-    //           description: "This is description of upper body",
-    //         ),
-    //         time: date,
-    //         difficulty: difficultyValue,
-    //         reputation: int.parse(duration),
-    //         weights: int.parse(weight),
-    //       ),
-    //     )
-    //     .then((value) => context.pop());
+    context.popArgs(
+      AddSessionDTO(
+        calcTarget: int.parse(calcTarget),
+        timePerLesson: int.parse(timePerLession),
+        numberRound: int.parse(numOfRound),
+        breakTime: int.parse(breakTime),
+        transferTime: int.parse(transferTime),
+        level: level,
+        startWithBoot: startWithBoot,
+        randomMix: randomMix,
+        dailyWorkouts: widget.id,
+        description: descriptionCtrl.text,
+        name: titleCtrl.text,
+      ),
+    );
   }
 
   @override
@@ -83,7 +96,7 @@ class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
         backgroundColor: _backgroundColor,
         elevation: 0,
         title: Text(
-          "Add new exercise",
+          "Add session plan",
           style: context.titleLarge.copyWith(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
@@ -96,71 +109,79 @@ class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Time",
-                  style: context.textTheme.titleLarge,
-                ),
+              CustomInputLabelField(
+                label: 'Title',
+                controller: titleCtrl,
+                hintText: "",
               ),
               const SizedBox(height: 10),
-              GestureDetector(
-                onTap: onTapChangeDateTime,
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-                  decoration: BoxDecoration(
-                    border:
-                        Border.all(color: context.textColor!.withOpacity(0.6)),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  margin: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(DateFormat("dd/MM/yyyy").format(date)),
-                      const Icon(Icons.calendar_month),
-                    ],
-                  ),
-                ),
+              CustomInputLabelField(
+                label: 'Description',
+                controller: descriptionCtrl,
+                hintText: "",
               ),
-              _cupertinoIcons(context),
               const SizedBox(height: 10),
               Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  "Detail workouts",
+                  "Settings",
                   style: context.textTheme.titleLarge,
                 ),
               ),
               const SizedBox(height: 10),
+              _toggleWidget(
+                title: "Start with boot",
+                value: startWithBoot,
+                icon: const Icon(Icons.star_border_outlined),
+                onChange: (newValue) {
+                  setState(() {
+                    startWithBoot = newValue!;
+                  });
+                },
+              ),
+              const SizedBox(height: 10),
+              _toggleWidget(
+                title: "Random mix",
+                value: randomMix,
+                icon: const Icon(Icons.sports_golf_rounded),
+                onChange: (newValue) {
+                  setState(() {
+                    randomMix = newValue!;
+                  });
+                },
+              ),
+              const SizedBox(height: 10.0),
               ...AddActions.values
                   .map(
                     (e) => _dropdownListWidget(
                         listItem: e.data,
                         title: e.title,
-                        itemChoice: e == AddActions.workoutDuration
-                            ? workoutDuration
-                            : e == AddActions.numOfRound
-                                ? numOfRound
-                                : e == AddActions.exerPerRound
-                                    ? exercisePerRound
-                                    : e == AddActions.breakTime
-                                        ? breakTime
-                                        : timeForEachExers,
+                        itemChoice: e == AddActions.calcTarget
+                            ? calcTarget
+                            : e == AddActions.timePerLession
+                                ? timePerLession
+                                : e == AddActions.numOfRound
+                                    ? numOfRound
+                                    : e == AddActions.transferTime
+                                        ? transferTime
+                                        : e == AddActions.breakTime
+                                            ? breakTime
+                                            : level,
                         icon: Icon(e.icon),
                         onChange: (newValue) {
                           setState(() {
-                            if (e == AddActions.workoutDuration) {
-                              workoutDuration = newValue!;
+                            if (e == AddActions.calcTarget) {
+                              calcTarget = newValue!;
+                            } else if (e == AddActions.timePerLession) {
+                              timePerLession = newValue!;
                             } else if (e == AddActions.numOfRound) {
                               numOfRound = newValue!;
-                            } else if (e == AddActions.exerPerRound) {
-                              exercisePerRound = newValue!;
+                            } else if (e == AddActions.transferTime) {
+                              transferTime = newValue!;
                             } else if (e == AddActions.breakTime) {
                               breakTime = newValue!;
-                            } else if (e == AddActions.timeForEachExer) {
-                              timeForEachExers = newValue!;
+                            } else if (e == AddActions.level) {
+                              level = newValue!;
                             }
                           });
                         }),
@@ -179,21 +200,6 @@ class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Container _cupertinoIcons(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: context.heightDevice * 0.2,
-      child: CupertinoDatePicker(
-        mode: CupertinoDatePickerMode.time,
-        onDateTimeChanged: (value) {
-          date = DateTime(date.year, date.month, date.day, value.hour,
-              value.minute, value.second);
-        },
-        initialDateTime: DateTime.now(),
       ),
     );
   }
@@ -242,6 +248,41 @@ class _AddNewExerciseViewState extends ConsumerState<AddNewExerciseView> {
               onChanged: onChange,
             ),
           ),
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
+  }
+
+  Widget _toggleWidget({
+    Widget? icon,
+    required String title,
+    Function(bool?)? onChange,
+    required bool value,
+  }) {
+    return Container(
+      height: 50,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Theme.of(context).dividerColor.withOpacity(0.1),
+      ),
+      child: Row(
+        children: [
+          const SizedBox(width: 10),
+          if (icon != null) icon,
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(title, style: context.textTheme.bodyLarge),
+          ),
+          Container(
+              padding: const EdgeInsets.only(right: 10),
+              height: 30,
+              child: Switch(
+                value: value,
+                activeColor: context.primaryColor,
+                onChanged: (value) => onChange!(value),
+              )),
           const SizedBox(height: 20),
         ],
       ),

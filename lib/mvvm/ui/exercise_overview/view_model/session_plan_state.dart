@@ -18,4 +18,13 @@ class SessionPlanState with _$SessionPlanState {
     required SessionPlanData data,
     required String message,
   }) = _GetSessionPlanFailed;
+
+  const factory SessionPlanState.addSessionPlanSuccess({
+    required SessionPlanData data,
+  }) = _AddSessionPlanSuccess;
+
+  const factory SessionPlanState.addSessionPlanFailed({
+    required SessionPlanData data,
+    required String message,
+  }) = _AddSessionPlanFailed;
 }

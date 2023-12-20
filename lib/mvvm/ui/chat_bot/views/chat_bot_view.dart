@@ -1,8 +1,6 @@
-import 'package:collection/collection.dart';
 import 'package:drag_ball/drag_ball.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot_data.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
@@ -135,16 +133,14 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
             if (ImageConst.chatBackgroundImg.isNotEmpty)
               Positioned.fill(
                 child: ImageCustom(
-                  imageUrl: ImageConst.chatBackgroundImg,
                   fit: BoxFit.cover,
-                  color: _primaryColor.withOpacity(0.1),
                   isNetworkImage: false,
+                  color: _primaryColor.withOpacity(0.1),
+                  imageUrl: ImageConst.chatBackgroundImg,
                 ),
               ),
             Positioned.fill(
-              child: Container(
-                color: _primaryColor.withOpacity(0.1),
-              ),
+              child: Container(color: _primaryColor.withOpacity(0.1)),
             ),
             _body(context),
             if (_state.loading) _loadingField(context)

@@ -215,7 +215,6 @@ class _ExerciseDetailViewState extends ConsumerState<ExerciseDetailView> {
         ),
         children: [
           ...[
-            ///[🔥 Dumb code] should change to real data in here
             {'c': 360, 't': 45},
             {'c': 370, 't': 46},
             {'c': 380, 't': 47},
@@ -264,9 +263,9 @@ class _ExerciseDetailViewState extends ConsumerState<ExerciseDetailView> {
       children: [
         ...steps.mapIndexed((index, element) {
           return StepItemWidget(
-            header: "${_exercise?.name} step ${element.step}",
+            header: "${_exercise?.name} step ${index + 1}",
             content: element.instruction,
-            step: element.step,
+            step: index + 1,
             isShowIndication: index < (length - 1),
           );
         })

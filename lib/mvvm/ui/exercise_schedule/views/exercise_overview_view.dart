@@ -11,7 +11,6 @@ import 'package:fit_life/core/components/widgets/fit_life/exercise_vertial_item.
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/core/components/widgets/pagination_view/default_pagination.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/add_exercise_dto.dart';
-import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:fit_life/mvvm/me/entity/session/setting_session.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_data.dart';
@@ -41,6 +40,8 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
   ExerciseOverviewState get _state => ref.watch(exerciseOverviewStateNotifier);
 
   Session? get _session => _data.sessionPlan;
+
+  List<String> get _equipments => _data.equipment ?? [];
 
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
 
@@ -217,18 +218,17 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                 ),
                 const SizedBox(height: 15.0),
                 _headerRowWidget(
-                  header: 'Equipments',
-                  trailing:
-                      ' equips', //  TODO: ${_session?.equipments?.length ?? 0}
-                ),
+                    header: 'Equipments',
+                    trailing: '${_equipments.length} equips'),
                 const SizedBox(height: 10.0),
                 SizedBox(
                   width: double.infinity,
                   height: context.heightDevice * 0.15,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 4, // TODO: _session?.equipments?.length ??
-                    itemBuilder: (_, index) => const EquipmentHorizontalItem(),
+                    itemCount: _equipments.length,
+                    itemBuilder: (_, index) =>
+                        EquipmentHorizontalItem(equipment: _equipments[index]),
                   ),
                 ),
                 const SizedBox(height: 15.0),
@@ -244,7 +244,14 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                         },
                       );
                     },
-                    child: const Icon(Icons.add),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.add),
+                        SizedBox(width: 4),
+                        Text("Add exercise")
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10.0),

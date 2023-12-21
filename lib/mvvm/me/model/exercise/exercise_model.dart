@@ -1,7 +1,6 @@
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/model/exercise/instruction_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'exercise_model.g.dart';
 
@@ -71,7 +70,8 @@ class ExerciseModel {
         set: sets,
         reps: reps,
         videoUrl: gifUrl,
-        bodyPart: bodyPart, 
+        bodyPart: bodyPart,
         instructions: instructions ?? List.empty(),
+        equipment: equipment,
       );
 }

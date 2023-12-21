@@ -1,20 +1,15 @@
-import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
-import 'package:fit_life/mvvm/me/entity/session/session.dart';
+import 'package:fit_life/core/components/widgets/image_custom.dart';
 import 'package:flutter/material.dart';
 
 class EquipmentHorizontalItem extends StatelessWidget {
-  final Equipment equipment;
+  final String equipment;
+  final bool isFillWidth;
   const EquipmentHorizontalItem({
-    this.equipment = const Equipment(
-      image: "",
-      name: 'DumBell',
-      description:
-          "This is description about how to use dumbbell for this exercise",
-      type: " type",
-      quantity: 4,
-    ),
     super.key,
+    this.isFillWidth = false,
+    required this.equipment,
   });
 
   @override
@@ -24,16 +19,18 @@ class EquipmentHorizontalItem extends StatelessWidget {
         fontSize: 12.0,
         color: Theme.of(context).hintColor);
     return SizedBox(
-      width: context.widthDevice * 0.9,
+      width: isFillWidth ? double.infinity : context.widthDevice * 0.9,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(width: 15.0),
-          // TODO: need to change to image network
-          Image.asset(
-            ImageConst.dumbbell,
+          ImageCustom(
+            imageUrl: Constant.renderEquipmentImage[equipment] ??
+                Constant.renderEquipmentImage["assisted"],
             width: context.heightDevice * 0.2,
             height: double.infinity,
+            isNetworkImage: true,
+            fit: BoxFit.fill,
           ),
           const SizedBox(width: 10.0),
           Expanded(
@@ -42,14 +39,15 @@ class EquipmentHorizontalItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  equipment.name,
+                  equipment,
                   style:
                       context.titleMedium.copyWith(fontWeight: FontWeight.bold),
                 ),
-                Text('Countable : ${equipment.quantity} ${equipment.name}',
+                Text('Countable : 1 $equipment',
                     style: smallStyle, maxLines: 1),
                 Text(
-                  equipment.description,
+                  Constant.equipmentDescriptions[equipment] ??
+                      Constant.equipmentDescriptions["assisted"]!,
                   style: smallStyle,
                   maxLines: 2,
                 )

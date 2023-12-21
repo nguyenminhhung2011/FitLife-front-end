@@ -8,11 +8,10 @@ part 'exercise_overview_data.freezed.dart';
 class ExerciseOverviewData with _$ExerciseOverviewData {
   const factory ExerciseOverviewData({
     Session? sessionPlan,
-
-    /// Support for fetching exercise list inside the create exercise bottom sheet view
     List<Exercise>? exercises,
     @Default(false) bool isLoadingExercise,
     @Default(0) int page,
     @Default(false) bool isLastPage,
+    List<String>? equipment,
   }) = _ExerciseOverviewData;
 }

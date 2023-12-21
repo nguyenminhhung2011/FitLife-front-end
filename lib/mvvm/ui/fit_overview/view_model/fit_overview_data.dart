@@ -1,5 +1,4 @@
 import 'package:fit_life/mvvm/me/entity/calories_chart/calories_chart.dart';
-import 'package:fit_life/mvvm/me/entity/chart/chart.dart';
 import 'package:fit_life/mvvm/me/entity/chart/fit_overview.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/me/entity/session/session.dart';

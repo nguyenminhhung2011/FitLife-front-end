@@ -1,5 +1,7 @@
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/core/components/extensions/list_extension.dart';
 import 'package:fit_life/core/components/extensions/string_extensions.dart';
 import 'package:fit_life/core/components/widgets/expansion_panel_list/expansion_panel_list.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
@@ -134,10 +136,25 @@ class _GroupExerciseViewState extends ConsumerState<GroupExerciseView> {
   }
 
   Stack _bodyPartItem(BodyPart item, BuildContext context) {
+    final levels = Constant.bodyPartLevels[item.header.toLowerCase()] ?? [];
     return Stack(
       children: [
-        Image.asset(item.image.toString(),
-            width: double.infinity, height: 160.0, fit: BoxFit.cover),
+        Image.network(
+          Constant.renderBodyPartImage[item.header.toLowerCase()] ??
+              Constant.renderBodyPartImage["cardio"],
+          width: double.infinity,
+          height: 160.0,
+          loadingBuilder: (BuildContext context, Widget child,
+              ImageChunkEvent? loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Center(
+              child: CircularProgressIndicator(
+                color: Theme.of(context).primaryColor,
+              ),
+            );
+          },
+          fit: BoxFit.cover,
+        ),
         Container(
           width: double.infinity,
           height: 160.0,
@@ -157,17 +174,18 @@ class _GroupExerciseViewState extends ConsumerState<GroupExerciseView> {
                     .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
               ),
               ...[
-                item.description,
+                Constant.bodyPartDescriptions[item.header.toLowerCase()] ??
+                    Constant.bodyPartDescriptions["cardio"]!,
                 '💪 ${item.exCountable} workout programs',
               ].map((e) => Text(
-                    e ?? "",
+                    e,
                     style: context.titleSmall.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.w400,
                     ),
                   )),
               Text(
-                item.level,
+                levels.fromListLevelToText,
                 style: context.titleSmall
                     .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
               )

@@ -1,4 +1,5 @@
 import 'package:fit_life/core/components/extensions/string_extensions.dart';
+import 'package:fit_life/core/components/widgets/image_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
@@ -21,22 +22,14 @@ class BodyPartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          width: context.widthDevice * 0.6,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            boxShadow: [
-              BoxShadow(
-                color: Theme.of(context).shadowColor.withOpacity(0.1),
-                blurRadius: 5.0,
-              )
-            ],
-            image: DecorationImage(
-              // Change here
-              image: AssetImage(image),
-              fit: BoxFit.cover,
-            ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10.0),
+          child: ImageCustom(
+            width: context.widthDevice * 0.6,
+            height: double.infinity,
+            imageUrl: image,
+            isNetworkImage: true,
+            radius: 10.0,
           ),
         ),
         Container(

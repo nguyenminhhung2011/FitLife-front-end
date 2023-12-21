@@ -82,5 +82,6 @@
     "feature": "Feature",
     "exercise": "Exercise",
     "toDaySession": "Today session",
-    "signUpSuccess": "Sign up success"
+    "signUpSuccess": "Sign up success",
+    "favorite": "Favorite exercise"
 }

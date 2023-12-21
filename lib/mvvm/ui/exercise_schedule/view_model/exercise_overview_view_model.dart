@@ -43,7 +43,14 @@ class ExerciseOverviewViewModel extends StateNotifier<ExerciseOverviewState> {
       ifLeft: (error) =>
           _GetSessionPlanFailed(data: data, message: error.message),
       ifRight: (rData) => _GetSessionPlanSuccess(
-        data: data.copyWith(sessionPlan: rData),
+        data: data.copyWith(
+          equipment: rData.customExercise
+                  ?.map((e) => e.exercise.equipment ?? "assisted")
+                  .toSet()
+                  .toList() ??
+              [],
+          sessionPlan: rData,
+        ),
       ),
     );
   }

@@ -257,7 +257,7 @@ class _FitOverViewViewState extends ConsumerState<FitOverViewView> {
                     onPress: () async {
                       await context.openPageWithRouteAndParams(
                         Routes.exerciseOverview,
-                        _data.upcomingSessions![index].id.toString(),
+                        _data.upcomingSessions![index].id,
                       );
                       await _vm.getUpcomingSession();
                       await _vm.getCaloriesChart();

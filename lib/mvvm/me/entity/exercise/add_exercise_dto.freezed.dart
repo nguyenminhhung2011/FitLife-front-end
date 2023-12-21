@@ -24,6 +24,7 @@ mixin _$AddExerciseDto {
   String get difficulty => throw _privateConstructorUsedError;
   int get rep => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
+  int get time => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,7 @@ abstract class $AddExerciseDtoCopyWith<$Res> {
           AddExerciseDto value, $Res Function(AddExerciseDto) then) =
       _$AddExerciseDtoCopyWithImpl<$Res, AddExerciseDto>;
   @useResult
-  $Res call({int exercise, String difficulty, int rep, int weight});
+  $Res call({int exercise, String difficulty, int rep, int weight, int time});
 }
 
 /// @nodoc
@@ -57,6 +58,7 @@ class _$AddExerciseDtoCopyWithImpl<$Res, $Val extends AddExerciseDto>
     Object? difficulty = null,
     Object? rep = null,
     Object? weight = null,
+    Object? time = null,
   }) {
     return _then(_value.copyWith(
       exercise: null == exercise
@@ -75,6 +77,10 @@ class _$AddExerciseDtoCopyWithImpl<$Res, $Val extends AddExerciseDto>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as int,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -87,7 +93,7 @@ abstract class _$$_AddExerciseDtoCopyWith<$Res>
       __$$_AddExerciseDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int exercise, String difficulty, int rep, int weight});
+  $Res call({int exercise, String difficulty, int rep, int weight, int time});
 }
 
 /// @nodoc
@@ -105,6 +111,7 @@ class __$$_AddExerciseDtoCopyWithImpl<$Res>
     Object? difficulty = null,
     Object? rep = null,
     Object? weight = null,
+    Object? time = null,
   }) {
     return _then(_$_AddExerciseDto(
       exercise: null == exercise
@@ -123,6 +130,10 @@ class __$$_AddExerciseDtoCopyWithImpl<$Res>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as int,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -134,7 +145,8 @@ class _$_AddExerciseDto implements _AddExerciseDto {
       {required this.exercise,
       required this.difficulty,
       required this.rep,
-      required this.weight});
+      required this.weight,
+      required this.time});
 
   factory _$_AddExerciseDto.fromJson(Map<String, dynamic> json) =>
       _$$_AddExerciseDtoFromJson(json);
@@ -147,10 +159,12 @@ class _$_AddExerciseDto implements _AddExerciseDto {
   final int rep;
   @override
   final int weight;
+  @override
+  final int time;
 
   @override
   String toString() {
-    return 'AddExerciseDto(exercise: $exercise, difficulty: $difficulty, rep: $rep, weight: $weight)';
+    return 'AddExerciseDto(exercise: $exercise, difficulty: $difficulty, rep: $rep, weight: $weight, time: $time)';
   }
 
   @override
@@ -163,13 +177,14 @@ class _$_AddExerciseDto implements _AddExerciseDto {
             (identical(other.difficulty, difficulty) ||
                 other.difficulty == difficulty) &&
             (identical(other.rep, rep) || other.rep == rep) &&
-            (identical(other.weight, weight) || other.weight == weight));
+            (identical(other.weight, weight) || other.weight == weight) &&
+            (identical(other.time, time) || other.time == time));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, exercise, difficulty, rep, weight);
+      Object.hash(runtimeType, exercise, difficulty, rep, weight, time);
 
   @JsonKey(ignore: true)
   @override
@@ -190,7 +205,8 @@ abstract class _AddExerciseDto implements AddExerciseDto {
       {required final int exercise,
       required final String difficulty,
       required final int rep,
-      required final int weight}) = _$_AddExerciseDto;
+      required final int weight,
+      required final int time}) = _$_AddExerciseDto;
 
   factory _AddExerciseDto.fromJson(Map<String, dynamic> json) =
       _$_AddExerciseDto.fromJson;
@@ -203,6 +219,8 @@ abstract class _AddExerciseDto implements AddExerciseDto {
   int get rep;
   @override
   int get weight;
+  @override
+  int get time;
   @override
   @JsonKey(ignore: true)
   _$$_AddExerciseDtoCopyWith<_$_AddExerciseDto> get copyWith =>

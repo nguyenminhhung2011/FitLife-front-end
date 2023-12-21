@@ -12,6 +12,7 @@ _$_AddExerciseDto _$$_AddExerciseDtoFromJson(Map<String, dynamic> json) =>
       difficulty: json['difficulty'] as String,
       rep: json['rep'] as int,
       weight: json['weight'] as int,
+      time: json['time'] as int,
     );
 
 Map<String, dynamic> _$$_AddExerciseDtoToJson(_$_AddExerciseDto instance) =>
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$_AddExerciseDtoToJson(_$_AddExerciseDto instance) =>
       'difficulty': instance.difficulty,
       'rep': instance.rep,
       'weight': instance.weight,
+      'time': instance.time,
     };

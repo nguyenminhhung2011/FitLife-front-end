@@ -27,7 +27,7 @@ class FitnessOverViewStatistic extends StatelessWidget {
       ),
       child: Row(
         children: [
-          ...[heartRate, toDo * 100, calories]
+          ...[heartRate, (toDo * 100).round(), calories]
               .mapIndexed(
                 (index, e) => Expanded(
                   child: Column(

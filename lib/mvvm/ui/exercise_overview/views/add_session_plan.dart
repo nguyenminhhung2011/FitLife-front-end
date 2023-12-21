@@ -41,7 +41,7 @@ class _AddSessionPlanState extends ConsumerState<AddSessionPlan> {
   @override
   void initState() {
     calcTarget = calcTargets[0];
-    timePerLession = timePerLessions[0];
+    timePerLession = timePerLesson[0];
     numOfRound = numRounds[0];
     breakTime = breakTimes[0];
     transferTime = transferTimes[0];

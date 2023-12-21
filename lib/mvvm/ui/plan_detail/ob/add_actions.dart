@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const timePerLessions = [
+const timePerLesson = [
   '10',
   '15',
   '20',
@@ -45,7 +45,7 @@ const weights = [
 
 enum AddActions {
   calcTarget("calcTarget", Icons.track_changes_outlined, calcTargets),
-  timePerLession("Time per lession", Icons.timelapse_rounded, timePerLessions),
+  timePerLession("Time per lession", Icons.timelapse_rounded, timePerLesson),
   numOfRound("Number round", Icons.timeline_sharp, numRounds),
   transferTime("Transfer time", Icons.transfer_within_a_station, transferTimes),
   breakTime("Break time (s)", Icons.free_breakfast_sharp, breakTimes),

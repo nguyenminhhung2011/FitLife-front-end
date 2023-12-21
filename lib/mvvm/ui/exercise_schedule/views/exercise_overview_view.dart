@@ -55,6 +55,7 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
   String level = levels[0];
   String rep = reps[0];
   String weight = weights[0];
+  String time = timePerLesson[0];
   bool loading = false;
   int exerciseSelectedIndex = 0;
 
@@ -243,6 +244,7 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                           return _addExerciseBottom(context);
                         },
                       );
+                      _vm.getExerciseOverview();
                     },
                     child: const Row(
                       mainAxisSize: MainAxisSize.min,
@@ -308,6 +310,7 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                           difficulty: level,
                           rep: int.parse(rep),
                           weight: int.parse(weight),
+                          time: int.parse(time),
                         ),
                       )
                       .then((value) => context.pop());
@@ -345,6 +348,18 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
                   onChange: (value) {
                     setState(() {
                       rep = value!;
+                    });
+                  },
+                ),
+                const SizedBox(height: 10.0),
+                DropdownListRowWidget(
+                  listItem: timePerLesson,
+                  title: "Train time",
+                  icon: const Icon(Icons.timelapse_rounded),
+                  itemChoice: time,
+                  onChange: (value) {
+                    setState(() {
+                      time = value!;
                     });
                   },
                 ),

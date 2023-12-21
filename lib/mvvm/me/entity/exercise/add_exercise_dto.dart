@@ -10,6 +10,7 @@ class AddExerciseDto with _$AddExerciseDto {
     required String difficulty,
     required int rep,
     required int weight,
+    required int time,
   }) = _AddExerciseDto;
 
   factory AddExerciseDto.fromJson(Map<String, dynamic> json) =>

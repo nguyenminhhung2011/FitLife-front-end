@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
@@ -63,8 +61,8 @@ class _ExerciseDetailViewState extends ConsumerState<ExerciseDetailView> {
           if (_data.exercise != null) _body(context) else const SizedBox(),
           if (_state.loading)
             Container(
-              color: Colors.black45,
               width: MediaQuery.of(context).size.width,
+              color: Colors.black45,
               height: MediaQuery.of(context).size.height,
               child: Center(
                 child: StyleLoadingWidget.foldingCube.renderWidget(
@@ -110,8 +108,8 @@ class _ExerciseDetailViewState extends ConsumerState<ExerciseDetailView> {
               borderRadius: BorderRadius.circular(5.0),
               boxShadow: [
                 BoxShadow(
-                  color: Theme.of(context).shadowColor.withOpacity(0.1),
                   blurRadius: 5.0,
+                  color: Theme.of(context).shadowColor.withOpacity(0.1),
                 )
               ],
               color: Theme.of(context).cardColor,

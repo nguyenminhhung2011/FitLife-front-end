@@ -70,95 +70,106 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
         toolbarHeight: 70.0,
         title: const RenderOverviewAppBar(),
       ),
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: <Widget>[
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(width: 15.0),
-              DotCustom(color: _primaryColor, full: true, radius: 7.0),
-              const SizedBox(width: 5.0),
-              Text(S.of(context).howAreYou, style: context.titleSmall),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          Future.delayed(Duration.zero, () {
+            _vm.getUpcomingScheduleExercise();
+          });
+        },
+        child: _body(context),
+      ),
+    );
+  }
+
+  ListView _body(BuildContext context) {
+    return ListView(
+      scrollDirection: Axis.vertical,
+      children: <Widget>[
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(width: 15.0),
+            DotCustom(color: _primaryColor, full: true, radius: 7.0),
+            const SizedBox(width: 5.0),
+            Text(S.of(context).howAreYou, style: context.titleSmall),
+          ],
+        ),
+        FeelingField(primaryColor: _primaryColor),
+        HeaderTextCustom(
+          headerText: S.of(context).feature,
+          textStyle: _headerStyle,
+          isShowSeeMore: true,
+          onPress: () async => CommonAppSettingPref.setIsCreated(false),
+        ),
+        SwipeCustom(
+          itemCount: 3,
+          height: 200,
+          isShowSlideDot: false,
+          autoPlay: false,
+          itemBuilder: (index) {
+            final banner = Constant.listContent.elementAt(index);
+            return BannerItemBuilder(banner: banner, onPress: () {});
+          },
+          swipeLayout: SwiperLayout.DEFAULT,
+        ),
+        const SizedBox(),
+        HeaderTextCustom(
+          headerText: S.of(context).exercise,
+          textStyle: _headerStyle,
+          isShowSeeMore: true,
+          onPress: () => context.openListPageWithRoute(Routes.categories),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: CategoryField(
+            categoryType: CategoryType.expandCategory, // => Change here
+            selectedColor: Theme.of(context).primaryColor,
+            numberColumn: 2,
+            spacingItem: 15.0,
+            categoryGridFormat:
+                const CategoryGridFormat(crossSpacing: 10.0, mainSpacing: 10.0),
+            categoryTextStyle: context.titleSmall.copyWith(
+              fontWeight: FontWeight.w500,
+              overflow: TextOverflow.ellipsis,
+            ),
+            categories: <CategoryStyle>[
+              ...Constant.listCategory.mapIndexed(
+                (index, e) => CategoryStyle(
+                  text: e.title,
+                  typeImage: TypeImage.assetSvg,
+                  iconUrl: e.iconUrl,
+                  color: e.color,
+                  iconSize: e.iconSize,
+                  isIcon: e.isIconData,
+                  padding: const EdgeInsets.all(15.0),
+                  onPress: () {},
+                ),
+              )
             ],
           ),
-          FeelingField(primaryColor: _primaryColor),
-          HeaderTextCustom(
-            headerText: S.of(context).feature,
-            textStyle: _headerStyle,
-            isShowSeeMore: true,
-            onPress: () async => CommonAppSettingPref.setIsCreated(false),
-          ),
-          SwipeCustom(
-            itemCount: 3,
-            height: 200,
-            isShowSlideDot: false,
-            autoPlay: false,
-            itemBuilder: (index) {
-              final banner = Constant.listContent.elementAt(index);
-              return BannerItemBuilder(banner: banner, onPress: () {});
-            },
-            swipeLayout: SwiperLayout.DEFAULT,
-          ),
-          const SizedBox(),
-          HeaderTextCustom(
-            headerText: S.of(context).exercise,
-            textStyle: _headerStyle,
-            isShowSeeMore: true,
-            onPress: () => context.openListPageWithRoute(Routes.categories),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: CategoryField(
-              categoryType: CategoryType.expandCategory, // => Change here
-              selectedColor: Theme.of(context).primaryColor,
-              numberColumn: 2,
-              spacingItem: 15.0,
-              categoryGridFormat: const CategoryGridFormat(
-                  crossSpacing: 10.0, mainSpacing: 10.0),
-              categoryTextStyle: context.titleSmall.copyWith(
-                fontWeight: FontWeight.w500,
-                overflow: TextOverflow.ellipsis,
-              ),
-              categories: <CategoryStyle>[
-                ...Constant.listCategory.mapIndexed(
-                  (index, e) => CategoryStyle(
-                    text: e.title,
-                    typeImage: TypeImage.assetSvg,
-                    iconUrl: e.iconUrl,
-                    color: e.color,
-                    iconSize: e.iconSize,
-                    isIcon: e.isIconData,
-                    padding: const EdgeInsets.all(15.0),
-                    onPress: () {},
-                  ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: 5.0),
-          HeaderTextCustom(
-            headerText: S.of(context).sessionSchedule,
-            textStyle: _headerStyle,
-          ),
-          const SizedBox(height: 5.0),
-          if (_data.isLoadingUpcomingScheduleExercise)
-            Center(
-              child: StyleLoadingWidget.foldingCube.renderWidget(
-                  size: 40.0, color: Theme.of(context).primaryColor),
-            )
-          else if (_upComingSession != null)
-            UpComingScheduleExItem(upComingSession: _upComingSession!),
-          const SizedBox(),
-          HeaderTextCustom(
-            headerText: 'Health paper',
-            textStyle: _headerStyle,
-            isShowSeeMore: true,
-          ),
-          const PaperSliderView(),
-          const SizedBox(height: 40.0),
-        ].expand((e) => [e, const SizedBox(height: 5.0)]).toList(),
-      ),
+        ),
+        const SizedBox(height: 5.0),
+        HeaderTextCustom(
+          headerText: S.of(context).sessionSchedule,
+          textStyle: _headerStyle,
+        ),
+        const SizedBox(height: 5.0),
+        if (_data.isLoadingUpcomingScheduleExercise)
+          Center(
+            child: StyleLoadingWidget.foldingCube.renderWidget(
+                size: 40.0, color: Theme.of(context).primaryColor),
+          )
+        else if (_upComingSession != null)
+          UpComingScheduleExItem(upComingSession: _upComingSession!),
+        const SizedBox(),
+        HeaderTextCustom(
+          headerText: 'Health paper',
+          textStyle: _headerStyle,
+          isShowSeeMore: true,
+        ),
+        const PaperSliderView(),
+        const SizedBox(height: 40.0),
+      ].expand((e) => [e, const SizedBox(height: 5.0)]).toList(),
     );
   }
 }

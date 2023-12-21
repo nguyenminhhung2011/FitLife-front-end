@@ -22,13 +22,7 @@ DailyWorkoutDTO _$DailyWorkoutDTOFromJson(Map<String, dynamic> json) {
 mixin _$DailyWorkoutDTO {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  double? get caloTarget => throw _privateConstructorUsedError;
   int? get time => throw _privateConstructorUsedError;
-  int? get workoutDuration => throw _privateConstructorUsedError;
-  int? get numberRound => throw _privateConstructorUsedError;
-  int? get execPerRound => throw _privateConstructorUsedError;
-  int? get timeForEachExe => throw _privateConstructorUsedError;
-  int? get breakTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,16 +36,7 @@ abstract class $DailyWorkoutDTOCopyWith<$Res> {
           DailyWorkoutDTO value, $Res Function(DailyWorkoutDTO) then) =
       _$DailyWorkoutDTOCopyWithImpl<$Res, DailyWorkoutDTO>;
   @useResult
-  $Res call(
-      {String name,
-      String description,
-      double? caloTarget,
-      int? time,
-      int? workoutDuration,
-      int? numberRound,
-      int? execPerRound,
-      int? timeForEachExe,
-      int? breakTime});
+  $Res call({String name, String description, int? time});
 }
 
 /// @nodoc
@@ -69,13 +54,7 @@ class _$DailyWorkoutDTOCopyWithImpl<$Res, $Val extends DailyWorkoutDTO>
   $Res call({
     Object? name = null,
     Object? description = null,
-    Object? caloTarget = freezed,
     Object? time = freezed,
-    Object? workoutDuration = freezed,
-    Object? numberRound = freezed,
-    Object? execPerRound = freezed,
-    Object? timeForEachExe = freezed,
-    Object? breakTime = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -86,33 +65,9 @@ class _$DailyWorkoutDTOCopyWithImpl<$Res, $Val extends DailyWorkoutDTO>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      caloTarget: freezed == caloTarget
-          ? _value.caloTarget
-          : caloTarget // ignore: cast_nullable_to_non_nullable
-              as double?,
       time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as int?,
-      workoutDuration: freezed == workoutDuration
-          ? _value.workoutDuration
-          : workoutDuration // ignore: cast_nullable_to_non_nullable
-              as int?,
-      numberRound: freezed == numberRound
-          ? _value.numberRound
-          : numberRound // ignore: cast_nullable_to_non_nullable
-              as int?,
-      execPerRound: freezed == execPerRound
-          ? _value.execPerRound
-          : execPerRound // ignore: cast_nullable_to_non_nullable
-              as int?,
-      timeForEachExe: freezed == timeForEachExe
-          ? _value.timeForEachExe
-          : timeForEachExe // ignore: cast_nullable_to_non_nullable
-              as int?,
-      breakTime: freezed == breakTime
-          ? _value.breakTime
-          : breakTime // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -126,16 +81,7 @@ abstract class _$$_DailyWorkoutDTOCopyWith<$Res>
       __$$_DailyWorkoutDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String name,
-      String description,
-      double? caloTarget,
-      int? time,
-      int? workoutDuration,
-      int? numberRound,
-      int? execPerRound,
-      int? timeForEachExe,
-      int? breakTime});
+  $Res call({String name, String description, int? time});
 }
 
 /// @nodoc
@@ -151,13 +97,7 @@ class __$$_DailyWorkoutDTOCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? description = null,
-    Object? caloTarget = freezed,
     Object? time = freezed,
-    Object? workoutDuration = freezed,
-    Object? numberRound = freezed,
-    Object? execPerRound = freezed,
-    Object? timeForEachExe = freezed,
-    Object? breakTime = freezed,
   }) {
     return _then(_$_DailyWorkoutDTO(
       name: null == name
@@ -168,33 +108,9 @@ class __$$_DailyWorkoutDTOCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      caloTarget: freezed == caloTarget
-          ? _value.caloTarget
-          : caloTarget // ignore: cast_nullable_to_non_nullable
-              as double?,
       time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as int?,
-      workoutDuration: freezed == workoutDuration
-          ? _value.workoutDuration
-          : workoutDuration // ignore: cast_nullable_to_non_nullable
-              as int?,
-      numberRound: freezed == numberRound
-          ? _value.numberRound
-          : numberRound // ignore: cast_nullable_to_non_nullable
-              as int?,
-      execPerRound: freezed == execPerRound
-          ? _value.execPerRound
-          : execPerRound // ignore: cast_nullable_to_non_nullable
-              as int?,
-      timeForEachExe: freezed == timeForEachExe
-          ? _value.timeForEachExe
-          : timeForEachExe // ignore: cast_nullable_to_non_nullable
-              as int?,
-      breakTime: freezed == breakTime
-          ? _value.breakTime
-          : breakTime // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -204,15 +120,7 @@ class __$$_DailyWorkoutDTOCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DailyWorkoutDTO implements _DailyWorkoutDTO {
   const _$_DailyWorkoutDTO(
-      {required this.name,
-      required this.description,
-      this.caloTarget,
-      this.time,
-      this.workoutDuration,
-      this.numberRound,
-      this.execPerRound,
-      this.timeForEachExe,
-      this.breakTime});
+      {required this.name, required this.description, this.time});
 
   factory _$_DailyWorkoutDTO.fromJson(Map<String, dynamic> json) =>
       _$$_DailyWorkoutDTOFromJson(json);
@@ -222,23 +130,11 @@ class _$_DailyWorkoutDTO implements _DailyWorkoutDTO {
   @override
   final String description;
   @override
-  final double? caloTarget;
-  @override
   final int? time;
-  @override
-  final int? workoutDuration;
-  @override
-  final int? numberRound;
-  @override
-  final int? execPerRound;
-  @override
-  final int? timeForEachExe;
-  @override
-  final int? breakTime;
 
   @override
   String toString() {
-    return 'DailyWorkoutDTO(name: $name, description: $description, caloTarget: $caloTarget, time: $time, workoutDuration: $workoutDuration, numberRound: $numberRound, execPerRound: $execPerRound, timeForEachExe: $timeForEachExe, breakTime: $breakTime)';
+    return 'DailyWorkoutDTO(name: $name, description: $description, time: $time)';
   }
 
   @override
@@ -249,34 +145,12 @@ class _$_DailyWorkoutDTO implements _DailyWorkoutDTO {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.caloTarget, caloTarget) ||
-                other.caloTarget == caloTarget) &&
-            (identical(other.time, time) || other.time == time) &&
-            (identical(other.workoutDuration, workoutDuration) ||
-                other.workoutDuration == workoutDuration) &&
-            (identical(other.numberRound, numberRound) ||
-                other.numberRound == numberRound) &&
-            (identical(other.execPerRound, execPerRound) ||
-                other.execPerRound == execPerRound) &&
-            (identical(other.timeForEachExe, timeForEachExe) ||
-                other.timeForEachExe == timeForEachExe) &&
-            (identical(other.breakTime, breakTime) ||
-                other.breakTime == breakTime));
+            (identical(other.time, time) || other.time == time));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      name,
-      description,
-      caloTarget,
-      time,
-      workoutDuration,
-      numberRound,
-      execPerRound,
-      timeForEachExe,
-      breakTime);
+  int get hashCode => Object.hash(runtimeType, name, description, time);
 
   @JsonKey(ignore: true)
   @override
@@ -296,13 +170,7 @@ abstract class _DailyWorkoutDTO implements DailyWorkoutDTO {
   const factory _DailyWorkoutDTO(
       {required final String name,
       required final String description,
-      final double? caloTarget,
-      final int? time,
-      final int? workoutDuration,
-      final int? numberRound,
-      final int? execPerRound,
-      final int? timeForEachExe,
-      final int? breakTime}) = _$_DailyWorkoutDTO;
+      final int? time}) = _$_DailyWorkoutDTO;
 
   factory _DailyWorkoutDTO.fromJson(Map<String, dynamic> json) =
       _$_DailyWorkoutDTO.fromJson;
@@ -312,19 +180,7 @@ abstract class _DailyWorkoutDTO implements DailyWorkoutDTO {
   @override
   String get description;
   @override
-  double? get caloTarget;
-  @override
   int? get time;
-  @override
-  int? get workoutDuration;
-  @override
-  int? get numberRound;
-  @override
-  int? get execPerRound;
-  @override
-  int? get timeForEachExe;
-  @override
-  int? get breakTime;
   @override
   @JsonKey(ignore: true)
   _$$_DailyWorkoutDTOCopyWith<_$_DailyWorkoutDTO> get copyWith =>

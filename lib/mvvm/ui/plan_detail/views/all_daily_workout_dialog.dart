@@ -40,6 +40,19 @@ class AllDailyWorkoutDialog extends StatelessWidget {
             const SizedBox(height: 10.0),
             const Divider(),
             const SizedBox(height: 10.0),
+            if (dailyWorkouts?.isEmpty ?? false)
+              Center(
+                  child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text(
+                  '💪  No workout today',
+                  style: context.titleMedium.copyWith(
+                    color: Theme.of(context).hintColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              )),
             ...List.generate(
               dailyWorkouts?.length ?? 0,
               (index) => Column(

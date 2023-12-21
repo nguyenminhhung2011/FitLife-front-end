@@ -48,12 +48,12 @@ class _CalendarViewState extends ConsumerState<CalendarView> {
               item.numberRound != null &&
               item.timeForEachExe != null)
           ? item.execPerRound! * item.numberRound! * item.timeForEachExe! / 3600
-          : 0;
+          : 1;
 
       final startTime = DateTime.fromMillisecondsSinceEpoch(item.time!);
       return CalendarExerciseItem(
         timeStart: startTime.hour,
-        timeEnd: startTime.hour + totalTimeExercise.ceil(),
+        timeEnd: (startTime.hour + totalTimeExercise).ceil(),
         name: item.name,
         time: item.time,
       );
@@ -85,7 +85,7 @@ class _CalendarViewState extends ConsumerState<CalendarView> {
             onSelectedDate: (value) {
               setState(() {
                 date = value;
-              }); 
+              });
             },
             style: CalenderStyleCustom(),
           ),

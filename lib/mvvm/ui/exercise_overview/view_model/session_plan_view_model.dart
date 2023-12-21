@@ -1,6 +1,7 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/me/entity/session/session.dart';
-import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
+import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
+import 'package:fit_life/mvvm/me/entity/session/add_session_dto.dart';
+import 'package:fit_life/mvvm/repo/session_repositories.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/view_model/session_plan_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -17,47 +18,58 @@ AutoDisposeStateNotifierProvider<SessionPlanViewModel, SessionPlanState>
 
 @injectable
 class SessionPlanViewModel extends StateNotifier<SessionPlanState> {
-  SessionPlanViewModel()
+  final DailyWorkout? dailyWorkout;
+
+  final _sessionPlan = injector.get<SessionRepositories>();
+  SessionPlanViewModel(@factoryParam this.dailyWorkout)
       : super(
           _Initial(
             data: SessionPlanData(
-              sessionName: "Session 1",
-              sessionDescription: 'Day 1 (Refresh brain)',
-              tags: [
-                '🌞',
-                ' Morning exercises | ',
-                '🌚',
-                ' Afternoon exercises | ',
-                '🔥',
-                ' 3500 Calories burn'
-              ],
-              title: "Refresh brain and relax",
-              description:
-                  'one\'s ability to execute daily activities with optimal performance, endurance, and strength with the management of disease, fatigue, and stress and reduced sedentary behavio, fatigue, and stress and reduced sedentary behavio, fatigue, and stress and reduced sedentary behavio',
-              sessions: const [
-                Session(
-                  id: "1",
-                  dwId: "23",
-                  name: "🌞 Morning exercises",
-                  level: Level.beginner,
-                ),
-                Session(
-                  id: "12",
-                  dwId: "234",
-                  name: "🌚 Afternoon exercises",
-                  level: Level.advanced,
-                ),
-              ],
-              breakTime: 12,
-              numberOfExerciseRound: 12,
-              numberOfRound: 12,
-              randomMix: true,
-              startWithBoot: true,
-              timeForEach: 12,
-              transferTime: 12,
-              leave: 12,
-              date: DateTime.now(),
+              title: dailyWorkout?.name,
+              description: dailyWorkout?.description,
+              id: dailyWorkout?.id,
+              time: dailyWorkout?.time,
+              sessions: [],
             ),
           ),
         );
+
+  void getAllSession() async {
+    state = _Loading(data: state.data);
+
+    final call =
+        await _sessionPlan.getAllSessionByDailyID(dailyWorkout!.id.toString());
+
+    state = call.fold(
+      ifLeft: (error) => _GetSessionPlanFailed(
+        data: state.data,
+        message: error.toString(),
+      ),
+      ifRight: (rData) => _GetSessionPlanSuccess(
+        data: state.data.copyWith(sessions: rData),
+      ),
+    );
+  }
+
+  Future<void> createSession({
+    required int id,
+    required AddSessionDTO dto,
+  }) async {
+    final call = await _sessionPlan.createSession(session: dto);
+
+    state = call.fold(
+      ifLeft: (error) => _AddSessionPlanFailed(
+        data: state.data,
+        message: error.toString(),
+      ),
+      ifRight: (sessionResponse) => _AddSessionPlanSuccess(
+        data: state.data.copyWith(
+          sessions: [
+            ...state.data.sessions ?? [],
+            sessionResponse,
+          ],
+        ),
+      ),
+    );
+  }
 }

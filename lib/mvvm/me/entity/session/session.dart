@@ -8,11 +8,11 @@ part 'session.g.dart';
 @freezed
 class Session with _$Session {
   const factory Session({
-    required String id,
-    required String dwId,
+    required int id,
+    String? dwId,
     String? name,
     String? description,
-    Level? level,
+    String? level,
     int? calcTarget,
     int? timePerLesson,
     int? numberRound,
@@ -22,7 +22,6 @@ class Session with _$Session {
     bool? done,
     bool? randomMix,
     int? transferTime,
-    List<Equipment>? equipments,
     List<CustomExercise>? customExercise,
   }) = _Session;
 

@@ -36,4 +36,5 @@ const _$LevelEnumMap = {
   Level.beginner: 'beginner',
   Level.intermediate: 'intermediate',
   Level.advanced: 'advanced',
+  Level.hard: 'hard',
 };

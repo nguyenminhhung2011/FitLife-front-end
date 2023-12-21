@@ -17,6 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ExerciseOverviewData {
   Session? get sessionPlan => throw _privateConstructorUsedError;
+  List<Exercise>? get exercises => throw _privateConstructorUsedError;
+  bool get isLoadingExercise => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
   List<String>? get equipment => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +34,13 @@ abstract class $ExerciseOverviewDataCopyWith<$Res> {
           $Res Function(ExerciseOverviewData) then) =
       _$ExerciseOverviewDataCopyWithImpl<$Res, ExerciseOverviewData>;
   @useResult
-  $Res call({Session? sessionPlan, List<String>? equipment});
+  $Res call(
+      {Session? sessionPlan,
+      List<Exercise>? exercises,
+      bool isLoadingExercise,
+      int page,
+      bool isLastPage,
+      List<String>? equipment});
 
   $SessionCopyWith<$Res>? get sessionPlan;
 }
@@ -50,6 +60,10 @@ class _$ExerciseOverviewDataCopyWithImpl<$Res,
   @override
   $Res call({
     Object? sessionPlan = freezed,
+    Object? exercises = freezed,
+    Object? isLoadingExercise = null,
+    Object? page = null,
+    Object? isLastPage = null,
     Object? equipment = freezed,
   }) {
     return _then(_value.copyWith(
@@ -57,6 +71,22 @@ class _$ExerciseOverviewDataCopyWithImpl<$Res,
           ? _value.sessionPlan
           : sessionPlan // ignore: cast_nullable_to_non_nullable
               as Session?,
+      exercises: freezed == exercises
+          ? _value.exercises
+          : exercises // ignore: cast_nullable_to_non_nullable
+              as List<Exercise>?,
+      isLoadingExercise: null == isLoadingExercise
+          ? _value.isLoadingExercise
+          : isLoadingExercise // ignore: cast_nullable_to_non_nullable
+              as bool,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      isLastPage: null == isLastPage
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
       equipment: freezed == equipment
           ? _value.equipment
           : equipment // ignore: cast_nullable_to_non_nullable
@@ -85,7 +115,13 @@ abstract class _$$_ExerciseOverviewDataCopyWith<$Res>
       __$$_ExerciseOverviewDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Session? sessionPlan, List<String>? equipment});
+  $Res call(
+      {Session? sessionPlan,
+      List<Exercise>? exercises,
+      bool isLoadingExercise,
+      int page,
+      bool isLastPage,
+      List<String>? equipment});
 
   @override
   $SessionCopyWith<$Res>? get sessionPlan;
@@ -103,6 +139,10 @@ class __$$_ExerciseOverviewDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? sessionPlan = freezed,
+    Object? exercises = freezed,
+    Object? isLoadingExercise = null,
+    Object? page = null,
+    Object? isLastPage = null,
     Object? equipment = freezed,
   }) {
     return _then(_$_ExerciseOverviewData(
@@ -110,6 +150,22 @@ class __$$_ExerciseOverviewDataCopyWithImpl<$Res>
           ? _value.sessionPlan
           : sessionPlan // ignore: cast_nullable_to_non_nullable
               as Session?,
+      exercises: freezed == exercises
+          ? _value._exercises
+          : exercises // ignore: cast_nullable_to_non_nullable
+              as List<Exercise>?,
+      isLoadingExercise: null == isLoadingExercise
+          ? _value.isLoadingExercise
+          : isLoadingExercise // ignore: cast_nullable_to_non_nullable
+              as bool,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      isLastPage: null == isLastPage
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
       equipment: freezed == equipment
           ? _value._equipment
           : equipment // ignore: cast_nullable_to_non_nullable
@@ -122,11 +178,36 @@ class __$$_ExerciseOverviewDataCopyWithImpl<$Res>
 
 class _$_ExerciseOverviewData implements _ExerciseOverviewData {
   const _$_ExerciseOverviewData(
-      {this.sessionPlan, final List<String>? equipment})
-      : _equipment = equipment;
+      {this.sessionPlan,
+      final List<Exercise>? exercises,
+      this.isLoadingExercise = false,
+      this.page = 0,
+      this.isLastPage = false,
+      final List<String>? equipment})
+      : _exercises = exercises,
+        _equipment = equipment;
 
   @override
   final Session? sessionPlan;
+  final List<Exercise>? _exercises;
+  @override
+  List<Exercise>? get exercises {
+    final value = _exercises;
+    if (value == null) return null;
+    if (_exercises is EqualUnmodifiableListView) return _exercises;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey()
+  final bool isLoadingExercise;
+  @override
+  @JsonKey()
+  final int page;
+  @override
+  @JsonKey()
+  final bool isLastPage;
   final List<String>? _equipment;
   @override
   List<String>? get equipment {
@@ -139,7 +220,7 @@ class _$_ExerciseOverviewData implements _ExerciseOverviewData {
 
   @override
   String toString() {
-    return 'ExerciseOverviewData(sessionPlan: $sessionPlan, equipment: $equipment)';
+    return 'ExerciseOverviewData(sessionPlan: $sessionPlan, exercises: $exercises, isLoadingExercise: $isLoadingExercise, page: $page, isLastPage: $isLastPage, equipment: $equipment)';
   }
 
   @override
@@ -150,11 +231,24 @@ class _$_ExerciseOverviewData implements _ExerciseOverviewData {
             (identical(other.sessionPlan, sessionPlan) ||
                 other.sessionPlan == sessionPlan) &&
             const DeepCollectionEquality()
+                .equals(other._exercises, _exercises) &&
+            (identical(other.isLoadingExercise, isLoadingExercise) ||
+                other.isLoadingExercise == isLoadingExercise) &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.isLastPage, isLastPage) ||
+                other.isLastPage == isLastPage) &&
+            const DeepCollectionEquality()
                 .equals(other._equipment, _equipment));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, sessionPlan,
+  int get hashCode => Object.hash(
+      runtimeType,
+      sessionPlan,
+      const DeepCollectionEquality().hash(_exercises),
+      isLoadingExercise,
+      page,
+      isLastPage,
       const DeepCollectionEquality().hash(_equipment));
 
   @JsonKey(ignore: true)
@@ -168,10 +262,22 @@ class _$_ExerciseOverviewData implements _ExerciseOverviewData {
 abstract class _ExerciseOverviewData implements ExerciseOverviewData {
   const factory _ExerciseOverviewData(
       {final Session? sessionPlan,
+      final List<Exercise>? exercises,
+      final bool isLoadingExercise,
+      final int page,
+      final bool isLastPage,
       final List<String>? equipment}) = _$_ExerciseOverviewData;
 
   @override
   Session? get sessionPlan;
+  @override
+  List<Exercise>? get exercises;
+  @override
+  bool get isLoadingExercise;
+  @override
+  int get page;
+  @override
+  bool get isLastPage;
   @override
   List<String>? get equipment;
   @override

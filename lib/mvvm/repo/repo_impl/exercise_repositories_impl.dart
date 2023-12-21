@@ -1,9 +1,11 @@
-import 'package:dart_either/dart_either.dart';
 import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/components/network/base_api.dart';
 import 'package:fit_life/mvvm/data/remote/exercise/exercise_api.dart';
+import 'package:fit_life/mvvm/data/remote/session/session_api.dart';
+import 'package:fit_life/mvvm/me/entity/custom_exercise/custom_exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/add_exercise_dto.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/exercise_pagination.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/me/model/body_part/body_part_model.dart';
 import 'package:fit_life/mvvm/me/model/exercise/exercise_model.dart';
@@ -15,7 +17,11 @@ import 'package:injectable/injectable.dart';
 @Injectable(as: ExerciseRepositories)
 class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
   final ExerciseApi _exerciseApi;
-  ExerciseRepositoriesImpl(this._exerciseApi);
+  final SessionApi _sessionApi;
+  ExerciseRepositoriesImpl(
+    this._exerciseApi,
+    this._sessionApi,
+  );
 
   @override
   Future<SResult<List<BodyPart>>> getExerciseCategories(
@@ -42,10 +48,15 @@ class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
       );
 
   @override
-  Future<SResult<bool>> createExercise({
+  Future<SResult<CustomExercise>> createExercise(
+    int sessionId, {
     required AddExerciseDto dto,
   }) async {
-    return const Either.right(true);
+    return await apiCall<CustomExercise, CustomExercise>(
+      mapper: (result) => result,
+      request: () async =>
+          await _sessionApi.createExercise(sessionId, body: dto.toJson()),
+    );
   }
 
   @override
@@ -63,4 +74,16 @@ class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
         mapper: (result) => result.toEntity,
         request: () async => await _exerciseApi.getExerciseById(exerciseId),
       );
+
+  @override
+  Future<SResult<List<Exercise>>> getExercisesPagination(
+      int page, int perPage) async {
+    return await apiCall<ExercisePagination, List<Exercise>>(
+      mapper: (result) => result.content?.map((e) => e.toEntity).toList() ?? [],
+      request: () async => await _exerciseApi.getExercisePagination(body: {
+        "page": page,
+        "perPage": perPage,
+      }),
+    );
+  }
 }

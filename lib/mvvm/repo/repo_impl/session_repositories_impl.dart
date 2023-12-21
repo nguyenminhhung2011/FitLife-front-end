@@ -2,6 +2,7 @@ import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/components/network/base_api.dart';
 import 'package:fit_life/mvvm/data/remote/session/session_api.dart';
 import 'package:fit_life/mvvm/me/entity/request/update_setting_session_request.dart';
+import 'package:fit_life/mvvm/me/entity/session/add_session_dto.dart';
 import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:fit_life/mvvm/me/model/session/session_model.dart';
 import 'package:fit_life/mvvm/repo/session_repositories.dart';
@@ -51,7 +52,7 @@ class SessionRepositoriesImpl extends BaseApi implements SessionRepositories {
   }
 
   @override
-  Future<SResult<Session>> createSession({required Session session}) {
+  Future<SResult<Session>> createSession({required AddSessionDTO session}) {
     return apiCall<SessionModel, Session>(
       mapper: (result) => result.toEntity,
       request: () async =>

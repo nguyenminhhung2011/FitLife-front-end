@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SettingSession {
-  Level get level => throw _privateConstructorUsedError;
+  String get level => throw _privateConstructorUsedError;
   int get calcTarget => throw _privateConstructorUsedError;
   int get timePerLesson => throw _privateConstructorUsedError;
   int get numberRound => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $SettingSessionCopyWith<$Res> {
       _$SettingSessionCopyWithImpl<$Res, SettingSession>;
   @useResult
   $Res call(
-      {Level level,
+      {String level,
       int calcTarget,
       int timePerLesson,
       int numberRound,
@@ -73,7 +73,7 @@ class _$SettingSessionCopyWithImpl<$Res, $Val extends SettingSession>
       level: null == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as Level,
+              as String,
       calcTarget: null == calcTarget
           ? _value.calcTarget
           : calcTarget // ignore: cast_nullable_to_non_nullable
@@ -115,7 +115,7 @@ abstract class _$$_SettingSessionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Level level,
+      {String level,
       int calcTarget,
       int timePerLesson,
       int numberRound,
@@ -149,7 +149,7 @@ class __$$_SettingSessionCopyWithImpl<$Res>
       level: null == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as Level,
+              as String,
       calcTarget: null == calcTarget
           ? _value.calcTarget
           : calcTarget // ignore: cast_nullable_to_non_nullable
@@ -196,7 +196,7 @@ class _$_SettingSession implements _SettingSession {
       required this.randomMix});
 
   @override
-  final Level level;
+  final String level;
   @override
   final int calcTarget;
   @override
@@ -252,7 +252,7 @@ class _$_SettingSession implements _SettingSession {
 
 abstract class _SettingSession implements SettingSession {
   const factory _SettingSession(
-      {required final Level level,
+      {required final String level,
       required final int calcTarget,
       required final int timePerLesson,
       required final int numberRound,
@@ -262,7 +262,7 @@ abstract class _SettingSession implements SettingSession {
       required final bool randomMix}) = _$_SettingSession;
 
   @override
-  Level get level;
+  String get level;
   @override
   int get calcTarget;
   @override

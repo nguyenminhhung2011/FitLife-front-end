@@ -20,11 +20,11 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Session {
-  String get id => throw _privateConstructorUsedError;
-  String get dwId => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String? get dwId => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  Level? get level => throw _privateConstructorUsedError;
+  String? get level => throw _privateConstructorUsedError;
   int? get calcTarget => throw _privateConstructorUsedError;
   int? get timePerLesson => throw _privateConstructorUsedError;
   int? get numberRound => throw _privateConstructorUsedError;
@@ -34,7 +34,6 @@ mixin _$Session {
   bool? get done => throw _privateConstructorUsedError;
   bool? get randomMix => throw _privateConstructorUsedError;
   int? get transferTime => throw _privateConstructorUsedError;
-  List<Equipment>? get equipments => throw _privateConstructorUsedError;
   List<CustomExercise>? get customExercise =>
       throw _privateConstructorUsedError;
 
@@ -49,11 +48,11 @@ abstract class $SessionCopyWith<$Res> {
       _$SessionCopyWithImpl<$Res, Session>;
   @useResult
   $Res call(
-      {String id,
-      String dwId,
+      {int id,
+      String? dwId,
       String? name,
       String? description,
-      Level? level,
+      String? level,
       int? calcTarget,
       int? timePerLesson,
       int? numberRound,
@@ -63,7 +62,6 @@ abstract class $SessionCopyWith<$Res> {
       bool? done,
       bool? randomMix,
       int? transferTime,
-      List<Equipment>? equipments,
       List<CustomExercise>? customExercise});
 }
 
@@ -81,7 +79,7 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   @override
   $Res call({
     Object? id = null,
-    Object? dwId = null,
+    Object? dwId = freezed,
     Object? name = freezed,
     Object? description = freezed,
     Object? level = freezed,
@@ -94,18 +92,17 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? done = freezed,
     Object? randomMix = freezed,
     Object? transferTime = freezed,
-    Object? equipments = freezed,
     Object? customExercise = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      dwId: null == dwId
+              as int,
+      dwId: freezed == dwId
           ? _value.dwId
           : dwId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -117,7 +114,7 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
       level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as Level?,
+              as String?,
       calcTarget: freezed == calcTarget
           ? _value.calcTarget
           : calcTarget // ignore: cast_nullable_to_non_nullable
@@ -154,10 +151,6 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.transferTime
           : transferTime // ignore: cast_nullable_to_non_nullable
               as int?,
-      equipments: freezed == equipments
-          ? _value.equipments
-          : equipments // ignore: cast_nullable_to_non_nullable
-              as List<Equipment>?,
       customExercise: freezed == customExercise
           ? _value.customExercise
           : customExercise // ignore: cast_nullable_to_non_nullable
@@ -174,11 +167,11 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String dwId,
+      {int id,
+      String? dwId,
       String? name,
       String? description,
-      Level? level,
+      String? level,
       int? calcTarget,
       int? timePerLesson,
       int? numberRound,
@@ -188,7 +181,6 @@ abstract class _$$_SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       bool? done,
       bool? randomMix,
       int? transferTime,
-      List<Equipment>? equipments,
       List<CustomExercise>? customExercise});
 }
 
@@ -203,7 +195,7 @@ class __$$_SessionCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? dwId = null,
+    Object? dwId = freezed,
     Object? name = freezed,
     Object? description = freezed,
     Object? level = freezed,
@@ -216,18 +208,17 @@ class __$$_SessionCopyWithImpl<$Res>
     Object? done = freezed,
     Object? randomMix = freezed,
     Object? transferTime = freezed,
-    Object? equipments = freezed,
     Object? customExercise = freezed,
   }) {
     return _then(_$_Session(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      dwId: null == dwId
+              as int,
+      dwId: freezed == dwId
           ? _value.dwId
           : dwId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -239,7 +230,7 @@ class __$$_SessionCopyWithImpl<$Res>
       level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as Level?,
+              as String?,
       calcTarget: freezed == calcTarget
           ? _value.calcTarget
           : calcTarget // ignore: cast_nullable_to_non_nullable
@@ -276,10 +267,6 @@ class __$$_SessionCopyWithImpl<$Res>
           ? _value.transferTime
           : transferTime // ignore: cast_nullable_to_non_nullable
               as int?,
-      equipments: freezed == equipments
-          ? _value._equipments
-          : equipments // ignore: cast_nullable_to_non_nullable
-              as List<Equipment>?,
       customExercise: freezed == customExercise
           ? _value._customExercise
           : customExercise // ignore: cast_nullable_to_non_nullable
@@ -293,7 +280,7 @@ class __$$_SessionCopyWithImpl<$Res>
 class _$_Session implements _Session {
   const _$_Session(
       {required this.id,
-      required this.dwId,
+      this.dwId,
       this.name,
       this.description,
       this.level,
@@ -306,24 +293,22 @@ class _$_Session implements _Session {
       this.done,
       this.randomMix,
       this.transferTime,
-      final List<Equipment>? equipments,
       final List<CustomExercise>? customExercise})
-      : _equipments = equipments,
-        _customExercise = customExercise;
+      : _customExercise = customExercise;
 
   factory _$_Session.fromJson(Map<String, dynamic> json) =>
       _$$_SessionFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
-  final String dwId;
+  final String? dwId;
   @override
   final String? name;
   @override
   final String? description;
   @override
-  final Level? level;
+  final String? level;
   @override
   final int? calcTarget;
   @override
@@ -342,16 +327,6 @@ class _$_Session implements _Session {
   final bool? randomMix;
   @override
   final int? transferTime;
-  final List<Equipment>? _equipments;
-  @override
-  List<Equipment>? get equipments {
-    final value = _equipments;
-    if (value == null) return null;
-    if (_equipments is EqualUnmodifiableListView) return _equipments;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
   final List<CustomExercise>? _customExercise;
   @override
   List<CustomExercise>? get customExercise {
@@ -364,7 +339,7 @@ class _$_Session implements _Session {
 
   @override
   String toString() {
-    return 'Session(id: $id, dwId: $dwId, name: $name, description: $description, level: $level, calcTarget: $calcTarget, timePerLesson: $timePerLesson, numberRound: $numberRound, breakTime: $breakTime, calcCompleted: $calcCompleted, startWithBoot: $startWithBoot, done: $done, randomMix: $randomMix, transferTime: $transferTime, equipments: $equipments, customExercise: $customExercise)';
+    return 'Session(id: $id, dwId: $dwId, name: $name, description: $description, level: $level, calcTarget: $calcTarget, timePerLesson: $timePerLesson, numberRound: $numberRound, breakTime: $breakTime, calcCompleted: $calcCompleted, startWithBoot: $startWithBoot, done: $done, randomMix: $randomMix, transferTime: $transferTime, customExercise: $customExercise)';
   }
 
   @override
@@ -396,8 +371,6 @@ class _$_Session implements _Session {
             (identical(other.transferTime, transferTime) ||
                 other.transferTime == transferTime) &&
             const DeepCollectionEquality()
-                .equals(other._equipments, _equipments) &&
-            const DeepCollectionEquality()
                 .equals(other._customExercise, _customExercise));
   }
 
@@ -419,7 +392,6 @@ class _$_Session implements _Session {
       done,
       randomMix,
       transferTime,
-      const DeepCollectionEquality().hash(_equipments),
       const DeepCollectionEquality().hash(_customExercise));
 
   @JsonKey(ignore: true)
@@ -438,11 +410,11 @@ class _$_Session implements _Session {
 
 abstract class _Session implements Session {
   const factory _Session(
-      {required final String id,
-      required final String dwId,
+      {required final int id,
+      final String? dwId,
       final String? name,
       final String? description,
-      final Level? level,
+      final String? level,
       final int? calcTarget,
       final int? timePerLesson,
       final int? numberRound,
@@ -452,21 +424,20 @@ abstract class _Session implements Session {
       final bool? done,
       final bool? randomMix,
       final int? transferTime,
-      final List<Equipment>? equipments,
       final List<CustomExercise>? customExercise}) = _$_Session;
 
   factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
-  String get dwId;
+  String? get dwId;
   @override
   String? get name;
   @override
   String? get description;
   @override
-  Level? get level;
+  String? get level;
   @override
   int? get calcTarget;
   @override
@@ -485,8 +456,6 @@ abstract class _Session implements Session {
   bool? get randomMix;
   @override
   int? get transferTime;
-  @override
-  List<Equipment>? get equipments;
   @override
   List<CustomExercise>? get customExercise;
   @override

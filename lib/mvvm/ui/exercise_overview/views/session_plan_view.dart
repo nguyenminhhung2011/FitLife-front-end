@@ -2,13 +2,13 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/appbar.dart';
+import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
-import 'package:fit_life/mvvm/ui/exercise_overview/ob/action.dart';
-import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
+import 'package:fit_life/mvvm/me/entity/session/add_session_dto.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/view_model/session_plan_data.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/view_model/session_plan_view_model.dart';
-import 'package:fit_life/mvvm/ui/exercise_overview/views/widgets/render_setting_item.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/widgets/today_exercise_item.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:readmore/readmore.dart';
@@ -34,10 +34,46 @@ class _SessionPlanViewState extends ConsumerState<SessionPlanView> {
   TextStyle get _smallStyle => context.titleSmall
       .copyWith(fontSize: 12.0, color: Theme.of(context).hintColor);
 
+  bool isLoadingCreated = false;
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _vm.getAllSession();
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: _backgroundColor,
+      bottomSheet: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: ButtonCustom(
+          height: 45.0,
+          radius: 5.0,
+          loading: isLoadingCreated,
+          child: Text(
+            "Create session plan",
+            style: context.titleMedium
+                .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          onPress: () async {
+            setState(() {
+              isLoadingCreated = true;
+            });
+            final dto = await context.openPageWithRouteAndParams(
+                Routes.addSessionPlan, _data.id);
+            if (dto is AddSessionDTO) {
+              await _vm.createSession(id: _data.id!, dto: dto);
+            }
+            setState(() {
+              isLoadingCreated = false;
+            });
+          },
+        ),
+      ),
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
@@ -67,20 +103,21 @@ class _SessionPlanViewState extends ConsumerState<SessionPlanView> {
                 const SizedBox(height: 10.0),
                 const DividerDot(),
                 const SizedBox(height: 15.0),
-                if (_data.date != null)
+                if (_data.time != null)
                   Padding(
                     padding: _padding,
-                    child: Text('♻️ ${getMMMMEEEd(_data.date!)}',
+                    child: Text(
+                        '♻️ ${getMMMMEEEd(DateTime.fromMillisecondsSinceEpoch(_data.time!))}',
                         style: _smallStyle),
                   ),
                 _header(
                   context,
-                  header: _data.title,
+                  header: _data.title ?? "",
                 ),
                 Padding(
                   padding: _padding,
                   child: ReadMoreText(
-                    _data.description,
+                    _data.description ?? "",
                     trimLines: 2,
                     trimCollapsedText: ' Show more',
                     trimExpandedText: ' Show less',
@@ -89,58 +126,27 @@ class _SessionPlanViewState extends ConsumerState<SessionPlanView> {
                     style: _smallStyle.copyWith(fontWeight: FontWeight.w400),
                   ),
                 ),
-                _header(context, header: "Settings"),
-                RenderSettingItem(
-                  action: SettingExerciseActions.numberRound,
-                  data: _data.numberOfRound,
-                ),
-                const SizedBox(height: 5),
-                RenderSettingItem(
-                  action: SettingExerciseActions.numberOfExerciseRound,
-                  data: _data.numberOfExerciseRound,
-                ),
-                const SizedBox(height: 5),
-                RenderSettingItem(
-                  action: SettingExerciseActions.startWithBoot,
-                  isEnable: _data.startWithBoot ?? false,
-                  onChangeValue: (value) {},
-                ),
-                const SizedBox(height: 5),
-                RenderSettingItem(
-                  action: SettingExerciseActions.randomMix,
-                  isEnable: _data.randomMix ?? false,
-                  onChangeValue: (value) {},
-                ),
-                const SizedBox(height: 5),
-                RenderSettingItem(
-                  action: SettingExerciseActions.timForEach,
-                  data: _data.timeForEach,
-                ),
-                const SizedBox(height: 5),
-                RenderSettingItem(
-                  action: SettingExerciseActions.transferTime,
-                  data: _data.transferTime,
-                ),
-                const SizedBox(height: 5),
-                RenderSettingItem(
-                  action: SettingExerciseActions.breakTime,
-                  data: _data.breakTime,
-                ),
-                const SizedBox(height: 5),
-                RenderSettingItem(
-                  action: SettingExerciseActions.leave,
-                  data: _data.leave,
-                ),
-                const SizedBox(height: 5),
-                _header(context, header: "Today exercises"),
+                const SizedBox(height: 20),
+                _header(context, header: "Select sessions"),
                 const SizedBox(height: 10.0),
+                if (_data.sessions?.isEmpty ?? true)
+                  Padding(
+                    padding: _padding,
+                    child: Center(
+                      child: Text(
+                        "No session found. Create a new session now!",
+                        style: _smallStyle,
+                      ),
+                    ),
+                  ),
                 if (_data.sessions?.isNotEmpty ?? false)
                   ..._data.sessions!
                       .map(
                         (e) => TodayExerciseItem(
                           header: e.name ?? "",
-                          level: e.level ?? Level.beginner,
+                          level: e.level ?? "",
                           id: e.id,
+                          description: e.description ?? "",
                         ),
                       )
                       .expand(
@@ -175,7 +181,7 @@ class _SessionPlanViewState extends ConsumerState<SessionPlanView> {
         children: [
           const SizedBox(height: kToolbarHeight),
           Text(
-            _data.sessionName,
+            "Select session plan",
             style: context.titleLarge.copyWith(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
@@ -183,7 +189,7 @@ class _SessionPlanViewState extends ConsumerState<SessionPlanView> {
           ),
           const SizedBox(height: 5.0),
           Text(
-            _data.sessionDescription,
+            "Choose a session to start your workout",
             style: _smallStyle.copyWith(color: Colors.grey),
           ),
           const SizedBox(height: 10.0),
@@ -192,9 +198,9 @@ class _SessionPlanViewState extends ConsumerState<SessionPlanView> {
             child: Text.rich(
               TextSpan(
                 style: _smallStyle.copyWith(color: Colors.grey),
-                children: _data.tags
-                    .map((element) => TextSpan(text: element))
-                    .toList(),
+                children: [
+                  "🌄 Morning exercise | 🌍 Afternoom exercise |\n 🌆 Evening exercise"
+                ].map((element) => TextSpan(text: element)).toList(),
               ),
               textAlign: TextAlign.center,
             ),

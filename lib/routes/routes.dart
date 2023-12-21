@@ -24,4 +24,6 @@ class Routes {
   static const String previewExercise = '/preview_exercise';
   static const String favoriteExercise = '/favorite_exercise';
   static const String exerciseOverview = '/exercise_overview';
+  static const String addSessionPlan = '/add_session_plan';
+
 }

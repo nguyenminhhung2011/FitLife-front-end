@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const workoutDurations = [
+const timePerLessions = [
   '10',
   '15',
   '20',
@@ -15,16 +15,41 @@ const workoutDurations = [
 ];
 const numRounds = ['1', '2', '3', '4', '5', '6', '7', '8'];
 const exercisePerRounds = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-const timeForEachExs = ['10', '15', '20', '25', '30', '35', '40', '45'];
+const transferTimes = ['10', '15', '20', '25', '30', '35', '40', '45'];
 const breakTimes = ['10', '15', '20', '25', '30', '35', '40', '45'];
+const calcTargets = ['10', '15', '20', '25', '30', '35', '40', '45'];
+const levels = ["Beginner", "Intermediate", "Advanced"];
+const reps = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+const weights = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20"
+];
 
 enum AddActions {
-  workoutDuration("Workout Duration", Icons.loop, workoutDurations),
-  numOfRound("Number round", Icons.loop, numRounds),
-  exerPerRound("Exercise per round", Icons.explore_rounded, exercisePerRounds),
-  timeForEachExer(
-      "Custom weights (kg)", Icons.hourglass_bottom, timeForEachExs),
+  calcTarget("calcTarget", Icons.track_changes_outlined, calcTargets),
+  timePerLession("Time per lession", Icons.timelapse_rounded, timePerLessions),
+  numOfRound("Number round", Icons.timeline_sharp, numRounds),
+  transferTime("Transfer time", Icons.transfer_within_a_station, transferTimes),
   breakTime("Break time (s)", Icons.free_breakfast_sharp, breakTimes),
+  level("Level", Icons.upgrade_sharp, levels),
   ;
 
   final String title;

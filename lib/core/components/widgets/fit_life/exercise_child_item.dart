@@ -42,8 +42,8 @@ class ExerciseChidItem extends StatelessWidget {
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        exercise.description.isNotEmpty
-                            ? exercise.description
+                        exercise.description?.isNotEmpty ?? false
+                            ? exercise.description!
                             : "This is descriptions of ${exercise.name}",
                         style: context.titleSmall.copyWith(
                           color: Theme.of(context).hintColor,

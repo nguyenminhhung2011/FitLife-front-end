@@ -1,20 +1,20 @@
 import 'package:fit_life/app_coordinator.dart';
-import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
-import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class TodayExerciseItem extends StatelessWidget {
   final String header;
-  final Level level;
-  final String? id;
+  final String level;
+  final int? id;
+  final String description;
 
   const TodayExerciseItem({
     super.key,
     required this.header,
     required this.level,
     this.id,
+    required this.description,
   });
 
   @override
@@ -22,7 +22,7 @@ class TodayExerciseItem extends StatelessWidget {
     return GestureDetector(
       onTap: id != null
           ? () =>
-              context.openPageWithRouteAndParams(Routes.exerciseOverview, "1")
+              context.openPageWithRouteAndParams(Routes.exerciseOverview, id)
           : null,
       child: Container(
         width: double.infinity,
@@ -52,7 +52,7 @@ class TodayExerciseItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 5.0),
                   Text(
-                    '💪 ${level.renderString} - Start at ${gemmFormat(DateTime.now())}',
+                    '💪 $level - $description',
                     style: context.titleSmall.copyWith(
                       color: Theme.of(context).hintColor,
                       fontSize: 12.0,

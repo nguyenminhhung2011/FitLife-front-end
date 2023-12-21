@@ -21,7 +21,8 @@ class ScheduleItem extends StatelessWidget {
         : -1;
 
     return GestureDetector(
-      onTap: () => context.openListPageWithRoute(Routes.sessionPlan),
+      onTap: () =>
+          context.openPageWithRouteAndParams(Routes.sessionPlan, item),
       child: Container(
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),

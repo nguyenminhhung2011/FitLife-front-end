@@ -85,7 +85,7 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
         }
       },
       completeRound: (_) async {
-        await _vm.completeSession(sessionId: int.parse(widget.session.id));
+        await _vm.completeSession(sessionId: widget.session.id );
       },
       completeSessionFailed: (_, error) =>
           context.showSnackBar("🐛[Complete session] $error"),

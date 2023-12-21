@@ -1,6 +1,5 @@
 import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:fit_life/mvvm/me/model/exercise/custom_exercise_model.dart';
-import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'session_model.g.dart';
@@ -72,13 +71,10 @@ class SessionModel {
   Map<String, dynamic> toJson() => _$SessionModelToJson(this);
 
   Session get toEntity => Session(
-        id: id.toString(),
+        id: id,
         dwId: '',
         name: name,
-        level: (level?.isNotEmpty ?? false)
-            ? Level.values.firstWhere(
-                (element) => element.name.toLowerCase() == level!.toLowerCase())
-            : Level.beginner,
+        level: level,
         description: description,
         calcTarget: calcTarget,
         timePerLesson: timePerLesson,

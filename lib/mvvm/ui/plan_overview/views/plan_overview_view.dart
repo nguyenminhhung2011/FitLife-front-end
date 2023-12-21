@@ -164,7 +164,7 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
           ...List.generate(3, (index) => const WorkoutPlanSkelton())
         else if (_data.workoutPlans?.isEmpty ?? false)
           Text(
-            "You don't have any plan yet.\n Create new plan now!",
+            "⛔ You don't have any session yet.\n Create new session now! 💪",
             style: context.titleMedium,
             textAlign: TextAlign.center,
           )
@@ -194,7 +194,7 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
                   .toList() ??
               const [],
         ],
-        const SizedBox(height: 10.0),
+        const SizedBox(height: 20.0),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: ButtonCustom(
@@ -202,7 +202,7 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
             radius: 10.0,
             loading: _data.isLoadingCreatePlan,
             child: Text(
-              "Create new plan",
+              "Create session",
               style: context.titleSmall
                   .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
             ),

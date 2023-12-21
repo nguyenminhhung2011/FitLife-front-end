@@ -10,6 +10,8 @@ import 'package:fit_life/mvvm/ui/category/views/category_view.dart';
 import 'package:fit_life/mvvm/ui/conversation/view/conversation_view.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/view_model/exercise_detail_view_model.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
+import 'package:fit_life/mvvm/ui/exercise_overview/view_model/session_plan_view_model.dart';
+import 'package:fit_life/mvvm/ui/exercise_overview/views/add_session_plan.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/session_plan_view.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_view_model.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_overview_view.dart';
@@ -108,6 +110,19 @@ class MainRoutes {
           },
         );
 
+      case Routes.addSessionPlan:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            if (settings.arguments is int) {
+              return ProviderScope(
+                child: AddSessionPlan(id: settings.arguments as int),
+              );
+            }
+            return const SizedBox();
+          },
+        );
+
       case Routes.splash:
         return MaterialPageRoute(
           settings: settings,
@@ -124,7 +139,16 @@ class MainRoutes {
       case Routes.sessionPlan:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: SessionPlanView()),
+          builder: (_) => ProviderScope(
+            overrides: [
+              sessionPlanStateNotifier = AutoDisposeStateNotifierProvider(
+                (ref) => injector.get<SessionPlanViewModel>(
+                  param1: settings.arguments as DailyWorkout?,
+                ),
+              )
+            ],
+            child: const SessionPlanView(),
+          ),
         );
 
       case Routes.exerciseDetail:
@@ -161,7 +185,7 @@ class MainRoutes {
           settings: settings,
           builder: (_) => ProviderScope(
               child: CalendarView(
-            dailyWorkouts: settings.arguments as List<DailyWorkout>,
+            dailyWorkouts: settings.arguments as List<DailyWorkout>?,
           )),
         );
       case Routes.notification:
@@ -221,7 +245,7 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            if (settings.arguments is String) {
+            if (settings.arguments is int) {
               return ProviderScope(
                 overrides: [
                   exerciseOverviewStateNotifier =

@@ -50,8 +50,8 @@ class FavoriteExerciseItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 5.0),
                 Text(
-                  exercise.description.isNotEmpty
-                      ? exercise.description
+                  exercise.description?.isNotEmpty ?? false
+                      ? exercise.description!
                       : "This is descriptions of ${exercise.name}",
                   style: context.titleSmall.copyWith(
                     color: Theme.of(context).hintColor,

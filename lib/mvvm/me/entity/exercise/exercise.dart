@@ -9,10 +9,12 @@ class Exercise with _$Exercise {
   const factory Exercise({
     required int id,
     required String name,
-    required String description,
+     String? description,
     String? bodyPart,
     double? caloriesPerMinute,
     String? videoUrl,
+    String? target,
+    String? equipment,
     int? set,
     int? reps,
     List<Instruction>? instructions,

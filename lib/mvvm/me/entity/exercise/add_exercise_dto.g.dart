@@ -8,19 +8,16 @@ part of 'add_exercise_dto.dart';
 
 _$_AddExerciseDto _$$_AddExerciseDtoFromJson(Map<String, dynamic> json) =>
     _$_AddExerciseDto(
-      exercise: Exercise.fromJson(json['exercise'] as Map<String, dynamic>),
-      time:
-          json['time'] == null ? null : DateTime.parse(json['time'] as String),
+      exercise: json['exercise'] as int,
       difficulty: json['difficulty'] as String,
-      reputation: json['reputation'] as int,
-      weights: json['weights'] as int,
+      rep: json['rep'] as int,
+      weight: json['weight'] as int,
     );
 
 Map<String, dynamic> _$$_AddExerciseDtoToJson(_$_AddExerciseDto instance) =>
     <String, dynamic>{
       'exercise': instance.exercise,
-      'time': instance.time?.toIso8601String(),
       'difficulty': instance.difficulty,
-      'reputation': instance.reputation,
-      'weights': instance.weights,
+      'rep': instance.rep,
+      'weight': instance.weight,
     };

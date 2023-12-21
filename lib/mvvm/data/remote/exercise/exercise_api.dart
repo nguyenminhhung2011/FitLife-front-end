@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fit_life/mvvm/me/entity/exercise/exercise_pagination.dart';
 import 'package:fit_life/mvvm/me/model/body_part/body_part_model.dart';
 import 'package:fit_life/mvvm/me/model/exercise/exercise_model.dart';
 import 'package:fit_life/mvvm/me/model/search_exercise/search_exercise_response.dart';
@@ -26,4 +27,8 @@ abstract class ExerciseApi {
 
   @GET("$branch/{id}")
   Future<HttpResponse<ExerciseModel>> getExerciseById(@Path('id') int id);
+
+  @GET(branch)
+  Future<HttpResponse<ExercisePagination>> getExercisePagination(
+      {@Body() required Map<String, dynamic> body});
 }

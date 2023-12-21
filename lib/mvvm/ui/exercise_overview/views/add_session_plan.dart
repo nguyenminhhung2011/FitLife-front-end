@@ -2,6 +2,8 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/custom_input_label_field.dart';
+import 'package:fit_life/core/components/widgets/dropdown_list_row.dart';
+import 'package:fit_life/core/components/widgets/toggle_row.dart';
 import 'package:fit_life/mvvm/me/entity/session/add_session_dto.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/ob/add_actions.dart';
@@ -129,7 +131,7 @@ class _AddSessionPlanState extends ConsumerState<AddSessionPlan> {
                 ),
               ),
               const SizedBox(height: 10),
-              _toggleWidget(
+              ToggleRowWidget(
                 title: "Start with boot",
                 value: startWithBoot,
                 icon: const Icon(Icons.star_border_outlined),
@@ -140,7 +142,7 @@ class _AddSessionPlanState extends ConsumerState<AddSessionPlan> {
                 },
               ),
               const SizedBox(height: 10),
-              _toggleWidget(
+              ToggleRowWidget(
                 title: "Random mix",
                 value: randomMix,
                 icon: const Icon(Icons.sports_golf_rounded),
@@ -153,7 +155,7 @@ class _AddSessionPlanState extends ConsumerState<AddSessionPlan> {
               const SizedBox(height: 10.0),
               ...AddActions.values
                   .map(
-                    (e) => _dropdownListWidget(
+                    (e) => DropdownListRowWidget(
                         listItem: e.data,
                         title: e.title,
                         itemChoice: e == AddActions.calcTarget
@@ -204,88 +206,5 @@ class _AddSessionPlanState extends ConsumerState<AddSessionPlan> {
     );
   }
 
-  Widget _dropdownListWidget({
-    Widget? icon,
-    required List<String>? listItem,
-    required String title,
-    Function(String?)? onChange,
-    required String itemChoice,
-  }) {
-    return Container(
-      height: 50,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).dividerColor.withOpacity(0.1),
-      ),
-      child: Row(
-        children: [
-          const SizedBox(width: 10),
-          if (icon != null) icon,
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(title, style: context.textTheme.bodyLarge),
-          ),
-          Container(
-            padding: const EdgeInsets.only(right: 10),
-            height: 30,
-            child: DropdownButton<String>(
-              borderRadius: BorderRadius.circular(15),
-              value: itemChoice,
-              elevation: 5,
-              icon: const Icon(Icons.arrow_drop_down),
-              items: listItem
-                  ?.map(
-                    (e) => DropdownMenuItem<String>(
-                      value: e,
-                      child: Text(
-                        e,
-                        style: context.textTheme.bodyMedium,
-                      ),
-                    ),
-                  )
-                  .toList(),
-              onChanged: onChange,
-            ),
-          ),
-          const SizedBox(height: 20),
-        ],
-      ),
-    );
-  }
-
-  Widget _toggleWidget({
-    Widget? icon,
-    required String title,
-    Function(bool?)? onChange,
-    required bool value,
-  }) {
-    return Container(
-      height: 50,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).dividerColor.withOpacity(0.1),
-      ),
-      child: Row(
-        children: [
-          const SizedBox(width: 10),
-          if (icon != null) icon,
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(title, style: context.textTheme.bodyLarge),
-          ),
-          Container(
-              padding: const EdgeInsets.only(right: 10),
-              height: 30,
-              child: Switch(
-                value: value,
-                activeColor: context.primaryColor,
-                onChanged: (value) => onChange!(value),
-              )),
-          const SizedBox(height: 20),
-        ],
-      ),
-    );
-  }
+ 
 }

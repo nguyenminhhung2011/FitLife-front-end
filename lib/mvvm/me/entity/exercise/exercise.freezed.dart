@@ -22,10 +22,12 @@ Exercise _$ExerciseFromJson(Map<String, dynamic> json) {
 mixin _$Exercise {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   String? get bodyPart => throw _privateConstructorUsedError;
   double? get caloriesPerMinute => throw _privateConstructorUsedError;
   String? get videoUrl => throw _privateConstructorUsedError;
+  String? get target => throw _privateConstructorUsedError;
+  String? get equipment => throw _privateConstructorUsedError;
   int? get set => throw _privateConstructorUsedError;
   int? get reps => throw _privateConstructorUsedError;
   List<Instruction>? get instructions => throw _privateConstructorUsedError;
@@ -44,10 +46,12 @@ abstract class $ExerciseCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      String description,
+      String? description,
       String? bodyPart,
       double? caloriesPerMinute,
       String? videoUrl,
+      String? target,
+      String? equipment,
       int? set,
       int? reps,
       List<Instruction>? instructions});
@@ -68,10 +72,12 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? description = null,
+    Object? description = freezed,
     Object? bodyPart = freezed,
     Object? caloriesPerMinute = freezed,
     Object? videoUrl = freezed,
+    Object? target = freezed,
+    Object? equipment = freezed,
     Object? set = freezed,
     Object? reps = freezed,
     Object? instructions = freezed,
@@ -85,10 +91,10 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       bodyPart: freezed == bodyPart
           ? _value.bodyPart
           : bodyPart // ignore: cast_nullable_to_non_nullable
@@ -100,6 +106,14 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
       videoUrl: freezed == videoUrl
           ? _value.videoUrl
           : videoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      target: freezed == target
+          ? _value.target
+          : target // ignore: cast_nullable_to_non_nullable
+              as String?,
+      equipment: freezed == equipment
+          ? _value.equipment
+          : equipment // ignore: cast_nullable_to_non_nullable
               as String?,
       set: freezed == set
           ? _value.set
@@ -127,10 +141,12 @@ abstract class _$$_ExerciseCopyWith<$Res> implements $ExerciseCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      String description,
+      String? description,
       String? bodyPart,
       double? caloriesPerMinute,
       String? videoUrl,
+      String? target,
+      String? equipment,
       int? set,
       int? reps,
       List<Instruction>? instructions});
@@ -149,10 +165,12 @@ class __$$_ExerciseCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? description = null,
+    Object? description = freezed,
     Object? bodyPart = freezed,
     Object? caloriesPerMinute = freezed,
     Object? videoUrl = freezed,
+    Object? target = freezed,
+    Object? equipment = freezed,
     Object? set = freezed,
     Object? reps = freezed,
     Object? instructions = freezed,
@@ -166,10 +184,10 @@ class __$$_ExerciseCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       bodyPart: freezed == bodyPart
           ? _value.bodyPart
           : bodyPart // ignore: cast_nullable_to_non_nullable
@@ -181,6 +199,14 @@ class __$$_ExerciseCopyWithImpl<$Res>
       videoUrl: freezed == videoUrl
           ? _value.videoUrl
           : videoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      target: freezed == target
+          ? _value.target
+          : target // ignore: cast_nullable_to_non_nullable
+              as String?,
+      equipment: freezed == equipment
+          ? _value.equipment
+          : equipment // ignore: cast_nullable_to_non_nullable
               as String?,
       set: freezed == set
           ? _value.set
@@ -204,10 +230,12 @@ class _$_Exercise implements _Exercise {
   const _$_Exercise(
       {required this.id,
       required this.name,
-      required this.description,
+      this.description,
       this.bodyPart,
       this.caloriesPerMinute,
       this.videoUrl,
+      this.target,
+      this.equipment,
       this.set,
       this.reps,
       final List<Instruction>? instructions})
@@ -221,13 +249,17 @@ class _$_Exercise implements _Exercise {
   @override
   final String name;
   @override
-  final String description;
+  final String? description;
   @override
   final String? bodyPart;
   @override
   final double? caloriesPerMinute;
   @override
   final String? videoUrl;
+  @override
+  final String? target;
+  @override
+  final String? equipment;
   @override
   final int? set;
   @override
@@ -244,7 +276,7 @@ class _$_Exercise implements _Exercise {
 
   @override
   String toString() {
-    return 'Exercise(id: $id, name: $name, description: $description, bodyPart: $bodyPart, caloriesPerMinute: $caloriesPerMinute, videoUrl: $videoUrl, set: $set, reps: $reps, instructions: $instructions)';
+    return 'Exercise(id: $id, name: $name, description: $description, bodyPart: $bodyPart, caloriesPerMinute: $caloriesPerMinute, videoUrl: $videoUrl, target: $target, equipment: $equipment, set: $set, reps: $reps, instructions: $instructions)';
   }
 
   @override
@@ -262,6 +294,9 @@ class _$_Exercise implements _Exercise {
                 other.caloriesPerMinute == caloriesPerMinute) &&
             (identical(other.videoUrl, videoUrl) ||
                 other.videoUrl == videoUrl) &&
+            (identical(other.target, target) || other.target == target) &&
+            (identical(other.equipment, equipment) ||
+                other.equipment == equipment) &&
             (identical(other.set, set) || other.set == set) &&
             (identical(other.reps, reps) || other.reps == reps) &&
             const DeepCollectionEquality()
@@ -278,6 +313,8 @@ class _$_Exercise implements _Exercise {
       bodyPart,
       caloriesPerMinute,
       videoUrl,
+      target,
+      equipment,
       set,
       reps,
       const DeepCollectionEquality().hash(_instructions));
@@ -300,10 +337,12 @@ abstract class _Exercise implements Exercise {
   const factory _Exercise(
       {required final int id,
       required final String name,
-      required final String description,
+      final String? description,
       final String? bodyPart,
       final double? caloriesPerMinute,
       final String? videoUrl,
+      final String? target,
+      final String? equipment,
       final int? set,
       final int? reps,
       final List<Instruction>? instructions}) = _$_Exercise;
@@ -315,13 +354,17 @@ abstract class _Exercise implements Exercise {
   @override
   String get name;
   @override
-  String get description;
+  String? get description;
   @override
   String? get bodyPart;
   @override
   double? get caloriesPerMinute;
   @override
   String? get videoUrl;
+  @override
+  String? get target;
+  @override
+  String? get equipment;
   @override
   int? get set;
   @override

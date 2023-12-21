@@ -241,7 +241,7 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            if (settings.arguments is String) {
+            if (settings.arguments is int) {
               return ProviderScope(
                 overrides: [
                   exerciseOverviewStateNotifier =

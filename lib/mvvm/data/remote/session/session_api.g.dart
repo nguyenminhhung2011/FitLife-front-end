@@ -197,7 +197,7 @@ class _SessionApi implements SessionApi {
   }
 
   @override
-  Future<HttpResponse<SessionModel>> createExercise(
+  Future<HttpResponse<CustomExercise>> createExercise(
     int id, {
     required Map<String, dynamic> body,
   }) async {
@@ -207,7 +207,7 @@ class _SessionApi implements SessionApi {
     final _data = <String, dynamic>{};
     _data.addAll(body);
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<HttpResponse<SessionModel>>(Options(
+        _setStreamType<HttpResponse<CustomExercise>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -223,7 +223,7 @@ class _SessionApi implements SessionApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = SessionModel.fromJson(_result.data!);
+    final value = CustomExercise.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

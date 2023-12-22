@@ -3,7 +3,7 @@ import 'package:fit_life/mvvm/me/entity/custom_exercise/custom_exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/add_exercise_dto.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
-import 'package:fit_life/mvvm/me/model/search_exercise/search_exercise_request.dart';
+import 'package:fit_life/mvvm/me/entity/request/search_exercise_request.dart';
 
 abstract class ExerciseRepositories {
   Future<SResult<List<BodyPart>>> getExerciseCategories(

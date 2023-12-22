@@ -27,6 +27,7 @@ mixin _$UserProfile {
   Frequency? get frequency => throw _privateConstructorUsedError;
   Gender? get gender => throw _privateConstructorUsedError;
   List<Exercise> get favoriteExercises => throw _privateConstructorUsedError;
+  List<NewsHealth> get favoriteNews => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserProfileCopyWith<UserProfile> get copyWith =>
@@ -50,7 +51,8 @@ abstract class $UserProfileCopyWith<$Res> {
       String? phone,
       Frequency? frequency,
       Gender? gender,
-      List<Exercise> favoriteExercises});
+      List<Exercise> favoriteExercises,
+      List<NewsHealth> favoriteNews});
 }
 
 /// @nodoc
@@ -77,6 +79,7 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
     Object? frequency = freezed,
     Object? gender = freezed,
     Object? favoriteExercises = null,
+    Object? favoriteNews = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -123,6 +126,10 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
           ? _value.favoriteExercises
           : favoriteExercises // ignore: cast_nullable_to_non_nullable
               as List<Exercise>,
+      favoriteNews: null == favoriteNews
+          ? _value.favoriteNews
+          : favoriteNews // ignore: cast_nullable_to_non_nullable
+              as List<NewsHealth>,
     ) as $Val);
   }
 }
@@ -146,7 +153,8 @@ abstract class _$$_UserProfileCopyWith<$Res>
       String? phone,
       Frequency? frequency,
       Gender? gender,
-      List<Exercise> favoriteExercises});
+      List<Exercise> favoriteExercises,
+      List<NewsHealth> favoriteNews});
 }
 
 /// @nodoc
@@ -171,6 +179,7 @@ class __$$_UserProfileCopyWithImpl<$Res>
     Object? frequency = freezed,
     Object? gender = freezed,
     Object? favoriteExercises = null,
+    Object? favoriteNews = null,
   }) {
     return _then(_$_UserProfile(
       id: null == id
@@ -217,6 +226,10 @@ class __$$_UserProfileCopyWithImpl<$Res>
           ? _value._favoriteExercises
           : favoriteExercises // ignore: cast_nullable_to_non_nullable
               as List<Exercise>,
+      favoriteNews: null == favoriteNews
+          ? _value._favoriteNews
+          : favoriteNews // ignore: cast_nullable_to_non_nullable
+              as List<NewsHealth>,
     ));
   }
 }
@@ -235,8 +248,10 @@ class _$_UserProfile implements _UserProfile {
       this.phone,
       this.frequency,
       this.gender,
-      final List<Exercise> favoriteExercises = const []})
-      : _favoriteExercises = favoriteExercises;
+      final List<Exercise> favoriteExercises = const [],
+      final List<NewsHealth> favoriteNews = const []})
+      : _favoriteExercises = favoriteExercises,
+        _favoriteNews = favoriteNews;
 
   @override
   final int id;
@@ -268,9 +283,18 @@ class _$_UserProfile implements _UserProfile {
     return EqualUnmodifiableListView(_favoriteExercises);
   }
 
+  final List<NewsHealth> _favoriteNews;
+  @override
+  @JsonKey()
+  List<NewsHealth> get favoriteNews {
+    if (_favoriteNews is EqualUnmodifiableListView) return _favoriteNews;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_favoriteNews);
+  }
+
   @override
   String toString() {
-    return 'UserProfile(id: $id, weight: $weight, height: $height, created: $created, birthDay: $birthDay, level: $level, currentPlan: $currentPlan, phone: $phone, frequency: $frequency, gender: $gender, favoriteExercises: $favoriteExercises)';
+    return 'UserProfile(id: $id, weight: $weight, height: $height, created: $created, birthDay: $birthDay, level: $level, currentPlan: $currentPlan, phone: $phone, frequency: $frequency, gender: $gender, favoriteExercises: $favoriteExercises, favoriteNews: $favoriteNews)';
   }
 
   @override
@@ -292,7 +316,9 @@ class _$_UserProfile implements _UserProfile {
                 other.frequency == frequency) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             const DeepCollectionEquality()
-                .equals(other._favoriteExercises, _favoriteExercises));
+                .equals(other._favoriteExercises, _favoriteExercises) &&
+            const DeepCollectionEquality()
+                .equals(other._favoriteNews, _favoriteNews));
   }
 
   @override
@@ -308,7 +334,8 @@ class _$_UserProfile implements _UserProfile {
       phone,
       frequency,
       gender,
-      const DeepCollectionEquality().hash(_favoriteExercises));
+      const DeepCollectionEquality().hash(_favoriteExercises),
+      const DeepCollectionEquality().hash(_favoriteNews));
 
   @JsonKey(ignore: true)
   @override
@@ -329,7 +356,8 @@ abstract class _UserProfile implements UserProfile {
       final String? phone,
       final Frequency? frequency,
       final Gender? gender,
-      final List<Exercise> favoriteExercises}) = _$_UserProfile;
+      final List<Exercise> favoriteExercises,
+      final List<NewsHealth> favoriteNews}) = _$_UserProfile;
 
   @override
   int get id;
@@ -353,6 +381,8 @@ abstract class _UserProfile implements UserProfile {
   Gender? get gender;
   @override
   List<Exercise> get favoriteExercises;
+  @override
+  List<NewsHealth> get favoriteNews;
   @override
   @JsonKey(ignore: true)
   _$$_UserProfileCopyWith<_$_UserProfile> get copyWith =>

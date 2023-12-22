@@ -9,7 +9,7 @@ import 'package:fit_life/mvvm/me/entity/exercise/exercise_pagination.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/me/model/body_part/body_part_model.dart';
 import 'package:fit_life/mvvm/me/model/exercise/exercise_model.dart';
-import 'package:fit_life/mvvm/me/model/search_exercise/search_exercise_request.dart';
+import 'package:fit_life/mvvm/me/entity/request/search_exercise_request.dart';
 import 'package:fit_life/mvvm/me/model/search_exercise/search_exercise_response.dart';
 import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
 import 'package:injectable/injectable.dart';

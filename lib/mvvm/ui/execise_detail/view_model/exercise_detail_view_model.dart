@@ -15,7 +15,7 @@ late AutoDisposeStateNotifierProvider<ExerciseDetailViewModel,
 @injectable
 class ExerciseDetailViewModel extends StateNotifier<ExerciseDetailState> {
   final _exerciseRepositories = injector.get<ExerciseRepositories>();
-  final _exerciseId;
+  final int _exerciseId;
   ExerciseDetailViewModel(@factoryParam int exerciseId)
       : _exerciseId = exerciseId,
         super(const _Initial(data: ExerciseDetailData()));

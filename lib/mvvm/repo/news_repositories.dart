@@ -1,1 +1,9 @@
-abstract class NewsRepositories {}
+import 'package:fit_life/core/components/network/app_exception.dart';
+import 'package:fit_life/mvvm/me/entity/news_health/news_health.dart';
+import 'package:fit_life/mvvm/me/entity/request/search_news_request.dart';
+
+abstract class NewsRepositories {
+  Future<SResult<List<NewsHealth>>> searchNews(SearchNewsRequest request);
+
+  Future<SResult<NewsHealth>> getNewsById(int newsId);
+}

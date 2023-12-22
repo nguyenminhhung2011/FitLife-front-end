@@ -25,6 +25,9 @@ mixin _$OverviewState {
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
+    required TResult Function(OverviewData data) getTopNewsSuccess,
+    required TResult Function(OverviewData data, String message)
+        getTopNewsFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +38,8 @@ mixin _$OverviewState {
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult? Function(OverviewData data)? getTopNewsSuccess,
+    TResult? Function(OverviewData data, String message)? getTopNewsFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +50,8 @@ mixin _$OverviewState {
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult Function(OverviewData data)? getTopNewsSuccess,
+    TResult Function(OverviewData data, String message)? getTopNewsFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +64,8 @@ mixin _$OverviewState {
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
         getUpComingSessionFailed,
+    required TResult Function(_GetTopNewsSuccess value) getTopNewsSuccess,
+    required TResult Function(_GetTopNewsFailed value) getTopNewsFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +77,8 @@ mixin _$OverviewState {
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
         getUpComingSessionFailed,
+    TResult? Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult? Function(_GetTopNewsFailed value)? getTopNewsFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +89,8 @@ mixin _$OverviewState {
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
+    TResult Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult Function(_GetTopNewsFailed value)? getTopNewsFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -204,6 +217,9 @@ class _$_Initial extends _Initial {
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
+    required TResult Function(OverviewData data) getTopNewsSuccess,
+    required TResult Function(OverviewData data, String message)
+        getTopNewsFailed,
   }) {
     return initial(data);
   }
@@ -217,6 +233,8 @@ class _$_Initial extends _Initial {
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult? Function(OverviewData data)? getTopNewsSuccess,
+    TResult? Function(OverviewData data, String message)? getTopNewsFailed,
   }) {
     return initial?.call(data);
   }
@@ -230,6 +248,8 @@ class _$_Initial extends _Initial {
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult Function(OverviewData data)? getTopNewsSuccess,
+    TResult Function(OverviewData data, String message)? getTopNewsFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -248,6 +268,8 @@ class _$_Initial extends _Initial {
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
         getUpComingSessionFailed,
+    required TResult Function(_GetTopNewsSuccess value) getTopNewsSuccess,
+    required TResult Function(_GetTopNewsFailed value) getTopNewsFailed,
   }) {
     return initial(this);
   }
@@ -262,6 +284,8 @@ class _$_Initial extends _Initial {
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
         getUpComingSessionFailed,
+    TResult? Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult? Function(_GetTopNewsFailed value)? getTopNewsFailed,
   }) {
     return initial?.call(this);
   }
@@ -275,6 +299,8 @@ class _$_Initial extends _Initial {
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
+    TResult Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult Function(_GetTopNewsFailed value)? getTopNewsFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -370,6 +396,9 @@ class _$_Success extends _Success {
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
+    required TResult Function(OverviewData data) getTopNewsSuccess,
+    required TResult Function(OverviewData data, String message)
+        getTopNewsFailed,
   }) {
     return success(data);
   }
@@ -383,6 +412,8 @@ class _$_Success extends _Success {
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult? Function(OverviewData data)? getTopNewsSuccess,
+    TResult? Function(OverviewData data, String message)? getTopNewsFailed,
   }) {
     return success?.call(data);
   }
@@ -396,6 +427,8 @@ class _$_Success extends _Success {
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult Function(OverviewData data)? getTopNewsSuccess,
+    TResult Function(OverviewData data, String message)? getTopNewsFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -414,6 +447,8 @@ class _$_Success extends _Success {
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
         getUpComingSessionFailed,
+    required TResult Function(_GetTopNewsSuccess value) getTopNewsSuccess,
+    required TResult Function(_GetTopNewsFailed value) getTopNewsFailed,
   }) {
     return success(this);
   }
@@ -428,6 +463,8 @@ class _$_Success extends _Success {
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
         getUpComingSessionFailed,
+    TResult? Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult? Function(_GetTopNewsFailed value)? getTopNewsFailed,
   }) {
     return success?.call(this);
   }
@@ -441,6 +478,8 @@ class _$_Success extends _Success {
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
+    TResult Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult Function(_GetTopNewsFailed value)? getTopNewsFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -536,6 +575,9 @@ class _$_Loading extends _Loading {
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
+    required TResult Function(OverviewData data) getTopNewsSuccess,
+    required TResult Function(OverviewData data, String message)
+        getTopNewsFailed,
   }) {
     return loading(data);
   }
@@ -549,6 +591,8 @@ class _$_Loading extends _Loading {
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult? Function(OverviewData data)? getTopNewsSuccess,
+    TResult? Function(OverviewData data, String message)? getTopNewsFailed,
   }) {
     return loading?.call(data);
   }
@@ -562,6 +606,8 @@ class _$_Loading extends _Loading {
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult Function(OverviewData data)? getTopNewsSuccess,
+    TResult Function(OverviewData data, String message)? getTopNewsFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -580,6 +626,8 @@ class _$_Loading extends _Loading {
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
         getUpComingSessionFailed,
+    required TResult Function(_GetTopNewsSuccess value) getTopNewsSuccess,
+    required TResult Function(_GetTopNewsFailed value) getTopNewsFailed,
   }) {
     return loading(this);
   }
@@ -594,6 +642,8 @@ class _$_Loading extends _Loading {
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
         getUpComingSessionFailed,
+    TResult? Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult? Function(_GetTopNewsFailed value)? getTopNewsFailed,
   }) {
     return loading?.call(this);
   }
@@ -607,6 +657,8 @@ class _$_Loading extends _Loading {
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
+    TResult Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult Function(_GetTopNewsFailed value)? getTopNewsFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -706,6 +758,9 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
+    required TResult Function(OverviewData data) getTopNewsSuccess,
+    required TResult Function(OverviewData data, String message)
+        getTopNewsFailed,
   }) {
     return getUpComingSessionSuccess(data);
   }
@@ -719,6 +774,8 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult? Function(OverviewData data)? getTopNewsSuccess,
+    TResult? Function(OverviewData data, String message)? getTopNewsFailed,
   }) {
     return getUpComingSessionSuccess?.call(data);
   }
@@ -732,6 +789,8 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult Function(OverviewData data)? getTopNewsSuccess,
+    TResult Function(OverviewData data, String message)? getTopNewsFailed,
     required TResult orElse(),
   }) {
     if (getUpComingSessionSuccess != null) {
@@ -750,6 +809,8 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
         getUpComingSessionFailed,
+    required TResult Function(_GetTopNewsSuccess value) getTopNewsSuccess,
+    required TResult Function(_GetTopNewsFailed value) getTopNewsFailed,
   }) {
     return getUpComingSessionSuccess(this);
   }
@@ -764,6 +825,8 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
         getUpComingSessionFailed,
+    TResult? Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult? Function(_GetTopNewsFailed value)? getTopNewsFailed,
   }) {
     return getUpComingSessionSuccess?.call(this);
   }
@@ -777,6 +840,8 @@ class _$_GetUpComingSessionSuccess extends _GetUpComingSessionSuccess {
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
+    TResult Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult Function(_GetTopNewsFailed value)? getTopNewsFailed,
     required TResult orElse(),
   }) {
     if (getUpComingSessionSuccess != null) {
@@ -885,6 +950,9 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
     required TResult Function(OverviewData data) getUpComingSessionSuccess,
     required TResult Function(OverviewData data, String message)
         getUpComingSessionFailed,
+    required TResult Function(OverviewData data) getTopNewsSuccess,
+    required TResult Function(OverviewData data, String message)
+        getTopNewsFailed,
   }) {
     return getUpComingSessionFailed(data, message);
   }
@@ -898,6 +966,8 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
     TResult? Function(OverviewData data)? getUpComingSessionSuccess,
     TResult? Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult? Function(OverviewData data)? getTopNewsSuccess,
+    TResult? Function(OverviewData data, String message)? getTopNewsFailed,
   }) {
     return getUpComingSessionFailed?.call(data, message);
   }
@@ -911,6 +981,8 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
     TResult Function(OverviewData data)? getUpComingSessionSuccess,
     TResult Function(OverviewData data, String message)?
         getUpComingSessionFailed,
+    TResult Function(OverviewData data)? getTopNewsSuccess,
+    TResult Function(OverviewData data, String message)? getTopNewsFailed,
     required TResult orElse(),
   }) {
     if (getUpComingSessionFailed != null) {
@@ -929,6 +1001,8 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
         getUpComingSessionSuccess,
     required TResult Function(_GetUpComingSessionFailed value)
         getUpComingSessionFailed,
+    required TResult Function(_GetTopNewsSuccess value) getTopNewsSuccess,
+    required TResult Function(_GetTopNewsFailed value) getTopNewsFailed,
   }) {
     return getUpComingSessionFailed(this);
   }
@@ -943,6 +1017,8 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
         getUpComingSessionSuccess,
     TResult? Function(_GetUpComingSessionFailed value)?
         getUpComingSessionFailed,
+    TResult? Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult? Function(_GetTopNewsFailed value)? getTopNewsFailed,
   }) {
     return getUpComingSessionFailed?.call(this);
   }
@@ -956,6 +1032,8 @@ class _$_GetUpComingSessionFailed extends _GetUpComingSessionFailed {
     TResult Function(_GetUpComingSessionSuccess value)?
         getUpComingSessionSuccess,
     TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
+    TResult Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult Function(_GetTopNewsFailed value)? getTopNewsFailed,
     required TResult orElse(),
   }) {
     if (getUpComingSessionFailed != null) {
@@ -978,4 +1056,378 @@ abstract class _GetUpComingSessionFailed extends OverviewState {
   @JsonKey(ignore: true)
   _$$_GetUpComingSessionFailedCopyWith<_$_GetUpComingSessionFailed>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetTopNewsSuccessCopyWith<$Res>
+    implements $OverviewStateCopyWith<$Res> {
+  factory _$$_GetTopNewsSuccessCopyWith(_$_GetTopNewsSuccess value,
+          $Res Function(_$_GetTopNewsSuccess) then) =
+      __$$_GetTopNewsSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({OverviewData data});
+
+  @override
+  $OverviewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetTopNewsSuccessCopyWithImpl<$Res>
+    extends _$OverviewStateCopyWithImpl<$Res, _$_GetTopNewsSuccess>
+    implements _$$_GetTopNewsSuccessCopyWith<$Res> {
+  __$$_GetTopNewsSuccessCopyWithImpl(
+      _$_GetTopNewsSuccess _value, $Res Function(_$_GetTopNewsSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GetTopNewsSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as OverviewData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetTopNewsSuccess extends _GetTopNewsSuccess {
+  const _$_GetTopNewsSuccess({required this.data}) : super._();
+
+  @override
+  final OverviewData data;
+
+  @override
+  String toString() {
+    return 'OverviewState.getTopNewsSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetTopNewsSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetTopNewsSuccessCopyWith<_$_GetTopNewsSuccess> get copyWith =>
+      __$$_GetTopNewsSuccessCopyWithImpl<_$_GetTopNewsSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(OverviewData data) initial,
+    required TResult Function(OverviewData data) success,
+    required TResult Function(OverviewData data) loading,
+    required TResult Function(OverviewData data) getUpComingSessionSuccess,
+    required TResult Function(OverviewData data, String message)
+        getUpComingSessionFailed,
+    required TResult Function(OverviewData data) getTopNewsSuccess,
+    required TResult Function(OverviewData data, String message)
+        getTopNewsFailed,
+  }) {
+    return getTopNewsSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(OverviewData data)? initial,
+    TResult? Function(OverviewData data)? success,
+    TResult? Function(OverviewData data)? loading,
+    TResult? Function(OverviewData data)? getUpComingSessionSuccess,
+    TResult? Function(OverviewData data, String message)?
+        getUpComingSessionFailed,
+    TResult? Function(OverviewData data)? getTopNewsSuccess,
+    TResult? Function(OverviewData data, String message)? getTopNewsFailed,
+  }) {
+    return getTopNewsSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(OverviewData data)? initial,
+    TResult Function(OverviewData data)? success,
+    TResult Function(OverviewData data)? loading,
+    TResult Function(OverviewData data)? getUpComingSessionSuccess,
+    TResult Function(OverviewData data, String message)?
+        getUpComingSessionFailed,
+    TResult Function(OverviewData data)? getTopNewsSuccess,
+    TResult Function(OverviewData data, String message)? getTopNewsFailed,
+    required TResult orElse(),
+  }) {
+    if (getTopNewsSuccess != null) {
+      return getTopNewsSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetUpComingSessionSuccess value)
+        getUpComingSessionSuccess,
+    required TResult Function(_GetUpComingSessionFailed value)
+        getUpComingSessionFailed,
+    required TResult Function(_GetTopNewsSuccess value) getTopNewsSuccess,
+    required TResult Function(_GetTopNewsFailed value) getTopNewsFailed,
+  }) {
+    return getTopNewsSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetUpComingSessionSuccess value)?
+        getUpComingSessionSuccess,
+    TResult? Function(_GetUpComingSessionFailed value)?
+        getUpComingSessionFailed,
+    TResult? Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult? Function(_GetTopNewsFailed value)? getTopNewsFailed,
+  }) {
+    return getTopNewsSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetUpComingSessionSuccess value)?
+        getUpComingSessionSuccess,
+    TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
+    TResult Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult Function(_GetTopNewsFailed value)? getTopNewsFailed,
+    required TResult orElse(),
+  }) {
+    if (getTopNewsSuccess != null) {
+      return getTopNewsSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTopNewsSuccess extends OverviewState {
+  const factory _GetTopNewsSuccess({required final OverviewData data}) =
+      _$_GetTopNewsSuccess;
+  const _GetTopNewsSuccess._() : super._();
+
+  @override
+  OverviewData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetTopNewsSuccessCopyWith<_$_GetTopNewsSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetTopNewsFailedCopyWith<$Res>
+    implements $OverviewStateCopyWith<$Res> {
+  factory _$$_GetTopNewsFailedCopyWith(
+          _$_GetTopNewsFailed value, $Res Function(_$_GetTopNewsFailed) then) =
+      __$$_GetTopNewsFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({OverviewData data, String message});
+
+  @override
+  $OverviewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetTopNewsFailedCopyWithImpl<$Res>
+    extends _$OverviewStateCopyWithImpl<$Res, _$_GetTopNewsFailed>
+    implements _$$_GetTopNewsFailedCopyWith<$Res> {
+  __$$_GetTopNewsFailedCopyWithImpl(
+      _$_GetTopNewsFailed _value, $Res Function(_$_GetTopNewsFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_GetTopNewsFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as OverviewData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetTopNewsFailed extends _GetTopNewsFailed {
+  const _$_GetTopNewsFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final OverviewData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'OverviewState.getTopNewsFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetTopNewsFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetTopNewsFailedCopyWith<_$_GetTopNewsFailed> get copyWith =>
+      __$$_GetTopNewsFailedCopyWithImpl<_$_GetTopNewsFailed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(OverviewData data) initial,
+    required TResult Function(OverviewData data) success,
+    required TResult Function(OverviewData data) loading,
+    required TResult Function(OverviewData data) getUpComingSessionSuccess,
+    required TResult Function(OverviewData data, String message)
+        getUpComingSessionFailed,
+    required TResult Function(OverviewData data) getTopNewsSuccess,
+    required TResult Function(OverviewData data, String message)
+        getTopNewsFailed,
+  }) {
+    return getTopNewsFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(OverviewData data)? initial,
+    TResult? Function(OverviewData data)? success,
+    TResult? Function(OverviewData data)? loading,
+    TResult? Function(OverviewData data)? getUpComingSessionSuccess,
+    TResult? Function(OverviewData data, String message)?
+        getUpComingSessionFailed,
+    TResult? Function(OverviewData data)? getTopNewsSuccess,
+    TResult? Function(OverviewData data, String message)? getTopNewsFailed,
+  }) {
+    return getTopNewsFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(OverviewData data)? initial,
+    TResult Function(OverviewData data)? success,
+    TResult Function(OverviewData data)? loading,
+    TResult Function(OverviewData data)? getUpComingSessionSuccess,
+    TResult Function(OverviewData data, String message)?
+        getUpComingSessionFailed,
+    TResult Function(OverviewData data)? getTopNewsSuccess,
+    TResult Function(OverviewData data, String message)? getTopNewsFailed,
+    required TResult orElse(),
+  }) {
+    if (getTopNewsFailed != null) {
+      return getTopNewsFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetUpComingSessionSuccess value)
+        getUpComingSessionSuccess,
+    required TResult Function(_GetUpComingSessionFailed value)
+        getUpComingSessionFailed,
+    required TResult Function(_GetTopNewsSuccess value) getTopNewsSuccess,
+    required TResult Function(_GetTopNewsFailed value) getTopNewsFailed,
+  }) {
+    return getTopNewsFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetUpComingSessionSuccess value)?
+        getUpComingSessionSuccess,
+    TResult? Function(_GetUpComingSessionFailed value)?
+        getUpComingSessionFailed,
+    TResult? Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult? Function(_GetTopNewsFailed value)? getTopNewsFailed,
+  }) {
+    return getTopNewsFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetUpComingSessionSuccess value)?
+        getUpComingSessionSuccess,
+    TResult Function(_GetUpComingSessionFailed value)? getUpComingSessionFailed,
+    TResult Function(_GetTopNewsSuccess value)? getTopNewsSuccess,
+    TResult Function(_GetTopNewsFailed value)? getTopNewsFailed,
+    required TResult orElse(),
+  }) {
+    if (getTopNewsFailed != null) {
+      return getTopNewsFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTopNewsFailed extends OverviewState {
+  const factory _GetTopNewsFailed(
+      {required final OverviewData data,
+      required final String message}) = _$_GetTopNewsFailed;
+  const _GetTopNewsFailed._() : super._();
+
+  @override
+  OverviewData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetTopNewsFailedCopyWith<_$_GetTopNewsFailed> get copyWith =>
+      throw _privateConstructorUsedError;
 }

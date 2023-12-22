@@ -15,4 +15,12 @@ class OverviewState with _$OverviewState {
     required OverviewData data,
     required String message,
   }) = _GetUpComingSessionFailed;
+
+  const factory OverviewState.getTopNewsSuccess({required OverviewData data}) =
+      _GetTopNewsSuccess;
+
+  const factory OverviewState.getTopNewsFailed({
+    required OverviewData data,
+    required String message,
+  }) = _GetTopNewsFailed;
 }

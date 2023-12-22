@@ -12,6 +12,7 @@ class Routes {
   static const String planDetail = '/plan_detail';
   static const String conversation = '/conversation';
   static const String allExercise = '/all_exercise';
+  static const String newsDetail = '/news_detail';
   static const String fitOverView = '/fit_overview';
   static const String sessionPlan = '/session_plan';
   static const String introduction = '/introduction';
@@ -22,8 +23,8 @@ class Routes {
   static const String healthOverview = '/health_overview';
   static const String exerciseDetail = '/exercise_detail';
   static const String previewExercise = '/preview_exercise';
+  static const String addSessionPlan = '/add_session_plan';
   static const String favoriteExercise = '/favorite_exercise';
   static const String exerciseOverview = '/exercise_overview';
-  static const String addSessionPlan = '/add_session_plan';
 
 }

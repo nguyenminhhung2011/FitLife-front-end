@@ -17,6 +17,7 @@ import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_overview_view.dart';
 import 'package:fit_life/mvvm/ui/favorite_exercise/view/favorite_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/health_overview/views/health_overview_view.dart';
+import 'package:fit_life/mvvm/ui/news_detail/views/news_detail_view.dart';
 import 'package:fit_life/mvvm/ui/notification/views/notification_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/add_daily_workout_view.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/views/plan_detail_view.dart';
@@ -166,6 +167,17 @@ class MainRoutes {
                     )
                   ],
                   child: const ExerciseDetailView(),
+                );
+              }
+              return const SizedBox();
+            });
+      case Routes.newsDetail:
+        return MaterialPageRoute(
+            settings: settings,
+            builder: (_) {
+              if (settings.arguments is int) {
+                return ProviderScope(
+                  child: NewsDetailView(newsI: settings.arguments as int),
                 );
               }
               return const SizedBox();

@@ -152,23 +152,23 @@ class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
             const SizedBox(height: 5.0),
             Expanded(
               child: DefaultPagination(
-                  items: _items ?? const [],
-                  loading: _state.loading,
-                  itemBuilder: (_, index) => WorkoutPlanItemWidget(
-                        workoutPlan: _items![index],
-                        progress: ((DateTime.now().day -
-                                    DateTime.fromMillisecondsSinceEpoch(
-                                            _items![index].startDate!)
-                                        .day) /
-                                DateTime.fromMillisecondsSinceEpoch(
-                                        _items![index].endDate! -
-                                            _items![index].startDate!)
-                                    .day)
-                            .minMaxRequired(0, 1),
-                      ),
-                  listenScrollBottom: () => {}
-                  // _vm.getSessionPlanHistory(content: _searchController.text),
-                  ),
+                items: _items ?? const [],
+                loading: _state.loading,
+                itemBuilder: (_, index) => WorkoutPlanItemWidget(
+                  workoutPlan: _items![index],
+                  progress: ((DateTime.now().day -
+                              DateTime.fromMillisecondsSinceEpoch(
+                                      _items![index].startDate!)
+                                  .day) /
+                          DateTime.fromMillisecondsSinceEpoch(
+                                  _items![index].endDate! -
+                                      _items![index].startDate!)
+                              .day)
+                      .minMaxRequired(0, 1),
+                ),
+                listenScrollBottom: () =>
+                    _vm.getSessionPlanHistory(content: _searchController.text),
+              ),
             )
           ],
         ),

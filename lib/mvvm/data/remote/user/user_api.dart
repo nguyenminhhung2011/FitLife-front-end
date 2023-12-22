@@ -12,6 +12,7 @@ abstract class UserApi {
   static const String updateUserProfileApi = "$branch/update-profile";
   static const String changePasswordApi = "$branch/change-password";
   static const String addFavoriteExerciseApi = "$branch/exercise-favorite";
+  static const String addFavoriteNewsApi = "$branch/news-favorite";
 
   @factoryMethod
   factory UserApi(Dio dio) = _UserApi;
@@ -25,6 +26,9 @@ abstract class UserApi {
 
   @PUT("$addFavoriteExerciseApi/{id}")
   Future<HttpResponse> addFavoriteExercise(@Path("id") int id);
+
+  @PUT("$addFavoriteNewsApi/{id}")
+  Future<HttpResponse> addFavoriteNews(@Path("id") int id);
 
   @PATCH(changePasswordApi)
   Future<HttpResponse> changePassword(

@@ -22,6 +22,8 @@ mixin _$OverviewData {
   /// Is loading upcoming schedule exercise finish or not
   bool get isLoadingUpcomingScheduleExercise =>
       throw _privateConstructorUsedError;
+  bool get isLoadingTopNews => throw _privateConstructorUsedError;
+  List<NewsHealth>? get news => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $OverviewDataCopyWith<OverviewData> get copyWith =>
@@ -36,7 +38,9 @@ abstract class $OverviewDataCopyWith<$Res> {
   @useResult
   $Res call(
       {UpComingSession? upComingSession,
-      bool isLoadingUpcomingScheduleExercise});
+      bool isLoadingUpcomingScheduleExercise,
+      bool isLoadingTopNews,
+      List<NewsHealth>? news});
 
   $UpComingSessionCopyWith<$Res>? get upComingSession;
 }
@@ -56,6 +60,8 @@ class _$OverviewDataCopyWithImpl<$Res, $Val extends OverviewData>
   $Res call({
     Object? upComingSession = freezed,
     Object? isLoadingUpcomingScheduleExercise = null,
+    Object? isLoadingTopNews = null,
+    Object? news = freezed,
   }) {
     return _then(_value.copyWith(
       upComingSession: freezed == upComingSession
@@ -67,6 +73,14 @@ class _$OverviewDataCopyWithImpl<$Res, $Val extends OverviewData>
           ? _value.isLoadingUpcomingScheduleExercise
           : isLoadingUpcomingScheduleExercise // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoadingTopNews: null == isLoadingTopNews
+          ? _value.isLoadingTopNews
+          : isLoadingTopNews // ignore: cast_nullable_to_non_nullable
+              as bool,
+      news: freezed == news
+          ? _value.news
+          : news // ignore: cast_nullable_to_non_nullable
+              as List<NewsHealth>?,
     ) as $Val);
   }
 
@@ -93,7 +107,9 @@ abstract class _$$_OverviewDataCopyWith<$Res>
   @useResult
   $Res call(
       {UpComingSession? upComingSession,
-      bool isLoadingUpcomingScheduleExercise});
+      bool isLoadingUpcomingScheduleExercise,
+      bool isLoadingTopNews,
+      List<NewsHealth>? news});
 
   @override
   $UpComingSessionCopyWith<$Res>? get upComingSession;
@@ -112,6 +128,8 @@ class __$$_OverviewDataCopyWithImpl<$Res>
   $Res call({
     Object? upComingSession = freezed,
     Object? isLoadingUpcomingScheduleExercise = null,
+    Object? isLoadingTopNews = null,
+    Object? news = freezed,
   }) {
     return _then(_$_OverviewData(
       upComingSession: freezed == upComingSession
@@ -123,6 +141,14 @@ class __$$_OverviewDataCopyWithImpl<$Res>
           ? _value.isLoadingUpcomingScheduleExercise
           : isLoadingUpcomingScheduleExercise // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoadingTopNews: null == isLoadingTopNews
+          ? _value.isLoadingTopNews
+          : isLoadingTopNews // ignore: cast_nullable_to_non_nullable
+              as bool,
+      news: freezed == news
+          ? _value._news
+          : news // ignore: cast_nullable_to_non_nullable
+              as List<NewsHealth>?,
     ));
   }
 }
@@ -131,7 +157,11 @@ class __$$_OverviewDataCopyWithImpl<$Res>
 
 class _$_OverviewData implements _OverviewData {
   const _$_OverviewData(
-      {this.upComingSession, this.isLoadingUpcomingScheduleExercise = false});
+      {this.upComingSession,
+      this.isLoadingUpcomingScheduleExercise = false,
+      this.isLoadingTopNews = false,
+      final List<NewsHealth>? news})
+      : _news = news;
 
   /// Upcoming schedule exercise
   @override
@@ -141,10 +171,22 @@ class _$_OverviewData implements _OverviewData {
   @override
   @JsonKey()
   final bool isLoadingUpcomingScheduleExercise;
+  @override
+  @JsonKey()
+  final bool isLoadingTopNews;
+  final List<NewsHealth>? _news;
+  @override
+  List<NewsHealth>? get news {
+    final value = _news;
+    if (value == null) return null;
+    if (_news is EqualUnmodifiableListView) return _news;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'OverviewData(upComingSession: $upComingSession, isLoadingUpcomingScheduleExercise: $isLoadingUpcomingScheduleExercise)';
+    return 'OverviewData(upComingSession: $upComingSession, isLoadingUpcomingScheduleExercise: $isLoadingUpcomingScheduleExercise, isLoadingTopNews: $isLoadingTopNews, news: $news)';
   }
 
   @override
@@ -157,12 +199,19 @@ class _$_OverviewData implements _OverviewData {
             (identical(other.isLoadingUpcomingScheduleExercise,
                     isLoadingUpcomingScheduleExercise) ||
                 other.isLoadingUpcomingScheduleExercise ==
-                    isLoadingUpcomingScheduleExercise));
+                    isLoadingUpcomingScheduleExercise) &&
+            (identical(other.isLoadingTopNews, isLoadingTopNews) ||
+                other.isLoadingTopNews == isLoadingTopNews) &&
+            const DeepCollectionEquality().equals(other._news, _news));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, upComingSession, isLoadingUpcomingScheduleExercise);
+      runtimeType,
+      upComingSession,
+      isLoadingUpcomingScheduleExercise,
+      isLoadingTopNews,
+      const DeepCollectionEquality().hash(_news));
 
   @JsonKey(ignore: true)
   @override
@@ -174,7 +223,9 @@ class _$_OverviewData implements _OverviewData {
 abstract class _OverviewData implements OverviewData {
   const factory _OverviewData(
       {final UpComingSession? upComingSession,
-      final bool isLoadingUpcomingScheduleExercise}) = _$_OverviewData;
+      final bool isLoadingUpcomingScheduleExercise,
+      final bool isLoadingTopNews,
+      final List<NewsHealth>? news}) = _$_OverviewData;
 
   @override
 
@@ -184,6 +235,10 @@ abstract class _OverviewData implements OverviewData {
 
   /// Is loading upcoming schedule exercise finish or not
   bool get isLoadingUpcomingScheduleExercise;
+  @override
+  bool get isLoadingTopNews;
+  @override
+  List<NewsHealth>? get news;
   @override
   @JsonKey(ignore: true)
   _$$_OverviewDataCopyWith<_$_OverviewData> get copyWith =>

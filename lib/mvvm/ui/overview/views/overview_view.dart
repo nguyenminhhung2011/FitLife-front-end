@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
+import 'package:fit_life/generated/intl/messages_en.dart';
 import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/data/local/preferences.dart';
 import 'package:fit_life/mvvm/me/entity/upcoming_session/upcoming_session.dart';
@@ -49,6 +50,7 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         _vm.getUpcomingScheduleExercise();
+        _vm.getTopNews();
       }
     });
     super.initState();
@@ -59,8 +61,19 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
     super.dispose();
   }
 
+  void _listenStateChange(OverviewState state) {
+    state.maybeWhen(
+      getTopNewsFailed: (_, message) =>
+          context.showSnackBar("🐛[Get top news] $message"),
+      getUpComingSessionFailed: (_, message) =>
+          context.showSnackBar("🐛[Get upcoming session] $message"),
+      orElse: () {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    ref.listen(overviewStateNotifier, (_, next) => _listenStateChange(next));
     return Scaffold(
       backgroundColor: _backGroundColor,
       appBar: AppBar(
@@ -74,6 +87,7 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
         onRefresh: () async {
           Future.delayed(Duration.zero, () {
             _vm.getUpcomingScheduleExercise();
+            _vm.getTopNews();
           });
         },
         child: _body(context),
@@ -167,7 +181,13 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
           textStyle: _headerStyle,
           isShowSeeMore: true,
         ),
-        const PaperSliderView(),
+        if (_data.isLoadingTopNews)
+          Center(
+            child: StyleLoadingWidget.foldingCube.renderWidget(
+                size: 40.0, color: Theme.of(context).primaryColor),
+          )
+        else
+          PaperSliderView(news: _data.news ?? []),
         const SizedBox(height: 40.0),
       ].expand((e) => [e, const SizedBox(height: 5.0)]).toList(),
     );

@@ -1,8 +1,10 @@
+import 'package:fit_life/mvvm/me/entity/news_health/news_health.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/widgets/fit_life/paper_horizontal_item.dart';
 
 class PaperSliderView extends StatefulWidget {
-  const PaperSliderView({super.key});
+  final List<NewsHealth> news;
+  const PaperSliderView({super.key, required this.news});
 
   @override
   State<PaperSliderView> createState() => _PaperSliderViewState();
@@ -16,17 +18,15 @@ class _PaperSliderViewState extends State<PaperSliderView> {
 
   @override
   Widget build(BuildContext context) {
-    ///[Change data here if have data]
-    const length = 10;
-
     return SizedBox(
       width: double.infinity,
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: length,
+        itemCount: widget.news.length,
         itemBuilder: (_, index) {
-          return PaperHorizontalItem(isFirstItem: index == 0);
+          return PaperHorizontalItem(
+              isFirstItem: index == 0, news: widget.news[index]);
         },
       ),
     );

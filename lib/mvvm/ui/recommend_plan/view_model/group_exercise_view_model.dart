@@ -2,7 +2,7 @@ import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/me/model/page_request/page_request.dart';
-import 'package:fit_life/mvvm/me/model/search_exercise/search_exercise_request.dart';
+import 'package:fit_life/mvvm/me/entity/request/search_exercise_request.dart';
 import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
 import 'package:fit_life/mvvm/ui/recommend_plan/view_model/group_exercise_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -21,6 +21,9 @@ UserProfileModel _$UserProfileModelFromJson(Map<String, dynamic> json) =>
       favoriteExercises: (json['favoriteExercises'] as List<dynamic>?)
           ?.map((e) => ExerciseModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      favoriteNews: (json['favoriteNews'] as List<dynamic>?)
+          ?.map((e) => NewsHealthModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$UserProfileModelToJson(UserProfileModel instance) =>
@@ -36,4 +39,5 @@ Map<String, dynamic> _$UserProfileModelToJson(UserProfileModel instance) =>
       'gender': instance.gender,
       'created': instance.created,
       'favoriteExercises': instance.favoriteExercises,
+      'favoriteNews': instance.favoriteNews,
     };

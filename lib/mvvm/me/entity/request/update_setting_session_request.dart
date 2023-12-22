@@ -1,6 +1,5 @@
 import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:fit_life/mvvm/me/entity/session/setting_session.dart';
-import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'update_setting_session_request.g.dart';

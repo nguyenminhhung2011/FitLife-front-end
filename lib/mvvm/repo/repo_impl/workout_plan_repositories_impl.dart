@@ -1,8 +1,10 @@
 import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/components/network/base_api.dart';
 import 'package:fit_life/mvvm/data/remote/workout_plan/workout_plan_api.dart';
+import 'package:fit_life/mvvm/me/entity/request/search_plan_request.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/add_workout_plan_dto.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
+import 'package:fit_life/mvvm/me/model/workout_plan/search_plan.dart';
 import 'package:fit_life/mvvm/me/model/workout_plan/workout_plan_model.dart';
 import 'package:fit_life/mvvm/repo/workout_plan_repositories.dart';
 import 'package:injectable/injectable.dart';
@@ -40,17 +42,12 @@ class WorkoutPlanRepositoriesImpl extends BaseApi
   }
 
   @override
-  Future<SResult<List<WorkoutPlan>?>> searchWorkoutPlan(String? name,
-      {int? startDate, int? endDate, int? page, int? size}) {
-    return apiCall<List<WorkoutPlanModel>?, List<WorkoutPlan>?>(
-      mapper: (result) => result?.map((e) => e.toEntity()).toList(),
-      request: () async => await _workoutPlanApi.searchWorkoutPlan(
-        name,
-        startDate: startDate,
-        endDate: endDate,
-        page: page,
-        size: size,
-      ),
+  Future<SResult<List<WorkoutPlan>?>> searchWorkoutPlan(
+      SearchPlanRequest request) {
+    return apiCall<SearchPlan, List<WorkoutPlan>?>(
+      mapper: (result) => result.content.map((e) => e.toEntity()).toList(),
+      request: () async =>
+          await _workoutPlanApi.searchWorkoutPlan(body: request.toJson),
     );
   }
 }

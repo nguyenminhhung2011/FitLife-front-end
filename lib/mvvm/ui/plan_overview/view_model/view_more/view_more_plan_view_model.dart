@@ -1,5 +1,6 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/pagination/pagination.dart';
+import 'package:fit_life/mvvm/me/entity/request/search_plan_request.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/repo/workout_plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/view_more/view_more_plan_data.dart';
@@ -10,23 +11,6 @@ import 'package:injectable/injectable.dart';
 part 'view_more_plan_state.dart';
 
 part 'view_more_plan_view_model.freezed.dart';
-
-class SearchPlanRequest {
-  final String content;
-  final DateTime startTime;
-  final DateTime endTime;
-  SearchPlanRequest({
-    required this.content,
-    required this.startTime,
-    required this.endTime,
-  });
-
-  Map<String, dynamic> get toMap => {
-        "content": content,
-        "startTime": startTime.millisecondsSinceEpoch,
-        "endTime": endTime.millisecondsSinceEpoch,
-      };
-}
 
 final viewMorePlanStateNotifier =
     AutoDisposeStateNotifierProvider<ViewMorePlanViewModel, ViewMorePlanState>(
@@ -48,8 +32,9 @@ class ViewMorePlanViewModel extends StateNotifier<ViewMorePlanState> {
 
   ViewMorePlanData get data => state.data;
 
-  Future<void> getSessionPlanHistory({required String content}) async {
-    final isNewSearch = data.searchContent != content;
+  Future<void> getSessionPlanHistory(
+      {required String content, bool? newSearch}) async {
+    final isNewSearch = data.searchContent != content || (newSearch ?? false);
     if (state is _Loading && isNewSearch) return;
     final currentPage = isNewSearch ? 0 : data.workoutPlans.currentPage;
 
@@ -61,14 +46,14 @@ class ViewMorePlanViewModel extends StateNotifier<ViewMorePlanState> {
       ),
     );
 
-    // final response = await _workoutPlanRepositories.searchWorkoutPlan(
-    //   content,
-    //   startDate: data.startDate?.millisecondsSinceEpoch,
-    //   endDate: data.endDate?.millisecondsSinceEpoch,
-    //   page: data.workoutPlans.currentPage,
-    //   size: 5,
-    // );
-    final response = await _workoutPlanRepositories.getWorkoutPlans();
+    final response =
+        await _workoutPlanRepositories.searchWorkoutPlan(SearchPlanRequest(
+      name: content,
+      startDate: data.startDate?.millisecondsSinceEpoch,
+      endDate: data.endDate?.millisecondsSinceEpoch,
+      page: data.workoutPlans.currentPage,
+      size: 5,
+    ));
 
     if (!mounted) return;
 

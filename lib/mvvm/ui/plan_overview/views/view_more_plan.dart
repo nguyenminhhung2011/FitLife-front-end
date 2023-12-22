@@ -69,8 +69,8 @@ class _ViewMorePlanState extends ConsumerState<ViewMorePlan> with AuthMixin {
     state.maybeWhen(
       getItemFailed: (_, message) =>
           context.showSnackBar("🐛[Get item failed] $message"),
-      selectDateSuccess: (data) =>
-          _vm.getSessionPlanHistory(content: _searchController.text),
+      selectDateSuccess: (data) => _vm.getSessionPlanHistory(
+          content: _searchController.text, newSearch: true),
       orElse: () {},
     );
   }

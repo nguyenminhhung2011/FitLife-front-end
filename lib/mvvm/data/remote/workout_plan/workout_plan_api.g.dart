@@ -80,26 +80,15 @@ class _WorkoutPlanApi implements WorkoutPlanApi {
   }
 
   @override
-  Future<HttpResponse<List<WorkoutPlanModel>?>> searchWorkoutPlan(
-    String? name, {
-    int? startDate,
-    int? endDate,
-    int? page,
-    int? size,
-  }) async {
+  Future<HttpResponse<SearchPlan>> searchWorkoutPlan(
+      {required Map<String, dynamic> body}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'name': name,
-      r'startDate': startDate,
-      r'endDate': endDate,
-      r'page': page,
-      r'size': size,
-    };
-    queryParameters.removeWhere((k, v) => v == null);
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<WorkoutPlanModel>>>(Options(
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<HttpResponse<SearchPlan>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -115,10 +104,7 @@ class _WorkoutPlanApi implements WorkoutPlanApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var value = _result.data
-        ?.map(
-            (dynamic i) => WorkoutPlanModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = SearchPlan.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

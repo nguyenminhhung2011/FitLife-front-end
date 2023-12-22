@@ -40,6 +40,7 @@ class _PlanDetailViewState extends ConsumerState<PlanDetailView> {
 
   DateTime get startDate =>
       DateTime.fromMillisecondsSinceEpoch(plan.startDate!);
+
   DateTime get endDate => DateTime.fromMillisecondsSinceEpoch(plan.endDate!);
 
   Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;

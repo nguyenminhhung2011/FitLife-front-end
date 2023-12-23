@@ -889,6 +889,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Favorite news`
+  String get favoriteNews {
+    return Intl.message(
+      'Favorite news',
+      name: 'favoriteNews',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

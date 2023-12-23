@@ -45,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nhập mật khẩu của bạn"),
         "errorCode": MessageLookupByLibrary.simpleMessage("Mã lỗi"),
         "favorite": MessageLookupByLibrary.simpleMessage("Bài tâp yêu thích"),
+        "favoriteNews":
+            MessageLookupByLibrary.simpleMessage("Bài báo yêu thích"),
         "female": MessageLookupByLibrary.simpleMessage("Nữ"),
         "fillYourProfile":
             MessageLookupByLibrary.simpleMessage("Hoàn thiện hồ sơ của bạn"),

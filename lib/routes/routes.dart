@@ -20,6 +20,7 @@ class Routes {
   static const String notification = '/notification';
   static const String wooTrackView = '/wo_track_view';
   static const String groupExercise = '/group_exercise';
+  static const String favoriteNews = '/favorite_news';
   static const String addDailyWorkout = '/addDailyWorkout';
   static const String healthOverview = '/health_overview';
   static const String exerciseDetail = '/exercise_detail';

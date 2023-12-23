@@ -367,6 +367,12 @@ class _SettingScreenState extends State<SettingScreen> {
           icon = Icons.favorite_border;
           titleWidget = Text(S.of(context).favorite, style: headTitleStyle);
         }
+      case 'favorite_news':
+        {
+          onPress = () => context.openListPageWithRoute(Routes.favoriteNews);
+          icon = Icons.book;
+          titleWidget = Text(S.of(context).favoriteNews, style: headTitleStyle);
+        }
       case 'appearance':
         {
           onPress = _appearanceChange;

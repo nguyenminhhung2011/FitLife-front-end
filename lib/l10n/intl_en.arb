@@ -83,5 +83,6 @@
     "exercise": "Exercise",
     "toDaySession": "Today session",
     "signUpSuccess": "Sign up success",
-    "favorite": "Favorite exercise"
+    "favorite": "Favorite exercise",
+    "favoriteNews": "Favorite news"
 }

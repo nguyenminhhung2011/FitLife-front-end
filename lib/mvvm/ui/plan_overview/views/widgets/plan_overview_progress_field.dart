@@ -1,5 +1,5 @@
 import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
-import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -58,7 +58,7 @@ class PlanOverviewProgressLoading extends StatelessWidget {
 }
 
 class PlanOverViewProgressField extends StatelessWidget {
-  final CurrentPlan currentPlan;
+  final WorkoutPlan currentPlan;
   const PlanOverViewProgressField({super.key, required this.currentPlan});
 
   @override

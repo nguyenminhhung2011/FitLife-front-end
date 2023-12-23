@@ -1,6 +1,6 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/add_workout_plan_dto.dart';
-import 'package:fit_life/mvvm/repo/plan_repositories.dart';
+import 'package:fit_life/mvvm/repo/user_repositories.dart';
 import 'package:fit_life/mvvm/repo/workout_plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,17 +17,17 @@ final planOverviewStateNotifier =
 
 @injectable
 class PlanOverViewViewModel extends StateNotifier<PlanOverViewState> {
-  final _planRepositories = injector.get<PlanRepositories>();
   final _workoutPlanRepositories = injector.get<WorkoutPlanRepositories>();
+  final _userRepositories = injector.get<UserRepositories>();
 
   PlanOverViewViewModel() : super(const _Initial(data: PlanOverViewData()));
 
   PlanOverViewData get data => state.data;
 
-  Future<void> getCurrentPlan() async {
+  Future<void> getCurrentPlan(int currentPlan) async {
     state = _Loading(data: data.copyWith(isLoadingCurrentPlan: true));
-    final response = await _planRepositories.getCurrentPlan();
-    await Future.delayed(const Duration(seconds: 3));
+    final response = await _userRepositories.changeCurrentPlan(currentPlan);
+    await Future.delayed(const Duration(seconds: 1));
     if (!mounted) return;
 
     state = response.fold(

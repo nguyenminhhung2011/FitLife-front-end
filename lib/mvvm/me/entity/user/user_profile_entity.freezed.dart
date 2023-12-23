@@ -21,6 +21,7 @@ mixin _$UserProfile {
   double get height => throw _privateConstructorUsedError;
   bool get created => throw _privateConstructorUsedError;
   DateTime? get birthDay => throw _privateConstructorUsedError;
+  int? get currentPlanId => throw _privateConstructorUsedError;
   String? get level => throw _privateConstructorUsedError;
   String? get currentPlan => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
@@ -46,6 +47,7 @@ abstract class $UserProfileCopyWith<$Res> {
       double height,
       bool created,
       DateTime? birthDay,
+      int? currentPlanId,
       String? level,
       String? currentPlan,
       String? phone,
@@ -73,6 +75,7 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
     Object? height = null,
     Object? created = null,
     Object? birthDay = freezed,
+    Object? currentPlanId = freezed,
     Object? level = freezed,
     Object? currentPlan = freezed,
     Object? phone = freezed,
@@ -102,6 +105,10 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
           ? _value.birthDay
           : birthDay // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      currentPlanId: freezed == currentPlanId
+          ? _value.currentPlanId
+          : currentPlanId // ignore: cast_nullable_to_non_nullable
+              as int?,
       level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -148,6 +155,7 @@ abstract class _$$_UserProfileCopyWith<$Res>
       double height,
       bool created,
       DateTime? birthDay,
+      int? currentPlanId,
       String? level,
       String? currentPlan,
       String? phone,
@@ -173,6 +181,7 @@ class __$$_UserProfileCopyWithImpl<$Res>
     Object? height = null,
     Object? created = null,
     Object? birthDay = freezed,
+    Object? currentPlanId = freezed,
     Object? level = freezed,
     Object? currentPlan = freezed,
     Object? phone = freezed,
@@ -202,6 +211,10 @@ class __$$_UserProfileCopyWithImpl<$Res>
           ? _value.birthDay
           : birthDay // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      currentPlanId: freezed == currentPlanId
+          ? _value.currentPlanId
+          : currentPlanId // ignore: cast_nullable_to_non_nullable
+              as int?,
       level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -243,6 +256,7 @@ class _$_UserProfile implements _UserProfile {
       required this.height,
       required this.created,
       this.birthDay,
+      this.currentPlanId,
       this.level,
       this.currentPlan,
       this.phone,
@@ -263,6 +277,8 @@ class _$_UserProfile implements _UserProfile {
   final bool created;
   @override
   final DateTime? birthDay;
+  @override
+  final int? currentPlanId;
   @override
   final String? level;
   @override
@@ -294,7 +310,7 @@ class _$_UserProfile implements _UserProfile {
 
   @override
   String toString() {
-    return 'UserProfile(id: $id, weight: $weight, height: $height, created: $created, birthDay: $birthDay, level: $level, currentPlan: $currentPlan, phone: $phone, frequency: $frequency, gender: $gender, favoriteExercises: $favoriteExercises, favoriteNews: $favoriteNews)';
+    return 'UserProfile(id: $id, weight: $weight, height: $height, created: $created, birthDay: $birthDay, currentPlanId: $currentPlanId, level: $level, currentPlan: $currentPlan, phone: $phone, frequency: $frequency, gender: $gender, favoriteExercises: $favoriteExercises, favoriteNews: $favoriteNews)';
   }
 
   @override
@@ -308,6 +324,8 @@ class _$_UserProfile implements _UserProfile {
             (identical(other.created, created) || other.created == created) &&
             (identical(other.birthDay, birthDay) ||
                 other.birthDay == birthDay) &&
+            (identical(other.currentPlanId, currentPlanId) ||
+                other.currentPlanId == currentPlanId) &&
             (identical(other.level, level) || other.level == level) &&
             (identical(other.currentPlan, currentPlan) ||
                 other.currentPlan == currentPlan) &&
@@ -329,6 +347,7 @@ class _$_UserProfile implements _UserProfile {
       height,
       created,
       birthDay,
+      currentPlanId,
       level,
       currentPlan,
       phone,
@@ -351,6 +370,7 @@ abstract class _UserProfile implements UserProfile {
       required final double height,
       required final bool created,
       final DateTime? birthDay,
+      final int? currentPlanId,
       final String? level,
       final String? currentPlan,
       final String? phone,
@@ -369,6 +389,8 @@ abstract class _UserProfile implements UserProfile {
   bool get created;
   @override
   DateTime? get birthDay;
+  @override
+  int? get currentPlanId;
   @override
   String? get level;
   @override

@@ -14,6 +14,7 @@ class UserProfile with _$UserProfile {
     required double height,
     required bool created,
     DateTime? birthDay,
+    int? currentPlanId,
     String? level,
     String? currentPlan,
     String? phone,

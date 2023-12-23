@@ -1,9 +1,10 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/double_extension.dart';
+import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
-import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/add_workout_plan_dto.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
 
@@ -17,6 +18,7 @@ import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_card.
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_gradient_field.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_progress_field.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/plan_overview_upcoming_session.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PlanOverViewView extends ConsumerStatefulWidget {
@@ -29,9 +31,12 @@ class PlanOverViewView extends ConsumerStatefulWidget {
 class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
   PlanOverViewViewModel get _vm => ref.read(planOverviewStateNotifier.notifier);
 
+  int? get currentPlanId =>
+      context.read<SettingBloc>().data.currentUser?.userProfile?.id;
+
   PlanOverViewData get _data => ref.watch(planOverviewStateNotifier).data;
 
-  CurrentPlan? get _currentPlan => _data.currentPlan;
+  WorkoutPlan? get _currentPlan => _data.currentPlan;
 
   Color get _backGroundColor => Theme.of(context).scaffoldBackgroundColor;
 
@@ -40,7 +45,9 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         _vm.getSessionPlanHistory();
-        _vm.getCurrentPlan();
+        if (currentPlanId != null) {
+          _vm.getCurrentPlan(currentPlanId!);
+        }
       }
     });
 
@@ -93,7 +100,9 @@ class _PlanOverViewViewState extends ConsumerState<PlanOverViewView> {
           onRefresh: () async {
             Future.delayed(Duration.zero, () {
               _vm.getSessionPlanHistory();
-              _vm.getCurrentPlan();
+              if (currentPlanId != null) {
+                _vm.getCurrentPlan(currentPlanId!);
+              }
             });
           },
           child: _body(context),

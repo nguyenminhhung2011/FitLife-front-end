@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
 import 'package:fit_life/generated/l10n.dart';
-import 'package:fit_life/mvvm/me/entity/plan/current_plan.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 
@@ -54,7 +54,7 @@ class PlanOverViewGradientFieldLoading extends StatelessWidget {
 }
 
 class PlanOverViewGradientField extends StatelessWidget {
-  final CurrentPlan currentPlan;
+  final WorkoutPlan currentPlan;
   const PlanOverViewGradientField({super.key, required this.currentPlan});
 
   @override
@@ -84,7 +84,7 @@ class PlanOverViewGradientField extends StatelessWidget {
                     ),
                     const SizedBox(height: 5.0),
                     Text(
-                      currentPlan.goal,
+                      currentPlan.name,
                       style: context.titleMedium.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -103,7 +103,7 @@ class PlanOverViewGradientField extends StatelessWidget {
           const Divider(color: Colors.grey, thickness: 1),
           Row(
             children: [
-              ...['2320', currentPlan.totalCaloriesBurn, '7.5'].mapIndexed(
+              ...['2320', "", '7.5'].mapIndexed(
                 (index, e) => Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PlanOverViewData {
-  CurrentPlan? get currentPlan => throw _privateConstructorUsedError;
+  WorkoutPlan? get currentPlan => throw _privateConstructorUsedError;
   List<WorkoutPlan>? get workoutPlans => throw _privateConstructorUsedError;
   bool get isLoadingWorkoutPlans => throw _privateConstructorUsedError;
   bool get isLoadingCurrentPlan => throw _privateConstructorUsedError;
@@ -34,13 +34,13 @@ abstract class $PlanOverViewDataCopyWith<$Res> {
       _$PlanOverViewDataCopyWithImpl<$Res, PlanOverViewData>;
   @useResult
   $Res call(
-      {CurrentPlan? currentPlan,
+      {WorkoutPlan? currentPlan,
       List<WorkoutPlan>? workoutPlans,
       bool isLoadingWorkoutPlans,
       bool isLoadingCurrentPlan,
       bool isLoadingCreatePlan});
 
-  $CurrentPlanCopyWith<$Res>? get currentPlan;
+  $WorkoutPlanCopyWith<$Res>? get currentPlan;
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$PlanOverViewDataCopyWithImpl<$Res, $Val extends PlanOverViewData>
       currentPlan: freezed == currentPlan
           ? _value.currentPlan
           : currentPlan // ignore: cast_nullable_to_non_nullable
-              as CurrentPlan?,
+              as WorkoutPlan?,
       workoutPlans: freezed == workoutPlans
           ? _value.workoutPlans
           : workoutPlans // ignore: cast_nullable_to_non_nullable
@@ -88,12 +88,12 @@ class _$PlanOverViewDataCopyWithImpl<$Res, $Val extends PlanOverViewData>
 
   @override
   @pragma('vm:prefer-inline')
-  $CurrentPlanCopyWith<$Res>? get currentPlan {
+  $WorkoutPlanCopyWith<$Res>? get currentPlan {
     if (_value.currentPlan == null) {
       return null;
     }
 
-    return $CurrentPlanCopyWith<$Res>(_value.currentPlan!, (value) {
+    return $WorkoutPlanCopyWith<$Res>(_value.currentPlan!, (value) {
       return _then(_value.copyWith(currentPlan: value) as $Val);
     });
   }
@@ -108,14 +108,14 @@ abstract class _$$_PlanOverViewDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {CurrentPlan? currentPlan,
+      {WorkoutPlan? currentPlan,
       List<WorkoutPlan>? workoutPlans,
       bool isLoadingWorkoutPlans,
       bool isLoadingCurrentPlan,
       bool isLoadingCreatePlan});
 
   @override
-  $CurrentPlanCopyWith<$Res>? get currentPlan;
+  $WorkoutPlanCopyWith<$Res>? get currentPlan;
 }
 
 /// @nodoc
@@ -139,7 +139,7 @@ class __$$_PlanOverViewDataCopyWithImpl<$Res>
       currentPlan: freezed == currentPlan
           ? _value.currentPlan
           : currentPlan // ignore: cast_nullable_to_non_nullable
-              as CurrentPlan?,
+              as WorkoutPlan?,
       workoutPlans: freezed == workoutPlans
           ? _value._workoutPlans
           : workoutPlans // ignore: cast_nullable_to_non_nullable
@@ -172,7 +172,7 @@ class _$_PlanOverViewData implements _PlanOverViewData {
       : _workoutPlans = workoutPlans;
 
   @override
-  final CurrentPlan? currentPlan;
+  final WorkoutPlan? currentPlan;
   final List<WorkoutPlan>? _workoutPlans;
   @override
   List<WorkoutPlan>? get workoutPlans {
@@ -233,14 +233,14 @@ class _$_PlanOverViewData implements _PlanOverViewData {
 
 abstract class _PlanOverViewData implements PlanOverViewData {
   const factory _PlanOverViewData(
-      {final CurrentPlan? currentPlan,
+      {final WorkoutPlan? currentPlan,
       final List<WorkoutPlan>? workoutPlans,
       final bool isLoadingWorkoutPlans,
       final bool isLoadingCurrentPlan,
       final bool isLoadingCreatePlan}) = _$_PlanOverViewData;
 
   @override
-  CurrentPlan? get currentPlan;
+  WorkoutPlan? get currentPlan;
   @override
   List<WorkoutPlan>? get workoutPlans;
   @override

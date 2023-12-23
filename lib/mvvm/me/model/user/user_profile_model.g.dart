@@ -14,6 +14,7 @@ UserProfileModel _$UserProfileModelFromJson(Map<String, dynamic> json) =>
       height: (json['height'] as num).toDouble(),
       gender: json['gender'] as String?,
       created: json['created'] as bool,
+      currentPlanId: json['currentPlanId'] as int?,
       level: json['level'] as String?,
       currentPlan: json['currentPlan'] as String?,
       phone: json['phone'] as String?,
@@ -30,6 +31,7 @@ Map<String, dynamic> _$UserProfileModelToJson(UserProfileModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'birthDay': instance.birthDay,
+      'currentPlanId': instance.currentPlanId,
       'weight': instance.weight,
       'height': instance.height,
       'level': instance.level,

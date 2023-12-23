@@ -5,9 +5,11 @@ import 'package:fit_life/core/components/network/data_state.dart';
 import 'package:fit_life/mvvm/data/local/preferences.dart';
 import 'package:fit_life/mvvm/data/remote/user/user_api.dart';
 import 'package:fit_life/mvvm/me/entity/user/user_entity.dart';
+import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:fit_life/mvvm/me/model/user/update_user_profile.dart';
 import 'package:fit_life/mvvm/me/model/user/user_model.dart';
+import 'package:fit_life/mvvm/me/model/workout_plan/workout_plan_model.dart';
 import 'package:fit_life/mvvm/repo/user_repositories.dart';
 import 'package:injectable/injectable.dart';
 
@@ -80,4 +82,11 @@ class UserRepositoriesImpl extends BaseApi implements UserRepositories {
     }
     return const Either.right(true);
   }
+
+  @override
+  Future<SResult<WorkoutPlan>> changeCurrentPlan(int planId) async =>
+      await apiCall<WorkoutPlanModel, WorkoutPlan>(
+        mapper: (result) => result.toEntity(),
+        request: () async => await _userApi.changeCurrentPlan(planId),
+      );
 }

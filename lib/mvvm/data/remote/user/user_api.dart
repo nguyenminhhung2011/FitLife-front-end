@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fit_life/mvvm/me/model/user/user_model.dart';
+import 'package:fit_life/mvvm/me/model/workout_plan/workout_plan_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 part 'user_api.g.dart';
@@ -13,6 +14,7 @@ abstract class UserApi {
   static const String changePasswordApi = "$branch/change-password";
   static const String addFavoriteExerciseApi = "$branch/exercise-favorite";
   static const String addFavoriteNewsApi = "$branch/news-favorite";
+  static const String changeCurrentPlanApi = "$branch/change-current-plan";
 
   @factoryMethod
   factory UserApi(Dio dio) = _UserApi;
@@ -29,6 +31,9 @@ abstract class UserApi {
 
   @PUT("$addFavoriteNewsApi/{id}")
   Future<HttpResponse> addFavoriteNews(@Path("id") int id);
+
+  @PUT("$changeCurrentPlanApi/{id}")
+  Future<HttpResponse<WorkoutPlanModel>> changeCurrentPlan(@Path("id") int id);
 
   @PATCH(changePasswordApi)
   Future<HttpResponse> changePassword(

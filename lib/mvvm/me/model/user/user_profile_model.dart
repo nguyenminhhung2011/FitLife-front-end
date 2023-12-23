@@ -13,6 +13,9 @@ class UserProfileModel {
   @JsonKey(name: 'birthDay')
   final int? birthDay;
 
+  @JsonKey(name: 'currentPlanId')
+  final int? currentPlanId;
+
   @JsonKey(name: 'weight')
   final double weight;
 
@@ -50,6 +53,7 @@ class UserProfileModel {
     required this.height,
     required this.gender,
     required this.created,
+    this.currentPlanId,
     this.level,
     this.currentPlan,
     this.phone,
@@ -74,6 +78,7 @@ class UserProfileModel {
         frequency: frequency?.toFrequency,
         currentPlan: currentPlan,
         phone: phone,
+        currentPlanId: currentPlanId,
         favoriteExercises: favoriteExercises?.map((e) => e.toEntity).toList() ??
             List.empty(growable: true),
         favoriteNews: favoriteNews?.map((e) => e.toEntity).toList() ??

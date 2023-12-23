@@ -22,4 +22,7 @@ class SettingUseCase extends BaseUseCase<User> {
 
   Future<SResult<bool>> addFavoriteExercise({required int exerciseId}) =>
       _userRepositories.addFavoriteExercise(exerciseId);
+
+  Future<SResult<bool>> addFavoriteNews({required int newsId}) =>
+      _userRepositories.addFavoriteNews(newsId);
 }

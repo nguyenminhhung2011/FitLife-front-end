@@ -18,7 +18,7 @@ class UpComingScheduleExItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.openPageWithRouteAndParams(
-          Routes.exerciseOverview, upComingSession.session.id.toString()),
+          Routes.exerciseOverview, upComingSession.session.id),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 15.0),
         width: double.infinity,

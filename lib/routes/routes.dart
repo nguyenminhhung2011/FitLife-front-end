@@ -6,6 +6,7 @@ class Routes {
   static const String addPlan = '/addPlan';
   static const String calendar = '/calendar';
   static const String passCode = '/pass_code';
+  static const String listNews = '/list_news';
   static const String dashboard = '/dashboard';
   static const String onboarding = '/onboarding';
   static const String categories = '/categories';
@@ -26,5 +27,4 @@ class Routes {
   static const String addSessionPlan = '/add_session_plan';
   static const String favoriteExercise = '/favorite_exercise';
   static const String exerciseOverview = '/exercise_overview';
-
 }

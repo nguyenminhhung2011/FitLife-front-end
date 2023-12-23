@@ -67,4 +67,17 @@ class UserRepositoriesImpl extends BaseApi implements UserRepositories {
     }
     return const Either.right(true);
   }
+
+  @override
+  Future<SResult<bool>> addFavoriteNews(int newsId) async {
+    final response = await getStateOf(
+        request: () async => await _userApi.addFavoriteNews(newsId));
+
+    if (response is DataFailed) {
+      return Either.left(
+        AppException(message: response.dioError?.message ?? baseError),
+      );
+    }
+    return const Either.right(true);
+  }
 }

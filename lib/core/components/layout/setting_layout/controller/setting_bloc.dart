@@ -5,6 +5,7 @@ import 'package:fit_life/core/components/layout/setting_layout/controller/settin
 import 'package:fit_life/core/components/utils/validators.dart';
 import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
+import 'package:fit_life/mvvm/me/entity/news_health/news_health.dart';
 import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -56,6 +57,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     on<_RemovePassCode>(_onRemovePassCode);
     on<_ChangePassword>(_onChangePassword);
     on<_AddFavoriteExercise>(_onAddFavoriteExercise);
+    on<_AddFavoriteNews>(_onAddFavoriteNews);
   }
 
   FutureOr<void> _onStarted(
@@ -101,6 +103,34 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
                 currentUser: data.currentUser?.copyWith(
           userProfile: data.currentUser?.userProfile
               ?.copyWith(favoriteExercises: newFav),
+        ))));
+      },
+    );
+  }
+
+  FutureOr<void> _onAddFavoriteNews(
+      _AddFavoriteNews event, Emitter<SettingState> emit) async {
+    emit(_Loading(data: data));
+    (await _settingUseCase.addFavoriteNews(newsId: event.newsHealth.id)).fold(
+      ifLeft: (error) =>
+          emit(_AddFavoriteNewsFailed(data: data, message: error.message)),
+      ifRight: (_) {
+        final currentFav = data.currentUser?.userProfile?.favoriteNews ?? [];
+        List<NewsHealth> newFav = [];
+        if (currentFav
+            .where((element) => element.id == event.newsHealth.id)
+            .isNotEmpty) {
+          newFav = currentFav
+              .where((element) => element.id != event.newsHealth.id)
+              .toList();
+        } else {
+          newFav = [...currentFav, event.newsHealth];
+        }
+        emit(_AddFavoriteNewsSuccess(
+            data: data.copyWith(
+                currentUser: data.currentUser?.copyWith(
+          userProfile:
+              data.currentUser?.userProfile?.copyWith(favoriteNews: newFav),
         ))));
       },
     );

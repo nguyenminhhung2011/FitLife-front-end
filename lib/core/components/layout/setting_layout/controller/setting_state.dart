@@ -56,6 +56,14 @@ class SettingState with _$SettingState {
       {required SettingModalState data,
       required String message}) = _AddFavoriteExerciseFailed;
 
+  const factory SettingState.addFavoriteNewsSuccess({
+    required SettingModalState data,
+  }) = _AddFavoriteNewsSuccess;
+
+  const factory SettingState.addFavoriteNewsFailed(
+      {required SettingModalState data,
+      required String message}) = _AddFavoriteNewsFailed;
+
   bool get isLoading => maybeWhen(
       orElse: () => false, loading: (_, loadingType) => loadingType == 0);
 }

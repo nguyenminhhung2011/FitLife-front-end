@@ -26,5 +26,8 @@ class SettingEvent with _$SettingEvent {
   const factory SettingEvent.addFavoriteExercise(Exercise exercise) =
       _AddFavoriteExercise;
 
+  const factory SettingEvent.addFavoriteNews(NewsHealth newsHealth) =
+      _AddFavoriteNews;
+
   const factory SettingEvent.removePassCoe() = _RemovePassCode;
 }

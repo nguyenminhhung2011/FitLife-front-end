@@ -1,10 +1,12 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
+import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
 import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class WorkoutPlanItemWidget extends StatelessWidget {
@@ -31,6 +33,17 @@ class WorkoutPlanItemWidget extends StatelessWidget {
     );
 
     return GestureDetector(
+      onLongPress: () async {
+        final show = await context.showAlertDialog(
+            header: "Focus on this plan",
+            content: "Are you sure focus on this plan?");
+        if (show) {
+          // ignore: use_build_context_synchronously
+          context
+              .read<SettingBloc>()
+              .add(SettingEvent.changeCurrentPlan(workoutPlan.id ?? 0));
+        }
+      },
       onTap: () =>
           context.openPageWithRouteAndParams(Routes.planDetail, workoutPlan),
       child: Container(
@@ -87,7 +100,8 @@ class WorkoutPlanItemWidget extends StatelessWidget {
                       DateTime.fromMillisecondsSinceEpoch(workoutPlan.endDate!),
                     )}',
                     textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.white, fontSize: 12.0),
+                    style: context.titleSmall.copyWith(
+                        fontSize: 12.0, color: Theme.of(context).hintColor),
                   ),
                   _progressField(context),
                 ],

@@ -58,6 +58,8 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     on<_ChangePassword>(_onChangePassword);
     on<_AddFavoriteExercise>(_onAddFavoriteExercise);
     on<_AddFavoriteNews>(_onAddFavoriteNews);
+    on<_GetCurrentPlan>(_onGetCurrentPlan);
+    on<_ChangeCurrentPlan>(_onChangeCurrentPlan);
   }
 
   FutureOr<void> _onStarted(
@@ -76,6 +78,34 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
         passCode: passCode.toLowerCase(),
       ),
     ));
+  }
+
+  FutureOr<void> _onGetCurrentPlan(
+    _GetCurrentPlan event,
+    Emitter<SettingState> emit,
+  ) async {
+    emit(_Loading(data: data));
+    (await _settingUseCase.getCurrentPlan()).fold(
+      ifLeft: (error) => emit(_GetCurrentPlanFailed(
+          data: data.copyWith(currentPlan: null), message: error.message)),
+      ifRight: (rData) => emit(
+        _GetCurrentPlanSuccess(data: data.copyWith(currentPlan: rData)),
+      ),
+    );
+  }
+
+  FutureOr<void> _onChangeCurrentPlan(
+    _ChangeCurrentPlan event,
+    Emitter<SettingState> emit,
+  ) async {
+    emit(_Loading(data: data));
+    (await _settingUseCase.changeCurrentPlan(event.newId)).fold(
+      ifLeft: (error) =>
+          emit(_ChangeCurrentPlanFailed(data: data, message: error.message)),
+      ifRight: (rData) => emit(
+        _ChangeCurrentPlanSuccess(data: data.copyWith(currentPlan: rData)),
+      ),
+    );
   }
 
   FutureOr<void> _onAddFavoriteExercise(
@@ -236,6 +266,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
       if (userData == null) {
         return emit(_GetUserFailed(data: data, message: 'Failed'));
       }
+      add(const _GetCurrentPlan());
       return emit(_GetUserSuccess(data: data.copyWith(currentUser: userData)));
     } on AppException catch (e) {
       emit(_GetUserFailed(data: data, message: e.toString()));

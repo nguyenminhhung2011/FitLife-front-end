@@ -89,4 +89,10 @@ class UserRepositoriesImpl extends BaseApi implements UserRepositories {
         mapper: (result) => result.toEntity(),
         request: () async => await _userApi.changeCurrentPlan(planId),
       );
+
+  @override
+  Future<SResult<WorkoutPlan>> getCurrentPlan() async => await apiCall(
+        mapper: (result) => result.toEntity(),
+        request: () async => await _userApi.getCurrentPlan(),
+      );
 }

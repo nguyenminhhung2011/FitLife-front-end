@@ -1,9 +1,13 @@
 import 'package:collection/collection.dart';
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
 import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
 import 'package:fit_life/generated/l10n.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PlanOverViewGradientFieldLoading extends StatelessWidget {
   const PlanOverViewGradientFieldLoading({super.key});
@@ -55,7 +59,16 @@ class PlanOverViewGradientFieldLoading extends StatelessWidget {
 
 class PlanOverViewGradientField extends StatelessWidget {
   final WorkoutPlan currentPlan;
-  const PlanOverViewGradientField({super.key, required this.currentPlan});
+  final int caloriesBurn;
+  final int totalSession;
+  final int totalExercise;
+
+  const PlanOverViewGradientField(
+      {super.key,
+      required this.currentPlan,
+      required this.caloriesBurn,
+      required this.totalSession,
+      required this.totalExercise});
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +107,12 @@ class PlanOverViewGradientField extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await context.openPageWithRouteAndParams(
+                      Routes.planDetail, currentPlan);
+                  // ignore: use_build_context_synchronously
+                  context.read<SettingBloc>().add(const SettingEvent.getCurrentPlan());
+                },
                 icon: const Icon(Icons.arrow_forward_ios_sharp,
                     color: Colors.white, size: 15.0),
               )
@@ -103,7 +121,7 @@ class PlanOverViewGradientField extends StatelessWidget {
           const Divider(color: Colors.grey, thickness: 1),
           Row(
             children: [
-              ...['2320', "", '7.5'].mapIndexed(
+              ...[totalSession, caloriesBurn, totalExercise].mapIndexed(
                 (index, e) => Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,9 +134,9 @@ class PlanOverViewGradientField extends StatelessWidget {
                       const SizedBox(height: 5.0),
                       Text(
                         switch (index) {
-                          0 => S.of(context).dailySteps,
+                          0 => "Total session",
                           1 => S.of(context).burnedCal,
-                          _ => S.of(context).hoursSlept,
+                          _ => "Total exercise",
                         },
                         style: context.titleSmall.copyWith(color: Colors.white),
                       ),

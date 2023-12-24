@@ -1,5 +1,4 @@
 import 'package:fit_life/mvvm/me/entity/custom_exercise/custom_exercise.dart';
-import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'session.freezed.dart';

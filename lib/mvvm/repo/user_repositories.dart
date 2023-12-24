@@ -12,4 +12,5 @@ abstract class UserRepositories {
   Future<SResult<bool>> addFavoriteExercise(int exerciseId);
   Future<SResult<bool>> addFavoriteNews(int newsId);
   Future<SResult<WorkoutPlan>> changeCurrentPlan(int planId);
+  Future<SResult<WorkoutPlan>> getCurrentPlan();
 }

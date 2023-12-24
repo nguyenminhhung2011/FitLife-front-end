@@ -22,6 +22,7 @@ mixin _$SettingModalState {
   Locale get currentLocale => throw _privateConstructorUsedError;
   String get passCode => throw _privateConstructorUsedError;
   User? get currentUser => throw _privateConstructorUsedError;
+  WorkoutPlan? get currentPlan => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SettingModalStateCopyWith<SettingModalState> get copyWith =>
@@ -40,9 +41,11 @@ abstract class $SettingModalStateCopyWith<$Res> {
       String langCode,
       Locale currentLocale,
       String passCode,
-      User? currentUser});
+      User? currentUser,
+      WorkoutPlan? currentPlan});
 
   $UserCopyWith<$Res>? get currentUser;
+  $WorkoutPlanCopyWith<$Res>? get currentPlan;
 }
 
 /// @nodoc
@@ -64,6 +67,7 @@ class _$SettingModalStateCopyWithImpl<$Res, $Val extends SettingModalState>
     Object? currentLocale = null,
     Object? passCode = null,
     Object? currentUser = freezed,
+    Object? currentPlan = freezed,
   }) {
     return _then(_value.copyWith(
       appearance: null == appearance
@@ -90,6 +94,10 @@ class _$SettingModalStateCopyWithImpl<$Res, $Val extends SettingModalState>
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
               as User?,
+      currentPlan: freezed == currentPlan
+          ? _value.currentPlan
+          : currentPlan // ignore: cast_nullable_to_non_nullable
+              as WorkoutPlan?,
     ) as $Val);
   }
 
@@ -102,6 +110,18 @@ class _$SettingModalStateCopyWithImpl<$Res, $Val extends SettingModalState>
 
     return $UserCopyWith<$Res>(_value.currentUser!, (value) {
       return _then(_value.copyWith(currentUser: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WorkoutPlanCopyWith<$Res>? get currentPlan {
+    if (_value.currentPlan == null) {
+      return null;
+    }
+
+    return $WorkoutPlanCopyWith<$Res>(_value.currentPlan!, (value) {
+      return _then(_value.copyWith(currentPlan: value) as $Val);
     });
   }
 }
@@ -120,10 +140,13 @@ abstract class _$$_SettingModalStateCopyWith<$Res>
       String langCode,
       Locale currentLocale,
       String passCode,
-      User? currentUser});
+      User? currentUser,
+      WorkoutPlan? currentPlan});
 
   @override
   $UserCopyWith<$Res>? get currentUser;
+  @override
+  $WorkoutPlanCopyWith<$Res>? get currentPlan;
 }
 
 /// @nodoc
@@ -143,6 +166,7 @@ class __$$_SettingModalStateCopyWithImpl<$Res>
     Object? currentLocale = null,
     Object? passCode = null,
     Object? currentUser = freezed,
+    Object? currentPlan = freezed,
   }) {
     return _then(_$_SettingModalState(
       appearance: null == appearance
@@ -169,6 +193,10 @@ class __$$_SettingModalStateCopyWithImpl<$Res>
           ? _value.currentUser
           : currentUser // ignore: cast_nullable_to_non_nullable
               as User?,
+      currentPlan: freezed == currentPlan
+          ? _value.currentPlan
+          : currentPlan // ignore: cast_nullable_to_non_nullable
+              as WorkoutPlan?,
     ));
   }
 }
@@ -182,7 +210,8 @@ class _$_SettingModalState implements _SettingModalState {
       this.langCode = 'en',
       this.currentLocale = const Locale('en', ''),
       this.passCode = '',
-      this.currentUser});
+      this.currentUser,
+      this.currentPlan});
 
   @override
   @JsonKey()
@@ -201,10 +230,12 @@ class _$_SettingModalState implements _SettingModalState {
   final String passCode;
   @override
   final User? currentUser;
+  @override
+  final WorkoutPlan? currentPlan;
 
   @override
   String toString() {
-    return 'SettingModalState(appearance: $appearance, currencies: $currencies, langCode: $langCode, currentLocale: $currentLocale, passCode: $passCode, currentUser: $currentUser)';
+    return 'SettingModalState(appearance: $appearance, currencies: $currencies, langCode: $langCode, currentLocale: $currentLocale, passCode: $passCode, currentUser: $currentUser, currentPlan: $currentPlan)';
   }
 
   @override
@@ -223,12 +254,14 @@ class _$_SettingModalState implements _SettingModalState {
             (identical(other.passCode, passCode) ||
                 other.passCode == passCode) &&
             (identical(other.currentUser, currentUser) ||
-                other.currentUser == currentUser));
+                other.currentUser == currentUser) &&
+            (identical(other.currentPlan, currentPlan) ||
+                other.currentPlan == currentPlan));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, appearance, currencies, langCode,
-      currentLocale, passCode, currentUser);
+      currentLocale, passCode, currentUser, currentPlan);
 
   @JsonKey(ignore: true)
   @override
@@ -245,7 +278,8 @@ abstract class _SettingModalState implements SettingModalState {
       final String langCode,
       final Locale currentLocale,
       final String passCode,
-      final User? currentUser}) = _$_SettingModalState;
+      final User? currentUser,
+      final WorkoutPlan? currentPlan}) = _$_SettingModalState;
 
   @override
   Appearance get appearance;
@@ -259,6 +293,8 @@ abstract class _SettingModalState implements SettingModalState {
   String get passCode;
   @override
   User? get currentUser;
+  @override
+  WorkoutPlan? get currentPlan;
   @override
   @JsonKey(ignore: true)
   _$$_SettingModalStateCopyWith<_$_SettingModalState> get copyWith =>

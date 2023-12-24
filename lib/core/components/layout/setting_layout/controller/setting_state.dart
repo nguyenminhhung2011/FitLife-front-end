@@ -64,6 +64,22 @@ class SettingState with _$SettingState {
       {required SettingModalState data,
       required String message}) = _AddFavoriteNewsFailed;
 
+  const factory SettingState.getCurrentPlanSuccess({
+    required SettingModalState data,
+  }) = _GetCurrentPlanSuccess;
+
+  const factory SettingState.getCurrentPlanFailed(
+      {required SettingModalState data,
+      required String message}) = _GetCurrentPlanFailed;
+
+  const factory SettingState.changeCurrentPlanSuccess({
+    required SettingModalState data,
+  }) = _ChangeCurrentPlanSuccess;
+
+  const factory SettingState.changeCurrentPlanFailed(
+      {required SettingModalState data,
+      required String message}) = _ChangeCurrentPlanFailed;
+
   bool get isLoading => maybeWhen(
       orElse: () => false, loading: (_, loadingType) => loadingType == 0);
 }

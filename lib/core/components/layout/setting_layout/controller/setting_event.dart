@@ -29,5 +29,9 @@ class SettingEvent with _$SettingEvent {
   const factory SettingEvent.addFavoriteNews(NewsHealth newsHealth) =
       _AddFavoriteNews;
 
+  const factory SettingEvent.changeCurrentPlan(int newId) = _ChangeCurrentPlan;
+
+  const factory SettingEvent.getCurrentPlan() = _GetCurrentPlan;
+
   const factory SettingEvent.removePassCoe() = _RemovePassCode;
 }

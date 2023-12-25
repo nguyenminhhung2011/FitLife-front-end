@@ -7,6 +7,7 @@ import 'package:fit_life/mvvm/ui/auth/views/introduction_view.dart';
 import 'package:fit_life/mvvm/ui/auth/views/sign_up_view.dart';
 import 'package:fit_life/mvvm/ui/calendar/views/calendar_view.dart';
 import 'package:fit_life/mvvm/ui/category/views/category_view.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/main_chat_view.dart';
 import 'package:fit_life/mvvm/ui/conversation/view/conversation_view.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/view_model/exercise_detail_view_model.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart';
@@ -234,6 +235,11 @@ class MainRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const IntroductionView(),
+        );
+      case Routes.mainChat:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const MainChatView(),
         );
       case Routes.favoriteNews:
         return MaterialPageRoute(

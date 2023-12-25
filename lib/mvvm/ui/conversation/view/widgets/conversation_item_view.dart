@@ -41,22 +41,23 @@ class ConversationItemView extends StatelessWidget {
                       ),
                       Text(
                         getYmdFormat(DateTime.now()),
-                        style: context.titleSmall,
+                        style: context.titleSmall.copyWith(fontSize: 12.0),
                       ),
                       const SizedBox(width: 5.0),
                       Icon(Icons.arrow_forward_ios_outlined,
-                          color: context.titleLarge.color, size: 14)
+                          color: context.titleLarge.color, size: 12)
                     ],
                   ),
                   Text(
                     "Structural pattern",
-                    style: context.titleLarge
+                    style: context.titleMedium
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "Hello this is ai chatbot, Welcome to my chat side, yeah yeah ",
                     maxLines: 1,
-                    style: context.titleSmall,
+                    style: context.titleSmall.copyWith(
+                        fontSize: 14.0, color: Theme.of(context).hintColor),
                     overflow: TextOverflow.ellipsis,
                   )
                 ].expand((e) => [e, const SizedBox(height: 2)]).toList()

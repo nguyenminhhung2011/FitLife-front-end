@@ -6,6 +6,7 @@ class Routes {
   static const String addPlan = '/addPlan';
   static const String calendar = '/calendar';
   static const String passCode = '/pass_code';
+  static const String mainChat = '/main_chat';
   static const String listNews = '/list_news';
   static const String dashboard = '/dashboard';
   static const String onboarding = '/onboarding';

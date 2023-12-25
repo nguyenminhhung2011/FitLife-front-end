@@ -4,6 +4,7 @@ import 'package:fit_life/core/components/extensions/string_extensions.dart';
 import 'package:fit_life/core/components/widgets/category/category_model.dart';
 import 'package:fit_life/core/config/color_config.dart';
 import 'package:fit_life/generated/l10n.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Constant {
@@ -104,6 +105,12 @@ class Constant {
     Frequency.little,
     Frequency.notMuch,
   ];
+
+  static Map<String, dynamic> mainChatButton = {
+    "All chats": CupertinoIcons.chat_bubble_2_fill,
+    "Your bots": CupertinoIcons.app_badge_fill,
+    "Api key": Icons.key,
+  };
 
   static Map<String, List<String>> bodyPartLevels = {
     "back": ["Intermediate", "Advanced"],

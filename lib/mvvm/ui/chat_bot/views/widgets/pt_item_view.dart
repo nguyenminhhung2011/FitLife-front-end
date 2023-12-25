@@ -18,7 +18,7 @@ class PtItemView extends StatelessWidget {
             child: Image.asset(ImageConst.banner1,
                 width: 50.0, height: 50.0, fit: BoxFit.cover),
           ),
-          const SizedBox(width: 15.0),
+          const SizedBox(width: 10.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,6 +45,7 @@ class PtItemView extends StatelessWidget {
                   "This is description of PT chat bot,This is description of PT chat botThis is description of PT chat botThis is description of PT chat botThis is description of PT chat bot",
                   style: context.titleSmall.copyWith(
                       color: Theme.of(context).hintColor, fontSize: 14.0),
+                  maxLines: 2,
                 )
               ],
             ),

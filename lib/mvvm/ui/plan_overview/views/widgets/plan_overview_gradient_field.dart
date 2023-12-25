@@ -3,6 +3,8 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
 import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
 import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
+import 'package:fit_life/mvvm/me/entity/session/session.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -59,19 +61,24 @@ class PlanOverViewGradientFieldLoading extends StatelessWidget {
 
 class PlanOverViewGradientField extends StatelessWidget {
   final WorkoutPlan currentPlan;
-  final int caloriesBurn;
-  final int totalSession;
-  final int totalExercise;
 
-  const PlanOverViewGradientField(
-      {super.key,
-      required this.currentPlan,
-      required this.caloriesBurn,
-      required this.totalSession,
-      required this.totalExercise});
+  const PlanOverViewGradientField({
+    super.key,
+    required this.currentPlan,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final allSession = <Session>[];
+    for (var element in (currentPlan.dailyWorkouts ?? <DailyWorkout>[])) {
+      allSession.addAll(element.sessions ?? []);
+    }
+    var totalCalories = 0;
+    var totalExercise = 0;
+    for (var element in allSession) {
+      totalCalories += element.calcCompleted ?? 0;
+      totalExercise += element.customExercise?.length ?? 0;
+    }
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -111,7 +118,9 @@ class PlanOverViewGradientField extends StatelessWidget {
                   await context.openPageWithRouteAndParams(
                       Routes.planDetail, currentPlan);
                   // ignore: use_build_context_synchronously
-                  context.read<SettingBloc>().add(const SettingEvent.getCurrentPlan());
+                  context
+                      .read<SettingBloc>()
+                      .add(const SettingEvent.getCurrentPlan());
                 },
                 icon: const Icon(Icons.arrow_forward_ios_sharp,
                     color: Colors.white, size: 15.0),
@@ -121,7 +130,7 @@ class PlanOverViewGradientField extends StatelessWidget {
           const Divider(color: Colors.grey, thickness: 1),
           Row(
             children: [
-              ...[totalSession, caloriesBurn, totalExercise].mapIndexed(
+              ...[allSession.length, totalCalories, totalExercise].mapIndexed(
                 (index, e) => Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

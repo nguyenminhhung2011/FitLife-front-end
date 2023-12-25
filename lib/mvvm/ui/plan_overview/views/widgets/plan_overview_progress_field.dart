@@ -1,3 +1,5 @@
+import 'package:fit_life/core/components/constant/handle_time.dart';
+import 'package:fit_life/core/components/extensions/double_extension.dart';
 import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
 import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
 import 'package:flutter/material.dart';
@@ -63,6 +65,19 @@ class PlanOverViewProgressField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dateNow = DateTime.now();
+    final dailyPlans = currentPlan.dailyWorkouts ?? [];
+    int currentDailyPlan = dailyPlans.indexWhere((item) {
+      final planTime = DateTime.fromMillisecondsSinceEpoch(item.time!);
+      return (getYmdFormat(planTime) == getYmdFormat(dateNow));
+    });
+    final progressPercent = ((DateTime.now().day -
+                DateTime.fromMillisecondsSinceEpoch(currentPlan.startDate!)
+                    .day) /
+            DateTime.fromMillisecondsSinceEpoch(
+                    currentPlan.endDate! - currentPlan.startDate!)
+                .day)
+        .minMaxRequired(0, 1);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
@@ -83,11 +98,16 @@ class PlanOverViewProgressField extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Part 1 ${currentPlan.name}',
-                  style:
-                      context.titleMedium.copyWith(fontWeight: FontWeight.w600),
-                ),
+                if (currentDailyPlan != -1)
+                  Text(
+                    'Part ${(dailyPlans[currentDailyPlan]).name}',
+                    style: context.titleMedium
+                        .copyWith(fontWeight: FontWeight.w600),
+                  )
+                else
+                  Text("You don't have any plan today",
+                      style: context.titleMedium
+                          .copyWith(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 10.0),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -106,7 +126,10 @@ class PlanOverViewProgressField extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 5.0),
-                    Text('Week 3', style: context.titleSmall)
+                    Text(
+                      'Week ${getWeekIndex(startDate: DateTime.fromMillisecondsSinceEpoch(currentPlan.startDate!), endDate: DateTime.fromMillisecondsSinceEpoch(currentPlan.endDate!), targetDate: dateNow)}',
+                      style: context.titleSmall,
+                    )
                   ],
                 ),
               ],
@@ -120,9 +143,9 @@ class PlanOverViewProgressField extends StatelessWidget {
               animation: true,
               animationDuration: 1000,
               radius: 30.0,
-              percent: 0.5,
+              percent: progressPercent,
               center: Text(
-                '2/4',
+                "${(progressPercent * 100).round()}%",
                 style: context.titleSmall.copyWith(fontWeight: FontWeight.w500),
               ),
               backgroundColor: Theme.of(context).dividerColor,

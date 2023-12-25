@@ -76,3 +76,15 @@ TimeOfDay intToTimeLeft(int? value) {
 int timeOfDayToInt(TimeOfDay time) => time.hour * 3600 + time.minute * 60;
 
 Duration durationBetweenDate(DateTime from, DateTime to) => to.difference(from);
+
+int getWeekIndex(
+    {required DateTime startDate,
+    required DateTime endDate,
+    required DateTime targetDate}) {
+  int daysDiff = targetDate.difference(startDate).inDays;
+  int weekIndex = (daysDiff / 7).floor();
+  if (weekIndex < 0) {
+    return 0;
+  }
+  return weekIndex;
+}

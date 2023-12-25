@@ -132,15 +132,20 @@ class _AddExerciseBottomState extends ConsumerState<AddExerciseBottom>
       children: [
         const SizedBox(height: 10.0),
         const DividerDot(),
-        const SizedBox(height: 10.0),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
-          child: Text(
-            "Choose exercise",
-            style: context.titleMedium.copyWith(fontWeight: FontWeight.w600),
-          ),
-        ),
         const SizedBox(height: 5.0),
+        Row(
+          children: [
+            IconButton(
+                onPressed: () => _vm.changeTab(0),
+                icon:
+                    Icon(Icons.arrow_back, color: context.titleLarge.color!)),
+            Text(
+              "Choose exercise",
+              style: context.titleLarge.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10.0),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: _searchBox(),

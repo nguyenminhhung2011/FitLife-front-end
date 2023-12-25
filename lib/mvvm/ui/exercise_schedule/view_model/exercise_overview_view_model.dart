@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/me/entity/exercise/add_exercise_dto.dart';
 import 'package:fit_life/mvvm/me/entity/request/update_setting_session_request.dart';
@@ -15,29 +13,27 @@ part 'exercise_overview_state.dart';
 
 part 'exercise_overview_view_model.freezed.dart';
 
-late AutoDisposeStateNotifierProvider<ExerciseOverviewViewModel,
-    ExerciseOverviewState> exerciseOverviewStateNotifier;
+final AutoDisposeStateNotifierProvider<ExerciseOverviewViewModel,
+        ExerciseOverviewState> exerciseOverviewStateNotifier =
+    AutoDisposeStateNotifierProvider(
+        (ref) => injector.get<ExerciseOverviewViewModel>());
 
 @injectable
 class ExerciseOverviewViewModel extends StateNotifier<ExerciseOverviewState> {
-  final int _sessionId;
   final _sessionRepositories = injector.get<SessionRepositories>();
   final _exerciseRepositories = injector.get<ExerciseRepositories>();
 
-  ExerciseOverviewViewModel({@factoryParam required int sessionId})
-      : _sessionId = sessionId,
-        super(
+  ExerciseOverviewViewModel()
+      : super(
           const _Initial(data: ExerciseOverviewData()),
         );
 
   ExerciseOverviewData get data => state.data;
 
-  int get sessionId => _sessionId;
-
-  Future<void> getExerciseOverview() async {
+  Future<void> getExerciseOverview(int sessionId) async {
     state = _Loading(data: data);
     final response =
-        await _sessionRepositories.getSessionById(id: _sessionId.toString());
+        await _sessionRepositories.getSessionById(id: sessionId.toString());
     if (!mounted) return;
     state = response.fold(
       ifLeft: (error) =>

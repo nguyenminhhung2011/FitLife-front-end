@@ -64,8 +64,10 @@ class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
           SearchExerciseRequest request) async =>
       await apiCall<SearchExerciseResponse, List<Exercise>>(
         mapper: (result) => result.content.map((e) => e.toEntity).toList(),
-        request: () async =>
-            await _exerciseApi.searchExercise(body: request.toJson),
+        request: () async {
+          await Future.delayed(const Duration(seconds: 1));
+          return await _exerciseApi.searchExercise(body: request.toJson);
+        },
       );
 
   @override

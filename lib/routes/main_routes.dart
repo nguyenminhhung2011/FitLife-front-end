@@ -13,7 +13,6 @@ import 'package:fit_life/mvvm/ui/execise_detail/views/exercise_detail_view.dart'
 import 'package:fit_life/mvvm/ui/exercise_overview/view_model/session_plan_view_model.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/add_session_plan.dart';
 import 'package:fit_life/mvvm/ui/exercise_overview/views/session_plan_view.dart';
-import 'package:fit_life/mvvm/ui/exercise_schedule/view_model/exercise_overview_view_model.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/exercise_overview_view.dart';
 import 'package:fit_life/mvvm/ui/favorite_exercise/view/favorite_exercise_view.dart';
 import 'package:fit_life/mvvm/ui/favorite_news/views/favorite_news_view.dart';
@@ -271,15 +270,7 @@ class MainRoutes {
           builder: (_) {
             if (settings.arguments is int) {
               return ProviderScope(
-                overrides: [
-                  exerciseOverviewStateNotifier =
-                      AutoDisposeStateNotifierProvider(
-                    (ref) => injector.get<ExerciseOverviewViewModel>(
-                      param1: settings.arguments,
-                    ),
-                  )
-                ],
-                child: const ExerciseOverviewView(),
+                child: ExerciseOverviewView(settings.arguments as int),
               );
             }
             return const SizedBox();

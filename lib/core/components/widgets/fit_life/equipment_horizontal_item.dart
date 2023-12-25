@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 class EquipmentHorizontalItem extends StatelessWidget {
   final String equipment;
   final bool isFillWidth;
+  final bool leftMargin;
   const EquipmentHorizontalItem({
     super.key,
     this.isFillWidth = false,
+    this.leftMargin = true,
     required this.equipment,
   });
 
@@ -23,7 +25,7 @@ class EquipmentHorizontalItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(width: 15.0),
+          if (leftMargin) const SizedBox(width: 15.0),
           ImageCustom(
             imageUrl: Constant.renderEquipmentImage[equipment] ??
                 Constant.renderEquipmentImage["assisted"],

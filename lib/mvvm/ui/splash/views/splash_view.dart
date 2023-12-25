@@ -30,7 +30,7 @@ class _SplashViewState extends ConsumerState<SplashView> {
     super.initState();
     Future(() {
       _vm.isAuthCall();
-    });
+    }); 
   }
 
   @override

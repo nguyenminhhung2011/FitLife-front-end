@@ -8,16 +8,24 @@ import 'package:flutter/material.dart';
 
 class ExerciseChidItem extends StatelessWidget {
   final Exercise exercise;
+  final Function()? onPress;
   const ExerciseChidItem({
     super.key,
     required this.exercise,
+    this.onPress,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.openPageWithRouteAndParams(
-          Routes.exerciseDetail, exercise.id),
+      onTap: () {
+        if (onPress != null) {
+          onPress!.call();
+        } else {
+          context.openPageWithRouteAndParams(
+              Routes.exerciseDetail, exercise.id);
+        }
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Stack(

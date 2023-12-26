@@ -8,6 +8,7 @@ class ImageConst {
   static const String brainIcon = "assets/images/brain.png";
   static const String manIcon = "assets/images/man.png";
   static const String womanIcon = "assets/images/woman.png";
+  static const String editImage = "assets/images/edit_image.png";
   //icons
   static const String homeIcon = 'assets/icons/Home.svg';
   static const String personIcon = 'assets/icons/Profile.svg';

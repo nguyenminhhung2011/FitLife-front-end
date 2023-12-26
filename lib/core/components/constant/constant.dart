@@ -28,6 +28,17 @@ class Constant {
       'color': Colors.yellow,
     },
   ];
+
+  static List<String> modelConstant = [
+    "ChatGPT",
+    "DALL-E-3\n(Limited access for non-subscribers)",
+    "StableDiffusionXL",
+    "Claude-instant",
+    "Llama-2-70b",
+    "GPT-4\n(Limited access for non-subscribers)",
+    "Claude-2-100k\n(Limited access for non-subscribers)",
+    "Claude-instant-100k\n(Limited access for non-subscribers)"
+  ];
   static List<String> boardNumber = [
     '1',
     '2',

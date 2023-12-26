@@ -1,4 +1,4 @@
-final Map<String, dynamic> environmentProd = {
+final Map<String, dynamic> environmentDev = {
   'name': 'FitLife',
   'environment': 'dev',
   'baseUrl': 'http://localhost:8080',

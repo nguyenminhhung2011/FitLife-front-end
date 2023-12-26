@@ -20,7 +20,7 @@ class ConversationItemView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(50.0),
+              borderRadius: BorderRadius.circular(10.0),
               child: Image.asset(
                 ImageConst.banner2,
                 fit: BoxFit.cover,

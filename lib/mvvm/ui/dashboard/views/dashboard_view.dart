@@ -71,7 +71,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
 
   @override
   Widget build(BuildContext context) {
-    return Dragball(  
+    return Dragball(
       ball: Image.asset(ImageConst.brainIcon, width: 50.0, height: 50.0),
       onTap: () => context.openListPageWithRoute(Routes.mainChat),
       iconSize: 16.0,

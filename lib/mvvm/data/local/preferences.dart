@@ -5,6 +5,7 @@ import 'package:uuid/uuid.dart';
 class CommonAppSettingPref {
   static const String _accessToken = "_accessToken";
   static const String _refreshToken = "_refreshToken";
+  static const String _apiKey = "_apiKey";
   static const String _expiredTime = "_expiredTime";
 
   static const String _language = "language";
@@ -88,8 +89,16 @@ class CommonAppSettingPref {
     return Preferences.setString(_accessToken, value);
   }
 
+  static Future<bool> setApiKey(String value) {
+    return Preferences.setString(_apiKey, value);
+  }
+
   static String getAccessToken() {
     return Preferences.getString(_accessToken) ?? '';
+  }
+
+  static String getApiKey() {
+    return Preferences.getString(_apiKey) ?? '';
   }
 
   static Future<bool> setRefreshToken(String value) {
@@ -238,6 +247,10 @@ class CommonAppSettingPref {
 
   static void removeAccessToken() {
     Preferences.remove(_accessToken);
+  }
+
+  static void removeApiKey() {
+    Preferences.remove(_apiKey);
   }
 
   static void removeRefreshToken() {

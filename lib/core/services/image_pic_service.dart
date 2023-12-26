@@ -6,17 +6,24 @@ import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 
+class BothImageData {
+  final Uint8List? image;
+  final String? path;
+  BothImageData(this.image, this.path);
+}
+
 @injectable
 class ImagePicService {
-  Future pickFile() async {
+  static Future<File?> pickFile() async {
     try {
       var result = await FilePicker.platform.pickFiles(
-        type: FileType.image,
+        type: FileType.any,
         allowMultiple: false,
       );
       return File(result!.files.single.path!);
     } catch (e) {
       log("Pick image error:${e.toString()}");
+      throw Exception(e);
     }
   }
 
@@ -25,6 +32,17 @@ class ImagePicService {
     XFile? file = await imagePicker.pickImage(source: source);
     if (file != null) {
       return await file.readAsBytes();
+    }
+    return null;
+  }
+
+  static Future<BothImageData?> selectedImage(ImageSource source) async {
+    final ImagePicker imagePicker = ImagePicker();
+    XFile? file = await imagePicker.pickImage(source: source);
+    if (file != null) {
+      final image = await file.readAsBytes();
+      final path = file.path;
+      return BothImageData(image, path);
     }
     return null;
   }

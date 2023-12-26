@@ -7,6 +7,7 @@ class CustomInputLabelField extends StatefulWidget {
   final bool isObscure;
   final String? hintText;
   final String? Function(String? input)? onValidator;
+  final int? lines;
 
   const CustomInputLabelField({
     super.key,
@@ -15,6 +16,7 @@ class CustomInputLabelField extends StatefulWidget {
     this.hintText,
     this.isObscure = false,
     this.onValidator,
+    this.lines,
   });
 
   @override
@@ -35,23 +37,25 @@ class _CustomInputLabelFieldState extends State<CustomInputLabelField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsetsDirectional.only(bottom: 12.0),
-          child: Text(
-            widget.label,
-            style: context.textTheme.titleLarge,
+        if (widget.label.isNotEmpty)
+          Padding(
+            padding: const EdgeInsetsDirectional.only(bottom: 12.0),
+            child: Text(
+              widget.label,
+              style: context.textTheme.titleLarge,
+            ),
           ),
-        ),
         TextFormField(
+          maxLines: widget.lines ?? 1,
           decoration: InputDecoration(
             hintText: widget.hintText,
             hintStyle: context.titleMedium.copyWith(
               fontWeight: FontWeight.w500,
               color: Theme.of(context).hintColor,
             ),
-            border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey),
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: Theme.of(context).hintColor),
+              borderRadius: const BorderRadius.all(Radius.circular(10.0)),
             ),
             suffixIcon: widget.isObscure
                 ? GestureDetector(

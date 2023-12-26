@@ -67,8 +67,11 @@ class _ExerciseOverviewViewState extends ConsumerState<ExerciseOverviewView> {
           context.showSnackBar("🐛[Get session plan] $error"),
       updateSettingSessionFailed: (_, error) =>
           context.showSnackBar("🐛[Update setting session] $error"),
-      createExerciseSuccess: (data) =>
-          context.showSnackBar("🔥 Create exercise successful!!"),
+      createExerciseSuccess: (data) async {
+        await _vm.getExerciseOverview(widget.sessionId);
+        // ignore: use_build_context_synchronously
+        context.showSnackBar("🔥 Create exercise successful!!");
+      },
       createExerciseFailed: (_, error) =>
           context.showSnackBar("🐛[Create exercise failed] $error"),
       orElse: () {},

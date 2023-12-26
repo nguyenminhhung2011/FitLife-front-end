@@ -239,7 +239,7 @@ class MainRoutes {
       case Routes.mainChat:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const MainChatView(),
+          builder: (_) => const ProviderScope(child: MainChatView()),
         );
       case Routes.favoriteNews:
         return MaterialPageRoute(

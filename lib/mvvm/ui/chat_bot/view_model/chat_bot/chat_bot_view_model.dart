@@ -8,7 +8,7 @@ import 'package:fit_life/mvvm/me/entity/message/message.dart';
 import 'package:fit_life/mvvm/me/entity/message/message_status.dart';
 import 'package:fit_life/mvvm/me/entity/message/message_type.dart';
 import 'package:fit_life/mvvm/repo/chat_repositories.dart';
-import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot_data.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot/chat_bot_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:riverpod/riverpod.dart';

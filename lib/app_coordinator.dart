@@ -3,6 +3,10 @@ import 'package:fit_life/core/components/widgets/fit_life/slide_change_value.dar
 import 'package:fit_life/mvvm/me/entity/session/setting_session.dart';
 import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/all_pt_view.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/create_bot_view.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/add_source_bottom.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/write_content_bottom.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/your_bot_bottom.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/setting_exercise_bottom.dart';
 import 'package:fit_life/mvvm/ui/health_overview/ob/health_overview_row.dart';
 import 'package:fit_life/mvvm/ui/health_overview/views/bottom_edit_infor.dart';
@@ -163,6 +167,20 @@ extension AppCoordinator<T> on BuildContext {
     return bottom;
   }
 
+  Future<dynamic> showYourBotBottom() async {
+    return await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(14.0)),
+      ),
+      backgroundColor: Theme.of(this).scaffoldBackgroundColor,
+      builder: (context) {
+        return const YourBotBottom();
+      },
+    );
+  }
+
   Future<dynamic> bottomEditInformation(
       {required HealthOverviewRow type}) async {
     final data = await showModalBottomSheet(
@@ -207,6 +225,42 @@ extension AppCoordinator<T> on BuildContext {
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: const BottomChangePassword(),
+        );
+      },
+    );
+  }
+
+  Future<dynamic> addSourceBottom() async {
+    return await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+        top: Radius.circular(10.0),
+      )),
+      builder: (context) {
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: const AddSourceBottom(),
+        );
+      },
+    );
+  }
+
+  Future<dynamic> writeContentBottom() async {
+    return await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+        top: Radius.circular(10.0),
+      )),
+      builder: (context) {
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: const WriteContentBottom(),
         );
       },
     );

@@ -1,12 +1,12 @@
 import 'package:drag_ball/drag_ball.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
-import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot_data.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot/chat_bot_data.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot/chat_bot_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/image_custom.dart';
-import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot_view_model.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/input_widget.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/message_item.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -153,56 +153,56 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
   Scaffold _body(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        leading: IconButton(
-          onPressed: () => context.pop(),
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-        ),
-        elevation: 0,
-        title: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Chat bot',
-              style: context.titleLarge
-                  .copyWith(fontWeight: FontWeight.w600, color: Colors.white),
-            ),
-          ],
-        ),
-        actions: [
-          PopupMenuButton<ChatActions>(
-            icon: const Icon(Icons.more_vert_rounded),
-            onSelected: (ChatActions item) {
-              switch (item) {
-                case ChatActions.clear:
-                  _onClearConversation();
-                case ChatActions.changeChatPt:
-                  _changeChatPt();
-                case ChatActions.regenerate:
-                  _vm.reSendMessage();
+      // appBar: AppBar(
+      //   backgroundColor: Theme.of(context).primaryColor,
+      //   leading: IconButton(
+      //     onPressed: () => context.pop(),
+      //     icon: const Icon(Icons.arrow_back, color: Colors.white),
+      //   ),
+      //   elevation: 0,
+      //   title: Row(
+      //     crossAxisAlignment: CrossAxisAlignment.center,
+      //     children: [
+      //       Text(
+      //         'Chat bot',
+      //         style: context.titleLarge
+      //             .copyWith(fontWeight: FontWeight.w600, color: Colors.white),
+      //       ),
+      //     ],
+      //   ),
+      //   actions: [
+      //     PopupMenuButton<ChatActions>(
+      //       icon: const Icon(Icons.more_vert_rounded),
+      //       onSelected: (ChatActions item) {
+      //         switch (item) {
+      //           case ChatActions.clear:
+      //             _onClearConversation();
+      //           case ChatActions.changeChatPt:
+      //             _changeChatPt();
+      //           case ChatActions.regenerate:
+      //             _vm.reSendMessage();
 
-                default:
-                  () {};
-              }
-            },
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuEntry<ChatActions>>[
-              ...[
-                ChatActions.regenerate,
-                ChatActions.share,
-                ChatActions.clear,
-                ChatActions.changeChatPt
-              ].map(
-                (e) => PopupMenuItem<ChatActions>(
-                  value: e,
-                  child: Text(e.toDisplayText, style: context.titleMedium),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+      //           default:
+      //             () {};
+      //         }
+      //       },
+      //       itemBuilder: (BuildContext context) =>
+      //           <PopupMenuEntry<ChatActions>>[
+      //         ...[
+      //           ChatActions.regenerate,
+      //           ChatActions.share,
+      //           ChatActions.clear,
+      //           ChatActions.changeChatPt
+      //         ].map(
+      //           (e) => PopupMenuItem<ChatActions>(
+      //             value: e,
+      //             child: Text(e.toDisplayText, style: context.titleMedium),
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ],
+      // ),
       body: Column(
         children: [
           Expanded(

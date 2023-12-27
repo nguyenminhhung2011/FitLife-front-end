@@ -80,7 +80,7 @@ class MainRoutes {
       case Routes.chatBot:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ProviderScope(child: ChatBotView()),
+          builder: (_) => const ProviderScope(child: ChatBotView(chatId: "0")),
         );
       case Routes.conversation:
         return MaterialPageRoute(

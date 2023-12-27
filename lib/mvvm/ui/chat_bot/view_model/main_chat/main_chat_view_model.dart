@@ -21,4 +21,12 @@ class MainChatViewModel extends StateNotifier<MainChatState> {
   void changeTab(int newTab) {
     state = _ChangeTabSuccess(data: data.copyWith(currentTab: newTab));
   }
+
+  void changeFocusChat(String newId) async {
+    state = _ChangeChatFocus(
+        data: data.copyWith(currentChatId: null, currentTab: 0));
+    await Future.delayed(const Duration(milliseconds: 100));
+    state = _ChangeChatFocus(
+        data: data.copyWith(currentChatId: newId, currentTab: 0));
+  }
 }

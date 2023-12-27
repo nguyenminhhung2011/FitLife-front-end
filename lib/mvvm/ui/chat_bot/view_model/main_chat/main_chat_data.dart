@@ -6,5 +6,6 @@ part 'main_chat_data.freezed.dart';
 class MainChatData with _$MainChatData {
   const factory MainChatData({
     @Default(0) int currentTab,
+    String? currentChatId,
   }) = _MainChatData;
 }

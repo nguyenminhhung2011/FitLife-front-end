@@ -21,18 +21,21 @@ mixin _$MainChatState {
   TResult when<TResult extends Object?>({
     required TResult Function(MainChatData data) initial,
     required TResult Function(MainChatData data) changeTabSuccess,
+    required TResult Function(MainChatData data) changeChatFocus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(MainChatData data)? initial,
     TResult? Function(MainChatData data)? changeTabSuccess,
+    TResult? Function(MainChatData data)? changeChatFocus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(MainChatData data)? initial,
     TResult Function(MainChatData data)? changeTabSuccess,
+    TResult Function(MainChatData data)? changeChatFocus,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$MainChatState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
+    required TResult Function(_ChangeChatFocus value) changeChatFocus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult? Function(_ChangeChatFocus value)? changeChatFocus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult Function(_ChangeChatFocus value)? changeChatFocus,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,6 +180,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function(MainChatData data) initial,
     required TResult Function(MainChatData data) changeTabSuccess,
+    required TResult Function(MainChatData data) changeChatFocus,
   }) {
     return initial(data);
   }
@@ -183,6 +190,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(MainChatData data)? initial,
     TResult? Function(MainChatData data)? changeTabSuccess,
+    TResult? Function(MainChatData data)? changeChatFocus,
   }) {
     return initial?.call(data);
   }
@@ -192,6 +200,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(MainChatData data)? initial,
     TResult Function(MainChatData data)? changeTabSuccess,
+    TResult Function(MainChatData data)? changeChatFocus,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -205,6 +214,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
+    required TResult Function(_ChangeChatFocus value) changeChatFocus,
   }) {
     return initial(this);
   }
@@ -214,6 +224,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult? Function(_ChangeChatFocus value)? changeChatFocus,
   }) {
     return initial?.call(this);
   }
@@ -223,6 +234,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult Function(_ChangeChatFocus value)? changeChatFocus,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -314,6 +326,7 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function(MainChatData data) initial,
     required TResult Function(MainChatData data) changeTabSuccess,
+    required TResult Function(MainChatData data) changeChatFocus,
   }) {
     return changeTabSuccess(data);
   }
@@ -323,6 +336,7 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(MainChatData data)? initial,
     TResult? Function(MainChatData data)? changeTabSuccess,
+    TResult? Function(MainChatData data)? changeChatFocus,
   }) {
     return changeTabSuccess?.call(data);
   }
@@ -332,6 +346,7 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(MainChatData data)? initial,
     TResult Function(MainChatData data)? changeTabSuccess,
+    TResult Function(MainChatData data)? changeChatFocus,
     required TResult orElse(),
   }) {
     if (changeTabSuccess != null) {
@@ -345,6 +360,7 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
+    required TResult Function(_ChangeChatFocus value) changeChatFocus,
   }) {
     return changeTabSuccess(this);
   }
@@ -354,6 +370,7 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult? Function(_ChangeChatFocus value)? changeChatFocus,
   }) {
     return changeTabSuccess?.call(this);
   }
@@ -363,6 +380,7 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult Function(_ChangeChatFocus value)? changeChatFocus,
     required TResult orElse(),
   }) {
     if (changeTabSuccess != null) {
@@ -381,5 +399,152 @@ abstract class _ChangeTabSuccess implements MainChatState {
   @override
   @JsonKey(ignore: true)
   _$$_ChangeTabSuccessCopyWith<_$_ChangeTabSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangeChatFocusCopyWith<$Res>
+    implements $MainChatStateCopyWith<$Res> {
+  factory _$$_ChangeChatFocusCopyWith(
+          _$_ChangeChatFocus value, $Res Function(_$_ChangeChatFocus) then) =
+      __$$_ChangeChatFocusCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({MainChatData data});
+
+  @override
+  $MainChatDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_ChangeChatFocusCopyWithImpl<$Res>
+    extends _$MainChatStateCopyWithImpl<$Res, _$_ChangeChatFocus>
+    implements _$$_ChangeChatFocusCopyWith<$Res> {
+  __$$_ChangeChatFocusCopyWithImpl(
+      _$_ChangeChatFocus _value, $Res Function(_$_ChangeChatFocus) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_ChangeChatFocus(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as MainChatData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeChatFocus implements _ChangeChatFocus {
+  const _$_ChangeChatFocus({required this.data});
+
+  @override
+  final MainChatData data;
+
+  @override
+  String toString() {
+    return 'MainChatState.changeChatFocus(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeChatFocus &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeChatFocusCopyWith<_$_ChangeChatFocus> get copyWith =>
+      __$$_ChangeChatFocusCopyWithImpl<_$_ChangeChatFocus>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MainChatData data) initial,
+    required TResult Function(MainChatData data) changeTabSuccess,
+    required TResult Function(MainChatData data) changeChatFocus,
+  }) {
+    return changeChatFocus(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(MainChatData data)? initial,
+    TResult? Function(MainChatData data)? changeTabSuccess,
+    TResult? Function(MainChatData data)? changeChatFocus,
+  }) {
+    return changeChatFocus?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MainChatData data)? initial,
+    TResult Function(MainChatData data)? changeTabSuccess,
+    TResult Function(MainChatData data)? changeChatFocus,
+    required TResult orElse(),
+  }) {
+    if (changeChatFocus != null) {
+      return changeChatFocus(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
+    required TResult Function(_ChangeChatFocus value) changeChatFocus,
+  }) {
+    return changeChatFocus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult? Function(_ChangeChatFocus value)? changeChatFocus,
+  }) {
+    return changeChatFocus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult Function(_ChangeChatFocus value)? changeChatFocus,
+    required TResult orElse(),
+  }) {
+    if (changeChatFocus != null) {
+      return changeChatFocus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeChatFocus implements MainChatState {
+  const factory _ChangeChatFocus({required final MainChatData data}) =
+      _$_ChangeChatFocus;
+
+  @override
+  MainChatData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ChangeChatFocusCopyWith<_$_ChangeChatFocus> get copyWith =>
       throw _privateConstructorUsedError;
 }

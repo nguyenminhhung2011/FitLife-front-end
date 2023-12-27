@@ -3,7 +3,6 @@ import 'package:fit_life/core/components/widgets/fit_life/slide_change_value.dar
 import 'package:fit_life/mvvm/me/entity/session/setting_session.dart';
 import 'package:fit_life/mvvm/me/model/user/change_password.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/all_pt_view.dart';
-import 'package:fit_life/mvvm/ui/chat_bot/views/create_bot_view.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/add_source_bottom.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/write_content_bottom.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/your_bot_bottom.dart';

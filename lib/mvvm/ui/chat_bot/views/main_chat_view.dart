@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:collection/collection.dart';
+// import 'package:dash_bubble/dash_bubble.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
+// import 'package:fit_life/core/services/bubble_service.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/api_key/input_api_cubit.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/main_chat/main_chat_data.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/main_chat/main_chat_view_model.dart';
@@ -14,8 +18,19 @@ import 'package:fit_life/mvvm/ui/chat_bot/views/create_bot_view.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/input_api.dart';
 import 'package:fit_life/mvvm/ui/conversation/view/widgets/conversation_item_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+const platform = MethodChannel('your_channel_name');
+
+Future<void> callNativeMethod() async {
+  try {
+    await platform.invokeMethod('nativeMethod');
+  } catch (e) {
+    log('Error calling native method: $e');
+  }
+}
 
 class MainChatView extends ConsumerStatefulWidget {
   const MainChatView({super.key});
@@ -33,22 +48,18 @@ class MainChatViewState extends ConsumerState<MainChatView> {
 
   MainChatData get _data => _state.data;
 
-  int get _currentTab => _data.currentTab;
+  String? get _currentChatId => _data.currentChatId;
 
-  final mainTabItem = [
-    const ProviderScope(child: ChatBotView()),
-    const ProviderScope(child: AllPtView()),
-    BlocProvider(
-      create: (_) => injector.get<InputApiCubit>(),
-      child: const InputApiView(),
-    ),
-    const ProviderScope(child: CreateBotView()),
-    const AllChatView(),
-  ];
+  int get _currentTab => _data.currentTab;
 
   void _listenStateChange(MainChatState state) {
     state.maybeWhen(
       changeTabSuccess: (_) {
+        if (_scaffoldKey.currentState?.isDrawerOpen ?? false) {
+          _scaffoldKey.currentState?.openEndDrawer();
+        }
+      },
+      changeChatFocus: (_) {
         if (_scaffoldKey.currentState?.isDrawerOpen ?? false) {
           _scaffoldKey.currentState?.openEndDrawer();
         }
@@ -84,7 +95,22 @@ class MainChatViewState extends ConsumerState<MainChatView> {
               .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
-      body: mainTabItem[_currentTab],
+      body: [
+        if (_currentChatId != null)
+          ProviderScope(
+              child: ChatBotView(
+            chatId: _currentChatId!,
+          ))
+        else
+          const SizedBox(),
+        const ProviderScope(child: AllPtView()),
+        BlocProvider(
+          create: (_) => injector.get<InputApiCubit>(),
+          child: const InputApiView(),
+        ),
+        const ProviderScope(child: CreateBotView()),
+        const AllChatView(),
+      ][_currentTab],
     );
   }
 
@@ -106,7 +132,47 @@ class MainChatViewState extends ConsumerState<MainChatView> {
                 "FitLife chatbot",
                 style:
                     context.titleMedium.copyWith(fontWeight: FontWeight.bold),
-              ))
+              )),
+              IconButton(
+                onPressed: () async => await callNativeMethod(),
+                icon: Icon(Icons.add),
+                //  await BubbleService.startBubble(
+                //   context,
+                //   bubbleOptions: BubbleOptions(
+                //     // notificationIcon: 'github_bubble',
+                //     // closeIcon: 'github_bubble',
+                //     startLocationX: 0,
+                //     startLocationY: 100,
+                //     bubbleSize: 60,
+                //     opacity: 1,
+                //     enableClose: true,
+                //     closeBehavior: CloseBehavior.following,
+                //     distanceToClose: 100,
+                //     enableAnimateToEdge: true,
+                //     enableBottomShadow: true,
+                //     keepAliveWhenAppExit: true,
+                //   ),
+                //   notificationOptions: NotificationOptions(
+                //     id: 1,
+                //     title: 'Dash Bubble Playground',
+                //     body: 'Dash Bubble service is running',
+                //     channelId: 'dash_bubble_notification',
+                //     channelName: 'Dash Bubble Notification',
+                //   ),
+                //   onTap: () async {
+                //     // final intent = AndroidIntent(
+                //     //   action: 'android.intent.action.MAIN',
+                //     //   category: "android.intent.category.LAUNCHER",
+                //     // );
+
+                //     // intent.launch();
+                //     await callNativeMethod();
+                //   },
+                //   onTapDown: (x, y) {},
+                //   onTapUp: (x, y) {},
+                //   onMove: (x, y) {},
+                // ),
+              )
             ],
           ),
         ),
@@ -124,8 +190,12 @@ class MainChatViewState extends ConsumerState<MainChatView> {
               const Divider(),
               ...List.generate(
                 5,
-                (index) =>
-                    const Column(children: [ConversationItemView(), Divider()]),
+                (index) => Column(children: [
+                  ConversationItemView(
+                    onPress: () => _vm.changeFocusChat("Yeah $index"),
+                  ),
+                  const Divider()
+                ]),
               ),
               ...Constant.mainChatButton.entries
                   .mapIndexed((index, e) => InkWell(
@@ -148,7 +218,7 @@ class MainChatViewState extends ConsumerState<MainChatView> {
                               Expanded(
                                 child: Text(
                                   e.key,
-                                  style: context.titleLarge
+                                  style: context.titleMedium
                                       .copyWith(fontWeight: FontWeight.w500),
                                 ),
                               )

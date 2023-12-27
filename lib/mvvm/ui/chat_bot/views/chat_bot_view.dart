@@ -24,7 +24,8 @@ extension ChatActionsExt on ChatActions {
 }
 
 class ChatBotView extends ConsumerStatefulWidget {
-  const ChatBotView({super.key});
+  final String chatId;
+  const ChatBotView({required this.chatId, super.key});
 
   @override
   ConsumerState<ChatBotView> createState() => _ChatBotViewState();
@@ -286,7 +287,7 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
                       children: [
                         Expanded(
                           child: Text(
-                            "Yoga train chat bot",
+                            "Yoga train chat bot ${widget.chatId}",
                             style: context.titleMedium
                                 .copyWith(fontWeight: FontWeight.bold),
                           ),

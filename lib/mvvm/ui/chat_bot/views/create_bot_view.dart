@@ -50,10 +50,10 @@ class _CreateBotViewState extends ConsumerState<CreateBotView> {
   String get _model => _data.model;
 
   TextStyle get _headerStyle =>
-      context.titleLarge.copyWith(fontWeight: FontWeight.bold, fontSize: 18.0);
+      context.titleMedium.copyWith(fontWeight: FontWeight.bold);
 
-  TextStyle get _smallStyle =>
-      context.titleSmall.copyWith(color: Theme.of(context).hintColor);
+  TextStyle get _smallStyle => context.titleSmall
+      .copyWith(color: Theme.of(context).hintColor, fontSize: 12.0);
 
   @override
   void dispose() {
@@ -130,7 +130,7 @@ class _CreateBotViewState extends ConsumerState<CreateBotView> {
           const SizedBox(height: 20.0),
           Text(
             "Bot behavior",
-            style: context.titleLarge.copyWith(fontWeight: FontWeight.bold),
+            style: context.titleMedium.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10.0),
           _headerTabView(context),
@@ -141,7 +141,7 @@ class _CreateBotViewState extends ConsumerState<CreateBotView> {
           const Divider(),
           const SizedBox(height: 20.0),
           Text("Bot profile",
-              style: context.titleLarge.copyWith(fontWeight: FontWeight.bold)),
+              style: context.titleMedium.copyWith(fontWeight: FontWeight.bold)),
           const SizedBox(height: 20.0),
           Text("Bio", style: _headerStyle),
           const SizedBox(height: 15.0),
@@ -193,7 +193,7 @@ class _CreateBotViewState extends ConsumerState<CreateBotView> {
                   child: Text(
                     element,
                     style: context.titleSmall
-                        .copyWith(fontWeight: FontWeight.w500),
+                        .copyWith(fontWeight: FontWeight.w500, fontSize: 12.0),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

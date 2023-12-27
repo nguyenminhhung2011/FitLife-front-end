@@ -6,14 +6,22 @@ import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class ConversationItemView extends StatelessWidget {
+  final Function()? onPress;
   const ConversationItemView({
     super.key,
+    this.onPress,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.openListPageWithRoute(Routes.chatBot),
+      onTap: () {
+        if (onPress != null) {
+          onPress?.call();
+        } else {
+          context.openListPageWithRoute(Routes.chatBot);
+        }
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         child: Row(

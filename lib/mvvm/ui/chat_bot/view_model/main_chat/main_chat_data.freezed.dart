@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MainChatData {
   int get currentTab => throw _privateConstructorUsedError;
+  String? get currentChatId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MainChatDataCopyWith<MainChatData> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $MainChatDataCopyWith<$Res> {
           MainChatData value, $Res Function(MainChatData) then) =
       _$MainChatDataCopyWithImpl<$Res, MainChatData>;
   @useResult
-  $Res call({int currentTab});
+  $Res call({int currentTab, String? currentChatId});
 }
 
 /// @nodoc
@@ -46,12 +47,17 @@ class _$MainChatDataCopyWithImpl<$Res, $Val extends MainChatData>
   @override
   $Res call({
     Object? currentTab = null,
+    Object? currentChatId = freezed,
   }) {
     return _then(_value.copyWith(
       currentTab: null == currentTab
           ? _value.currentTab
           : currentTab // ignore: cast_nullable_to_non_nullable
               as int,
+      currentChatId: freezed == currentChatId
+          ? _value.currentChatId
+          : currentChatId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -64,7 +70,7 @@ abstract class _$$_MainChatDataCopyWith<$Res>
       __$$_MainChatDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int currentTab});
+  $Res call({int currentTab, String? currentChatId});
 }
 
 /// @nodoc
@@ -79,12 +85,17 @@ class __$$_MainChatDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentTab = null,
+    Object? currentChatId = freezed,
   }) {
     return _then(_$_MainChatData(
       currentTab: null == currentTab
           ? _value.currentTab
           : currentTab // ignore: cast_nullable_to_non_nullable
               as int,
+      currentChatId: freezed == currentChatId
+          ? _value.currentChatId
+          : currentChatId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -92,15 +103,17 @@ class __$$_MainChatDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MainChatData implements _MainChatData {
-  const _$_MainChatData({this.currentTab = 0});
+  const _$_MainChatData({this.currentTab = 0, this.currentChatId});
 
   @override
   @JsonKey()
   final int currentTab;
+  @override
+  final String? currentChatId;
 
   @override
   String toString() {
-    return 'MainChatData(currentTab: $currentTab)';
+    return 'MainChatData(currentTab: $currentTab, currentChatId: $currentChatId)';
   }
 
   @override
@@ -109,11 +122,13 @@ class _$_MainChatData implements _MainChatData {
         (other.runtimeType == runtimeType &&
             other is _$_MainChatData &&
             (identical(other.currentTab, currentTab) ||
-                other.currentTab == currentTab));
+                other.currentTab == currentTab) &&
+            (identical(other.currentChatId, currentChatId) ||
+                other.currentChatId == currentChatId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentTab);
+  int get hashCode => Object.hash(runtimeType, currentTab, currentChatId);
 
   @JsonKey(ignore: true)
   @override
@@ -123,10 +138,13 @@ class _$_MainChatData implements _MainChatData {
 }
 
 abstract class _MainChatData implements MainChatData {
-  const factory _MainChatData({final int currentTab}) = _$_MainChatData;
+  const factory _MainChatData(
+      {final int currentTab, final String? currentChatId}) = _$_MainChatData;
 
   @override
   int get currentTab;
+  @override
+  String? get currentChatId;
   @override
   @JsonKey(ignore: true)
   _$$_MainChatDataCopyWith<_$_MainChatData> get copyWith =>

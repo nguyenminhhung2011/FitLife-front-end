@@ -44,9 +44,10 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
 
   @override
   void initState() {
-    Future.delayed(Duration.zero, () {
-      _vm.initialTextToSpeech();
-      _vm.initialSpeechToText().whenComplete(() => _vm.getMessage());
+    Future.delayed(Duration.zero, () async {
+      await _vm.getMessage();
+      await _vm.initialTextToSpeech();
+      await _vm.initialSpeechToText();
     });
     super.initState();
   }

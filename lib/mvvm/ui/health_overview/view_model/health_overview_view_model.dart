@@ -1,4 +1,9 @@
+import 'package:fit_life/core/components/constant/constant.dart';
+import 'package:fit_life/core/components/enum/gender.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/me/entity/user/user_profile_entity.dart';
+import 'package:fit_life/mvvm/me/model/user/update_user_profile.dart';
+import 'package:fit_life/mvvm/repo/user_repositories.dart';
 import 'package:fit_life/mvvm/ui/health_overview/view_model/health_overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -14,15 +19,44 @@ final healthOverviewStateNotifier = AutoDisposeStateNotifierProvider<
 
 @injectable
 class HealthOverviewViewModel extends StateNotifier<HealthOverviewState> {
+  final UserRepositories _userRepositories = injector.get<UserRepositories>();
+
   HealthOverviewViewModel() : super(const _Initial(data: HealthOverviewData()));
 
   HealthOverviewData get data => state.data;
 
-  void updateUserProfile(HealthOverviewData data) async {
+  Future<void> updateUserProfile(HealthOverviewData newData) async {
     if (state is _Loading) return;
     state = _Loading(data: state.data);
-    await Future.delayed(const Duration(seconds: 2), () {
-      state = _updateInformationSuccess(data: data);
-    });
+    final response = await _userRepositories.updateUserProfile(
+      updateUserProfile: UpdateUserProfile(
+          gender: (newData.isMale) ? Gender.male : Gender.female,
+          weight: newData.weight.toDouble(),
+          height: newData.height.toDouble(),
+          frequency: Constant.durationConst[newData.duration]),
+    );
+    if (!mounted) return;
+    state = (response).fold(
+      ifLeft: (error) =>
+          _UpdateInformationFailed(data: data, message: error.message),
+      ifRight: (rData) => _UpdateInformationSuccess(data: data),
+    );
+  }
+
+  Future<void> getUserProfile() async {
+    if (state is _Loading) return;
+    state = _Loading(data: data);
+    final response = await _userRepositories.getUserProfile();
+    if (!mounted) return;
+    state = response.fold(
+      ifLeft: (error) =>
+          _GetUserProfileFailed(data: data, message: error.message),
+      ifRight: (rData) {
+        if (rData.userProfile == null) {
+          return _GetUserProfileFailed(data: data, message: "Data null");
+        }
+        return _GetUserProfileSuccess(data: data, profile: rData.userProfile!);
+      },
+    );
   }
 }

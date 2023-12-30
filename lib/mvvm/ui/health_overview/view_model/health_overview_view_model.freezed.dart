@@ -25,6 +25,10 @@ mixin _$HealthOverviewState {
     required TResult Function(HealthOverviewData data) updateInformationSuccess,
     required TResult Function(HealthOverviewData data, String message)
         updateInformationFailed,
+    required TResult Function(HealthOverviewData data, UserProfile profile)
+        getUserProfileSuccess,
+    required TResult Function(HealthOverviewData data, String message)
+        getUserProfileFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,10 @@ mixin _$HealthOverviewState {
     TResult? Function(HealthOverviewData data)? updateInformationSuccess,
     TResult? Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult? Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult? Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +53,10 @@ mixin _$HealthOverviewState {
     TResult Function(HealthOverviewData data)? updateInformationSuccess,
     TResult Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,10 +65,13 @@ mixin _$HealthOverviewState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_updateInformationSuccess value)
+    required TResult Function(_UpdateInformationSuccess value)
         updateInformationSuccess,
-    required TResult Function(_updateInformationFailed value)
+    required TResult Function(_UpdateInformationFailed value)
         updateInformationFailed,
+    required TResult Function(_GetUserProfileSuccess value)
+        getUserProfileSuccess,
+    required TResult Function(_GetUserProfileFailed value) getUserProfileFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,9 +79,11 @@ mixin _$HealthOverviewState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_updateInformationSuccess value)?
+    TResult? Function(_UpdateInformationSuccess value)?
         updateInformationSuccess,
-    TResult? Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult? Function(_GetUserProfileFailed value)? getUserProfileFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,8 +91,10 @@ mixin _$HealthOverviewState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
-    TResult Function(_updateInformationSuccess value)? updateInformationSuccess,
-    TResult Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult Function(_UpdateInformationSuccess value)? updateInformationSuccess,
+    TResult Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult Function(_GetUserProfileFailed value)? getUserProfileFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -202,6 +221,10 @@ class _$_Initial extends _Initial {
     required TResult Function(HealthOverviewData data) updateInformationSuccess,
     required TResult Function(HealthOverviewData data, String message)
         updateInformationFailed,
+    required TResult Function(HealthOverviewData data, UserProfile profile)
+        getUserProfileSuccess,
+    required TResult Function(HealthOverviewData data, String message)
+        getUserProfileFailed,
   }) {
     return initial(data);
   }
@@ -215,6 +238,10 @@ class _$_Initial extends _Initial {
     TResult? Function(HealthOverviewData data)? updateInformationSuccess,
     TResult? Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult? Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult? Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
   }) {
     return initial?.call(data);
   }
@@ -228,6 +255,10 @@ class _$_Initial extends _Initial {
     TResult Function(HealthOverviewData data)? updateInformationSuccess,
     TResult Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,10 +273,13 @@ class _$_Initial extends _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_updateInformationSuccess value)
+    required TResult Function(_UpdateInformationSuccess value)
         updateInformationSuccess,
-    required TResult Function(_updateInformationFailed value)
+    required TResult Function(_UpdateInformationFailed value)
         updateInformationFailed,
+    required TResult Function(_GetUserProfileSuccess value)
+        getUserProfileSuccess,
+    required TResult Function(_GetUserProfileFailed value) getUserProfileFailed,
   }) {
     return initial(this);
   }
@@ -256,9 +290,11 @@ class _$_Initial extends _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_updateInformationSuccess value)?
+    TResult? Function(_UpdateInformationSuccess value)?
         updateInformationSuccess,
-    TResult? Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult? Function(_GetUserProfileFailed value)? getUserProfileFailed,
   }) {
     return initial?.call(this);
   }
@@ -269,8 +305,10 @@ class _$_Initial extends _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
-    TResult Function(_updateInformationSuccess value)? updateInformationSuccess,
-    TResult Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult Function(_UpdateInformationSuccess value)? updateInformationSuccess,
+    TResult Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult Function(_GetUserProfileFailed value)? getUserProfileFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -366,6 +404,10 @@ class _$_Success extends _Success {
     required TResult Function(HealthOverviewData data) updateInformationSuccess,
     required TResult Function(HealthOverviewData data, String message)
         updateInformationFailed,
+    required TResult Function(HealthOverviewData data, UserProfile profile)
+        getUserProfileSuccess,
+    required TResult Function(HealthOverviewData data, String message)
+        getUserProfileFailed,
   }) {
     return success(data);
   }
@@ -379,6 +421,10 @@ class _$_Success extends _Success {
     TResult? Function(HealthOverviewData data)? updateInformationSuccess,
     TResult? Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult? Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult? Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
   }) {
     return success?.call(data);
   }
@@ -392,6 +438,10 @@ class _$_Success extends _Success {
     TResult Function(HealthOverviewData data)? updateInformationSuccess,
     TResult Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -406,10 +456,13 @@ class _$_Success extends _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_updateInformationSuccess value)
+    required TResult Function(_UpdateInformationSuccess value)
         updateInformationSuccess,
-    required TResult Function(_updateInformationFailed value)
+    required TResult Function(_UpdateInformationFailed value)
         updateInformationFailed,
+    required TResult Function(_GetUserProfileSuccess value)
+        getUserProfileSuccess,
+    required TResult Function(_GetUserProfileFailed value) getUserProfileFailed,
   }) {
     return success(this);
   }
@@ -420,9 +473,11 @@ class _$_Success extends _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_updateInformationSuccess value)?
+    TResult? Function(_UpdateInformationSuccess value)?
         updateInformationSuccess,
-    TResult? Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult? Function(_GetUserProfileFailed value)? getUserProfileFailed,
   }) {
     return success?.call(this);
   }
@@ -433,8 +488,10 @@ class _$_Success extends _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
-    TResult Function(_updateInformationSuccess value)? updateInformationSuccess,
-    TResult Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult Function(_UpdateInformationSuccess value)? updateInformationSuccess,
+    TResult Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult Function(_GetUserProfileFailed value)? getUserProfileFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -530,6 +587,10 @@ class _$_Loading extends _Loading {
     required TResult Function(HealthOverviewData data) updateInformationSuccess,
     required TResult Function(HealthOverviewData data, String message)
         updateInformationFailed,
+    required TResult Function(HealthOverviewData data, UserProfile profile)
+        getUserProfileSuccess,
+    required TResult Function(HealthOverviewData data, String message)
+        getUserProfileFailed,
   }) {
     return loading(data);
   }
@@ -543,6 +604,10 @@ class _$_Loading extends _Loading {
     TResult? Function(HealthOverviewData data)? updateInformationSuccess,
     TResult? Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult? Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult? Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
   }) {
     return loading?.call(data);
   }
@@ -556,6 +621,10 @@ class _$_Loading extends _Loading {
     TResult Function(HealthOverviewData data)? updateInformationSuccess,
     TResult Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -570,10 +639,13 @@ class _$_Loading extends _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_updateInformationSuccess value)
+    required TResult Function(_UpdateInformationSuccess value)
         updateInformationSuccess,
-    required TResult Function(_updateInformationFailed value)
+    required TResult Function(_UpdateInformationFailed value)
         updateInformationFailed,
+    required TResult Function(_GetUserProfileSuccess value)
+        getUserProfileSuccess,
+    required TResult Function(_GetUserProfileFailed value) getUserProfileFailed,
   }) {
     return loading(this);
   }
@@ -584,9 +656,11 @@ class _$_Loading extends _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_updateInformationSuccess value)?
+    TResult? Function(_UpdateInformationSuccess value)?
         updateInformationSuccess,
-    TResult? Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult? Function(_GetUserProfileFailed value)? getUserProfileFailed,
   }) {
     return loading?.call(this);
   }
@@ -597,8 +671,10 @@ class _$_Loading extends _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
-    TResult Function(_updateInformationSuccess value)? updateInformationSuccess,
-    TResult Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult Function(_UpdateInformationSuccess value)? updateInformationSuccess,
+    TResult Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult Function(_GetUserProfileFailed value)? getUserProfileFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -621,12 +697,12 @@ abstract class _Loading extends HealthOverviewState {
 }
 
 /// @nodoc
-abstract class _$$_updateInformationSuccessCopyWith<$Res>
+abstract class _$$_UpdateInformationSuccessCopyWith<$Res>
     implements $HealthOverviewStateCopyWith<$Res> {
-  factory _$$_updateInformationSuccessCopyWith(
-          _$_updateInformationSuccess value,
-          $Res Function(_$_updateInformationSuccess) then) =
-      __$$_updateInformationSuccessCopyWithImpl<$Res>;
+  factory _$$_UpdateInformationSuccessCopyWith(
+          _$_UpdateInformationSuccess value,
+          $Res Function(_$_UpdateInformationSuccess) then) =
+      __$$_UpdateInformationSuccessCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({HealthOverviewData data});
@@ -636,11 +712,11 @@ abstract class _$$_updateInformationSuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_updateInformationSuccessCopyWithImpl<$Res>
-    extends _$HealthOverviewStateCopyWithImpl<$Res, _$_updateInformationSuccess>
-    implements _$$_updateInformationSuccessCopyWith<$Res> {
-  __$$_updateInformationSuccessCopyWithImpl(_$_updateInformationSuccess _value,
-      $Res Function(_$_updateInformationSuccess) _then)
+class __$$_UpdateInformationSuccessCopyWithImpl<$Res>
+    extends _$HealthOverviewStateCopyWithImpl<$Res, _$_UpdateInformationSuccess>
+    implements _$$_UpdateInformationSuccessCopyWith<$Res> {
+  __$$_UpdateInformationSuccessCopyWithImpl(_$_UpdateInformationSuccess _value,
+      $Res Function(_$_UpdateInformationSuccess) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -648,7 +724,7 @@ class __$$_updateInformationSuccessCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_updateInformationSuccess(
+    return _then(_$_UpdateInformationSuccess(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -659,8 +735,8 @@ class __$$_updateInformationSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_updateInformationSuccess extends _updateInformationSuccess {
-  const _$_updateInformationSuccess({required this.data}) : super._();
+class _$_UpdateInformationSuccess extends _UpdateInformationSuccess {
+  const _$_UpdateInformationSuccess({required this.data}) : super._();
 
   @override
   final HealthOverviewData data;
@@ -674,7 +750,7 @@ class _$_updateInformationSuccess extends _updateInformationSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_updateInformationSuccess &&
+            other is _$_UpdateInformationSuccess &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -684,9 +760,9 @@ class _$_updateInformationSuccess extends _updateInformationSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_updateInformationSuccessCopyWith<_$_updateInformationSuccess>
-      get copyWith => __$$_updateInformationSuccessCopyWithImpl<
-          _$_updateInformationSuccess>(this, _$identity);
+  _$$_UpdateInformationSuccessCopyWith<_$_UpdateInformationSuccess>
+      get copyWith => __$$_UpdateInformationSuccessCopyWithImpl<
+          _$_UpdateInformationSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -697,6 +773,10 @@ class _$_updateInformationSuccess extends _updateInformationSuccess {
     required TResult Function(HealthOverviewData data) updateInformationSuccess,
     required TResult Function(HealthOverviewData data, String message)
         updateInformationFailed,
+    required TResult Function(HealthOverviewData data, UserProfile profile)
+        getUserProfileSuccess,
+    required TResult Function(HealthOverviewData data, String message)
+        getUserProfileFailed,
   }) {
     return updateInformationSuccess(data);
   }
@@ -710,6 +790,10 @@ class _$_updateInformationSuccess extends _updateInformationSuccess {
     TResult? Function(HealthOverviewData data)? updateInformationSuccess,
     TResult? Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult? Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult? Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
   }) {
     return updateInformationSuccess?.call(data);
   }
@@ -723,6 +807,10 @@ class _$_updateInformationSuccess extends _updateInformationSuccess {
     TResult Function(HealthOverviewData data)? updateInformationSuccess,
     TResult Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
     required TResult orElse(),
   }) {
     if (updateInformationSuccess != null) {
@@ -737,10 +825,13 @@ class _$_updateInformationSuccess extends _updateInformationSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_updateInformationSuccess value)
+    required TResult Function(_UpdateInformationSuccess value)
         updateInformationSuccess,
-    required TResult Function(_updateInformationFailed value)
+    required TResult Function(_UpdateInformationFailed value)
         updateInformationFailed,
+    required TResult Function(_GetUserProfileSuccess value)
+        getUserProfileSuccess,
+    required TResult Function(_GetUserProfileFailed value) getUserProfileFailed,
   }) {
     return updateInformationSuccess(this);
   }
@@ -751,9 +842,11 @@ class _$_updateInformationSuccess extends _updateInformationSuccess {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_updateInformationSuccess value)?
+    TResult? Function(_UpdateInformationSuccess value)?
         updateInformationSuccess,
-    TResult? Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult? Function(_GetUserProfileFailed value)? getUserProfileFailed,
   }) {
     return updateInformationSuccess?.call(this);
   }
@@ -764,8 +857,10 @@ class _$_updateInformationSuccess extends _updateInformationSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
-    TResult Function(_updateInformationSuccess value)? updateInformationSuccess,
-    TResult Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult Function(_UpdateInformationSuccess value)? updateInformationSuccess,
+    TResult Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult Function(_GetUserProfileFailed value)? getUserProfileFailed,
     required TResult orElse(),
   }) {
     if (updateInformationSuccess != null) {
@@ -775,25 +870,25 @@ class _$_updateInformationSuccess extends _updateInformationSuccess {
   }
 }
 
-abstract class _updateInformationSuccess extends HealthOverviewState {
-  const factory _updateInformationSuccess(
-      {required final HealthOverviewData data}) = _$_updateInformationSuccess;
-  const _updateInformationSuccess._() : super._();
+abstract class _UpdateInformationSuccess extends HealthOverviewState {
+  const factory _UpdateInformationSuccess(
+      {required final HealthOverviewData data}) = _$_UpdateInformationSuccess;
+  const _UpdateInformationSuccess._() : super._();
 
   @override
   HealthOverviewData get data;
   @override
   @JsonKey(ignore: true)
-  _$$_updateInformationSuccessCopyWith<_$_updateInformationSuccess>
+  _$$_UpdateInformationSuccessCopyWith<_$_UpdateInformationSuccess>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_updateInformationFailedCopyWith<$Res>
+abstract class _$$_UpdateInformationFailedCopyWith<$Res>
     implements $HealthOverviewStateCopyWith<$Res> {
-  factory _$$_updateInformationFailedCopyWith(_$_updateInformationFailed value,
-          $Res Function(_$_updateInformationFailed) then) =
-      __$$_updateInformationFailedCopyWithImpl<$Res>;
+  factory _$$_UpdateInformationFailedCopyWith(_$_UpdateInformationFailed value,
+          $Res Function(_$_UpdateInformationFailed) then) =
+      __$$_UpdateInformationFailedCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({HealthOverviewData data, String message});
@@ -803,11 +898,11 @@ abstract class _$$_updateInformationFailedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_updateInformationFailedCopyWithImpl<$Res>
-    extends _$HealthOverviewStateCopyWithImpl<$Res, _$_updateInformationFailed>
-    implements _$$_updateInformationFailedCopyWith<$Res> {
-  __$$_updateInformationFailedCopyWithImpl(_$_updateInformationFailed _value,
-      $Res Function(_$_updateInformationFailed) _then)
+class __$$_UpdateInformationFailedCopyWithImpl<$Res>
+    extends _$HealthOverviewStateCopyWithImpl<$Res, _$_UpdateInformationFailed>
+    implements _$$_UpdateInformationFailedCopyWith<$Res> {
+  __$$_UpdateInformationFailedCopyWithImpl(_$_UpdateInformationFailed _value,
+      $Res Function(_$_UpdateInformationFailed) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -816,7 +911,7 @@ class __$$_updateInformationFailedCopyWithImpl<$Res>
     Object? data = null,
     Object? message = null,
   }) {
-    return _then(_$_updateInformationFailed(
+    return _then(_$_UpdateInformationFailed(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -831,8 +926,8 @@ class __$$_updateInformationFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_updateInformationFailed extends _updateInformationFailed {
-  const _$_updateInformationFailed({required this.data, required this.message})
+class _$_UpdateInformationFailed extends _UpdateInformationFailed {
+  const _$_UpdateInformationFailed({required this.data, required this.message})
       : super._();
 
   @override
@@ -849,7 +944,7 @@ class _$_updateInformationFailed extends _updateInformationFailed {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_updateInformationFailed &&
+            other is _$_UpdateInformationFailed &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -860,9 +955,9 @@ class _$_updateInformationFailed extends _updateInformationFailed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_updateInformationFailedCopyWith<_$_updateInformationFailed>
+  _$$_UpdateInformationFailedCopyWith<_$_UpdateInformationFailed>
       get copyWith =>
-          __$$_updateInformationFailedCopyWithImpl<_$_updateInformationFailed>(
+          __$$_UpdateInformationFailedCopyWithImpl<_$_UpdateInformationFailed>(
               this, _$identity);
 
   @override
@@ -874,6 +969,10 @@ class _$_updateInformationFailed extends _updateInformationFailed {
     required TResult Function(HealthOverviewData data) updateInformationSuccess,
     required TResult Function(HealthOverviewData data, String message)
         updateInformationFailed,
+    required TResult Function(HealthOverviewData data, UserProfile profile)
+        getUserProfileSuccess,
+    required TResult Function(HealthOverviewData data, String message)
+        getUserProfileFailed,
   }) {
     return updateInformationFailed(data, message);
   }
@@ -887,6 +986,10 @@ class _$_updateInformationFailed extends _updateInformationFailed {
     TResult? Function(HealthOverviewData data)? updateInformationSuccess,
     TResult? Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult? Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult? Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
   }) {
     return updateInformationFailed?.call(data, message);
   }
@@ -900,6 +1003,10 @@ class _$_updateInformationFailed extends _updateInformationFailed {
     TResult Function(HealthOverviewData data)? updateInformationSuccess,
     TResult Function(HealthOverviewData data, String message)?
         updateInformationFailed,
+    TResult Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
     required TResult orElse(),
   }) {
     if (updateInformationFailed != null) {
@@ -914,10 +1021,13 @@ class _$_updateInformationFailed extends _updateInformationFailed {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_updateInformationSuccess value)
+    required TResult Function(_UpdateInformationSuccess value)
         updateInformationSuccess,
-    required TResult Function(_updateInformationFailed value)
+    required TResult Function(_UpdateInformationFailed value)
         updateInformationFailed,
+    required TResult Function(_GetUserProfileSuccess value)
+        getUserProfileSuccess,
+    required TResult Function(_GetUserProfileFailed value) getUserProfileFailed,
   }) {
     return updateInformationFailed(this);
   }
@@ -928,9 +1038,11 @@ class _$_updateInformationFailed extends _updateInformationFailed {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_updateInformationSuccess value)?
+    TResult? Function(_UpdateInformationSuccess value)?
         updateInformationSuccess,
-    TResult? Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult? Function(_GetUserProfileFailed value)? getUserProfileFailed,
   }) {
     return updateInformationFailed?.call(this);
   }
@@ -941,8 +1053,10 @@ class _$_updateInformationFailed extends _updateInformationFailed {
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
     TResult Function(_Loading value)? loading,
-    TResult Function(_updateInformationSuccess value)? updateInformationSuccess,
-    TResult Function(_updateInformationFailed value)? updateInformationFailed,
+    TResult Function(_UpdateInformationSuccess value)? updateInformationSuccess,
+    TResult Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult Function(_GetUserProfileFailed value)? getUserProfileFailed,
     required TResult orElse(),
   }) {
     if (updateInformationFailed != null) {
@@ -952,17 +1066,420 @@ class _$_updateInformationFailed extends _updateInformationFailed {
   }
 }
 
-abstract class _updateInformationFailed extends HealthOverviewState {
-  const factory _updateInformationFailed(
+abstract class _UpdateInformationFailed extends HealthOverviewState {
+  const factory _UpdateInformationFailed(
       {required final HealthOverviewData data,
-      required final String message}) = _$_updateInformationFailed;
-  const _updateInformationFailed._() : super._();
+      required final String message}) = _$_UpdateInformationFailed;
+  const _UpdateInformationFailed._() : super._();
 
   @override
   HealthOverviewData get data;
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_updateInformationFailedCopyWith<_$_updateInformationFailed>
+  _$$_UpdateInformationFailedCopyWith<_$_UpdateInformationFailed>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetUserProfileSuccessCopyWith<$Res>
+    implements $HealthOverviewStateCopyWith<$Res> {
+  factory _$$_GetUserProfileSuccessCopyWith(_$_GetUserProfileSuccess value,
+          $Res Function(_$_GetUserProfileSuccess) then) =
+      __$$_GetUserProfileSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({HealthOverviewData data, UserProfile profile});
+
+  @override
+  $HealthOverviewDataCopyWith<$Res> get data;
+  $UserProfileCopyWith<$Res> get profile;
+}
+
+/// @nodoc
+class __$$_GetUserProfileSuccessCopyWithImpl<$Res>
+    extends _$HealthOverviewStateCopyWithImpl<$Res, _$_GetUserProfileSuccess>
+    implements _$$_GetUserProfileSuccessCopyWith<$Res> {
+  __$$_GetUserProfileSuccessCopyWithImpl(_$_GetUserProfileSuccess _value,
+      $Res Function(_$_GetUserProfileSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? profile = null,
+  }) {
+    return _then(_$_GetUserProfileSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as HealthOverviewData,
+      profile: null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as UserProfile,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserProfileCopyWith<$Res> get profile {
+    return $UserProfileCopyWith<$Res>(_value.profile, (value) {
+      return _then(_value.copyWith(profile: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_GetUserProfileSuccess extends _GetUserProfileSuccess {
+  const _$_GetUserProfileSuccess({required this.data, required this.profile})
+      : super._();
+
+  @override
+  final HealthOverviewData data;
+  @override
+  final UserProfile profile;
+
+  @override
+  String toString() {
+    return 'HealthOverviewState.getUserProfileSuccess(data: $data, profile: $profile)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetUserProfileSuccess &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.profile, profile) || other.profile == profile));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, profile);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetUserProfileSuccessCopyWith<_$_GetUserProfileSuccess> get copyWith =>
+      __$$_GetUserProfileSuccessCopyWithImpl<_$_GetUserProfileSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(HealthOverviewData data) initial,
+    required TResult Function(HealthOverviewData data) success,
+    required TResult Function(HealthOverviewData data) loading,
+    required TResult Function(HealthOverviewData data) updateInformationSuccess,
+    required TResult Function(HealthOverviewData data, String message)
+        updateInformationFailed,
+    required TResult Function(HealthOverviewData data, UserProfile profile)
+        getUserProfileSuccess,
+    required TResult Function(HealthOverviewData data, String message)
+        getUserProfileFailed,
+  }) {
+    return getUserProfileSuccess(data, profile);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(HealthOverviewData data)? initial,
+    TResult? Function(HealthOverviewData data)? success,
+    TResult? Function(HealthOverviewData data)? loading,
+    TResult? Function(HealthOverviewData data)? updateInformationSuccess,
+    TResult? Function(HealthOverviewData data, String message)?
+        updateInformationFailed,
+    TResult? Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult? Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
+  }) {
+    return getUserProfileSuccess?.call(data, profile);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(HealthOverviewData data)? initial,
+    TResult Function(HealthOverviewData data)? success,
+    TResult Function(HealthOverviewData data)? loading,
+    TResult Function(HealthOverviewData data)? updateInformationSuccess,
+    TResult Function(HealthOverviewData data, String message)?
+        updateInformationFailed,
+    TResult Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
+    required TResult orElse(),
+  }) {
+    if (getUserProfileSuccess != null) {
+      return getUserProfileSuccess(data, profile);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_UpdateInformationSuccess value)
+        updateInformationSuccess,
+    required TResult Function(_UpdateInformationFailed value)
+        updateInformationFailed,
+    required TResult Function(_GetUserProfileSuccess value)
+        getUserProfileSuccess,
+    required TResult Function(_GetUserProfileFailed value) getUserProfileFailed,
+  }) {
+    return getUserProfileSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_UpdateInformationSuccess value)?
+        updateInformationSuccess,
+    TResult? Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult? Function(_GetUserProfileFailed value)? getUserProfileFailed,
+  }) {
+    return getUserProfileSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_UpdateInformationSuccess value)? updateInformationSuccess,
+    TResult Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult Function(_GetUserProfileFailed value)? getUserProfileFailed,
+    required TResult orElse(),
+  }) {
+    if (getUserProfileSuccess != null) {
+      return getUserProfileSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetUserProfileSuccess extends HealthOverviewState {
+  const factory _GetUserProfileSuccess(
+      {required final HealthOverviewData data,
+      required final UserProfile profile}) = _$_GetUserProfileSuccess;
+  const _GetUserProfileSuccess._() : super._();
+
+  @override
+  HealthOverviewData get data;
+  UserProfile get profile;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetUserProfileSuccessCopyWith<_$_GetUserProfileSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetUserProfileFailedCopyWith<$Res>
+    implements $HealthOverviewStateCopyWith<$Res> {
+  factory _$$_GetUserProfileFailedCopyWith(_$_GetUserProfileFailed value,
+          $Res Function(_$_GetUserProfileFailed) then) =
+      __$$_GetUserProfileFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({HealthOverviewData data, String message});
+
+  @override
+  $HealthOverviewDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetUserProfileFailedCopyWithImpl<$Res>
+    extends _$HealthOverviewStateCopyWithImpl<$Res, _$_GetUserProfileFailed>
+    implements _$$_GetUserProfileFailedCopyWith<$Res> {
+  __$$_GetUserProfileFailedCopyWithImpl(_$_GetUserProfileFailed _value,
+      $Res Function(_$_GetUserProfileFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_GetUserProfileFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as HealthOverviewData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetUserProfileFailed extends _GetUserProfileFailed {
+  const _$_GetUserProfileFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final HealthOverviewData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'HealthOverviewState.getUserProfileFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetUserProfileFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetUserProfileFailedCopyWith<_$_GetUserProfileFailed> get copyWith =>
+      __$$_GetUserProfileFailedCopyWithImpl<_$_GetUserProfileFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(HealthOverviewData data) initial,
+    required TResult Function(HealthOverviewData data) success,
+    required TResult Function(HealthOverviewData data) loading,
+    required TResult Function(HealthOverviewData data) updateInformationSuccess,
+    required TResult Function(HealthOverviewData data, String message)
+        updateInformationFailed,
+    required TResult Function(HealthOverviewData data, UserProfile profile)
+        getUserProfileSuccess,
+    required TResult Function(HealthOverviewData data, String message)
+        getUserProfileFailed,
+  }) {
+    return getUserProfileFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(HealthOverviewData data)? initial,
+    TResult? Function(HealthOverviewData data)? success,
+    TResult? Function(HealthOverviewData data)? loading,
+    TResult? Function(HealthOverviewData data)? updateInformationSuccess,
+    TResult? Function(HealthOverviewData data, String message)?
+        updateInformationFailed,
+    TResult? Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult? Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
+  }) {
+    return getUserProfileFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(HealthOverviewData data)? initial,
+    TResult Function(HealthOverviewData data)? success,
+    TResult Function(HealthOverviewData data)? loading,
+    TResult Function(HealthOverviewData data)? updateInformationSuccess,
+    TResult Function(HealthOverviewData data, String message)?
+        updateInformationFailed,
+    TResult Function(HealthOverviewData data, UserProfile profile)?
+        getUserProfileSuccess,
+    TResult Function(HealthOverviewData data, String message)?
+        getUserProfileFailed,
+    required TResult orElse(),
+  }) {
+    if (getUserProfileFailed != null) {
+      return getUserProfileFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_UpdateInformationSuccess value)
+        updateInformationSuccess,
+    required TResult Function(_UpdateInformationFailed value)
+        updateInformationFailed,
+    required TResult Function(_GetUserProfileSuccess value)
+        getUserProfileSuccess,
+    required TResult Function(_GetUserProfileFailed value) getUserProfileFailed,
+  }) {
+    return getUserProfileFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_UpdateInformationSuccess value)?
+        updateInformationSuccess,
+    TResult? Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult? Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult? Function(_GetUserProfileFailed value)? getUserProfileFailed,
+  }) {
+    return getUserProfileFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_UpdateInformationSuccess value)? updateInformationSuccess,
+    TResult Function(_UpdateInformationFailed value)? updateInformationFailed,
+    TResult Function(_GetUserProfileSuccess value)? getUserProfileSuccess,
+    TResult Function(_GetUserProfileFailed value)? getUserProfileFailed,
+    required TResult orElse(),
+  }) {
+    if (getUserProfileFailed != null) {
+      return getUserProfileFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetUserProfileFailed extends HealthOverviewState {
+  const factory _GetUserProfileFailed(
+      {required final HealthOverviewData data,
+      required final String message}) = _$_GetUserProfileFailed;
+  const _GetUserProfileFailed._() : super._();
+
+  @override
+  HealthOverviewData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetUserProfileFailedCopyWith<_$_GetUserProfileFailed> get copyWith =>
+      throw _privateConstructorUsedError;
 }

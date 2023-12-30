@@ -2,6 +2,8 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/enum/frequency.dart';
+import 'package:fit_life/core/components/enum/gender.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/generated/l10n.dart';
@@ -24,7 +26,13 @@ class _HealthOverviewViewState extends ConsumerState<HealthOverviewView> {
   HealthOverviewViewModel get _vm =>
       ref.read(healthOverviewStateNotifier.notifier);
 
-  HealthOverviewData get _data => ref.watch(healthOverviewStateNotifier).data;
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, () async {
+      await _vm.getUserProfile();
+    });
+    super.initState();
+  }
 
   int weight = 10;
   int height = 177;
@@ -63,11 +71,23 @@ class _HealthOverviewViewState extends ConsumerState<HealthOverviewView> {
 
   void _listener(HealthOverviewState state) {
     state.maybeWhen(
-        updateInformationSuccess: (_) =>
-            context.showSnackBar("✅ Update user profile success"),
-        updateInformationFailed: (_, message) =>
-            context.showSnackBar("🐛Get error: $message"),
-        orElse: () {});
+      getUserProfileSuccess: (_, newData) {
+        setState(() {
+          weight = newData.weight.round();
+          height = newData.height.round();
+          isMale = newData.gender == Gender.male;
+          duration = Constant.durationConst
+              .indexWhere((element) => element == newData.frequency);
+        });
+      },
+      getUserProfileFailed: (_, message) =>
+          context.showSnackBar("🐛[Get user profile] $message"),
+      updateInformationSuccess: (_) =>
+          context.showSnackBar("✅ Update user profile success"),
+      updateInformationFailed: (_, message) =>
+          context.showSnackBar("🐛Get error: $message"),
+      orElse: () {},
+    );
   }
 
   @override

@@ -133,46 +133,6 @@ class MainChatViewState extends ConsumerState<MainChatView> {
                 style:
                     context.titleMedium.copyWith(fontWeight: FontWeight.bold),
               )),
-              IconButton(
-                onPressed: () async => await callNativeMethod(),
-                icon: Icon(Icons.add),
-                //  await BubbleService.startBubble(
-                //   context,
-                //   bubbleOptions: BubbleOptions(
-                //     // notificationIcon: 'github_bubble',
-                //     // closeIcon: 'github_bubble',
-                //     startLocationX: 0,
-                //     startLocationY: 100,
-                //     bubbleSize: 60,
-                //     opacity: 1,
-                //     enableClose: true,
-                //     closeBehavior: CloseBehavior.following,
-                //     distanceToClose: 100,
-                //     enableAnimateToEdge: true,
-                //     enableBottomShadow: true,
-                //     keepAliveWhenAppExit: true,
-                //   ),
-                //   notificationOptions: NotificationOptions(
-                //     id: 1,
-                //     title: 'Dash Bubble Playground',
-                //     body: 'Dash Bubble service is running',
-                //     channelId: 'dash_bubble_notification',
-                //     channelName: 'Dash Bubble Notification',
-                //   ),
-                //   onTap: () async {
-                //     // final intent = AndroidIntent(
-                //     //   action: 'android.intent.action.MAIN',
-                //     //   category: "android.intent.category.LAUNCHER",
-                //     // );
-
-                //     // intent.launch();
-                //     await callNativeMethod();
-                //   },
-                //   onTapDown: (x, y) {},
-                //   onTapUp: (x, y) {},
-                //   onMove: (x, y) {},
-                // ),
-              )
             ],
           ),
         ),

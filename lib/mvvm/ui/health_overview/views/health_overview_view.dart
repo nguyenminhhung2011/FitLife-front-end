@@ -2,7 +2,6 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
-import 'package:fit_life/core/components/enum/frequency.dart';
 import 'package:fit_life/core/components/enum/gender.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';

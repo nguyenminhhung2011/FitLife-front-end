@@ -5,6 +5,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:fit_life/core/services/fcm/fcm_service.dart';
+import 'package:fit_life/core/services/notification_service.dart';
 import 'package:fit_life/firebase_options.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +51,7 @@ class AppDelegate {
     FirebaseMessaging.onBackgroundMessage(firebaseMessagingHandler);
     if (!kIsWeb) {
       await injector.get<FCMService>().setupFlutterNotifications();
+      injector.get<NotificationService>().initializeNotification();
     }
     runApp(app);
   }

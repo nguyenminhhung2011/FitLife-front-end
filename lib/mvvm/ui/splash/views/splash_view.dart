@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/core/services/fcm/fcm_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/configurations/env/env_prod.dart';
@@ -30,7 +32,7 @@ class _SplashViewState extends ConsumerState<SplashView> {
     super.initState();
     Future(() {
       _vm.isAuthCall();
-    }); 
+    });
   }
 
   @override
@@ -40,6 +42,7 @@ class _SplashViewState extends ConsumerState<SplashView> {
         orElse: () {},
         isAuth: (_, isCreated) {
           log("🌟🌟 Is auth");
+          injector.get<FCMService>().initFCM();
           if (isCreated) {
             context.pushAndRemoveAll(Routes.dashboard);
           } else {

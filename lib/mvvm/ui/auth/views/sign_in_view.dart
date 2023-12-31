@@ -1,4 +1,6 @@
 import 'package:collection/collection.dart';
+import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/core/services/fcm/fcm_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
@@ -59,6 +61,7 @@ class _SignInViewState extends ConsumerState<SignInView> with AuthMixin {
     state.maybeWhen(
       signInFailed: (_, message) => context.showSnackBar("🐛 $message"),
       signInSuccess: (_, isCreated) {
+        injector.get<FCMService>().initFCM();
         if (isCreated) {
           context.openListPageWithRoute(Routes.dashboard);
         } else {

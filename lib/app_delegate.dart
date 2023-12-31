@@ -2,6 +2,11 @@ import 'dart:async';
 // import 'package:sentry_flutter/sentry_flutter.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fit_life/core/services/fcm/fcm_service.dart';
+import 'package:fit_life/firebase_options.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:injectable/injectable.dart';
@@ -40,41 +45,12 @@ class AppDelegate {
     final app = await build(environment);
     await Preferences.ensureInitedPreferences();
     WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform);
+    FirebaseMessaging.onBackgroundMessage(firebaseMessagingHandler);
+    if (!kIsWeb) {
+      await injector.get<FCMService>().setupFlutterNotifications();
+    }
     runApp(app);
-    // var myValue = Mutable<double>(0.0);
-
-    // await runZonedGuarded(() async {
-    //   await Preferences.ensureInitedPreferences();
-    //   WidgetsFlutterBinding.ensureInitialized();
-    //   // Initialize other stuff here...
-
-    //   await SentryFlutter.init(
-    //     (options) {
-    //       options.dsn = 'https://example@sentry.io/add-your-dsn-here';
-    //     },
-    //   );
-    //   // or here
-    //   runApp(app);
-    // }, (exception, stackTrace) async {
-    //   await Sentry.captureException(exception, stackTrace: stackTrace);
-    // });
-    // WidgetsFlutterBinding.ensureInitialized();
-    // Zone.current.fork(
-    //   zoneValues: {
-    //     'myKey': myValue,
-    //   },
-    // ).run(() {
-    //   var newValue = 1.0; // obtain value from plugin
-    //   myValue.value = newValue; // update value in Zone
-    //   runApp(app);
-    // });
-    // runZonedGuarded(
-    //   () => {runApp(app)},
-    //   (error, stack) {
-    //     if (kDebugMode) {
-    //       //Do nothing
-    //     }
-    //   },
-    // );
   }
 }

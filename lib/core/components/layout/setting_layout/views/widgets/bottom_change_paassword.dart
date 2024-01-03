@@ -3,7 +3,7 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/text_form_field_custom.dart';
 import 'package:fit_life/generated/l10n.dart';
-import 'package:fit_life/mvvm/me/model/user/change_password.dart';
+import 'package:fit_life/mvvm/object/model/user/change_password.dart';
 import 'package:flutter/material.dart';
 
 const _hMargin = 15.0;

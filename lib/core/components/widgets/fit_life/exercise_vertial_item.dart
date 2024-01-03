@@ -1,6 +1,6 @@
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
-import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
+import 'package:fit_life/mvvm/object/entity/exercise/exercise.dart';
 import 'package:flutter/material.dart';
 
 class ExerciseVerticalItem extends StatelessWidget {

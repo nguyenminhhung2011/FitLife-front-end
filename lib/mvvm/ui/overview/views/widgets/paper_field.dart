@@ -1,4 +1,4 @@
-import 'package:fit_life/mvvm/me/entity/news_health/news_health.dart';
+import 'package:fit_life/mvvm/object/entity/news_health/news_health.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/widgets/fit_life/paper_horizontal_item.dart';
 

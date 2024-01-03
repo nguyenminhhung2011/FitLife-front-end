@@ -23,27 +23,32 @@ import '../../mvvm/data/remote/plan/plan_api.dart' as _i34;
 import '../../mvvm/data/remote/session/session_api.dart' as _i39;
 import '../../mvvm/data/remote/user/user_api.dart' as _i49;
 import '../../mvvm/data/remote/workout_plan/workout_plan_api.dart' as _i54;
-import '../../mvvm/me/entity/daily_workout/daily_workout.dart' as _i41;
-import '../../mvvm/repo/auth_repositories.dart' as _i58;
-import '../../mvvm/repo/calories_repositories.dart' as _i6;
-import '../../mvvm/repo/chat_repositories.dart' as _i9;
-import '../../mvvm/repo/daily_plan_repositories.dart' as _i61;
-import '../../mvvm/repo/exercise_repositories.dart' as _i63;
-import '../../mvvm/repo/news_repositories.dart' as _i28;
-import '../../mvvm/repo/plan_repositories.dart' as _i37;
-import '../../mvvm/repo/repo_impl/auth_repositories_impl.dart' as _i59;
-import '../../mvvm/repo/repo_impl/calories_repositories_impl.dart' as _i7;
-import '../../mvvm/repo/repo_impl/chat_repositories_impl.dart' as _i10;
-import '../../mvvm/repo/repo_impl/daily_plan_repositories_impl.dart' as _i62;
-import '../../mvvm/repo/repo_impl/exercise_repositories_impl.dart' as _i64;
-import '../../mvvm/repo/repo_impl/news_repositories_impl.dart' as _i29;
-import '../../mvvm/repo/repo_impl/plan_repositories_impl.dart' as _i38;
-import '../../mvvm/repo/repo_impl/session_repositories_impl.dart' as _i43;
-import '../../mvvm/repo/repo_impl/user_repositories_impl.dart' as _i51;
-import '../../mvvm/repo/repo_impl/workout_plan_repositories_impl.dart' as _i56;
-import '../../mvvm/repo/session_repositories.dart' as _i42;
-import '../../mvvm/repo/user_repositories.dart' as _i50;
-import '../../mvvm/repo/workout_plan_repositories.dart' as _i55;
+import '../../mvvm/object/entity/daily_workout/daily_workout.dart' as _i41;
+import '../../mvvm/repositories/auth_repositories.dart' as _i58;
+import '../../mvvm/repositories/calories_repositories.dart' as _i6;
+import '../../mvvm/repositories/chat_repositories.dart' as _i9;
+import '../../mvvm/repositories/daily_plan_repositories.dart' as _i61;
+import '../../mvvm/repositories/exercise_repositories.dart' as _i63;
+import '../../mvvm/repositories/implements/auth_repositories_impl.dart' as _i59;
+import '../../mvvm/repositories/implements/calories_repositories_impl.dart'
+    as _i7;
+import '../../mvvm/repositories/implements/chat_repositories_impl.dart' as _i10;
+import '../../mvvm/repositories/implements/daily_plan_repositories_impl.dart'
+    as _i62;
+import '../../mvvm/repositories/implements/exercise_repositories_impl.dart'
+    as _i64;
+import '../../mvvm/repositories/implements/news_repositories_impl.dart' as _i29;
+import '../../mvvm/repositories/implements/plan_repositories_impl.dart' as _i38;
+import '../../mvvm/repositories/implements/session_repositories_impl.dart'
+    as _i43;
+import '../../mvvm/repositories/implements/user_repositories_impl.dart' as _i51;
+import '../../mvvm/repositories/implements/workout_plan_repositories_impl.dart'
+    as _i56;
+import '../../mvvm/repositories/news_repositories.dart' as _i28;
+import '../../mvvm/repositories/plan_repositories.dart' as _i37;
+import '../../mvvm/repositories/session_repositories.dart' as _i42;
+import '../../mvvm/repositories/user_repositories.dart' as _i50;
+import '../../mvvm/repositories/workout_plan_repositories.dart' as _i55;
 import '../../mvvm/ui/all_exercise/view_model/all_exercise_view_model.dart'
     as _i4;
 import '../../mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart' as _i44;
@@ -59,11 +64,9 @@ import '../../mvvm/ui/chat_bot/view_model/main_chat/main_chat_view_model.dart'
 import '../../mvvm/ui/dashboard/view_model/dashboard_view_model.dart' as _i13;
 import '../../mvvm/ui/execise_detail/view_model/exercise_detail_view_model.dart'
     as _i16;
-import '../../mvvm/ui/exercise_overview/view_model/session_plan_view_model.dart'
-    as _i40;
 import '../../mvvm/ui/exercise_schedule/view_model/add_exercise/add_exercise_view_model.dart'
     as _i3;
-import '../../mvvm/ui/exercise_schedule/view_model/exercise_overview_view_model.dart'
+import '../../mvvm/ui/exercise_schedule/view_model/exercise_overview/exercise_overview_view_model.dart'
     as _i17;
 import '../../mvvm/ui/fit_overview/view_model/fit_overview_view_model.dart'
     as _i19;
@@ -78,12 +81,14 @@ import '../../mvvm/ui/onboarding/view_model/onboarding_view_model.dart' as _i32;
 import '../../mvvm/ui/overview/view_model/overview_view_model.dart' as _i33;
 import '../../mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart'
     as _i35;
-import '../../mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart'
+import '../../mvvm/ui/plan_overview/view_model/plan_overview/plan_overview_view_model.dart'
     as _i36;
 import '../../mvvm/ui/plan_overview/view_model/view_more/view_more_plan_view_model.dart'
     as _i52;
 import '../../mvvm/ui/recommend_plan/view_model/group_exercise_view_model.dart'
     as _i20;
+import '../../mvvm/ui/session_plan/view_model/session_plan_view_model.dart'
+    as _i40;
 import '../../mvvm/ui/splash/view_model/splash_view_model.dart' as _i47;
 import '../../mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart' as _i53;
 import '../components/layout/setting_layout/controller/setting_bloc.dart'

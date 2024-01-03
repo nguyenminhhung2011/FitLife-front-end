@@ -1,5 +1,5 @@
 import 'package:fit_life/app_coordinator.dart';
-import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
+import 'package:fit_life/mvvm/object/entity/daily_workout/daily_workout.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';

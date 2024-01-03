@@ -1,5 +1,5 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/repo/session_repositories.dart';
+import 'package:fit_life/mvvm/repositories/session_repositories.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/view_model/wo_trac_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

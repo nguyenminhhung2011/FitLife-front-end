@@ -1,4 +1,4 @@
-import 'package:fit_life/mvvm/me/entity/plan_detail/plan_detail.dart';
+import 'package:fit_life/mvvm/object/entity/plan_detail/plan_detail.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'plan_detail_data.freezed.dart';

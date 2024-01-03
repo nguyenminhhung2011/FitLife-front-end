@@ -1,9 +1,9 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/me/entity/news_health/news_health.dart';
-import 'package:fit_life/mvvm/me/entity/pagination/pagination.dart';
-import 'package:fit_life/mvvm/me/entity/request/search_news_request.dart';
-import 'package:fit_life/mvvm/me/model/page_request/page_request.dart';
-import 'package:fit_life/mvvm/repo/news_repositories.dart';
+import 'package:fit_life/mvvm/object/entity/news_health/news_health.dart';
+import 'package:fit_life/mvvm/object/entity/pagination/pagination.dart';
+import 'package:fit_life/mvvm/object/entity/request/search_news_request.dart';
+import 'package:fit_life/mvvm/object/model/page_request/page_request.dart';
+import 'package:fit_life/mvvm/repositories/news_repositories.dart';
 import 'package:fit_life/mvvm/ui/list_news/view_model/list_news_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

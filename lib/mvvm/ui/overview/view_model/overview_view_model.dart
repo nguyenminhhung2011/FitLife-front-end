@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/me/entity/request/search_news_request.dart';
-import 'package:fit_life/mvvm/me/entity/upcoming_session/upcoming_session.dart';
-import 'package:fit_life/mvvm/me/model/page_request/page_request.dart';
-import 'package:fit_life/mvvm/repo/news_repositories.dart';
-import 'package:fit_life/mvvm/repo/session_repositories.dart';
+import 'package:fit_life/mvvm/object/entity/request/search_news_request.dart';
+import 'package:fit_life/mvvm/object/entity/upcoming_session/upcoming_session.dart';
+import 'package:fit_life/mvvm/object/model/page_request/page_request.dart';
+import 'package:fit_life/mvvm/repositories/news_repositories.dart';
+import 'package:fit_life/mvvm/repositories/session_repositories.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

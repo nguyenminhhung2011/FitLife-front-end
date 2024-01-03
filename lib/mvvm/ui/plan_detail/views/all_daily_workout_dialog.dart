@@ -2,7 +2,7 @@ import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/schedule_item.dart';
-import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
+import 'package:fit_life/mvvm/object/entity/daily_workout/daily_workout.dart';
 import 'package:flutter/material.dart';
 
 class AllDailyWorkoutDialog extends StatelessWidget {

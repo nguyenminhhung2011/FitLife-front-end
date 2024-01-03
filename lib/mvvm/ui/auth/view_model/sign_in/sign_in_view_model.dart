@@ -1,6 +1,6 @@
 import 'package:fit_life/core/components/utils/validators.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/repo/auth_repositories.dart';
+import 'package:fit_life/mvvm/repositories/auth_repositories.dart';
 import 'package:fit_life/mvvm/ui/auth/view_model/sign_in/sign_in_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

@@ -1,5 +1,5 @@
 import 'package:fit_life/app_coordinator.dart';
-import 'package:fit_life/mvvm/me/entity/upcoming_session/upcoming_session.dart';
+import 'package:fit_life/mvvm/object/entity/upcoming_session/upcoming_session.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';

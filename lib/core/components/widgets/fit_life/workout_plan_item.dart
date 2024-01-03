@@ -2,7 +2,7 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
 import 'package:fit_life/core/components/widgets/skeleton_custom.dart';
-import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
+import 'package:fit_life/mvvm/object/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';

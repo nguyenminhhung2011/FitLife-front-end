@@ -1,4 +1,4 @@
-import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
+import 'package:fit_life/mvvm/object/entity/exercise_category/exercise_category.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'group_exercise_data.freezed.dart';

@@ -4,7 +4,7 @@ import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/core/services/notification_service.dart';
 import 'package:fit_life/generated/l10n.dart';
-import 'package:fit_life/mvvm/me/entity/upcoming_session/upcoming_session.dart';
+import 'package:fit_life/mvvm/object/entity/upcoming_session/upcoming_session.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_data.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_view_model.dart';
 import 'package:fit_life/routes/routes.dart';
@@ -110,17 +110,16 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
         ),
         FeelingField(primaryColor: _primaryColor),
         HeaderTextCustom(
-          headerText: S.of(context).feature,
-          textStyle: _headerStyle,
-          isShowSeeMore: true,
-          onPress: () async => await injector
-              .get<NotificationService>()
-              .scheduledNotification(
-                  schedule: DateTime.now().add(const Duration(minutes: 1)),
-                  id: 01,
-                  sound: "Yayyy",
-                  payload: "adasdasdad"),
-        ),
+            headerText: S.of(context).feature,
+            textStyle: _headerStyle,
+            isShowSeeMore: true,
+            onPress: () async => injector
+                .get<NotificationService>()
+                .showFlutterNotification(
+                    id: 10,
+                    title: "This is title",
+                    body: "dasd",
+                    payload: "dasdad")),
         SwipeCustom(
           itemCount: 3,
           height: 200,

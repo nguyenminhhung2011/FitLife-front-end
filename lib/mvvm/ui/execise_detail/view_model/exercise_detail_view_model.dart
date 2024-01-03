@@ -1,5 +1,5 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
+import 'package:fit_life/mvvm/repositories/exercise_repositories.dart';
 import 'package:fit_life/mvvm/ui/execise_detail/view_model/exercise_detail_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

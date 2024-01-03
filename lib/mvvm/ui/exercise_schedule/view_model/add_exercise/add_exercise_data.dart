@@ -1,6 +1,6 @@
-import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
-import 'package:fit_life/mvvm/me/entity/exercise_category/exercise_category.dart';
-import 'package:fit_life/mvvm/me/entity/pagination/pagination.dart';
+import 'package:fit_life/mvvm/object/entity/exercise/exercise.dart';
+import 'package:fit_life/mvvm/object/entity/exercise_category/exercise_category.dart';
+import 'package:fit_life/mvvm/object/entity/pagination/pagination.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'add_exercise_data.freezed.dart';

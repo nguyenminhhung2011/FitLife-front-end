@@ -4,10 +4,10 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/extensions/interger_extension.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/video_player.dart';
-import 'package:fit_life/mvvm/me/entity/custom_exercise/custom_exercise.dart';
-import 'package:fit_life/mvvm/me/entity/session/session.dart';
+import 'package:fit_life/mvvm/object/entity/custom_exercise/custom_exercise.dart';
+import 'package:fit_life/mvvm/object/entity/session/session.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart';
-import 'package:fit_life/mvvm/ui/wo_trac/views/congratulation.dart';
+import 'package:fit_life/mvvm/ui/wo_trac/views/widgets/congratulation.dart';
 import 'package:fit_life/mvvm/ui/wo_trac/views/widgets/exercise_set_item.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +85,7 @@ class _WooTrackViewState extends ConsumerState<WooTrackView> {
         }
       },
       completeRound: (_) async {
-        await _vm.completeSession(sessionId: widget.session.id );
+        await _vm.completeSession(sessionId: widget.session.id);
       },
       completeSessionFailed: (_, error) =>
           context.showSnackBar("🐛[Complete session] $error"),

@@ -1,47 +1,21 @@
 import 'package:dart_either/dart_either.dart';
 import 'package:fit_life/core/components/network/app_exception.dart';
-import 'package:fit_life/mvvm/object/entity/message/message.dart';
-import 'package:fit_life/mvvm/object/entity/message/message_status.dart';
-import 'package:fit_life/mvvm/object/entity/message/message_type.dart';
+import 'package:fit_life/mvvm/object/entity/chat/chat.dart';
 import 'package:fit_life/mvvm/repositories/chat_repositories.dart';
 import 'package:injectable/injectable.dart';
+
 
 @Injectable(as: ChatRepositories)
 class ChatRepositoriesImpl implements ChatRepositories {
   @override
-  Future<SResult<List<Message>>> getMessage({int? chatId}) async {
+  Future<SResult<List<Chat>>> getAllChats() async {
+    await Future.delayed(const Duration(seconds: 2));
     return Either.right([
-      ...List.generate(
-        10,
-        (index) => Message(
-          id: index,
-          chatId: chatId ?? 0,
-          content:
-              "This is test content content content test content content content",
-          createdAt: DateTime.now(),
-          status: MessageStatus.success,
-          type: index % 2 == 0 ? MessageType.system : MessageType.user,
-        ),
-      )
+      Chat(id: 0, title: "This is title of chat", createdAt: DateTime.now()),
+      Chat(id: 1, title: "This is title of chat", createdAt: DateTime.now()),
+      Chat(id: 2, title: "This is title of chat", createdAt: DateTime.now()),
+      Chat(id: 3, title: "This is title of chat", createdAt: DateTime.now()),
+      Chat(id: 4, title: "This is title of chat", createdAt: DateTime.now()),
     ]);
-  }
-
-  @override
-  Future<SResult<String>> sendMessage({required List<String> message}) async {
-    final body = {"message": message};
-
-    /// Call
-    return Either.right("Reply message ${message.first}");
-    // return Either.left(AppException(message: "Error"));
-  }
-
-  @override
-  Future<bool> clearConversationI() async {
-    return true;
-  }
-
-  @override
-  Future<bool> deleteMessage({required String messageId}) async {
-    return true;
   }
 }

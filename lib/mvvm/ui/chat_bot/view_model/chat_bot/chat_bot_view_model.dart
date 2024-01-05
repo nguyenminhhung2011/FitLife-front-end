@@ -7,7 +7,7 @@ import 'package:fit_life/core/services/text_speech_service.dart';
 import 'package:fit_life/mvvm/object/entity/message/message.dart';
 import 'package:fit_life/mvvm/object/entity/message/message_status.dart';
 import 'package:fit_life/mvvm/object/entity/message/message_type.dart';
-import 'package:fit_life/mvvm/repositories/chat_repositories.dart';
+import 'package:fit_life/mvvm/repositories/message_repositories.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot/chat_bot_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -34,7 +34,7 @@ final chatBotStateNotifier =
 
 @injectable
 class ChatBotViewModel extends StateNotifier<ChatBotState> {
-  final _chatRepositories = injector.get<ChatRepositories>();
+  final _messageRepositories = injector.get<MessageRepositories>();
   final _speechTextService = injector.get<SpeechTextService>();
   final _textSpeechService = injector.get<TextSpeechService>();
 
@@ -170,7 +170,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
 
   Future<void> getMessage() async {
     state = _Loading(data: data);
-    final response = await _chatRepositories.getMessage();
+    final response = await _messageRepositories.getMessage();
     await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
     state = response.fold(
@@ -202,7 +202,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
         ],
       ),
     );
-    final response = await _chatRepositories.sendMessage(
+    final response = await _messageRepositories.sendMessage(
       message: data.messages.sublist(1).map((e) => e.content).toList(),
     );
 
@@ -231,7 +231,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
         messages: [loadingMessage, userSendMessage, ...data.messages],
       ),
     );
-    final response = await _chatRepositories.sendMessage(
+    final response = await _messageRepositories.sendMessage(
       message: data.messages.sublist(1).map((e) => e.content).toList(),
     );
 
@@ -247,7 +247,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
       return;
     }
     state = _Loading(data: data);
-    final response = await _chatRepositories.clearConversationI();
+    final response = await _messageRepositories.clearConversationI();
 
     await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
@@ -270,7 +270,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
     }
     state = _Loading(data: data);
     final response =
-        await _chatRepositories.deleteMessage(messageId: messageId);
+        await _messageRepositories.deleteMessage(messageId: messageId);
 
     await Future.delayed(const Duration(seconds: 2));
 

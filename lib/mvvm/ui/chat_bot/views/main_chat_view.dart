@@ -109,7 +109,7 @@ class MainChatViewState extends ConsumerState<MainChatView> {
           child: const InputApiView(),
         ),
         const ProviderScope(child: CreateBotView()),
-        const AllChatView(),
+        const ProviderScope(child: AllChatView()),
       ][_currentTab],
     );
   }

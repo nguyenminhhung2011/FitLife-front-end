@@ -23,7 +23,9 @@ mixin _$OverviewData {
   bool get isLoadingUpcomingScheduleExercise =>
       throw _privateConstructorUsedError;
   bool get isLoadingTopNews => throw _privateConstructorUsedError;
+  bool get isLoadingBodyPart => throw _privateConstructorUsedError;
   List<NewsHealth>? get news => throw _privateConstructorUsedError;
+  List<BodyPart>? get bodyParts => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $OverviewDataCopyWith<OverviewData> get copyWith =>
@@ -40,7 +42,9 @@ abstract class $OverviewDataCopyWith<$Res> {
       {UpComingSession? upComingSession,
       bool isLoadingUpcomingScheduleExercise,
       bool isLoadingTopNews,
-      List<NewsHealth>? news});
+      bool isLoadingBodyPart,
+      List<NewsHealth>? news,
+      List<BodyPart>? bodyParts});
 
   $UpComingSessionCopyWith<$Res>? get upComingSession;
 }
@@ -61,7 +65,9 @@ class _$OverviewDataCopyWithImpl<$Res, $Val extends OverviewData>
     Object? upComingSession = freezed,
     Object? isLoadingUpcomingScheduleExercise = null,
     Object? isLoadingTopNews = null,
+    Object? isLoadingBodyPart = null,
     Object? news = freezed,
+    Object? bodyParts = freezed,
   }) {
     return _then(_value.copyWith(
       upComingSession: freezed == upComingSession
@@ -77,10 +83,18 @@ class _$OverviewDataCopyWithImpl<$Res, $Val extends OverviewData>
           ? _value.isLoadingTopNews
           : isLoadingTopNews // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoadingBodyPart: null == isLoadingBodyPart
+          ? _value.isLoadingBodyPart
+          : isLoadingBodyPart // ignore: cast_nullable_to_non_nullable
+              as bool,
       news: freezed == news
           ? _value.news
           : news // ignore: cast_nullable_to_non_nullable
               as List<NewsHealth>?,
+      bodyParts: freezed == bodyParts
+          ? _value.bodyParts
+          : bodyParts // ignore: cast_nullable_to_non_nullable
+              as List<BodyPart>?,
     ) as $Val);
   }
 
@@ -109,7 +123,9 @@ abstract class _$$_OverviewDataCopyWith<$Res>
       {UpComingSession? upComingSession,
       bool isLoadingUpcomingScheduleExercise,
       bool isLoadingTopNews,
-      List<NewsHealth>? news});
+      bool isLoadingBodyPart,
+      List<NewsHealth>? news,
+      List<BodyPart>? bodyParts});
 
   @override
   $UpComingSessionCopyWith<$Res>? get upComingSession;
@@ -129,7 +145,9 @@ class __$$_OverviewDataCopyWithImpl<$Res>
     Object? upComingSession = freezed,
     Object? isLoadingUpcomingScheduleExercise = null,
     Object? isLoadingTopNews = null,
+    Object? isLoadingBodyPart = null,
     Object? news = freezed,
+    Object? bodyParts = freezed,
   }) {
     return _then(_$_OverviewData(
       upComingSession: freezed == upComingSession
@@ -145,10 +163,18 @@ class __$$_OverviewDataCopyWithImpl<$Res>
           ? _value.isLoadingTopNews
           : isLoadingTopNews // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoadingBodyPart: null == isLoadingBodyPart
+          ? _value.isLoadingBodyPart
+          : isLoadingBodyPart // ignore: cast_nullable_to_non_nullable
+              as bool,
       news: freezed == news
           ? _value._news
           : news // ignore: cast_nullable_to_non_nullable
               as List<NewsHealth>?,
+      bodyParts: freezed == bodyParts
+          ? _value._bodyParts
+          : bodyParts // ignore: cast_nullable_to_non_nullable
+              as List<BodyPart>?,
     ));
   }
 }
@@ -160,8 +186,11 @@ class _$_OverviewData implements _OverviewData {
       {this.upComingSession,
       this.isLoadingUpcomingScheduleExercise = false,
       this.isLoadingTopNews = false,
-      final List<NewsHealth>? news})
-      : _news = news;
+      this.isLoadingBodyPart = false,
+      final List<NewsHealth>? news,
+      final List<BodyPart>? bodyParts})
+      : _news = news,
+        _bodyParts = bodyParts;
 
   /// Upcoming schedule exercise
   @override
@@ -174,6 +203,9 @@ class _$_OverviewData implements _OverviewData {
   @override
   @JsonKey()
   final bool isLoadingTopNews;
+  @override
+  @JsonKey()
+  final bool isLoadingBodyPart;
   final List<NewsHealth>? _news;
   @override
   List<NewsHealth>? get news {
@@ -184,9 +216,19 @@ class _$_OverviewData implements _OverviewData {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<BodyPart>? _bodyParts;
+  @override
+  List<BodyPart>? get bodyParts {
+    final value = _bodyParts;
+    if (value == null) return null;
+    if (_bodyParts is EqualUnmodifiableListView) return _bodyParts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'OverviewData(upComingSession: $upComingSession, isLoadingUpcomingScheduleExercise: $isLoadingUpcomingScheduleExercise, isLoadingTopNews: $isLoadingTopNews, news: $news)';
+    return 'OverviewData(upComingSession: $upComingSession, isLoadingUpcomingScheduleExercise: $isLoadingUpcomingScheduleExercise, isLoadingTopNews: $isLoadingTopNews, isLoadingBodyPart: $isLoadingBodyPart, news: $news, bodyParts: $bodyParts)';
   }
 
   @override
@@ -202,7 +244,11 @@ class _$_OverviewData implements _OverviewData {
                     isLoadingUpcomingScheduleExercise) &&
             (identical(other.isLoadingTopNews, isLoadingTopNews) ||
                 other.isLoadingTopNews == isLoadingTopNews) &&
-            const DeepCollectionEquality().equals(other._news, _news));
+            (identical(other.isLoadingBodyPart, isLoadingBodyPart) ||
+                other.isLoadingBodyPart == isLoadingBodyPart) &&
+            const DeepCollectionEquality().equals(other._news, _news) &&
+            const DeepCollectionEquality()
+                .equals(other._bodyParts, _bodyParts));
   }
 
   @override
@@ -211,7 +257,9 @@ class _$_OverviewData implements _OverviewData {
       upComingSession,
       isLoadingUpcomingScheduleExercise,
       isLoadingTopNews,
-      const DeepCollectionEquality().hash(_news));
+      isLoadingBodyPart,
+      const DeepCollectionEquality().hash(_news),
+      const DeepCollectionEquality().hash(_bodyParts));
 
   @JsonKey(ignore: true)
   @override
@@ -225,7 +273,9 @@ abstract class _OverviewData implements OverviewData {
       {final UpComingSession? upComingSession,
       final bool isLoadingUpcomingScheduleExercise,
       final bool isLoadingTopNews,
-      final List<NewsHealth>? news}) = _$_OverviewData;
+      final bool isLoadingBodyPart,
+      final List<NewsHealth>? news,
+      final List<BodyPart>? bodyParts}) = _$_OverviewData;
 
   @override
 
@@ -238,7 +288,11 @@ abstract class _OverviewData implements OverviewData {
   @override
   bool get isLoadingTopNews;
   @override
+  bool get isLoadingBodyPart;
+  @override
   List<NewsHealth>? get news;
+  @override
+  List<BodyPart>? get bodyParts;
   @override
   @JsonKey(ignore: true)
   _$$_OverviewDataCopyWith<_$_OverviewData> get copyWith =>

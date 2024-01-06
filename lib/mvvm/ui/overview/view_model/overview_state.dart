@@ -23,4 +23,12 @@ class OverviewState with _$OverviewState {
     required OverviewData data,
     required String message,
   }) = _GetTopNewsFailed;
+
+  const factory OverviewState.getBodyPartSuccess({required OverviewData data}) =
+      _GetBodyPartSuccess;
+
+  const factory OverviewState.getBodyPartFailed({
+    required OverviewData data,
+    required String message,
+  }) = _GetBodyPartFailed;
 }

@@ -5,7 +5,7 @@ abstract class MessageRepositories {
   Future<SResult<List<Message>>> getMessage({int? chatId});
 
   Future<SResult<String>> sendMessage({required List<String> message});
-
+  
   Future<bool> clearConversationI();
 
   Future<bool> deleteMessage({required String messageId});

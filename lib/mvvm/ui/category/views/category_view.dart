@@ -1,14 +1,17 @@
-import 'dart:developer';
 import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
-
-import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/extensions/string_extensions.dart';
-import 'package:fit_life/core/components/widgets/category/category_type.dart';
-import 'package:fit_life/core/config/color_config.dart';
+import 'package:fit_life/core/components/widgets/image_custom.dart';
+import 'package:fit_life/core/components/widgets/loading_page.dart';
+import 'package:fit_life/mvvm/object/entity/exercise/exercise.dart';
+import 'package:fit_life/mvvm/object/entity/exercise_category/exercise_category.dart';
+import 'package:fit_life/mvvm/ui/category/view_model/category_data.dart';
+import 'package:fit_life/mvvm/ui/category/view_model/category_view_model.dart';
+import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/components/widgets/category_layout/category_layout.dart';
 import '../../../../core/components/widgets/category_layout/category_layout_type.dart';
 
@@ -29,114 +32,70 @@ class ExerciseUI {
   });
 }
 
-class Category {
-  final String id;
-  final String title;
-  final int indexIcon;
-  final Color color;
-  final String iconUrl;
-  final CategoryType categoryType;
-  Category({
-    required this.id,
-    required this.color,
-    required this.iconUrl,
-    required this.title,
-    required this.indexIcon,
-    required this.categoryType,
-  });
-}
-
-Map<String, Category> categories = {
-  '1': Category(
-      id: '1',
-      title: ' Relaxation',
-      iconUrl: ImageConst.relaxIcon,
-      color: CommonColor.relaxationColor.toColor(),
-      indexIcon: 0,
-      categoryType: CategoryType.expandCategory),
-  '2': Category(
-      id: '2',
-      title: ' Meditation',
-      iconUrl: ImageConst.meditationIcon,
-      color: CommonColor.meditationColor.toColor(),
-      indexIcon: 1,
-      categoryType: CategoryType.expandCategory),
-  '3': Category(
-      id: '3',
-      title: ' Beathing',
-      iconUrl: ImageConst.beathingIcon,
-      color: CommonColor.beathingColor.toColor(),
-      indexIcon: 2,
-      categoryType: CategoryType.expandCategory),
-  '4': Category(
-      id: '4',
-      title: ' Yoga',
-      iconUrl: ImageConst.yogaIcon,
-      color: CommonColor.yogaColor.toColor(),
-      indexIcon: 3,
-      categoryType: CategoryType.expandCategory),
-};
-
-class CategoryView extends StatefulWidget {
+class CategoryView extends ConsumerStatefulWidget {
   const CategoryView({super.key});
 
   @override
-  State<CategoryView> createState() => _CategoryViewState();
+  ConsumerState<CategoryView> createState() => _CategoryViewState();
 }
 
-class _CategoryViewState extends State<CategoryView>
+class _CategoryViewState extends ConsumerState<CategoryView>
     with SingleTickerProviderStateMixin {
-  List<CategoryLayoutModel> categoryTest = <CategoryLayoutModel>[
-    ...categories.entries.mapIndexed(
-      (index, e) => CategoryLayoutModel(
-        id: e.key,
-        title: e.value.title,
-        widgetCategory:
-            SvgPicture.asset(e.value.iconUrl, width: 20.0, height: 20.0),
-      ),
-    )
-  ];
+  CategoryViewModel get _vm => ref.read(categoryStateNotifier.notifier);
 
-  Future<List<ExerciseUI>> paginationCall(
-      int currentPage, String categoryId) async {
-    log(categoryId);
+  CategoryState get _state => ref.watch(categoryStateNotifier);
 
-    await Future.delayed(const Duration(seconds: 3));
-    if (categoryId == '0') {
-      return <ExerciseUI>[
-        for (var i = 1; i <= 4; i++)
-          for (var t = 0; t < 6; t++)
-            ExerciseUI(
-              id: 'ExerciseUI $t',
-              categoryId: categoryId,
-              image: ImageConst.banner1,
-              subText: 'Relax and try hard',
-              calories: 1000,
-              headerText: 'Russian ExerciseUI',
-            )
-      ];
-    }
-    return <ExerciseUI>[
-      for (int t = 0; t < 6; t++)
-        ExerciseUI(
-          id: 'ExerciseUI $t',
-          categoryId: categoryId,
-          image: ImageConst.banner1,
-          subText: 'Relax and try hard',
-          calories: 1000,
-          headerText: 'Russian ExerciseUI',
-        )
-    ];
-  }
+  CategoryData get _data => _state.data;
+
+  List<BodyPart>? get _categories => _data.categories;
+
+  Future<List<Exercise>> paginationCall(
+          int currentPage, String bodyPart) async =>
+      await _vm.getExerciseByCategory(bodyPart: bodyPart, pageGet: currentPage);
 
   @override
   void initState() {
+    Future.delayed(Duration.zero, () async {
+      await _vm.getCategories();
+    });
     super.initState();
+  }
+
+  void _listenStateChange(CategoryState state) {
+    state.maybeWhen(
+      getCategorySuccess: (_) {},
+      getCategoryFailed: (_, error) =>
+          context.showSnackBar("🐛[Get category] $error"),
+      orElse: () {},
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(categoryStateNotifier, (_, next) => _listenStateChange(next));
     final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
+    return Stack(
+      children: [
+        if (_categories?.isNotEmpty ?? false) _body(backgroundColor, context),
+        if (_state.loading)
+          Container(
+            color: Colors.black45,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: _loadingFunction(),
+          )
+      ],
+    );
+  }
+
+  Center _loadingFunction() {
+    return Center(
+      child: StyleLoadingWidget.foldingCube
+          .renderWidget(size: 40.0, color: Theme.of(context).primaryColor),
+    );
+  }
+
+  Widget _body(Color backgroundColor, BuildContext context) {
     return Scaffold(
       extendBody: true,
       backgroundColor: backgroundColor,
@@ -150,9 +109,9 @@ class _CategoryViewState extends State<CategoryView>
     );
   }
 
-  Expanded _listExerciseUIField(BuildContext context, Color backgroundColor) {
+  Widget _listExerciseUIField(BuildContext context, Color backgroundColor) {
     return Expanded(
-      child: CategoryLayoutView<ExerciseUI>(
+      child: CategoryLayoutView<Exercise>(
         hPadding: 10,
         vPadding: 10,
         categoryLayoutType: CategoryLayoutType.both,
@@ -180,10 +139,8 @@ class _CategoryViewState extends State<CategoryView>
               bottomRight: Radius.circular(5.0),
             ),
           ),
-          categoryPadding: const EdgeInsets.symmetric(
-            horizontal: 10.0,
-            vertical: 12,
-          ),
+          categoryPadding:
+              const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12),
           categorySpacing: 10.0,
           firstExpand: 5,
           secondExpand: 15,
@@ -191,52 +148,90 @@ class _CategoryViewState extends State<CategoryView>
             return _headerCategoryStyle(context, categoryModel);
           },
         ),
-        categoryLayoutModel: categoryTest,
-        paginationDataCall: paginationCall,
-        itemBuilder: (ExerciseUI data) {
-          return Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 5.0),
-            // color: Theme.of(context).primaryColor.withOpacity(0.2),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(5.0),
-                  child: Image.asset(data.image,
-                      width: 60.0, height: 60.0, fit: BoxFit.cover),
-                ),
-                const SizedBox(width: 10.0),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        data.headerText,
-                        style: context.titleMedium.copyWith(
-                            fontWeight: FontWeight.bold,
-                            overflow: TextOverflow.ellipsis),
-                      ),
-                      ...[data.subText, '🔥 ${data.calories} calories burn']
-                          .map(
-                        (e) => Text(
-                          e,
-                          maxLines: 2,
-                          style: context.titleSmall.copyWith(
-                            fontSize: 11.0,
-                            color: Theme.of(context).hintColor,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+        categoryLayoutModel: _categories!.map((e) {
+          final imageUrl =
+              Constant.renderBodyPartImage[e.header.toLowerCase()].toString();
+          final widget = ClipRRect(
+            borderRadius: BorderRadius.circular(4.0),
+            child: ImageCustom(
+              imageUrl: imageUrl,
+              width: 20.0,
+              height: 20.0,
+              isNetworkImage: true,
             ),
           );
+          return CategoryLayoutModel(
+            id: e.header.toLowerCase(),
+            title: " ${e.header.upCaseFirstCharacter}",
+            imageUrl: imageUrl,
+            widgetCategory: widget,
+          );
+        }).toList(),
+        paginationDataCall: paginationCall,
+        itemBuilder: (Exercise data) {
+          return _exerciseItem(data, context);
         },
         itemCategoryBuilder: (data) => const SizedBox(),
+      ),
+    );
+  }
+
+  Widget _exerciseItem(Exercise data, BuildContext context) {
+    return InkWell(
+      onTap: () =>
+          context.openPageWithRouteAndParams(Routes.exerciseDetail, data.id),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(vertical: 5.0),
+        // color: Theme.of(context).primaryColor.withOpacity(0.2),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              data.name.upCaseFirstCharacter,
+              style: context.titleMedium.copyWith(
+                  fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
+            ),
+            const SizedBox(height: 4),
+            Wrap(
+              spacing: 5.0,
+              runSpacing: 5.0,
+              children: [
+                '${data.reps ?? 0} mins',
+                '${data.bodyPart}',
+                '${data.caloriesPerMinute ?? 0} calories'
+              ]
+                  .map(
+                    (e) => Container(
+                      padding: const EdgeInsets.all(5.0),
+                      decoration: BoxDecoration(
+                          color:
+                              Theme.of(context).primaryColor.withOpacity(0.1),
+                          border: Border.all(
+                              width: 1, color: Theme.of(context).primaryColor),
+                          borderRadius: BorderRadius.circular(5.0)),
+                      child: Text(
+                        e,
+                        style: context.titleSmall.copyWith(
+                            fontSize: 10.0,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              "🔥 ${(data.caloriesPerMinute ?? 0).round()} calories burn",
+              maxLines: 2,
+              style: context.titleSmall.copyWith(
+                fontSize: 11.0,
+                color: Theme.of(context).hintColor,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -283,15 +278,23 @@ class _CategoryViewState extends State<CategoryView>
         children: <Widget>[
           Row(
             children: <Widget>[
-              if (categoryModel.widgetCategory != null) ...<Widget>[
-                categoryModel.widgetCategory!,
+              ...<Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: ImageCustom(
+                    width: 60.0,
+                    height: 60.0,
+                    imageUrl: categoryModel.imageUrl,
+                    isNetworkImage: true,
+                  ),
+                ),
                 const SizedBox(width: 5.0),
               ],
               Expanded(
                 child: Text(
                   categoryModel.title,
                   style:
-                      context.titleMedium.copyWith(fontWeight: FontWeight.bold),
+                      context.titleLarge.copyWith(fontWeight: FontWeight.bold),
                 ),
               )
             ],

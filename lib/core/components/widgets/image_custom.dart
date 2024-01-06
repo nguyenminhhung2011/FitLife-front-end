@@ -1,3 +1,4 @@
+import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:flutter/material.dart';
 
 class ImageCustom extends StatelessWidget {
@@ -30,6 +31,9 @@ class ImageCustom extends StatelessWidget {
         height: width ?? 50.0,
         fit: fit ?? BoxFit.cover,
         color: color,
+        errorBuilder: (_, __, ___) {
+          return Image.asset(ImageConst.banner1);
+        },
         loadingBuilder: (BuildContext context, Widget child,
             ImageChunkEvent? loadingProgress) {
           if (loadingProgress == null) return child;

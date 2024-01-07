@@ -21,6 +21,7 @@ mixin _$Chat {
   DateTime get createdAt => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
+  PTAssistant? get ptAssistant => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChatCopyWith<Chat> get copyWith => throw _privateConstructorUsedError;
@@ -36,7 +37,10 @@ abstract class $ChatCopyWith<$Res> {
       String title,
       DateTime createdAt,
       String? description,
-      DateTime? updatedAt});
+      DateTime? updatedAt,
+      PTAssistant? ptAssistant});
+
+  $PTAssistantCopyWith<$Res>? get ptAssistant;
 }
 
 /// @nodoc
@@ -57,6 +61,7 @@ class _$ChatCopyWithImpl<$Res, $Val extends Chat>
     Object? createdAt = null,
     Object? description = freezed,
     Object? updatedAt = freezed,
+    Object? ptAssistant = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -79,7 +84,23 @@ class _$ChatCopyWithImpl<$Res, $Val extends Chat>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      ptAssistant: freezed == ptAssistant
+          ? _value.ptAssistant
+          : ptAssistant // ignore: cast_nullable_to_non_nullable
+              as PTAssistant?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PTAssistantCopyWith<$Res>? get ptAssistant {
+    if (_value.ptAssistant == null) {
+      return null;
+    }
+
+    return $PTAssistantCopyWith<$Res>(_value.ptAssistant!, (value) {
+      return _then(_value.copyWith(ptAssistant: value) as $Val);
+    });
   }
 }
 
@@ -94,7 +115,11 @@ abstract class _$$_ChatCopyWith<$Res> implements $ChatCopyWith<$Res> {
       String title,
       DateTime createdAt,
       String? description,
-      DateTime? updatedAt});
+      DateTime? updatedAt,
+      PTAssistant? ptAssistant});
+
+  @override
+  $PTAssistantCopyWith<$Res>? get ptAssistant;
 }
 
 /// @nodoc
@@ -111,6 +136,7 @@ class __$$_ChatCopyWithImpl<$Res> extends _$ChatCopyWithImpl<$Res, _$_Chat>
     Object? createdAt = null,
     Object? description = freezed,
     Object? updatedAt = freezed,
+    Object? ptAssistant = freezed,
   }) {
     return _then(_$_Chat(
       id: null == id
@@ -133,6 +159,10 @@ class __$$_ChatCopyWithImpl<$Res> extends _$ChatCopyWithImpl<$Res, _$_Chat>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      ptAssistant: freezed == ptAssistant
+          ? _value.ptAssistant
+          : ptAssistant // ignore: cast_nullable_to_non_nullable
+              as PTAssistant?,
     ));
   }
 }
@@ -145,7 +175,8 @@ class _$_Chat implements _Chat {
       required this.title,
       required this.createdAt,
       this.description,
-      this.updatedAt});
+      this.updatedAt,
+      this.ptAssistant});
 
   @override
   final int id;
@@ -157,10 +188,12 @@ class _$_Chat implements _Chat {
   final String? description;
   @override
   final DateTime? updatedAt;
+  @override
+  final PTAssistant? ptAssistant;
 
   @override
   String toString() {
-    return 'Chat(id: $id, title: $title, createdAt: $createdAt, description: $description, updatedAt: $updatedAt)';
+    return 'Chat(id: $id, title: $title, createdAt: $createdAt, description: $description, updatedAt: $updatedAt, ptAssistant: $ptAssistant)';
   }
 
   @override
@@ -175,12 +208,14 @@ class _$_Chat implements _Chat {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.ptAssistant, ptAssistant) ||
+                other.ptAssistant == ptAssistant));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, createdAt, description, updatedAt);
+  int get hashCode => Object.hash(
+      runtimeType, id, title, createdAt, description, updatedAt, ptAssistant);
 
   @JsonKey(ignore: true)
   @override
@@ -195,7 +230,8 @@ abstract class _Chat implements Chat {
       required final String title,
       required final DateTime createdAt,
       final String? description,
-      final DateTime? updatedAt}) = _$_Chat;
+      final DateTime? updatedAt,
+      final PTAssistant? ptAssistant}) = _$_Chat;
 
   @override
   int get id;
@@ -207,6 +243,8 @@ abstract class _Chat implements Chat {
   String? get description;
   @override
   DateTime? get updatedAt;
+  @override
+  PTAssistant? get ptAssistant;
   @override
   @JsonKey(ignore: true)
   _$$_ChatCopyWith<_$_Chat> get copyWith => throw _privateConstructorUsedError;

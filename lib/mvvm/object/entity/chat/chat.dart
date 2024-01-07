@@ -1,3 +1,4 @@
+import 'package:fit_life/mvvm/object/entity/pt_assistant/pt_assistant.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'chat.freezed.dart';
@@ -10,5 +11,6 @@ class Chat with _$Chat {
     required DateTime createdAt,
     String? description,
     DateTime? updatedAt,
+    PTAssistant? ptAssistant,
   }) = _Chat;
 }

@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
@@ -9,7 +8,8 @@ import 'package:fit_life/mvvm/object/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/object/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/ui/category/view_model/category_data.dart';
 import 'package:fit_life/mvvm/ui/category/view_model/category_view_model.dart';
-import 'package:fit_life/routes/routes.dart';
+import 'package:fit_life/mvvm/ui/category/views/widgets/category_exercise_item_view.dart';
+import 'package:fit_life/mvvm/ui/category/views/widgets/header_category_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/components/widgets/category_layout/category_layout.dart';
@@ -145,7 +145,8 @@ class _CategoryViewState extends ConsumerState<CategoryView>
           firstExpand: 5,
           secondExpand: 15,
           headerCategoryView: (categoryModel) {
-            return _headerCategoryStyle(context, categoryModel);
+            return HeaderCategoryView(
+                context: context, categoryModel: categoryModel);
           },
         ),
         categoryLayoutModel: _categories!.map((e) {
@@ -169,69 +170,9 @@ class _CategoryViewState extends ConsumerState<CategoryView>
         }).toList(),
         paginationDataCall: paginationCall,
         itemBuilder: (Exercise data) {
-          return _exerciseItem(data, context);
+          return CategoryExerciseItemView(data: data, context: context);
         },
         itemCategoryBuilder: (data) => const SizedBox(),
-      ),
-    );
-  }
-
-  Widget _exerciseItem(Exercise data, BuildContext context) {
-    return InkWell(
-      onTap: () =>
-          context.openPageWithRouteAndParams(Routes.exerciseDetail, data.id),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 5.0),
-        // color: Theme.of(context).primaryColor.withOpacity(0.2),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              data.name.upCaseFirstCharacter,
-              style: context.titleMedium.copyWith(
-                  fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
-            ),
-            const SizedBox(height: 4),
-            Wrap(
-              spacing: 5.0,
-              runSpacing: 5.0,
-              children: [
-                '${data.reps ?? 0} mins',
-                '${data.bodyPart}',
-                '${data.caloriesPerMinute ?? 0} calories'
-              ]
-                  .map(
-                    (e) => Container(
-                      padding: const EdgeInsets.all(5.0),
-                      decoration: BoxDecoration(
-                          color:
-                              Theme.of(context).primaryColor.withOpacity(0.1),
-                          border: Border.all(
-                              width: 1, color: Theme.of(context).primaryColor),
-                          borderRadius: BorderRadius.circular(5.0)),
-                      child: Text(
-                        e,
-                        style: context.titleSmall.copyWith(
-                            fontSize: 10.0,
-                            color: Theme.of(context).primaryColor),
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              "🔥 ${(data.caloriesPerMinute ?? 0).round()} calories burn",
-              maxLines: 2,
-              style: context.titleSmall.copyWith(
-                fontSize: 11.0,
-                color: Theme.of(context).hintColor,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
@@ -254,85 +195,6 @@ class _CategoryViewState extends ConsumerState<CategoryView>
           icon: Icon(Icons.more_horiz, color: context.titleLarge.color),
         )
       ],
-    );
-  }
-
-  Widget _headerCategoryStyle(
-      BuildContext context, CategoryLayoutModel categoryModel) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(10.0),
-      margin: const EdgeInsets.symmetric(horizontal: 5.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5.0),
-        color: Theme.of(context).cardColor,
-        boxShadow: [
-          BoxShadow(
-            color: Theme.of(context).shadowColor.withOpacity(0.2),
-            blurRadius: 5.0,
-          )
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              ...<Widget>[
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: ImageCustom(
-                    width: 60.0,
-                    height: 60.0,
-                    imageUrl: categoryModel.imageUrl,
-                    isNetworkImage: true,
-                  ),
-                ),
-                const SizedBox(width: 5.0),
-              ],
-              Expanded(
-                child: Text(
-                  categoryModel.title,
-                  style:
-                      context.titleLarge.copyWith(fontWeight: FontWeight.bold),
-                ),
-              )
-            ],
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              "💪 200 exerciseUIs",
-              style: context.titleSmall.copyWith(
-                fontWeight: FontWeight.w600,
-                fontSize: 12.0,
-                color: Theme.of(context).hintColor,
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {},
-            child: Text(
-              'View all',
-              style: context.titleSmall.copyWith(
-                fontSize: 12.0,
-                color: Theme.of(context).primaryColor,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          )
-        ]
-            .expandIndexed((index, element) => [
-                  element,
-                  const SizedBox(height: 5.0),
-                  if (index == 3 && categoryModel.id == '0') ...<Widget>[
-                    const Divider(),
-                    const SizedBox(),
-                  ],
-                ])
-            .toList()
-          ..removeLast(),
-      ),
     );
   }
 }

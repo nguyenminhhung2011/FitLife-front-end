@@ -39,8 +39,12 @@ class ImageCustom extends StatelessWidget {
           if (loadingProgress == null) return child;
           return loadingWidget ??
               Center(
-                child: CircularProgressIndicator(
-                  color: Theme.of(context).primaryColor,
+                child: SizedBox(
+                  width: width ?? 50.0,
+                  height: height ?? 50.0,
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).primaryColor,
+                  ),
                 ),
               );
         },

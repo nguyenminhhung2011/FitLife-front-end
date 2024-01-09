@@ -14,44 +14,45 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../clean_architectures/domain/usecase/setting/setting_usecase.dart'
-    as _i69;
-import '../../mvvm/data/remote/auth/auth_api.dart' as _i61;
-import '../../mvvm/data/remote/daily_plan/daily_plan_api.dart' as _i64;
+    as _i70;
+import '../../mvvm/data/remote/auth/auth_api.dart' as _i62;
+import '../../mvvm/data/remote/daily_plan/daily_plan_api.dart' as _i65;
 import '../../mvvm/data/remote/exercise/exercise_api.dart' as _i17;
 import '../../mvvm/data/remote/news_health/news_api.dart' as _i30;
 import '../../mvvm/data/remote/plan/plan_api.dart' as _i38;
 import '../../mvvm/data/remote/session/session_api.dart' as _i43;
-import '../../mvvm/data/remote/user/user_api.dart' as _i53;
-import '../../mvvm/data/remote/workout_plan/workout_plan_api.dart' as _i58;
+import '../../mvvm/data/remote/trainer/trainer_api.dart' as _i53;
+import '../../mvvm/data/remote/user/user_api.dart' as _i54;
+import '../../mvvm/data/remote/workout_plan/workout_plan_api.dart' as _i59;
 import '../../mvvm/object/entity/daily_workout/daily_workout.dart' as _i45;
-import '../../mvvm/repositories/auth_repositories.dart' as _i62;
+import '../../mvvm/repositories/auth_repositories.dart' as _i63;
 import '../../mvvm/repositories/calories_repositories.dart' as _i7;
 import '../../mvvm/repositories/chat_repositories.dart' as _i11;
-import '../../mvvm/repositories/daily_plan_repositories.dart' as _i65;
-import '../../mvvm/repositories/exercise_repositories.dart' as _i67;
-import '../../mvvm/repositories/implements/auth_repositories_impl.dart' as _i63;
+import '../../mvvm/repositories/daily_plan_repositories.dart' as _i66;
+import '../../mvvm/repositories/exercise_repositories.dart' as _i68;
+import '../../mvvm/repositories/implements/auth_repositories_impl.dart' as _i64;
 import '../../mvvm/repositories/implements/calories_repositories_impl.dart'
     as _i8;
 import '../../mvvm/repositories/implements/chat_repositories_impl.dart' as _i12;
 import '../../mvvm/repositories/implements/daily_plan_repositories_impl.dart'
-    as _i66;
+    as _i67;
 import '../../mvvm/repositories/implements/exercise_repositories_impl.dart'
-    as _i68;
+    as _i69;
 import '../../mvvm/repositories/implements/message_repositories_impl.dart'
     as _i29;
 import '../../mvvm/repositories/implements/news_repositories_impl.dart' as _i33;
 import '../../mvvm/repositories/implements/plan_repositories_impl.dart' as _i42;
 import '../../mvvm/repositories/implements/session_repositories_impl.dart'
     as _i47;
-import '../../mvvm/repositories/implements/user_repositories_impl.dart' as _i55;
+import '../../mvvm/repositories/implements/user_repositories_impl.dart' as _i56;
 import '../../mvvm/repositories/implements/workout_plan_repositories_impl.dart'
-    as _i60;
+    as _i61;
 import '../../mvvm/repositories/message_repositories.dart' as _i28;
 import '../../mvvm/repositories/news_repositories.dart' as _i32;
 import '../../mvvm/repositories/plan_repositories.dart' as _i41;
 import '../../mvvm/repositories/session_repositories.dart' as _i46;
-import '../../mvvm/repositories/user_repositories.dart' as _i54;
-import '../../mvvm/repositories/workout_plan_repositories.dart' as _i59;
+import '../../mvvm/repositories/user_repositories.dart' as _i55;
+import '../../mvvm/repositories/workout_plan_repositories.dart' as _i60;
 import '../../mvvm/ui/all_exercise/view_model/all_exercise_view_model.dart'
     as _i5;
 import '../../mvvm/ui/auth/view_model/sign_in/sign_in_view_model.dart' as _i48;
@@ -90,22 +91,22 @@ import '../../mvvm/ui/plan_detail/view_model/plan_detail_view_model.dart'
 import '../../mvvm/ui/plan_overview/view_model/plan_overview/plan_overview_view_model.dart'
     as _i40;
 import '../../mvvm/ui/plan_overview/view_model/view_more/view_more_plan_view_model.dart'
-    as _i56;
+    as _i57;
 import '../../mvvm/ui/recommend_plan/view_model/group_exercise_view_model.dart'
     as _i22;
 import '../../mvvm/ui/session_plan/view_model/session_plan_view_model.dart'
     as _i44;
 import '../../mvvm/ui/splash/view_model/splash_view_model.dart' as _i51;
-import '../../mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart' as _i57;
+import '../../mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart' as _i58;
 import '../components/layout/setting_layout/controller/setting_bloc.dart'
-    as _i70;
+    as _i71;
 import '../services/cloundinary_service.dart' as _i13;
 import '../services/fcm/fcm_service.dart' as _i20;
 import '../services/image_pic_service.dart' as _i24;
 import '../services/notification_service.dart' as _i34;
 import '../services/speach_text_service.dart' as _i50;
 import '../services/text_speech_service.dart' as _i52;
-import 'modules/data_source_module.dart' as _i71;
+import 'modules/data_source_module.dart' as _i72;
 
 const String _prod = 'prod';
 
@@ -185,29 +186,30 @@ _i1.GetIt init(
   gh.factory<_i50.SpeechTextService>(() => _i50.SpeechTextService());
   gh.factory<_i51.SplashViewModel>(() => _i51.SplashViewModel());
   gh.factory<_i52.TextSpeechService>(() => _i52.TextSpeechService());
-  gh.factory<_i53.UserApi>(() => _i53.UserApi(gh<_i16.Dio>()));
-  gh.factory<_i54.UserRepositories>(
-      () => _i55.UserRepositoriesImpl(gh<_i53.UserApi>()));
-  gh.factory<_i56.ViewMorePlanViewModel>(() => _i56.ViewMorePlanViewModel());
-  gh.factory<_i57.WooTrackViewModel>(() => _i57.WooTrackViewModel());
-  gh.factory<_i58.WorkoutPlanApi>(() => _i58.WorkoutPlanApi(gh<_i16.Dio>()));
-  gh.factory<_i59.WorkoutPlanRepositories>(
-      () => _i60.WorkoutPlanRepositoriesImpl(gh<_i58.WorkoutPlanApi>()));
-  gh.factory<_i61.AuthApi>(() => _i61.AuthApi(gh<_i16.Dio>()));
-  gh.factory<_i62.AuthRepositories>(
-      () => _i63.AuthRepositoriesImpl(gh<_i61.AuthApi>()));
-  gh.factory<_i64.DailyPlanApi>(() => _i64.DailyPlanApi(gh<_i16.Dio>()));
-  gh.factory<_i65.DailyPlanRepositories>(
-      () => _i66.DailyPlanRepositoriesImpl(gh<_i64.DailyPlanApi>()));
-  gh.factory<_i67.ExerciseRepositories>(() => _i68.ExerciseRepositoriesImpl(
+  gh.factory<_i53.TrainerApi>(() => _i53.TrainerApi(gh<_i16.Dio>()));
+  gh.factory<_i54.UserApi>(() => _i54.UserApi(gh<_i16.Dio>()));
+  gh.factory<_i55.UserRepositories>(
+      () => _i56.UserRepositoriesImpl(gh<_i54.UserApi>()));
+  gh.factory<_i57.ViewMorePlanViewModel>(() => _i57.ViewMorePlanViewModel());
+  gh.factory<_i58.WooTrackViewModel>(() => _i58.WooTrackViewModel());
+  gh.factory<_i59.WorkoutPlanApi>(() => _i59.WorkoutPlanApi(gh<_i16.Dio>()));
+  gh.factory<_i60.WorkoutPlanRepositories>(
+      () => _i61.WorkoutPlanRepositoriesImpl(gh<_i59.WorkoutPlanApi>()));
+  gh.factory<_i62.AuthApi>(() => _i62.AuthApi(gh<_i16.Dio>()));
+  gh.factory<_i63.AuthRepositories>(
+      () => _i64.AuthRepositoriesImpl(gh<_i62.AuthApi>()));
+  gh.factory<_i65.DailyPlanApi>(() => _i65.DailyPlanApi(gh<_i16.Dio>()));
+  gh.factory<_i66.DailyPlanRepositories>(
+      () => _i67.DailyPlanRepositoriesImpl(gh<_i65.DailyPlanApi>()));
+  gh.factory<_i68.ExerciseRepositories>(() => _i69.ExerciseRepositoriesImpl(
         gh<_i17.ExerciseApi>(),
         gh<_i43.SessionApi>(),
       ));
-  gh.factory<_i69.SettingUseCase>(
-      () => _i69.SettingUseCase(gh<_i54.UserRepositories>()));
-  gh.factory<_i70.SettingBloc>(
-      () => _i70.SettingBloc(gh<_i69.SettingUseCase>()));
+  gh.factory<_i70.SettingUseCase>(
+      () => _i70.SettingUseCase(gh<_i55.UserRepositories>()));
+  gh.factory<_i71.SettingBloc>(
+      () => _i71.SettingBloc(gh<_i70.SettingUseCase>()));
   return getIt;
 }
 
-class _$DataSourceModule extends _i71.DataSourceModule {}
+class _$DataSourceModule extends _i72.DataSourceModule {}

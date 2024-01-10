@@ -123,7 +123,7 @@ class _CreateBotViewState extends ConsumerState<CreateBotView> {
           CustomInputLabelField(
             label: "",
             controller: _chatBotNameController,
-            hintText: "Chat bot name ",
+            hintText: "ChatThread bot name ",
           ),
           const SizedBox(height: 20.0),
           const Divider(thickness: 1),

@@ -166,7 +166,7 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
       //     crossAxisAlignment: CrossAxisAlignment.center,
       //     children: [
       //       Text(
-      //         'Chat bot',
+      //         'ChatThread bot',
       //         style: context.titleLarge
       //             .copyWith(fontWeight: FontWeight.w600, color: Colors.white),
       //       ),

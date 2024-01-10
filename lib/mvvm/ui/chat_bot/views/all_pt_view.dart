@@ -38,7 +38,7 @@ class _AllPtViewState extends State<AllPtView> with AuthMixin {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Text(
-                "Pt Chat bot",
+                "Pt ChatThread bot",
                 textAlign: TextAlign.start,
                 style: context.titleLarge.copyWith(fontWeight: FontWeight.bold),
               ),

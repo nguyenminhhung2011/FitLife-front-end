@@ -1,3 +1,4 @@
+import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'trainer_model.g.dart';
@@ -39,4 +40,13 @@ class TrainerModel {
       _$TrainerModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$TrainerModelToJson(this);
+
+  Trainer get toEntity => Trainer(
+      id: id,
+      name: name,
+      model: model,
+      prompt: prompt,
+      image: image,
+      greetingMessage: greetingMessage,
+      bio: bio);
 }

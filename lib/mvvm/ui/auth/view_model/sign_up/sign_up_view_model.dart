@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:fit_life/core/components/utils/validators.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/repo/auth_repositories.dart';
+import 'package:fit_life/mvvm/repositories/auth_repositories.dart';
 import 'package:fit_life/mvvm/ui/auth/view_model/sign_up/sign_up_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

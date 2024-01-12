@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:fit_life/mvvm/me/entity/custom_exercise/custom_exercise.dart';
-import 'package:fit_life/mvvm/me/model/session/session_model.dart';
+import 'package:fit_life/mvvm/object/entity/custom_exercise/custom_exercise.dart';
+import 'package:fit_life/mvvm/object/model/session/session_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 

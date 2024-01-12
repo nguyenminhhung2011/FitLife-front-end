@@ -1,4 +1,4 @@
-import 'package:fit_life/mvvm/me/entity/session/session.dart';
+import 'package:fit_life/mvvm/object/entity/session/session.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';

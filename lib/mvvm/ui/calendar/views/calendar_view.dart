@@ -5,7 +5,7 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/extensions/date_time_extension.dart';
 import 'package:fit_life/core/components/extensions/interger_extension.dart';
 import 'package:fit_life/core/components/widgets/calendar_custom.dart';
-import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
+import 'package:fit_life/mvvm/object/entity/daily_workout/daily_workout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

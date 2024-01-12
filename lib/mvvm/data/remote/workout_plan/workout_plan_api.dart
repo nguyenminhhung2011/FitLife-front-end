@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:fit_life/mvvm/me/model/workout_plan/search_plan.dart';
-import 'package:fit_life/mvvm/me/model/workout_plan/workout_plan_model.dart';
+import 'package:fit_life/mvvm/object/model/workout_plan/search_plan.dart';
+import 'package:fit_life/mvvm/object/model/workout_plan/workout_plan_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 

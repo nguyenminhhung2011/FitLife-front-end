@@ -1,4 +1,4 @@
-import 'package:fit_life/mvvm/me/entity/exercise/exercise.dart';
+import 'package:fit_life/mvvm/object/entity/exercise/exercise.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'exercise_detail_data.freezed.dart';

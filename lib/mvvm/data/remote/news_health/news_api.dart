@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:fit_life/mvvm/me/model/news_health/news_health_model.dart';
-import 'package:fit_life/mvvm/me/model/news_health/search_news.dart';
+import 'package:fit_life/mvvm/object/model/news_health/news_health_model.dart';
+import 'package:fit_life/mvvm/object/model/news_health/search_news.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 

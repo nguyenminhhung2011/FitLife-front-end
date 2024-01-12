@@ -1,6 +1,6 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout_dto.dart';
-import 'package:fit_life/mvvm/repo/daily_plan_repositories.dart';
+import 'package:fit_life/mvvm/object/entity/daily_workout/daily_workout_dto.dart';
+import 'package:fit_life/mvvm/repositories/daily_plan_repositories.dart';
 import 'package:fit_life/mvvm/ui/plan_detail/view_model/plan_detail_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

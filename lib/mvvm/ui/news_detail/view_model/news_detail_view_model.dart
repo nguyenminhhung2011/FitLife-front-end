@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/me/entity/request/search_news_request.dart';
-import 'package:fit_life/mvvm/me/model/page_request/page_request.dart';
-import 'package:fit_life/mvvm/repo/news_repositories.dart';
+import 'package:fit_life/mvvm/object/entity/request/search_news_request.dart';
+import 'package:fit_life/mvvm/object/model/page_request/page_request.dart';
+import 'package:fit_life/mvvm/repositories/news_repositories.dart';
 import 'package:fit_life/mvvm/ui/news_detail/view_model/news_detail_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

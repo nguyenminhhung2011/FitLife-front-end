@@ -29,8 +29,6 @@ class NotificationService {
 
   // / Set right date and time for notifications
   tz.TZDateTime _convertTime(DateTime schedule) {
-    print(tz.local.name);
-
     final now = tz.TZDateTime.now(tz.local);
 
     tz.TZDateTime scheduleDate = tz.TZDateTime(
@@ -42,8 +40,6 @@ class NotificationService {
       schedule.minute,
       schedule.second,
     );
-    print(scheduleDate);
-    print(now);
     return scheduleDate.isBefore(now)
         ? scheduleDate.add(const Duration(days: 1))
         : scheduleDate;

@@ -1,8 +1,8 @@
 import 'package:fit_life/core/components/enum/frequency.dart';
 import 'package:fit_life/core/components/enum/gender.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/me/model/user/update_user_profile.dart';
-import 'package:fit_life/mvvm/repo/user_repositories.dart';
+import 'package:fit_life/mvvm/object/model/user/update_user_profile.dart';
+import 'package:fit_life/mvvm/repositories/user_repositories.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

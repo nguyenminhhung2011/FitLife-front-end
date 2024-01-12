@@ -8,10 +8,10 @@ import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/custom_input_label_field.dart';
 import 'package:fit_life/core/components/widgets/dropdown_button_custom.dart';
 import 'package:fit_life/core/components/widgets/range_date_picker_custom.dart';
-import 'package:fit_life/mvvm/me/entity/workout_plan/add_workout_plan_dto.dart';
-import 'package:fit_life/mvvm/ui/exercise_overview/ob/level.dart';
-import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
-import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
+import 'package:fit_life/mvvm/object/entity/workout_plan/add_workout_plan_dto.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview/plan_overview_data.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview/plan_overview_view_model.dart';
+import 'package:fit_life/mvvm/ui/session_plan/ob/level.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

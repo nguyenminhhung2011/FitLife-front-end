@@ -5,7 +5,7 @@ import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/image_custom.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
-import 'package:fit_life/mvvm/me/entity/news_health/news_health.dart';
+import 'package:fit_life/mvvm/object/entity/news_health/news_health.dart';
 import 'package:fit_life/mvvm/ui/news_detail/view_model/news_detail_data.dart';
 import 'package:fit_life/mvvm/ui/news_detail/view_model/news_detail_view_model.dart';
 import 'package:fit_life/mvvm/ui/overview/views/widgets/paper_field.dart';

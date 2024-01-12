@@ -3,10 +3,10 @@ import 'package:fit_life/core/components/extensions/double_extension.dart';
 import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
-import 'package:fit_life/mvvm/me/entity/workout_plan/add_workout_plan_dto.dart';
-import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
-import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_data.dart';
-import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview_view_model.dart';
+import 'package:fit_life/mvvm/object/entity/workout_plan/add_workout_plan_dto.dart';
+import 'package:fit_life/mvvm/object/entity/workout_plan/workout_plan.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview/plan_overview_data.dart';
+import 'package:fit_life/mvvm/ui/plan_overview/view_model/plan_overview/plan_overview_view_model.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/views/widgets/current_plan_view.dart';
 
 import 'package:fit_life/routes/routes.dart';

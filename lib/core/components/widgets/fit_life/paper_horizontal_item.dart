@@ -1,6 +1,6 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
-import 'package:fit_life/mvvm/me/entity/news_health/news_health.dart';
+import 'package:fit_life/mvvm/object/entity/news_health/news_health.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';

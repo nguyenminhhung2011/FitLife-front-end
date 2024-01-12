@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:fit_life/mvvm/me/entity/auth_response.dart';
-import 'package:fit_life/mvvm/me/entity/sign_in_response.dart';
+import 'package:fit_life/mvvm/object/entity/auth_response.dart';
+import 'package:fit_life/mvvm/object/entity/sign_in_response.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 

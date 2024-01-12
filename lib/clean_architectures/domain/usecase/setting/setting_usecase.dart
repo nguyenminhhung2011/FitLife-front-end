@@ -1,9 +1,9 @@
 import 'package:fit_life/clean_architectures/domain/usecase/base/base_usecase.dart';
 import 'package:fit_life/core/components/network/app_exception.dart';
-import 'package:fit_life/mvvm/me/entity/user/user_entity.dart';
-import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
-import 'package:fit_life/mvvm/me/model/user/change_password.dart';
-import 'package:fit_life/mvvm/repo/user_repositories.dart';
+import 'package:fit_life/mvvm/object/entity/user/user_entity.dart';
+import 'package:fit_life/mvvm/object/entity/workout_plan/workout_plan.dart';
+import 'package:fit_life/mvvm/object/model/user/change_password.dart';
+import 'package:fit_life/mvvm/repositories/user_repositories.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

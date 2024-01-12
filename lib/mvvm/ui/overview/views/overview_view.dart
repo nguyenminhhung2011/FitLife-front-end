@@ -1,10 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/extensions/string_extensions.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/core/services/notification_service.dart';
 import 'package:fit_life/generated/l10n.dart';
-import 'package:fit_life/mvvm/me/entity/upcoming_session/upcoming_session.dart';
+import 'package:fit_life/mvvm/object/entity/upcoming_session/upcoming_session.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_data.dart';
 import 'package:fit_life/mvvm/ui/overview/view_model/overview_view_model.dart';
 import 'package:fit_life/routes/routes.dart';
@@ -47,11 +48,10 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) {
-        _vm.getUpcomingScheduleExercise();
-        _vm.getTopNews();
-      }
+    Future.delayed(Duration.zero, () async {
+      await _vm.getUpcomingScheduleExercise();
+      await _vm.getTopNews();
+      await _vm.getBodyParts();
     });
     super.initState();
   }
@@ -113,13 +113,13 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
           headerText: S.of(context).feature,
           textStyle: _headerStyle,
           isShowSeeMore: true,
-          onPress: () async => await injector
+          onPress: () async => injector
               .get<NotificationService>()
-              .scheduledNotification(
-                  schedule: DateTime.now().add(const Duration(minutes: 1)),
-                  id: 01,
-                  sound: "Yayyy",
-                  payload: "adasdasdad"),
+              .showFlutterNotification(
+                  id: 10,
+                  title: "This is title",
+                  body: "dasd",
+                  payload: "dasdad"),
         ),
         SwipeCustom(
           itemCount: 3,
@@ -139,35 +139,42 @@ class _OverviewViewState extends ConsumerState<OverviewView> {
           isShowSeeMore: true,
           onPress: () => context.openListPageWithRoute(Routes.categories),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
-          child: CategoryField(
-            categoryType: CategoryType.expandCategory, // => Change here
-            selectedColor: Theme.of(context).primaryColor,
-            numberColumn: 2,
-            spacingItem: 15.0,
-            categoryGridFormat:
-                const CategoryGridFormat(crossSpacing: 10.0, mainSpacing: 10.0),
-            categoryTextStyle: context.titleSmall.copyWith(
-              fontWeight: FontWeight.w500,
-              overflow: TextOverflow.ellipsis,
+        if (_data.isLoadingBodyPart)
+          Center(
+            child: StyleLoadingWidget.foldingCube.renderWidget(
+                size: 40.0, color: Theme.of(context).primaryColor),
+          )
+        else if (_data.bodyParts?.isNotEmpty ?? false)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: CategoryField(
+              categoryType: CategoryType.expandCategory, // => Change here
+              selectedColor: Theme.of(context).primaryColor,
+              numberColumn: 2,
+              spacingItem: 15.0,
+              categoryGridFormat: const CategoryGridFormat(
+                  crossSpacing: 10.0, mainSpacing: 10.0),
+              categoryTextStyle: context.titleSmall.copyWith(
+                fontWeight: FontWeight.w500,
+                overflow: TextOverflow.ellipsis,
+              ),
+              categories: <CategoryStyle>[
+                ..._data.bodyParts!.mapIndexed(
+                  (index, e) => CategoryStyle(
+                    text: " ${e.header.upCaseFirstCharacter}",
+                    typeImage: TypeImage.assetSvg,
+                    iconUrl: Constant.listCategory[index].iconUrl,
+                    color: Constant.listCategory[index].color,
+                    iconSize: Constant.listCategory[index].iconSize,
+                    isIcon: Constant.listCategory[index].isIconData,
+                    onPress: () => context.openPageWithRouteAndParams(
+                        Routes.allExercise, e.header.toLowerCase()),
+                    padding: const EdgeInsets.all(15.0),
+                  ),
+                )
+              ],
             ),
-            categories: <CategoryStyle>[
-              ...Constant.listCategory.mapIndexed(
-                (index, e) => CategoryStyle(
-                  text: e.title,
-                  typeImage: TypeImage.assetSvg,
-                  iconUrl: e.iconUrl,
-                  color: e.color,
-                  iconSize: e.iconSize,
-                  isIcon: e.isIconData,
-                  padding: const EdgeInsets.all(15.0),
-                  onPress: () {},
-                ),
-              )
-            ],
           ),
-        ),
         const SizedBox(height: 5.0),
         HeaderTextCustom(
           headerText: S.of(context).sessionSchedule,

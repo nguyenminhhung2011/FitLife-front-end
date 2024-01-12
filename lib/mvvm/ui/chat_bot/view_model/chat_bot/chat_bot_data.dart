@@ -1,4 +1,4 @@
-import 'package:fit_life/mvvm/me/entity/message/message.dart';
+import 'package:fit_life/mvvm/object/entity/message/message.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'chat_bot_data.freezed.dart';

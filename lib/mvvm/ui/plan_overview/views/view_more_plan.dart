@@ -7,7 +7,7 @@ import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
 import 'package:fit_life/core/components/widgets/fit_life/workout_plan_item.dart';
 import 'package:fit_life/core/components/widgets/pagination_view/default_pagination.dart';
 import 'package:fit_life/core/components/widgets/range_date_picker_custom.dart';
-import 'package:fit_life/mvvm/me/entity/workout_plan/workout_plan.dart';
+import 'package:fit_life/mvvm/object/entity/workout_plan/workout_plan.dart';
 import 'package:fit_life/mvvm/ui/auth/mixins/auth_mixin.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/view_more/view_more_plan_data.dart';
 import 'package:fit_life/mvvm/ui/plan_overview/view_model/view_more/view_more_plan_view_model.dart';

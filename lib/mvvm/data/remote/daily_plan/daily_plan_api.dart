@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:fit_life/mvvm/me/entity/daily_workout/daily_workout.dart';
+import 'package:fit_life/mvvm/object/entity/daily_workout/daily_workout.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 

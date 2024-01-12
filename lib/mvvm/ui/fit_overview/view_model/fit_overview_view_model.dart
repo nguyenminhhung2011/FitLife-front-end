@@ -1,9 +1,9 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/me/entity/calories_chart/calories_chart.dart';
-import 'package:fit_life/mvvm/me/entity/request/get_chart_request.dart';
-import 'package:fit_life/mvvm/repo/exercise_repositories.dart';
-import 'package:fit_life/mvvm/repo/plan_repositories.dart';
-import 'package:fit_life/mvvm/repo/session_repositories.dart';
+import 'package:fit_life/mvvm/object/entity/calories_chart/calories_chart.dart';
+import 'package:fit_life/mvvm/object/entity/request/get_chart_request.dart';
+import 'package:fit_life/mvvm/repositories/exercise_repositories.dart';
+import 'package:fit_life/mvvm/repositories/plan_repositories.dart';
+import 'package:fit_life/mvvm/repositories/session_repositories.dart';
 import 'package:fit_life/mvvm/ui/fit_overview/view_model/fit_overview_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

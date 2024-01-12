@@ -3,7 +3,7 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/pagination_view/default_pagination.dart';
-import 'package:fit_life/mvvm/me/entity/news_health/news_health.dart';
+import 'package:fit_life/mvvm/object/entity/news_health/news_health.dart';
 import 'package:fit_life/mvvm/ui/auth/mixins/auth_mixin.dart';
 import 'package:fit_life/mvvm/ui/list_news/view_model/list_news_data.dart';
 import 'package:fit_life/mvvm/ui/list_news/view_model/list_news_view_model.dart';

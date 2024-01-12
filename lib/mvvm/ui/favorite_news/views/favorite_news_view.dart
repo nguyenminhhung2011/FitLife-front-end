@@ -2,7 +2,7 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
 import 'package:fit_life/generated/l10n.dart';
-import 'package:fit_life/mvvm/me/entity/news_health/news_health.dart';
+import 'package:fit_life/mvvm/object/entity/news_health/news_health.dart';
 import 'package:fit_life/mvvm/ui/list_news/views/widget/news_health_vertical_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

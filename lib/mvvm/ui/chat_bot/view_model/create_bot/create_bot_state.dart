@@ -16,5 +16,16 @@ class CreateBotState with _$CreateBotState {
 
   const factory CreateBotState.changeSourceFileSuccess(
       {required CreateBotData data}) = _ChangeSourceFileSuccess;
+
+  const factory CreateBotState.createTrainerSuccess(
+      {required CreateBotData data}) = _CreateTrainerSuccess;
+
+  const factory CreateBotState.createTrainerFailed({
+    required CreateBotData data,
+    required String message,
+  }) = _CreateTrainerFailed;
+
+  const factory CreateBotState.loading({
+    required CreateBotData data,
+  }) = _Loading;
 }
-  

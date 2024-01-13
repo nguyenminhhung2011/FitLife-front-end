@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:fit_life/mvvm/object/model/trainer/trainer_model.dart';
 import 'package:injectable/injectable.dart';
@@ -32,4 +31,7 @@ abstract class TrainerApi {
   @PUT("$trainerApi/{id}")
   Future<HttpResponse<TrainerModel?>> updateTrainer(@Path("id") String id,
       {@Body() required Map<String, dynamic> body});
+
+  // @POST(trainerChatApi)
+  // Future<HttpResponse
 }

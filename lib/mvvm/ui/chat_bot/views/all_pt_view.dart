@@ -15,7 +15,6 @@ class AllPtView extends StatefulWidget {
 }
 
 class _AllPtViewState extends State<AllPtView> with AuthMixin {
-  Color get _backgroundColor => Theme.of(context).scaffoldBackgroundColor;
   final _searchController = TextEditingController();
 
   @override

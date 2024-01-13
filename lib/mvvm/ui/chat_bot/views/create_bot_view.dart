@@ -66,8 +66,18 @@ class _CreateBotViewState extends ConsumerState<CreateBotView> {
     super.dispose();
   }
 
+  void _listenStateChange(CreateBotState state) {
+    state.maybeWhen(
+      createTrainerSuccess: (_) {},
+      createTrainerFailed: (_, message) =>
+          context.showSnackBar("🐛[Create trainer] $message"),
+      orElse: () {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    ref.listen(createBotStateNotifier, (_, next) => _listenStateChange(next));
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomSheet: Padding(

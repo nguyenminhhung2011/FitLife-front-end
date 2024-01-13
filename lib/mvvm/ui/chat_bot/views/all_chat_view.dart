@@ -1,3 +1,4 @@
+import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/all_chat/all_chat_data.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/all_chat/all_chat_view_model.dart';
@@ -29,7 +30,13 @@ class _AllChatViewState extends ConsumerState<AllChatView> {
     super.initState();
   }
 
-  void _listenStateChange(AllChatState state) {}
+  void _listenStateChange(AllChatState state) {
+    state.maybeWhen(
+      getAllChatFailed: (_, error) =>
+          context.showSnackBar("🐛[Get all chat] Failed"),
+      orElse: () async {},
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

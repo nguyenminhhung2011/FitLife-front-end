@@ -1,5 +1,4 @@
 import 'package:fit_life/core/dependency_injection/di.dart';
-import 'package:fit_life/mvvm/data/local/preferences.dart';
 import 'package:fit_life/mvvm/repositories/open_ai_repositories.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

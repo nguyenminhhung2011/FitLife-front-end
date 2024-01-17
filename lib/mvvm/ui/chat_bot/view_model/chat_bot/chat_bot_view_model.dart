@@ -7,6 +7,7 @@ import 'package:fit_life/core/services/text_speech_service.dart';
 import 'package:fit_life/mvvm/object/entity/message/message.dart';
 import 'package:fit_life/mvvm/object/entity/message/message_status.dart';
 import 'package:fit_life/mvvm/object/entity/message/message_type.dart';
+import 'package:fit_life/mvvm/repositories/chat_repositories.dart';
 import 'package:fit_life/mvvm/repositories/message_repositories.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot/chat_bot_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -34,6 +35,7 @@ final chatBotStateNotifier =
 
 @injectable
 class ChatBotViewModel extends StateNotifier<ChatBotState> {
+  final _chatRepositories = injector.get<ChatRepositories>();
   final _messageRepositories = injector.get<MessageRepositories>();
   final _speechTextService = injector.get<SpeechTextService>();
   final _textSpeechService = injector.get<TextSpeechService>();
@@ -164,6 +166,36 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
   Future<void> removeAllEventHandler() async {
     await _speechTextService.stopSpeak();
     await _textSpeechService.cancelHandler();
+  }
+
+  ///[🎉 Chat thread handler]
+
+  Future<void> getChatThread(String threadId) async {
+    state = _Loading(data: data);
+    final response = await _chatRepositories.getThreadById(threadId);
+    if (!mounted) return;
+    state = response.fold(
+      ifLeft: (error) =>
+          _GetChatThreadFailed(data: data, message: error.message),
+      ifRight: (rData) => _GetChatThreadSuccess(
+        data: data.copyWith(chatThread: rData),
+      ),
+    );
+  }
+
+  Future<void> createChatThread(
+      {required String uid, required String title}) async {
+    state = _Loading(data: data);
+    final response =
+        await _chatRepositories.createChatThread(uid: uid, title: title);
+    if (!mounted) return;
+    state = response.fold(
+      ifLeft: (error) =>
+          _CreateChatThreadFailed(data: data, message: error.message),
+      ifRight: (rData) => _CreateChatThreadSuccess(
+        data: data.copyWith(chatThread: rData),
+      ),
+    );
   }
 
   ///[🎉 Message handler]

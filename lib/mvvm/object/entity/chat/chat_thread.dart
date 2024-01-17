@@ -8,7 +8,7 @@ class ChatThread with _$ChatThread {
   const factory ChatThread({
     required String id,
     required String title,
-    required String openAiThreadId,
+    String? openAiThreadId,
     DateTime? createdAt,
     Trainer? trainer,
   }) = _ChatThread;

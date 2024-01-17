@@ -59,6 +59,22 @@ class ChatBotState with _$ChatBotState {
     required String message,
   }) = _DeleteMessageFailed;
 
+  const factory ChatBotState.getChatThreadSuccess({required ChatBotData data}) =
+      _GetChatThreadSuccess;
+
+  const factory ChatBotState.getChatThreadFailed({
+    required ChatBotData data,
+    required String message,
+  }) = _GetChatThreadFailed;
+
+  const factory ChatBotState.createChatThreadSuccess(
+      {required ChatBotData data}) = _CreateChatThreadSuccess;
+
+  const factory ChatBotState.createChatThreadFailed({
+    required ChatBotData data,
+    required String message,
+  }) = _CreateChatThreadFailed;
+
   bool get loading => this is _Loading;
 
   bool get loadingMessage => this is _LoadingMessage;

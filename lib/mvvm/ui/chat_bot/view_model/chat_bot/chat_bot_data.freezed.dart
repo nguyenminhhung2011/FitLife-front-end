@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ChatBotData {
+  ChatThread? get chatThread => throw _privateConstructorUsedError;
   List<Message> get messages => throw _privateConstructorUsedError;
   bool get micAvailable => throw _privateConstructorUsedError;
   String get messageSpeechId => throw _privateConstructorUsedError;
@@ -32,7 +33,12 @@ abstract class $ChatBotDataCopyWith<$Res> {
       _$ChatBotDataCopyWithImpl<$Res, ChatBotData>;
   @useResult
   $Res call(
-      {List<Message> messages, bool micAvailable, String messageSpeechId});
+      {ChatThread? chatThread,
+      List<Message> messages,
+      bool micAvailable,
+      String messageSpeechId});
+
+  $ChatThreadCopyWith<$Res>? get chatThread;
 }
 
 /// @nodoc
@@ -48,11 +54,16 @@ class _$ChatBotDataCopyWithImpl<$Res, $Val extends ChatBotData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? chatThread = freezed,
     Object? messages = null,
     Object? micAvailable = null,
     Object? messageSpeechId = null,
   }) {
     return _then(_value.copyWith(
+      chatThread: freezed == chatThread
+          ? _value.chatThread
+          : chatThread // ignore: cast_nullable_to_non_nullable
+              as ChatThread?,
       messages: null == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
@@ -67,6 +78,18 @@ class _$ChatBotDataCopyWithImpl<$Res, $Val extends ChatBotData>
               as String,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ChatThreadCopyWith<$Res>? get chatThread {
+    if (_value.chatThread == null) {
+      return null;
+    }
+
+    return $ChatThreadCopyWith<$Res>(_value.chatThread!, (value) {
+      return _then(_value.copyWith(chatThread: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -78,7 +101,13 @@ abstract class _$$_ChatBotDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Message> messages, bool micAvailable, String messageSpeechId});
+      {ChatThread? chatThread,
+      List<Message> messages,
+      bool micAvailable,
+      String messageSpeechId});
+
+  @override
+  $ChatThreadCopyWith<$Res>? get chatThread;
 }
 
 /// @nodoc
@@ -92,11 +121,16 @@ class __$$_ChatBotDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? chatThread = freezed,
     Object? messages = null,
     Object? micAvailable = null,
     Object? messageSpeechId = null,
   }) {
     return _then(_$_ChatBotData(
+      chatThread: freezed == chatThread
+          ? _value.chatThread
+          : chatThread // ignore: cast_nullable_to_non_nullable
+              as ChatThread?,
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
@@ -117,11 +151,14 @@ class __$$_ChatBotDataCopyWithImpl<$Res>
 
 class _$_ChatBotData implements _ChatBotData {
   const _$_ChatBotData(
-      {required final List<Message> messages,
+      {this.chatThread,
+      required final List<Message> messages,
       this.micAvailable = false,
       this.messageSpeechId = ""})
       : _messages = messages;
 
+  @override
+  final ChatThread? chatThread;
   final List<Message> _messages;
   @override
   List<Message> get messages {
@@ -139,7 +176,7 @@ class _$_ChatBotData implements _ChatBotData {
 
   @override
   String toString() {
-    return 'ChatBotData(messages: $messages, micAvailable: $micAvailable, messageSpeechId: $messageSpeechId)';
+    return 'ChatBotData(chatThread: $chatThread, messages: $messages, micAvailable: $micAvailable, messageSpeechId: $messageSpeechId)';
   }
 
   @override
@@ -147,6 +184,8 @@ class _$_ChatBotData implements _ChatBotData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChatBotData &&
+            (identical(other.chatThread, chatThread) ||
+                other.chatThread == chatThread) &&
             const DeepCollectionEquality().equals(other._messages, _messages) &&
             (identical(other.micAvailable, micAvailable) ||
                 other.micAvailable == micAvailable) &&
@@ -157,6 +196,7 @@ class _$_ChatBotData implements _ChatBotData {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      chatThread,
       const DeepCollectionEquality().hash(_messages),
       micAvailable,
       messageSpeechId);
@@ -170,10 +210,13 @@ class _$_ChatBotData implements _ChatBotData {
 
 abstract class _ChatBotData implements ChatBotData {
   const factory _ChatBotData(
-      {required final List<Message> messages,
+      {final ChatThread? chatThread,
+      required final List<Message> messages,
       final bool micAvailable,
       final String messageSpeechId}) = _$_ChatBotData;
 
+  @override
+  ChatThread? get chatThread;
   @override
   List<Message> get messages;
   @override

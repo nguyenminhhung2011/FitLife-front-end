@@ -97,13 +97,7 @@ class MainChatViewState extends ConsumerState<MainChatView> {
         ),
       ),
       body: [
-        if (_currentChatId != null)
-          ProviderScope(
-              child: ChatBotView(
-            chatId: _currentChatId!,
-          ))
-        else
-          const SizedBox(),
+        ProviderScope(child: ChatBotView(chatId: _currentChatId ?? "")),
         const ProviderScope(child: AllPtView()),
         BlocProvider(
           create: (_) => injector.get<InputApiCubit>(),

@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ChatThread {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  String get openAiThreadId => throw _privateConstructorUsedError;
+  String? get openAiThreadId => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Trainer? get trainer => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $ChatThreadCopyWith<$Res> {
   $Res call(
       {String id,
       String title,
-      String openAiThreadId,
+      String? openAiThreadId,
       DateTime? createdAt,
       Trainer? trainer});
 
@@ -58,7 +58,7 @@ class _$ChatThreadCopyWithImpl<$Res, $Val extends ChatThread>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? openAiThreadId = null,
+    Object? openAiThreadId = freezed,
     Object? createdAt = freezed,
     Object? trainer = freezed,
   }) {
@@ -71,10 +71,10 @@ class _$ChatThreadCopyWithImpl<$Res, $Val extends ChatThread>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      openAiThreadId: null == openAiThreadId
+      openAiThreadId: freezed == openAiThreadId
           ? _value.openAiThreadId
           : openAiThreadId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ abstract class _$$_ChatThreadCopyWith<$Res>
   $Res call(
       {String id,
       String title,
-      String openAiThreadId,
+      String? openAiThreadId,
       DateTime? createdAt,
       Trainer? trainer});
 
@@ -131,7 +131,7 @@ class __$$_ChatThreadCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? openAiThreadId = null,
+    Object? openAiThreadId = freezed,
     Object? createdAt = freezed,
     Object? trainer = freezed,
   }) {
@@ -144,10 +144,10 @@ class __$$_ChatThreadCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      openAiThreadId: null == openAiThreadId
+      openAiThreadId: freezed == openAiThreadId
           ? _value.openAiThreadId
           : openAiThreadId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ class _$_ChatThread implements _ChatThread {
   const _$_ChatThread(
       {required this.id,
       required this.title,
-      required this.openAiThreadId,
+      this.openAiThreadId,
       this.createdAt,
       this.trainer});
 
@@ -175,7 +175,7 @@ class _$_ChatThread implements _ChatThread {
   @override
   final String title;
   @override
-  final String openAiThreadId;
+  final String? openAiThreadId;
   @override
   final DateTime? createdAt;
   @override
@@ -215,7 +215,7 @@ abstract class _ChatThread implements ChatThread {
   const factory _ChatThread(
       {required final String id,
       required final String title,
-      required final String openAiThreadId,
+      final String? openAiThreadId,
       final DateTime? createdAt,
       final Trainer? trainer}) = _$_ChatThread;
 
@@ -224,7 +224,7 @@ abstract class _ChatThread implements ChatThread {
   @override
   String get title;
   @override
-  String get openAiThreadId;
+  String? get openAiThreadId;
   @override
   DateTime? get createdAt;
   @override

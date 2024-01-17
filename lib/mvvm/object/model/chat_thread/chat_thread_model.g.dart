@@ -10,7 +10,7 @@ ChatThreadModel _$ChatThreadModelFromJson(Map<String, dynamic> json) =>
     ChatThreadModel(
       id: json['id'] as String,
       title: json['title'] as String,
-      openAiThreadId: json['openAiThreadId'] as String,
+      openAiThreadId: json['openAiThreadId'] as String?,
       trainer: json['trainer'] == null
           ? null
           : TrainerModel.fromJson(json['trainer'] as Map<String, dynamic>),

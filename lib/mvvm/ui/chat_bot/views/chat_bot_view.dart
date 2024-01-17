@@ -45,7 +45,9 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
   @override
   void initState() {
     Future.delayed(Duration.zero, () async {
-      await _vm.getMessage();
+      if (widget.chatId.isNotEmpty) {
+        await _vm.getMessage();
+      }
       await _vm.initialTextToSpeech();
       await _vm.initialSpeechToText();
     });

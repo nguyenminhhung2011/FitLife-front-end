@@ -1,4 +1,5 @@
 import 'package:drag_ball/drag_ball.dart';
+import 'package:fit_life/core/components/layout/setting_layout/controller/setting_bloc.dart';
 import 'package:fit_life/core/components/widgets/header_custom.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
@@ -12,6 +13,7 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/image_custom.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/input_widget.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/message_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:readmore/readmore.dart';
 
@@ -35,6 +37,10 @@ class ChatBotView extends ConsumerStatefulWidget {
 }
 
 class _ChatBotViewState extends ConsumerState<ChatBotView> {
+  SettingBloc get _settingBloc => context.read<SettingBloc>();
+
+  int? get _uid => _settingBloc.data.currentUser?.id;
+
   ChatBotViewModel get _vm => ref.read(chatBotStateNotifier.notifier);
 
   ChatBotData get _data => ref.watch(chatBotStateNotifier).data;
@@ -57,6 +63,7 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
   void initState() {
     Future.delayed(Duration.zero, () async {
       if (widget.chatId.isNotEmpty) {
+        await _vm.getChatThread(widget.chatId);
         await _vm.getMessage();
       } else {
         await _vm.getAllPrTrainer();
@@ -77,6 +84,10 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
           context.showSnackBar("🐛[Clear conversation] $error"),
       deleteMessageFailed: (_, error) =>
           context.showSnackBar("🐛[Delete message] $error"),
+      createChatThreadSuccess: (data, message) async {
+        await Future.delayed(const Duration(milliseconds: 100));
+        await _vm.sendMessage(content: message);
+      },
       listeningSpeech: (_, responseText) => _textController.text = responseText,
       orElse: () {},
     );
@@ -214,7 +225,14 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
             onVoiceStart: () => _vm.startListeningSpeech(),
             onVoiceStop: () => _vm.stopListeningSpeech(),
             micAvailable: _data.micAvailable,
-            onSubmitted: () => _vm.sendMessage(content: _textController.text),
+            onSubmitted: () {
+              if (_data.messages.isEmpty || _uid != null) {
+                _vm.createChatThread(
+                    uid: _uid.toString(), title: _textController.text);
+              } else {
+                _vm.sendMessage(content: _textController.text);
+              }
+            },
           ),
         ],
       ),

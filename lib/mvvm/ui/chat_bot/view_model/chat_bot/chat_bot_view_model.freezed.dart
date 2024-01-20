@@ -43,7 +43,8 @@ mixin _$ChatBotState {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -76,7 +77,8 @@ mixin _$ChatBotState {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -106,7 +108,7 @@ mixin _$ChatBotState {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -356,7 +358,8 @@ class _$_Initial extends _Initial {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -392,7 +395,8 @@ class _$_Initial extends _Initial {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -425,7 +429,7 @@ class _$_Initial extends _Initial {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -656,7 +660,8 @@ class _$_Loading extends _Loading {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -692,7 +697,8 @@ class _$_Loading extends _Loading {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -725,7 +731,7 @@ class _$_Loading extends _Loading {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -957,7 +963,8 @@ class _$_LoadingMessage extends _LoadingMessage {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -993,7 +1000,8 @@ class _$_LoadingMessage extends _LoadingMessage {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -1026,7 +1034,7 @@ class _$_LoadingMessage extends _LoadingMessage {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -1260,7 +1268,8 @@ class _$_GetAllMessageSuccess extends _GetAllMessageSuccess {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -1296,7 +1305,8 @@ class _$_GetAllMessageSuccess extends _GetAllMessageSuccess {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -1329,7 +1339,7 @@ class _$_GetAllMessageSuccess extends _GetAllMessageSuccess {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -1572,7 +1582,8 @@ class _$_GetAllMessageFailed extends _GetAllMessageFailed {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -1608,7 +1619,8 @@ class _$_GetAllMessageFailed extends _GetAllMessageFailed {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -1641,7 +1653,7 @@ class _$_GetAllMessageFailed extends _GetAllMessageFailed {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -1877,7 +1889,8 @@ class _$_SendMessageSuccess extends _SendMessageSuccess {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -1913,7 +1926,8 @@ class _$_SendMessageSuccess extends _SendMessageSuccess {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -1946,7 +1960,7 @@ class _$_SendMessageSuccess extends _SendMessageSuccess {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -2189,7 +2203,8 @@ class _$_SendMessageFailed extends _SendMessageFailed {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -2225,7 +2240,8 @@ class _$_SendMessageFailed extends _SendMessageFailed {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -2258,7 +2274,7 @@ class _$_SendMessageFailed extends _SendMessageFailed {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -2503,7 +2519,8 @@ class _$_ListeningSpeech extends _ListeningSpeech {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -2539,7 +2556,8 @@ class _$_ListeningSpeech extends _ListeningSpeech {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -2572,7 +2590,7 @@ class _$_ListeningSpeech extends _ListeningSpeech {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -2807,7 +2825,8 @@ class _$_StopListening extends _StopListening {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -2843,7 +2862,8 @@ class _$_StopListening extends _StopListening {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -2876,7 +2896,7 @@ class _$_StopListening extends _StopListening {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -3110,7 +3130,8 @@ class _$_InitialSpeechSuccess extends _InitialSpeechSuccess {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -3146,7 +3167,8 @@ class _$_InitialSpeechSuccess extends _InitialSpeechSuccess {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -3179,7 +3201,7 @@ class _$_InitialSpeechSuccess extends _InitialSpeechSuccess {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -3412,7 +3434,8 @@ class _$_SpeechText extends _SpeechText {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -3448,7 +3471,8 @@ class _$_SpeechText extends _SpeechText {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -3481,7 +3505,7 @@ class _$_SpeechText extends _SpeechText {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -3713,7 +3737,8 @@ class _$_StopSpeech extends _StopSpeech {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -3749,7 +3774,8 @@ class _$_StopSpeech extends _StopSpeech {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -3782,7 +3808,7 @@ class _$_StopSpeech extends _StopSpeech {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -4016,7 +4042,8 @@ class _$_ClearConversationSuccess extends _ClearConversationSuccess {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -4052,7 +4079,8 @@ class _$_ClearConversationSuccess extends _ClearConversationSuccess {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -4085,7 +4113,7 @@ class _$_ClearConversationSuccess extends _ClearConversationSuccess {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -4329,7 +4357,8 @@ class _$_ClearConversationFailed extends _ClearConversationFailed {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -4365,7 +4394,8 @@ class _$_ClearConversationFailed extends _ClearConversationFailed {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -4398,7 +4428,7 @@ class _$_ClearConversationFailed extends _ClearConversationFailed {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -4634,7 +4664,8 @@ class _$_DeleteMessageSuccess extends _DeleteMessageSuccess {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -4670,7 +4701,8 @@ class _$_DeleteMessageSuccess extends _DeleteMessageSuccess {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -4703,7 +4735,7 @@ class _$_DeleteMessageSuccess extends _DeleteMessageSuccess {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -4946,7 +4978,8 @@ class _$_DeleteMessageFailed extends _DeleteMessageFailed {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -4982,7 +5015,8 @@ class _$_DeleteMessageFailed extends _DeleteMessageFailed {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -5015,7 +5049,7 @@ class _$_DeleteMessageFailed extends _DeleteMessageFailed {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -5251,7 +5285,8 @@ class _$_GetChatThreadSuccess extends _GetChatThreadSuccess {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -5287,7 +5322,8 @@ class _$_GetChatThreadSuccess extends _GetChatThreadSuccess {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -5320,7 +5356,7 @@ class _$_GetChatThreadSuccess extends _GetChatThreadSuccess {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -5563,7 +5599,8 @@ class _$_GetChatThreadFailed extends _GetChatThreadFailed {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -5599,7 +5636,8 @@ class _$_GetChatThreadFailed extends _GetChatThreadFailed {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -5632,7 +5670,7 @@ class _$_GetChatThreadFailed extends _GetChatThreadFailed {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -5782,7 +5820,7 @@ abstract class _$$_CreateChatThreadSuccessCopyWith<$Res>
       __$$_CreateChatThreadSuccessCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ChatBotData data});
+  $Res call({ChatBotData data, String message});
 
   @override
   $ChatBotDataCopyWith<$Res> get data;
@@ -5800,12 +5838,17 @@ class __$$_CreateChatThreadSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? message = null,
   }) {
     return _then(_$_CreateChatThreadSuccess(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ChatBotData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -5813,14 +5856,17 @@ class __$$_CreateChatThreadSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
-  const _$_CreateChatThreadSuccess({required this.data}) : super._();
+  const _$_CreateChatThreadSuccess({required this.data, required this.message})
+      : super._();
 
   @override
   final ChatBotData data;
+  @override
+  final String message;
 
   @override
   String toString() {
-    return 'ChatBotState.createChatThreadSuccess(data: $data)';
+    return 'ChatBotState.createChatThreadSuccess(data: $data, message: $message)';
   }
 
   @override
@@ -5828,11 +5874,12 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateChatThreadSuccess &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(runtimeType, data, message);
 
   @JsonKey(ignore: true)
   @override
@@ -5869,7 +5916,8 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -5880,7 +5928,7 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
   }) {
-    return createChatThreadSuccess(data);
+    return createChatThreadSuccess(data, message);
   }
 
   @override
@@ -5905,7 +5953,8 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -5914,7 +5963,7 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
   }) {
-    return createChatThreadSuccess?.call(data);
+    return createChatThreadSuccess?.call(data, message);
   }
 
   @override
@@ -5938,7 +5987,7 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -5948,7 +5997,7 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     required TResult orElse(),
   }) {
     if (createChatThreadSuccess != null) {
-      return createChatThreadSuccess(data);
+      return createChatThreadSuccess(data, message);
     }
     return orElse();
   }
@@ -6066,12 +6115,14 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
 }
 
 abstract class _CreateChatThreadSuccess extends ChatBotState {
-  const factory _CreateChatThreadSuccess({required final ChatBotData data}) =
-      _$_CreateChatThreadSuccess;
+  const factory _CreateChatThreadSuccess(
+      {required final ChatBotData data,
+      required final String message}) = _$_CreateChatThreadSuccess;
   const _CreateChatThreadSuccess._() : super._();
 
   @override
   ChatBotData get data;
+  String get message;
   @override
   @JsonKey(ignore: true)
   _$$_CreateChatThreadSuccessCopyWith<_$_CreateChatThreadSuccess>
@@ -6181,7 +6232,8 @@ class _$_CreateChatThreadFailed extends _CreateChatThreadFailed {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -6217,7 +6269,8 @@ class _$_CreateChatThreadFailed extends _CreateChatThreadFailed {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -6250,7 +6303,7 @@ class _$_CreateChatThreadFailed extends _CreateChatThreadFailed {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -6486,7 +6539,8 @@ class _$_SelectAssistantSuccess extends _SelectAssistantSuccess {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -6522,7 +6576,8 @@ class _$_SelectAssistantSuccess extends _SelectAssistantSuccess {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -6555,7 +6610,7 @@ class _$_SelectAssistantSuccess extends _SelectAssistantSuccess {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -6789,7 +6844,8 @@ class _$_GetAllPrTrainerSuccess extends _GetAllPrTrainerSuccess {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -6825,7 +6881,8 @@ class _$_GetAllPrTrainerSuccess extends _GetAllPrTrainerSuccess {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -6858,7 +6915,7 @@ class _$_GetAllPrTrainerSuccess extends _GetAllPrTrainerSuccess {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -7101,7 +7158,8 @@ class _$_GetAllPrTrainerFailed extends _GetAllPrTrainerFailed {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -7137,7 +7195,8 @@ class _$_GetAllPrTrainerFailed extends _GetAllPrTrainerFailed {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -7170,7 +7229,7 @@ class _$_GetAllPrTrainerFailed extends _GetAllPrTrainerFailed {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -7407,7 +7466,8 @@ class _$_GetPreviewTrainerSuccess extends _GetPreviewTrainerSuccess {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -7443,7 +7503,8 @@ class _$_GetPreviewTrainerSuccess extends _GetPreviewTrainerSuccess {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -7476,7 +7537,7 @@ class _$_GetPreviewTrainerSuccess extends _GetPreviewTrainerSuccess {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -7720,7 +7781,8 @@ class _$_GetPreviewTrainerFailed extends _GetPreviewTrainerFailed {
     required TResult Function(ChatBotData data) getChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         getChatThreadFailed,
-    required TResult Function(ChatBotData data) createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
     required TResult Function(ChatBotData data, String message)
         createChatThreadFailed,
     required TResult Function(ChatBotData data) selectAssistantSuccess,
@@ -7756,7 +7818,8 @@ class _$_GetPreviewTrainerFailed extends _GetPreviewTrainerFailed {
     TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult? Function(ChatBotData data)? getChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult? Function(ChatBotData data)? createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
     TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult? Function(ChatBotData data)? selectAssistantSuccess,
     TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
@@ -7789,7 +7852,7 @@ class _$_GetPreviewTrainerFailed extends _GetPreviewTrainerFailed {
     TResult Function(ChatBotData data, String message)? deleteMessageFailed,
     TResult Function(ChatBotData data)? getChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? getChatThreadFailed,
-    TResult Function(ChatBotData data)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
     TResult Function(ChatBotData data, String message)? createChatThreadFailed,
     TResult Function(ChatBotData data)? selectAssistantSuccess,
     TResult Function(ChatBotData data)? getAllPrTrainerSuccess,

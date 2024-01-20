@@ -196,6 +196,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
       ifLeft: (error) =>
           _CreateChatThreadFailed(data: data, message: error.message),
       ifRight: (rData) => _CreateChatThreadSuccess(
+        message: title,
         data: data.copyWith(chatThread: rData),
       ),
     );

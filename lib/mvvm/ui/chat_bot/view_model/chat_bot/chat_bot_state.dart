@@ -68,7 +68,8 @@ class ChatBotState with _$ChatBotState {
   }) = _GetChatThreadFailed;
 
   const factory ChatBotState.createChatThreadSuccess(
-      {required ChatBotData data}) = _CreateChatThreadSuccess;
+      {required ChatBotData data,
+      required String message}) = _CreateChatThreadSuccess;
 
   const factory ChatBotState.createChatThreadFailed({
     required ChatBotData data,

@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:fit_life/core/components/constant/constant.dart';
+import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/core/services/speach_text_service.dart';
@@ -7,6 +9,7 @@ import 'package:fit_life/core/services/text_speech_service.dart';
 import 'package:fit_life/mvvm/object/entity/message/message.dart';
 import 'package:fit_life/mvvm/object/entity/message/message_status.dart';
 import 'package:fit_life/mvvm/object/entity/message/message_type.dart';
+import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
 import 'package:fit_life/mvvm/repositories/chat_repositories.dart';
 import 'package:fit_life/mvvm/repositories/message_repositories.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot/chat_bot_data.dart';
@@ -225,6 +228,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
 
     final loadingMessage =
         _basicMessage.copyWith(status: MessageStatus.loading);
+
     state = _LoadingMessage(
       data: data.copyWith(
         messages: [
@@ -234,6 +238,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
         ],
       ),
     );
+
     final response = await _messageRepositories.sendMessage(
       message: data.messages.sublist(1).map((e) => e.content).toList(),
     );
@@ -272,6 +277,41 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
     if (!mounted) return;
 
     state = _messageResponseToState(response);
+  }
+
+  Future<void> getAllPrTrainer() async {
+    state = _Loading(data: data);
+    await Future.delayed(const Duration(seconds: 3));
+    state = _GetAllPrTrainerSuccess(
+        data: data.copyWith(allPreTrainer: [
+      Constant.defaultTrainer,
+      Constant.defaultTrainer.copyWith(id: "1", name: "Web-search"),
+      Constant.defaultTrainer.copyWith(id: "2", name: "ChatGPT"),
+    ]));
+  }
+
+  Future<void> getPreviewTrainer() async {
+    state = _Loading(data: data);
+    await Future.delayed(const Duration(seconds: 3));
+    state = _GetPreviewTrainerSuccess(
+        data: data.copyWith(
+      previewTrainer: [
+        Constant.defaultTrainer
+            .copyWith(id: "1", name: "PT Hung", image: ImageConst.intro2),
+        Constant.defaultTrainer
+            .copyWith(id: "2", name: "PT Hoang", image: ImageConst.banner2),
+        Constant.defaultTrainer
+            .copyWith(id: "3", name: "PT Dai", image: ImageConst.banner3),
+        Constant.defaultTrainer
+            .copyWith(id: "4", name: "PT Hao", image: ImageConst.intro1),
+      ],
+    ));
+  }
+
+  void selectTrainerAssistant(Trainer newTrainer) {
+    state = _SelectAssistantSuccess(
+      data: data.copyWith(trainerSelected: newTrainer),
+    );
   }
 
   Future<void> clearConservation() async {

@@ -1,7 +1,10 @@
 import 'package:drag_ball/drag_ball.dart';
+import 'package:fit_life/core/components/widgets/header_custom.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
+import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot/chat_bot_data.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot/chat_bot_view_model.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/traine_horizontal_view.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
@@ -38,6 +41,14 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
 
   ChatBotState get _state => ref.watch(chatBotStateNotifier);
 
+  Trainer? get _trainer => _data.chatThread?.trainer;
+
+  List<Trainer> get _allPrTrainer => _data.allPreTrainer ?? [];
+
+  List<Trainer> get _previewTrainer => _data.previewTrainer ?? [];
+
+  Trainer get _trainerSelected => _data.trainerSelected;
+
   Color get _primaryColor => Theme.of(context).primaryColor;
 
   final TextEditingController _textController = TextEditingController();
@@ -47,6 +58,9 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
     Future.delayed(Duration.zero, () async {
       if (widget.chatId.isNotEmpty) {
         await _vm.getMessage();
+      } else {
+        await _vm.getAllPrTrainer();
+        await _vm.getPreviewTrainer();
       }
       await _vm.initialTextToSpeech();
       await _vm.initialSpeechToText();
@@ -157,87 +171,43 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
   Scaffold _body(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).primaryColor,
-      //   leading: IconButton(
-      //     onPressed: () => context.pop(),
-      //     icon: const Icon(Icons.arrow_back, color: Colors.white),
-      //   ),
-      //   elevation: 0,
-      //   title: Row(
-      //     crossAxisAlignment: CrossAxisAlignment.center,
-      //     children: [
-      //       Text(
-      //         'ChatThread bot',
-      //         style: context.titleLarge
-      //             .copyWith(fontWeight: FontWeight.w600, color: Colors.white),
-      //       ),
-      //     ],
-      //   ),
-      //   actions: [
-      //     PopupMenuButton<ChatActions>(
-      //       icon: const Icon(Icons.more_vert_rounded),
-      //       onSelected: (ChatActions item) {
-      //         switch (item) {
-      //           case ChatActions.clear:
-      //             _onClearConversation();
-      //           case ChatActions.changeChatPt:
-      //             _changeChatPt();
-      //           case ChatActions.regenerate:
-      //             _vm.reSendMessage();
-
-      //           default:
-      //             () {};
-      //         }
-      //       },
-      //       itemBuilder: (BuildContext context) =>
-      //           <PopupMenuEntry<ChatActions>>[
-      //         ...[
-      //           ChatActions.regenerate,
-      //           ChatActions.share,
-      //           ChatActions.clear,
-      //           ChatActions.changeChatPt
-      //         ].map(
-      //           (e) => PopupMenuItem<ChatActions>(
-      //             value: e,
-      //             child: Text(e.toDisplayText, style: context.titleMedium),
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   ],
-      // ),
       body: Column(
         children: [
-          Expanded(
-            child: ListView.builder(
-              reverse: true,
-              itemCount: _data.messages.length + 1,
-              itemBuilder: (_, index) {
-                if (index == _data.messages.length) {
-                  return _botInformationView(context);
-                }
-                final message = _data.messages[index];
-                return MessageItem(
-                  isBot: message.type.isSystem || message.type.isAssistant,
-                  content: message.content,
-                  time: message.createdAt,
-                  loading: message.status.isLoading,
-                  isErrorMessage: message.status.isError,
-                  speechOnPress: () => _onSpeechTap(
-                    messageId: message.id.toString(),
+          if (_trainer != null || _data.messages.isNotEmpty)
+            Expanded(
+              child: ListView.builder(
+                reverse: true,
+                itemCount: _data.messages.length + (_trainer != null ? 1 : 0),
+                itemBuilder: (_, index) {
+                  if (index == _data.messages.length) {
+                    return _botInformationView(context);
+                  }
+                  final message = _data.messages[index];
+                  return MessageItem(
+                    isBot: message.type.isSystem || message.type.isAssistant,
                     content: message.content,
-                  ),
-                  isSpeechText: _state.maybeWhen(
-                    orElse: () => false,
-                    speechText: (data) =>
-                        data.messageSpeechId == message.id.toString(),
-                  ),
-                  longPressText: () => _longPressMessage(messageId: message.id),
-                );
-              },
+                    time: message.createdAt,
+                    loading: message.status.isLoading,
+                    isErrorMessage: message.status.isError,
+                    speechOnPress: () => _onSpeechTap(
+                      messageId: message.id.toString(),
+                      content: message.content,
+                    ),
+                    isSpeechText: _state.maybeWhen(
+                      orElse: () => false,
+                      speechText: (data) =>
+                          data.messageSpeechId == message.id.toString(),
+                    ),
+                    longPressText: () =>
+                        _longPressMessage(messageId: message.id),
+                  );
+                },
+              ),
+            )
+          else
+            Expanded(
+              child: _initView(context),
             ),
-          ),
           InputWidget(
             textEditingController: _textController,
             isListening: _state.listeningSpeech,
@@ -248,6 +218,75 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _initView(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        const SizedBox(height: 20.0),
+        Image.asset(ImageConst.brainIcon, width: 100, height: 100),
+        const SizedBox(height: 10.0),
+        Row(
+          children: [
+            const SizedBox(width: 12.0),
+            ..._allPrTrainer
+                .map((e) {
+                  final isSelected = _trainerSelected.id == e.id;
+                  final (groundColor, textColor) =
+                      isSelected ? (_primaryColor, Colors.white) : (null, null);
+                  return Expanded(
+                    child: GestureDetector(
+                      onTap: () => _vm.selectTrainerAssistant(e),
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: groundColor,
+                          borderRadius: BorderRadius.circular(12.0),
+                          border: Border.all(width: 1, color: _primaryColor),
+                        ),
+                        child: Center(
+                          child: Text(
+                            e.name,
+                            style: context.titleSmall.copyWith(
+                              color: textColor,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                })
+                .expand((e) => [e, const SizedBox(width: 4)])
+                .toList(),
+            const SizedBox(width: 8.0),
+          ],
+        ),
+        const SizedBox(height: 4.0),
+        HeaderTextCustom(
+          onPress: () {},
+          isShowSeeMore: true,
+          headerText: "Bots for you",
+        ),
+        SizedBox(
+          width: double.infinity,
+          height: 130.0,
+          child: ListView.separated(
+            padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+            scrollDirection: Axis.horizontal,
+            separatorBuilder: (_, __) => const SizedBox(width: 8.0),
+            itemCount: _previewTrainer.length,
+            itemBuilder: (context, index) {
+              final trainer = _previewTrainer[index];
+              return TrainerHorizontalItemView(trainer: trainer);
+            },
+          ),
+        ),
+      ],
     );
   }
 

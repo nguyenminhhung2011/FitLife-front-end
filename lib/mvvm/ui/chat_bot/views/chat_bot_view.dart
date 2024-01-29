@@ -229,7 +229,7 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
             onVoiceStop: () => _vm.stopListeningSpeech(),
             micAvailable: _data.micAvailable,
             onSubmitted: () async {
-              if (widget.chatId.isEmpty || _data.messages.isEmpty) {
+              if (widget.chatId.isEmpty && _data.messages.isEmpty) {
                 await _vm.createChatThread(title: _textController.text);
               } else {
                 await _vm.sendMessage(

@@ -19,13 +19,13 @@ class _ChatThreadApi implements ChatThreadApi {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<ChatThreadModel>> getThreadByUser() async {
+  Future<HttpResponse<List<ChatThreadModel>>> getThreadByUser() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<HttpResponse<ChatThreadModel>>(Options(
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<HttpResponse<List<ChatThreadModel>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -41,7 +41,9 @@ class _ChatThreadApi implements ChatThreadApi {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ChatThreadModel.fromJson(_result.data!);
+    var value = _result.data!
+        .map((dynamic i) => ChatThreadModel.fromJson(i as Map<String, dynamic>))
+        .toList();
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

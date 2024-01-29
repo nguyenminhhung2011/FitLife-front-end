@@ -7,6 +7,7 @@ import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/object/entity/chat/chat_thread.dart';
 // import 'package:fit_life/core/services/bubble_service.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/api_key/input_api_cubit.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/main_chat/main_chat_data.dart';
@@ -51,6 +52,8 @@ class MainChatViewState extends ConsumerState<MainChatView> {
 
   String? get _currentChatId => _data.currentChatId;
 
+  List<ChatThread> get _chatThread => _data.chatThreads ?? [];
+
   int get _currentTab => _data.currentTab;
 
   void _listenStateChange(MainChatState state) {
@@ -67,6 +70,14 @@ class MainChatViewState extends ConsumerState<MainChatView> {
       },
       orElse: () {},
     );
+  }
+
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, () async {
+      await _vm.getChatThreads();
+    });
+    super.initState();
   }
 
   @override
@@ -143,15 +154,17 @@ class MainChatViewState extends ConsumerState<MainChatView> {
                 ),
               ),
               const Divider(),
-              ...List.generate(
-                5,
-                (index) => Column(children: [
-                  ConversationItemView(
-                    onPress: () => _vm.changeFocusChat("Yeah $index"),
+              if (_state.loading)
+                Center(
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).primaryColor,
                   ),
-                  const Divider()
-                ]),
-              ),
+                )
+              else
+                ..._chatThread.map((e) => ConversationItemView(
+                      chatThread: e,
+                      onPress: () => _vm.changeFocusChat(e.id),
+                    )),
               ...Constant.mainChatButton.entries
                   .mapIndexed((index, e) => InkWell(
                         onTap: () async {

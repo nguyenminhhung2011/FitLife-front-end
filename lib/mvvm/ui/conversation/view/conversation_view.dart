@@ -1,6 +1,7 @@
 import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
+import 'package:fit_life/mvvm/object/entity/chat/chat_thread.dart';
 import 'package:fit_life/mvvm/ui/conversation/view/widgets/conversation_item_view.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +63,9 @@ class _ConversationViewState extends State<ConversationView> {
       body: ListView.separated(
         separatorBuilder: (_, __) => const Divider(),
         itemCount: 10,
-        itemBuilder: (_, index) => const ConversationItemView(),
+        itemBuilder: (_, index) => ConversationItemView(
+          chatThread: ChatThread(id: '', title: ""),
+        ),
       ),
     );
   }

@@ -5,3 +5,4 @@ final Map<String, dynamic> environmentDev = {
   // 'baseUrl': 'https://flight-booking-390802.as.r.appspot.com/',
   'mode': 'mobile',
 };
+  

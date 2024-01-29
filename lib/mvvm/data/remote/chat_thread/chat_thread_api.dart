@@ -14,7 +14,7 @@ abstract class ChatThreadApi {
   factory ChatThreadApi(Dio dio) = _ChatThreadApi;
 
   @GET(branch)
-  Future<HttpResponse<ChatThreadModel>> getThreadByUser();
+  Future<HttpResponse<List<ChatThreadModel>>> getThreadByUser();
 
   @GET("$branch/{id}")
   Future<HttpResponse<ChatThreadModel>> getThreadById(@Path("id") String id);

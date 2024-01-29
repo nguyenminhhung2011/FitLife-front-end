@@ -31,9 +31,8 @@ class ChatRepositoriesImpl extends BaseApi implements ChatRepositories {
           {required String uid, required String title}) async =>
       await apiCall<ChatThreadModel, ChatThread>(
         mapper: (result) => result.toEntity,
-        request: () async => await _chatThreadApi.createThread(
-          body: {"UUID": uid, "title": title},
-        ),
+        request: () async =>
+            await _chatThreadApi.createThread(body: {"title": title}),
       );
 
   @override
@@ -49,9 +48,9 @@ class ChatRepositoriesImpl extends BaseApi implements ChatRepositories {
       );
 
   @override
-  Future<SResult<ChatThread>> getThreadByUser() async =>
-      await apiCall<ChatThreadModel, ChatThread>(
-        mapper: (result) => result.toEntity,
+  Future<SResult<List<ChatThread>>> getThreadByUser() async =>
+      await apiCall<List<ChatThreadModel>, List<ChatThread>>(
+        mapper: (result) => result.map((e) => e.toEntity).toList(),
         request: () async => await _chatThreadApi.getThreadByUser(),
       );
 }

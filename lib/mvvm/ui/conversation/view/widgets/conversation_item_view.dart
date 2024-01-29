@@ -2,14 +2,17 @@ import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/handle_time.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
+import 'package:fit_life/mvvm/object/entity/chat/chat_thread.dart';
 import 'package:fit_life/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class ConversationItemView extends StatelessWidget {
+  final ChatThread chatThread;
   final Function()? onPress;
   const ConversationItemView({
     super.key,
     this.onPress,
+    required this.chatThread,
   });
 
   @override
@@ -57,7 +60,7 @@ class ConversationItemView extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    "Structural pattern",
+                    chatThread.title,
                     style: context.titleMedium
                         .copyWith(fontWeight: FontWeight.bold),
                   ),

@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ChatThread {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  List<Message>? get chats => throw _privateConstructorUsedError;
   String? get openAiThreadId => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Trainer? get trainer => throw _privateConstructorUsedError;
@@ -36,6 +37,7 @@ abstract class $ChatThreadCopyWith<$Res> {
   $Res call(
       {String id,
       String title,
+      List<Message>? chats,
       String? openAiThreadId,
       DateTime? createdAt,
       Trainer? trainer});
@@ -58,6 +60,7 @@ class _$ChatThreadCopyWithImpl<$Res, $Val extends ChatThread>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? chats = freezed,
     Object? openAiThreadId = freezed,
     Object? createdAt = freezed,
     Object? trainer = freezed,
@@ -71,6 +74,10 @@ class _$ChatThreadCopyWithImpl<$Res, $Val extends ChatThread>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      chats: freezed == chats
+          ? _value.chats
+          : chats // ignore: cast_nullable_to_non_nullable
+              as List<Message>?,
       openAiThreadId: freezed == openAiThreadId
           ? _value.openAiThreadId
           : openAiThreadId // ignore: cast_nullable_to_non_nullable
@@ -110,6 +117,7 @@ abstract class _$$_ChatThreadCopyWith<$Res>
   $Res call(
       {String id,
       String title,
+      List<Message>? chats,
       String? openAiThreadId,
       DateTime? createdAt,
       Trainer? trainer});
@@ -131,6 +139,7 @@ class __$$_ChatThreadCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? chats = freezed,
     Object? openAiThreadId = freezed,
     Object? createdAt = freezed,
     Object? trainer = freezed,
@@ -144,6 +153,10 @@ class __$$_ChatThreadCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      chats: freezed == chats
+          ? _value._chats
+          : chats // ignore: cast_nullable_to_non_nullable
+              as List<Message>?,
       openAiThreadId: freezed == openAiThreadId
           ? _value.openAiThreadId
           : openAiThreadId // ignore: cast_nullable_to_non_nullable
@@ -166,14 +179,26 @@ class _$_ChatThread implements _ChatThread {
   const _$_ChatThread(
       {required this.id,
       required this.title,
+      final List<Message>? chats,
       this.openAiThreadId,
       this.createdAt,
-      this.trainer});
+      this.trainer})
+      : _chats = chats;
 
   @override
   final String id;
   @override
   final String title;
+  final List<Message>? _chats;
+  @override
+  List<Message>? get chats {
+    final value = _chats;
+    if (value == null) return null;
+    if (_chats is EqualUnmodifiableListView) return _chats;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? openAiThreadId;
   @override
@@ -183,7 +208,7 @@ class _$_ChatThread implements _ChatThread {
 
   @override
   String toString() {
-    return 'ChatThread(id: $id, title: $title, openAiThreadId: $openAiThreadId, createdAt: $createdAt, trainer: $trainer)';
+    return 'ChatThread(id: $id, title: $title, chats: $chats, openAiThreadId: $openAiThreadId, createdAt: $createdAt, trainer: $trainer)';
   }
 
   @override
@@ -193,6 +218,7 @@ class _$_ChatThread implements _ChatThread {
             other is _$_ChatThread &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            const DeepCollectionEquality().equals(other._chats, _chats) &&
             (identical(other.openAiThreadId, openAiThreadId) ||
                 other.openAiThreadId == openAiThreadId) &&
             (identical(other.createdAt, createdAt) ||
@@ -201,8 +227,14 @@ class _$_ChatThread implements _ChatThread {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, openAiThreadId, createdAt, trainer);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      title,
+      const DeepCollectionEquality().hash(_chats),
+      openAiThreadId,
+      createdAt,
+      trainer);
 
   @JsonKey(ignore: true)
   @override
@@ -215,6 +247,7 @@ abstract class _ChatThread implements ChatThread {
   const factory _ChatThread(
       {required final String id,
       required final String title,
+      final List<Message>? chats,
       final String? openAiThreadId,
       final DateTime? createdAt,
       final Trainer? trainer}) = _$_ChatThread;
@@ -223,6 +256,8 @@ abstract class _ChatThread implements ChatThread {
   String get id;
   @override
   String get title;
+  @override
+  List<Message>? get chats;
   @override
   String? get openAiThreadId;
   @override

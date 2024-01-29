@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/mvvm/repositories/chat_repositories.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/main_chat/main_chat_data.dart';
@@ -40,8 +42,9 @@ class MainChatViewModel extends StateNotifier<MainChatState> {
   }
 
   void changeFocusChat(String newId) async {
+    log(newId);
     state = _ChangeChatFocus(
-        data: data.copyWith(currentChatId: null, currentTab: 0));
+        data: data.copyWith(currentChatId: null, currentTab: 1));
     await Future.delayed(const Duration(milliseconds: 100));
     state = _ChangeChatFocus(
         data: data.copyWith(currentChatId: newId, currentTab: 0));

@@ -16,12 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Message {
-  int get id => throw _privateConstructorUsedError;
-  int get chatId => throw _privateConstructorUsedError;
-  String get content => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  MessageStatus get status => throw _privateConstructorUsedError;
-  MessageType get type => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+  MessageType get role => throw _privateConstructorUsedError;
+  MessageStatus? get status => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -34,12 +33,11 @@ abstract class $MessageCopyWith<$Res> {
       _$MessageCopyWithImpl<$Res, Message>;
   @useResult
   $Res call(
-      {int id,
-      int chatId,
-      String content,
-      DateTime createdAt,
-      MessageStatus status,
-      MessageType type,
+      {String id,
+      String message,
+      MessageType role,
+      MessageStatus? status,
+      DateTime? createdAt,
       DateTime? updatedAt});
 }
 
@@ -57,38 +55,33 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
   @override
   $Res call({
     Object? id = null,
-    Object? chatId = null,
-    Object? content = null,
-    Object? createdAt = null,
-    Object? status = null,
-    Object? type = null,
+    Object? message = null,
+    Object? role = null,
+    Object? status = freezed,
+    Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      chatId: null == chatId
-          ? _value.chatId
-          : chatId // ignore: cast_nullable_to_non_nullable
-              as int,
-      content: null == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      status: null == status
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as MessageType,
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MessageStatus,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as MessageType,
+              as MessageStatus?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -105,12 +98,11 @@ abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
-      int chatId,
-      String content,
-      DateTime createdAt,
-      MessageStatus status,
-      MessageType type,
+      {String id,
+      String message,
+      MessageType role,
+      MessageStatus? status,
+      DateTime? createdAt,
       DateTime? updatedAt});
 }
 
@@ -125,38 +117,33 @@ class __$$_MessageCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? chatId = null,
-    Object? content = null,
-    Object? createdAt = null,
-    Object? status = null,
-    Object? type = null,
+    Object? message = null,
+    Object? role = null,
+    Object? status = freezed,
+    Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_$_Message(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      chatId: null == chatId
-          ? _value.chatId
-          : chatId // ignore: cast_nullable_to_non_nullable
-              as int,
-      content: null == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      status: null == status
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as MessageType,
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MessageStatus,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as MessageType,
+              as MessageStatus?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -170,32 +157,29 @@ class __$$_MessageCopyWithImpl<$Res>
 class _$_Message extends _Message {
   const _$_Message(
       {required this.id,
-      required this.chatId,
-      required this.content,
-      required this.createdAt,
-      required this.status,
-      required this.type,
+      required this.message,
+      required this.role,
+      this.status,
+      this.createdAt,
       this.updatedAt})
       : super._();
 
   @override
-  final int id;
+  final String id;
   @override
-  final int chatId;
+  final String message;
   @override
-  final String content;
+  final MessageType role;
   @override
-  final DateTime createdAt;
+  final MessageStatus? status;
   @override
-  final MessageStatus status;
-  @override
-  final MessageType type;
+  final DateTime? createdAt;
   @override
   final DateTime? updatedAt;
 
   @override
   String toString() {
-    return 'Message(id: $id, chatId: $chatId, content: $content, createdAt: $createdAt, status: $status, type: $type, updatedAt: $updatedAt)';
+    return 'Message(id: $id, message: $message, role: $role, status: $status, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -204,19 +188,18 @@ class _$_Message extends _Message {
         (other.runtimeType == runtimeType &&
             other is _$_Message &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.chatId, chatId) || other.chatId == chatId) &&
-            (identical(other.content, content) || other.content == content) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.role, role) || other.role == role) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, chatId, content, createdAt, status, type, updatedAt);
+  int get hashCode =>
+      Object.hash(runtimeType, id, message, role, status, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -227,27 +210,24 @@ class _$_Message extends _Message {
 
 abstract class _Message extends Message {
   const factory _Message(
-      {required final int id,
-      required final int chatId,
-      required final String content,
-      required final DateTime createdAt,
-      required final MessageStatus status,
-      required final MessageType type,
+      {required final String id,
+      required final String message,
+      required final MessageType role,
+      final MessageStatus? status,
+      final DateTime? createdAt,
       final DateTime? updatedAt}) = _$_Message;
   const _Message._() : super._();
 
   @override
-  int get id;
+  String get id;
   @override
-  int get chatId;
+  String get message;
   @override
-  String get content;
+  MessageType get role;
   @override
-  DateTime get createdAt;
+  MessageStatus? get status;
   @override
-  MessageStatus get status;
-  @override
-  MessageType get type;
+  DateTime? get createdAt;
   @override
   DateTime? get updatedAt;
   @override

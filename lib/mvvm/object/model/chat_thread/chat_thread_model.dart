@@ -1,4 +1,5 @@
 import 'package:fit_life/mvvm/object/entity/chat/chat_thread.dart';
+import 'package:fit_life/mvvm/object/model/message/message_model.dart';
 import 'package:fit_life/mvvm/object/model/trainer/trainer_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,6 +16,9 @@ class ChatThreadModel {
   @JsonKey(name: 'openAiThreadId')
   final String? openAiThreadId;
 
+  @JsonKey(name: 'chats')
+  final List<MessageModel>? chats;
+
   @JsonKey(name: 'trainer')
   final TrainerModel? trainer;
 
@@ -22,6 +26,7 @@ class ChatThreadModel {
     required this.id,
     required this.title,
     this.openAiThreadId,
+    this.chats,
     this.trainer,
   });
 
@@ -35,5 +40,6 @@ class ChatThreadModel {
         title: title,
         openAiThreadId: openAiThreadId,
         trainer: trainer?.toEntity,
+        chats: chats?.map((e) => e.toEntity).toList(),
       );
 }

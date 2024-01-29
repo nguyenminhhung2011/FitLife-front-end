@@ -64,7 +64,7 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
     Future.delayed(Duration.zero, () async {
       if (widget.chatId.isNotEmpty) {
         await _vm.getChatThread(widget.chatId);
-        await _vm.getMessage();
+        // await _vm.getMessage();
       } else {
         await _vm.getAllPrTrainer();
         await _vm.getPreviewTrainer();
@@ -115,7 +115,7 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
     );
   }
 
-  void _longPressMessage({required int messageId}) async {
+  void _longPressMessage({required String messageId}) async {
     final dialog = await context.showAlertDialog(
         header: "Delete this message",
         content: "Are you sure delete this message?");
@@ -195,14 +195,14 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
                   }
                   final message = _data.messages[index];
                   return MessageItem(
-                    isBot: message.type.isSystem || message.type.isAssistant,
-                    content: message.content,
-                    time: message.createdAt,
-                    loading: message.status.isLoading,
-                    isErrorMessage: message.status.isError,
+                    isBot: message.role.isSystem || message.role.isAssistant,
+                    content: message.message,
+                    time: message.createdAt ?? DateTime.now(),
+                    loading: message.status?.isLoading ?? false,
+                    isErrorMessage: false,
                     speechOnPress: () => _onSpeechTap(
                       messageId: message.id.toString(),
-                      content: message.content,
+                      content: message.message,
                     ),
                     isSpeechText: _state.maybeWhen(
                       orElse: () => false,

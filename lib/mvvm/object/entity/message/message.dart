@@ -8,12 +8,11 @@ part 'message.freezed.dart';
 @freezed
 class Message with _$Message {
   const factory Message({
-    required int id,
-    required int chatId,
-    required String content,
-    required DateTime createdAt,
-    required MessageStatus status,
-    required MessageType type,
+    required String id,
+    required String message,
+    required MessageType role,
+    MessageStatus? status,
+    DateTime? createdAt,
     DateTime? updatedAt,
   }) = _Message;
 

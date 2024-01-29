@@ -22,12 +22,11 @@ part 'chat_bot_state.dart';
 part 'chat_bot_view_model.freezed.dart';
 
 Message _basicMessage = Message(
-  id: 0,
-  chatId: 0,
-  content: "",
+  id: "null",
+  message: "",
   createdAt: DateTime.now(),
   status: MessageStatus.success,
-  type: MessageType.system,
+  role: MessageType.system,
 );
 
 const String _messageIdNull = "";
@@ -64,7 +63,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
         ifRight: (rData) => _SendMessageSuccess(
           data: data.copyWith(
             messages: [
-              _basicMessage.copyWith(content: rData, id: data.messages.length),
+              _basicMessage.copyWith(message: rData),
               ...data.messages.sublist(1),
             ],
           ),
@@ -181,7 +180,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
       ifLeft: (error) =>
           _GetChatThreadFailed(data: data, message: error.message),
       ifRight: (rData) => _GetChatThreadSuccess(
-        data: data.copyWith(chatThread: rData),
+        data: data.copyWith(chatThread: rData, messages: rData.chats ?? []),
       ),
     );
   }
@@ -223,7 +222,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
     if (messages.isEmpty) {
       return;
     }
-    if (messages.first.type.isSystem || messages.first.type.isAssistant) {
+    if (messages.first.role.isSystem || messages.first.role.isAssistant) {
       return;
     }
 
@@ -241,7 +240,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
     );
 
     final response = await _messageRepositories.sendMessage(
-      message: data.messages.sublist(1).map((e) => e.content).toList(),
+      message: data.messages.sublist(1).map((e) => e.message).toList(),
     );
 
     await Future.delayed(const Duration(seconds: 3));
@@ -261,7 +260,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
       return;
     }
     final userSendMessage =
-        _basicMessage.copyWith(content: content, type: MessageType.user);
+        _basicMessage.copyWith(message: content, role: MessageType.user);
     final loadingMessage =
         _basicMessage.copyWith(status: MessageStatus.loading);
     state = _LoadingMessage(
@@ -270,7 +269,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
       ),
     );
     final response = await _messageRepositories.sendMessage(
-      message: data.messages.sublist(1).map((e) => e.content).toList(),
+      message: data.messages.sublist(1).map((e) => e.message).toList(),
     );
 
     await Future.delayed(const Duration(seconds: 3));

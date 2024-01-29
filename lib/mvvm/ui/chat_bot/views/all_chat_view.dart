@@ -60,8 +60,9 @@ class _AllChatViewState extends ConsumerState<AllChatView> {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: ListView.separated(
-        itemBuilder: (_, __) => ConversationItemView(
-          chatThread: ChatThread(id: "", title: ""),
+        itemBuilder: (_, index) => ConversationItemView(
+          chatThread: ChatThread(
+              id: _data.chats[index].id, title: _data.chats[index].title),
         ),
         separatorBuilder: (_, __) => const Divider(),
         itemCount: _data.chats.length,

@@ -6,10 +6,12 @@ import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/core/services/speach_text_service.dart';
 import 'package:fit_life/core/services/text_speech_service.dart';
+import 'package:fit_life/generated/intl/messages_en.dart';
 import 'package:fit_life/mvvm/object/entity/message/message.dart';
 import 'package:fit_life/mvvm/object/entity/message/message_status.dart';
 import 'package:fit_life/mvvm/object/entity/message/message_type.dart';
 import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
+import 'package:fit_life/mvvm/repositories/assistant_repositories.dart';
 import 'package:fit_life/mvvm/repositories/chat_repositories.dart';
 import 'package:fit_life/mvvm/repositories/message_repositories.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot/chat_bot_data.dart';
@@ -41,6 +43,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
   final _messageRepositories = injector.get<MessageRepositories>();
   final _speechTextService = injector.get<SpeechTextService>();
   final _textSpeechService = injector.get<TextSpeechService>();
+  final _assistantRepositories = injector.get<AssistantRepositories>();
 
   ChatBotViewModel()
       : super(
@@ -49,7 +52,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
 
   ChatBotData get data => state.data;
 
-  ChatBotState _messageResponseToState(SResult<String> response) =>
+  ChatBotState _messageResponseToState(SResult<Message> response) =>
       response.fold(
         ifLeft: (error) {
           final newMessages = data.messages.sublist(1);
@@ -63,7 +66,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
         ifRight: (rData) => _SendMessageSuccess(
           data: data.copyWith(
             messages: [
-              _basicMessage.copyWith(message: rData),
+              rData,
               ...data.messages.sublist(1),
             ],
           ),
@@ -180,24 +183,21 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
       ifLeft: (error) =>
           _GetChatThreadFailed(data: data, message: error.message),
       ifRight: (rData) => _GetChatThreadSuccess(
-        data: data.copyWith(chatThread: rData, messages: rData.chats ?? []),
+        data: data.copyWith(
+            chatThread: rData, messages: rData.chats?.reversed.toList() ?? []),
       ),
     );
   }
 
-  Future<void> createChatThread(
-      {required String uid, required String title}) async {
+  Future<void> createChatThread({required String title}) async {
     state = _Loading(data: data);
-    final response =
-        await _chatRepositories.createChatThread(uid: uid, title: title);
+    final response = await _assistantRepositories.sendMessageAndCreate(title);
     if (!mounted) return;
     state = response.fold(
       ifLeft: (error) =>
           _CreateChatThreadFailed(data: data, message: error.message),
-      ifRight: (rData) => _CreateChatThreadSuccess(
-        message: title,
-        data: data.copyWith(chatThread: rData),
-      ),
+      ifRight: (rData) =>
+          _CreateChatThreadSuccess(message: rData.threadId, data: data),
     );
   }
 
@@ -247,10 +247,11 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
 
     if (!mounted) return;
 
-    state = _messageResponseToState(response);
+    // state = _messageResponseToState(response);
   }
 
-  Future<void> sendMessage({required String content}) async {
+  Future<void> sendMessage(
+      {required String id, required String content}) async {
     if (state.loadingMessage) {
       return;
     }
@@ -268,11 +269,8 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
         messages: [loadingMessage, userSendMessage, ...data.messages],
       ),
     );
-    final response = await _messageRepositories.sendMessage(
-      message: data.messages.sublist(1).map((e) => e.message).toList(),
-    );
-
-    await Future.delayed(const Duration(seconds: 3));
+    final response =
+        await _assistantRepositories.sendMessage(id: id, message: content);
 
     if (!mounted) return;
 

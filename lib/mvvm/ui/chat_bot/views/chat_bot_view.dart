@@ -85,9 +85,12 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
       deleteMessageFailed: (_, error) =>
           context.showSnackBar("🐛[Delete message] $error"),
       createChatThreadSuccess: (data, message) async {
+        _textController.clear();
         await Future.delayed(const Duration(milliseconds: 100));
-        await _vm.sendMessage(content: message);
+        await _vm.getChatThread(message);
       },
+      createChatThreadFailed: (data, message) =>
+          context.showSnackBar("🐛[Create chat thread] $message"),
       listeningSpeech: (_, responseText) => _textController.text = responseText,
       orElse: () {},
     );
@@ -225,12 +228,12 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
             onVoiceStart: () => _vm.startListeningSpeech(),
             onVoiceStop: () => _vm.stopListeningSpeech(),
             micAvailable: _data.micAvailable,
-            onSubmitted: () {
-              if (_data.messages.isEmpty || _uid != null) {
-                _vm.createChatThread(
-                    uid: _uid.toString(), title: _textController.text);
+            onSubmitted: () async {
+              if (widget.chatId.isEmpty || _data.messages.isEmpty) {
+                await _vm.createChatThread(title: _textController.text);
               } else {
-                _vm.sendMessage(content: _textController.text);
+                await _vm.sendMessage(
+                    content: _textController.text, id: widget.chatId);
               }
             },
           ),

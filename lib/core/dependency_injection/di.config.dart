@@ -14,10 +14,11 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../clean_architectures/domain/usecase/setting/setting_usecase.dart'
-    as _i75;
-import '../../mvvm/data/remote/auth/auth_api.dart' as _i66;
-import '../../mvvm/data/remote/chat_thread/chat_thread_api.dart' as _i69;
-import '../../mvvm/data/remote/daily_plan/daily_plan_api.dart' as _i70;
+    as _i78;
+import '../../mvvm/data/remote/assistant/assistant_api.dart' as _i66;
+import '../../mvvm/data/remote/auth/auth_api.dart' as _i69;
+import '../../mvvm/data/remote/chat_thread/chat_thread_api.dart' as _i72;
+import '../../mvvm/data/remote/daily_plan/daily_plan_api.dart' as _i73;
 import '../../mvvm/data/remote/exercise/exercise_api.dart' as _i16;
 import '../../mvvm/data/remote/news_health/news_api.dart' as _i29;
 import '../../mvvm/data/remote/open_ai/open_ai_api.dart' as _i36;
@@ -27,19 +28,22 @@ import '../../mvvm/data/remote/trainer/trainer_api.dart' as _i55;
 import '../../mvvm/data/remote/user/user_api.dart' as _i58;
 import '../../mvvm/data/remote/workout_plan/workout_plan_api.dart' as _i63;
 import '../../mvvm/object/entity/daily_workout/daily_workout.dart' as _i47;
-import '../../mvvm/repositories/auth_repositories.dart' as _i67;
+import '../../mvvm/repositories/assistant_repositories.dart' as _i67;
+import '../../mvvm/repositories/auth_repositories.dart' as _i70;
 import '../../mvvm/repositories/calories_repositories.dart' as _i8;
-import '../../mvvm/repositories/chat_repositories.dart' as _i76;
-import '../../mvvm/repositories/daily_plan_repositories.dart' as _i71;
-import '../../mvvm/repositories/exercise_repositories.dart' as _i73;
-import '../../mvvm/repositories/implements/auth_repositories_impl.dart' as _i68;
+import '../../mvvm/repositories/chat_repositories.dart' as _i79;
+import '../../mvvm/repositories/daily_plan_repositories.dart' as _i74;
+import '../../mvvm/repositories/exercise_repositories.dart' as _i76;
+import '../../mvvm/repositories/implements/assistant_repositories_impl.dart'
+    as _i68;
+import '../../mvvm/repositories/implements/auth_repositories_impl.dart' as _i71;
 import '../../mvvm/repositories/implements/calories_repositories_impl.dart'
     as _i9;
-import '../../mvvm/repositories/implements/chat_repositories_impl.dart' as _i77;
+import '../../mvvm/repositories/implements/chat_repositories_impl.dart' as _i80;
 import '../../mvvm/repositories/implements/daily_plan_repositories_impl.dart'
-    as _i72;
+    as _i75;
 import '../../mvvm/repositories/implements/exercise_repositories_impl.dart'
-    as _i74;
+    as _i77;
 import '../../mvvm/repositories/implements/message_repositories_impl.dart'
     as _i28;
 import '../../mvvm/repositories/implements/news_repositories_impl.dart' as _i32;
@@ -108,14 +112,14 @@ import '../../mvvm/ui/session_plan/view_model/session_plan_view_model.dart'
 import '../../mvvm/ui/splash/view_model/splash_view_model.dart' as _i53;
 import '../../mvvm/ui/wo_trac/view_model/wo_trac_view_model.dart' as _i62;
 import '../components/layout/setting_layout/controller/setting_bloc.dart'
-    as _i78;
+    as _i81;
 import '../services/cloundinary_service.dart' as _i12;
 import '../services/fcm/fcm_service.dart' as _i19;
 import '../services/image_pic_service.dart' as _i23;
 import '../services/notification_service.dart' as _i33;
 import '../services/speach_text_service.dart' as _i52;
 import '../services/text_speech_service.dart' as _i54;
-import 'modules/data_source_module.dart' as _i79;
+import 'modules/data_source_module.dart' as _i82;
 
 const String _prod = 'prod';
 
@@ -209,24 +213,27 @@ _i1.GetIt init(
   gh.factory<_i63.WorkoutPlanApi>(() => _i63.WorkoutPlanApi(gh<_i15.Dio>()));
   gh.factory<_i64.WorkoutPlanRepositories>(
       () => _i65.WorkoutPlanRepositoriesImpl(gh<_i63.WorkoutPlanApi>()));
-  gh.factory<_i66.AuthApi>(() => _i66.AuthApi(gh<_i15.Dio>()));
-  gh.factory<_i67.AuthRepositories>(
-      () => _i68.AuthRepositoriesImpl(gh<_i66.AuthApi>()));
-  gh.factory<_i69.ChatThreadApi>(() => _i69.ChatThreadApi(gh<_i15.Dio>()));
-  gh.factory<_i70.DailyPlanApi>(() => _i70.DailyPlanApi(gh<_i15.Dio>()));
-  gh.factory<_i71.DailyPlanRepositories>(
-      () => _i72.DailyPlanRepositoriesImpl(gh<_i70.DailyPlanApi>()));
-  gh.factory<_i73.ExerciseRepositories>(() => _i74.ExerciseRepositoriesImpl(
+  gh.factory<_i66.AssistantApi>(() => _i66.AssistantApi(gh<_i15.Dio>()));
+  gh.factory<_i67.AssistantRepositories>(
+      () => _i68.AssistantRepositoriesImpl(gh<_i66.AssistantApi>()));
+  gh.factory<_i69.AuthApi>(() => _i69.AuthApi(gh<_i15.Dio>()));
+  gh.factory<_i70.AuthRepositories>(
+      () => _i71.AuthRepositoriesImpl(gh<_i69.AuthApi>()));
+  gh.factory<_i72.ChatThreadApi>(() => _i72.ChatThreadApi(gh<_i15.Dio>()));
+  gh.factory<_i73.DailyPlanApi>(() => _i73.DailyPlanApi(gh<_i15.Dio>()));
+  gh.factory<_i74.DailyPlanRepositories>(
+      () => _i75.DailyPlanRepositoriesImpl(gh<_i73.DailyPlanApi>()));
+  gh.factory<_i76.ExerciseRepositories>(() => _i77.ExerciseRepositoriesImpl(
         gh<_i16.ExerciseApi>(),
         gh<_i45.SessionApi>(),
       ));
-  gh.factory<_i75.SettingUseCase>(
-      () => _i75.SettingUseCase(gh<_i59.UserRepositories>()));
-  gh.factory<_i76.ChatRepositories>(
-      () => _i77.ChatRepositoriesImpl(gh<_i69.ChatThreadApi>()));
-  gh.factory<_i78.SettingBloc>(
-      () => _i78.SettingBloc(gh<_i75.SettingUseCase>()));
+  gh.factory<_i78.SettingUseCase>(
+      () => _i78.SettingUseCase(gh<_i59.UserRepositories>()));
+  gh.factory<_i79.ChatRepositories>(
+      () => _i80.ChatRepositoriesImpl(gh<_i72.ChatThreadApi>()));
+  gh.factory<_i81.SettingBloc>(
+      () => _i81.SettingBloc(gh<_i78.SettingUseCase>()));
   return getIt;
 }
 
-class _$DataSourceModule extends _i79.DataSourceModule {}
+class _$DataSourceModule extends _i82.DataSourceModule {}

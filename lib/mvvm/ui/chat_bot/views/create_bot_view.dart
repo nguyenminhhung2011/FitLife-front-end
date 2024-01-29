@@ -83,7 +83,17 @@ class _CreateBotViewState extends ConsumerState<CreateBotView> {
       bottomSheet: Padding(
         padding: const EdgeInsets.all(15.0),
         child: ButtonCustom(
-          onPress: () {},
+          onPress: () async {
+            await _vm.createTrainer(
+              id: "",
+              name: _chatBotNameController.text,
+              model: _model,
+              prompt: _promptController.text,
+              image: ImageConst.baseImageView,
+              greetingMessage: _greetingController.text,
+              bio: "This is bio of bot",
+            );
+          },
           height: 45.0,
           child: Text(
             "Create bot",

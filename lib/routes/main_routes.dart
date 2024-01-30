@@ -97,7 +97,7 @@ class MainRoutes {
               );
             }
             return const SizedBox();
-          },
+          }, 
         );
       case Routes.previewExercise:
         return MaterialPageRoute(

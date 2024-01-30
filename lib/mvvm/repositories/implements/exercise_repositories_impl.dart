@@ -8,6 +8,7 @@ import 'package:fit_life/mvvm/object/entity/exercise/exercise.dart';
 import 'package:fit_life/mvvm/object/entity/exercise/exercise_pagination.dart';
 import 'package:fit_life/mvvm/object/entity/exercise_category/exercise_category.dart';
 import 'package:fit_life/mvvm/object/model/body_part/body_part_model.dart';
+import 'package:fit_life/mvvm/object/model/exercise/custom_exercise_model.dart';
 import 'package:fit_life/mvvm/object/model/exercise/exercise_model.dart';
 import 'package:fit_life/mvvm/object/entity/request/search_exercise_request.dart';
 import 'package:fit_life/mvvm/object/model/search_exercise/search_exercise_response.dart';
@@ -52,8 +53,8 @@ class ExerciseRepositoriesImpl extends BaseApi implements ExerciseRepositories {
     int sessionId, {
     required AddExerciseDto dto,
   }) async {
-    return await apiCall<CustomExercise, CustomExercise>(
-      mapper: (result) => result,
+    return await apiCall<CustomExerciseModel, CustomExercise>(
+      mapper: (result) => result.toEntity,
       request: () async =>
           await _sessionApi.createExercise(sessionId, body: dto.toJson()),
     );

@@ -1,4 +1,6 @@
+import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
+import 'package:fit_life/mvvm/object/entity/chat/chat_thread.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/all_chat/all_chat_data.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/all_chat/all_chat_view_model.dart';
 import 'package:fit_life/mvvm/ui/conversation/view/widgets/conversation_item_view.dart';
@@ -29,7 +31,13 @@ class _AllChatViewState extends ConsumerState<AllChatView> {
     super.initState();
   }
 
-  void _listenStateChange(AllChatState state) {}
+  void _listenStateChange(AllChatState state) {
+    state.maybeWhen(
+      getAllChatFailed: (_, error) =>
+          context.showSnackBar("🐛[Get all chat] Failed"),
+      orElse: () async {},
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +60,10 @@ class _AllChatViewState extends ConsumerState<AllChatView> {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: ListView.separated(
-        itemBuilder: (_, __) => const ConversationItemView(),
+        itemBuilder: (_, index) => ConversationItemView(
+          chatThread: ChatThread(
+              id: _data.chats[index].id, title: _data.chats[index].title),
+        ),
         separatorBuilder: (_, __) => const Divider(),
         itemCount: _data.chats.length,
       ),

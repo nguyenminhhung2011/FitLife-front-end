@@ -59,6 +59,45 @@ class ChatBotState with _$ChatBotState {
     required String message,
   }) = _DeleteMessageFailed;
 
+  const factory ChatBotState.getChatThreadSuccess({required ChatBotData data}) =
+      _GetChatThreadSuccess;
+
+  const factory ChatBotState.getChatThreadFailed({
+    required ChatBotData data,
+    required String message,
+  }) = _GetChatThreadFailed;
+
+  const factory ChatBotState.createChatThreadSuccess(
+      {required ChatBotData data,
+      required String message}) = _CreateChatThreadSuccess;
+
+  const factory ChatBotState.createChatThreadFailed({
+    required ChatBotData data,
+    required String message,
+  }) = _CreateChatThreadFailed;
+
+  const factory ChatBotState.selectAssistantSuccess(
+      {required ChatBotData data}) = _SelectAssistantSuccess;
+
+  const factory ChatBotState.getAllPrTrainerSuccess(
+      {required ChatBotData data}) = _GetAllPrTrainerSuccess;
+
+  const factory ChatBotState.getAllPrTrainerFailed({
+    required ChatBotData data,
+    required String message,
+  }) = _GetAllPrTrainerFailed;
+
+  const factory ChatBotState.getPreviewTrainerSuccess(
+      {required ChatBotData data}) = _GetPreviewTrainerSuccess;
+
+  const factory ChatBotState.getPreviewTrainerFailed({
+    required ChatBotData data,
+    required String message,
+  }) = _GetPreviewTrainerFailed;
+  // Trainer
+  const factory ChatBotState.selectedTrainerSuccess(
+      {required ChatBotData data}) = _SelectedTrainerSuccess;
+
   bool get loading => this is _Loading;
 
   bool get loadingMessage => this is _LoadingMessage;

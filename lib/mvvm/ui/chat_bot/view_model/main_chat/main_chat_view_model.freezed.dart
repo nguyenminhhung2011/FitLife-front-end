@@ -22,6 +22,10 @@ mixin _$MainChatState {
     required TResult Function(MainChatData data) initial,
     required TResult Function(MainChatData data) changeTabSuccess,
     required TResult Function(MainChatData data) changeChatFocus,
+    required TResult Function(MainChatData data) loading,
+    required TResult Function(MainChatData data) getChatThreadSuccess,
+    required TResult Function(MainChatData data, String message)
+        getChatThreadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +33,9 @@ mixin _$MainChatState {
     TResult? Function(MainChatData data)? initial,
     TResult? Function(MainChatData data)? changeTabSuccess,
     TResult? Function(MainChatData data)? changeChatFocus,
+    TResult? Function(MainChatData data)? loading,
+    TResult? Function(MainChatData data)? getChatThreadSuccess,
+    TResult? Function(MainChatData data, String message)? getChatThreadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +43,9 @@ mixin _$MainChatState {
     TResult Function(MainChatData data)? initial,
     TResult Function(MainChatData data)? changeTabSuccess,
     TResult Function(MainChatData data)? changeChatFocus,
+    TResult Function(MainChatData data)? loading,
+    TResult Function(MainChatData data)? getChatThreadSuccess,
+    TResult Function(MainChatData data, String message)? getChatThreadFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +54,9 @@ mixin _$MainChatState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
     required TResult Function(_ChangeChatFocus value) changeChatFocus,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetChatThreadSuccess value) getChatThreadSuccess,
+    required TResult Function(_GetChatThreadFailed value) getChatThreadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +64,9 @@ mixin _$MainChatState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult? Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult? Function(_GetChatThreadFailed value)? getChatThreadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +74,9 @@ mixin _$MainChatState {
     TResult Function(_Initial value)? initial,
     TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult Function(_GetChatThreadFailed value)? getChatThreadFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,8 +166,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial({required this.data});
+class _$_Initial extends _Initial {
+  const _$_Initial({required this.data}) : super._();
 
   @override
   final MainChatData data;
@@ -181,6 +200,10 @@ class _$_Initial implements _Initial {
     required TResult Function(MainChatData data) initial,
     required TResult Function(MainChatData data) changeTabSuccess,
     required TResult Function(MainChatData data) changeChatFocus,
+    required TResult Function(MainChatData data) loading,
+    required TResult Function(MainChatData data) getChatThreadSuccess,
+    required TResult Function(MainChatData data, String message)
+        getChatThreadFailed,
   }) {
     return initial(data);
   }
@@ -191,6 +214,9 @@ class _$_Initial implements _Initial {
     TResult? Function(MainChatData data)? initial,
     TResult? Function(MainChatData data)? changeTabSuccess,
     TResult? Function(MainChatData data)? changeChatFocus,
+    TResult? Function(MainChatData data)? loading,
+    TResult? Function(MainChatData data)? getChatThreadSuccess,
+    TResult? Function(MainChatData data, String message)? getChatThreadFailed,
   }) {
     return initial?.call(data);
   }
@@ -201,6 +227,9 @@ class _$_Initial implements _Initial {
     TResult Function(MainChatData data)? initial,
     TResult Function(MainChatData data)? changeTabSuccess,
     TResult Function(MainChatData data)? changeChatFocus,
+    TResult Function(MainChatData data)? loading,
+    TResult Function(MainChatData data)? getChatThreadSuccess,
+    TResult Function(MainChatData data, String message)? getChatThreadFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -215,6 +244,9 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
     required TResult Function(_ChangeChatFocus value) changeChatFocus,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetChatThreadSuccess value) getChatThreadSuccess,
+    required TResult Function(_GetChatThreadFailed value) getChatThreadFailed,
   }) {
     return initial(this);
   }
@@ -225,6 +257,9 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult? Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult? Function(_GetChatThreadFailed value)? getChatThreadFailed,
   }) {
     return initial?.call(this);
   }
@@ -235,6 +270,9 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult Function(_GetChatThreadFailed value)? getChatThreadFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -244,8 +282,9 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements MainChatState {
+abstract class _Initial extends MainChatState {
   const factory _Initial({required final MainChatData data}) = _$_Initial;
+  const _Initial._() : super._();
 
   @override
   MainChatData get data;
@@ -293,8 +332,8 @@ class __$$_ChangeTabSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeTabSuccess implements _ChangeTabSuccess {
-  const _$_ChangeTabSuccess({required this.data});
+class _$_ChangeTabSuccess extends _ChangeTabSuccess {
+  const _$_ChangeTabSuccess({required this.data}) : super._();
 
   @override
   final MainChatData data;
@@ -327,6 +366,10 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
     required TResult Function(MainChatData data) initial,
     required TResult Function(MainChatData data) changeTabSuccess,
     required TResult Function(MainChatData data) changeChatFocus,
+    required TResult Function(MainChatData data) loading,
+    required TResult Function(MainChatData data) getChatThreadSuccess,
+    required TResult Function(MainChatData data, String message)
+        getChatThreadFailed,
   }) {
     return changeTabSuccess(data);
   }
@@ -337,6 +380,9 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
     TResult? Function(MainChatData data)? initial,
     TResult? Function(MainChatData data)? changeTabSuccess,
     TResult? Function(MainChatData data)? changeChatFocus,
+    TResult? Function(MainChatData data)? loading,
+    TResult? Function(MainChatData data)? getChatThreadSuccess,
+    TResult? Function(MainChatData data, String message)? getChatThreadFailed,
   }) {
     return changeTabSuccess?.call(data);
   }
@@ -347,6 +393,9 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
     TResult Function(MainChatData data)? initial,
     TResult Function(MainChatData data)? changeTabSuccess,
     TResult Function(MainChatData data)? changeChatFocus,
+    TResult Function(MainChatData data)? loading,
+    TResult Function(MainChatData data)? getChatThreadSuccess,
+    TResult Function(MainChatData data, String message)? getChatThreadFailed,
     required TResult orElse(),
   }) {
     if (changeTabSuccess != null) {
@@ -361,6 +410,9 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
     required TResult Function(_ChangeChatFocus value) changeChatFocus,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetChatThreadSuccess value) getChatThreadSuccess,
+    required TResult Function(_GetChatThreadFailed value) getChatThreadFailed,
   }) {
     return changeTabSuccess(this);
   }
@@ -371,6 +423,9 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult? Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult? Function(_GetChatThreadFailed value)? getChatThreadFailed,
   }) {
     return changeTabSuccess?.call(this);
   }
@@ -381,6 +436,9 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult Function(_GetChatThreadFailed value)? getChatThreadFailed,
     required TResult orElse(),
   }) {
     if (changeTabSuccess != null) {
@@ -390,9 +448,10 @@ class _$_ChangeTabSuccess implements _ChangeTabSuccess {
   }
 }
 
-abstract class _ChangeTabSuccess implements MainChatState {
+abstract class _ChangeTabSuccess extends MainChatState {
   const factory _ChangeTabSuccess({required final MainChatData data}) =
       _$_ChangeTabSuccess;
+  const _ChangeTabSuccess._() : super._();
 
   @override
   MainChatData get data;
@@ -440,8 +499,8 @@ class __$$_ChangeChatFocusCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeChatFocus implements _ChangeChatFocus {
-  const _$_ChangeChatFocus({required this.data});
+class _$_ChangeChatFocus extends _ChangeChatFocus {
+  const _$_ChangeChatFocus({required this.data}) : super._();
 
   @override
   final MainChatData data;
@@ -474,6 +533,10 @@ class _$_ChangeChatFocus implements _ChangeChatFocus {
     required TResult Function(MainChatData data) initial,
     required TResult Function(MainChatData data) changeTabSuccess,
     required TResult Function(MainChatData data) changeChatFocus,
+    required TResult Function(MainChatData data) loading,
+    required TResult Function(MainChatData data) getChatThreadSuccess,
+    required TResult Function(MainChatData data, String message)
+        getChatThreadFailed,
   }) {
     return changeChatFocus(data);
   }
@@ -484,6 +547,9 @@ class _$_ChangeChatFocus implements _ChangeChatFocus {
     TResult? Function(MainChatData data)? initial,
     TResult? Function(MainChatData data)? changeTabSuccess,
     TResult? Function(MainChatData data)? changeChatFocus,
+    TResult? Function(MainChatData data)? loading,
+    TResult? Function(MainChatData data)? getChatThreadSuccess,
+    TResult? Function(MainChatData data, String message)? getChatThreadFailed,
   }) {
     return changeChatFocus?.call(data);
   }
@@ -494,6 +560,9 @@ class _$_ChangeChatFocus implements _ChangeChatFocus {
     TResult Function(MainChatData data)? initial,
     TResult Function(MainChatData data)? changeTabSuccess,
     TResult Function(MainChatData data)? changeChatFocus,
+    TResult Function(MainChatData data)? loading,
+    TResult Function(MainChatData data)? getChatThreadSuccess,
+    TResult Function(MainChatData data, String message)? getChatThreadFailed,
     required TResult orElse(),
   }) {
     if (changeChatFocus != null) {
@@ -508,6 +577,9 @@ class _$_ChangeChatFocus implements _ChangeChatFocus {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
     required TResult Function(_ChangeChatFocus value) changeChatFocus,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetChatThreadSuccess value) getChatThreadSuccess,
+    required TResult Function(_GetChatThreadFailed value) getChatThreadFailed,
   }) {
     return changeChatFocus(this);
   }
@@ -518,6 +590,9 @@ class _$_ChangeChatFocus implements _ChangeChatFocus {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult? Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult? Function(_GetChatThreadFailed value)? getChatThreadFailed,
   }) {
     return changeChatFocus?.call(this);
   }
@@ -528,6 +603,9 @@ class _$_ChangeChatFocus implements _ChangeChatFocus {
     TResult Function(_Initial value)? initial,
     TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult Function(_GetChatThreadFailed value)? getChatThreadFailed,
     required TResult orElse(),
   }) {
     if (changeChatFocus != null) {
@@ -537,14 +615,527 @@ class _$_ChangeChatFocus implements _ChangeChatFocus {
   }
 }
 
-abstract class _ChangeChatFocus implements MainChatState {
+abstract class _ChangeChatFocus extends MainChatState {
   const factory _ChangeChatFocus({required final MainChatData data}) =
       _$_ChangeChatFocus;
+  const _ChangeChatFocus._() : super._();
 
   @override
   MainChatData get data;
   @override
   @JsonKey(ignore: true)
   _$$_ChangeChatFocusCopyWith<_$_ChangeChatFocus> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadingCopyWith<$Res>
+    implements $MainChatStateCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({MainChatData data});
+
+  @override
+  $MainChatDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$MainChatStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Loading(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as MainChatData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Loading extends _Loading {
+  const _$_Loading({required this.data}) : super._();
+
+  @override
+  final MainChatData data;
+
+  @override
+  String toString() {
+    return 'MainChatState.loading(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Loading &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MainChatData data) initial,
+    required TResult Function(MainChatData data) changeTabSuccess,
+    required TResult Function(MainChatData data) changeChatFocus,
+    required TResult Function(MainChatData data) loading,
+    required TResult Function(MainChatData data) getChatThreadSuccess,
+    required TResult Function(MainChatData data, String message)
+        getChatThreadFailed,
+  }) {
+    return loading(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(MainChatData data)? initial,
+    TResult? Function(MainChatData data)? changeTabSuccess,
+    TResult? Function(MainChatData data)? changeChatFocus,
+    TResult? Function(MainChatData data)? loading,
+    TResult? Function(MainChatData data)? getChatThreadSuccess,
+    TResult? Function(MainChatData data, String message)? getChatThreadFailed,
+  }) {
+    return loading?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MainChatData data)? initial,
+    TResult Function(MainChatData data)? changeTabSuccess,
+    TResult Function(MainChatData data)? changeChatFocus,
+    TResult Function(MainChatData data)? loading,
+    TResult Function(MainChatData data)? getChatThreadSuccess,
+    TResult Function(MainChatData data, String message)? getChatThreadFailed,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
+    required TResult Function(_ChangeChatFocus value) changeChatFocus,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetChatThreadSuccess value) getChatThreadSuccess,
+    required TResult Function(_GetChatThreadFailed value) getChatThreadFailed,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult? Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult? Function(_GetChatThreadFailed value)? getChatThreadFailed,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult Function(_GetChatThreadFailed value)? getChatThreadFailed,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading extends MainChatState {
+  const factory _Loading({required final MainChatData data}) = _$_Loading;
+  const _Loading._() : super._();
+
+  @override
+  MainChatData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetChatThreadSuccessCopyWith<$Res>
+    implements $MainChatStateCopyWith<$Res> {
+  factory _$$_GetChatThreadSuccessCopyWith(_$_GetChatThreadSuccess value,
+          $Res Function(_$_GetChatThreadSuccess) then) =
+      __$$_GetChatThreadSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({MainChatData data});
+
+  @override
+  $MainChatDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetChatThreadSuccessCopyWithImpl<$Res>
+    extends _$MainChatStateCopyWithImpl<$Res, _$_GetChatThreadSuccess>
+    implements _$$_GetChatThreadSuccessCopyWith<$Res> {
+  __$$_GetChatThreadSuccessCopyWithImpl(_$_GetChatThreadSuccess _value,
+      $Res Function(_$_GetChatThreadSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GetChatThreadSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as MainChatData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetChatThreadSuccess extends _GetChatThreadSuccess {
+  const _$_GetChatThreadSuccess({required this.data}) : super._();
+
+  @override
+  final MainChatData data;
+
+  @override
+  String toString() {
+    return 'MainChatState.getChatThreadSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetChatThreadSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetChatThreadSuccessCopyWith<_$_GetChatThreadSuccess> get copyWith =>
+      __$$_GetChatThreadSuccessCopyWithImpl<_$_GetChatThreadSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MainChatData data) initial,
+    required TResult Function(MainChatData data) changeTabSuccess,
+    required TResult Function(MainChatData data) changeChatFocus,
+    required TResult Function(MainChatData data) loading,
+    required TResult Function(MainChatData data) getChatThreadSuccess,
+    required TResult Function(MainChatData data, String message)
+        getChatThreadFailed,
+  }) {
+    return getChatThreadSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(MainChatData data)? initial,
+    TResult? Function(MainChatData data)? changeTabSuccess,
+    TResult? Function(MainChatData data)? changeChatFocus,
+    TResult? Function(MainChatData data)? loading,
+    TResult? Function(MainChatData data)? getChatThreadSuccess,
+    TResult? Function(MainChatData data, String message)? getChatThreadFailed,
+  }) {
+    return getChatThreadSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MainChatData data)? initial,
+    TResult Function(MainChatData data)? changeTabSuccess,
+    TResult Function(MainChatData data)? changeChatFocus,
+    TResult Function(MainChatData data)? loading,
+    TResult Function(MainChatData data)? getChatThreadSuccess,
+    TResult Function(MainChatData data, String message)? getChatThreadFailed,
+    required TResult orElse(),
+  }) {
+    if (getChatThreadSuccess != null) {
+      return getChatThreadSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
+    required TResult Function(_ChangeChatFocus value) changeChatFocus,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetChatThreadSuccess value) getChatThreadSuccess,
+    required TResult Function(_GetChatThreadFailed value) getChatThreadFailed,
+  }) {
+    return getChatThreadSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult? Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult? Function(_GetChatThreadFailed value)? getChatThreadFailed,
+  }) {
+    return getChatThreadSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult Function(_GetChatThreadFailed value)? getChatThreadFailed,
+    required TResult orElse(),
+  }) {
+    if (getChatThreadSuccess != null) {
+      return getChatThreadSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetChatThreadSuccess extends MainChatState {
+  const factory _GetChatThreadSuccess({required final MainChatData data}) =
+      _$_GetChatThreadSuccess;
+  const _GetChatThreadSuccess._() : super._();
+
+  @override
+  MainChatData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetChatThreadSuccessCopyWith<_$_GetChatThreadSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetChatThreadFailedCopyWith<$Res>
+    implements $MainChatStateCopyWith<$Res> {
+  factory _$$_GetChatThreadFailedCopyWith(_$_GetChatThreadFailed value,
+          $Res Function(_$_GetChatThreadFailed) then) =
+      __$$_GetChatThreadFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({MainChatData data, String message});
+
+  @override
+  $MainChatDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetChatThreadFailedCopyWithImpl<$Res>
+    extends _$MainChatStateCopyWithImpl<$Res, _$_GetChatThreadFailed>
+    implements _$$_GetChatThreadFailedCopyWith<$Res> {
+  __$$_GetChatThreadFailedCopyWithImpl(_$_GetChatThreadFailed _value,
+      $Res Function(_$_GetChatThreadFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_GetChatThreadFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as MainChatData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetChatThreadFailed extends _GetChatThreadFailed {
+  const _$_GetChatThreadFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final MainChatData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'MainChatState.getChatThreadFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetChatThreadFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetChatThreadFailedCopyWith<_$_GetChatThreadFailed> get copyWith =>
+      __$$_GetChatThreadFailedCopyWithImpl<_$_GetChatThreadFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MainChatData data) initial,
+    required TResult Function(MainChatData data) changeTabSuccess,
+    required TResult Function(MainChatData data) changeChatFocus,
+    required TResult Function(MainChatData data) loading,
+    required TResult Function(MainChatData data) getChatThreadSuccess,
+    required TResult Function(MainChatData data, String message)
+        getChatThreadFailed,
+  }) {
+    return getChatThreadFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(MainChatData data)? initial,
+    TResult? Function(MainChatData data)? changeTabSuccess,
+    TResult? Function(MainChatData data)? changeChatFocus,
+    TResult? Function(MainChatData data)? loading,
+    TResult? Function(MainChatData data)? getChatThreadSuccess,
+    TResult? Function(MainChatData data, String message)? getChatThreadFailed,
+  }) {
+    return getChatThreadFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MainChatData data)? initial,
+    TResult Function(MainChatData data)? changeTabSuccess,
+    TResult Function(MainChatData data)? changeChatFocus,
+    TResult Function(MainChatData data)? loading,
+    TResult Function(MainChatData data)? getChatThreadSuccess,
+    TResult Function(MainChatData data, String message)? getChatThreadFailed,
+    required TResult orElse(),
+  }) {
+    if (getChatThreadFailed != null) {
+      return getChatThreadFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
+    required TResult Function(_ChangeChatFocus value) changeChatFocus,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GetChatThreadSuccess value) getChatThreadSuccess,
+    required TResult Function(_GetChatThreadFailed value) getChatThreadFailed,
+  }) {
+    return getChatThreadFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult? Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult? Function(_GetChatThreadFailed value)? getChatThreadFailed,
+  }) {
+    return getChatThreadFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult Function(_ChangeChatFocus value)? changeChatFocus,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult Function(_GetChatThreadFailed value)? getChatThreadFailed,
+    required TResult orElse(),
+  }) {
+    if (getChatThreadFailed != null) {
+      return getChatThreadFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetChatThreadFailed extends MainChatState {
+  const factory _GetChatThreadFailed(
+      {required final MainChatData data,
+      required final String message}) = _$_GetChatThreadFailed;
+  const _GetChatThreadFailed._() : super._();
+
+  @override
+  MainChatData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetChatThreadFailedCopyWith<_$_GetChatThreadFailed> get copyWith =>
       throw _privateConstructorUsedError;
 }

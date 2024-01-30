@@ -8,7 +8,7 @@ part of 'custom_exercise_model.dart';
 
 CustomExerciseModel _$CustomExerciseModelFromJson(Map<String, dynamic> json) =>
     CustomExerciseModel(
-      id: json['id'] as int,
+      id: json['id'] as int?,
       time: json['time'] as int,
       difficulty: json['difficulty'] as String,
       exercise:

@@ -7,6 +7,7 @@ import 'package:fit_life/core/components/constant/constant.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/mvvm/object/entity/chat/chat_thread.dart';
 // import 'package:fit_life/core/services/bubble_service.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/api_key/input_api_cubit.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/main_chat/main_chat_data.dart';
@@ -16,6 +17,7 @@ import 'package:fit_life/mvvm/ui/chat_bot/views/all_pt_view.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/chat_bot_view.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/create_bot_view.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/input_api.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/support_button.dart';
 import 'package:fit_life/mvvm/ui/conversation/view/widgets/conversation_item_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -50,6 +52,8 @@ class MainChatViewState extends ConsumerState<MainChatView> {
 
   String? get _currentChatId => _data.currentChatId;
 
+  List<ChatThread> get _chatThread => _data.chatThreads ?? [];
+
   int get _currentTab => _data.currentTab;
 
   void _listenStateChange(MainChatState state) {
@@ -66,6 +70,14 @@ class MainChatViewState extends ConsumerState<MainChatView> {
       },
       orElse: () {},
     );
+  }
+
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, () async {
+      await _vm.getChatThreads();
+    });
+    super.initState();
   }
 
   @override
@@ -89,20 +101,14 @@ class MainChatViewState extends ConsumerState<MainChatView> {
           switch (_currentTab) {
             3 => "Create your pt assistant",
             4 => "All chat",
-            _ => "Chat pt"
+            _ => "ChatThread pt"
           },
           style: context.titleLarge
               .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
       body: [
-        if (_currentChatId != null)
-          ProviderScope(
-              child: ChatBotView(
-            chatId: _currentChatId!,
-          ))
-        else
-          const SizedBox(),
+        ProviderScope(child: ChatBotView(chatId: _currentChatId ?? "")),
         const ProviderScope(child: AllPtView()),
         BlocProvider(
           create: (_) => injector.get<InputApiCubit>(),
@@ -148,15 +154,20 @@ class MainChatViewState extends ConsumerState<MainChatView> {
                 ),
               ),
               const Divider(),
-              ...List.generate(
-                5,
-                (index) => Column(children: [
-                  ConversationItemView(
-                    onPress: () => _vm.changeFocusChat("Yeah $index"),
+              if (_state.loading)
+                Center(
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).primaryColor,
                   ),
-                  const Divider()
-                ]),
-              ),
+                )
+              else
+                ...List.generate(
+                  (_chatThread.length > 4) ? 4 : _chatThread.length,
+                  (index) => ConversationItemView(
+                    chatThread: _chatThread[index],
+                    onPress: () => _vm.changeFocusChat(_chatThread[index].id),
+                  ),
+                ),
               ...Constant.mainChatButton.entries
                   .mapIndexed((index, e) => InkWell(
                         onTap: () async {
@@ -194,80 +205,6 @@ class MainChatViewState extends ConsumerState<MainChatView> {
           ),
         )
       ],
-    );
-  }
-}
-
-class SupportButton extends StatelessWidget {
-  final Function(int) onButtonTap;
-  const SupportButton({
-    super.key,
-    required this.onButtonTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        ...["Explore", "Create bot"]
-            .mapIndexed(
-              (index, e) => Expanded(child: _button(context, index, e)),
-            )
-            .expand((e) => [e, const SizedBox(width: 10.0)])
-            .toList()
-          ..removeLast(),
-      ],
-    );
-  }
-
-  Widget _button(BuildContext context, int index, String e) {
-    return InkWell(
-      onTap: () {
-        if (index == 0) {
-          onButtonTap(1);
-        } else {
-          onButtonTap(3);
-        }
-      },
-      child: Container(
-        padding: const EdgeInsets.all(8.0),
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 5.0,
-              color: Theme.of(context).shadowColor.withOpacity(0.1),
-            )
-          ],
-          borderRadius: BorderRadius.circular(10.0),
-          color: Theme.of(context).cardColor,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (index == 0)
-              const Icon(Icons.search)
-            else
-              const Icon(Icons.add_reaction),
-            const SizedBox(height: 4.0),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    e,
-                    style: context.titleMedium
-                        .copyWith(fontWeight: FontWeight.w600),
-                  ),
-                ),
-                const SizedBox(width: 5.0),
-                if (index == 0)
-                  const Icon(Icons.arrow_forward_ios, size: 14)
-                else
-                  const Icon(Icons.add, size: 16),
-              ],
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

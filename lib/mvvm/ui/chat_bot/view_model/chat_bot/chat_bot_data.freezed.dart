@@ -16,9 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ChatBotData {
+  ChatThread? get chatThread => throw _privateConstructorUsedError;
   List<Message> get messages => throw _privateConstructorUsedError;
+  List<Trainer>? get allPreTrainer => throw _privateConstructorUsedError;
+  List<Trainer>? get previewTrainer => throw _privateConstructorUsedError;
   bool get micAvailable => throw _privateConstructorUsedError;
   String get messageSpeechId => throw _privateConstructorUsedError;
+  Trainer get trainerSelected => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChatBotDataCopyWith<ChatBotData> get copyWith =>
@@ -32,7 +36,16 @@ abstract class $ChatBotDataCopyWith<$Res> {
       _$ChatBotDataCopyWithImpl<$Res, ChatBotData>;
   @useResult
   $Res call(
-      {List<Message> messages, bool micAvailable, String messageSpeechId});
+      {ChatThread? chatThread,
+      List<Message> messages,
+      List<Trainer>? allPreTrainer,
+      List<Trainer>? previewTrainer,
+      bool micAvailable,
+      String messageSpeechId,
+      Trainer trainerSelected});
+
+  $ChatThreadCopyWith<$Res>? get chatThread;
+  $TrainerCopyWith<$Res> get trainerSelected;
 }
 
 /// @nodoc
@@ -48,15 +61,31 @@ class _$ChatBotDataCopyWithImpl<$Res, $Val extends ChatBotData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? chatThread = freezed,
     Object? messages = null,
+    Object? allPreTrainer = freezed,
+    Object? previewTrainer = freezed,
     Object? micAvailable = null,
     Object? messageSpeechId = null,
+    Object? trainerSelected = null,
   }) {
     return _then(_value.copyWith(
+      chatThread: freezed == chatThread
+          ? _value.chatThread
+          : chatThread // ignore: cast_nullable_to_non_nullable
+              as ChatThread?,
       messages: null == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
+      allPreTrainer: freezed == allPreTrainer
+          ? _value.allPreTrainer
+          : allPreTrainer // ignore: cast_nullable_to_non_nullable
+              as List<Trainer>?,
+      previewTrainer: freezed == previewTrainer
+          ? _value.previewTrainer
+          : previewTrainer // ignore: cast_nullable_to_non_nullable
+              as List<Trainer>?,
       micAvailable: null == micAvailable
           ? _value.micAvailable
           : micAvailable // ignore: cast_nullable_to_non_nullable
@@ -65,7 +94,31 @@ class _$ChatBotDataCopyWithImpl<$Res, $Val extends ChatBotData>
           ? _value.messageSpeechId
           : messageSpeechId // ignore: cast_nullable_to_non_nullable
               as String,
+      trainerSelected: null == trainerSelected
+          ? _value.trainerSelected
+          : trainerSelected // ignore: cast_nullable_to_non_nullable
+              as Trainer,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ChatThreadCopyWith<$Res>? get chatThread {
+    if (_value.chatThread == null) {
+      return null;
+    }
+
+    return $ChatThreadCopyWith<$Res>(_value.chatThread!, (value) {
+      return _then(_value.copyWith(chatThread: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TrainerCopyWith<$Res> get trainerSelected {
+    return $TrainerCopyWith<$Res>(_value.trainerSelected, (value) {
+      return _then(_value.copyWith(trainerSelected: value) as $Val);
+    });
   }
 }
 
@@ -78,7 +131,18 @@ abstract class _$$_ChatBotDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Message> messages, bool micAvailable, String messageSpeechId});
+      {ChatThread? chatThread,
+      List<Message> messages,
+      List<Trainer>? allPreTrainer,
+      List<Trainer>? previewTrainer,
+      bool micAvailable,
+      String messageSpeechId,
+      Trainer trainerSelected});
+
+  @override
+  $ChatThreadCopyWith<$Res>? get chatThread;
+  @override
+  $TrainerCopyWith<$Res> get trainerSelected;
 }
 
 /// @nodoc
@@ -92,15 +156,31 @@ class __$$_ChatBotDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? chatThread = freezed,
     Object? messages = null,
+    Object? allPreTrainer = freezed,
+    Object? previewTrainer = freezed,
     Object? micAvailable = null,
     Object? messageSpeechId = null,
+    Object? trainerSelected = null,
   }) {
     return _then(_$_ChatBotData(
+      chatThread: freezed == chatThread
+          ? _value.chatThread
+          : chatThread // ignore: cast_nullable_to_non_nullable
+              as ChatThread?,
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
+      allPreTrainer: freezed == allPreTrainer
+          ? _value._allPreTrainer
+          : allPreTrainer // ignore: cast_nullable_to_non_nullable
+              as List<Trainer>?,
+      previewTrainer: freezed == previewTrainer
+          ? _value._previewTrainer
+          : previewTrainer // ignore: cast_nullable_to_non_nullable
+              as List<Trainer>?,
       micAvailable: null == micAvailable
           ? _value.micAvailable
           : micAvailable // ignore: cast_nullable_to_non_nullable
@@ -109,6 +189,10 @@ class __$$_ChatBotDataCopyWithImpl<$Res>
           ? _value.messageSpeechId
           : messageSpeechId // ignore: cast_nullable_to_non_nullable
               as String,
+      trainerSelected: null == trainerSelected
+          ? _value.trainerSelected
+          : trainerSelected // ignore: cast_nullable_to_non_nullable
+              as Trainer,
     ));
   }
 }
@@ -117,11 +201,19 @@ class __$$_ChatBotDataCopyWithImpl<$Res>
 
 class _$_ChatBotData implements _ChatBotData {
   const _$_ChatBotData(
-      {required final List<Message> messages,
+      {this.chatThread,
+      required final List<Message> messages,
+      final List<Trainer>? allPreTrainer,
+      final List<Trainer>? previewTrainer,
       this.micAvailable = false,
-      this.messageSpeechId = ""})
-      : _messages = messages;
+      this.messageSpeechId = "",
+      this.trainerSelected = Constant.defaultTrainer})
+      : _messages = messages,
+        _allPreTrainer = allPreTrainer,
+        _previewTrainer = previewTrainer;
 
+  @override
+  final ChatThread? chatThread;
   final List<Message> _messages;
   @override
   List<Message> get messages {
@@ -130,16 +222,39 @@ class _$_ChatBotData implements _ChatBotData {
     return EqualUnmodifiableListView(_messages);
   }
 
+  final List<Trainer>? _allPreTrainer;
+  @override
+  List<Trainer>? get allPreTrainer {
+    final value = _allPreTrainer;
+    if (value == null) return null;
+    if (_allPreTrainer is EqualUnmodifiableListView) return _allPreTrainer;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Trainer>? _previewTrainer;
+  @override
+  List<Trainer>? get previewTrainer {
+    final value = _previewTrainer;
+    if (value == null) return null;
+    if (_previewTrainer is EqualUnmodifiableListView) return _previewTrainer;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey()
   final bool micAvailable;
   @override
   @JsonKey()
   final String messageSpeechId;
+  @override
+  @JsonKey()
+  final Trainer trainerSelected;
 
   @override
   String toString() {
-    return 'ChatBotData(messages: $messages, micAvailable: $micAvailable, messageSpeechId: $messageSpeechId)';
+    return 'ChatBotData(chatThread: $chatThread, messages: $messages, allPreTrainer: $allPreTrainer, previewTrainer: $previewTrainer, micAvailable: $micAvailable, messageSpeechId: $messageSpeechId, trainerSelected: $trainerSelected)';
   }
 
   @override
@@ -147,19 +262,31 @@ class _$_ChatBotData implements _ChatBotData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChatBotData &&
+            (identical(other.chatThread, chatThread) ||
+                other.chatThread == chatThread) &&
             const DeepCollectionEquality().equals(other._messages, _messages) &&
+            const DeepCollectionEquality()
+                .equals(other._allPreTrainer, _allPreTrainer) &&
+            const DeepCollectionEquality()
+                .equals(other._previewTrainer, _previewTrainer) &&
             (identical(other.micAvailable, micAvailable) ||
                 other.micAvailable == micAvailable) &&
             (identical(other.messageSpeechId, messageSpeechId) ||
-                other.messageSpeechId == messageSpeechId));
+                other.messageSpeechId == messageSpeechId) &&
+            (identical(other.trainerSelected, trainerSelected) ||
+                other.trainerSelected == trainerSelected));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      chatThread,
       const DeepCollectionEquality().hash(_messages),
+      const DeepCollectionEquality().hash(_allPreTrainer),
+      const DeepCollectionEquality().hash(_previewTrainer),
       micAvailable,
-      messageSpeechId);
+      messageSpeechId,
+      trainerSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -170,16 +297,28 @@ class _$_ChatBotData implements _ChatBotData {
 
 abstract class _ChatBotData implements ChatBotData {
   const factory _ChatBotData(
-      {required final List<Message> messages,
+      {final ChatThread? chatThread,
+      required final List<Message> messages,
+      final List<Trainer>? allPreTrainer,
+      final List<Trainer>? previewTrainer,
       final bool micAvailable,
-      final String messageSpeechId}) = _$_ChatBotData;
+      final String messageSpeechId,
+      final Trainer trainerSelected}) = _$_ChatBotData;
 
   @override
+  ChatThread? get chatThread;
+  @override
   List<Message> get messages;
+  @override
+  List<Trainer>? get allPreTrainer;
+  @override
+  List<Trainer>? get previewTrainer;
   @override
   bool get micAvailable;
   @override
   String get messageSpeechId;
+  @override
+  Trainer get trainerSelected;
   @override
   @JsonKey(ignore: true)
   _$$_ChatBotDataCopyWith<_$_ChatBotData> get copyWith =>

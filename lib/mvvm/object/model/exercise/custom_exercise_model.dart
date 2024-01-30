@@ -7,7 +7,7 @@ part 'custom_exercise_model.g.dart';
 @JsonSerializable()
 class CustomExerciseModel {
   @JsonKey(name: 'id')
-  final int id;
+  final int? id;
 
   @JsonKey(name: 'time')
   final int time;
@@ -28,7 +28,7 @@ class CustomExerciseModel {
   final int calories;
 
   CustomExerciseModel({
-    required this.id,
+    this.id,
     required this.time,
     required this.difficulty,
     required this.exercise,
@@ -43,7 +43,7 @@ class CustomExerciseModel {
   Map<String, dynamic> toJson() => _$CustomExerciseModelToJson(this);
 
   CustomExercise get toEntity => CustomExercise(
-        id: id,
+        id: id ?? 0,
         time: time,
         difficulty: difficulty,
         exercise: exercise.toEntity,

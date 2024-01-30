@@ -1,7 +1,7 @@
+import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/loading_page.dart';
-import 'package:fit_life/mvvm/data/local/preferences.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/api_key/input_api_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +22,11 @@ class _InputApiViewState extends State<InputApiView> {
 
   @override
   void initState() {
-    _controller.text = CommonAppSettingPref.getApiKey();
+    _bloc.getApiKey(
+      errorResponse: (message) =>
+          context.showSnackBar("🐛[Get open ai api] $message"),
+      successResponse: (api) => _controller.text = api,
+    );
     super.initState();
   }
 
@@ -67,7 +71,11 @@ class _InputApiViewState extends State<InputApiView> {
             const SizedBox(),
             _textBox(),
             ButtonCustom(
-                onPress: () => _bloc.saveApiKey(_controller.text),
+                onPress: () => _bloc.saveApiKey(
+                      _controller.text,
+                      errorResponse: (message) =>
+                          context.showSnackBar("🐛[Set open ai api] $message"),
+                    ),
                 height: 40.0,
                 radius: 5.0,
                 child: Row(

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AllChatData {
-  List<Chat> get chats => throw _privateConstructorUsedError;
+  List<ChatThread> get chats => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AllChatDataCopyWith<AllChatData> get copyWith =>
@@ -29,7 +29,7 @@ abstract class $AllChatDataCopyWith<$Res> {
           AllChatData value, $Res Function(AllChatData) then) =
       _$AllChatDataCopyWithImpl<$Res, AllChatData>;
   @useResult
-  $Res call({List<Chat> chats});
+  $Res call({List<ChatThread> chats});
 }
 
 /// @nodoc
@@ -51,7 +51,7 @@ class _$AllChatDataCopyWithImpl<$Res, $Val extends AllChatData>
       chats: null == chats
           ? _value.chats
           : chats // ignore: cast_nullable_to_non_nullable
-              as List<Chat>,
+              as List<ChatThread>,
     ) as $Val);
   }
 }
@@ -64,7 +64,7 @@ abstract class _$$_AllChatDataCopyWith<$Res>
       __$$_AllChatDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Chat> chats});
+  $Res call({List<ChatThread> chats});
 }
 
 /// @nodoc
@@ -84,7 +84,7 @@ class __$$_AllChatDataCopyWithImpl<$Res>
       chats: null == chats
           ? _value._chats
           : chats // ignore: cast_nullable_to_non_nullable
-              as List<Chat>,
+              as List<ChatThread>,
     ));
   }
 }
@@ -92,11 +92,12 @@ class __$$_AllChatDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AllChatData implements _AllChatData {
-  const _$_AllChatData({required final List<Chat> chats}) : _chats = chats;
+  const _$_AllChatData({required final List<ChatThread> chats})
+      : _chats = chats;
 
-  final List<Chat> _chats;
+  final List<ChatThread> _chats;
   @override
-  List<Chat> get chats {
+  List<ChatThread> get chats {
     if (_chats is EqualUnmodifiableListView) return _chats;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_chats);
@@ -127,11 +128,11 @@ class _$_AllChatData implements _AllChatData {
 }
 
 abstract class _AllChatData implements AllChatData {
-  const factory _AllChatData({required final List<Chat> chats}) =
+  const factory _AllChatData({required final List<ChatThread> chats}) =
       _$_AllChatData;
 
   @override
-  List<Chat> get chats;
+  List<ChatThread> get chats;
   @override
   @JsonKey(ignore: true)
   _$$_AllChatDataCopyWith<_$_AllChatData> get copyWith =>

@@ -4,6 +4,7 @@ import 'package:fit_life/core/components/extensions/string_extensions.dart';
 import 'package:fit_life/core/components/widgets/category/category_model.dart';
 import 'package:fit_life/core/config/color_config.dart';
 import 'package:fit_life/generated/l10n.dart';
+import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,7 @@ class Constant {
     "StableDiffusionXL",
     "Claude-instant",
     "Llama-2-70b",
-    "GPT-4\n(Limited access for non-subscribers)",
+    "GPT-4",
     "Claude-2-100k\n(Limited access for non-subscribers)",
     "Claude-instant-100k\n(Limited access for non-subscribers)"
   ];
@@ -348,6 +349,16 @@ class Constant {
     S.current.twoToThereDaysInWeek,
     S.current.worksEveryDayOfTheWeek,
   ];
+
+  static const Trainer defaultTrainer = Trainer(
+    id: "",
+    name: "Assistant",
+    model: "gpt-3.5",
+    prompt: "",
+    image: "",
+    greetingMessage: "",
+    bio: "",
+  );
 }
 
 class MainPageViewIntro {

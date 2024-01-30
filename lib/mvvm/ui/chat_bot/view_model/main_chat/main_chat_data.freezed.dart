@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MainChatData {
   int get currentTab => throw _privateConstructorUsedError;
   String? get currentChatId => throw _privateConstructorUsedError;
+  List<ChatThread>? get chatThreads => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MainChatDataCopyWith<MainChatData> get copyWith =>
@@ -30,7 +31,8 @@ abstract class $MainChatDataCopyWith<$Res> {
           MainChatData value, $Res Function(MainChatData) then) =
       _$MainChatDataCopyWithImpl<$Res, MainChatData>;
   @useResult
-  $Res call({int currentTab, String? currentChatId});
+  $Res call(
+      {int currentTab, String? currentChatId, List<ChatThread>? chatThreads});
 }
 
 /// @nodoc
@@ -48,6 +50,7 @@ class _$MainChatDataCopyWithImpl<$Res, $Val extends MainChatData>
   $Res call({
     Object? currentTab = null,
     Object? currentChatId = freezed,
+    Object? chatThreads = freezed,
   }) {
     return _then(_value.copyWith(
       currentTab: null == currentTab
@@ -58,6 +61,10 @@ class _$MainChatDataCopyWithImpl<$Res, $Val extends MainChatData>
           ? _value.currentChatId
           : currentChatId // ignore: cast_nullable_to_non_nullable
               as String?,
+      chatThreads: freezed == chatThreads
+          ? _value.chatThreads
+          : chatThreads // ignore: cast_nullable_to_non_nullable
+              as List<ChatThread>?,
     ) as $Val);
   }
 }
@@ -70,7 +77,8 @@ abstract class _$$_MainChatDataCopyWith<$Res>
       __$$_MainChatDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int currentTab, String? currentChatId});
+  $Res call(
+      {int currentTab, String? currentChatId, List<ChatThread>? chatThreads});
 }
 
 /// @nodoc
@@ -86,6 +94,7 @@ class __$$_MainChatDataCopyWithImpl<$Res>
   $Res call({
     Object? currentTab = null,
     Object? currentChatId = freezed,
+    Object? chatThreads = freezed,
   }) {
     return _then(_$_MainChatData(
       currentTab: null == currentTab
@@ -96,6 +105,10 @@ class __$$_MainChatDataCopyWithImpl<$Res>
           ? _value.currentChatId
           : currentChatId // ignore: cast_nullable_to_non_nullable
               as String?,
+      chatThreads: freezed == chatThreads
+          ? _value._chatThreads
+          : chatThreads // ignore: cast_nullable_to_non_nullable
+              as List<ChatThread>?,
     ));
   }
 }
@@ -103,17 +116,30 @@ class __$$_MainChatDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MainChatData implements _MainChatData {
-  const _$_MainChatData({this.currentTab = 0, this.currentChatId});
+  const _$_MainChatData(
+      {this.currentTab = 0,
+      this.currentChatId,
+      final List<ChatThread>? chatThreads})
+      : _chatThreads = chatThreads;
 
   @override
   @JsonKey()
   final int currentTab;
   @override
   final String? currentChatId;
+  final List<ChatThread>? _chatThreads;
+  @override
+  List<ChatThread>? get chatThreads {
+    final value = _chatThreads;
+    if (value == null) return null;
+    if (_chatThreads is EqualUnmodifiableListView) return _chatThreads;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'MainChatData(currentTab: $currentTab, currentChatId: $currentChatId)';
+    return 'MainChatData(currentTab: $currentTab, currentChatId: $currentChatId, chatThreads: $chatThreads)';
   }
 
   @override
@@ -124,11 +150,14 @@ class _$_MainChatData implements _MainChatData {
             (identical(other.currentTab, currentTab) ||
                 other.currentTab == currentTab) &&
             (identical(other.currentChatId, currentChatId) ||
-                other.currentChatId == currentChatId));
+                other.currentChatId == currentChatId) &&
+            const DeepCollectionEquality()
+                .equals(other._chatThreads, _chatThreads));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentTab, currentChatId);
+  int get hashCode => Object.hash(runtimeType, currentTab, currentChatId,
+      const DeepCollectionEquality().hash(_chatThreads));
 
   @JsonKey(ignore: true)
   @override
@@ -139,12 +168,16 @@ class _$_MainChatData implements _MainChatData {
 
 abstract class _MainChatData implements MainChatData {
   const factory _MainChatData(
-      {final int currentTab, final String? currentChatId}) = _$_MainChatData;
+      {final int currentTab,
+      final String? currentChatId,
+      final List<ChatThread>? chatThreads}) = _$_MainChatData;
 
   @override
   int get currentTab;
   @override
   String? get currentChatId;
+  @override
+  List<ChatThread>? get chatThreads;
   @override
   @JsonKey(ignore: true)
   _$$_MainChatDataCopyWith<_$_MainChatData> get copyWith =>

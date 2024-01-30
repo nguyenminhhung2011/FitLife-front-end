@@ -24,6 +24,10 @@ mixin _$CreateBotState {
     required TResult Function(CreateBotData data) changeBehaviorTabSuccess,
     required TResult Function(CreateBotData data) changeModelSuccess,
     required TResult Function(CreateBotData data) changeSourceFileSuccess,
+    required TResult Function(CreateBotData data) createTrainerSuccess,
+    required TResult Function(CreateBotData data, String message)
+        createTrainerFailed,
+    required TResult Function(CreateBotData data) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +37,9 @@ mixin _$CreateBotState {
     TResult? Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult? Function(CreateBotData data)? changeModelSuccess,
     TResult? Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult? Function(CreateBotData data)? createTrainerSuccess,
+    TResult? Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult? Function(CreateBotData data)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +49,9 @@ mixin _$CreateBotState {
     TResult Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult Function(CreateBotData data)? changeModelSuccess,
     TResult Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult Function(CreateBotData data)? createTrainerSuccess,
+    TResult Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult Function(CreateBotData data)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +65,9 @@ mixin _$CreateBotState {
     required TResult Function(_ChangeModelSuccess value) changeModelSuccess,
     required TResult Function(_ChangeSourceFileSuccess value)
         changeSourceFileSuccess,
+    required TResult Function(_CreateTrainerSuccess value) createTrainerSuccess,
+    required TResult Function(_CreateTrainerFailed value) createTrainerFailed,
+    required TResult Function(_Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +78,9 @@ mixin _$CreateBotState {
         changeBehaviorTabSuccess,
     TResult? Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult? Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult? Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult? Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult? Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +90,9 @@ mixin _$CreateBotState {
     TResult Function(_ChangeBehaviorTabSuccess value)? changeBehaviorTabSuccess,
     TResult Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,8 +182,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial({required this.data});
+class _$_Initial extends _Initial {
+  const _$_Initial({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -199,6 +218,10 @@ class _$_Initial implements _Initial {
     required TResult Function(CreateBotData data) changeBehaviorTabSuccess,
     required TResult Function(CreateBotData data) changeModelSuccess,
     required TResult Function(CreateBotData data) changeSourceFileSuccess,
+    required TResult Function(CreateBotData data) createTrainerSuccess,
+    required TResult Function(CreateBotData data, String message)
+        createTrainerFailed,
+    required TResult Function(CreateBotData data) loading,
   }) {
     return initial(data);
   }
@@ -211,6 +234,9 @@ class _$_Initial implements _Initial {
     TResult? Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult? Function(CreateBotData data)? changeModelSuccess,
     TResult? Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult? Function(CreateBotData data)? createTrainerSuccess,
+    TResult? Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult? Function(CreateBotData data)? loading,
   }) {
     return initial?.call(data);
   }
@@ -223,6 +249,9 @@ class _$_Initial implements _Initial {
     TResult Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult Function(CreateBotData data)? changeModelSuccess,
     TResult Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult Function(CreateBotData data)? createTrainerSuccess,
+    TResult Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult Function(CreateBotData data)? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +271,9 @@ class _$_Initial implements _Initial {
     required TResult Function(_ChangeModelSuccess value) changeModelSuccess,
     required TResult Function(_ChangeSourceFileSuccess value)
         changeSourceFileSuccess,
+    required TResult Function(_CreateTrainerSuccess value) createTrainerSuccess,
+    required TResult Function(_CreateTrainerFailed value) createTrainerFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return initial(this);
   }
@@ -255,6 +287,9 @@ class _$_Initial implements _Initial {
         changeBehaviorTabSuccess,
     TResult? Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult? Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult? Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult? Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return initial?.call(this);
   }
@@ -267,6 +302,9 @@ class _$_Initial implements _Initial {
     TResult Function(_ChangeBehaviorTabSuccess value)? changeBehaviorTabSuccess,
     TResult Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -276,8 +314,9 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements CreateBotState {
+abstract class _Initial extends CreateBotState {
   const factory _Initial({required final CreateBotData data}) = _$_Initial;
+  const _Initial._() : super._();
 
   @override
   CreateBotData get data;
@@ -325,8 +364,8 @@ class __$$_ChangeBotImageSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeBotImageSuccess implements _ChangeBotImageSuccess {
-  const _$_ChangeBotImageSuccess({required this.data});
+class _$_ChangeBotImageSuccess extends _ChangeBotImageSuccess {
+  const _$_ChangeBotImageSuccess({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -362,6 +401,10 @@ class _$_ChangeBotImageSuccess implements _ChangeBotImageSuccess {
     required TResult Function(CreateBotData data) changeBehaviorTabSuccess,
     required TResult Function(CreateBotData data) changeModelSuccess,
     required TResult Function(CreateBotData data) changeSourceFileSuccess,
+    required TResult Function(CreateBotData data) createTrainerSuccess,
+    required TResult Function(CreateBotData data, String message)
+        createTrainerFailed,
+    required TResult Function(CreateBotData data) loading,
   }) {
     return changeBotImageSuccess(data);
   }
@@ -374,6 +417,9 @@ class _$_ChangeBotImageSuccess implements _ChangeBotImageSuccess {
     TResult? Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult? Function(CreateBotData data)? changeModelSuccess,
     TResult? Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult? Function(CreateBotData data)? createTrainerSuccess,
+    TResult? Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult? Function(CreateBotData data)? loading,
   }) {
     return changeBotImageSuccess?.call(data);
   }
@@ -386,6 +432,9 @@ class _$_ChangeBotImageSuccess implements _ChangeBotImageSuccess {
     TResult Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult Function(CreateBotData data)? changeModelSuccess,
     TResult Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult Function(CreateBotData data)? createTrainerSuccess,
+    TResult Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult Function(CreateBotData data)? loading,
     required TResult orElse(),
   }) {
     if (changeBotImageSuccess != null) {
@@ -405,6 +454,9 @@ class _$_ChangeBotImageSuccess implements _ChangeBotImageSuccess {
     required TResult Function(_ChangeModelSuccess value) changeModelSuccess,
     required TResult Function(_ChangeSourceFileSuccess value)
         changeSourceFileSuccess,
+    required TResult Function(_CreateTrainerSuccess value) createTrainerSuccess,
+    required TResult Function(_CreateTrainerFailed value) createTrainerFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return changeBotImageSuccess(this);
   }
@@ -418,6 +470,9 @@ class _$_ChangeBotImageSuccess implements _ChangeBotImageSuccess {
         changeBehaviorTabSuccess,
     TResult? Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult? Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult? Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult? Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return changeBotImageSuccess?.call(this);
   }
@@ -430,6 +485,9 @@ class _$_ChangeBotImageSuccess implements _ChangeBotImageSuccess {
     TResult Function(_ChangeBehaviorTabSuccess value)? changeBehaviorTabSuccess,
     TResult Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (changeBotImageSuccess != null) {
@@ -439,9 +497,10 @@ class _$_ChangeBotImageSuccess implements _ChangeBotImageSuccess {
   }
 }
 
-abstract class _ChangeBotImageSuccess implements CreateBotState {
+abstract class _ChangeBotImageSuccess extends CreateBotState {
   const factory _ChangeBotImageSuccess({required final CreateBotData data}) =
       _$_ChangeBotImageSuccess;
+  const _ChangeBotImageSuccess._() : super._();
 
   @override
   CreateBotData get data;
@@ -490,8 +549,8 @@ class __$$_ChangeBehaviorTabSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeBehaviorTabSuccess implements _ChangeBehaviorTabSuccess {
-  const _$_ChangeBehaviorTabSuccess({required this.data});
+class _$_ChangeBehaviorTabSuccess extends _ChangeBehaviorTabSuccess {
+  const _$_ChangeBehaviorTabSuccess({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -527,6 +586,10 @@ class _$_ChangeBehaviorTabSuccess implements _ChangeBehaviorTabSuccess {
     required TResult Function(CreateBotData data) changeBehaviorTabSuccess,
     required TResult Function(CreateBotData data) changeModelSuccess,
     required TResult Function(CreateBotData data) changeSourceFileSuccess,
+    required TResult Function(CreateBotData data) createTrainerSuccess,
+    required TResult Function(CreateBotData data, String message)
+        createTrainerFailed,
+    required TResult Function(CreateBotData data) loading,
   }) {
     return changeBehaviorTabSuccess(data);
   }
@@ -539,6 +602,9 @@ class _$_ChangeBehaviorTabSuccess implements _ChangeBehaviorTabSuccess {
     TResult? Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult? Function(CreateBotData data)? changeModelSuccess,
     TResult? Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult? Function(CreateBotData data)? createTrainerSuccess,
+    TResult? Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult? Function(CreateBotData data)? loading,
   }) {
     return changeBehaviorTabSuccess?.call(data);
   }
@@ -551,6 +617,9 @@ class _$_ChangeBehaviorTabSuccess implements _ChangeBehaviorTabSuccess {
     TResult Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult Function(CreateBotData data)? changeModelSuccess,
     TResult Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult Function(CreateBotData data)? createTrainerSuccess,
+    TResult Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult Function(CreateBotData data)? loading,
     required TResult orElse(),
   }) {
     if (changeBehaviorTabSuccess != null) {
@@ -570,6 +639,9 @@ class _$_ChangeBehaviorTabSuccess implements _ChangeBehaviorTabSuccess {
     required TResult Function(_ChangeModelSuccess value) changeModelSuccess,
     required TResult Function(_ChangeSourceFileSuccess value)
         changeSourceFileSuccess,
+    required TResult Function(_CreateTrainerSuccess value) createTrainerSuccess,
+    required TResult Function(_CreateTrainerFailed value) createTrainerFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return changeBehaviorTabSuccess(this);
   }
@@ -583,6 +655,9 @@ class _$_ChangeBehaviorTabSuccess implements _ChangeBehaviorTabSuccess {
         changeBehaviorTabSuccess,
     TResult? Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult? Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult? Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult? Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return changeBehaviorTabSuccess?.call(this);
   }
@@ -595,6 +670,9 @@ class _$_ChangeBehaviorTabSuccess implements _ChangeBehaviorTabSuccess {
     TResult Function(_ChangeBehaviorTabSuccess value)? changeBehaviorTabSuccess,
     TResult Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (changeBehaviorTabSuccess != null) {
@@ -604,9 +682,10 @@ class _$_ChangeBehaviorTabSuccess implements _ChangeBehaviorTabSuccess {
   }
 }
 
-abstract class _ChangeBehaviorTabSuccess implements CreateBotState {
+abstract class _ChangeBehaviorTabSuccess extends CreateBotState {
   const factory _ChangeBehaviorTabSuccess({required final CreateBotData data}) =
       _$_ChangeBehaviorTabSuccess;
+  const _ChangeBehaviorTabSuccess._() : super._();
 
   @override
   CreateBotData get data;
@@ -654,8 +733,8 @@ class __$$_ChangeModelSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeModelSuccess implements _ChangeModelSuccess {
-  const _$_ChangeModelSuccess({required this.data});
+class _$_ChangeModelSuccess extends _ChangeModelSuccess {
+  const _$_ChangeModelSuccess({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -691,6 +770,10 @@ class _$_ChangeModelSuccess implements _ChangeModelSuccess {
     required TResult Function(CreateBotData data) changeBehaviorTabSuccess,
     required TResult Function(CreateBotData data) changeModelSuccess,
     required TResult Function(CreateBotData data) changeSourceFileSuccess,
+    required TResult Function(CreateBotData data) createTrainerSuccess,
+    required TResult Function(CreateBotData data, String message)
+        createTrainerFailed,
+    required TResult Function(CreateBotData data) loading,
   }) {
     return changeModelSuccess(data);
   }
@@ -703,6 +786,9 @@ class _$_ChangeModelSuccess implements _ChangeModelSuccess {
     TResult? Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult? Function(CreateBotData data)? changeModelSuccess,
     TResult? Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult? Function(CreateBotData data)? createTrainerSuccess,
+    TResult? Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult? Function(CreateBotData data)? loading,
   }) {
     return changeModelSuccess?.call(data);
   }
@@ -715,6 +801,9 @@ class _$_ChangeModelSuccess implements _ChangeModelSuccess {
     TResult Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult Function(CreateBotData data)? changeModelSuccess,
     TResult Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult Function(CreateBotData data)? createTrainerSuccess,
+    TResult Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult Function(CreateBotData data)? loading,
     required TResult orElse(),
   }) {
     if (changeModelSuccess != null) {
@@ -734,6 +823,9 @@ class _$_ChangeModelSuccess implements _ChangeModelSuccess {
     required TResult Function(_ChangeModelSuccess value) changeModelSuccess,
     required TResult Function(_ChangeSourceFileSuccess value)
         changeSourceFileSuccess,
+    required TResult Function(_CreateTrainerSuccess value) createTrainerSuccess,
+    required TResult Function(_CreateTrainerFailed value) createTrainerFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return changeModelSuccess(this);
   }
@@ -747,6 +839,9 @@ class _$_ChangeModelSuccess implements _ChangeModelSuccess {
         changeBehaviorTabSuccess,
     TResult? Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult? Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult? Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult? Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return changeModelSuccess?.call(this);
   }
@@ -759,6 +854,9 @@ class _$_ChangeModelSuccess implements _ChangeModelSuccess {
     TResult Function(_ChangeBehaviorTabSuccess value)? changeBehaviorTabSuccess,
     TResult Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (changeModelSuccess != null) {
@@ -768,9 +866,10 @@ class _$_ChangeModelSuccess implements _ChangeModelSuccess {
   }
 }
 
-abstract class _ChangeModelSuccess implements CreateBotState {
+abstract class _ChangeModelSuccess extends CreateBotState {
   const factory _ChangeModelSuccess({required final CreateBotData data}) =
       _$_ChangeModelSuccess;
+  const _ChangeModelSuccess._() : super._();
 
   @override
   CreateBotData get data;
@@ -818,8 +917,8 @@ class __$$_ChangeSourceFileSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeSourceFileSuccess implements _ChangeSourceFileSuccess {
-  const _$_ChangeSourceFileSuccess({required this.data});
+class _$_ChangeSourceFileSuccess extends _ChangeSourceFileSuccess {
+  const _$_ChangeSourceFileSuccess({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -856,6 +955,10 @@ class _$_ChangeSourceFileSuccess implements _ChangeSourceFileSuccess {
     required TResult Function(CreateBotData data) changeBehaviorTabSuccess,
     required TResult Function(CreateBotData data) changeModelSuccess,
     required TResult Function(CreateBotData data) changeSourceFileSuccess,
+    required TResult Function(CreateBotData data) createTrainerSuccess,
+    required TResult Function(CreateBotData data, String message)
+        createTrainerFailed,
+    required TResult Function(CreateBotData data) loading,
   }) {
     return changeSourceFileSuccess(data);
   }
@@ -868,6 +971,9 @@ class _$_ChangeSourceFileSuccess implements _ChangeSourceFileSuccess {
     TResult? Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult? Function(CreateBotData data)? changeModelSuccess,
     TResult? Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult? Function(CreateBotData data)? createTrainerSuccess,
+    TResult? Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult? Function(CreateBotData data)? loading,
   }) {
     return changeSourceFileSuccess?.call(data);
   }
@@ -880,6 +986,9 @@ class _$_ChangeSourceFileSuccess implements _ChangeSourceFileSuccess {
     TResult Function(CreateBotData data)? changeBehaviorTabSuccess,
     TResult Function(CreateBotData data)? changeModelSuccess,
     TResult Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult Function(CreateBotData data)? createTrainerSuccess,
+    TResult Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult Function(CreateBotData data)? loading,
     required TResult orElse(),
   }) {
     if (changeSourceFileSuccess != null) {
@@ -899,6 +1008,9 @@ class _$_ChangeSourceFileSuccess implements _ChangeSourceFileSuccess {
     required TResult Function(_ChangeModelSuccess value) changeModelSuccess,
     required TResult Function(_ChangeSourceFileSuccess value)
         changeSourceFileSuccess,
+    required TResult Function(_CreateTrainerSuccess value) createTrainerSuccess,
+    required TResult Function(_CreateTrainerFailed value) createTrainerFailed,
+    required TResult Function(_Loading value) loading,
   }) {
     return changeSourceFileSuccess(this);
   }
@@ -912,6 +1024,9 @@ class _$_ChangeSourceFileSuccess implements _ChangeSourceFileSuccess {
         changeBehaviorTabSuccess,
     TResult? Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult? Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult? Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult? Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult? Function(_Loading value)? loading,
   }) {
     return changeSourceFileSuccess?.call(this);
   }
@@ -924,6 +1039,9 @@ class _$_ChangeSourceFileSuccess implements _ChangeSourceFileSuccess {
     TResult Function(_ChangeBehaviorTabSuccess value)? changeBehaviorTabSuccess,
     TResult Function(_ChangeModelSuccess value)? changeModelSuccess,
     TResult Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (changeSourceFileSuccess != null) {
@@ -933,9 +1051,10 @@ class _$_ChangeSourceFileSuccess implements _ChangeSourceFileSuccess {
   }
 }
 
-abstract class _ChangeSourceFileSuccess implements CreateBotState {
+abstract class _ChangeSourceFileSuccess extends CreateBotState {
   const factory _ChangeSourceFileSuccess({required final CreateBotData data}) =
       _$_ChangeSourceFileSuccess;
+  const _ChangeSourceFileSuccess._() : super._();
 
   @override
   CreateBotData get data;
@@ -943,4 +1062,564 @@ abstract class _ChangeSourceFileSuccess implements CreateBotState {
   @JsonKey(ignore: true)
   _$$_ChangeSourceFileSuccessCopyWith<_$_ChangeSourceFileSuccess>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CreateTrainerSuccessCopyWith<$Res>
+    implements $CreateBotStateCopyWith<$Res> {
+  factory _$$_CreateTrainerSuccessCopyWith(_$_CreateTrainerSuccess value,
+          $Res Function(_$_CreateTrainerSuccess) then) =
+      __$$_CreateTrainerSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CreateBotData data});
+
+  @override
+  $CreateBotDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_CreateTrainerSuccessCopyWithImpl<$Res>
+    extends _$CreateBotStateCopyWithImpl<$Res, _$_CreateTrainerSuccess>
+    implements _$$_CreateTrainerSuccessCopyWith<$Res> {
+  __$$_CreateTrainerSuccessCopyWithImpl(_$_CreateTrainerSuccess _value,
+      $Res Function(_$_CreateTrainerSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_CreateTrainerSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CreateBotData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CreateTrainerSuccess extends _CreateTrainerSuccess {
+  const _$_CreateTrainerSuccess({required this.data}) : super._();
+
+  @override
+  final CreateBotData data;
+
+  @override
+  String toString() {
+    return 'CreateBotState.createTrainerSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CreateTrainerSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CreateTrainerSuccessCopyWith<_$_CreateTrainerSuccess> get copyWith =>
+      __$$_CreateTrainerSuccessCopyWithImpl<_$_CreateTrainerSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreateBotData data) initial,
+    required TResult Function(CreateBotData data) changeBotImageSuccess,
+    required TResult Function(CreateBotData data) changeBehaviorTabSuccess,
+    required TResult Function(CreateBotData data) changeModelSuccess,
+    required TResult Function(CreateBotData data) changeSourceFileSuccess,
+    required TResult Function(CreateBotData data) createTrainerSuccess,
+    required TResult Function(CreateBotData data, String message)
+        createTrainerFailed,
+    required TResult Function(CreateBotData data) loading,
+  }) {
+    return createTrainerSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreateBotData data)? initial,
+    TResult? Function(CreateBotData data)? changeBotImageSuccess,
+    TResult? Function(CreateBotData data)? changeBehaviorTabSuccess,
+    TResult? Function(CreateBotData data)? changeModelSuccess,
+    TResult? Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult? Function(CreateBotData data)? createTrainerSuccess,
+    TResult? Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult? Function(CreateBotData data)? loading,
+  }) {
+    return createTrainerSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreateBotData data)? initial,
+    TResult Function(CreateBotData data)? changeBotImageSuccess,
+    TResult Function(CreateBotData data)? changeBehaviorTabSuccess,
+    TResult Function(CreateBotData data)? changeModelSuccess,
+    TResult Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult Function(CreateBotData data)? createTrainerSuccess,
+    TResult Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult Function(CreateBotData data)? loading,
+    required TResult orElse(),
+  }) {
+    if (createTrainerSuccess != null) {
+      return createTrainerSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeBotImageSuccess value)
+        changeBotImageSuccess,
+    required TResult Function(_ChangeBehaviorTabSuccess value)
+        changeBehaviorTabSuccess,
+    required TResult Function(_ChangeModelSuccess value) changeModelSuccess,
+    required TResult Function(_ChangeSourceFileSuccess value)
+        changeSourceFileSuccess,
+    required TResult Function(_CreateTrainerSuccess value) createTrainerSuccess,
+    required TResult Function(_CreateTrainerFailed value) createTrainerFailed,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return createTrainerSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeBotImageSuccess value)? changeBotImageSuccess,
+    TResult? Function(_ChangeBehaviorTabSuccess value)?
+        changeBehaviorTabSuccess,
+    TResult? Function(_ChangeModelSuccess value)? changeModelSuccess,
+    TResult? Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult? Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult? Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return createTrainerSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeBotImageSuccess value)? changeBotImageSuccess,
+    TResult Function(_ChangeBehaviorTabSuccess value)? changeBehaviorTabSuccess,
+    TResult Function(_ChangeModelSuccess value)? changeModelSuccess,
+    TResult Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (createTrainerSuccess != null) {
+      return createTrainerSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateTrainerSuccess extends CreateBotState {
+  const factory _CreateTrainerSuccess({required final CreateBotData data}) =
+      _$_CreateTrainerSuccess;
+  const _CreateTrainerSuccess._() : super._();
+
+  @override
+  CreateBotData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CreateTrainerSuccessCopyWith<_$_CreateTrainerSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CreateTrainerFailedCopyWith<$Res>
+    implements $CreateBotStateCopyWith<$Res> {
+  factory _$$_CreateTrainerFailedCopyWith(_$_CreateTrainerFailed value,
+          $Res Function(_$_CreateTrainerFailed) then) =
+      __$$_CreateTrainerFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CreateBotData data, String message});
+
+  @override
+  $CreateBotDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_CreateTrainerFailedCopyWithImpl<$Res>
+    extends _$CreateBotStateCopyWithImpl<$Res, _$_CreateTrainerFailed>
+    implements _$$_CreateTrainerFailedCopyWith<$Res> {
+  __$$_CreateTrainerFailedCopyWithImpl(_$_CreateTrainerFailed _value,
+      $Res Function(_$_CreateTrainerFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$_CreateTrainerFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CreateBotData,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CreateTrainerFailed extends _CreateTrainerFailed {
+  const _$_CreateTrainerFailed({required this.data, required this.message})
+      : super._();
+
+  @override
+  final CreateBotData data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CreateBotState.createTrainerFailed(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CreateTrainerFailed &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CreateTrainerFailedCopyWith<_$_CreateTrainerFailed> get copyWith =>
+      __$$_CreateTrainerFailedCopyWithImpl<_$_CreateTrainerFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreateBotData data) initial,
+    required TResult Function(CreateBotData data) changeBotImageSuccess,
+    required TResult Function(CreateBotData data) changeBehaviorTabSuccess,
+    required TResult Function(CreateBotData data) changeModelSuccess,
+    required TResult Function(CreateBotData data) changeSourceFileSuccess,
+    required TResult Function(CreateBotData data) createTrainerSuccess,
+    required TResult Function(CreateBotData data, String message)
+        createTrainerFailed,
+    required TResult Function(CreateBotData data) loading,
+  }) {
+    return createTrainerFailed(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreateBotData data)? initial,
+    TResult? Function(CreateBotData data)? changeBotImageSuccess,
+    TResult? Function(CreateBotData data)? changeBehaviorTabSuccess,
+    TResult? Function(CreateBotData data)? changeModelSuccess,
+    TResult? Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult? Function(CreateBotData data)? createTrainerSuccess,
+    TResult? Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult? Function(CreateBotData data)? loading,
+  }) {
+    return createTrainerFailed?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreateBotData data)? initial,
+    TResult Function(CreateBotData data)? changeBotImageSuccess,
+    TResult Function(CreateBotData data)? changeBehaviorTabSuccess,
+    TResult Function(CreateBotData data)? changeModelSuccess,
+    TResult Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult Function(CreateBotData data)? createTrainerSuccess,
+    TResult Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult Function(CreateBotData data)? loading,
+    required TResult orElse(),
+  }) {
+    if (createTrainerFailed != null) {
+      return createTrainerFailed(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeBotImageSuccess value)
+        changeBotImageSuccess,
+    required TResult Function(_ChangeBehaviorTabSuccess value)
+        changeBehaviorTabSuccess,
+    required TResult Function(_ChangeModelSuccess value) changeModelSuccess,
+    required TResult Function(_ChangeSourceFileSuccess value)
+        changeSourceFileSuccess,
+    required TResult Function(_CreateTrainerSuccess value) createTrainerSuccess,
+    required TResult Function(_CreateTrainerFailed value) createTrainerFailed,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return createTrainerFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeBotImageSuccess value)? changeBotImageSuccess,
+    TResult? Function(_ChangeBehaviorTabSuccess value)?
+        changeBehaviorTabSuccess,
+    TResult? Function(_ChangeModelSuccess value)? changeModelSuccess,
+    TResult? Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult? Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult? Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return createTrainerFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeBotImageSuccess value)? changeBotImageSuccess,
+    TResult Function(_ChangeBehaviorTabSuccess value)? changeBehaviorTabSuccess,
+    TResult Function(_ChangeModelSuccess value)? changeModelSuccess,
+    TResult Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (createTrainerFailed != null) {
+      return createTrainerFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateTrainerFailed extends CreateBotState {
+  const factory _CreateTrainerFailed(
+      {required final CreateBotData data,
+      required final String message}) = _$_CreateTrainerFailed;
+  const _CreateTrainerFailed._() : super._();
+
+  @override
+  CreateBotData get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CreateTrainerFailedCopyWith<_$_CreateTrainerFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadingCopyWith<$Res>
+    implements $CreateBotStateCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CreateBotData data});
+
+  @override
+  $CreateBotDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$CreateBotStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Loading(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as CreateBotData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Loading extends _Loading {
+  const _$_Loading({required this.data}) : super._();
+
+  @override
+  final CreateBotData data;
+
+  @override
+  String toString() {
+    return 'CreateBotState.loading(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Loading &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreateBotData data) initial,
+    required TResult Function(CreateBotData data) changeBotImageSuccess,
+    required TResult Function(CreateBotData data) changeBehaviorTabSuccess,
+    required TResult Function(CreateBotData data) changeModelSuccess,
+    required TResult Function(CreateBotData data) changeSourceFileSuccess,
+    required TResult Function(CreateBotData data) createTrainerSuccess,
+    required TResult Function(CreateBotData data, String message)
+        createTrainerFailed,
+    required TResult Function(CreateBotData data) loading,
+  }) {
+    return loading(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CreateBotData data)? initial,
+    TResult? Function(CreateBotData data)? changeBotImageSuccess,
+    TResult? Function(CreateBotData data)? changeBehaviorTabSuccess,
+    TResult? Function(CreateBotData data)? changeModelSuccess,
+    TResult? Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult? Function(CreateBotData data)? createTrainerSuccess,
+    TResult? Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult? Function(CreateBotData data)? loading,
+  }) {
+    return loading?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreateBotData data)? initial,
+    TResult Function(CreateBotData data)? changeBotImageSuccess,
+    TResult Function(CreateBotData data)? changeBehaviorTabSuccess,
+    TResult Function(CreateBotData data)? changeModelSuccess,
+    TResult Function(CreateBotData data)? changeSourceFileSuccess,
+    TResult Function(CreateBotData data)? createTrainerSuccess,
+    TResult Function(CreateBotData data, String message)? createTrainerFailed,
+    TResult Function(CreateBotData data)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ChangeBotImageSuccess value)
+        changeBotImageSuccess,
+    required TResult Function(_ChangeBehaviorTabSuccess value)
+        changeBehaviorTabSuccess,
+    required TResult Function(_ChangeModelSuccess value) changeModelSuccess,
+    required TResult Function(_ChangeSourceFileSuccess value)
+        changeSourceFileSuccess,
+    required TResult Function(_CreateTrainerSuccess value) createTrainerSuccess,
+    required TResult Function(_CreateTrainerFailed value) createTrainerFailed,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ChangeBotImageSuccess value)? changeBotImageSuccess,
+    TResult? Function(_ChangeBehaviorTabSuccess value)?
+        changeBehaviorTabSuccess,
+    TResult? Function(_ChangeModelSuccess value)? changeModelSuccess,
+    TResult? Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult? Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult? Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ChangeBotImageSuccess value)? changeBotImageSuccess,
+    TResult Function(_ChangeBehaviorTabSuccess value)? changeBehaviorTabSuccess,
+    TResult Function(_ChangeModelSuccess value)? changeModelSuccess,
+    TResult Function(_ChangeSourceFileSuccess value)? changeSourceFileSuccess,
+    TResult Function(_CreateTrainerSuccess value)? createTrainerSuccess,
+    TResult Function(_CreateTrainerFailed value)? createTrainerFailed,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading extends CreateBotState {
+  const factory _Loading({required final CreateBotData data}) = _$_Loading;
+  const _Loading._() : super._();
+
+  @override
+  CreateBotData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,3 +1,6 @@
+import 'package:fit_life/app_coordinator.dart';
+import 'package:fit_life/core/components/constant/image_const.dart';
+import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/listening_icon.dart';
@@ -9,6 +12,8 @@ class InputWidget extends StatefulWidget {
   final Function() onVoiceStart;
   final Function() onVoiceStop;
   final bool micAvailable;
+  final Trainer? trainerBot;
+  final Function() onSelectionTrainer;
   const InputWidget({
     required this.textEditingController,
     required this.onSubmitted,
@@ -16,6 +21,8 @@ class InputWidget extends StatefulWidget {
     required this.onVoiceStart,
     required this.onVoiceStop,
     required this.micAvailable,
+    required this.onSelectionTrainer,
+    this.trainerBot,
     super.key,
   });
 
@@ -40,8 +47,35 @@ class _InputWidgetState extends State<InputWidget> {
             color: Theme.of(context).scaffoldBackgroundColor,
           ),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const SizedBox(width: 12.0),
+              if (widget.trainerBot?.id.isNotEmpty ?? false) ...[
+                InkWell(
+                  onLongPress: widget.onSelectionTrainer,
+                  onTap: () =>
+                      context.trainerInformationBottom(widget.trainerBot!),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: Image.network(
+                      widget.trainerBot!.image,
+                      width: 30.0,
+                      height: 30.0,
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) {
+                        return Image.asset(ImageConst.banner2,
+                            fit: BoxFit.cover, width: 30.0, height: 30.0);
+                      },
+                    ),
+                  ),
+                )
+              ] else ...[
+                InkWell(
+                  onTap: widget.onSelectionTrainer,
+                  child: Image.asset(ImageConst.brainIcon,
+                      fit: BoxFit.cover, width: 30.0, height: 30.0),
+                )
+              ],
               IconButton(
                 onPressed: !widget.isListening
                     ? widget.onVoiceStart

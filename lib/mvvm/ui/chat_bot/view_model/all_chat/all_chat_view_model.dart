@@ -25,8 +25,8 @@ class AllChatViewModel extends StateNotifier<AllChatState> {
 
   Future<void> getAllChat() async {
     state = _Loading(data: data);
-    final response = await _chatRepositories.getAllChats();
-    
+    final response = await _chatRepositories.getThreadByUser();
+
     if (!mounted) return;
     state = response.fold(
       ifLeft: (error) => _GetAllChatFailed(data: data, message: error.message),

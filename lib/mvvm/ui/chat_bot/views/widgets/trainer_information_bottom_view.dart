@@ -3,6 +3,7 @@ import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class TrainerInformationBottomView extends StatelessWidget {
   final Trainer trainer;
@@ -47,11 +48,13 @@ class TrainerInformationBottomView extends StatelessWidget {
                           1 => "Bio",
                           _ => "Greeting message"
                         },
-                        style: context.titleSmall
+                        style: context.titleMedium
                             .copyWith(fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(height: 5.0),
-                      Text(e, style: context.titleMedium),
+                      Text(e,
+                          style: context.titleSmall
+                              .copyWith(color: Theme.of(context).hintColor)),
                     ],
                   ),
                 ),

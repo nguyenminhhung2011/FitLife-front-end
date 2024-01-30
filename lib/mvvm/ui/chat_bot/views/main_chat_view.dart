@@ -161,10 +161,13 @@ class MainChatViewState extends ConsumerState<MainChatView> {
                   ),
                 )
               else
-                ..._chatThread.map((e) => ConversationItemView(
-                      chatThread: e,
-                      onPress: () => _vm.changeFocusChat(e.id),
-                    )),
+                ...List.generate(
+                  (_chatThread.length > 4) ? 4 : _chatThread.length,
+                  (index) => ConversationItemView(
+                    chatThread: _chatThread[index],
+                    onPress: () => _vm.changeFocusChat(_chatThread[index].id),
+                  ),
+                ),
               ...Constant.mainChatButton.entries
                   .mapIndexed((index, e) => InkWell(
                         onTap: () async {

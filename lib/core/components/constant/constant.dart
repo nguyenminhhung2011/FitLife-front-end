@@ -36,7 +36,7 @@ class Constant {
     "StableDiffusionXL",
     "Claude-instant",
     "Llama-2-70b",
-    "GPT-4\n(Limited access for non-subscribers)",
+    "GPT-4",
     "Claude-2-100k\n(Limited access for non-subscribers)",
     "Claude-instant-100k\n(Limited access for non-subscribers)"
   ];

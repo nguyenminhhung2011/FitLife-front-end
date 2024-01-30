@@ -182,8 +182,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial({required this.data});
+class _$_Initial extends _Initial {
+  const _$_Initial({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -314,8 +314,9 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements CreateBotState {
+abstract class _Initial extends CreateBotState {
   const factory _Initial({required final CreateBotData data}) = _$_Initial;
+  const _Initial._() : super._();
 
   @override
   CreateBotData get data;
@@ -363,8 +364,8 @@ class __$$_ChangeBotImageSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeBotImageSuccess implements _ChangeBotImageSuccess {
-  const _$_ChangeBotImageSuccess({required this.data});
+class _$_ChangeBotImageSuccess extends _ChangeBotImageSuccess {
+  const _$_ChangeBotImageSuccess({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -496,9 +497,10 @@ class _$_ChangeBotImageSuccess implements _ChangeBotImageSuccess {
   }
 }
 
-abstract class _ChangeBotImageSuccess implements CreateBotState {
+abstract class _ChangeBotImageSuccess extends CreateBotState {
   const factory _ChangeBotImageSuccess({required final CreateBotData data}) =
       _$_ChangeBotImageSuccess;
+  const _ChangeBotImageSuccess._() : super._();
 
   @override
   CreateBotData get data;
@@ -547,8 +549,8 @@ class __$$_ChangeBehaviorTabSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeBehaviorTabSuccess implements _ChangeBehaviorTabSuccess {
-  const _$_ChangeBehaviorTabSuccess({required this.data});
+class _$_ChangeBehaviorTabSuccess extends _ChangeBehaviorTabSuccess {
+  const _$_ChangeBehaviorTabSuccess({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -680,9 +682,10 @@ class _$_ChangeBehaviorTabSuccess implements _ChangeBehaviorTabSuccess {
   }
 }
 
-abstract class _ChangeBehaviorTabSuccess implements CreateBotState {
+abstract class _ChangeBehaviorTabSuccess extends CreateBotState {
   const factory _ChangeBehaviorTabSuccess({required final CreateBotData data}) =
       _$_ChangeBehaviorTabSuccess;
+  const _ChangeBehaviorTabSuccess._() : super._();
 
   @override
   CreateBotData get data;
@@ -730,8 +733,8 @@ class __$$_ChangeModelSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeModelSuccess implements _ChangeModelSuccess {
-  const _$_ChangeModelSuccess({required this.data});
+class _$_ChangeModelSuccess extends _ChangeModelSuccess {
+  const _$_ChangeModelSuccess({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -863,9 +866,10 @@ class _$_ChangeModelSuccess implements _ChangeModelSuccess {
   }
 }
 
-abstract class _ChangeModelSuccess implements CreateBotState {
+abstract class _ChangeModelSuccess extends CreateBotState {
   const factory _ChangeModelSuccess({required final CreateBotData data}) =
       _$_ChangeModelSuccess;
+  const _ChangeModelSuccess._() : super._();
 
   @override
   CreateBotData get data;
@@ -913,8 +917,8 @@ class __$$_ChangeSourceFileSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeSourceFileSuccess implements _ChangeSourceFileSuccess {
-  const _$_ChangeSourceFileSuccess({required this.data});
+class _$_ChangeSourceFileSuccess extends _ChangeSourceFileSuccess {
+  const _$_ChangeSourceFileSuccess({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -1047,9 +1051,10 @@ class _$_ChangeSourceFileSuccess implements _ChangeSourceFileSuccess {
   }
 }
 
-abstract class _ChangeSourceFileSuccess implements CreateBotState {
+abstract class _ChangeSourceFileSuccess extends CreateBotState {
   const factory _ChangeSourceFileSuccess({required final CreateBotData data}) =
       _$_ChangeSourceFileSuccess;
+  const _ChangeSourceFileSuccess._() : super._();
 
   @override
   CreateBotData get data;
@@ -1097,8 +1102,8 @@ class __$$_CreateTrainerSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateTrainerSuccess implements _CreateTrainerSuccess {
-  const _$_CreateTrainerSuccess({required this.data});
+class _$_CreateTrainerSuccess extends _CreateTrainerSuccess {
+  const _$_CreateTrainerSuccess({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -1230,9 +1235,10 @@ class _$_CreateTrainerSuccess implements _CreateTrainerSuccess {
   }
 }
 
-abstract class _CreateTrainerSuccess implements CreateBotState {
+abstract class _CreateTrainerSuccess extends CreateBotState {
   const factory _CreateTrainerSuccess({required final CreateBotData data}) =
       _$_CreateTrainerSuccess;
+  const _CreateTrainerSuccess._() : super._();
 
   @override
   CreateBotData get data;
@@ -1285,8 +1291,9 @@ class __$$_CreateTrainerFailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateTrainerFailed implements _CreateTrainerFailed {
-  const _$_CreateTrainerFailed({required this.data, required this.message});
+class _$_CreateTrainerFailed extends _CreateTrainerFailed {
+  const _$_CreateTrainerFailed({required this.data, required this.message})
+      : super._();
 
   @override
   final CreateBotData data;
@@ -1421,10 +1428,11 @@ class _$_CreateTrainerFailed implements _CreateTrainerFailed {
   }
 }
 
-abstract class _CreateTrainerFailed implements CreateBotState {
+abstract class _CreateTrainerFailed extends CreateBotState {
   const factory _CreateTrainerFailed(
       {required final CreateBotData data,
       required final String message}) = _$_CreateTrainerFailed;
+  const _CreateTrainerFailed._() : super._();
 
   @override
   CreateBotData get data;
@@ -1472,8 +1480,8 @@ class __$$_LoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading({required this.data});
+class _$_Loading extends _Loading {
+  const _$_Loading({required this.data}) : super._();
 
   @override
   final CreateBotData data;
@@ -1604,8 +1612,9 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements CreateBotState {
+abstract class _Loading extends CreateBotState {
   const factory _Loading({required final CreateBotData data}) = _$_Loading;
+  const _Loading._() : super._();
 
   @override
   CreateBotData get data;

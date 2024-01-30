@@ -12,8 +12,8 @@ TrainerModel _$TrainerModelFromJson(Map<String, dynamic> json) => TrainerModel(
       model: json['model'] as String,
       prompt: json['prompt'] as String,
       image: json['image'] as String,
-      greetingMessage: json['greetingMessage'] as String,
       bio: json['bio'] as String,
+      greetingMessage: json['greetingMessage'] as String?,
     );
 
 Map<String, dynamic> _$TrainerModelToJson(TrainerModel instance) =>

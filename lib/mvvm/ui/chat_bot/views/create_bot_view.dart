@@ -8,6 +8,7 @@ import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/button_custom.dart';
 import 'package:fit_life/core/components/widgets/custom_input_label_field.dart';
 import 'package:fit_life/core/components/widgets/dropdown_button_custom.dart';
+import 'package:fit_life/core/components/widgets/loading_page.dart';
 import 'package:fit_life/core/services/image_pic_service.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/create_bot/create_bot_data.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/create_bot/create_bot_view_model.dart';
@@ -68,7 +69,16 @@ class _CreateBotViewState extends ConsumerState<CreateBotView> {
 
   void _listenStateChange(CreateBotState state) {
     state.maybeWhen(
-      createTrainerSuccess: (_) {},
+      createTrainerSuccess: (_) {
+        _chatBotNameController.clear();
+        _serverUrlController.clear();
+        _accessController.clear();
+        _promptController.clear();
+        _greetingController.clear();
+        _bioController.clear();
+
+        context.showSnackBar("🌟[Create trainer] success");
+      },
       createTrainerFailed: (_, message) =>
           context.showSnackBar("🐛[Create trainer] $message"),
       orElse: () {},
@@ -78,6 +88,28 @@ class _CreateBotViewState extends ConsumerState<CreateBotView> {
   @override
   Widget build(BuildContext context) {
     ref.listen(createBotStateNotifier, (_, next) => _listenStateChange(next));
+    return Stack(
+      children: [
+        _body(context),
+        if (_state.loading)
+          Container(
+            color: Colors.black45,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: _loadingFunction(),
+          )
+      ],
+    );
+  }
+
+  Center _loadingFunction() {
+    return Center(
+      child: StyleLoadingWidget.foldingCube
+          .renderWidget(size: 40.0, color: Theme.of(context).primaryColor),
+    );
+  }
+
+  Scaffold _body(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomSheet: Padding(
@@ -87,11 +119,11 @@ class _CreateBotViewState extends ConsumerState<CreateBotView> {
             await _vm.createTrainer(
               id: "",
               name: _chatBotNameController.text,
-              model: _model,
+              model: _model.toLowerCase(),
               prompt: _promptController.text,
               image: ImageConst.baseImageView,
               greetingMessage: _greetingController.text,
-              bio: "This is bio of bot",
+              bio: _bioController.text,
             );
           },
           height: 45.0,

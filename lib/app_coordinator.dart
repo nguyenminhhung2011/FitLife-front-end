@@ -1,9 +1,11 @@
 import 'package:fit_life/core/components/layout/setting_layout/views/widgets/bottom_change_paassword.dart';
 import 'package:fit_life/core/components/widgets/fit_life/slide_change_value.dart';
 import 'package:fit_life/mvvm/object/entity/session/setting_session.dart';
+import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
 import 'package:fit_life/mvvm/object/model/user/change_password.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/all_pt_view.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/add_source_bottom.dart';
+import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/trainer_information_bottom_view.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/write_content_bottom.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/views/widgets/your_bot_bottom.dart';
 import 'package:fit_life/mvvm/ui/exercise_schedule/views/widgets/setting_exercise_bottom.dart';
@@ -242,6 +244,24 @@ extension AppCoordinator<T> on BuildContext {
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: const AddSourceBottom(),
+        );
+      },
+    );
+  }
+
+  Future<void> trainerInformationBottom(Trainer trainer) async {
+    return await showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+        top: Radius.circular(10.0),
+      )),
+      builder: (context) {
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: TrainerInformationBottomView(trainer: trainer),
         );
       },
     );

@@ -1,8 +1,8 @@
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/core/components/widgets/fit_life/divider_dot.dart';
-import 'package:fit_life/core/components/widgets/pagination_view/default_pagination.dart';
 import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
 import 'package:fit_life/mvvm/ui/auth/mixins/auth_mixin.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/all_pt/all_pt_data.dart';
@@ -40,8 +40,17 @@ class _AllPtViewState extends ConsumerState<AllPtView> with AuthMixin {
     super.initState();
   }
 
+  void _listenStateChange(AllPtState state) {
+    state.maybeWhen(
+      getPtFailed: (_, message) =>
+          context.showSnackBar("🐛[Get all trainers] $message "),
+      orElse: () {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    ref.listen(allPtStateNotifier, (_, next) => _listenStateChange(next));
     return Container(
       width: double.infinity,
       constraints: BoxConstraints(
@@ -125,12 +134,18 @@ class _AllPtViewState extends ConsumerState<AllPtView> with AuthMixin {
           ),
           const SizedBox(height: 10.0),
           Expanded(
-            child: DefaultPagination(
-              items: _trainers,
-              loading: _state.loading,
-              itemBuilder: (_, index) => const PtItemView(),
-              listenScrollBottom: () async {},
-            ),
+            child: (_state.loading)
+                ? Center(
+                    child: CircularProgressIndicator(
+                        color: Theme.of(context).primaryColor),
+                  )
+                : ListView.separated(
+                    separatorBuilder: (_, __) => const Divider(),
+                    itemCount: _trainers.length,
+                    itemBuilder: (_, index) => PtItemView(
+                      trainer: _trainers[index],
+                    ),
+                  ),
           ),
         ],
       ),

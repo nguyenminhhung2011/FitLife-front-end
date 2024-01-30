@@ -21,7 +21,7 @@ class TrainerModel {
   final String image;
 
   @JsonKey(name: 'greetingMessage')
-  final String greetingMessage;
+  final String? greetingMessage;
 
   @JsonKey(name: 'bio')
   final String bio;
@@ -32,8 +32,8 @@ class TrainerModel {
     required this.model,
     required this.prompt,
     required this.image,
-    required this.greetingMessage,
     required this.bio,
+    this.greetingMessage,
   });
 
   factory TrainerModel.fromJson(Map<String, dynamic> json) =>
@@ -47,6 +47,6 @@ class TrainerModel {
       model: model,
       prompt: prompt,
       image: image,
-      greetingMessage: greetingMessage,
+      greetingMessage: greetingMessage ?? "",
       bio: bio);
 }

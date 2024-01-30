@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:fit_life/core/components/constant/constant.dart';
+import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
+import 'package:fit_life/core/services/cloundinary_service.dart';
 import 'package:fit_life/core/services/image_pic_service.dart';
 import 'package:fit_life/mvvm/object/model/trainer/trainer_model.dart';
 import 'package:fit_life/mvvm/repositories/trainer_repositories.dart';
@@ -21,6 +23,7 @@ final createBotStateNotifier =
 @injectable
 class CreateBotViewModel extends StateNotifier<CreateBotState> {
   final _trainerRepositories = injector.get<TrainerRepositories>();
+  final _cloundinaryService = injector.get<CloundinaryService>();
   CreateBotViewModel()
       : super(
             _Initial(data: CreateBotData(model: Constant.modelConstant.first)));
@@ -55,13 +58,21 @@ class CreateBotViewModel extends StateNotifier<CreateBotState> {
     required String bio,
   }) async {
     state = _Loading(data: data);
+
+    var imageUrl = ImageConst.baseImageView;
+    if (data.botImage?.image?.isNotEmpty ?? false) {
+      imageUrl = await _cloundinaryService.convertUti8ListToUrl(
+              data.botImage!.image!, name) ??
+          imageUrl;
+    }
+
     final response = await _trainerRepositories.createTrainer(
         trainerModel: TrainerModel(
       id: id,
       name: name,
-      model: model,
+      model: "gpt-4",
       prompt: prompt,
-      image: image,
+      image: imageUrl,
       greetingMessage: greetingMessage,
       bio: bio,
     ));

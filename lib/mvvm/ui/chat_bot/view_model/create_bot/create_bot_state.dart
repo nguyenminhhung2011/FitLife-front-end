@@ -2,6 +2,8 @@ part of 'create_bot_view_model.dart';
 
 @freezed
 class CreateBotState with _$CreateBotState {
+  const CreateBotState._();
+
   const factory CreateBotState.initial({required CreateBotData data}) =
       _Initial;
 
@@ -28,4 +30,6 @@ class CreateBotState with _$CreateBotState {
   const factory CreateBotState.loading({
     required CreateBotData data,
   }) = _Loading;
+
+  bool get loading => this is _Loading;
 }

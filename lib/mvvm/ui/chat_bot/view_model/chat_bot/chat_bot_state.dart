@@ -94,6 +94,9 @@ class ChatBotState with _$ChatBotState {
     required ChatBotData data,
     required String message,
   }) = _GetPreviewTrainerFailed;
+  // Trainer
+  const factory ChatBotState.selectedTrainerSuccess(
+      {required ChatBotData data}) = _SelectedTrainerSuccess;
 
   bool get loading => this is _Loading;
 

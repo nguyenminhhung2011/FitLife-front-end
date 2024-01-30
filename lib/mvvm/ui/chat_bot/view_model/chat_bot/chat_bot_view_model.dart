@@ -6,14 +6,15 @@ import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/dependency_injection/di.dart';
 import 'package:fit_life/core/services/speach_text_service.dart';
 import 'package:fit_life/core/services/text_speech_service.dart';
-import 'package:fit_life/generated/intl/messages_en.dart';
 import 'package:fit_life/mvvm/object/entity/message/message.dart';
 import 'package:fit_life/mvvm/object/entity/message/message_status.dart';
 import 'package:fit_life/mvvm/object/entity/message/message_type.dart';
 import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
+import 'package:fit_life/mvvm/object/model/trainer/trainer_message_request.dart';
 import 'package:fit_life/mvvm/repositories/assistant_repositories.dart';
 import 'package:fit_life/mvvm/repositories/chat_repositories.dart';
 import 'package:fit_life/mvvm/repositories/message_repositories.dart';
+import 'package:fit_life/mvvm/repositories/trainer_repositories.dart';
 import 'package:fit_life/mvvm/ui/chat_bot/view_model/chat_bot/chat_bot_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -44,6 +45,7 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
   final _speechTextService = injector.get<SpeechTextService>();
   final _textSpeechService = injector.get<TextSpeechService>();
   final _assistantRepositories = injector.get<AssistantRepositories>();
+  final _trainerRepositories = injector.get<TrainerRepositories>();
 
   ChatBotViewModel()
       : super(
@@ -191,7 +193,12 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
 
   Future<void> createChatThread({required String title}) async {
     state = _Loading(data: data);
-    final response = await _assistantRepositories.sendMessageAndCreate(title);
+    final response = (data.trainerSelected.id.isEmpty)
+        ? await _assistantRepositories.sendMessageAndCreate(title)
+        : await _trainerRepositories.sendAndCreateThreadTrainer(
+            TrainerMessageRequest(
+                message: title, trainerId: data.trainerSelected.id),
+          );
     if (!mounted) return;
     state = response.fold(
       ifLeft: (error) =>
@@ -269,8 +276,15 @@ class ChatBotViewModel extends StateNotifier<ChatBotState> {
         messages: [loadingMessage, userSendMessage, ...data.messages],
       ),
     );
-    final response =
-        await _assistantRepositories.sendMessage(id: id, message: content);
+    final response = (data.trainerSelected.id.isEmpty)
+        ? await _assistantRepositories.sendMessage(id: id, message: content)
+        : await _trainerRepositories.sendMessageTrainer(
+            TrainerMessageRequest(
+              message: content,
+              threadId: id,
+              trainerId: data.trainerSelected.id,
+            ),
+          );
 
     if (!mounted) return;
 

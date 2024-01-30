@@ -13,7 +13,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AllPtView extends ConsumerStatefulWidget {
-  const AllPtView({super.key});
+  final bool isSelectionView;
+  const AllPtView({super.key, this.isSelectionView = false});
 
   @override
   ConsumerState<AllPtView> createState() => _AllPtViewState();
@@ -144,6 +145,13 @@ class _AllPtViewState extends ConsumerState<AllPtView> with AuthMixin {
                     itemCount: _trainers.length,
                     itemBuilder: (_, index) => PtItemView(
                       trainer: _trainers[index],
+                      onPress: () {
+                        if (widget.isSelectionView) {
+                          context.popArgs(_trainers[index]);
+                        } else {
+                          context.trainerInformationBottom(_trainers[index]);
+                        }
+                      },
                     ),
                   ),
           ),

@@ -54,6 +54,7 @@ mixin _$ChatBotState {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,6 +87,7 @@ mixin _$ChatBotState {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -115,6 +117,7 @@ mixin _$ChatBotState {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +157,8 @@ mixin _$ChatBotState {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -185,6 +190,7 @@ mixin _$ChatBotState {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -214,6 +220,7 @@ mixin _$ChatBotState {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -369,6 +376,7 @@ class _$_Initial extends _Initial {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return initial(data);
   }
@@ -404,6 +412,7 @@ class _$_Initial extends _Initial {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return initial?.call(data);
   }
@@ -436,6 +445,7 @@ class _$_Initial extends _Initial {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -481,6 +491,8 @@ class _$_Initial extends _Initial {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return initial(this);
   }
@@ -515,6 +527,7 @@ class _$_Initial extends _Initial {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return initial?.call(this);
   }
@@ -547,6 +560,7 @@ class _$_Initial extends _Initial {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -671,6 +685,7 @@ class _$_Loading extends _Loading {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return loading(data);
   }
@@ -706,6 +721,7 @@ class _$_Loading extends _Loading {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return loading?.call(data);
   }
@@ -738,6 +754,7 @@ class _$_Loading extends _Loading {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -783,6 +800,8 @@ class _$_Loading extends _Loading {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return loading(this);
   }
@@ -817,6 +836,7 @@ class _$_Loading extends _Loading {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return loading?.call(this);
   }
@@ -849,6 +869,7 @@ class _$_Loading extends _Loading {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -974,6 +995,7 @@ class _$_LoadingMessage extends _LoadingMessage {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return loadingMessage(data);
   }
@@ -1009,6 +1031,7 @@ class _$_LoadingMessage extends _LoadingMessage {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return loadingMessage?.call(data);
   }
@@ -1041,6 +1064,7 @@ class _$_LoadingMessage extends _LoadingMessage {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (loadingMessage != null) {
@@ -1086,6 +1110,8 @@ class _$_LoadingMessage extends _LoadingMessage {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return loadingMessage(this);
   }
@@ -1120,6 +1146,7 @@ class _$_LoadingMessage extends _LoadingMessage {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return loadingMessage?.call(this);
   }
@@ -1152,6 +1179,7 @@ class _$_LoadingMessage extends _LoadingMessage {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (loadingMessage != null) {
@@ -1279,6 +1307,7 @@ class _$_GetAllMessageSuccess extends _GetAllMessageSuccess {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return getAllMessageSuccess(data);
   }
@@ -1314,6 +1343,7 @@ class _$_GetAllMessageSuccess extends _GetAllMessageSuccess {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return getAllMessageSuccess?.call(data);
   }
@@ -1346,6 +1376,7 @@ class _$_GetAllMessageSuccess extends _GetAllMessageSuccess {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getAllMessageSuccess != null) {
@@ -1391,6 +1422,8 @@ class _$_GetAllMessageSuccess extends _GetAllMessageSuccess {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return getAllMessageSuccess(this);
   }
@@ -1425,6 +1458,7 @@ class _$_GetAllMessageSuccess extends _GetAllMessageSuccess {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return getAllMessageSuccess?.call(this);
   }
@@ -1457,6 +1491,7 @@ class _$_GetAllMessageSuccess extends _GetAllMessageSuccess {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getAllMessageSuccess != null) {
@@ -1593,6 +1628,7 @@ class _$_GetAllMessageFailed extends _GetAllMessageFailed {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return getAllMessageFailed(data, message);
   }
@@ -1628,6 +1664,7 @@ class _$_GetAllMessageFailed extends _GetAllMessageFailed {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return getAllMessageFailed?.call(data, message);
   }
@@ -1660,6 +1697,7 @@ class _$_GetAllMessageFailed extends _GetAllMessageFailed {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getAllMessageFailed != null) {
@@ -1705,6 +1743,8 @@ class _$_GetAllMessageFailed extends _GetAllMessageFailed {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return getAllMessageFailed(this);
   }
@@ -1739,6 +1779,7 @@ class _$_GetAllMessageFailed extends _GetAllMessageFailed {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return getAllMessageFailed?.call(this);
   }
@@ -1771,6 +1812,7 @@ class _$_GetAllMessageFailed extends _GetAllMessageFailed {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getAllMessageFailed != null) {
@@ -1900,6 +1942,7 @@ class _$_SendMessageSuccess extends _SendMessageSuccess {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return sendMessageSuccess(data);
   }
@@ -1935,6 +1978,7 @@ class _$_SendMessageSuccess extends _SendMessageSuccess {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return sendMessageSuccess?.call(data);
   }
@@ -1967,6 +2011,7 @@ class _$_SendMessageSuccess extends _SendMessageSuccess {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (sendMessageSuccess != null) {
@@ -2012,6 +2057,8 @@ class _$_SendMessageSuccess extends _SendMessageSuccess {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return sendMessageSuccess(this);
   }
@@ -2046,6 +2093,7 @@ class _$_SendMessageSuccess extends _SendMessageSuccess {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return sendMessageSuccess?.call(this);
   }
@@ -2078,6 +2126,7 @@ class _$_SendMessageSuccess extends _SendMessageSuccess {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (sendMessageSuccess != null) {
@@ -2214,6 +2263,7 @@ class _$_SendMessageFailed extends _SendMessageFailed {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return sendMessageFailed(data, message);
   }
@@ -2249,6 +2299,7 @@ class _$_SendMessageFailed extends _SendMessageFailed {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return sendMessageFailed?.call(data, message);
   }
@@ -2281,6 +2332,7 @@ class _$_SendMessageFailed extends _SendMessageFailed {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (sendMessageFailed != null) {
@@ -2326,6 +2378,8 @@ class _$_SendMessageFailed extends _SendMessageFailed {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return sendMessageFailed(this);
   }
@@ -2360,6 +2414,7 @@ class _$_SendMessageFailed extends _SendMessageFailed {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return sendMessageFailed?.call(this);
   }
@@ -2392,6 +2447,7 @@ class _$_SendMessageFailed extends _SendMessageFailed {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (sendMessageFailed != null) {
@@ -2530,6 +2586,7 @@ class _$_ListeningSpeech extends _ListeningSpeech {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return listeningSpeech(data, textResponse);
   }
@@ -2565,6 +2622,7 @@ class _$_ListeningSpeech extends _ListeningSpeech {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return listeningSpeech?.call(data, textResponse);
   }
@@ -2597,6 +2655,7 @@ class _$_ListeningSpeech extends _ListeningSpeech {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (listeningSpeech != null) {
@@ -2642,6 +2701,8 @@ class _$_ListeningSpeech extends _ListeningSpeech {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return listeningSpeech(this);
   }
@@ -2676,6 +2737,7 @@ class _$_ListeningSpeech extends _ListeningSpeech {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return listeningSpeech?.call(this);
   }
@@ -2708,6 +2770,7 @@ class _$_ListeningSpeech extends _ListeningSpeech {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (listeningSpeech != null) {
@@ -2836,6 +2899,7 @@ class _$_StopListening extends _StopListening {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return stopListening(data);
   }
@@ -2871,6 +2935,7 @@ class _$_StopListening extends _StopListening {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return stopListening?.call(data);
   }
@@ -2903,6 +2968,7 @@ class _$_StopListening extends _StopListening {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (stopListening != null) {
@@ -2948,6 +3014,8 @@ class _$_StopListening extends _StopListening {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return stopListening(this);
   }
@@ -2982,6 +3050,7 @@ class _$_StopListening extends _StopListening {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return stopListening?.call(this);
   }
@@ -3014,6 +3083,7 @@ class _$_StopListening extends _StopListening {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (stopListening != null) {
@@ -3141,6 +3211,7 @@ class _$_InitialSpeechSuccess extends _InitialSpeechSuccess {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return initialSpeechSuccess(data);
   }
@@ -3176,6 +3247,7 @@ class _$_InitialSpeechSuccess extends _InitialSpeechSuccess {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return initialSpeechSuccess?.call(data);
   }
@@ -3208,6 +3280,7 @@ class _$_InitialSpeechSuccess extends _InitialSpeechSuccess {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (initialSpeechSuccess != null) {
@@ -3253,6 +3326,8 @@ class _$_InitialSpeechSuccess extends _InitialSpeechSuccess {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return initialSpeechSuccess(this);
   }
@@ -3287,6 +3362,7 @@ class _$_InitialSpeechSuccess extends _InitialSpeechSuccess {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return initialSpeechSuccess?.call(this);
   }
@@ -3319,6 +3395,7 @@ class _$_InitialSpeechSuccess extends _InitialSpeechSuccess {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (initialSpeechSuccess != null) {
@@ -3445,6 +3522,7 @@ class _$_SpeechText extends _SpeechText {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return speechText(data);
   }
@@ -3480,6 +3558,7 @@ class _$_SpeechText extends _SpeechText {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return speechText?.call(data);
   }
@@ -3512,6 +3591,7 @@ class _$_SpeechText extends _SpeechText {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (speechText != null) {
@@ -3557,6 +3637,8 @@ class _$_SpeechText extends _SpeechText {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return speechText(this);
   }
@@ -3591,6 +3673,7 @@ class _$_SpeechText extends _SpeechText {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return speechText?.call(this);
   }
@@ -3623,6 +3706,7 @@ class _$_SpeechText extends _SpeechText {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (speechText != null) {
@@ -3748,6 +3832,7 @@ class _$_StopSpeech extends _StopSpeech {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return stopSpeech(data);
   }
@@ -3783,6 +3868,7 @@ class _$_StopSpeech extends _StopSpeech {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return stopSpeech?.call(data);
   }
@@ -3815,6 +3901,7 @@ class _$_StopSpeech extends _StopSpeech {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (stopSpeech != null) {
@@ -3860,6 +3947,8 @@ class _$_StopSpeech extends _StopSpeech {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return stopSpeech(this);
   }
@@ -3894,6 +3983,7 @@ class _$_StopSpeech extends _StopSpeech {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return stopSpeech?.call(this);
   }
@@ -3926,6 +4016,7 @@ class _$_StopSpeech extends _StopSpeech {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (stopSpeech != null) {
@@ -4053,6 +4144,7 @@ class _$_ClearConversationSuccess extends _ClearConversationSuccess {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return clearConversationSuccess(data);
   }
@@ -4088,6 +4180,7 @@ class _$_ClearConversationSuccess extends _ClearConversationSuccess {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return clearConversationSuccess?.call(data);
   }
@@ -4120,6 +4213,7 @@ class _$_ClearConversationSuccess extends _ClearConversationSuccess {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (clearConversationSuccess != null) {
@@ -4165,6 +4259,8 @@ class _$_ClearConversationSuccess extends _ClearConversationSuccess {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return clearConversationSuccess(this);
   }
@@ -4199,6 +4295,7 @@ class _$_ClearConversationSuccess extends _ClearConversationSuccess {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return clearConversationSuccess?.call(this);
   }
@@ -4231,6 +4328,7 @@ class _$_ClearConversationSuccess extends _ClearConversationSuccess {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (clearConversationSuccess != null) {
@@ -4368,6 +4466,7 @@ class _$_ClearConversationFailed extends _ClearConversationFailed {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return clearConversationFailed(data, message);
   }
@@ -4403,6 +4502,7 @@ class _$_ClearConversationFailed extends _ClearConversationFailed {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return clearConversationFailed?.call(data, message);
   }
@@ -4435,6 +4535,7 @@ class _$_ClearConversationFailed extends _ClearConversationFailed {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (clearConversationFailed != null) {
@@ -4480,6 +4581,8 @@ class _$_ClearConversationFailed extends _ClearConversationFailed {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return clearConversationFailed(this);
   }
@@ -4514,6 +4617,7 @@ class _$_ClearConversationFailed extends _ClearConversationFailed {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return clearConversationFailed?.call(this);
   }
@@ -4546,6 +4650,7 @@ class _$_ClearConversationFailed extends _ClearConversationFailed {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (clearConversationFailed != null) {
@@ -4675,6 +4780,7 @@ class _$_DeleteMessageSuccess extends _DeleteMessageSuccess {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return deleteMessageSuccess(data);
   }
@@ -4710,6 +4816,7 @@ class _$_DeleteMessageSuccess extends _DeleteMessageSuccess {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return deleteMessageSuccess?.call(data);
   }
@@ -4742,6 +4849,7 @@ class _$_DeleteMessageSuccess extends _DeleteMessageSuccess {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (deleteMessageSuccess != null) {
@@ -4787,6 +4895,8 @@ class _$_DeleteMessageSuccess extends _DeleteMessageSuccess {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return deleteMessageSuccess(this);
   }
@@ -4821,6 +4931,7 @@ class _$_DeleteMessageSuccess extends _DeleteMessageSuccess {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return deleteMessageSuccess?.call(this);
   }
@@ -4853,6 +4964,7 @@ class _$_DeleteMessageSuccess extends _DeleteMessageSuccess {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (deleteMessageSuccess != null) {
@@ -4989,6 +5101,7 @@ class _$_DeleteMessageFailed extends _DeleteMessageFailed {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return deleteMessageFailed(data, message);
   }
@@ -5024,6 +5137,7 @@ class _$_DeleteMessageFailed extends _DeleteMessageFailed {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return deleteMessageFailed?.call(data, message);
   }
@@ -5056,6 +5170,7 @@ class _$_DeleteMessageFailed extends _DeleteMessageFailed {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (deleteMessageFailed != null) {
@@ -5101,6 +5216,8 @@ class _$_DeleteMessageFailed extends _DeleteMessageFailed {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return deleteMessageFailed(this);
   }
@@ -5135,6 +5252,7 @@ class _$_DeleteMessageFailed extends _DeleteMessageFailed {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return deleteMessageFailed?.call(this);
   }
@@ -5167,6 +5285,7 @@ class _$_DeleteMessageFailed extends _DeleteMessageFailed {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (deleteMessageFailed != null) {
@@ -5296,6 +5415,7 @@ class _$_GetChatThreadSuccess extends _GetChatThreadSuccess {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return getChatThreadSuccess(data);
   }
@@ -5331,6 +5451,7 @@ class _$_GetChatThreadSuccess extends _GetChatThreadSuccess {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return getChatThreadSuccess?.call(data);
   }
@@ -5363,6 +5484,7 @@ class _$_GetChatThreadSuccess extends _GetChatThreadSuccess {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getChatThreadSuccess != null) {
@@ -5408,6 +5530,8 @@ class _$_GetChatThreadSuccess extends _GetChatThreadSuccess {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return getChatThreadSuccess(this);
   }
@@ -5442,6 +5566,7 @@ class _$_GetChatThreadSuccess extends _GetChatThreadSuccess {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return getChatThreadSuccess?.call(this);
   }
@@ -5474,6 +5599,7 @@ class _$_GetChatThreadSuccess extends _GetChatThreadSuccess {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getChatThreadSuccess != null) {
@@ -5610,6 +5736,7 @@ class _$_GetChatThreadFailed extends _GetChatThreadFailed {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return getChatThreadFailed(data, message);
   }
@@ -5645,6 +5772,7 @@ class _$_GetChatThreadFailed extends _GetChatThreadFailed {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return getChatThreadFailed?.call(data, message);
   }
@@ -5677,6 +5805,7 @@ class _$_GetChatThreadFailed extends _GetChatThreadFailed {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getChatThreadFailed != null) {
@@ -5722,6 +5851,8 @@ class _$_GetChatThreadFailed extends _GetChatThreadFailed {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return getChatThreadFailed(this);
   }
@@ -5756,6 +5887,7 @@ class _$_GetChatThreadFailed extends _GetChatThreadFailed {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return getChatThreadFailed?.call(this);
   }
@@ -5788,6 +5920,7 @@ class _$_GetChatThreadFailed extends _GetChatThreadFailed {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getChatThreadFailed != null) {
@@ -5927,6 +6060,7 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return createChatThreadSuccess(data, message);
   }
@@ -5962,6 +6096,7 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return createChatThreadSuccess?.call(data, message);
   }
@@ -5994,6 +6129,7 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (createChatThreadSuccess != null) {
@@ -6039,6 +6175,8 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return createChatThreadSuccess(this);
   }
@@ -6073,6 +6211,7 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return createChatThreadSuccess?.call(this);
   }
@@ -6105,6 +6244,7 @@ class _$_CreateChatThreadSuccess extends _CreateChatThreadSuccess {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (createChatThreadSuccess != null) {
@@ -6243,6 +6383,7 @@ class _$_CreateChatThreadFailed extends _CreateChatThreadFailed {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return createChatThreadFailed(data, message);
   }
@@ -6278,6 +6419,7 @@ class _$_CreateChatThreadFailed extends _CreateChatThreadFailed {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return createChatThreadFailed?.call(data, message);
   }
@@ -6310,6 +6452,7 @@ class _$_CreateChatThreadFailed extends _CreateChatThreadFailed {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (createChatThreadFailed != null) {
@@ -6355,6 +6498,8 @@ class _$_CreateChatThreadFailed extends _CreateChatThreadFailed {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return createChatThreadFailed(this);
   }
@@ -6389,6 +6534,7 @@ class _$_CreateChatThreadFailed extends _CreateChatThreadFailed {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return createChatThreadFailed?.call(this);
   }
@@ -6421,6 +6567,7 @@ class _$_CreateChatThreadFailed extends _CreateChatThreadFailed {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (createChatThreadFailed != null) {
@@ -6550,6 +6697,7 @@ class _$_SelectAssistantSuccess extends _SelectAssistantSuccess {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return selectAssistantSuccess(data);
   }
@@ -6585,6 +6733,7 @@ class _$_SelectAssistantSuccess extends _SelectAssistantSuccess {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return selectAssistantSuccess?.call(data);
   }
@@ -6617,6 +6766,7 @@ class _$_SelectAssistantSuccess extends _SelectAssistantSuccess {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (selectAssistantSuccess != null) {
@@ -6662,6 +6812,8 @@ class _$_SelectAssistantSuccess extends _SelectAssistantSuccess {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return selectAssistantSuccess(this);
   }
@@ -6696,6 +6848,7 @@ class _$_SelectAssistantSuccess extends _SelectAssistantSuccess {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return selectAssistantSuccess?.call(this);
   }
@@ -6728,6 +6881,7 @@ class _$_SelectAssistantSuccess extends _SelectAssistantSuccess {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (selectAssistantSuccess != null) {
@@ -6855,6 +7009,7 @@ class _$_GetAllPrTrainerSuccess extends _GetAllPrTrainerSuccess {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return getAllPrTrainerSuccess(data);
   }
@@ -6890,6 +7045,7 @@ class _$_GetAllPrTrainerSuccess extends _GetAllPrTrainerSuccess {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return getAllPrTrainerSuccess?.call(data);
   }
@@ -6922,6 +7078,7 @@ class _$_GetAllPrTrainerSuccess extends _GetAllPrTrainerSuccess {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getAllPrTrainerSuccess != null) {
@@ -6967,6 +7124,8 @@ class _$_GetAllPrTrainerSuccess extends _GetAllPrTrainerSuccess {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return getAllPrTrainerSuccess(this);
   }
@@ -7001,6 +7160,7 @@ class _$_GetAllPrTrainerSuccess extends _GetAllPrTrainerSuccess {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return getAllPrTrainerSuccess?.call(this);
   }
@@ -7033,6 +7193,7 @@ class _$_GetAllPrTrainerSuccess extends _GetAllPrTrainerSuccess {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getAllPrTrainerSuccess != null) {
@@ -7169,6 +7330,7 @@ class _$_GetAllPrTrainerFailed extends _GetAllPrTrainerFailed {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return getAllPrTrainerFailed(data, message);
   }
@@ -7204,6 +7366,7 @@ class _$_GetAllPrTrainerFailed extends _GetAllPrTrainerFailed {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return getAllPrTrainerFailed?.call(data, message);
   }
@@ -7236,6 +7399,7 @@ class _$_GetAllPrTrainerFailed extends _GetAllPrTrainerFailed {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getAllPrTrainerFailed != null) {
@@ -7281,6 +7445,8 @@ class _$_GetAllPrTrainerFailed extends _GetAllPrTrainerFailed {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return getAllPrTrainerFailed(this);
   }
@@ -7315,6 +7481,7 @@ class _$_GetAllPrTrainerFailed extends _GetAllPrTrainerFailed {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return getAllPrTrainerFailed?.call(this);
   }
@@ -7347,6 +7514,7 @@ class _$_GetAllPrTrainerFailed extends _GetAllPrTrainerFailed {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getAllPrTrainerFailed != null) {
@@ -7477,6 +7645,7 @@ class _$_GetPreviewTrainerSuccess extends _GetPreviewTrainerSuccess {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return getPreviewTrainerSuccess(data);
   }
@@ -7512,6 +7681,7 @@ class _$_GetPreviewTrainerSuccess extends _GetPreviewTrainerSuccess {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return getPreviewTrainerSuccess?.call(data);
   }
@@ -7544,6 +7714,7 @@ class _$_GetPreviewTrainerSuccess extends _GetPreviewTrainerSuccess {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getPreviewTrainerSuccess != null) {
@@ -7589,6 +7760,8 @@ class _$_GetPreviewTrainerSuccess extends _GetPreviewTrainerSuccess {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return getPreviewTrainerSuccess(this);
   }
@@ -7623,6 +7796,7 @@ class _$_GetPreviewTrainerSuccess extends _GetPreviewTrainerSuccess {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return getPreviewTrainerSuccess?.call(this);
   }
@@ -7655,6 +7829,7 @@ class _$_GetPreviewTrainerSuccess extends _GetPreviewTrainerSuccess {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getPreviewTrainerSuccess != null) {
@@ -7792,6 +7967,7 @@ class _$_GetPreviewTrainerFailed extends _GetPreviewTrainerFailed {
     required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
     required TResult Function(ChatBotData data, String message)
         getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
   }) {
     return getPreviewTrainerFailed(data, message);
   }
@@ -7827,6 +8003,7 @@ class _$_GetPreviewTrainerFailed extends _GetPreviewTrainerFailed {
     TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult? Function(ChatBotData data, String message)?
         getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
   }) {
     return getPreviewTrainerFailed?.call(data, message);
   }
@@ -7859,6 +8036,7 @@ class _$_GetPreviewTrainerFailed extends _GetPreviewTrainerFailed {
     TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
     TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
     TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getPreviewTrainerFailed != null) {
@@ -7904,6 +8082,8 @@ class _$_GetPreviewTrainerFailed extends _GetPreviewTrainerFailed {
         getPreviewTrainerSuccess,
     required TResult Function(_GetPreviewTrainerFailed value)
         getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
   }) {
     return getPreviewTrainerFailed(this);
   }
@@ -7938,6 +8118,7 @@ class _$_GetPreviewTrainerFailed extends _GetPreviewTrainerFailed {
     TResult? Function(_GetPreviewTrainerSuccess value)?
         getPreviewTrainerSuccess,
     TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
   }) {
     return getPreviewTrainerFailed?.call(this);
   }
@@ -7970,6 +8151,7 @@ class _$_GetPreviewTrainerFailed extends _GetPreviewTrainerFailed {
     TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
     TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
     TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
     required TResult orElse(),
   }) {
     if (getPreviewTrainerFailed != null) {
@@ -7992,4 +8174,316 @@ abstract class _GetPreviewTrainerFailed extends ChatBotState {
   @JsonKey(ignore: true)
   _$$_GetPreviewTrainerFailedCopyWith<_$_GetPreviewTrainerFailed>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedTrainerSuccessCopyWith<$Res>
+    implements $ChatBotStateCopyWith<$Res> {
+  factory _$$_SelectedTrainerSuccessCopyWith(_$_SelectedTrainerSuccess value,
+          $Res Function(_$_SelectedTrainerSuccess) then) =
+      __$$_SelectedTrainerSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ChatBotData data});
+
+  @override
+  $ChatBotDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_SelectedTrainerSuccessCopyWithImpl<$Res>
+    extends _$ChatBotStateCopyWithImpl<$Res, _$_SelectedTrainerSuccess>
+    implements _$$_SelectedTrainerSuccessCopyWith<$Res> {
+  __$$_SelectedTrainerSuccessCopyWithImpl(_$_SelectedTrainerSuccess _value,
+      $Res Function(_$_SelectedTrainerSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_SelectedTrainerSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ChatBotData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedTrainerSuccess extends _SelectedTrainerSuccess {
+  const _$_SelectedTrainerSuccess({required this.data}) : super._();
+
+  @override
+  final ChatBotData data;
+
+  @override
+  String toString() {
+    return 'ChatBotState.selectedTrainerSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedTrainerSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedTrainerSuccessCopyWith<_$_SelectedTrainerSuccess> get copyWith =>
+      __$$_SelectedTrainerSuccessCopyWithImpl<_$_SelectedTrainerSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ChatBotData data) initial,
+    required TResult Function(ChatBotData data) loading,
+    required TResult Function(ChatBotData data) loadingMessage,
+    required TResult Function(ChatBotData data) getAllMessageSuccess,
+    required TResult Function(ChatBotData data, String message)
+        getAllMessageFailed,
+    required TResult Function(ChatBotData data) sendMessageSuccess,
+    required TResult Function(ChatBotData data, String message)
+        sendMessageFailed,
+    required TResult Function(ChatBotData data, String textResponse)
+        listeningSpeech,
+    required TResult Function(ChatBotData data) stopListening,
+    required TResult Function(ChatBotData data) initialSpeechSuccess,
+    required TResult Function(ChatBotData data) speechText,
+    required TResult Function(ChatBotData data) stopSpeech,
+    required TResult Function(ChatBotData data) clearConversationSuccess,
+    required TResult Function(ChatBotData data, String message)
+        clearConversationFailed,
+    required TResult Function(ChatBotData data) deleteMessageSuccess,
+    required TResult Function(ChatBotData data, String message)
+        deleteMessageFailed,
+    required TResult Function(ChatBotData data) getChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        getChatThreadFailed,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadSuccess,
+    required TResult Function(ChatBotData data, String message)
+        createChatThreadFailed,
+    required TResult Function(ChatBotData data) selectAssistantSuccess,
+    required TResult Function(ChatBotData data) getAllPrTrainerSuccess,
+    required TResult Function(ChatBotData data, String message)
+        getAllPrTrainerFailed,
+    required TResult Function(ChatBotData data) getPreviewTrainerSuccess,
+    required TResult Function(ChatBotData data, String message)
+        getPreviewTrainerFailed,
+    required TResult Function(ChatBotData data) selectedTrainerSuccess,
+  }) {
+    return selectedTrainerSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ChatBotData data)? initial,
+    TResult? Function(ChatBotData data)? loading,
+    TResult? Function(ChatBotData data)? loadingMessage,
+    TResult? Function(ChatBotData data)? getAllMessageSuccess,
+    TResult? Function(ChatBotData data, String message)? getAllMessageFailed,
+    TResult? Function(ChatBotData data)? sendMessageSuccess,
+    TResult? Function(ChatBotData data, String message)? sendMessageFailed,
+    TResult? Function(ChatBotData data, String textResponse)? listeningSpeech,
+    TResult? Function(ChatBotData data)? stopListening,
+    TResult? Function(ChatBotData data)? initialSpeechSuccess,
+    TResult? Function(ChatBotData data)? speechText,
+    TResult? Function(ChatBotData data)? stopSpeech,
+    TResult? Function(ChatBotData data)? clearConversationSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        clearConversationFailed,
+    TResult? Function(ChatBotData data)? deleteMessageSuccess,
+    TResult? Function(ChatBotData data, String message)? deleteMessageFailed,
+    TResult? Function(ChatBotData data)? getChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)? getChatThreadFailed,
+    TResult? Function(ChatBotData data, String message)?
+        createChatThreadSuccess,
+    TResult? Function(ChatBotData data, String message)? createChatThreadFailed,
+    TResult? Function(ChatBotData data)? selectAssistantSuccess,
+    TResult? Function(ChatBotData data)? getAllPrTrainerSuccess,
+    TResult? Function(ChatBotData data, String message)? getAllPrTrainerFailed,
+    TResult? Function(ChatBotData data)? getPreviewTrainerSuccess,
+    TResult? Function(ChatBotData data, String message)?
+        getPreviewTrainerFailed,
+    TResult? Function(ChatBotData data)? selectedTrainerSuccess,
+  }) {
+    return selectedTrainerSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ChatBotData data)? initial,
+    TResult Function(ChatBotData data)? loading,
+    TResult Function(ChatBotData data)? loadingMessage,
+    TResult Function(ChatBotData data)? getAllMessageSuccess,
+    TResult Function(ChatBotData data, String message)? getAllMessageFailed,
+    TResult Function(ChatBotData data)? sendMessageSuccess,
+    TResult Function(ChatBotData data, String message)? sendMessageFailed,
+    TResult Function(ChatBotData data, String textResponse)? listeningSpeech,
+    TResult Function(ChatBotData data)? stopListening,
+    TResult Function(ChatBotData data)? initialSpeechSuccess,
+    TResult Function(ChatBotData data)? speechText,
+    TResult Function(ChatBotData data)? stopSpeech,
+    TResult Function(ChatBotData data)? clearConversationSuccess,
+    TResult Function(ChatBotData data, String message)? clearConversationFailed,
+    TResult Function(ChatBotData data)? deleteMessageSuccess,
+    TResult Function(ChatBotData data, String message)? deleteMessageFailed,
+    TResult Function(ChatBotData data)? getChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? getChatThreadFailed,
+    TResult Function(ChatBotData data, String message)? createChatThreadSuccess,
+    TResult Function(ChatBotData data, String message)? createChatThreadFailed,
+    TResult Function(ChatBotData data)? selectAssistantSuccess,
+    TResult Function(ChatBotData data)? getAllPrTrainerSuccess,
+    TResult Function(ChatBotData data, String message)? getAllPrTrainerFailed,
+    TResult Function(ChatBotData data)? getPreviewTrainerSuccess,
+    TResult Function(ChatBotData data, String message)? getPreviewTrainerFailed,
+    TResult Function(ChatBotData data)? selectedTrainerSuccess,
+    required TResult orElse(),
+  }) {
+    if (selectedTrainerSuccess != null) {
+      return selectedTrainerSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingMessage value) loadingMessage,
+    required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
+    required TResult Function(_GetAllMessageFailed value) getAllMessageFailed,
+    required TResult Function(_SendMessageSuccess value) sendMessageSuccess,
+    required TResult Function(_SendMessageFailed value) sendMessageFailed,
+    required TResult Function(_ListeningSpeech value) listeningSpeech,
+    required TResult Function(_StopListening value) stopListening,
+    required TResult Function(_InitialSpeechSuccess value) initialSpeechSuccess,
+    required TResult Function(_SpeechText value) speechText,
+    required TResult Function(_StopSpeech value) stopSpeech,
+    required TResult Function(_ClearConversationSuccess value)
+        clearConversationSuccess,
+    required TResult Function(_ClearConversationFailed value)
+        clearConversationFailed,
+    required TResult Function(_DeleteMessageSuccess value) deleteMessageSuccess,
+    required TResult Function(_DeleteMessageFailed value) deleteMessageFailed,
+    required TResult Function(_GetChatThreadSuccess value) getChatThreadSuccess,
+    required TResult Function(_GetChatThreadFailed value) getChatThreadFailed,
+    required TResult Function(_CreateChatThreadSuccess value)
+        createChatThreadSuccess,
+    required TResult Function(_CreateChatThreadFailed value)
+        createChatThreadFailed,
+    required TResult Function(_SelectAssistantSuccess value)
+        selectAssistantSuccess,
+    required TResult Function(_GetAllPrTrainerSuccess value)
+        getAllPrTrainerSuccess,
+    required TResult Function(_GetAllPrTrainerFailed value)
+        getAllPrTrainerFailed,
+    required TResult Function(_GetPreviewTrainerSuccess value)
+        getPreviewTrainerSuccess,
+    required TResult Function(_GetPreviewTrainerFailed value)
+        getPreviewTrainerFailed,
+    required TResult Function(_SelectedTrainerSuccess value)
+        selectedTrainerSuccess,
+  }) {
+    return selectedTrainerSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingMessage value)? loadingMessage,
+    TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult? Function(_GetAllMessageFailed value)? getAllMessageFailed,
+    TResult? Function(_SendMessageSuccess value)? sendMessageSuccess,
+    TResult? Function(_SendMessageFailed value)? sendMessageFailed,
+    TResult? Function(_ListeningSpeech value)? listeningSpeech,
+    TResult? Function(_StopListening value)? stopListening,
+    TResult? Function(_InitialSpeechSuccess value)? initialSpeechSuccess,
+    TResult? Function(_SpeechText value)? speechText,
+    TResult? Function(_StopSpeech value)? stopSpeech,
+    TResult? Function(_ClearConversationSuccess value)?
+        clearConversationSuccess,
+    TResult? Function(_ClearConversationFailed value)? clearConversationFailed,
+    TResult? Function(_DeleteMessageSuccess value)? deleteMessageSuccess,
+    TResult? Function(_DeleteMessageFailed value)? deleteMessageFailed,
+    TResult? Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult? Function(_GetChatThreadFailed value)? getChatThreadFailed,
+    TResult? Function(_CreateChatThreadSuccess value)? createChatThreadSuccess,
+    TResult? Function(_CreateChatThreadFailed value)? createChatThreadFailed,
+    TResult? Function(_SelectAssistantSuccess value)? selectAssistantSuccess,
+    TResult? Function(_GetAllPrTrainerSuccess value)? getAllPrTrainerSuccess,
+    TResult? Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
+    TResult? Function(_GetPreviewTrainerSuccess value)?
+        getPreviewTrainerSuccess,
+    TResult? Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult? Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
+  }) {
+    return selectedTrainerSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingMessage value)? loadingMessage,
+    TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult Function(_GetAllMessageFailed value)? getAllMessageFailed,
+    TResult Function(_SendMessageSuccess value)? sendMessageSuccess,
+    TResult Function(_SendMessageFailed value)? sendMessageFailed,
+    TResult Function(_ListeningSpeech value)? listeningSpeech,
+    TResult Function(_StopListening value)? stopListening,
+    TResult Function(_InitialSpeechSuccess value)? initialSpeechSuccess,
+    TResult Function(_SpeechText value)? speechText,
+    TResult Function(_StopSpeech value)? stopSpeech,
+    TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
+    TResult Function(_ClearConversationFailed value)? clearConversationFailed,
+    TResult Function(_DeleteMessageSuccess value)? deleteMessageSuccess,
+    TResult Function(_DeleteMessageFailed value)? deleteMessageFailed,
+    TResult Function(_GetChatThreadSuccess value)? getChatThreadSuccess,
+    TResult Function(_GetChatThreadFailed value)? getChatThreadFailed,
+    TResult Function(_CreateChatThreadSuccess value)? createChatThreadSuccess,
+    TResult Function(_CreateChatThreadFailed value)? createChatThreadFailed,
+    TResult Function(_SelectAssistantSuccess value)? selectAssistantSuccess,
+    TResult Function(_GetAllPrTrainerSuccess value)? getAllPrTrainerSuccess,
+    TResult Function(_GetAllPrTrainerFailed value)? getAllPrTrainerFailed,
+    TResult Function(_GetPreviewTrainerSuccess value)? getPreviewTrainerSuccess,
+    TResult Function(_GetPreviewTrainerFailed value)? getPreviewTrainerFailed,
+    TResult Function(_SelectedTrainerSuccess value)? selectedTrainerSuccess,
+    required TResult orElse(),
+  }) {
+    if (selectedTrainerSuccess != null) {
+      return selectedTrainerSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedTrainerSuccess extends ChatBotState {
+  const factory _SelectedTrainerSuccess({required final ChatBotData data}) =
+      _$_SelectedTrainerSuccess;
+  const _SelectedTrainerSuccess._() : super._();
+
+  @override
+  ChatBotData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SelectedTrainerSuccessCopyWith<_$_SelectedTrainerSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
 }

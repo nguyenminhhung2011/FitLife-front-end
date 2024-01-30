@@ -49,11 +49,11 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
 
   Trainer? get _trainer => _data.chatThread?.trainer;
 
+  Trainer get _trainerSelected => _data.trainerSelected;
+
   List<Trainer> get _allPrTrainer => _data.allPreTrainer ?? [];
 
   List<Trainer> get _previewTrainer => _data.previewTrainer ?? [];
-
-  Trainer get _trainerSelected => _data.trainerSelected;
 
   Color get _primaryColor => Theme.of(context).primaryColor;
 
@@ -129,6 +129,9 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
 
   void _changeChatPt() async {
     final show = await context.selectChatPt();
+    if (show != null) {
+      _vm.selectTrainerAssistant(show);
+    }
   }
 
   @override
@@ -236,6 +239,8 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
                     content: _textController.text, id: widget.chatId);
               }
             },
+            trainerBot: _trainerSelected,
+            onSelectionTrainer: _changeChatPt,
           ),
         ],
       ),
@@ -243,7 +248,7 @@ class _ChatBotViewState extends ConsumerState<ChatBotView> {
   }
 
   Widget _initView(BuildContext context) {
-    return Column(
+    return Column(  
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [

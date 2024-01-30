@@ -348,7 +348,7 @@ extension AppCoordinator<T> on BuildContext {
     return '';
   }
 
-  Future<String> selectChatPt() async {
+  Future<Trainer?> selectChatPt() async {
     final data = await showModalBottomSheet(
       context: this,
       isScrollControlled: true,
@@ -357,13 +357,13 @@ extension AppCoordinator<T> on BuildContext {
       ),
       backgroundColor: Theme.of(this).scaffoldBackgroundColor,
       builder: (context) {
-        return const AllPtView();
+        return const ProviderScope(child: AllPtView(isSelectionView: true));
       },
     );
-    if (data is String) {
+    if (data is Trainer) {
       return data;
     }
-    return "";
+    return null;
   }
 
   Future<List<DateTime>?> pickWeekRange(

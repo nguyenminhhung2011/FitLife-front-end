@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fit_life/mvvm/object/entity/message/message_response.dart';
 import 'package:fit_life/mvvm/object/model/trainer/trainer_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
@@ -32,6 +33,7 @@ abstract class TrainerApi {
   Future<HttpResponse<TrainerModel?>> updateTrainer(@Path("id") String id,
       {@Body() required Map<String, dynamic> body});
 
-  // @POST(trainerChatApi)
-  // Future<HttpResponse
+  @POST(trainerChatApi)
+  Future<HttpResponse<MessageResponse>> sendAndCreateThreadTrainer(
+      {@Body() required Map<String, dynamic> body});
 }

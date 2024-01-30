@@ -1,4 +1,3 @@
-import 'package:fit_life/app_coordinator.dart';
 import 'package:fit_life/core/components/constant/image_const.dart';
 import 'package:fit_life/core/components/extensions/context_extensions.dart';
 import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
@@ -6,9 +5,11 @@ import 'package:flutter/material.dart';
 
 class PtItemView extends StatelessWidget {
   final Trainer trainer;
+  final Function() onPress;
   const PtItemView({
     super.key,
     required this.trainer,
+    required this.onPress,
   });
 
   @override
@@ -16,7 +17,7 @@ class PtItemView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: GestureDetector(
-        onTap: () => context.trainerInformationBottom(trainer),
+        onTap: onPress,
         child: Row(
           children: [
             ClipRRect(

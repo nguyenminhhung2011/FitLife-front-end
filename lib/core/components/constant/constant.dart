@@ -351,7 +351,7 @@ class Constant {
   ];
 
   static const Trainer defaultTrainer = Trainer(
-    id: "0",
+    id: "",
     name: "Assistant",
     model: "gpt-3.5",
     prompt: "",

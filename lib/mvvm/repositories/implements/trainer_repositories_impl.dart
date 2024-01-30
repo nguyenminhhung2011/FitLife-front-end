@@ -1,7 +1,11 @@
 import 'package:fit_life/core/components/network/app_exception.dart';
 import 'package:fit_life/core/components/network/base_api.dart';
 import 'package:fit_life/mvvm/data/remote/trainer/trainer_api.dart';
+import 'package:fit_life/mvvm/object/entity/message/message.dart';
+import 'package:fit_life/mvvm/object/entity/message/message_response.dart';
+import 'package:fit_life/mvvm/object/entity/message/message_type.dart';
 import 'package:fit_life/mvvm/object/entity/trainer/trainer.dart';
+import 'package:fit_life/mvvm/object/model/trainer/trainer_message_request.dart';
 import 'package:fit_life/mvvm/object/model/trainer/trainer_model.dart';
 import 'package:fit_life/mvvm/repositories/trainer_repositories.dart';
 import 'package:injectable/injectable.dart';
@@ -46,5 +50,26 @@ class TrainerRepositoriesImpl extends BaseApi implements TrainerRepositories {
         mapper: (result) => result!.toEntity,
         request: () async => await _trainerApi.updateTrainer(trainerId,
             body: trainerModel.toJson()),
+      );
+
+  @override
+  Future<SResult<MessageResponseEntity>> sendAndCreateThreadTrainer(
+          TrainerMessageRequest request) async =>
+      await apiCall<MessageResponse, MessageResponseEntity>(
+        mapper: (result) => MessageResponseEntity.fromModel(result),
+        request: () async =>
+            await _trainerApi.sendAndCreateThreadTrainer(body: request.toMap),
+      );
+
+  @override
+  Future<SResult<Message>> sendMessageTrainer(
+          TrainerMessageRequest request) async =>
+      await apiCall<MessageResponse, Message>(
+        mapper: (result) =>
+            result.chats?.toEntity ??
+            Message(
+                id: "", message: request.message, role: MessageType.assistant),
+        request: () async =>
+            await _trainerApi.sendAndCreateThreadTrainer(body: request.toMap),
       );
 }
